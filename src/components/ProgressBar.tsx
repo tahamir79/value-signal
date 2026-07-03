@@ -1,0 +1,1 @@
+export function ProgressBar({value,label=true}:{value:number;label?:boolean}){return <div className="progress-wrap">{label&&<div className="progress-label"><span>Completion</span><strong>{Math.round(value)}%</strong></div>}<div className="progress-track"><i style={{width:`${Math.max(0,Math.min(100,value))}%`}}/></div></div>}
