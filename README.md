@@ -53,6 +53,10 @@ The ETL now requests five years of prices, reconstructs monthly point-in-time fe
 
 The scheduled pipeline fetches recent 10-K/10-Q documents, cleans and section-chunks the HTML, builds a tokenized inverted index, and ranks cited passages with BM25. Stock pages provide ticker-scoped filing search while keeping retrieved source evidence separate from quantitative analysis. See `docs/retrieval_specification.md`.
 
+## Phase 08 deterministic analyst briefs
+
+Stock pages generate cautious briefs from signal labels, validated scores, sample-sized backtest context, and cited SEC passages. Every claim retains a source reference; absent inputs are disclosed. Briefs support Markdown copy and print-only review. See `docs/brief_specification.md`.
+
 ## Run locally
 
 ```bash

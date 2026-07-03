@@ -17,6 +17,7 @@ Keep the educational-use disclaimer visible at decision surfaces. Describe outpu
 - **Phase 05 — Research interface:** typed fallback loaders, research KPIs, search/sort/filters, labeled price charts, score decomposition, analyst summaries, and visible empty, partial, and stale states.
 - **Phase 06 — Backtesting lab:** point-in-time snapshots, a one-session execution lag, SPY-aligned 30/60/90-session outcomes, cohort metrics, confidence intervals, bias auditing, and an honest insufficient-history state.
 - **Phase 07 — SEC retrieval:** recent filing fetch, HTML cleanup, section-aware chunks, inverted indexing, BM25 ranking, complete SEC citations, and ticker-level evidence search without generation.
+- **Phase 08 — Analyst briefs:** deterministic six-label templates, claim provenance, validated score facts, sample-sized backtest context, cited evidence, missingness disclosure, research questions, Markdown copy, and print views.
 
 The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 
@@ -29,6 +30,7 @@ The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 - `src/components/` — reusable presentation and layout components.
 - `src/lib/etl.ts` — server-only readers for generated JSON.
 - `src/lib/research.ts` — merges live ETL/scoring values into typed stock fixtures, with per-field fixture fallbacks.
+- `src/lib/briefGenerator.ts` — pure rule-based brief generation and Markdown export.
 - `src/types/` and `src/data/` — frontend types, signal definitions, and fallback stock records.
 
 ### Python research pipeline
@@ -51,6 +53,7 @@ The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 - `docs/scoring_specification.md` — weights, directionality, confidence, and classification boundaries.
 - `docs/backtesting_protocol.md` — frozen evaluation protocol and known bias limitations.
 - `docs/retrieval_specification.md` — retrieval, chunking, ranking, and citation contract.
+- `docs/brief_specification.md` — evidence hierarchy, language constraints, missingness, and export rules.
 - `tests/` — fixture-based unit coverage for cleaning, pipeline resilience, features, and scoring.
 - `.github/workflows/refresh-data.yml` — scheduled and manual ETL workflow.
 
@@ -93,6 +96,7 @@ Run commands from the repository root.
 npm install
 npm run dev
 npm run typecheck
+npm run test:brief
 npm run build
 npm run start
 ```

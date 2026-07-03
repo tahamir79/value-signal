@@ -1,0 +1,18 @@
+import assert from "node:assert/strict";
+import {describe,it} from "node:test";
+import {briefToMarkdown,generateAnalystBrief,type BriefEvidence} from "../src/lib/briefGenerator";
+import type {BacktestData,SignalRecord} from "../src/lib/etl";
+
+const labels=["potentially-undervalued","quality-watchlist","value-trap-risk","momentum-risk","neutral","insufficient-evidence"] as const;
+const titles={"potentially-undervalued":"Potential value evidence for review","quality-watchlist":"Quality evidence for continued monitoring","value-trap-risk":"Apparent value with a material risk flag","momentum-risk":"Weak price behavior warrants context",neutral:"Mixed evidence without a stronger classification","insufficient-evidence":"Evidence is insufficient for classification"};
+function signal(label:string):SignalRecord{return {ticker:"TEST",asOf:"2026-01-01",signal:label,confidence:"High",scores:{value:72.3456,quality:61.2,momentum:44.4,marketRisk:35.5,balanceSheetRisk:20.1},components:{},reasonCodes:[],explanations:[]}}
+const evidence:BriefEvidence={id:"chunk",accession:"0001-26-000001",filingDate:"2026-02-01",form:"10-K",item:"Item 1A",url:"https://www.sec.gov/Archives/example",text:"Supply interruptions could increase costs and delay production."};
+function backtest():BacktestData{return {schemaVersion:"1",generatedAt:"2026-01-01",status:"complete",protocol:{benchmark:"SPY",executionLagSessions:1,forwardHorizonsSessions:[30,60,90],snapshotFrequencySessions:21,confidenceLevel:.95,pointInTimeRule:"past only"},snapshotCount:20,evaluatedObservationCount:20,observations:[],cohorts:[{signal:"neutral",horizonSessions:90,marketRegime:"all",sampleCount:12,meanForwardReturn:.04,meanBenchmarkReturn:.03,meanExcessReturn:.01234,excessReturnConfidenceInterval95:[-.01,.03],winRate:.5833,meanAdverseDrawdown:-.08}],biasAudit:{passed:true,rejectedForLeakage:0,rejectedForDateAlignment:0,overlappingWindows:2,missingExpectedSymbols:[],notes:[]},traceObservation:null,limitations:[]}}
+
+describe("analyst brief generator",()=>{
+  it("locks each signal template",()=>{for(const label of labels)assert.equal(generateAnalystBrief("TEST",signal(label),[],backtest()).title,titles[label])});
+  it("traces every generated claim to an input",()=>{const brief=generateAnalystBrief("TEST",signal("neutral"),[evidence],backtest());assert.ok(brief.claims.length>1);for(const claim of brief.claims){assert.ok(claim.sourceRef);assert.match(claim.sourceRef,/\.json:/)}});
+  it("discloses values removed one input at a time",()=>{const missing=signal("neutral");missing.scores.value=null;const brief=generateAnalystBrief("TEST",missing,[],{...backtest(),status:"insufficient_data",cohorts:[]});assert.ok(brief.missingSections.some(item=>item.includes("Value score")));assert.ok(brief.missingSections.some(item=>item.includes("filing passages")));assert.ok(brief.missingSections.some(item=>item.includes("backtest context")))});
+  it("keeps citations attached and formats numbers deterministically",()=>{const brief=generateAnalystBrief("TEST",signal("neutral"),[evidence],backtest());const markdown=briefToMarkdown(brief);assert.ok(brief.filingEvidence[0].url.includes("sec.gov"));assert.match(markdown,/72\.3 out of 100/);assert.match(markdown,/\+1\.2%/);assert.match(markdown,/12 observations/);assert.match(markdown,/SEC citation/)});
+  it("contains no advice verbs or unsupported promotional adjectives",()=>{const brief=generateAnalystBrief("TEST",signal("neutral"),[evidence],backtest());const output=briefToMarkdown(brief).toLowerCase();assert.doesNotMatch(output,/\b(buy|sell|guaranteed|excellent|terrible|safe|attractive|recommend(?:ed|ation)?)\b/)});
+});
