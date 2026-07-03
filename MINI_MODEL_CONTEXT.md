@@ -16,6 +16,7 @@ Keep the educational-use disclaimer visible at decision surfaces. Describe outpu
 - **Phase 04 — Scoring:** bounded component scores, missing-input weight renormalization, confidence, deterministic six-label classification, reason codes, explanations, contributions, and sensitivity audit.
 - **Phase 05 — Research interface:** typed fallback loaders, research KPIs, search/sort/filters, labeled price charts, score decomposition, analyst summaries, and visible empty, partial, and stale states.
 - **Phase 06 — Backtesting lab:** point-in-time snapshots, a one-session execution lag, SPY-aligned 30/60/90-session outcomes, cohort metrics, confidence intervals, bias auditing, and an honest insufficient-history state.
+- **Phase 07 — SEC retrieval:** recent filing fetch, HTML cleanup, section-aware chunks, inverted indexing, BM25 ranking, complete SEC citations, and ticker-level evidence search without generation.
 
 The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 
@@ -39,6 +40,8 @@ The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 - `scripts/features.py` — derived fields, raw features, winsorization, percentiles, and validation metadata.
 - `scripts/scoring.py` — component scoring, classification, explanations, and sensitivity scenarios.
 - `scripts/backtest.py` — point-in-time snapshots, forward returns, benchmark alignment, cohort metrics, and bias audit.
+- `scripts/providers/sec_filings.py`, `scripts/text_cleaning.py`, and `scripts/chunk_filings.py` — filing acquisition and document preparation.
+- `scripts/build_search_index.py` — tokenization, inverted index export, and BM25 reference implementation.
 - `scripts/export_json.py` — JSON writer.
 - `scripts/audit_features.py` and `scripts/audit_scoring.py` — publish gates and diagnostic output.
 
@@ -47,6 +50,7 @@ The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
 - `docs/feature_dictionary.md` — feature formulas, units, and valid ranges.
 - `docs/scoring_specification.md` — weights, directionality, confidence, and classification boundaries.
 - `docs/backtesting_protocol.md` — frozen evaluation protocol and known bias limitations.
+- `docs/retrieval_specification.md` — retrieval, chunking, ranking, and citation contract.
 - `tests/` — fixture-based unit coverage for cleaning, pipeline resilience, features, and scoring.
 - `.github/workflows/refresh-data.yml` — scheduled and manual ETL workflow.
 
@@ -73,6 +77,7 @@ Generated artifacts:
 - `public/data/signals.json` — scores, signal labels, confidence, reason codes, explanations, and contributions.
 - `public/data/etl_report.json` — run status, row counts, durations, and per-ticker errors.
 - `public/data/backtest_results.json` — reproducible protocol, cohorts, intervals, audit, and trace observation.
+- `public/data/search_index.json` — filing chunks, preserved metadata, document lengths, and term postings.
 
 Treat all `public/data/*.json` files as **generated artifacts**. Change pipeline logic or fixtures and regenerate them; do not hand-maintain production values.
 
@@ -101,6 +106,7 @@ python -m unittest discover -s tests -v
 python scripts/audit_features.py
 python scripts/audit_scoring.py
 python scripts/audit_backtest.py
+python scripts/audit_search.py
 ```
 
 Audits read the existing files under `public/data/`; they do not fetch fresh data.
@@ -131,7 +137,7 @@ The GitHub workflow supports manual dispatch and runs on weekdays with cron `25 
 3. Runs unit tests.
 4. Runs the live ETL.
 5. Runs feature and scoring audits.
-6. Commits and pushes the five generated JSON artifacts only when they changed.
+6. Commits and pushes the six generated JSON artifacts only when they changed.
 
 The workflow needs `contents: write`. A successful artifact push triggers Vercel only when that GitHub repository/branch is connected with automatic deployments enabled. If data does not change, the workflow creates no commit, so there may be no redeployment.
 
@@ -146,7 +152,7 @@ The workflow needs `contents: write`. A successful artifact push triggers Vercel
 - Compare SEC units, forms, filing dates, fiscal years, and fiscal periods before selecting a fact.
 - Inspect `public/data/etl_report.json` for per-ticker status, row counts, and errors.
 - Verify one ticker exception remains inside the ticker boundary and does not abort the universe.
-- Verify the intended output directory and all five expected artifacts.
+- Verify the intended output directory and all six expected artifacts.
 
 ### Feature calculations
 
