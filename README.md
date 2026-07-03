@@ -33,6 +33,8 @@ The scheduled GitHub workflow requires a repository secret named `VS_CONTACT_EMA
 
 The same ETL run now writes `public/data/features.json`. Each company record includes raw features, documented winsorized values, contemporaneous-universe percentile ranks, explicit missingness flags, and range warnings. Formula definitions and valid ranges live in `docs/feature_dictionary.md`; feature calculations remain independent from the later scoring engine.
 
+Run `python scripts/audit_features.py` to verify price ordering, the sqrt(252) annualization factor, denominator signs, and ticker-level outlier lineage. The scheduled workflow runs this audit before publishing refreshed data.
+
 ## Run locally
 
 ```bash

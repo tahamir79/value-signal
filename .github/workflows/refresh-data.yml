@@ -25,6 +25,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Refresh live artifacts
         run: python scripts/run_etl.py
+      - name: Audit feature outputs
+        run: python scripts/audit_features.py
       - name: Commit changed artifacts
         run: |
           git config user.name "value-signal-bot"
