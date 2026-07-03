@@ -50,13 +50,15 @@ class YahooChartPriceProvider(PriceProvider):
             raise ProviderError(f"No chart result for {ticker}: {error}")
         timestamps = result.get("timestamp", [])
         quotes = (result.get("indicators", {}).get("quote") or [{}])[0]
+        adjusted = (result.get("indicators", {}).get("adjclose") or [{}])[0].get("adjclose", [])
         rows: list[PriceBar] = []
         for index, timestamp in enumerate(timestamps):
             try:
                 values = {name: quotes.get(name, [])[index] for name in ("open", "high", "low", "close", "volume")}
                 if any(value is None for value in values.values()):
                     continue
-                rows.append(PriceBar(ticker.upper(), datetime.fromtimestamp(timestamp, timezone.utc).date().isoformat(), float(values["open"]), float(values["high"]), float(values["low"]), float(values["close"]), int(values["volume"]), self.name))
+                adjusted_close = adjusted[index] if index < len(adjusted) else None
+                rows.append(PriceBar(ticker.upper(), datetime.fromtimestamp(timestamp, timezone.utc).date().isoformat(), float(values["open"]), float(values["high"]), float(values["low"]), float(values["close"]), int(values["volume"]), self.name, float(adjusted_close) if adjusted_close is not None else None))
             except (IndexError, TypeError, ValueError):
                 continue
         if not rows:

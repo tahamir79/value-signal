@@ -26,6 +26,7 @@ class PriceBar:
     close: float
     volume: int
     source: str
+    adjusted_close: float | None = None
 
 @dataclass(frozen=True)
 class FinancialFact:

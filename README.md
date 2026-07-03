@@ -29,6 +29,10 @@ python -m unittest discover -s tests -v
 
 The scheduled GitHub workflow requires a repository secret named `VS_CONTACT_EMAIL`. It runs after U.S. market close on weekdays, commits changed artifacts, and thereby triggers the connected Vercel deployment.
 
+## Phase 03 features
+
+The same ETL run now writes `public/data/features.json`. Each company record includes raw features, documented winsorized values, contemporaneous-universe percentile ranks, explicit missingness flags, and range warnings. Formula definitions and valid ranges live in `docs/feature_dictionary.md`; feature calculations remain independent from the later scoring engine.
+
 ## Run locally
 
 ```bash

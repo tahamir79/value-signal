@@ -13,7 +13,7 @@ if __package__ in {None, ""}:
 from scripts.build_universe import build_universe
 from scripts.cleaning import latest_facts, normalize_company_facts
 from scripts.export_json import write_json
-from scripts.features import derive_fields
+from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, derive_fields, normalize_universe
 from scripts.models import record
 from scripts.providers.price_provider import PriceProvider, YahooChartPriceProvider
 from scripts.providers.sec_companyfacts import CompanyFactsProvider, SecCompanyFactsProvider
@@ -23,6 +23,7 @@ SCHEMA_VERSION = "1.0.0"
 def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, output_dir: Path, limit: int | None = None) -> dict[str, Any]:
     started = datetime.now(timezone.utc)
     rows: list[dict[str, Any]] = []
+    feature_rows: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
     ticker_reports: list[dict[str, Any]] = []
     for security in build_universe(limit):
@@ -34,6 +35,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             latest = latest_facts(facts)
             report.update(priceRows=len(prices), financialFacts=len(facts))
             rows.append({"security": record(security), "derived": derive_fields(prices, latest), "latestFacts": {name: record(fact) for name, fact in latest.items()}, "priceHistory": [record(bar) for bar in prices[-260:]]})
+            feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": calculate_raw_features(prices, facts)})
         except Exception as exc:  # ticker boundary: never abort the universe
             report["status"] = "failed"
             report["error"] = f"{type(exc).__name__}: {exc}"
@@ -43,8 +45,10 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             ticker_reports.append(report)
     finished = datetime.now(timezone.utc)
     dashboard = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "mode": "live", "records": rows}
+    features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalize_universe(feature_rows)}
     audit = {"schemaVersion": SCHEMA_VERSION, "runStartedAt": started.isoformat(), "runFinishedAt": finished.isoformat(), "status": "success" if not errors else "partial_success", "requestedTickers": len(ticker_reports), "successfulTickers": len(rows), "failedTickers": len(errors), "errors": errors, "tickers": ticker_reports}
     write_json(output_dir / "dashboard.json", dashboard)
+    write_json(output_dir / "features.json", features)
     write_json(output_dir / "etl_report.json", audit)
     return audit
 
