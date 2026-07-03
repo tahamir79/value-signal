@@ -41,6 +41,10 @@ Run `python scripts/audit_features.py` to verify price ordering, the sqrt(252) a
 
 Run `python scripts/audit_scoring.py` to print weighted component scores, verify bounds and deterministic labels, and execute 20 ±20% weight-sensitivity scenarios.
 
+## Phase 05 research interface
+
+The dashboard now provides research KPIs, keyboard-accessible search/filter controls, and sortable score columns. Company pages render labeled adjusted-close history, score contributions, evidence coverage, reason codes, and plain-language summaries. Typed loaders degrade to fixtures or explicit empty states when generated artifacts are missing, partial, or stale.
+
 ## Run locally
 
 ```bash

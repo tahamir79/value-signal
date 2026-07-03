@@ -27,3 +27,14 @@ export async function getResearchStocks():Promise<StockRecord[]>{
 }
 
 export async function getResearchStock(ticker:string){return (await getResearchStocks()).find(stock=>stock.ticker===ticker.toUpperCase())}
+
+export async function getResearchStockDetail(ticker:string){
+  const normalized=ticker.toUpperCase();
+  const [stock,etl,signals]=await Promise.all([getResearchStock(normalized),getEtlData(),getSignalData()]);
+  if(!stock)return undefined;
+  return {
+    stock,
+    dashboardRecord:etl.records.find(item=>item.security.ticker===normalized),
+    signalRecord:signals.records.find(item=>item.ticker===normalized),
+  };
+}

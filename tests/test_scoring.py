@@ -21,15 +21,28 @@ class ScoringTests(unittest.TestCase):
 
     def test_exact_label_boundaries_and_priority(self):
         self.assertEqual(classify({"value":70,"quality":50,"momentumRisk":20,"marketRisk":69.999,"balanceSheetRisk":69.999},"High"),"potentially-undervalued")
+        self.assertEqual(classify({"value":69.999,"quality":50,"momentumRisk":20,"marketRisk":69.999,"balanceSheetRisk":69.999},"High"),"neutral")
         self.assertEqual(classify({"value":65,"quality":90,"momentumRisk":80,"marketRisk":10,"balanceSheetRisk":70},"High"),"value-trap-risk")
+        self.assertEqual(classify({"value":64.999,"quality":69.999,"momentumRisk":69.999,"marketRisk":10,"balanceSheetRisk":70},"High"),"neutral")
         self.assertEqual(classify({"value":90,"quality":90,"momentumRisk":70,"marketRisk":10,"balanceSheetRisk":10},"High"),"momentum-risk")
         self.assertEqual(classify({"value":20,"quality":70,"momentumRisk":20,"marketRisk":10,"balanceSheetRisk":69.999},"High"),"quality-watchlist")
         self.assertEqual(classify({"value":100,"quality":100,"momentumRisk":0,"marketRisk":0,"balanceSheetRisk":0},"Insufficient"),"insufficient-evidence")
 
+    def test_risk_direction_and_null_branches(self):
+        low_drawdown_percentile=component_score({"max_drawdown_1y":0.1,"annualized_volatility":0.1},{"max_drawdown_1y":0.55,"annualized_volatility":0.45})
+        high_drawdown_percentile=component_score({"max_drawdown_1y":0.9,"annualized_volatility":0.1},{"max_drawdown_1y":0.55,"annualized_volatility":0.45})
+        self.assertGreater(low_drawdown_percentile["score"],high_drawdown_percentile["score"])
+        self.assertEqual(component_score({"a":None},{"a":1.0},set()),{"score":None,"coverage":0.0,"contributions":[]})
+        self.assertEqual(classify({"value":70,"quality":50,"momentumRisk":20,"marketRisk":None,"balanceSheetRisk":None},"High"),"potentially-undervalued")
+        null_record=score_record(feature_row(missing=("return_90d","return_30d")))
+        self.assertIsNone(null_record["scores"]["momentum"]); self.assertIsNone(null_record["scores"]["momentumRisk"])
+
     def test_reason_codes_match_score_direction(self):
         scores={"value":75,"quality":25,"momentumRisk":75,"marketRisk":75,"balanceSheetRisk":75}
         codes=reason_codes(scores,"High")
-        self.assertIn("VALUE_STRONG",codes); self.assertIn("QUALITY_WEAK",codes); self.assertIn("MOMENTUM_RISK_HIGH",codes); self.assertIn("BALANCE_SHEET_RISK_HIGH",codes)
+        self.assertIn("VALUE_STRONG",codes); self.assertIn("QUALITY_WEAK",codes); self.assertIn("MOMENTUM_RISK_HIGH",codes); self.assertIn("MARKET_RISK_HIGH",codes); self.assertIn("BALANCE_SHEET_RISK_HIGH",codes)
+        below=reason_codes({name:69.999 for name in ("value","quality","momentumRisk","marketRisk","balanceSheetRisk")},"High")
+        self.assertEqual(below,["EVIDENCE_COMPLETE"])
 
     def test_record_is_deterministic_and_sensitivity_is_enumerated(self):
         row=feature_row()
