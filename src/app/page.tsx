@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { SignalBadge } from "@/components/signals/SignalBadge";
 import { signalDefinitions } from "@/data/signals";
+import { getResearchStock } from "@/lib/research";
+import { getStock } from "@/data/stocks";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const example=(await getResearchStock("MSFT"))??getStock("MSFT")!;
   return <>
     <section className="hero">
       <div className="hero-copy">
@@ -14,9 +17,9 @@ export default function HomePage() {
       </div>
       <aside className="research-card" aria-label="Example research signal">
         <div className="card-label"><span>RESEARCH SNAPSHOT</span><span>VS / 001</span></div>
-        <div className="ticker-lockup"><div><strong>MSFT</strong><span>Microsoft Corp.</span></div><SignalBadge signal="quality-watchlist" /></div>
-        <dl className="metric-grid"><div><dt>Value</dt><dd>62</dd></div><div><dt>Quality</dt><dd>91</dd></div><div><dt>Momentum</dt><dd>74</dd></div><div><dt>Confidence</dt><dd>High</dd></div></dl>
-        <p className="card-note">Placeholder research record. Live scoring arrives after the data pipeline is validated.</p>
+        <div className="ticker-lockup"><div><strong>{example.ticker}</strong><span>{example.companyName}</span></div><SignalBadge signal={example.signal} /></div>
+        <dl className="metric-grid"><div><dt>Value</dt><dd>{example.scores.value??"—"}</dd></div><div><dt>Quality</dt><dd>{example.scores.quality??"—"}</dd></div><div><dt>Momentum</dt><dd>{example.scores.momentum??"—"}</dd></div><div><dt>Confidence</dt><dd>{example.confidence}</dd></div></dl>
+        <p className="card-note">Live, versioned scoring output. Classification is research support—not financial advice.</p>
       </aside>
     </section>
     <section className="research-question"><p className="eyebrow">THE RESEARCH QUESTION</p><h2>Which companies may deserve deeper research—and what evidence supports or weakens that view?</h2><p>VS separates observations, derived scores, risks, and conclusions so the path from source data to research signal stays inspectable.</p></section>

@@ -27,10 +27,12 @@ jobs:
         run: python scripts/run_etl.py
       - name: Audit feature outputs
         run: python scripts/audit_features.py
+      - name: Audit scoring outputs
+        run: python scripts/audit_scoring.py
       - name: Commit changed artifacts
         run: |
           git config user.name "value-signal-bot"
           git config user.email "value-signal-bot@users.noreply.github.com"
-          git add public/data/dashboard.json public/data/features.json public/data/etl_report.json
+          git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/etl_report.json
           git diff --cached --quiet || git commit -m "data: refresh ValueSignal artifacts"
           git push

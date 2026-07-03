@@ -35,6 +35,12 @@ The same ETL run now writes `public/data/features.json`. Each company record inc
 
 Run `python scripts/audit_features.py` to verify price ordering, the sqrt(252) annualization factor, denominator signs, and ticker-level outlier lineage. The scheduled workflow runs this audit before publishing refreshed data.
 
+## Phase 04 scoring
+
+`scripts/scoring.py` converts feature percentiles into bounded value, quality, momentum, market-risk, and balance-sheet-risk scores. Missing inputs renormalize component weights while lowering confidence. The six-label classifier, reason codes, explanations, and weighted contributions are exported to `public/data/signals.json` and rendered by the website. See `docs/scoring_specification.md` for weights and exact classification boundaries.
+
+Run `python scripts/audit_scoring.py` to print weighted component scores, verify bounds and deterministic labels, and execute 20 ±20% weight-sensitivity scenarios.
+
 ## Run locally
 
 ```bash

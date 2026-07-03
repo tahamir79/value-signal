@@ -1,0 +1,1256 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-03T19:57:21.016950+00:00",
+  "universeSize": 10,
+  "records": [
+    {
+      "ticker": "AAPL",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "neutral",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 12.5,
+        "quality": 53.8889,
+        "momentum": 68.8889,
+        "marketRisk": 27.2222,
+        "balanceSheetRisk": 66.6667,
+        "momentumRisk": 31.1111
+      },
+      "components": {
+        "value": {
+          "score": 12.5,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.125,
+              "directedPercentile": 0.125,
+              "weight": 0.6,
+              "points": 7.5
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.125,
+              "directedPercentile": 0.125,
+              "weight": 0.4,
+              "points": 5.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 53.8889,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.45,
+              "points": 20.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.3,
+              "points": 20.0
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.25,
+              "points": 13.8889
+            }
+          ]
+        },
+        "momentum": {
+          "score": 68.8889,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.6,
+              "points": 46.6667
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.4,
+              "points": 22.2222
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 27.2222,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.777778,
+              "directedPercentile": 0.222222,
+              "weight": 0.55,
+              "points": 12.2222
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.45,
+              "points": 15.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 66.6667,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 1.0,
+              "points": 66.6667
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "VALUE_WEAK"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Valuation evidence ranks below most companies in the current universe."
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "momentum-risk",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 32.5,
+        "quality": 77.2222,
+        "momentum": 26.6666,
+        "marketRisk": 80.0,
+        "balanceSheetRisk": 16.6667,
+        "momentumRisk": 73.3334
+      },
+      "components": {
+        "value": {
+          "score": 32.5,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.375,
+              "directedPercentile": 0.375,
+              "weight": 0.6,
+              "points": 22.5
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.25,
+              "directedPercentile": 0.25,
+              "weight": 0.4,
+              "points": 10.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 77.2222,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.45,
+              "points": 45.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.3,
+              "points": 26.6667
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.25,
+              "points": 5.5556
+            }
+          ]
+        },
+        "momentum": {
+          "score": 26.6666,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.6,
+              "points": 13.3333
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.4,
+              "points": 13.3333
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 80.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.0,
+              "directedPercentile": 1.0,
+              "weight": 0.55,
+              "points": 55.0
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.45,
+              "points": 25.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 16.6667,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.166667,
+              "directedPercentile": 0.166667,
+              "weight": 1.0,
+              "points": 16.6667
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "QUALITY_STRONG",
+        "MOMENTUM_RISK_HIGH",
+        "MARKET_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Profitability and growth evidence rank strongly within the current universe.",
+        "Recent price performance is weak relative to the research universe.",
+        "Volatility or drawdown evidence indicates elevated market risk."
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "quality-watchlist",
+      "confidence": "Medium",
+      "availableFeatures": 8,
+      "totalFeatures": 10,
+      "scores": {
+        "value": null,
+        "quality": 86.6667,
+        "momentum": 44.4445,
+        "marketRisk": 60.5556,
+        "balanceSheetRisk": 0.0,
+        "momentumRisk": 55.5555
+      },
+      "components": {
+        "value": {
+          "score": null,
+          "coverage": 0.0,
+          "contributions": []
+        },
+        "quality": {
+          "score": 86.6667,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.45,
+              "points": 40.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.3,
+              "points": 30.0
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.25,
+              "points": 16.6667
+            }
+          ]
+        },
+        "momentum": {
+          "score": 44.4445,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.6,
+              "points": 40.0
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.4,
+              "points": 4.4444
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 60.5556,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.444444,
+              "directedPercentile": 0.555556,
+              "weight": 0.55,
+              "points": 30.5556
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.45,
+              "points": 30.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 1.0,
+              "points": 0.0
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_PARTIAL",
+        "QUALITY_STRONG"
+      ],
+      "explanations": [
+        "Some inputs are missing, so the classification carries reduced confidence.",
+        "Profitability and growth evidence rank strongly within the current universe."
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "neutral",
+      "confidence": "High",
+      "availableFeatures": 9,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 45.0,
+        "quality": 49.4444,
+        "momentum": 62.2222,
+        "marketRisk": 71.6667,
+        "balanceSheetRisk": null,
+        "momentumRisk": 37.7778
+      },
+      "components": {
+        "value": {
+          "score": 45.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.25,
+              "directedPercentile": 0.25,
+              "weight": 0.6,
+              "points": 15.0
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.75,
+              "directedPercentile": 0.75,
+              "weight": 0.4,
+              "points": 30.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 49.4444,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.45,
+              "points": 15.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.3,
+              "points": 23.3333
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.25,
+              "points": 11.1111
+            }
+          ]
+        },
+        "momentum": {
+          "score": 62.2222,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.6,
+              "points": 53.3333
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.4,
+              "points": 8.8889
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 71.6667,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.333333,
+              "directedPercentile": 0.666667,
+              "weight": 0.55,
+              "points": 36.6667
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.45,
+              "points": 35.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": null,
+          "coverage": 0.0,
+          "contributions": []
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "MARKET_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Volatility or drawdown evidence indicates elevated market risk."
+      ]
+    },
+    {
+      "ticker": "JPM",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "value-trap-risk",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 77.5,
+        "quality": 48.3333,
+        "momentum": 68.8889,
+        "marketRisk": 28.3333,
+        "balanceSheetRisk": 100.0,
+        "momentumRisk": 31.1111
+      },
+      "components": {
+        "value": {
+          "score": 77.5,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.875,
+              "directedPercentile": 0.875,
+              "weight": 0.6,
+              "points": 52.5
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.625,
+              "directedPercentile": 0.625,
+              "weight": 0.4,
+              "points": 25.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 48.3333,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.45,
+              "points": 35.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.3,
+              "points": 13.3333
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.25,
+              "points": 0.0
+            }
+          ]
+        },
+        "momentum": {
+          "score": 68.8889,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.6,
+              "points": 33.3334
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.4,
+              "points": 35.5556
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 28.3333,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.666667,
+              "directedPercentile": 0.333333,
+              "weight": 0.55,
+              "points": 18.3333
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.45,
+              "points": 10.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 100.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 1.0,
+              "points": 100.0
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "VALUE_STRONG",
+        "BALANCE_SHEET_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Valuation features rank strongly within the current research universe.",
+        "Leverage evidence ranks among the riskiest records in the universe."
+      ]
+    },
+    {
+      "ticker": "JNJ",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "neutral",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 57.5,
+        "quality": 68.8889,
+        "momentum": 66.6666,
+        "marketRisk": 11.1111,
+        "balanceSheetRisk": 50.0,
+        "momentumRisk": 33.3334
+      },
+      "components": {
+        "value": {
+          "score": 57.5,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.625,
+              "directedPercentile": 0.625,
+              "weight": 0.6,
+              "points": 37.5
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.5,
+              "directedPercentile": 0.5,
+              "weight": 0.4,
+              "points": 20.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 68.8889,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.45,
+              "points": 30.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.3,
+              "points": 16.6667
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.25,
+              "points": 22.2222
+            }
+          ]
+        },
+        "momentum": {
+          "score": 66.6666,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.6,
+              "points": 26.6666
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.4,
+              "points": 40.0
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 11.1111,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.888889,
+              "directedPercentile": 0.111111,
+              "weight": 0.55,
+              "points": 6.1111
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.45,
+              "points": 5.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 50.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.5,
+              "directedPercentile": 0.5,
+              "weight": 1.0,
+              "points": 50.0
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available."
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "momentum-risk",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 80.0,
+        "quality": 12.7778,
+        "momentum": 0.0,
+        "marketRisk": 44.4444,
+        "balanceSheetRisk": 33.3333,
+        "momentumRisk": 100.0
+      },
+      "components": {
+        "value": {
+          "score": 80.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.75,
+              "directedPercentile": 0.75,
+              "weight": 0.6,
+              "points": 45.0
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.875,
+              "directedPercentile": 0.875,
+              "weight": 0.4,
+              "points": 35.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 12.7778,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.45,
+              "points": 10.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.3,
+              "points": 0.0
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.25,
+              "points": 2.7778
+            }
+          ]
+        },
+        "momentum": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.6,
+              "points": 0.0
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.4,
+              "points": 0.0
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 44.4444,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.555556,
+              "directedPercentile": 0.444444,
+              "weight": 0.55,
+              "points": 24.4444
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.45,
+              "points": 20.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 33.3333,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 1.0,
+              "points": 33.3333
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "VALUE_STRONG",
+        "QUALITY_WEAK",
+        "MOMENTUM_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Valuation features rank strongly within the current research universe.",
+        "Quality evidence is comparatively weak or deteriorating.",
+        "Recent price performance is weak relative to the research universe."
+      ]
+    },
+    {
+      "ticker": "F",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "value-trap-risk",
+      "confidence": "High",
+      "availableFeatures": 10,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 100.0,
+        "quality": 20.0,
+        "momentum": 24.4444,
+        "marketRisk": 82.7778,
+        "balanceSheetRisk": 83.3333,
+        "momentumRisk": 75.5556
+      },
+      "components": {
+        "value": {
+          "score": 100.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.6,
+              "points": 60.0
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.4,
+              "points": 40.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 20.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.45,
+              "points": 5.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.222222,
+              "directedPercentile": 0.222222,
+              "weight": 0.3,
+              "points": 6.6667
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.25,
+              "points": 8.3333
+            }
+          ]
+        },
+        "momentum": {
+          "score": 24.4444,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.6,
+              "points": 6.6667
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.444444,
+              "directedPercentile": 0.444444,
+              "weight": 0.4,
+              "points": 17.7778
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 82.7778,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.222222,
+              "directedPercentile": 0.777778,
+              "weight": 0.55,
+              "points": 42.7778
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.888889,
+              "directedPercentile": 0.888889,
+              "weight": 0.45,
+              "points": 40.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": 83.3333,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "liabilities_to_assets",
+              "percentile": 0.833333,
+              "directedPercentile": 0.833333,
+              "weight": 1.0,
+              "points": 83.3333
+            }
+          ]
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "VALUE_STRONG",
+        "QUALITY_WEAK",
+        "MOMENTUM_RISK_HIGH",
+        "MARKET_RISK_HIGH",
+        "BALANCE_SHEET_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Valuation features rank strongly within the current research universe.",
+        "Quality evidence is comparatively weak or deteriorating.",
+        "Recent price performance is weak relative to the research universe.",
+        "Volatility or drawdown evidence indicates elevated market risk.",
+        "Leverage evidence ranks among the riskiest records in the universe."
+      ]
+    },
+    {
+      "ticker": "KO",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "neutral",
+      "confidence": "High",
+      "availableFeatures": 9,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 45.0,
+        "quality": 54.4445,
+        "momentum": 46.6667,
+        "marketRisk": 0.0,
+        "balanceSheetRisk": null,
+        "momentumRisk": 53.3333
+      },
+      "components": {
+        "value": {
+          "score": 45.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.5,
+              "directedPercentile": 0.5,
+              "weight": 0.6,
+              "points": 30.0
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.375,
+              "directedPercentile": 0.375,
+              "weight": 0.4,
+              "points": 15.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 54.4445,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.555556,
+              "directedPercentile": 0.555556,
+              "weight": 0.45,
+              "points": 25.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.3,
+              "points": 10.0
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.25,
+              "points": 19.4444
+            }
+          ]
+        },
+        "momentum": {
+          "score": 46.6667,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 0.333333,
+              "directedPercentile": 0.333333,
+              "weight": 0.6,
+              "points": 20.0
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.666667,
+              "directedPercentile": 0.666667,
+              "weight": 0.4,
+              "points": 26.6667
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 1.0,
+              "directedPercentile": 0.0,
+              "weight": 0.55,
+              "points": 0.0
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.45,
+              "points": 0.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": null,
+          "coverage": 0.0,
+          "contributions": []
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available."
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "asOf": "2026-07-02",
+      "scoreVersion": "1.0.0",
+      "signal": "neutral",
+      "confidence": "High",
+      "availableFeatures": 9,
+      "totalFeatures": 10,
+      "scores": {
+        "value": 0.0,
+        "quality": 28.3333,
+        "momentum": 91.1111,
+        "marketRisk": 93.8889,
+        "balanceSheetRisk": null,
+        "momentumRisk": 8.8889
+      },
+      "components": {
+        "value": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "earnings_yield",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.6,
+              "points": 0.0
+            },
+            {
+              "feature": "sales_yield",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.4,
+              "points": 0.0
+            }
+          ]
+        },
+        "quality": {
+          "score": 28.3333,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "net_margin",
+              "percentile": 0.0,
+              "directedPercentile": 0.0,
+              "weight": 0.45,
+              "points": 0.0
+            },
+            {
+              "feature": "revenue_growth",
+              "percentile": 0.111111,
+              "directedPercentile": 0.111111,
+              "weight": 0.3,
+              "points": 3.3333
+            },
+            {
+              "feature": "net_margin_trend",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.25,
+              "points": 25.0
+            }
+          ]
+        },
+        "momentum": {
+          "score": 91.1111,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "return_90d",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.6,
+              "points": 60.0
+            },
+            {
+              "feature": "return_30d",
+              "percentile": 0.777778,
+              "directedPercentile": 0.777778,
+              "weight": 0.4,
+              "points": 31.1111
+            }
+          ]
+        },
+        "marketRisk": {
+          "score": 93.8889,
+          "coverage": 1.0,
+          "contributions": [
+            {
+              "feature": "max_drawdown_1y",
+              "percentile": 0.111111,
+              "directedPercentile": 0.888889,
+              "weight": 0.55,
+              "points": 48.8889
+            },
+            {
+              "feature": "annualized_volatility",
+              "percentile": 1.0,
+              "directedPercentile": 1.0,
+              "weight": 0.45,
+              "points": 45.0
+            }
+          ]
+        },
+        "balanceSheetRisk": {
+          "score": null,
+          "coverage": 0.0,
+          "contributions": []
+        }
+      },
+      "reasonCodes": [
+        "EVIDENCE_COMPLETE",
+        "VALUE_WEAK",
+        "QUALITY_WEAK",
+        "MARKET_RISK_HIGH"
+      ],
+      "explanations": [
+        "Nearly all required feature inputs are available.",
+        "Valuation evidence ranks below most companies in the current universe.",
+        "Quality evidence is comparatively weak or deteriorating.",
+        "Volatility or drawdown evidence indicates elevated market risk."
+      ]
+    }
+  ]
+}

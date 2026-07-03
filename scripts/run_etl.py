@@ -17,6 +17,7 @@ from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, der
 from scripts.models import record
 from scripts.providers.price_provider import PriceProvider, YahooChartPriceProvider
 from scripts.providers.sec_companyfacts import CompanyFactsProvider, SecCompanyFactsProvider
+from scripts.scoring import SCORE_SCHEMA_VERSION, score_universe
 
 SCHEMA_VERSION = "1.0.0"
 
@@ -45,10 +46,13 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             ticker_reports.append(report)
     finished = datetime.now(timezone.utc)
     dashboard = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "mode": "live", "records": rows}
-    features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalize_universe(feature_rows)}
+    normalized_features = normalize_universe(feature_rows)
+    features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalized_features}
+    signals = {"schemaVersion": SCORE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": score_universe(normalized_features)}
     audit = {"schemaVersion": SCHEMA_VERSION, "runStartedAt": started.isoformat(), "runFinishedAt": finished.isoformat(), "status": "success" if not errors else "partial_success", "requestedTickers": len(ticker_reports), "successfulTickers": len(rows), "failedTickers": len(errors), "errors": errors, "tickers": ticker_reports}
     write_json(output_dir / "dashboard.json", dashboard)
     write_json(output_dir / "features.json", features)
+    write_json(output_dir / "signals.json", signals)
     write_json(output_dir / "etl_report.json", audit)
     return audit
 
