@@ -1,2 +1,27 @@
-"use client";import Link from"next/link";import{phases}from"@/data/phases";import{PhaseCard}from"@/components/PhaseCard";import{ProgressBar}from"@/components/ProgressBar";import{useConsole}from"@/components/ConsoleProvider";
-export default function Home(){const{get}=useConsole();const done=phases.flatMap(p=>get(p.id).completed).length,total=phases.reduce((a,p)=>a+p.implementationSteps.length,0),completed=phases.filter(p=>get(p.id).status==="Completed").length,active=phases.find(p=>get(p.id).status==="In Progress")||phases.find(p=>get(p.id).status!=="Completed")!;return <><section className="hero"><div><div className="kicker">VALUE SIGNAL / BUILD CONTROL</div><h1>Build the evidence.<br/><em>Then build the signal.</em></h1><p>A modular roadmap for engineering ValueSignal Lite—a transparent financial data science and SEC retrieval portfolio product.</p><div className="hero-actions"><Link className="button" href={`/phase/${active.id}`}>Continue phase {active.phaseNumber} →</Link><Link className="text-link" href="/architecture">Inspect system architecture</Link></div></div><aside className="instrument"><div className="instrument-top"><span>PROGRAM STATUS</span><span>VS—01</span></div><div className="dial"><b>{Math.round(done/total*100)||0}</b><small>% COMPLETE</small></div><ProgressBar value={done/total*100} label={false}/><dl><div><dt>Active phase</dt><dd>{String(active.phaseNumber).padStart(2,"0")} / {active.title}</dd></div><div><dt>Modules cleared</dt><dd>{done} of {total}</dd></div><div><dt>Phases closed</dt><dd>{completed} of {phases.length}</dd></div></dl></aside></section><section className="mission"><span>RESEARCH CONTRACT</span><p>Which companies may deserve deeper research, what quantitative evidence supports that signal, and what public filing evidence explains the context?</p><strong>No recommendations. No black boxes. No paid APIs.</strong></section><section className="section"><div className="section-heading"><div><span className="kicker">EXECUTION SEQUENCE</span><h2>The build ledger</h2></div><Link href="/roadmap">View complete roadmap →</Link></div><div className="phase-list">{phases.slice(0,4).map(p=><PhaseCard key={p.id} phase={p}/>)}</div></section><section className="quick-grid"><Link href="/notes"><b>01</b><h3>Field notes</h3><p>Decisions, bugs, and working theories.</p></Link><Link href="/architecture"><b>02</b><h3>System map</h3><p>Trace data from source to evidence.</p></Link><Link href="/resume-interview"><b>03</b><h3>Career kit</h3><p>Convert shipped work into clear stories.</p></Link></section></>}
+import Link from "next/link";
+import { Disclaimer } from "@/features/disclaimer/Disclaimer";
+import { SignalBadge } from "@/components/signals/SignalBadge";
+import { signalDefinitions } from "@/data/signals";
+
+export default function HomePage() {
+  return <>
+    <section className="hero">
+      <div className="hero-copy">
+        <p className="eyebrow">PUBLIC-COMPANY RESEARCH / EXPLAINED</p>
+        <h1>Find the signal.<br/><em>Keep the evidence.</em></h1>
+        <p className="lede">ValueSignal helps you identify companies that may deserve deeper research, understand the quantitative case, and see which risks weaken it.</p>
+        <div className="actions"><Link className="button" href="/dashboard">Explore the research dashboard</Link><Link className="text-link" href="/methodology">Read the methodology →</Link></div>
+      </div>
+      <aside className="research-card" aria-label="Example research signal">
+        <div className="card-label"><span>RESEARCH SNAPSHOT</span><span>VS / 001</span></div>
+        <div className="ticker-lockup"><div><strong>MSFT</strong><span>Microsoft Corp.</span></div><SignalBadge signal="quality-watchlist" /></div>
+        <dl className="metric-grid"><div><dt>Value</dt><dd>62</dd></div><div><dt>Quality</dt><dd>91</dd></div><div><dt>Momentum</dt><dd>74</dd></div><div><dt>Confidence</dt><dd>High</dd></div></dl>
+        <p className="card-note">Placeholder research record. Live scoring arrives after the data pipeline is validated.</p>
+      </aside>
+    </section>
+    <section className="research-question"><p className="eyebrow">THE RESEARCH QUESTION</p><h2>Which companies may deserve deeper research—and what evidence supports or weakens that view?</h2><p>VS separates observations, derived scores, risks, and conclusions so the path from source data to research signal stays inspectable.</p></section>
+    <section className="section"><div className="section-head"><div><p className="eyebrow">SIGNAL TAXONOMY</p><h2>Six cautious outcomes.</h2></div><p>Signals organize evidence. They are not forecasts, ratings, or instructions.</p></div><div className="signal-grid">{signalDefinitions.map((item) => <article key={item.id}><SignalBadge signal={item.id}/><h3>{item.label}</h3><p>{item.description}</p></article>)}</div></section>
+    <section className="process"><div><span>01</span><h3>Screen</h3><p>Compare a consistent universe of public companies.</p></div><div><span>02</span><h3>Inspect</h3><p>Open the feature, risk, and confidence breakdown.</p></div><div><span>03</span><h3>Research</h3><p>Follow the evidence before forming a conclusion.</p></div></section>
+    <div className="section disclaimer-wrap"><Disclaimer /></div>
+  </>;
+}
