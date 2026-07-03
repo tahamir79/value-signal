@@ -15,8 +15,8 @@ jobs:
     env:
       VS_USER_AGENT: "ValueSignal research ETL ${{ secrets.VS_CONTACT_EMAIL }}"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Validate contact configuration
