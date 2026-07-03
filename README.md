@@ -45,6 +45,10 @@ Run `python scripts/audit_scoring.py` to print weighted component scores, verify
 
 The dashboard now provides research KPIs, keyboard-accessible search/filter controls, and sortable score columns. Company pages render labeled adjusted-close history, score contributions, evidence coverage, reason codes, and plain-language summaries. Typed loaders degrade to fixtures or explicit empty states when generated artifacts are missing, partial, or stale.
 
+## Phase 06 backtesting lab
+
+The ETL now requests five years of prices, reconstructs monthly point-in-time feature and signal snapshots using SEC filing dates, and compares 30/60/90-session outcomes with date-aligned SPY returns. The `/backtest` route reports cohorts, confidence intervals, sample counts, adverse drawdowns, and bias limitations. See `docs/backtesting_protocol.md`.
+
 ## Run locally
 
 ```bash
@@ -58,5 +62,6 @@ Open `http://localhost:3000`. Run `npm run typecheck` and `npm run build` before
 
 - `/`
 - `/dashboard`
+- `/backtest`
 - `/stock/[ticker]`
 - `/methodology`

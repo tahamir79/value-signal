@@ -23,5 +23,7 @@ class PipelineTests(unittest.TestCase):
             signals=json.loads((Path(directory)/"signals.json").read_text())
             self.assertEqual(signals["universeSize"],1)
             self.assertEqual(signals["records"][0]["signal"],"insufficient-evidence")
+            backtest=json.loads((Path(directory)/"backtest_results.json").read_text())
+            self.assertEqual(backtest["status"],"insufficient_data")
 
 if __name__=="__main__": unittest.main()

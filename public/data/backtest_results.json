@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": null,
+  "status": "insufficient_data",
+  "protocol": {
+    "benchmark": "SPY",
+    "executionLagSessions": 1,
+    "forwardHorizonsSessions": [30, 60, 90],
+    "snapshotFrequencySessions": 21,
+    "confidenceLevel": 0.95,
+    "pointInTimeRule": "Prices and filing availability must be on or before the signal date; entry is the next trading session."
+  },
+  "snapshotCount": 0,
+  "evaluatedObservationCount": 0,
+  "observations": [],
+  "cohorts": [],
+  "biasAudit": {
+    "passed": false,
+    "rejectedForLeakage": 0,
+    "rejectedForDateAlignment": 0,
+    "overlappingWindows": 0,
+    "missingExpectedSymbols": [],
+    "notes": ["Awaiting the first five-year point-in-time ETL refresh."]
+  },
+  "traceObservation": null,
+  "limitations": [
+    "The universe uses today’s ten-company starter list, so survivorship bias remains.",
+    "Transaction costs, taxes, slippage, and corporate actions beyond adjusted prices are excluded.",
+    "Confidence intervals are descriptive normal intervals and are not proof of economic significance."
+  ]
+}

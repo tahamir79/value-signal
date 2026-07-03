@@ -60,6 +60,19 @@ export type SignalData = {
   loadError?: string;
 };
 
+export type BacktestCohort = {
+  signal:string; horizonSessions:number; marketRegime:string; sampleCount:number;
+  meanForwardReturn:number; meanBenchmarkReturn:number; meanExcessReturn:number;
+  excessReturnConfidenceInterval95:[number,number]|null; winRate:number; meanAdverseDrawdown:number;
+};
+export type BacktestData = {
+  schemaVersion:string; generatedAt:string|null; status:"complete"|"insufficient_data";
+  protocol:{benchmark:string;executionLagSessions:number;forwardHorizonsSessions:number[];snapshotFrequencySessions:number;confidenceLevel:number;pointInTimeRule:string};
+  snapshotCount:number;evaluatedObservationCount:number;observations:Array<Record<string,string|number|null>>;cohorts:BacktestCohort[];
+  biasAudit:{passed:boolean;rejectedForLeakage:number;rejectedForDateAlignment:number;overlappingWindows:number;missingExpectedSymbols:string[];notes:string[]};
+  traceObservation:Record<string,string|number>|null;limitations:string[];loadError?:string;
+};
+
 async function read<T>(name: string): Promise<T> {
   return JSON.parse(await readFile(path.join(process.cwd(), "public", "data", name), "utf8")) as T;
 }
@@ -90,6 +103,11 @@ export async function getSignalData(): Promise<SignalData> {
   } catch (error) {
     return { schemaVersion: "unavailable", generatedAt: null, records: [], loadError: message(error) };
   }
+}
+
+export async function getBacktestData():Promise<BacktestData>{
+  try{return await read<BacktestData>("backtest_results.json")}
+  catch(error){return {schemaVersion:"unavailable",generatedAt:null,status:"insufficient_data",protocol:{benchmark:"SPY",executionLagSessions:1,forwardHorizonsSessions:[30,60,90],snapshotFrequencySessions:21,confidenceLevel:.95,pointInTimeRule:"Unavailable"},snapshotCount:0,evaluatedObservationCount:0,observations:[],cohorts:[],biasAudit:{passed:false,rejectedForLeakage:0,rejectedForDateAlignment:0,overlappingWindows:0,missingExpectedSymbols:[],notes:["Backtest results could not be loaded."]},traceObservation:null,limitations:[],loadError:message(error)}}
 }
 
 export async function getResearchDataState() {

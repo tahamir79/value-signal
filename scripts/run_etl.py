@@ -11,6 +11,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.build_universe import build_universe
+from scripts.backtest import build_point_in_time_snapshots, empty_report, evaluate_snapshots
 from scripts.cleaning import latest_facts, normalize_company_facts
 from scripts.export_json import write_json
 from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, derive_fields, normalize_universe
@@ -25,6 +26,8 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     started = datetime.now(timezone.utc)
     rows: list[dict[str, Any]] = []
     feature_rows: list[dict[str, Any]] = []
+    price_history: dict[str, list[Any]] = {}
+    fact_history: dict[str, list[Any]] = {}
     errors: list[dict[str, str]] = []
     ticker_reports: list[dict[str, Any]] = []
     for security in build_universe(limit):
@@ -33,6 +36,8 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         try:
             prices = price_provider.fetch(security.ticker)
             facts = normalize_company_facts(facts_provider.fetch(security.cik))
+            price_history[security.ticker] = prices
+            fact_history[security.ticker] = facts
             latest = latest_facts(facts)
             report.update(priceRows=len(prices), financialFacts=len(facts))
             rows.append({"security": record(security), "derived": derive_fields(prices, latest), "latestFacts": {name: record(fact) for name, fact in latest.items()}, "priceHistory": [record(bar) for bar in prices[-260:]]})
@@ -49,10 +54,19 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     normalized_features = normalize_universe(feature_rows)
     features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalized_features}
     signals = {"schemaVersion": SCORE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": score_universe(normalized_features)}
+    try:
+        benchmark_prices = price_provider.fetch("SPY")
+        eligible_dates = [bar.date for index, bar in enumerate(benchmark_prices) if index >= 252 and index + 90 < len(benchmark_prices)]
+        signal_dates = eligible_dates[::21]
+        snapshots = build_point_in_time_snapshots(price_history, fact_history, signal_dates)
+        backtest = evaluate_snapshots(snapshots, price_history, benchmark_prices, [report["ticker"] for report in ticker_reports])
+    except Exception as exc:
+        backtest = empty_report(f"Backtest generation unavailable: {type(exc).__name__}: {exc}", finished.isoformat())
     audit = {"schemaVersion": SCHEMA_VERSION, "runStartedAt": started.isoformat(), "runFinishedAt": finished.isoformat(), "status": "success" if not errors else "partial_success", "requestedTickers": len(ticker_reports), "successfulTickers": len(rows), "failedTickers": len(errors), "errors": errors, "tickers": ticker_reports}
     write_json(output_dir / "dashboard.json", dashboard)
     write_json(output_dir / "features.json", features)
     write_json(output_dir / "signals.json", signals)
+    write_json(output_dir / "backtest_results.json", backtest)
     write_json(output_dir / "etl_report.json", audit)
     return audit
 
@@ -65,7 +79,7 @@ def main() -> int:
     if not user_agent or "@" not in user_agent:
         print("VS_USER_AGENT must identify the application and include a contact email.", file=sys.stderr)
         return 2
-    audit = run(YahooChartPriceProvider(user_agent), SecCompanyFactsProvider(user_agent), args.output, args.limit)
+    audit = run(YahooChartPriceProvider(user_agent, range_name="5y"), SecCompanyFactsProvider(user_agent), args.output, args.limit)
     print(f"ETL {audit['status']}: {audit['successfulTickers']}/{audit['requestedTickers']} tickers published")
     return 0 if audit["successfulTickers"] else 1
 
