@@ -49,9 +49,9 @@ The dashboard now provides research KPIs, keyboard-accessible search/filter cont
 
 The ETL now requests five years of prices, reconstructs monthly point-in-time feature and signal snapshots using SEC filing dates, and compares 30/60/90-session outcomes with date-aligned SPY returns. The `/backtest` route reports cohorts, confidence intervals, sample counts, adverse drawdowns, and bias limitations. See `docs/backtesting_protocol.md`.
 
-## Phase 07 SEC filing retrieval
+## Phase 07 SEC filing retrieval (schema 3)
 
-The scheduled pipeline fetches recent 10-K/10-Q documents, cleans and section-chunks the HTML, builds a tokenized inverted index, and ranks cited passages with BM25. Stock pages provide ticker-scoped filing search while keeping retrieved source evidence separate from quantitative analysis. See `docs/retrieval_specification.md`.
+The scheduled pipeline fetches recent 10-K/10-Q documents, removes filing noise, detects canonical Part/Item sections, and creates stable metadata-rich chunks that never cross item boundaries. It builds a tokenized inverted index, ranks cited passages with BM25, and deterministically diversifies near-duplicate results. Stock pages expose inspectable section and offset metadata while keeping source evidence separate from quantitative analysis. See `docs/retrieval_specification.md`.
 
 ## Phase 08 deterministic analyst briefs
 

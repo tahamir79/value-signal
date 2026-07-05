@@ -1,25 +1,25 @@
-# ValueSignal SEC retrieval specification v1.0.0
+# ValueSignal SEC retrieval specification v3.0.0
 
-Phase 07 implements retrieval and citations without an LLM. Retrieved filing language is source evidence, not generated analysis.
+This layer retrieves cited filing evidence without an LLM. BM25 remains the production source of truth (`k1=1.5`, `b=0.75`); retrieved language is evidence, not investment advice.
 
-## Pipeline
+## Corpus pipeline
 
-1. Read recent 10-K and 10-Q metadata from SEC submissions.
-2. Preserve ticker, CIK, accession, filing/report dates, form, primary document, and SEC Archives URL.
-3. Fetch filing HTML with the identifying ValueSignal User-Agent.
-4. Remove markup, scripts, table-of-contents markers, page-number lines, and repeated short headers.
-5. Detect `Item` headings and create approximately 220-word chunks with 40-word boundary overlap.
-6. Tokenize chunks, remove a compact stop-word set, and build an inverted term-frequency index.
-7. Rank ticker-filtered passages with BM25 (`k1=1.5`, `b=0.75`).
-8. Return source text with form, item, filing date, accession, matching terms, score, and direct citation URL.
+1. Fetch recent 10-K/10-Q documents with an identifying SEC User-Agent.
+2. Remove scripts, hidden/XBRL payloads, page markers, TOC markers, and short lines repeated four or more times. Preserve paragraph breaks and flatten tables in source row/cell order.
+3. Detect Part and Item headings. Duplicate keys retain the densest, later body occurrence so TOC clusters are excluded and repeated 10-Q items remain distinct by Part.
+4. Build chunks inside one section only: target 300 words, maximum 450, one-sentence overlap capped at 60 words. Oversized paragraphs split at sentences; oversized sentences use 300-word windows with 40-word overlap. Empty/Reserved sections are omitted and meaningful short sections are retained.
+5. Derive stable IDs from accession, canonical section key, and normalized-content hash. Preserve section, paragraph/sentence ranges, source offsets, adjacent IDs, filing metadata, and direct SEC citation.
+6. Build the token index and rank with BM25. Ticker and form filters are applied during scoring.
+7. Diversify after ranking: retain the top hit, prefer another section at 25% or more of its score, suppress token-Jaccard similarity above 0.70, then fill remaining slots deterministically.
 
-## Retrieval contract
+## Compatibility and citations
 
-- Empty chunks are discarded.
-- Filing metadata must survive every transformation.
-- Search never invents a passage when no terms match.
-- Citation URLs must point to `https://www.sec.gov/Archives/`.
-- Retrieved source text must remain visually separate from quantitative summaries.
-- Search terms are rankings, not semantic conclusions; users must inspect the linked filing.
+Schema 3 consumers use `sectionKey` and fall back to legacy `item`. Legacy `id`, `item`, `form`, `url`, dates, accession, and word offsets remain present. Evidence cards expose section/title, sequence, boundary, ranges, score, chunk ID, accession, and source URL.
 
-The fixture evaluation set covers risk factors, supply chains, cybersecurity, liquidity/debt, and legal proceedings. The audit prints top token frequencies and BM25 term traces.
+The index includes a `corpusHash` derived from ordered chunk IDs. Any future semantic overlay must reject vectors when this hash, dimensions, chunk order, or chunk IDs differ, and must fall back to BM25. Vector generation is optional and cannot block publication.
+
+## Validation
+
+`python scripts/audit_search.py` checks schema/citations, unique IDs, offsets, chunk sizes, fallback/front-matter counts, metadata gaps, per-filing/ticker/form/section coverage, and near duplicates. It evaluates frozen queries with precision@3 and reciprocal rank. COST-specific assertions are a TODO until COST enters the universe.
+
+No Ollama, embedding generation, synthesis model, browser WebLLM, paid API, chatbot, or stock-signal mutation belongs in this phase.
