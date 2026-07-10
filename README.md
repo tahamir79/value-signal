@@ -57,6 +57,10 @@ The scheduled pipeline fetches recent 10-K/10-Q documents, removes filing noise,
 
 Stock pages generate cautious briefs from signal labels, validated scores, sample-sized backtest context, and cited SEC passages. Every claim retains a source reference; absent inputs are disclosed. Briefs support Markdown copy and print-only review. See `docs/brief_specification.md`.
 
+## Optional local Ollama RAG
+
+The local-only RAG layer combines the schema-3 SEC corpus, BM25, cached `nomic-embed-text` vectors, and `llama3.2:3b` synthesis. It explains existing signals with cited filing evidence and degrades visibly to BM25 when semantic retrieval is unavailable. It is not required by Vercel. See `docs/rag_specification.md`.
+
 ## Run locally
 
 ```bash
