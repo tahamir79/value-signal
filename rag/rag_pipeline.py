@@ -6,9 +6,35 @@ from typing import Any, Callable
 
 from rag.config import RagConfig
 from rag.hybrid_retriever import retrieve
+from rag.intent import RISK_OUTLOOK_INTENT, detect_intent, deterministic_risk_posture, expanded_queries
 from rag.prompt_builder import build_prompt
 from rag.stock_context import build_stock_context, extract_evidence_assessment
 from rag.synthesize import synthesize_answer
+from scripts.retrieval import diversify_results
+
+
+def _merge_evidence(results: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+    by_id: dict[str, dict[str, Any]] = {}
+    for row in results:
+        key = str(row.get("chunkId") or row.get("id"))
+        if key not in by_id or float(row.get("score", 0)) > float(by_id[key].get("score", 0)):
+            by_id[key] = row
+    ranked = sorted(by_id.values(), key=lambda row: (-float(row.get("score", 0)), str(row.get("chunkId") or row.get("id"))))
+    return diversify_results(ranked, limit)
+
+
+RISK_OUTLOOK_PREFACE = (
+    "I cannot predict whether the stock will go up or down, but I can assess whether "
+    "the current signal and retrieved risk evidence support, weaken, or complicate the research case."
+)
+
+
+def _enforce_risk_outlook_safety(answer: str | None, intent: str) -> str | None:
+    if not answer or intent != RISK_OUTLOOK_INTENT:
+        return answer
+    if "cannot predict whether the stock will go up or down" in answer.lower():
+        return answer
+    return f"Risk-Based Assessment:\n{RISK_OUTLOOK_PREFACE}\n\n{answer}"
 
 def _signal_context(ticker: str | None, path: Path = Path("public/data/signals.json")) -> tuple[str | None, str | None]:
     if not ticker or not path.exists(): return None, None
@@ -29,9 +55,26 @@ def run_rag(query: str, ticker: str | None = None, form_type: str | None = None,
             generator: Callable[[str], str] | None = None) -> dict[str, Any]:
     if not query.strip(): raise ValueError("query must not be empty")
     ticker = ticker.upper() if ticker else None
-    chunks, warnings, effective_mode = retrieve(query, ticker=ticker, form_type=form_type,
-                                                 mode=retrieval_mode, top_k=top_k, index=index,
-                                                 embedding_search=embedding_search)
+    intent = detect_intent(query)
+    warnings: list[str] = []
+    effective_modes: list[str] = []
+    if intent == RISK_OUTLOOK_INTENT:
+        gathered: list[dict[str, Any]] = []
+        for retrieval_kind, retrieval_query in expanded_queries(query, intent):
+            rows, row_warnings, mode = retrieve(retrieval_query, ticker=ticker, form_type=form_type,
+                                                mode=retrieval_mode, top_k=max(top_k, 4), index=index,
+                                                embedding_search=embedding_search)
+            for row in rows:
+                row["retrievalIntent"] = retrieval_kind
+            gathered.extend(rows)
+            warnings.extend(row_warnings)
+            effective_modes.append(mode)
+        chunks = _merge_evidence(gathered, max(top_k, 5))
+        effective_mode = "+".join(sorted(set(effective_modes))) if effective_modes else retrieval_mode
+    else:
+        chunks, warnings, effective_mode = retrieve(query, ticker=ticker, form_type=form_type,
+                                                    mode=retrieval_mode, top_k=top_k, index=index,
+                                                    embedding_search=embedding_search)
     ids = [str(row.get("chunkId") or row.get("id")) for row in chunks]
     stock_context = build_stock_context(ticker)
     company, signal = _signal_context(ticker)
@@ -46,9 +89,11 @@ def run_rag(query: str, ticker: str | None = None, form_type: str | None = None,
         config = RagConfig.from_env()
         prompt = build_prompt(query, chunks, ticker=ticker, company_name=company or chunks[0].get("companyName"),
                               primary_signal=signal_label, stock_context=stock_context,
+                              intent=intent,
                               max_context_chars=config.max_context_chars)
         try:
             answer, synthesis_warnings = synthesize_answer(prompt, set(ids), generator)
+            answer = _enforce_risk_outlook_safety(answer, intent)
             warnings.extend(synthesis_warnings)
             evidence_assessment = extract_evidence_assessment(answer)
         except Exception as exc:
@@ -57,9 +102,11 @@ def run_rag(query: str, ticker: str | None = None, form_type: str | None = None,
     elif chunks:
         evidence_assessment = "Insufficient evidence"
     return {"query": query, "ticker": ticker, "retrieval_mode": effective_mode,
+            "intent": intent,
             "retrieved_chunks": chunks, "answer": answer, "citations": ids,
             "stock_context": stock_context, "official_signal": (stock_context or {}).get("officialSignal"),
             "official_signal_label": (stock_context or {}).get("officialSignalLabel") or signal_label,
             "signal_confidence": (stock_context or {}).get("confidence"),
             "evidence_assessment": evidence_assessment,
+            "deterministic_risk_posture": deterministic_risk_posture(stock_context),
             "limitations": limitations, "warnings": warnings}

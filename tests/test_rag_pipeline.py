@@ -1,6 +1,7 @@
 import unittest
 
 from rag.hybrid_retriever import retrieve
+from rag.intent import RISK_OUTLOOK_INTENT, detect_intent, deterministic_risk_posture, expanded_queries
 from rag.prompt_builder import build_prompt
 from rag.rag_pipeline import run_rag
 from rag.stock_context import extract_evidence_assessment, stock_context_summary
@@ -38,5 +39,23 @@ class RagPipelineTests(unittest.TestCase):
         self.assertIn("Evidence Assessment:",prompt)
         self.assertEqual(extract_evidence_assessment("Evidence Assessment: Review recommended\nBecause..."),"Review recommended")
         self.assertIn("Structured pipeline context",stock_context_summary(None))
+    def test_risk_outlook_intent_and_prompt(self):
+        query="should i expect this to hold value or go up or down? assess based on risk data"
+        self.assertEqual(detect_intent(query),RISK_OUTLOOK_INTENT)
+        self.assertEqual(len(expanded_queries(query,RISK_OUTLOOK_INTENT)),3)
+        prompt=build_prompt(query,CHUNKS,ticker="COST",intent=RISK_OUTLOOK_INTENT,stock_context={"officialSignalLabel":"Neutral","officialSignal":"neutral","scores":{"marketRisk":80,"value":20}})
+        self.assertIn("I cannot predict whether the stock will go up or down",prompt)
+        self.assertIn("Risk-Based Assessment:",prompt)
+        self.assertEqual(deterministic_risk_posture({"scores":{"marketRisk":80}}),"elevated risk")
+    def test_risk_outlook_run_uses_expanded_retrieval(self):
+        result=run_rag("is the signal strong enough?", "COST", retrieval_mode="bm25", index=self.index, synthesize=False)
+        self.assertEqual(result["intent"],RISK_OUTLOOK_INTENT)
+        self.assertGreaterEqual(len(result["retrieved_chunks"]),1)
+        self.assertIn(result["deterministic_risk_posture"],{"supportive","mixed","elevated risk","insufficient"})
+    def test_risk_outlook_safety_preface_is_enforced(self):
+        cid=CHUNKS[0]["chunkId"]
+        result=run_rag("should it go up or down?", "COST", retrieval_mode="bm25", index=self.index,
+                       generator=lambda _prompt:f"Evidence Assessment: Mixed evidence\nCitations: {cid}")
+        self.assertIn("I cannot predict whether the stock will go up or down",result["answer"])
 
 if __name__ == "__main__": unittest.main()

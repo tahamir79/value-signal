@@ -21,6 +21,15 @@ SIGNAL_LABELS = {
     "insufficient-evidence": "Insufficient evidence",
 }
 
+SIGNAL_DEFINITIONS = {
+    "potentially-undervalued": "Value appears favorable relative to the current universe, subject to quality and risk checks.",
+    "quality-watchlist": "Quality or operating signals are relatively strong, but valuation or risk may still need review.",
+    "value-trap-risk": "Value appears attractive, but quality, balance-sheet, momentum, or other risk evidence may weaken the case.",
+    "momentum-risk": "Recent price or volatility behavior raises caution despite other possible strengths.",
+    "neutral": "The evidence does not strongly support a positive or negative research theme.",
+    "insufficient-evidence": "The pipeline does not have enough evidence to assign a confident research theme.",
+}
+
 
 def _load(path: Path) -> dict[str, Any]:
     try:
@@ -69,8 +78,11 @@ def build_stock_context(
         "companyName": (signal_row or {}).get("companyName") or security.get("company_name"),
         "officialSignal": signal_key,
         "officialSignalLabel": SIGNAL_LABELS.get(str(signal_key), signal_key),
+        "signalDefinition": SIGNAL_DEFINITIONS.get(str(signal_key), "Definition unavailable."),
         "confidence": (signal_row or {}).get("confidence"),
         "asOf": (signal_row or feature_row or {}).get("asOf"),
+        "reasonCodes": (signal_row or {}).get("reasonCodes") or [],
+        "explanations": (signal_row or {}).get("explanations") or [],
         "scores": (signal_row or {}).get("scores") or {},
         "components": (signal_row or {}).get("components") or {},
         "rawFeatures": (feature_row or {}).get("raw") or {},
@@ -82,6 +94,26 @@ def build_stock_context(
     }
 
 
+def inferred_risk_gates(context: dict[str, Any] | None) -> list[str]:
+    if not context:
+        return []
+    gates: list[str] = []
+    scores = context.get("scores") or {}
+    for key, label in {
+        "marketRisk": "Elevated market risk score",
+        "balanceSheetRisk": "Elevated balance-sheet risk score",
+        "momentumRisk": "Elevated momentum-risk score",
+    }.items():
+        value = scores.get(key)
+        if isinstance(value, (int, float)) and value >= 70:
+            gates.append(f"{label} ({value})")
+    for reason in context.get("reasonCodes") or []:
+        text = str(reason)
+        if "risk" in text.lower() and text not in gates:
+            gates.append(text)
+    return gates
+
+
 def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6) -> str:
     if not context:
         return "Structured pipeline context: Not available."
@@ -89,6 +121,7 @@ def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6)
     raw = context.get("rawFeatures") or {}
     derived = context.get("derived") or {}
     facts = context.get("latestFacts") or {}
+    gates = inferred_risk_gates(context)
     fact_lines = []
     for name, fact in list(facts.items())[:max_facts]:
         if not isinstance(fact, dict):
@@ -100,9 +133,13 @@ def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6)
     return "\n".join([
         "Structured pipeline context:",
         f"- Official deterministic signal: {context.get('officialSignalLabel') or 'Not available'} ({context.get('officialSignal') or 'unknown'})",
+        f"- Signal definition: {context.get('signalDefinition') or 'Not available'}",
         f"- Signal confidence: {context.get('confidence') or 'Not available'}",
         f"- As of: {context.get('asOf') or 'Not available'}",
         "- Component scores: " + (", ".join(f"{key}={value}" for key, value in scores.items()) or "Not available"),
+        "- Risk gates triggered: " + (", ".join(gates) or "None inferred"),
+        "- Reason codes: " + (", ".join(str(value) for value in (context.get("reasonCodes") or [])) or "None recorded"),
+        "- Explanations: " + (" | ".join(str(value) for value in (context.get("explanations") or [])) or "None recorded"),
         "- Raw features: " + (", ".join(f"{key}={value}" for key, value in raw.items()) or "Not available"),
         "- Derived dashboard fields: " + (", ".join(f"{key}={value}" for key, value in derived.items()) or "Not available"),
         "- Missing features: " + (", ".join(context.get("missingFeatures") or []) or "None recorded"),
