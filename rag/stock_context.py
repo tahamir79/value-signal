@@ -130,7 +130,7 @@ def inferred_risk_gates(context: dict[str, Any] | None) -> list[str]:
     return gates
 
 
-def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6) -> str:
+def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6, detail: str = "compact") -> str:
     if not context:
         return "Structured pipeline context: Not available."
     scores = context.get("scores") or {}
@@ -146,15 +146,21 @@ def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6)
             f"- {name}: {fact.get('value')} {fact.get('unit', '')} "
             f"(period_end={fact.get('period_end')}, form={fact.get('form')}, filed={fact.get('filed')})"
         )
-    return "\n".join([
+    compact_lines = [
         "Structured pipeline context:",
+        "- Use this as background context. Do not restate these fields unless they directly change the answer.",
         f"- Official deterministic signal: {context.get('officialSignalLabel') or 'Not available'} ({context.get('officialSignal') or 'unknown'})",
         f"- Signal definition: {context.get('signalDefinition') or 'Not available'}",
         f"- Signal confidence: {context.get('confidence') or 'Not available'}",
         f"- As of: {context.get('asOf') or 'Not available'}",
-        "- Component scores: " + (", ".join(f"{key}={value}" for key, value in scores.items()) or "Not available"),
         "- Risk gates triggered: " + (", ".join(gates) or "None inferred"),
         "- Reason codes: " + (", ".join(str(value) for value in (context.get("reasonCodes") or [])) or "None recorded"),
+    ]
+    if detail != "full":
+        return "\n".join(compact_lines)
+    return "\n".join([
+        *compact_lines,
+        "- Component scores: " + (", ".join(f"{key}={value}" for key, value in scores.items()) or "Not available"),
         "- Explanations: " + (" | ".join(str(value) for value in (context.get("explanations") or [])) or "None recorded"),
         "- Raw features: " + (", ".join(f"{key}={value}" for key, value in raw.items()) or "Not available"),
         "- Derived dashboard fields: " + (", ".join(f"{key}={value}" for key, value in derived.items()) or "Not available"),
