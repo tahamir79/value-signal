@@ -694,7 +694,76 @@ Built a local financial RAG pipeline using SEC-aware filing chunks, BM25 retriev
 
 ---
 
-## 21. Immediate Next Step
+## 21. Scaling Architecture - Broad Universe Foundation
+
+The scaling phase is a separate data-engineering track. It must scale ValueSignal Lite safely from the starter universe toward broader U.S.-listed public-company coverage without fetching every ticker at once.
+
+Current scaling direction:
+
+```text
+universe builder first
+  -> SEC-safe request/cache layer
+  -> staged filing discovery and ingestion
+  -> SEC-aware chunking per ticker
+  -> BM25 index manifests
+  -> scoring/data-quality reports
+  -> frontend search/filter/lazy evidence
+```
+
+Universe modes:
+
+```text
+starter
+watchlist
+sp500_or_largecap
+sec_listed_core
+sec_listed_all
+custom
+```
+
+Core files:
+
+```text
+scripts/universe/build_universe.py
+scripts/universe/normalize_symbols.py
+scripts/universe/universe_filters.py
+scripts/universe/universe_manifest.py
+scripts/sec/sec_client.py
+scripts/pipeline/run_scaled_pipeline.py
+tests/test_scaled_universe.py
+```
+
+Generated local artifacts:
+
+```text
+data/universe/universe.json
+data/universe/universe_manifest.json
+data/reports/pipeline_report.json
+data/reports/failures.json
+```
+
+Scaling commands:
+
+```powershell
+python scripts/universe/build_universe.py --mode starter
+python scripts/universe/build_universe.py --mode sec_listed_core --limit 50
+python scripts/pipeline/run_scaled_pipeline.py --mode starter
+python scripts/pipeline/run_scaled_pipeline.py --mode sec_listed_core --limit 250 --resume
+python -m unittest tests.test_scaled_universe -v
+```
+
+Important guardrails:
+
+- Do not fetch every ticker without an explicit limit.
+- Do not exceed SEC fair-access guidance; default request pacing should stay at or below 5 requests per second.
+- Do not require paid APIs, embeddings, or local Llama for online deployment.
+- Keep unsupported/fund/warrant/unit/OTC-like rows marked, not silently deleted.
+- Keep BM25 as the production fallback/source of truth.
+- Keep local Ollama RAG separate from deployment unless explicitly enabled.
+
+---
+
+## 22. Immediate Next Step
 
 If the retrieval/chunking upgrade truly passed, commit it first:
 

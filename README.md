@@ -61,6 +61,33 @@ Stock pages generate cautious briefs from signal labels, validated scores, sampl
 
 The local-only RAG layer combines the schema-3 SEC corpus, BM25, cached `nomic-embed-text` vectors, and `llama3.2:3b` synthesis. It explains existing signals with cited filing evidence and degrades visibly to BM25 when semantic retrieval is unavailable. It is not required by Vercel. See `docs/rag_specification.md`.
 
+## Scaling phase: broad universe foundation
+
+The scaling path is a separate data-engineering phase. It starts with staged universe construction instead of blindly downloading every ticker. The current foundation supports `starter`, `watchlist`, `sp500_or_largecap`, `sec_listed_core`, `sec_listed_all`, and `custom` modes, preserves CIK/ticker/name/exchange fields, marks unsupported securities, and writes restartable run reports.
+
+SEC requests must use a clear `VS_USER_AGENT` with a monitored contact email. The default SEC client is cached, retrying, and throttled conservatively at 5 requests per second or slower.
+
+Example commands:
+
+```bash
+python scripts/universe/build_universe.py --mode starter
+python scripts/universe/build_universe.py --mode sec_listed_core --limit 50
+python scripts/pipeline/run_scaled_pipeline.py --mode starter
+python scripts/pipeline/run_scaled_pipeline.py --mode sec_listed_core --limit 250 --resume
+python scripts/audit_search.py
+python scripts/scoring.py
+npm run build
+```
+
+Generated local scaling artifacts are written under `data/`:
+
+- `data/universe/universe.json`
+- `data/universe/universe_manifest.json`
+- `data/reports/pipeline_report.json`
+- `data/reports/failures.json`
+
+Do not publish giant raw filing corpora to the frontend bundle. The online dashboard should use compact summary/scoring data, while filing evidence remains lazy-loaded per ticker.
+
 ## Run locally
 
 ```bash
