@@ -21,6 +21,17 @@ RISK_OUTLOOK_PATTERNS = [
     r"\bstrong\s+enough\b",
 ]
 
+INTENT_KEYWORDS = {
+    "cybersecurity_risk_review": ("cybersecurity", "incident", "security controls", "risk management practices"),
+    "value_trap_risk": ("value trap", "cheap", "valuation risk", "value risk"),
+    "undervaluation_support": ("undervalued", "undervaluation", "valuation support"),
+    "liquidity_debt_risk": ("liquidity", "debt", "capital resources", "cash requirements"),
+    "margin_pressure": ("margin pressure", "gross margin", "operating margin", "cost pressure"),
+    "demand_revenue_weakness": ("demand", "revenue weakness", "sales decline", "revenue growth"),
+    "catalyst_review": ("catalyst", "new product", "launch", "business outlook"),
+    "follow_up_research": ("further review", "research next", "specific mitigation", "impact on the company", "detailed assessment"),
+}
+
 RISK_EVIDENCE_QUERY = (
     "Risk Factors market risk liquidity debt margin pressure material weakness "
     "macroeconomic pressure customer concentration demand weakness competition"
@@ -34,7 +45,12 @@ SUPPORT_EVIDENCE_QUERY = (
 
 def detect_intent(query: str) -> str:
     lowered = query.lower()
-    return RISK_OUTLOOK_INTENT if any(re.search(pattern, lowered) for pattern in RISK_OUTLOOK_PATTERNS) else GENERAL_INTENT
+    if any(re.search(pattern, lowered) for pattern in RISK_OUTLOOK_PATTERNS):
+        return RISK_OUTLOOK_INTENT
+    for intent, keywords in INTENT_KEYWORDS.items():
+        if any(keyword in lowered for keyword in keywords):
+            return intent
+    return GENERAL_INTENT
 
 
 def expanded_queries(query: str, intent: str) -> list[tuple[str, str]]:
@@ -45,6 +61,24 @@ def expanded_queries(query: str, intent: str) -> list[tuple[str, str]]:
         ("risk", f"{query} {RISK_EVIDENCE_QUERY}"),
         ("support", f"{query} {SUPPORT_EVIDENCE_QUERY}"),
     ]
+
+
+def intent_retrieval_queries(query: str, intent: str) -> list[tuple[str, str]]:
+    if intent == RISK_OUTLOOK_INTENT:
+        return expanded_queries(query, intent)
+    bundles = {
+        "cybersecurity_risk_review": "Item 1C cybersecurity risk management governance incident response controls third party information systems",
+        "value_trap_risk": "Risk Factors MD&A value trap quality weakness leverage margin pressure demand debt",
+        "undervaluation_support": "MD&A revenue growth operating income cash flow liquidity valuation support business outlook",
+        "liquidity_debt_risk": "Liquidity and Capital Resources debt maturities cash flow credit facilities capital requirements",
+        "margin_pressure": "gross margin margin pressure costs tariffs pricing competition operating income",
+        "demand_revenue_weakness": "demand revenue growth sales weakness competition macroeconomic pressure results of operations",
+        "catalyst_review": "business outlook product launch demand growth operating results management discussion",
+        "follow_up_research": "Risk Factors MD&A Item 1C Controls and Procedures financial impact mitigation costs governance",
+    }
+    if intent in bundles:
+        return [("primary", query), ("intent", f"{query} {bundles[intent]}")]
+    return [("primary", query)]
 
 
 def deterministic_risk_posture(context: dict[str, Any] | None) -> str:

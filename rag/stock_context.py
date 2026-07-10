@@ -12,6 +12,22 @@ EVIDENCE_ASSESSMENTS = {
     "Review recommended",
 }
 
+EVIDENCE_RELEVANCE_VALUES = {
+    "Directly relevant to question",
+    "Partially relevant",
+    "Weakly relevant",
+    "Insufficient evidence",
+}
+
+SIGNAL_RELATIONSHIP_VALUES = {
+    "Supports signal",
+    "Weakens signal",
+    "Mixed",
+    "Indirect relationship",
+    "Not enough evidence to connect to signal",
+    "Review recommended",
+}
+
 SIGNAL_LABELS = {
     "potentially-undervalued": "Potentially undervalued",
     "quality-watchlist": "Quality watchlist",
@@ -167,6 +183,38 @@ def normalize_evidence_assessment(value: str | None) -> str:
     return "Insufficient evidence"
 
 
+def normalize_evidence_relevance(value: str | None) -> str:
+    if not value:
+        return "Insufficient evidence"
+    lowered = value.lower()
+    if "direct" in lowered:
+        return "Directly relevant to question"
+    if "partial" in lowered:
+        return "Partially relevant"
+    if "weak" in lowered:
+        return "Weakly relevant"
+    return "Insufficient evidence"
+
+
+def normalize_signal_relationship(value: str | None) -> str:
+    if not value:
+        return "Not enough evidence to connect to signal"
+    lowered = value.lower()
+    if "review" in lowered:
+        return "Review recommended"
+    if "indirect" in lowered:
+        return "Indirect relationship"
+    if "not enough" in lowered or "insufficient" in lowered:
+        return "Not enough evidence to connect to signal"
+    if "weak" in lowered:
+        return "Weakens signal"
+    if "mixed" in lowered or "complicat" in lowered:
+        return "Mixed"
+    if "support" in lowered:
+        return "Supports signal"
+    return "Not enough evidence to connect to signal"
+
+
 def extract_evidence_assessment(answer: str | None) -> str:
     if not answer:
         return "Insufficient evidence"
@@ -175,3 +223,14 @@ def extract_evidence_assessment(answer: str | None) -> str:
         if sep and label.strip().lower().replace("_", " ") in {"evidence assessment", "evidence_assessment"}:
             return normalize_evidence_assessment(value)
     return normalize_evidence_assessment(answer[:240])
+
+
+def extract_named_field(answer: str | None, names: set[str]) -> str | None:
+    if not answer:
+        return None
+    normalized_names = {name.lower().replace("_", " ") for name in names}
+    for line in answer.splitlines():
+        label, sep, value = line.partition(":")
+        if sep and label.strip().lower().replace("_", " ") in normalized_names:
+            return value.strip()
+    return None

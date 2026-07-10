@@ -3,8 +3,9 @@ import unittest
 from rag.hybrid_retriever import retrieve
 from rag.intent import RISK_OUTLOOK_INTENT, detect_intent, deterministic_risk_posture, expanded_queries
 from rag.prompt_builder import build_prompt
-from rag.rag_pipeline import run_rag
-from rag.stock_context import extract_evidence_assessment, stock_context_summary
+from rag.rag_pipeline import _guard_signal_relationship, run_rag
+from rag.stock_context import extract_evidence_assessment, normalize_evidence_relevance, normalize_signal_relationship, stock_context_summary
+from rag.synthesis_profile import DEEP_MODE, QUICK_MODE, profile_for
 from rag.synthesize import validate_answer
 from scripts.build_search_index import build_index
 
@@ -36,7 +37,8 @@ class RagPipelineTests(unittest.TestCase):
     def test_stock_context_prompt_and_assessment(self):
         prompt=build_prompt("risks?",CHUNKS,ticker="COST",stock_context={"officialSignalLabel":"Value trap risk","officialSignal":"value-trap-risk","confidence":"High","scores":{"value":90},"rawFeatures":{"earnings_yield":.1}})
         self.assertIn("Official deterministic signal: Value trap risk",prompt)
-        self.assertIn("Evidence Assessment:",prompt)
+        self.assertIn("Evidence Relevance:",prompt)
+        self.assertIn("Signal Relationship:",prompt)
         self.assertEqual(extract_evidence_assessment("Evidence Assessment: Review recommended\nBecause..."),"Review recommended")
         self.assertIn("Structured pipeline context",stock_context_summary(None))
     def test_risk_outlook_intent_and_prompt(self):
@@ -57,5 +59,24 @@ class RagPipelineTests(unittest.TestCase):
         result=run_rag("should it go up or down?", "COST", retrieval_mode="bm25", index=self.index,
                        generator=lambda _prompt:f"Evidence Assessment: Mixed evidence\nCitations: {cid}")
         self.assertIn("I cannot predict whether the stock will go up or down",result["answer"])
+    def test_deep_research_profile_and_fields(self):
+        self.assertEqual(profile_for(None,"Further review of cybersecurity impact").name,DEEP_MODE)
+        self.assertEqual(profile_for(QUICK_MODE,"x").max_output_tokens,300)
+        self.assertEqual(detect_intent("Further review of cybersecurity risk management practices"),"cybersecurity_risk_review")
+        prompt=build_prompt("Further review of cybersecurity risk management practices",CHUNKS,ticker="COST",intent="cybersecurity_risk_review",synthesis_depth=DEEP_MODE,session_summary="Prior intent: risk; previous chunk IDs: abc.")
+        self.assertIn("Research Answer:",prompt)
+        self.assertIn("Research Session Summary",prompt)
+        self.assertEqual(normalize_evidence_relevance("Directly relevant to cybersecurity governance"),"Directly relevant to question")
+        self.assertEqual(normalize_signal_relationship("Indirect relationship to Momentum risk"),"Indirect relationship")
+    def test_deep_research_run_returns_relevance_relationship(self):
+        cid=CHUNKS[0]["chunkId"]
+        result=run_rag("Further review of liquidity debt risk impact", "COST", retrieval_mode="bm25", index=self.index,
+                       generator=lambda _prompt, max_output_tokens=None:f"Research Answer: test {cid}\nEvidence Relevance: Directly relevant to question\nSignal Relationship: Indirect relationship\nCitations: {cid}")
+        self.assertEqual(result["synthesis_depth"],DEEP_MODE)
+        self.assertEqual(result["evidence_relevance"],"Directly relevant to question")
+        self.assertEqual(result["signal_relationship"],"Indirect relationship")
+    def test_thematic_review_does_not_overconnect_signal(self):
+        guarded=_guard_signal_relationship("cybersecurity_risk_review","Supports signal","Momentum risk","Cybersecurity governance is mature.")
+        self.assertEqual(guarded,"Indirect relationship")
 
 if __name__ == "__main__": unittest.main()

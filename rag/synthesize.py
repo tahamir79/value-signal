@@ -17,9 +17,13 @@ def validate_answer(answer: str, allowed_chunk_ids: set[str]) -> tuple[str, list
     return answer, warnings
 
 
-def synthesize_answer(prompt: str, chunk_ids: set[str], generator: Callable[[str], str] | None = None) -> tuple[str, list[str]]:
+def synthesize_answer(prompt: str, chunk_ids: set[str], generator: Callable[..., str] | None = None,
+                      max_output_tokens: int | None = None) -> tuple[str, list[str]]:
     if generator is None:
         from rag.ollama_client import generate_with_llama
         generator = generate_with_llama
-    answer = generator(prompt)
+    try:
+        answer = generator(prompt, max_output_tokens=max_output_tokens)
+    except TypeError:
+        answer = generator(prompt)
     return validate_answer(answer, chunk_ids)

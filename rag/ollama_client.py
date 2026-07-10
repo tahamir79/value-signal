@@ -67,9 +67,12 @@ def get_embeddings(texts: list[str], model: str = "nomic-embed-text") -> list[li
     return [[float(value) for value in row] for row in embeddings]
 
 
-def generate_with_llama(prompt: str, model: str = "llama3.2:3b") -> str:
+def generate_with_llama(prompt: str, model: str = "llama3.2:3b", max_output_tokens: int | None = None) -> str:
     _require_model(model, "synthesis")
-    result = _request("/api/generate", {"model": model, "prompt": prompt, "stream": False}, timeout=120)
+    payload: dict[str, Any] = {"model": model, "prompt": prompt, "stream": False}
+    if max_output_tokens:
+        payload["options"] = {"num_predict": max_output_tokens}
+    result = _request("/api/generate", payload, timeout=180)
     answer = result.get("response")
     if not isinstance(answer, str):
         raise OllamaError("Ollama returned no generated response.")

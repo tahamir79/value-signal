@@ -4,7 +4,8 @@ import os
 from typing import Any
 
 from rag.intent import RISK_OUTLOOK_INTENT
-from rag.stock_context import EVIDENCE_ASSESSMENTS, stock_context_summary
+from rag.stock_context import EVIDENCE_ASSESSMENTS, EVIDENCE_RELEVANCE_VALUES, SIGNAL_RELATIONSHIP_VALUES, stock_context_summary
+from rag.synthesis_profile import DEEP_MODE
 
 SYSTEM_PROMPT = """You are a cautious financial research assistant.
 
@@ -28,6 +29,38 @@ Limitations and Missing Evidence:
 What To Research Next:
 Citations:"""
 
+DEEP_RESEARCH_PROMPT = """You are a cautious financial research assistant.
+
+Use only the retrieved public-company evidence and provided scoring context.
+Do not use outside knowledge.
+Do not invent facts.
+Do not give buy, sell, or hold advice.
+Do not predict stock prices.
+Cite chunk IDs for every major claim.
+Separate evidence from interpretation.
+If evidence is missing, say what is missing.
+
+The official signal comes from a deterministic scoring pipeline. Do not overwrite it.
+Your job is to answer the user's specific research question first, then explain whether the retrieved evidence supports, weakens, complicates, or is only indirectly related to the signal.
+
+Evidence Relevance must be exactly one of:
+""" + "\n".join(f"- {value}" for value in sorted(EVIDENCE_RELEVANCE_VALUES)) + """
+
+Signal Relationship must be exactly one of:
+""" + "\n".join(f"- {value}" for value in sorted(SIGNAL_RELATIONSHIP_VALUES)) + """
+
+Required structure:
+Research Answer:
+Evidence Relevance:
+Signal Relationship:
+Key Retrieved Evidence:
+Risk Implications:
+Impact on Current Signal:
+What Is Missing:
+What To Research Next:
+Limitations:
+Citations:"""
+
 RISK_OUTLOOK_STRUCTURE = """This is a risk-based outlook question. Do not answer it as a price prediction.
 
 You must say: "I cannot predict whether the stock will go up or down, but I can assess whether the current signal and retrieved risk evidence support, weaken, or complicate the research case."
@@ -46,11 +79,14 @@ Citations:"""
 def build_prompt(query: str, chunks: list[dict[str, Any]], *, ticker: str | None = None,
                  company_name: str | None = None, primary_signal: str | None = None,
                  stock_context: dict[str, Any] | None = None, intent: str = "general",
+                 synthesis_depth: str = DEEP_MODE, session_summary: str | None = None,
                  max_context_chars: int | None = None) -> str:
     limit = max_context_chars or int(os.getenv("RAG_MAX_CONTEXT_CHARS", "6000"))
     structured_context = stock_context_summary(stock_context)
     intent_rules = f"\n\n{RISK_OUTLOOK_STRUCTURE}" if intent == RISK_OUTLOOK_INTENT else ""
-    header = f"{SYSTEM_PROMPT}{intent_rules}\n\nQuestion: {query}\nIntent: {intent}\nTicker: {ticker or 'Not specified'}\nCompany: {company_name or 'Not available'}\nPrimary signal: {primary_signal or 'Not available'}\n\n{structured_context}\n\nRetrieved SEC filing evidence:\n"
+    base_prompt = DEEP_RESEARCH_PROMPT if synthesis_depth == DEEP_MODE else SYSTEM_PROMPT
+    session_block = f"\n\nResearch Session Summary:\n{session_summary.strip()}\n" if session_summary and session_summary.strip() else ""
+    header = f"{base_prompt}{intent_rules}\n\nQuestion: {query}\nIntent: {intent}\nDepth: {synthesis_depth}\nTicker: {ticker or 'Not specified'}\nCompany: {company_name or 'Not available'}\nPrimary signal: {primary_signal or 'Not available'}\n{session_block}\n{structured_context}\n\nRetrieved SEC filing evidence:\n"
     available = max(0, limit - len(header))
     blocks: list[str] = []
     for row in chunks:
