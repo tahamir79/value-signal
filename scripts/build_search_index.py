@@ -52,7 +52,8 @@ def build_index(chunks: list[dict[str, Any]], errors: list[dict[str, str]] | Non
 
 
 def bm25_search(index: dict[str, Any], query: str, ticker: str | None = None, limit: int = 5,
-                k1: float = 1.5, b: float = 0.75, form: str | None = None) -> list[dict[str, Any]]:
+                k1: float = 1.5, b: float = 0.75, form: str | None = None,
+                apply_diversification: bool = True) -> list[dict[str, Any]]:
     scores: dict[int, float] = defaultdict(float)
     terms = tokenize(query)
     total = index.get("documentCount", 0)
@@ -71,7 +72,7 @@ def bm25_search(index: dict[str, Any], query: str, ticker: str | None = None, li
             length = index["documentLengths"][doc_id]
             scores[doc_id] += inverse * (frequency * (k1 + 1)) / (frequency + k1 * (1 - b + b * length / average))
     ranked = [{**index["documents"][doc_id], "score": round(score, 6), "matchedTerms": [term for term in terms if any(row[0] == doc_id for row in index["postings"].get(term, []))]} for doc_id, score in sorted(scores.items(), key=lambda item: (-item[1], item[0]))]
-    return diversify_results(ranked, limit)
+    return diversify_results(ranked, limit) if apply_diversification else ranked[:limit]
 
 
 def main() -> int:
@@ -91,7 +92,7 @@ def main() -> int:
             for filing in provider.fetch_recent(security.ticker, security.cik, args.per_form):
                 filing_chunks = chunk_filing(filing, clean_filing_html(filing.html))
                 for chunk in filing_chunks:
-                    chunk["companyName"] = security.name
+                    chunk["companyName"] = security.company_name
                 chunks.extend(filing_chunks)
         except Exception as exc:
             errors.append({"ticker": security.ticker, "message": f"{type(exc).__name__}: {exc}"})

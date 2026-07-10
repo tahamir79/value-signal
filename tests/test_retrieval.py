@@ -4,13 +4,18 @@ from scripts.build_search_index import bm25_search,build_index,tokenize
 from scripts.chunk_filings import chunk_filing
 from scripts.providers.sec_filings import FilingDocument
 from scripts.text_cleaning import clean_filing_html
+from scripts.build_universe import build_universe
 
 
-def filing():
-    return FilingDocument("TEST","0000000001","0000000001-26-000001","2026-02-01","2025-12-31","10-K","test.htm","https://www.sec.gov/Archives/edgar/data/1/000000000126000001/test.htm","")
+def filing(form="10-K"):
+    return FilingDocument("TEST","0000000001","0000000001-26-000001","2026-02-01","2025-12-31",form,"test.htm","https://www.sec.gov/Archives/edgar/data/1/000000000126000001/test.htm","")
 
 
 class RetrievalTests(unittest.TestCase):
+    def test_universe_exposes_company_name_for_chunk_metadata(self):
+        security=build_universe(1)[0]
+        self.assertEqual(security.company_name,"Apple Inc.")
+
     def test_cleaner_removes_markup_scripts_and_repeated_headers(self):
         source="<html><script>secret()</script><body>"+("<p>ACME 2025 FORM 10-K</p>"*4)+"<h2>Item 1A. Risk Factors</h2><p>Supply chain disruption could interrupt production.</p></body></html>"
         cleaned=clean_filing_html(source)
@@ -43,7 +48,7 @@ class RetrievalTests(unittest.TestCase):
         text=("Part I\n\nItem 1. Financial Statements\n\n"+
               "First part financial statement discussion has enough substantive words to remain searchable. "*6+
               "\n\nPart II\n\nItem 1. Legal Proceedings\n\nNone.")
-        chunks=chunk_filing(filing(),text)
+        chunks=chunk_filing(filing("10-Q"),text)
         self.assertEqual([row["sectionKey"] for row in chunks],["part-i:item-1","part-ii:item-1"])
         self.assertNotIn("Part II",chunks[0]["text"])
         for chunk in chunks:
@@ -96,6 +101,43 @@ class RetrievalTests(unittest.TestCase):
         chunks=chunk_filing(filing(),text)
         self.assertIn("preamble:forward-looking-statements",{row["sectionKey"] for row in chunks})
         self.assertFalse(any(row["sectionTitle"]=="Cover page" for row in chunks))
+        contaminated=("Forward-Looking Statements\n"+("Cautious uncertainty language. "*40)+
+                      "\nItem 99. Navigation Noise\n"+("Unrelated payload. "*200)+
+                      "\nPart I\nItem 1. Business\n"+("Business description. "*40))
+        preamble=[row for row in chunk_filing(filing(),contaminated) if row["sectionKey"]=="preamble:forward-looking-statements"]
+        self.assertTrue(preamble); self.assertFalse(any("Unrelated payload" in row["text"] for row in preamble))
+
+    def test_terminal_signatures_do_not_enter_item_16(self):
+        text=("Part IV\nItem 15. Exhibits\n"+("Exhibit description. "*40)+
+              "\nItem 16. Form 10-K Summary\nNone.\nSIGNATURES\n"+("Director signature block. "*200))
+        chunks=chunk_filing(filing(),text)
+        item16=[row for row in chunks if row["sectionKey"]=="part-iv:item-16"]
+        self.assertEqual(len(item16),1); self.assertEqual(item16[0]["text"],"None.")
+        self.assertFalse(any("signature" in row["text"].lower() for row in chunks))
+        oversized=("Part I\nItem 1. Business\n"+("Business evidence. "*100)+
+                   "\nPart IV\nItem 16. Form 10-K Summary\n"+("Implausible summary payload. "*1200))
+        self.assertNotIn("part-iv:item-16",{row["sectionKey"] for row in chunk_filing(filing(),oversized)})
+
+    def test_overlap_is_exactly_last_sentence_not_whole_paragraph(self):
+        first=("Alpha evidence remains relevant for valuation analysis and operating context. "*4)+"Final bridge sentence."
+        second="New paragraph discusses liquidity debt maturities and cash resources. "*5
+        chunks=chunk_filing(filing(),f"Part I\nItem 1. Business\n{first}\n{second}",target_words=30,overlap_words=60)
+        self.assertGreaterEqual(len(chunks),2)
+        self.assertTrue(chunks[1]["text"].startswith("Final bridge sentence."))
+        self.assertNotIn("Alpha evidence",chunks[1]["text"])
+
+    def test_rejected_item_heading_still_ends_prior_section(self):
+        text=("Part I\nItem 1. Financial Statements\n"+("Financial statement evidence. "*50)+
+              "\nPart II\nItem 1A. Risk Factors\n"+("Risk evidence. "*40)+
+              "\nItem 99. Invalid Navigation\n"+("Unrelated payload. "*300))
+        risk=[row for row in chunk_filing(filing("10-Q"),text) if row["sectionKey"]=="part-ii:item-1a"]
+        self.assertTrue(risk); self.assertFalse(any("Unrelated payload" in row["text"] for row in risk))
+
+    def test_dominant_section_fails_closed(self):
+        text=("Part I\nItem 1. Business\n"+("Oversized malformed business payload. "*1500)+
+              "\nItem 1A. Risk Factors\nA short but meaningful risk statement.")
+        keys={row["sectionKey"] for row in chunk_filing(filing(),text)}
+        self.assertNotIn("part-i:item-1",keys); self.assertIn("part-i:item-1a",keys)
 
 
 if __name__=="__main__": unittest.main()

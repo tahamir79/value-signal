@@ -1,0 +1,709 @@
+# ValueSignal Lite Project Blueprint and Session Handoff
+
+**Version:** 1.0  
+**Date:** 2026-07-05  
+**Purpose:** Preserve full project context between Codex/GPT sessions so the implementation does not drift when context refreshes.
+
+---
+
+## 1. Executive Summary
+
+**ValueSignal Lite** is a financial research platform that identifies potentially undervalued public companies for further research using valuation signals, business-quality metrics, risk indicators, historical backtesting, and public filing evidence.
+
+The website is not a stock-picking bot and does not provide buy/sell advice. Its job is to classify stocks into transparent research signals and then help the user inspect the evidence behind those signals.
+
+The evidence layer is based on SEC filings first. The RAG layer should come later, after retrieval/chunking is stable. The final RAG system should run locally using Ollama, not browser WebLLM and not paid APIs.
+
+**Core project sentence:**
+
+> ValueSignal Lite is a financial research platform that uses valuation scoring, quality metrics, risk gates, SEC filing retrieval, and local RAG synthesis to surface and explain potentially undervalued stocks for further research.
+
+---
+
+## 2. Current Reset Point
+
+The project is being reset to a phase **before unstable RAG features were implemented**.
+
+The immediate goal is **not** to build LLM synthesis yet.
+
+The current development order is:
+
+1. Fix SEC retrieval and chunking.
+2. Stabilize BM25 evidence retrieval.
+3. Add rich evidence metadata and citations.
+4. Add retrieval evaluation.
+5. Commit this as a stable retrieval foundation.
+6. Only then add local Ollama RAG.
+
+The retrieval/chunking upgrade reportedly passed. If that remains true in the codebase, the next phase is local Ollama RAG using the improved chunks.
+
+---
+
+## 3. Main Product Mission
+
+The main mission of the website is:
+
+```text
+Find potentially undervalued public companies for further research using valuation signals, quality metrics, risk indicators, backtesting, and public filing evidence.
+```
+
+The value-trap question is only one possible user question. The broader workflow is:
+
+```text
+Stock screener finds a research candidate
+  -> stock receives a primary signal
+  -> user opens stock detail page
+  -> user asks evidence questions
+  -> retrieval system returns filing evidence
+  -> local RAG synthesizes only retrieved evidence
+```
+
+---
+
+## 4. Official Signal Taxonomy
+
+Each stock should receive exactly one primary research signal. These are not investment recommendations.
+
+- Potentially undervalued: Value evidence is comparatively strong and major risk gates have not been triggered. The stock is researchable as a possible undervaluation candidate.
+- Quality watchlist: Business-quality evidence is strong, but the valuation case needs patience or more support. Strong business, but valuation support is not yet decisive.
+- Value trap risk: A low valuation is accompanied by weakening quality or elevated balance-sheet concerns. Cheapness may be explained by risk.
+- Momentum risk: Recent price behavior adds uncertainty to an otherwise researchable company. Price action, volatility, or drawdown complicates the case.
+- Neutral: The current evidence is mixed and does not support a stronger research classification. No strong research signal at this time.
+- Insufficient evidence: Required observations are missing or too stale for a responsible classification. Do not force a classification.
+
+### Signal Ownership
+
+The deterministic scoring engine assigns the signal.
+
+The RAG system explains, supports, weakens, or complicates the signal. It must not automatically relabel the stock.
+
+Possible RAG evidence assessments:
+
+```text
+Supports signal
+Weakens signal
+Mixed evidence
+Insufficient evidence
+Possible reclassification candidate
+```
+
+---
+
+## 5. Target Product Layers
+
+ValueSignal Lite should be built as layered software:
+
+```text
+1. Stock universe and ETL
+2. Financial feature engineering
+3. Scoring and signal engine
+4. Dashboard and stock detail pages
+5. SEC filing ingestion and retrieval
+6. Evidence cards and citations
+7. Retrieval evaluation
+8. Local Ollama RAG synthesis
+9. Analyst brief generation
+10. Deployment and demo documentation
+```
+
+The RAG layer should not replace the screener. It explains the screener's evidence.
+
+---
+
+## 6. Retrieval Foundation Scope
+
+The retrieval/chunking upgrade is the foundation of the entire project. The LLM will only be useful if retrieved chunks are coherent, cited, and metadata-rich.
+
+### Required retrieval pipeline
+
+```text
+SEC filing HTML / text
+  -> clean filing text
+  -> detect SEC Part / Item sections
+  -> create section-aware chunks
+  -> preserve metadata and offsets
+  -> build BM25 search index
+  -> retrieve evidence chunks
+  -> show citations and metadata
+  -> run retrieval evaluation
+```
+
+### Required BM25 behavior
+
+Preserve existing BM25 behavior unless there is a proven bug:
+
+```text
+BM25 tokenization
+k1 = 1.5
+b = 0.75
+ticker filters
+form filters
+citations
+existing retrieval interface
+```
+
+---
+
+## 7. Filing-Aware SEC Chunking Rules
+
+Replace naive fixed-size chunking with deterministic SEC-aware chunking.
+
+Target chunk behavior:
+
+```text
+target chunk size: approximately 300 words
+maximum chunk size: 450 words
+overlap: one sentence
+overlap cap: 60 words
+never cross SEC item boundaries
+```
+
+### Cleaning requirements
+
+The cleaner should:
+
+- preserve paragraph breaks;
+- remove scripts;
+- remove oversized XBRL payloads;
+- remove page numbers;
+- remove table-of-contents markers;
+- remove boilerplate headers and footers;
+- remove normalized short lines repeated at least four times;
+- flatten tables in original row and cell order;
+- exclude generic front matter;
+- preserve substantive preambles such as Forward-Looking Statements when they contain at least 100 words.
+
+### SEC section detection
+
+Parse Part and Item headings into canonical keys:
+
+```text
+part-i:item-1
+part-i:item-1a
+part-i:item-2
+part-ii:item-7
+part-ii:item-7a
+part-ii:item-8
+```
+
+For 10-Q filings, distinguish repeated Part I and Part II item numbers.
+
+### Chunking rules
+
+Within each SEC item section:
+
+1. Accumulate complete paragraphs toward about 300 words.
+2. Start a new chunk before exceeding 450 words.
+3. Split oversized paragraphs at sentence boundaries.
+4. If one sentence exceeds 450 words, use 300-word fixed windows with 40-word overlap.
+5. Merge short tails when possible.
+6. Preserve meaningful short sections such as "None" or "Not applicable."
+7. Omit empty or Reserved sections.
+8. Never cross SEC item boundaries.
+
+### Stable chunk IDs
+
+Generate IDs from:
+
+```text
+accession number
+canonical section key
+normalized chunk-content hash
+```
+
+Identical source content should keep the same ID even if earlier filing text moves.
+
+---
+
+## 8. Search Schema 3.0.0
+
+Bump the search schema to:
+
+```text
+3.0.0
+```
+
+Retain existing fields required by current consumers and add:
+
+```text
+CIK
+primary document
+Part
+item number
+canonical sectionKey
+section title
+chunk sequence
+boundary type
+paragraph range
+sentence range
+section-relative word offsets
+cleaned-document word offsets
+cleaned-document character offsets
+previous chunk ID
+next chunk ID
+```
+
+Keep legacy fields available:
+
+```text
+item
+text
+id
+chunkId
+URLs
+dates
+accession
+existing word offsets
+```
+
+### Minimum chunk object
+
+```ts
+type FilingChunk = {
+  schemaVersion: "3.0.0";
+  id: string;
+  chunkId: string;
+  ticker: string;
+  companyName: string;
+  cik: string | null;
+  formType: "10-K" | "10-Q" | "8-K" | string;
+  filingDate: string;
+  accession: string;
+  primaryDocument: string | null;
+  part: string | null;
+  itemNumber: string | null;
+  sectionKey: string | null;
+  sectionTitle: string | null;
+  item: string | null;
+  chunkSequence: number;
+  boundaryType: string;
+  paragraphRange: [number, number] | null;
+  sentenceRange: [number, number] | null;
+  sectionWordStart: number | null;
+  sectionWordEnd: number | null;
+  documentWordStart: number | null;
+  documentWordEnd: number | null;
+  documentCharStart: number | null;
+  documentCharEnd: number | null;
+  previousChunkId: string | null;
+  nextChunkId: string | null;
+  sourcePath: string | null;
+  sourceUrl: string | null;
+  text: string;
+};
+```
+
+---
+
+## 9. Post-Ranking Diversification
+
+Keep BM25 scoring unchanged. Apply deterministic diversification after ranking:
+
+1. Retain the highest-scoring result.
+2. Prefer another section when its score is at least 25 percent of the top score.
+3. Suppress candidates with token Jaccard similarity above 0.70.
+4. Fill remaining slots with non-overlapping chunks from the same section only if needed.
+
+Apply identical diversification in:
+
+- Python retrieval;
+- browser retrieval, if applicable;
+- stock-page search endpoint.
+
+---
+
+## 10. Evidence Cards
+
+Evidence cards should display:
+
+- canonical Part / Item;
+- section title;
+- chunk sequence;
+- paragraph range;
+- sentence range;
+- boundary type;
+- filing date;
+- accession or source URL;
+- retrieval score;
+- chunk ID;
+- exact text excerpt.
+
+The user should always be able to inspect the exact evidence behind any answer.
+
+---
+
+## 11. Retrieval Evaluation
+
+Use frozen retrieval queries before changing ranking logic.
+
+Metrics:
+
+```text
+BM25 precision@3
+reciprocal rank
+citation validity
+section diversity
+unique chunk IDs
+metadata survival
+```
+
+Test queries should include:
+
+```text
+margin pressure
+inventory risk
+liquidity risk
+supply chain disruption
+competition risk
+material weakness
+value trap risk
+demand weakness
+```
+
+
+```text
+value-trap question returns coherent Item 1A or MD&A passages
+margin question returns coherent margin or MD&A passages
+demand question returns coherent demand / operations passages
+liquidity question returns coherent liquidity / capital resources passages
+```
+
+---
+
+## 12. Future Local Ollama RAG Scope
+
+Only after retrieval/chunking passes, add local RAG.
+
+Local models:
+
+```text
+Embedding: nomic-embed-text
+Synthesis: llama3.2:3b
+Ollama base URL: http://localhost:11434
+```
+
+Recommended environment:
+
+```env
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_EMBED_MODEL=nomic-embed-text
+OLLAMA_SYNTH_MODEL=llama3.2:3b
+RAG_TOP_K=3
+RAG_MAX_CONTEXT_CHARS=6000
+```
+
+### RAG flow
+
+```text
+User question
+  -> ticker filter
+  -> retrieval over improved SEC chunks
+  -> BM25 retrieval
+  -> optional embedding retrieval with nomic-embed-text
+  -> hybrid ranking
+  -> top 3 evidence chunks
+  -> compact prompt
+  -> local llama3.2:3b through Ollama
+  -> cautious cited analyst answer
+```
+
+### RAG files
+
+```text
+rag/
+  config.py
+  ollama_client.py
+  embedding_store.py
+  embedding_retriever.py
+  hybrid_retriever.py
+  prompt_builder.py
+  synthesize.py
+  rag_pipeline.py
+  evaluate_rag.py
+```
+
+Do not require browser WebLLM. Browser inference was tested and caused instability. Keep browser LLM out of the MVP.
+
+---
+
+## 13. Local RAG Prompt
+
+The local Llama prompt should be cautious and evidence-bound:
+
+```text
+You are a cautious financial research assistant.
+
+Use only the retrieved SEC filing evidence provided below.
+Do not use outside knowledge.
+Do not invent facts.
+Do not give buy, sell, or hold advice.
+Do not predict stock prices.
+Cite chunk IDs for every major claim.
+If the retrieved evidence is weak or incomplete, say that the evidence is insufficient.
+Separate evidence from interpretation.
+Use cautious financial research language.
+
+Your job is to explain whether the retrieved evidence supports, weakens, or complicates the stock's research signal.
+
+Required structure:
+
+Summary:
+Evidence Supporting the Signal:
+Risk Evidence:
+Counterpoints or Missing Evidence:
+Interpretation:
+What To Research Next:
+Limitations:
+Citations:
+```
+
+The model must never receive full filings. It should only receive top retrieved chunks with metadata.
+
+---
+
+## 14. Current Events and Catalyst Layer - Later Phase
+
+The LLM should not invent current events. If current events are needed, build a separate current-events/catalyst corpus.
+
+Potential future sources:
+
+- 8-K filings;
+- 8-K exhibits;
+- company press releases;
+- investor relations announcements;
+- earnings release text;
+- product launch announcements;
+- management commentary;
+- manually curated event files.
+
+The current-events layer should be indexed like the SEC corpus:
+
+```text
+event source
+  -> clean text
+  -> chunk with metadata
+  -> add to retrieval corpus
+  -> retrieve event evidence
+  -> synthesize with filing evidence
+```
+
+Do not rely on the LLM or browser to scrape arbitrary websites.
+
+---
+
+## 15. Non-Goals and Guardrails
+
+Do not implement in the stable MVP:
+
+- browser WebLLM synthesis;
+- paid OpenAI/Claude/Anthropic APIs;
+- generic chatbot behavior;
+- LLM-generated stock ratings;
+- LLM relabeling of stock signals;
+- buy/sell/hold advice;
+- price predictions;
+- OpenVINO/Ollama-OV backend changes.
+
+OpenVINO/Ollama-OV can be benchmarked later after normal Ollama RAG works.
+
+---
+
+## 16. Project Commands - Verified From Actual Repo
+
+Run from `C:\Users\stahm\Projects\Decision Scientist`:
+
+```powershell
+git status
+npm ci
+npm run dev
+npm run typecheck
+npm run test:brief
+npm run build
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/run_etl.py
+python scripts/build_search_index.py
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/audit_backtest.py
+python scripts/audit_search.py
+python scripts/build_rag_embeddings.py
+python scripts/run_rag.py "What risks could make this company a value trap?" --ticker AAPL
+python -m rag.evaluate_rag --ticker AAPL
+```
+
+`VS_USER_AGENT` must contain an identifying contact email for SEC commands. Local RAG dependencies are installed with `pip install -r requirements-rag.txt`; Ollama must expose `nomic-embed-text` and `llama3.2:3b` at `http://localhost:11434`.
+
+---
+
+## 17. GPT-5.5 / Codex Implementation Context Update Protocol
+
+This section is the most important part for minimizing context loss.
+
+At the start of every new coding session, GPT-5.5/Codex must update this Markdown file with the actual implementation context from the repository.
+
+### Instruction to GPT-5.5/Codex
+
+**Before writing new code, inspect the repository and update this blueprint with the code implementation context. Do not rely on memory. Do not assume old architecture is still true.**
+
+Run or inspect:
+
+```bash
+pwd
+git branch --show-current
+git status
+git log -1 --oneline
+ls
+find . -maxdepth 3 -type f | sort
+cat package.json
+```
+
+Also inspect the relevant source files for:
+
+```text
+app routes
+stock dashboard
+stock detail page
+SEC filing ingestion scripts
+chunking scripts
+search index generation
+BM25 retrieval
+search endpoint
+search audit
+retrieval evaluation
+evidence card components
+RAG-related files, if any
+```
+
+### Required implementation context block
+
+GPT-5.5/Codex should append or update a section called:
+
+```text
+## 18. Live Implementation Context - Updated by GPT-5.5/Codex
+```
+
+It must include:
+
+```text
+Repository path:
+Git branch:
+Last commit:
+Deployment target:
+Framework:
+Main routes:
+Data directories:
+Search index files:
+Chunking files:
+Retrieval files:
+Evidence UI files:
+Scoring files:
+Current schema version:
+Known working commands:
+Known failing commands:
+Current implementation status:
+Open bugs:
+Next recommended task:
+Files changed in this session:
+Important architectural decisions:
+```
+
+### Session update rule
+
+At the end of every meaningful development session, GPT-5.5/Codex should update:
+
+```text
+What changed
+What passed
+What failed
+What is still unknown
+What should be done next
+```
+
+The goal is to make this Markdown file the durable context source between sessions.
+
+---
+
+## 18. Live Implementation Context - Updated by GPT-5.5/Codex
+
+**Updated:** 2026-07-06 (America/Chicago)
+
+- **Repository path:** `C:\Users\stahm\Projects\Decision Scientist`
+- **Git branch:** `improvedsecRetreival` (feature branch; no upstream configured)
+- **Last local commit:** `19580bc feat: upgrade SEC filing retrieval foundation`
+- **Product remote:** `value-signal -> https://github.com/tahamir79/value-signal.git`; default branch `main`. Do not push ValueSignal work to the build-console `origin` remote.
+- **Deployment target:** Vercel, redeployed from commits pushed to the ValueSignal repository.
+- **Framework:** Next.js 15 App Router, React 19, TypeScript 5.8; Python 3 ETL/research pipeline.
+- **Main routes:** `/`, `/dashboard`, `/backtest`, `/methodology`, `/stock/[ticker]`, and dynamic `/api/search`.
+- **Data directories:** generated artifacts in `public/data/`; ignored local RAG vectors in `.cache/rag/`.
+- **Search index:** `public/data/search_index.json`; generated by `scripts/build_search_index.py`; audited by `scripts/audit_search.py`.
+- **Chunking/cleaning:** `scripts/chunk_filings.py`, `scripts/text_cleaning.py`, and `scripts/providers/sec_filings.py`.
+- **Retrieval:** Python BM25 in `scripts/build_search_index.py`, diversification in `scripts/retrieval.py`, server retrieval in `src/lib/search.ts`, local RAG modules under `rag/`.
+- **Evidence UI:** `src/components/FilingEvidencePanel.tsx`; stock page integration in `src/app/stock/[ticker]/page.tsx`.
+- **Scoring:** `scripts/features.py`, `scripts/scoring.py`, `docs/feature_dictionary.md`, and `docs/scoring_specification.md`.
+- **Current search schema:** local feature branch `3.0.0`; remote `value-signal/main` still has schema `1.0.0` until the retrieval upgrade is merged.
+- **Known working commands:** commands in Section 16; 48 Python tests, 5 TypeScript brief tests, all publication audits, type-check, and the production build passed on 2026-07-06. Local RAG remains outside the deployment commit.
+- **Known failing/blocked commands:** full local embedding-cache generation exceeded the 20-minute execution window twice (first per chunk, then batched); no incomplete cache is published. BM25 fallback remains operational.
+- **Current implementation status:** Phases 1–8 exist; schema-3 retrieval is committed locally; local Ollama RAG is implemented but not committed; `nomic-embed-text` and `llama3.2:3b` are installed and responsive. The live local ETL/index refresh completed on 2026-07-05.
+- **Automation:** `.github/workflows/refresh-data.yml` runs at `23:25 UTC` Monday–Friday. The latest scheduled run on `value-signal/main` succeeded on 2026-07-04 UTC (Friday evening Chicago time); no weekend run is expected.
+- **Open bugs:** fixed and live-validated—schema-3 builder incorrectly referenced `security.name` instead of `security.company_name`; TOC/body anchoring, terminal signatures, malformed preambles, Item 16 overflow, and section-monopoly failures were corrected. Remaining local-only issue: embedding-cache generation needs resumable checkpointing or faster local hardware.
+- **Next recommended task:** commit only the retrieval/code/artifact/blueprint changes, merge/push explicitly to `value-signal/main`, and manually dispatch/verify the workflow. Keep local RAG uncommitted.
+- **Files changed this session:** this blueprint, `scripts/build_search_index.py`, `tests/test_retrieval.py`, all refreshed `public/data/*.json` artifacts, and the pre-existing local RAG implementation/documentation.
+- **Architectural decisions:** BM25 remains authoritative and always available; semantic retrieval is optional; Ollama is local-only and never required by Vercel/GitHub Actions; generated `public/data/*.json` is not hand-maintained source.
+
+### Session handoff
+
+- **What changed:** repository context was reconciled with the blueprint; product remote and workflow schedule were verified; the schema-3 company-name bug was fixed; live artifacts were refreshed.
+- **What passed:** ETL 10/10; upgraded schema-3 index 1,996 chunks/10,389 terms; structural/schema/citation audit; raw BM25 precision@3 `0.7500`, MRR `0.8750`; diversified precision@3 `0.5833`, MRR `0.8750`; 48 Python tests; 5 TypeScript tests; type-check; production Next.js build; GitHub's latest scheduled run was successful.
+- **What failed:** local vector-cache generation exceeded 20 minutes. Two intermediate strengthened audits correctly blocked malformed sections before the final live corpus passed. Nothing failed in the scheduler; the apparent two-day gap is the expected weekend pause.
+- **Still unknown:** end-to-end hybrid RAG over the full live corpus and the next online workflow result after schema 3 is pushed.
+- **Next:** push only to the `value-signal` remote, manually dispatch/verify the workflow, then address retrieval relevance and resumable embeddings.
+
+---
+
+## 19. First Prompt To Use In Next Codex Session
+
+Paste this into Codex at the start of the next session:
+
+```text
+Please read ValueSignal_Project_Blueprint.md first.
+
+Before writing code, inspect the actual repository and update the section "Live Implementation Context - Updated by GPT-5.5/Codex" with the current implementation details.
+
+Do not assume any previous architecture is still correct.
+
+Run or inspect: pwd, git branch, git status, git log -1, package.json, routes, scripts, search index generation, chunking code, retrieval code, evidence UI, and tests.
+
+After updating the blueprint, summarize the current state and propose the smallest safe next step.
+```
+
+---
+
+## 20. Portfolio Positioning
+
+Use this final project framing:
+
+```text
+Built ValueSignal Lite, a financial research platform that classifies public companies into transparent research signals and uses SEC-aware filing retrieval, BM25 search, metadata-rich evidence cards, and local Ollama RAG to explain potentially undervalued stocks with citations.
+```
+
+Stronger resume version after RAG works:
+
+```text
+Built a local financial RAG pipeline using SEC-aware filing chunks, BM25 retrieval, nomic-embed-text embeddings, hybrid ranking, and local Llama 3.2 synthesis through Ollama to explain public-company research signals with citations.
+```
+
+---
+
+## 21. Immediate Next Step
+
+If the retrieval/chunking upgrade truly passed, commit it first:
+
+```bash
+git status
+git add .
+git commit -m "Upgrade SEC filing chunking and retrieval foundation"
+```
+
+Then implement the local Ollama RAG layer on top of the improved chunks.
+
+Do not reintroduce browser WebLLM until the local RAG pipeline is stable.
