@@ -729,8 +729,10 @@ scripts/universe/normalize_symbols.py
 scripts/universe/universe_filters.py
 scripts/universe/universe_manifest.py
 scripts/sec/sec_client.py
+scripts/filings/ingest_filings.py
 scripts/pipeline/run_scaled_pipeline.py
 tests/test_scaled_universe.py
+tests/test_scaled_filings.py
 ```
 
 Generated local artifacts:
@@ -740,6 +742,10 @@ data/universe/universe.json
 data/universe/universe_manifest.json
 data/reports/pipeline_report.json
 data/reports/failures.json
+data/filings/filing_metadata.json
+data/cache/sec/filings/raw_html/
+data/cache/sec/filings/clean_text/
+data/cache/sec/filings/chunks/
 ```
 
 Scaling commands:
@@ -749,7 +755,10 @@ python scripts/universe/build_universe.py --mode starter
 python scripts/universe/build_universe.py --mode sec_listed_core --limit 50
 python scripts/pipeline/run_scaled_pipeline.py --mode starter
 python scripts/pipeline/run_scaled_pipeline.py --mode sec_listed_core --limit 250 --resume
+python scripts/filings/ingest_filings.py --universe data/universe/universe.json --forms 10-K 10-Q --limit 25
+python scripts/pipeline/run_scaled_pipeline.py --mode starter --limit 10 --ingest-filings
 python -m unittest tests.test_scaled_universe -v
+python -m unittest tests.test_scaled_filings -v
 ```
 
 Important guardrails:

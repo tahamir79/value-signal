@@ -74,6 +74,8 @@ python scripts/universe/build_universe.py --mode starter
 python scripts/universe/build_universe.py --mode sec_listed_core --limit 50
 python scripts/pipeline/run_scaled_pipeline.py --mode starter
 python scripts/pipeline/run_scaled_pipeline.py --mode sec_listed_core --limit 250 --resume
+python scripts/filings/ingest_filings.py --universe data/universe/universe.json --forms 10-K 10-Q --limit 25
+python scripts/pipeline/run_scaled_pipeline.py --mode starter --limit 10 --ingest-filings
 python scripts/audit_search.py
 python scripts/scoring.py
 npm run build
@@ -85,6 +87,8 @@ Generated local scaling artifacts are written under `data/`:
 - `data/universe/universe_manifest.json`
 - `data/reports/pipeline_report.json`
 - `data/reports/failures.json`
+- `data/filings/filing_metadata.json`
+- `data/cache/sec/filings/chunks/*.json`
 
 Do not publish giant raw filing corpora to the frontend bundle. The online dashboard should use compact summary/scoring data, while filing evidence remains lazy-loaded per ticker.
 
