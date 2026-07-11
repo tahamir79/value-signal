@@ -8,8 +8,12 @@ SUPPORTED_EXCHANGES = {"NYSE", "NASDAQ", "NYSE AMERICAN"}
 UNSUPPORTED_NAME_PATTERNS = (
     r"\bETF\b", r"\bETN\b", r"\bFUND\b", r"\bTRUST\b", r"\bSPAC\b",
     r"\bWARRANT", r"\bRIGHTS?\b", r"\bUNIT\b", r"\bPREFERRED\b",
+    r"\bACQUISITION\b.*\b(?:RIGHT|UNIT|WARRANT)\b",
 )
-UNSUPPORTED_TICKER_PATTERNS = (r"-W$", r"-WS$", r"-WT$", r"-R$", r"-U$", r"-P[A-Z]?$")
+UNSUPPORTED_TICKER_PATTERNS = (
+    r"-W$", r"-WS$", r"-WT$", r"-WTS?$", r"-R$", r"-RT$", r"-U$", r"-UN$", r"-UT$", r"-UNIT$",
+    r"-P[A-Z]?$", r"-PR[A-Z]?$",
+)
 
 
 @dataclass(frozen=True)
@@ -23,6 +27,10 @@ class SupportDecision:
 def classify_security(ticker: str, company_name: str, exchange: str | None) -> SupportDecision:
     name = company_name.upper()
     normalized_exchange = (exchange or "").upper()
+    if len(ticker) >= 5 and re.search(r"[RUW]$", ticker):
+        return SupportDecision(False, exclude_reason="likely right/unit/warrant ticker suffix", priority=900)
+    if re.search(r"\b(?:ACQUISITION|CAPITAL|SPONSOR|BLANK CHECK)\b", name) and re.search(r"[RUW]$", ticker):
+        return SupportDecision(False, exclude_reason="likely SPAC right/unit/warrant class", priority=900)
     for pattern in UNSUPPORTED_TICKER_PATTERNS:
         if re.search(pattern, ticker):
             return SupportDecision(False, exclude_reason="unsupported ticker suffix", priority=900)
@@ -32,4 +40,3 @@ def classify_security(ticker: str, company_name: str, exchange: str | None) -> S
     if normalized_exchange and normalized_exchange not in SUPPORTED_EXCHANGES:
         return SupportDecision(False, exclude_reason=f"exchange not in default core set: {exchange}", priority=700)
     return SupportDecision(True, support_reason="NYSE/Nasdaq operating-company candidate", priority=100)
-

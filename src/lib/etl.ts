@@ -15,7 +15,8 @@ export type PriceBar = {
 export type DashboardRecord = {
   security: { ticker: string; cik: string; company_name: string; exchange: string; sector: string };
   derived: { latestPrice: number | null; dailyChangePercent: number | null; marketCapBillions: number | null };
-  priceHistory: PriceBar[];
+  latestFacts?: Record<string, unknown>;
+  priceHistory?: PriceBar[];
 };
 
 export type EtlData = {
@@ -102,6 +103,15 @@ export async function getSignalData(): Promise<SignalData> {
     return await read<SignalData>("signals.json");
   } catch (error) {
     return { schemaVersion: "unavailable", generatedAt: null, records: [], loadError: message(error) };
+  }
+}
+
+export async function getStockDetailData(ticker:string):Promise<DashboardRecord|undefined>{
+  try{
+    const payload=await read<{record:DashboardRecord}>(`stocks/${ticker.toUpperCase()}.json`);
+    return payload.record;
+  }catch{
+    return undefined;
   }
 }
 

@@ -6,6 +6,7 @@ from scripts.models import PriceBar
 from scripts.providers.price_provider import FixturePriceProvider
 from scripts.providers.sec_companyfacts import FixtureCompanyFactsProvider
 from scripts.run_etl import run
+from scripts.run_etl import _securities_from_universe_file
 
 def facts(value=100): return {"facts":{"us-gaap":{"Assets":{"units":{"USD":[{"val":value,"end":"2025-12-31","filed":"2026-02-01","fy":2025,"fp":"FY","form":"10-K","accn":"x"}]}}}}}
 
@@ -25,5 +26,18 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(signals["records"][0]["signal"],"insufficient-evidence")
             backtest=json.loads((Path(directory)/"backtest_results.json").read_text())
             self.assertEqual(backtest["status"],"insufficient_data")
+
+    def test_scaled_universe_file_feeds_existing_etl(self):
+        payload={"records":[
+            {"ticker":"AAPL","cik":"320193","companyName":"Apple Inc.","exchange":"NASDAQ","sector":"Technology","isSupported":True},
+            {"ticker":"ETF","cik":"1","companyName":"Example ETF","exchange":"NYSE","sector":None,"isSupported":False},
+            {"ticker":"MSFT","cik":"789019","companyName":"Microsoft Corp.","exchange":"NASDAQ","sector":"Technology","isSupported":True},
+        ]}
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/"universe.json"
+            path.write_text(json.dumps(payload),encoding="utf-8")
+            securities=_securities_from_universe_file(path)
+            self.assertEqual([security.ticker for security in securities],["AAPL","MSFT"])
+            self.assertEqual(securities[0].cik,"0000320193")
 
 if __name__=="__main__": unittest.main()

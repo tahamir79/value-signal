@@ -31,7 +31,9 @@ class ScaledUniverseTests(unittest.TestCase):
         self.assertFalse(classify_security("ABC-W", "Example Warrants", "Nasdaq").is_supported)
         self.assertFalse(classify_security("ETF", "Example ETF Trust", "NYSE").is_supported)
         self.assertFalse(classify_security("OTC", "OTC Example", "OTC").is_supported)
+        self.assertFalse(classify_security("AACBU", "Artius II Acquisition Inc. Unit", "Nasdaq").is_supported)
         self.assertTrue(classify_security("AAPL", "Apple Inc.", "Nasdaq").is_supported)
+        self.assertTrue(classify_security("LOW", "Lowe's Companies Inc.", "NYSE").is_supported)
 
     def test_starter_universe_uses_existing_seed(self) -> None:
         rows = build_scaled_universe(mode="starter", limit=2)

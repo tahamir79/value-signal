@@ -9,14 +9,13 @@ import { AnalystBrief } from "@/components/AnalystBrief";
 import { SignalBadge } from "@/components/signals/SignalBadge";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { ScoreCard } from "@/features/stock-detail/ScoreCard";
-import { getStock,stocks } from "@/data/stocks";
-import { getResearchStockDetail } from "@/lib/research";
+import { getResearchStockDetail,getResearchStocks } from "@/lib/research";
 import { searchFilings } from "@/lib/search";
 import { getBacktestData } from "@/lib/etl";
 import { generateAnalystBrief } from "@/lib/briefGenerator";
 
-export function generateStaticParams(){return stocks.map(({ticker})=>({ticker}))}
-export async function generateMetadata({params}:{params:Promise<{ticker:string}>}):Promise<Metadata>{const stock=getStock((await params).ticker);return{title:stock?`${stock.ticker} research`:"Company not found"}}
+export function generateStaticParams(){return []}
+export async function generateMetadata({params}:{params:Promise<{ticker:string}>}):Promise<Metadata>{const detail=await getResearchStockDetail((await params).ticker);return{title:detail?`${detail.stock.ticker} research`:"Company not found"}}
 
 export default async function StockPage({params}:{params:Promise<{ticker:string}>}){
   const ticker=(await params).ticker;const [detail,filingEvidence,backtest]=await Promise.all([getResearchStockDetail(ticker),searchFilings(ticker,"risk factors",3),getBacktestData()]);if(!detail)notFound();
