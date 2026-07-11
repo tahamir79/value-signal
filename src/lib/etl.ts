@@ -15,8 +15,28 @@ export type PriceBar = {
 export type DashboardRecord = {
   security: { ticker: string; cik: string; company_name: string; exchange: string; sector: string };
   derived: { latestPrice: number | null; dailyChangePercent: number | null; marketCapBillions: number | null };
+  dataStatus?: DataStatus;
   latestFacts?: Record<string, unknown>;
   priceHistory?: PriceBar[];
+};
+
+export type DataStatus = {
+  rawSecTraceable?: boolean;
+  submissionsAvailable?: boolean;
+  companyFactsAvailable?: boolean;
+  recent10KAvailable?: boolean;
+  recent10QAvailable?: boolean;
+  filingsDownloaded?: boolean;
+  filingsCleaned?: boolean;
+  filingsChunked?: boolean;
+  bm25Indexed?: boolean;
+  scoringInputsAvailable?: boolean;
+  scoringAvailable?: boolean;
+  officialSignal?: string | null;
+  insufficientEvidenceReason?: string | null;
+  latestFilingDate?: string | null;
+  latestScoringDate?: string | null;
+  lastPipelineRun?: string | null;
 };
 
 export type EtlData = {
@@ -32,6 +52,7 @@ export type EtlReport = {
   runFinishedAt: string | null;
   successfulTickers: number;
   failedTickers: number;
+  coverageCounts?: Record<string, number>;
   loadError?: string;
 };
 

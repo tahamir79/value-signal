@@ -35,6 +35,7 @@ function liveStockFromTicker(ticker:string,etl:Awaited<ReturnType<typeof getEtlD
     summary:scored?scored.explanations.slice(0,2).join(" "):fallback?.summary??"Generated from the scaled ValueSignal pipeline; inspect source data before drawing conclusions.",
     supportingEvidence:support.length?support:fallback?.supportingEvidence??[],
     weakeningEvidence:risks.length?risks:fallback?.weakeningEvidence??[],
+    dataStatus:dashboardRecord?.dataStatus,
   };
 }
 

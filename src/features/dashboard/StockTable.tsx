@@ -111,6 +111,7 @@ export function StockTable({ records }: { records: StockRecord[] }) {
               <th aria-sort={sort === "quality" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Quality", "quality")}</th>
               <th aria-sort={sort === "momentum" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Momentum", "momentum")}</th>
               <th aria-sort={sort === "confidence" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Confidence", "confidence")}</th>
+              <th>Data status</th>
               <th aria-sort={sort === "price" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Price", "price")}</th>
             </tr>
           </thead>
@@ -123,6 +124,7 @@ export function StockTable({ records }: { records: StockRecord[] }) {
                 <td>{score(stock.scores.quality)}</td>
                 <td>{score(stock.scores.momentum)}</td>
                 <td>{stock.confidence}</td>
+                <td><small>{stock.dataStatus?.scoringAvailable ? "Scored" : "Insufficient"} · {stock.dataStatus?.bm25Indexed ? "Searchable" : "No BM25"}</small></td>
                 <td>${stock.price.toFixed(2)}<small className={stock.dailyChangePercent >= 0 ? "up" : "down"}>{stock.dailyChangePercent >= 0 ? "+" : ""}{stock.dailyChangePercent.toFixed(2)}%</small></td>
               </tr>
             ))}
