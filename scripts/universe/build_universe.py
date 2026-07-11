@@ -18,18 +18,26 @@ from scripts.universe.universe_manifest import build_manifest
 
 
 SEC_TICKER_EXCHANGE_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
-UNIVERSE_MODES = {"starter", "watchlist", "sp500_or_largecap", "sec_listed_core", "sec_listed_all", "custom"}
+UNIVERSE_MODES = {"starter", "watchlist", "sp500_or_largecap", "largecap", "nyse", "nasdaq", "nyse_nasdaq_core", "sec_listed_core", "sec_listed_all", "sec_traceable_all", "custom"}
 
 
 def default_data_status() -> dict[str, bool]:
     return {
+        "rawSecTraceable": True,
         "submissionsAvailable": False,
         "companyFactsAvailable": False,
         "recent10KAvailable": False,
         "recent10QAvailable": False,
         "recent8KAvailable": False,
         "filingsIndexed": False,
+        "bm25Indexed": False,
+        "scoringInputsAvailable": False,
         "scoringAvailable": False,
+        "officialSignal": None,
+        "insufficientEvidenceReason": None,
+        "latestFilingDate": None,
+        "latestScoringDate": None,
+        "lastPipelineRun": None,
     }
 
 
@@ -72,36 +80,49 @@ def rows_from_starter(limit: int | None = None) -> list[dict[str, Any]]:
     ]
 
 
-def rows_from_sec_mapping(records: list[dict[str, Any]], *, mode: str, limit: int | None = None) -> list[dict[str, Any]]:
+def rows_from_sec_mapping(records: list[dict[str, Any]], *, mode: str, limit: int | None = None,
+                          offset: int = 0, exchange: str | None = None) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     seen: set[str] = set()
+    wanted_exchange = exchange.upper() if exchange else None
     for record in records:
         row = universe_row(record.get("cik"), record.get("ticker"), record.get("name"), record.get("exchange"))
+        if wanted_exchange and str(row.get("exchange") or "").upper() != wanted_exchange:
+            continue
+        if mode == "nyse" and str(row.get("exchange") or "").upper() != "NYSE":
+            continue
+        if mode == "nasdaq" and str(row.get("exchange") or "").upper() != "NASDAQ":
+            continue
         key = stable_universe_key(row["cik"], row["ticker"])
         if key in seen:
             row["isSupported"] = False
             row["excludeReason"] = "duplicate CIK/ticker row"
         seen.add(key)
-        if mode == "sec_listed_core" and not row["isSupported"]:
+        if mode in {"sec_listed_core", "nyse_nasdaq_core", "nyse", "nasdaq", "largecap"} and not row["isSupported"]:
             rows.append(row)
             continue
         rows.append(row)
     rows.sort(key=lambda row: (0 if row["isSupported"] else 1, row.get("priority", 100), row["ticker"]))
     if limit:
-        supported = [row for row in rows if row["isSupported"]][:limit]
+        supported = [row for row in rows if row["isSupported"]][offset:offset + limit]
         unsupported = [row for row in rows if not row["isSupported"]]
         return supported + unsupported[: max(0, min(len(unsupported), limit - len(supported)))]
+    if offset:
+        supported = [row for row in rows if row["isSupported"]][offset:]
+        unsupported = [row for row in rows if not row["isSupported"]]
+        return supported + unsupported
     return rows
 
 
 def build_scaled_universe(*, mode: str, limit: int | None = None, user_agent: str | None = None,
-                          sec_records: list[dict[str, Any]] | None = None) -> list[dict[str, Any]]:
+                          sec_records: list[dict[str, Any]] | None = None, offset: int = 0,
+                          exchange: str | None = None) -> list[dict[str, Any]]:
     if mode not in UNIVERSE_MODES:
         raise ValueError(f"unsupported universe mode: {mode}")
-    if mode in {"starter", "watchlist", "custom", "sp500_or_largecap"} and sec_records is None:
+    if mode in {"starter", "watchlist", "custom", "sp500_or_largecap", "largecap"} and sec_records is None:
         return rows_from_starter(limit)
     records = sec_records if sec_records is not None else load_sec_mapping(user_agent or required_user_agent())
-    return rows_from_sec_mapping(records, mode=mode, limit=limit)
+    return rows_from_sec_mapping(records, mode=mode, limit=limit, offset=offset, exchange=exchange)
 
 
 def required_user_agent() -> str:
@@ -126,6 +147,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build a staged ValueSignal stock universe.")
     parser.add_argument("--mode", choices=sorted(UNIVERSE_MODES), default="starter")
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--offset", type=int, default=0)
+    parser.add_argument("--exchange")
     parser.add_argument("--output-dir", default="data/universe")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--force", action="store_true", help="reserved for compatibility with scaled jobs")
@@ -139,7 +162,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    rows = build_scaled_universe(mode=args.mode, limit=args.limit)
+    rows = build_scaled_universe(mode=args.mode, limit=args.limit, offset=args.offset, exchange=args.exchange)
     manifest = write_universe(rows, mode=args.mode, limit=args.limit, output_dir=Path(args.output_dir), dry_run=args.dry_run)
     print(json.dumps(manifest, indent=2))
 
