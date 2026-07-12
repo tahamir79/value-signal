@@ -15,6 +15,7 @@ export type FilingEvidence={
 };
 type IndexedEvidence=Omit<FilingEvidence,"score"|"matchedTerms">;
 type SearchIndex={schemaVersion?:string;documentCount:number;averageDocumentLength:number;documentLengths:number[];documents:IndexedEvidence[];postings:Record<string,Array<[number,number]>>};
+type SearchManifest={indexMode?:"per_ticker";tickers?:Record<string,{path:string;documentCount:number;latestFilingDate?:string|null}>};
 const stopwords=new Set(["a","an","and","are","as","at","be","by","for","from","has","in","is","it","of","on","or","that","the","this","to","was","were","will","with"]);
 const tokenize=(text:string)=>(text.toLowerCase().match(/[a-z0-9]+(?:'[a-z]+)?/g)??[]).filter(token=>!stopwords.has(token)&&token.length>1);
 const section=(row:FilingEvidence)=>row.sectionKey??row.item??"";
@@ -37,11 +38,22 @@ export function diversifyEvidence(ranked:FilingEvidence[],limit:number):FilingEv
   return selected;
 }
 
-async function loadIndex():Promise<SearchIndex>{return JSON.parse(await readFile(path.join(process.cwd(),"public","data","search_index.json"),"utf8")) as SearchIndex}
+const emptyIndex=():SearchIndex=>({documentCount:0,averageDocumentLength:0,documentLengths:[],documents:[],postings:{}});
+
+async function loadIndex(ticker:string):Promise<SearchIndex>{
+  const root=path.join(process.cwd(),"public","data","search_index.json");
+  const payload=JSON.parse(await readFile(root,"utf8")) as SearchIndex&SearchManifest;
+  if(payload.indexMode==="per_ticker"){
+    const entry=payload.tickers?.[ticker];
+    if(!entry?.path)return emptyIndex();
+    return JSON.parse(await readFile(path.join(process.cwd(),entry.path),"utf8")) as SearchIndex;
+  }
+  return payload as SearchIndex;
+}
 
 export async function searchFilings(ticker:string,query:string,limit=5):Promise<FilingEvidence[]>{
   const normalizedTicker=ticker.toUpperCase(),terms=tokenize(query.slice(0,200));if(!terms.length)return [];
-  try{const index=await loadIndex(),scores=new Map<number,number>(),average=index.averageDocumentLength||1;
+  try{const index=await loadIndex(normalizedTicker),scores=new Map<number,number>(),average=index.averageDocumentLength||1;
     for(const term of terms){const posting=index.postings[term]??[];if(!posting.length)continue;const inverse=Math.log(1+(index.documentCount-posting.length+.5)/(posting.length+.5));for(const [docId,frequency] of posting){if(index.documents[docId]?.ticker!==normalizedTicker)continue;const length=index.documentLengths[docId];const score=inverse*(frequency*2.5)/(frequency+1.5*(.25+.75*length/average));scores.set(docId,(scores.get(docId)??0)+score)}}
     const ranked=[...scores.entries()].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(([docId,score])=>({...index.documents[docId],score:Number(score.toFixed(6)),matchedTerms:terms.filter(term=>(index.postings[term]??[]).some(([id])=>id===docId))}));
     return diversifyEvidence(ranked,Math.max(1,Math.min(limit,10)));

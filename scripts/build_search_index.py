@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import math
 import os
 import re
@@ -17,6 +18,7 @@ if __package__ in {None, ""}:
 from scripts.build_universe import build_universe
 from scripts.chunk_filings import chunk_filing
 from scripts.export_json import write_json
+from scripts.models import Security
 from scripts.providers.sec_filings import SecFilingProvider
 from scripts.retrieval import diversify_results
 from scripts.text_cleaning import clean_filing_html
@@ -75,11 +77,161 @@ def bm25_search(index: dict[str, Any], query: str, ticker: str | None = None, li
     return diversify_results(ranked, limit) if apply_diversification else ranked[:limit]
 
 
+def load_scaled_universe(path: Path, limit: int | None = None) -> list[Security]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("records") or payload
+    if not isinstance(rows, list):
+        raise ValueError("Universe file must contain a list or records array")
+    securities: list[Security] = []
+    for row in rows:
+        if not row.get("isSupported", True):
+            continue
+        securities.append(Security(
+            row["ticker"],
+            row["cik"],
+            row.get("companyName") or row.get("name") or row["ticker"],
+            row.get("exchange") or "UNKNOWN",
+            row.get("sector") or "Unknown",
+        ))
+        if limit and len(securities) >= limit:
+            break
+    if len({security.ticker for security in securities}) != len(securities):
+        raise ValueError("Universe contains duplicate tickers")
+    return securities
+
+
+def _read_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _mark_status(status: dict[str, Any], *, indexed: bool, latest_filing_date: str | None) -> None:
+    status["filingsDownloaded"] = indexed
+    status["filingsCleaned"] = indexed
+    status["filingsChunked"] = indexed
+    status["bm25Indexed"] = indexed
+    if latest_filing_date:
+        status["latestFilingDate"] = latest_filing_date
+
+
+def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[str, Any]:
+    latest_by_ticker: dict[str, str] = {}
+    for document in index.get("documents", []):
+        ticker = str(document.get("ticker") or "").upper()
+        filing_date = document.get("filingDate")
+        if not ticker:
+            continue
+        if filing_date and filing_date > latest_by_ticker.get(ticker, ""):
+            latest_by_ticker[ticker] = filing_date
+    indexed_tickers = set(latest_by_ticker)
+
+    def apply_to_records(payload: dict[str, Any] | None, ticker_getter: Any) -> bool:
+        if not payload or not isinstance(payload.get("records"), list):
+            return False
+        changed = False
+        for row in payload["records"]:
+            ticker = str(ticker_getter(row) or "").upper()
+            status = row.get("dataStatus")
+            if isinstance(status, dict):
+                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
+                changed = True
+        return changed
+
+    dashboard = _read_json(data_dir / "dashboard.json")
+    if apply_to_records(dashboard, lambda row: row.get("security", {}).get("ticker")):
+        write_json(data_dir / "dashboard.json", dashboard or {})
+
+    summary = _read_json(data_dir / "stocks" / "summary.json")
+    if apply_to_records(summary, lambda row: row.get("ticker")):
+        write_json(data_dir / "stocks" / "summary.json", summary or {})
+
+    etl_report = _read_json(data_dir / "etl_report.json")
+    if etl_report and isinstance(etl_report.get("tickers"), list):
+        for row in etl_report["tickers"]:
+            ticker = str(row.get("ticker") or "").upper()
+            status = row.get("dataStatus")
+            if isinstance(status, dict):
+                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
+        write_json(data_dir / "etl_report.json", etl_report)
+
+    stocks_dir = data_dir / "stocks"
+    if stocks_dir.exists():
+        for stock_path in stocks_dir.glob("*.json"):
+            if stock_path.name == "summary.json":
+                continue
+            payload = _read_json(stock_path)
+            record = (payload or {}).get("record", payload or {})
+            ticker = str(record.get("security", {}).get("ticker") or stock_path.stem).upper()
+            status = record.get("dataStatus")
+            if isinstance(status, dict):
+                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
+                write_json(stock_path, payload or {})
+
+    coverage = _read_json(data_dir / "universe_coverage_report.json")
+    if coverage and isinstance(coverage.get("counts"), dict):
+        counts = coverage["counts"]
+        counts["filings_downloaded"] = len(indexed_tickers)
+        counts["filings_indexed"] = len(indexed_tickers)
+        counts["searchable_companies"] = len(indexed_tickers)
+        write_json(data_dir / "universe_coverage_report.json", coverage)
+
+    return {"indexedTickers": sorted(indexed_tickers), "indexedTickerCount": len(indexed_tickers)}
+
+
+def write_compact_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
+    temporary.replace(path)
+
+
+def write_partitioned_index(index: dict[str, Any], manifest_path: Path, search_dir: Path) -> dict[str, Any]:
+    search_dir.mkdir(parents=True, exist_ok=True)
+    documents_by_ticker: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for document in index.get("documents", []):
+        ticker = str(document.get("ticker") or "").upper()
+        if ticker:
+            documents_by_ticker[ticker].append(document)
+
+    tickers: dict[str, dict[str, Any]] = {}
+    for ticker, documents in sorted(documents_by_ticker.items()):
+        ticker_index = build_index(documents)
+        ticker_path = search_dir / f"{ticker}.json"
+        write_compact_json(ticker_path, ticker_index)
+        filing_dates = [row.get("filingDate") for row in documents if row.get("filingDate")]
+        tickers[ticker] = {
+            "path": str(ticker_path.as_posix()),
+            "documentCount": ticker_index["documentCount"],
+            "termCount": len(ticker_index["postings"]),
+            "latestFilingDate": max(filing_dates) if filing_dates else None,
+        }
+
+    manifest = {
+        "schemaVersion": SEARCH_SCHEMA_VERSION,
+        "generatedAt": index.get("generatedAt"),
+        "corpusHash": index.get("corpusHash"),
+        "status": index.get("status"),
+        "indexMode": "per_ticker",
+        "documentCount": index.get("documentCount", 0),
+        "termCount": len(index.get("postings", {})),
+        "tickerCount": len(tickers),
+        "tickers": tickers,
+        "errors": index.get("errors", []),
+    }
+    write_json(manifest_path, manifest)
+    return manifest
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the ValueSignal SEC filing search index")
     parser.add_argument("--output", type=Path, default=Path("public/data/search_index.json"))
+    parser.add_argument("--universe", type=Path, help="Optional scaled universe JSON file with records containing ticker, cik, and companyName")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--per-form", type=int, default=1)
+    parser.add_argument("--search-dir", type=Path, help="Directory for per-ticker BM25 index files. Defaults to public/data/search.")
+    parser.add_argument("--monolith", action="store_true", help="Write one large search_index.json instead of a manifest plus per-ticker indexes")
+    parser.add_argument("--no-status-update", action="store_true", help="Only write search_index.json; do not back-fill bm25Indexed status flags")
     args = parser.parse_args()
     user_agent = os.getenv("VS_USER_AGENT", "")
     if not user_agent or "@" not in user_agent:
@@ -87,7 +239,8 @@ def main() -> int:
         return 2
     provider = SecFilingProvider(user_agent)
     chunks, errors = [], []
-    for security in build_universe(args.limit):
+    securities = load_scaled_universe(args.universe, args.limit) if args.universe else build_universe(args.limit)
+    for security in securities:
         try:
             for filing in provider.fetch_recent(security.ticker, security.cik, args.per_form):
                 filing_chunks = chunk_filing(filing, clean_filing_html(filing.html))
@@ -97,8 +250,14 @@ def main() -> int:
         except Exception as exc:
             errors.append({"ticker": security.ticker, "message": f"{type(exc).__name__}: {exc}"})
     index = build_index(chunks, errors)
-    write_json(args.output, index)
-    print(f"Search index {index['status']}: {index['documentCount']} chunks, {len(index['postings'])} terms")
+    if args.monolith:
+        write_json(args.output, index)
+        output = index
+    else:
+        output = write_partitioned_index(index, args.output, args.search_dir or args.output.parent / "search")
+    status = None if args.no_status_update else update_bm25_status_artifacts(args.output.parent, index)
+    suffix = f", {status['indexedTickerCount']} tickers indexed" if status else ""
+    print(f"Search index {output['status']}: {output['documentCount']} chunks, {len(index['postings'])} terms{suffix}")
     return 0 if index["documentCount"] else 1
 
 

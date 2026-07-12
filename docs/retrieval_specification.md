@@ -10,6 +10,17 @@ This layer retrieves cited filing evidence without an LLM. BM25 remains the prod
 4. Build chunks inside one section only: target 300 words, maximum 450, one-sentence overlap capped at 60 words. Oversized paragraphs split at sentences; oversized sentences use 300-word windows with 40-word overlap. Empty/Reserved sections are omitted and meaningful short sections are retained.
 5. Derive stable IDs from accession, canonical section key, and normalized-content hash. Preserve section, paragraph/sentence ranges, source offsets, adjacent IDs, filing metadata, and direct SEC citation.
 6. Build the token index and rank with BM25. Ticker and form filters are applied during scoring.
+
+## Generated index layout
+
+The scaled universe should use a modular BM25 layout:
+
+- `public/data/search_index.json` is a lightweight manifest with `indexMode: "per_ticker"`.
+- `public/data/search/{TICKER}.json` contains that ticker's documents, document lengths, and postings.
+- Frontend search and local RAG load only the requested ticker's file.
+- `bm25Indexed` status flags in dashboard, ETL report, stock summary, and stock detail artifacts must reflect tickers that actually have indexed chunks.
+
+Avoid committing or deploying a monolithic full-universe `search_index.json`; it becomes too large and makes retrieval slow.
 7. Diversify after ranking: retain the top hit, prefer another section at 25% or more of its score, suppress token-Jaccard similarity above 0.70, then fill remaining slots deterministically.
 
 The parser fails closed when structure is unreliable: `SIGNATURES` and exhibit-index headings terminate searchable body text, malformed preambles and implausibly large Item 16 summaries are omitted, and a section owning over 75% of a filing with at least ten chunks is excluded rather than mislabeled.

@@ -10,9 +10,22 @@ from scripts.retrieval import diversify_results
 INDEX_PATH = Path("public/data/search_index.json")
 
 
-def load_search_index(path: Path = INDEX_PATH) -> dict[str, Any]:
+def _empty_index() -> dict[str, Any]:
+    return {"documentCount": 0, "averageDocumentLength": 0, "documentLengths": [], "documents": [], "postings": {}}
+
+
+def load_search_index(path: Path = INDEX_PATH, ticker: str | None = None) -> dict[str, Any]:
     with path.open(encoding="utf-8") as handle:
-        return json.load(handle)
+        index = json.load(handle)
+    if index.get("indexMode") == "per_ticker":
+        if not ticker:
+            return _empty_index()
+        entry = (index.get("tickers") or {}).get(ticker.upper())
+        if not entry:
+            return _empty_index()
+        with Path(entry["path"]).open(encoding="utf-8") as handle:
+            return json.load(handle)
+    return index
 
 
 def _normalize(rows: list[dict[str, Any]]) -> dict[str, float]:
@@ -37,7 +50,7 @@ def retrieve(
         raise ValueError("retrieval_mode must be bm25, embedding, or hybrid")
     if top_k < 1:
         raise ValueError("top_k must be greater than zero")
-    index = index or load_search_index()
+    index = index or load_search_index(ticker=ticker)
     candidate_k = max(top_k * 4, 12)
     lexical = bm25_search(index, query, ticker=ticker, form=form_type, limit=candidate_k)
     if requested == "bm25":

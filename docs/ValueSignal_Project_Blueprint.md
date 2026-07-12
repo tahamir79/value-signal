@@ -783,7 +783,19 @@ Important guardrails:
 
 ---
 
-## 23. Immediate Next Step
+## 23. Scaled BM25 Handoff
+
+- **Current BM25 layout:** `public/data/search_index.json` is a lightweight manifest with `indexMode: "per_ticker"`; ticker corpora live under `public/data/search/{TICKER}.json`.
+- **Current indexed coverage:** 199 tickers, 51,748 SEC filing chunks, 38,915 terms.
+- **Why modular:** a full-universe monolithic search index was about 477 MB and too slow/heavy; compact per-ticker files total about 209 MB and let frontend search/local RAG load only one ticker at a time.
+- **Status backfill:** `scripts/build_search_index.py` updates `bm25Indexed`, filing chunk status, latest filing date, and coverage counts after index generation.
+- **Loaders:** server search uses `src/lib/search.ts`; local RAG uses `rag/hybrid_retriever.py`.
+- **Validation run:** retrieval/RAG unit tests passed; local BM25 smoke test for ticker `A` returned 3 cited liquidity/debt chunks from `part-ii:item-7`; `npm run typecheck` and `npm run build` passed.
+- **Deployment caution:** do not revert to a monolithic `public/data/search_index.json`. If scheduled automation is expanded to scaled BM25, it should use `scripts/build_search_index.py --universe data/universe/universe.json --limit 250` and account for the longer runtime plus `public/data/search/` artifacts.
+
+---
+
+## 24. Immediate Next Step
 
 If the retrieval/chunking upgrade truly passed, commit it first:
 
