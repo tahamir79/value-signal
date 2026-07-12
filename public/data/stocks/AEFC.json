@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-11T07:06:01.189812+00:00",
+  "generatedAt": "2026-07-12T20:32:21.617954+00:00",
   "record": {
     "security": {
       "ticker": "AEFC",
@@ -16,6 +16,319 @@
       "liabilitiesToAssets": null
     },
     "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AEFC",
+      "cik": "0000769218",
+      "companyName": "AEGON LTD.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
     "priceHistory": [
       {
         "ticker": "AEFC",
@@ -37,7 +350,7 @@
         "close": 19.520000457763672,
         "volume": 216000,
         "source": "yahoo-chart",
-        "adjusted_close": 18.307544708251953
+        "adjusted_close": 18.30754280090332
       },
       {
         "ticker": "AEFC",
@@ -81,7 +394,7 @@
         "close": 19.84000015258789,
         "volume": 43100,
         "source": "yahoo-chart",
-        "adjusted_close": 18.607666015625
+        "adjusted_close": 18.607667922973633
       },
       {
         "ticker": "AEFC",
@@ -92,7 +405,7 @@
         "close": 19.8700008392334,
         "volume": 21900,
         "source": "yahoo-chart",
-        "adjusted_close": 18.63580322265625
+        "adjusted_close": 18.635805130004883
       },
       {
         "ticker": "AEFC",
@@ -103,7 +416,7 @@
         "close": 19.940000534057617,
         "volume": 22400,
         "source": "yahoo-chart",
-        "adjusted_close": 18.701457977294922
+        "adjusted_close": 18.701454162597656
       },
       {
         "ticker": "AEFC",
@@ -114,7 +427,7 @@
         "close": 20.040000915527344,
         "volume": 41900,
         "source": "yahoo-chart",
-        "adjusted_close": 18.795246124267578
+        "adjusted_close": 18.795244216918945
       },
       {
         "ticker": "AEFC",
@@ -125,7 +438,7 @@
         "close": 20.09000015258789,
         "volume": 43300,
         "source": "yahoo-chart",
-        "adjusted_close": 18.842138290405273
+        "adjusted_close": 18.84213638305664
       },
       {
         "ticker": "AEFC",
@@ -136,7 +449,7 @@
         "close": 20.020000457763672,
         "volume": 38200,
         "source": "yahoo-chart",
-        "adjusted_close": 18.776485443115234
+        "adjusted_close": 18.776487350463867
       },
       {
         "ticker": "AEFC",
@@ -180,7 +493,7 @@
         "close": 19.84000015258789,
         "volume": 15200,
         "source": "yahoo-chart",
-        "adjusted_close": 18.607666015625
+        "adjusted_close": 18.607667922973633
       },
       {
         "ticker": "AEFC",
@@ -191,7 +504,7 @@
         "close": 19.889999389648438,
         "volume": 31500,
         "source": "yahoo-chart",
-        "adjusted_close": 18.65456199645996
+        "adjusted_close": 18.654560089111328
       },
       {
         "ticker": "AEFC",
@@ -202,7 +515,7 @@
         "close": 19.8700008392334,
         "volume": 19800,
         "source": "yahoo-chart",
-        "adjusted_close": 18.63580322265625
+        "adjusted_close": 18.635805130004883
       },
       {
         "ticker": "AEFC",
@@ -213,7 +526,7 @@
         "close": 19.889999389648438,
         "volume": 25200,
         "source": "yahoo-chart",
-        "adjusted_close": 18.65456199645996
+        "adjusted_close": 18.654560089111328
       },
       {
         "ticker": "AEFC",
@@ -246,7 +559,7 @@
         "close": 19.940000534057617,
         "volume": 21200,
         "source": "yahoo-chart",
-        "adjusted_close": 18.701457977294922
+        "adjusted_close": 18.701454162597656
       },
       {
         "ticker": "AEFC",
@@ -257,7 +570,7 @@
         "close": 20.299999237060547,
         "volume": 30400,
         "source": "yahoo-chart",
-        "adjusted_close": 19.039094924926758
+        "adjusted_close": 19.039093017578125
       },
       {
         "ticker": "AEFC",
@@ -268,7 +581,7 @@
         "close": 20.309999465942383,
         "volume": 30000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.04847526550293
+        "adjusted_close": 19.048473358154297
       },
       {
         "ticker": "AEFC",
@@ -334,7 +647,7 @@
         "close": 19.959999084472656,
         "volume": 32100,
         "source": "yahoo-chart",
-        "adjusted_close": 18.720211029052734
+        "adjusted_close": 18.720212936401367
       },
       {
         "ticker": "AEFC",
@@ -367,7 +680,7 @@
         "close": 20.239999771118164,
         "volume": 23700,
         "source": "yahoo-chart",
-        "adjusted_close": 18.982820510864258
+        "adjusted_close": 18.98282241821289
       },
       {
         "ticker": "AEFC",
@@ -400,7 +713,7 @@
         "close": 20.3799991607666,
         "volume": 55400,
         "source": "yahoo-chart",
-        "adjusted_close": 19.11412239074707
+        "adjusted_close": 19.114124298095703
       },
       {
         "ticker": "AEFC",
@@ -433,7 +746,7 @@
         "close": 20.280000686645508,
         "volume": 107100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.02033805847168
+        "adjusted_close": 19.020336151123047
       },
       {
         "ticker": "AEFC",
@@ -444,7 +757,7 @@
         "close": 20.229999542236328,
         "volume": 24300,
         "source": "yahoo-chart",
-        "adjusted_close": 18.97344207763672
+        "adjusted_close": 18.973440170288086
       },
       {
         "ticker": "AEFC",
@@ -455,7 +768,7 @@
         "close": 20.540000915527344,
         "volume": 46400,
         "source": "yahoo-chart",
-        "adjusted_close": 19.264188766479492
+        "adjusted_close": 19.26418685913086
       },
       {
         "ticker": "AEFC",
@@ -466,7 +779,7 @@
         "close": 20.565000534057617,
         "volume": 29700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.287633895874023
+        "adjusted_close": 19.287635803222656
       },
       {
         "ticker": "AEFC",
@@ -477,7 +790,7 @@
         "close": 20.40999984741211,
         "volume": 65900,
         "source": "yahoo-chart",
-        "adjusted_close": 19.142263412475586
+        "adjusted_close": 19.142261505126953
       },
       {
         "ticker": "AEFC",
@@ -510,7 +823,7 @@
         "close": 20.360000610351562,
         "volume": 115000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.397958755493164
+        "adjusted_close": 19.39795684814453
       },
       {
         "ticker": "AEFC",
@@ -521,7 +834,7 @@
         "close": 20.31999969482422,
         "volume": 28300,
         "source": "yahoo-chart",
-        "adjusted_close": 19.359846115112305
+        "adjusted_close": 19.359848022460938
       },
       {
         "ticker": "AEFC",
@@ -565,7 +878,7 @@
         "close": 20.860000610351562,
         "volume": 40600,
         "source": "yahoo-chart",
-        "adjusted_close": 19.874332427978516
+        "adjusted_close": 19.874330520629883
       },
       {
         "ticker": "AEFC",
@@ -576,7 +889,7 @@
         "close": 20.65999984741211,
         "volume": 79800,
         "source": "yahoo-chart",
-        "adjusted_close": 19.683780670166016
+        "adjusted_close": 19.68378257751465
       },
       {
         "ticker": "AEFC",
@@ -598,7 +911,7 @@
         "close": 21.030000686645508,
         "volume": 36700,
         "source": "yahoo-chart",
-        "adjusted_close": 20.036298751831055
+        "adjusted_close": 20.036300659179688
       },
       {
         "ticker": "AEFC",
@@ -620,7 +933,7 @@
         "close": 21.270000457763672,
         "volume": 25400,
         "source": "yahoo-chart",
-        "adjusted_close": 20.264957427978516
+        "adjusted_close": 20.26495933532715
       },
       {
         "ticker": "AEFC",
@@ -631,7 +944,7 @@
         "close": 21.299999237060547,
         "volume": 32800,
         "source": "yahoo-chart",
-        "adjusted_close": 20.29353904724121
+        "adjusted_close": 20.293540954589844
       },
       {
         "ticker": "AEFC",
@@ -642,7 +955,7 @@
         "close": 21.260000228881836,
         "volume": 27200,
         "source": "yahoo-chart",
-        "adjusted_close": 20.25543212890625
+        "adjusted_close": 20.255430221557617
       },
       {
         "ticker": "AEFC",
@@ -653,7 +966,7 @@
         "close": 21.139999389648438,
         "volume": 30100,
         "source": "yahoo-chart",
-        "adjusted_close": 20.14109992980957
+        "adjusted_close": 20.141101837158203
       },
       {
         "ticker": "AEFC",
@@ -697,7 +1010,7 @@
         "close": 21.0,
         "volume": 18200,
         "source": "yahoo-chart",
-        "adjusted_close": 20.00771713256836
+        "adjusted_close": 20.007715225219727
       },
       {
         "ticker": "AEFC",
@@ -708,7 +1021,7 @@
         "close": 20.84000015258789,
         "volume": 16200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.85527801513672
+        "adjusted_close": 19.855276107788086
       },
       {
         "ticker": "AEFC",
@@ -741,7 +1054,7 @@
         "close": 20.549999237060547,
         "volume": 119000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.5789794921875
+        "adjusted_close": 19.578977584838867
       },
       {
         "ticker": "AEFC",
@@ -774,7 +1087,7 @@
         "close": 20.65999984741211,
         "volume": 36400,
         "source": "yahoo-chart",
-        "adjusted_close": 19.683780670166016
+        "adjusted_close": 19.68378257751465
       },
       {
         "ticker": "AEFC",
@@ -818,7 +1131,7 @@
         "close": 20.469999313354492,
         "volume": 20800,
         "source": "yahoo-chart",
-        "adjusted_close": 19.50275993347168
+        "adjusted_close": 19.502758026123047
       },
       {
         "ticker": "AEFC",
@@ -829,7 +1142,7 @@
         "close": 20.299999237060547,
         "volume": 28600,
         "source": "yahoo-chart",
-        "adjusted_close": 19.340791702270508
+        "adjusted_close": 19.340789794921875
       },
       {
         "ticker": "AEFC",
@@ -840,7 +1153,7 @@
         "close": 20.450000762939453,
         "volume": 20700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.48370361328125
+        "adjusted_close": 19.483705520629883
       },
       {
         "ticker": "AEFC",
@@ -851,7 +1164,7 @@
         "close": 20.219999313354492,
         "volume": 95700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.264570236206055
+        "adjusted_close": 19.264572143554688
       },
       {
         "ticker": "AEFC",
@@ -906,7 +1219,7 @@
         "close": 20.510000228881836,
         "volume": 21200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.540868759155273
+        "adjusted_close": 19.540870666503906
       },
       {
         "ticker": "AEFC",
@@ -917,7 +1230,7 @@
         "close": 20.450000762939453,
         "volume": 33500,
         "source": "yahoo-chart",
-        "adjusted_close": 19.48370361328125
+        "adjusted_close": 19.483705520629883
       },
       {
         "ticker": "AEFC",
@@ -928,7 +1241,7 @@
         "close": 20.469999313354492,
         "volume": 20100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.50275993347168
+        "adjusted_close": 19.502758026123047
       },
       {
         "ticker": "AEFC",
@@ -950,7 +1263,7 @@
         "close": 20.5,
         "volume": 33300,
         "source": "yahoo-chart",
-        "adjusted_close": 19.531339645385742
+        "adjusted_close": 19.531341552734375
       },
       {
         "ticker": "AEFC",
@@ -972,7 +1285,7 @@
         "close": 20.299999237060547,
         "volume": 29400,
         "source": "yahoo-chart",
-        "adjusted_close": 19.340791702270508
+        "adjusted_close": 19.340789794921875
       },
       {
         "ticker": "AEFC",
@@ -1038,7 +1351,7 @@
         "close": 20.139999389648438,
         "volume": 32100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.188350677490234
+        "adjusted_close": 19.188352584838867
       },
       {
         "ticker": "AEFC",
@@ -1049,7 +1362,7 @@
         "close": 20.079999923706055,
         "volume": 49100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.13118553161621
+        "adjusted_close": 19.131187438964844
       },
       {
         "ticker": "AEFC",
@@ -1060,7 +1373,7 @@
         "close": 20.219999313354492,
         "volume": 36100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.264570236206055
+        "adjusted_close": 19.264572143554688
       },
       {
         "ticker": "AEFC",
@@ -1071,7 +1384,7 @@
         "close": 20.399999618530273,
         "volume": 51500,
         "source": "yahoo-chart",
-        "adjusted_close": 19.436065673828125
+        "adjusted_close": 19.436067581176758
       },
       {
         "ticker": "AEFC",
@@ -1082,7 +1395,7 @@
         "close": 20.270000457763672,
         "volume": 30700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.312210083007812
+        "adjusted_close": 19.312211990356445
       },
       {
         "ticker": "AEFC",
@@ -1148,7 +1461,7 @@
         "close": 19.959999084472656,
         "volume": 40600,
         "source": "yahoo-chart",
-        "adjusted_close": 19.016855239868164
+        "adjusted_close": 19.016857147216797
       },
       {
         "ticker": "AEFC",
@@ -1170,7 +1483,7 @@
         "close": 20.040000915527344,
         "volume": 21200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.09307861328125
+        "adjusted_close": 19.093076705932617
       },
       {
         "ticker": "AEFC",
@@ -1203,7 +1516,7 @@
         "close": 19.84000015258789,
         "volume": 46000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.20844268798828
+        "adjusted_close": 19.208444595336914
       },
       {
         "ticker": "AEFC",
@@ -1247,7 +1560,7 @@
         "close": 19.719999313354492,
         "volume": 44300,
         "source": "yahoo-chart",
-        "adjusted_close": 19.092262268066406
+        "adjusted_close": 19.09226417541504
       },
       {
         "ticker": "AEFC",
@@ -1258,7 +1571,7 @@
         "close": 19.649999618530273,
         "volume": 35200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.024492263793945
+        "adjusted_close": 19.024490356445312
       },
       {
         "ticker": "AEFC",
@@ -1280,7 +1593,7 @@
         "close": 19.709999084472656,
         "volume": 91200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.082582473754883
+        "adjusted_close": 19.08258056640625
       },
       {
         "ticker": "AEFC",
@@ -1302,7 +1615,7 @@
         "close": 19.93000030517578,
         "volume": 51200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.29557991027832
+        "adjusted_close": 19.295578002929688
       },
       {
         "ticker": "AEFC",
@@ -1313,7 +1626,7 @@
         "close": 19.84000015258789,
         "volume": 76000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.20844268798828
+        "adjusted_close": 19.208444595336914
       },
       {
         "ticker": "AEFC",
@@ -1346,7 +1659,7 @@
         "close": 19.81999969482422,
         "volume": 82100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.1890811920166
+        "adjusted_close": 19.18907928466797
       },
       {
         "ticker": "AEFC",
@@ -1357,7 +1670,7 @@
         "close": 19.93899917602539,
         "volume": 47600,
         "source": "yahoo-chart",
-        "adjusted_close": 19.304290771484375
+        "adjusted_close": 19.304292678833008
       },
       {
         "ticker": "AEFC",
@@ -1478,7 +1791,7 @@
         "close": 19.729999542236328,
         "volume": 48200,
         "source": "yahoo-chart",
-        "adjusted_close": 19.101943969726562
+        "adjusted_close": 19.101945877075195
       },
       {
         "ticker": "AEFC",
@@ -1489,7 +1802,7 @@
         "close": 19.760000228881836,
         "volume": 26300,
         "source": "yahoo-chart",
-        "adjusted_close": 19.130990982055664
+        "adjusted_close": 19.13098907470703
       },
       {
         "ticker": "AEFC",
@@ -1522,7 +1835,7 @@
         "close": 19.989999771118164,
         "volume": 32900,
         "source": "yahoo-chart",
-        "adjusted_close": 19.353668212890625
+        "adjusted_close": 19.353670120239258
       },
       {
         "ticker": "AEFC",
@@ -1533,7 +1846,7 @@
         "close": 20.06999969482422,
         "volume": 34000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.431123733520508
+        "adjusted_close": 19.431121826171875
       },
       {
         "ticker": "AEFC",
@@ -1544,7 +1857,7 @@
         "close": 20.100000381469727,
         "volume": 33300,
         "source": "yahoo-chart",
-        "adjusted_close": 19.460166931152344
+        "adjusted_close": 19.460168838500977
       },
       {
         "ticker": "AEFC",
@@ -1566,7 +1879,7 @@
         "close": 20.190000534057617,
         "volume": 30700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.547304153442383
+        "adjusted_close": 19.54730224609375
       },
       {
         "ticker": "AEFC",
@@ -1588,7 +1901,7 @@
         "close": 20.06999969482422,
         "volume": 39100,
         "source": "yahoo-chart",
-        "adjusted_close": 19.431123733520508
+        "adjusted_close": 19.431121826171875
       },
       {
         "ticker": "AEFC",
@@ -1610,7 +1923,7 @@
         "close": 20.190000534057617,
         "volume": 42500,
         "source": "yahoo-chart",
-        "adjusted_close": 19.547304153442383
+        "adjusted_close": 19.54730224609375
       },
       {
         "ticker": "AEFC",
@@ -1665,7 +1978,7 @@
         "close": 20.139999389648438,
         "volume": 22000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.498891830444336
+        "adjusted_close": 19.49889373779297
       },
       {
         "ticker": "AEFC",
@@ -1687,7 +2000,7 @@
         "close": 20.100000381469727,
         "volume": 18500,
         "source": "yahoo-chart",
-        "adjusted_close": 19.460166931152344
+        "adjusted_close": 19.460168838500977
       },
       {
         "ticker": "AEFC",
@@ -1698,7 +2011,7 @@
         "close": 20.040000915527344,
         "volume": 33900,
         "source": "yahoo-chart",
-        "adjusted_close": 19.40207862854004
+        "adjusted_close": 19.402076721191406
       },
       {
         "ticker": "AEFC",
@@ -1753,7 +2066,7 @@
         "close": 20.270000457763672,
         "volume": 43000,
         "source": "yahoo-chart",
-        "adjusted_close": 19.624755859375
+        "adjusted_close": 19.624757766723633
       },
       {
         "ticker": "AEFC",
@@ -1775,7 +2088,7 @@
         "close": 20.299999237060547,
         "volume": 32700,
         "source": "yahoo-chart",
-        "adjusted_close": 19.65380096435547
+        "adjusted_close": 19.653799057006836
       },
       {
         "ticker": "AEFC",
@@ -1786,7 +2099,7 @@
         "close": 20.3799991607666,
         "volume": 27800,
         "source": "yahoo-chart",
-        "adjusted_close": 19.731252670288086
+        "adjusted_close": 19.73125457763672
       },
       {
         "ticker": "AEFC",
@@ -1819,7 +2132,7 @@
         "close": 20.299999237060547,
         "volume": 25500,
         "source": "yahoo-chart",
-        "adjusted_close": 19.65380096435547
+        "adjusted_close": 19.653799057006836
       },
       {
         "ticker": "AEFC",
@@ -2888,13 +3201,35 @@
       "filingsCleaned": false,
       "filingsChunked": false,
       "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
       "officialSignal": null,
       "insufficientEvidenceReason": null,
       "latestFilingDate": null,
       "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-11T07:01:46.870773+00:00"
+      "lastPipelineRun": "2026-07-12T20:25:37.055831+00:00"
     }
   }
 }

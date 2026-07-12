@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-11T07:06:17.418587+00:00",
+  "generatedAt": "2026-07-12T20:32:51.395220+00:00",
   "record": {
     "security": {
       "ticker": "AEM",
@@ -16,6 +16,319 @@
       "liabilitiesToAssets": null
     },
     "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AEM",
+      "cik": "0000002809",
+      "companyName": "AGNICO EAGLE MINES LTD",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
     "priceHistory": [
       {
         "ticker": "AEM",
@@ -26,7 +339,7 @@
         "close": 116.12000274658203,
         "volume": 4921800,
         "source": "yahoo-chart",
-        "adjusted_close": 115.04228973388672
+        "adjusted_close": 115.04229736328125
       },
       {
         "ticker": "AEM",
@@ -37,7 +350,7 @@
         "close": 118.93000030517578,
         "volume": 2140000,
         "source": "yahoo-chart",
-        "adjusted_close": 117.82621002197266
+        "adjusted_close": 117.82620239257812
       },
       {
         "ticker": "AEM",
@@ -70,7 +383,7 @@
         "close": 120.05999755859375,
         "volume": 1409300,
         "source": "yahoo-chart",
-        "adjusted_close": 118.94571685791016
+        "adjusted_close": 118.94572448730469
       },
       {
         "ticker": "AEM",
@@ -125,7 +438,7 @@
         "close": 119.87999725341797,
         "volume": 1783600,
         "source": "yahoo-chart",
-        "adjusted_close": 118.76738739013672
+        "adjusted_close": 118.76739501953125
       },
       {
         "ticker": "AEM",
@@ -136,7 +449,7 @@
         "close": 119.55999755859375,
         "volume": 1793300,
         "source": "yahoo-chart",
-        "adjusted_close": 118.45036315917969
+        "adjusted_close": 118.45035552978516
       },
       {
         "ticker": "AEM",
@@ -147,7 +460,7 @@
         "close": 119.05999755859375,
         "volume": 2547100,
         "source": "yahoo-chart",
-        "adjusted_close": 117.95500183105469
+        "adjusted_close": 117.95499420166016
       },
       {
         "ticker": "AEM",
@@ -191,7 +504,7 @@
         "close": 122.66999816894531,
         "volume": 2995000,
         "source": "yahoo-chart",
-        "adjusted_close": 121.53150177001953
+        "adjusted_close": 121.531494140625
       },
       {
         "ticker": "AEM",
@@ -202,7 +515,7 @@
         "close": 128.6199951171875,
         "volume": 4376600,
         "source": "yahoo-chart",
-        "adjusted_close": 127.42627716064453
+        "adjusted_close": 127.42626953125
       },
       {
         "ticker": "AEM",
@@ -213,7 +526,7 @@
         "close": 127.19999694824219,
         "volume": 2681100,
         "source": "yahoo-chart",
-        "adjusted_close": 126.01946258544922
+        "adjusted_close": 126.01945495605469
       },
       {
         "ticker": "AEM",
@@ -235,7 +548,7 @@
         "close": 126.8499984741211,
         "volume": 3437000,
         "source": "yahoo-chart",
-        "adjusted_close": 125.6727066040039
+        "adjusted_close": 125.67269897460938
       },
       {
         "ticker": "AEM",
@@ -257,7 +570,7 @@
         "close": 126.30000305175781,
         "volume": 2049800,
         "source": "yahoo-chart",
-        "adjusted_close": 125.12781524658203
+        "adjusted_close": 125.1278076171875
       },
       {
         "ticker": "AEM",
@@ -268,7 +581,7 @@
         "close": 123.37000274658203,
         "volume": 3258900,
         "source": "yahoo-chart",
-        "adjusted_close": 122.2249984741211
+        "adjusted_close": 122.22501373291016
       },
       {
         "ticker": "AEM",
@@ -290,7 +603,7 @@
         "close": 125.22000122070312,
         "volume": 3800100,
         "source": "yahoo-chart",
-        "adjusted_close": 124.0578384399414
+        "adjusted_close": 124.05783081054688
       },
       {
         "ticker": "AEM",
@@ -301,7 +614,7 @@
         "close": 131.38999938964844,
         "volume": 3376000,
         "source": "yahoo-chart",
-        "adjusted_close": 130.17054748535156
+        "adjusted_close": 130.1705780029297
       },
       {
         "ticker": "AEM",
@@ -378,7 +691,7 @@
         "close": 133.69000244140625,
         "volume": 3233000,
         "source": "yahoo-chart",
-        "adjusted_close": 132.44923400878906
+        "adjusted_close": 132.44921875
       },
       {
         "ticker": "AEM",
@@ -389,7 +702,7 @@
         "close": 132.72999572753906,
         "volume": 2067200,
         "source": "yahoo-chart",
-        "adjusted_close": 131.4981231689453
+        "adjusted_close": 131.49813842773438
       },
       {
         "ticker": "AEM",
@@ -400,7 +713,7 @@
         "close": 133.35000610351562,
         "volume": 2164900,
         "source": "yahoo-chart",
-        "adjusted_close": 132.11236572265625
+        "adjusted_close": 132.1123809814453
       },
       {
         "ticker": "AEM",
@@ -422,7 +735,7 @@
         "close": 130.22999572753906,
         "volume": 2183200,
         "source": "yahoo-chart",
-        "adjusted_close": 129.0213165283203
+        "adjusted_close": 129.02133178710938
       },
       {
         "ticker": "AEM",
@@ -433,7 +746,7 @@
         "close": 134.69000244140625,
         "volume": 2610200,
         "source": "yahoo-chart",
-        "adjusted_close": 133.43992614746094
+        "adjusted_close": 133.43994140625
       },
       {
         "ticker": "AEM",
@@ -466,7 +779,7 @@
         "close": 136.6199951171875,
         "volume": 1758300,
         "source": "yahoo-chart",
-        "adjusted_close": 135.35203552246094
+        "adjusted_close": 135.35202026367188
       },
       {
         "ticker": "AEM",
@@ -477,7 +790,7 @@
         "close": 139.6699981689453,
         "volume": 2073100,
         "source": "yahoo-chart",
-        "adjusted_close": 138.3737335205078
+        "adjusted_close": 138.37371826171875
       },
       {
         "ticker": "AEM",
@@ -488,7 +801,7 @@
         "close": 139.5,
         "volume": 1560200,
         "source": "yahoo-chart",
-        "adjusted_close": 138.20530700683594
+        "adjusted_close": 138.20529174804688
       },
       {
         "ticker": "AEM",
@@ -499,7 +812,7 @@
         "close": 139.11000061035156,
         "volume": 1851000,
         "source": "yahoo-chart",
-        "adjusted_close": 137.81890869140625
+        "adjusted_close": 137.8189239501953
       },
       {
         "ticker": "AEM",
@@ -510,7 +823,7 @@
         "close": 144.1699981689453,
         "volume": 2804600,
         "source": "yahoo-chart",
-        "adjusted_close": 142.8319549560547
+        "adjusted_close": 142.83197021484375
       },
       {
         "ticker": "AEM",
@@ -521,7 +834,7 @@
         "close": 147.74000549316406,
         "volume": 5526300,
         "source": "yahoo-chart",
-        "adjusted_close": 146.77606201171875
+        "adjusted_close": 146.7760467529297
       },
       {
         "ticker": "AEM",
@@ -653,7 +966,7 @@
         "close": 154.3800048828125,
         "volume": 2847400,
         "source": "yahoo-chart",
-        "adjusted_close": 153.3727264404297
+        "adjusted_close": 153.37274169921875
       },
       {
         "ticker": "AEM",
@@ -741,7 +1054,7 @@
         "close": 168.55999755859375,
         "volume": 2474600,
         "source": "yahoo-chart",
-        "adjusted_close": 167.460205078125
+        "adjusted_close": 167.46022033691406
       },
       {
         "ticker": "AEM",
@@ -763,7 +1076,7 @@
         "close": 168.13999938964844,
         "volume": 3339200,
         "source": "yahoo-chart",
-        "adjusted_close": 167.04293823242188
+        "adjusted_close": 167.04295349121094
       },
       {
         "ticker": "AEM",
@@ -774,7 +1087,7 @@
         "close": 169.4199981689453,
         "volume": 1766300,
         "source": "yahoo-chart",
-        "adjusted_close": 168.31459045410156
+        "adjusted_close": 168.31460571289062
       },
       {
         "ticker": "AEM",
@@ -807,7 +1120,7 @@
         "close": 169.57000732421875,
         "volume": 3061800,
         "source": "yahoo-chart",
-        "adjusted_close": 168.46363830566406
+        "adjusted_close": 168.463623046875
       },
       {
         "ticker": "AEM",
@@ -818,7 +1131,7 @@
         "close": 161.72999572753906,
         "volume": 3333800,
         "source": "yahoo-chart",
-        "adjusted_close": 160.67477416992188
+        "adjusted_close": 160.6747589111328
       },
       {
         "ticker": "AEM",
@@ -840,7 +1153,7 @@
         "close": 172.10000610351562,
         "volume": 2477600,
         "source": "yahoo-chart",
-        "adjusted_close": 170.97711181640625
+        "adjusted_close": 170.9771270751953
       },
       {
         "ticker": "AEM",
@@ -906,7 +1219,7 @@
         "close": 163.1999969482422,
         "volume": 5728500,
         "source": "yahoo-chart",
-        "adjusted_close": 162.1351776123047
+        "adjusted_close": 162.13516235351562
       },
       {
         "ticker": "AEM",
@@ -950,7 +1263,7 @@
         "close": 155.1699981689453,
         "volume": 5391800,
         "source": "yahoo-chart",
-        "adjusted_close": 154.15757751464844
+        "adjusted_close": 154.15756225585938
       },
       {
         "ticker": "AEM",
@@ -983,7 +1296,7 @@
         "close": 162.61000061035156,
         "volume": 3032300,
         "source": "yahoo-chart",
-        "adjusted_close": 161.54904174804688
+        "adjusted_close": 161.5490264892578
       },
       {
         "ticker": "AEM",
@@ -1082,7 +1395,7 @@
         "close": 173.10000610351562,
         "volume": 2446500,
         "source": "yahoo-chart",
-        "adjusted_close": 171.9705810546875
+        "adjusted_close": 171.97059631347656
       },
       {
         "ticker": "AEM",
@@ -1093,7 +1406,7 @@
         "close": 168.8699951171875,
         "volume": 2552500,
         "source": "yahoo-chart",
-        "adjusted_close": 167.7681884765625
+        "adjusted_close": 167.76817321777344
       },
       {
         "ticker": "AEM",
@@ -1170,7 +1483,7 @@
         "close": 166.1999969482422,
         "volume": 2149800,
         "source": "yahoo-chart",
-        "adjusted_close": 165.1156005859375
+        "adjusted_close": 165.11561584472656
       },
       {
         "ticker": "AEM",
@@ -1181,7 +1494,7 @@
         "close": 165.8699951171875,
         "volume": 1563700,
         "source": "yahoo-chart",
-        "adjusted_close": 164.7877655029297
+        "adjusted_close": 164.78775024414062
       },
       {
         "ticker": "AEM",
@@ -1192,7 +1505,7 @@
         "close": 173.02000427246094,
         "volume": 2301500,
         "source": "yahoo-chart",
-        "adjusted_close": 171.89109802246094
+        "adjusted_close": 171.89111328125
       },
       {
         "ticker": "AEM",
@@ -2888,13 +3201,35 @@
       "filingsCleaned": false,
       "filingsChunked": false,
       "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
       "officialSignal": null,
       "insufficientEvidenceReason": null,
       "latestFilingDate": null,
       "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-11T07:01:46.870773+00:00"
+      "lastPipelineRun": "2026-07-12T20:25:37.055831+00:00"
     }
   }
 }

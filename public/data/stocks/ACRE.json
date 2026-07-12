@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-11T07:04:33.730198+00:00",
+  "generatedAt": "2026-07-12T20:29:10.834164+00:00",
   "record": {
     "security": {
       "ticker": "ACRE",
@@ -20,6 +20,19 @@
         "concept": "Assets",
         "label": "Assets",
         "value": 1836304000.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-05-07",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001628280-26-031613",
+        "source": "sec-companyfacts"
+      },
+      "Cash and equivalents": {
+        "concept": "CashAndCashEquivalentsAtCarryingValue",
+        "label": "Cash and equivalents",
+        "value": 86163000.0,
         "unit": "USD",
         "period_end": "2026-03-31",
         "filed": "2026-05-07",
@@ -55,10 +68,36 @@
         "accession": "0001628280-26-031613",
         "source": "sec-companyfacts"
       },
+      "Long-term debt": {
+        "concept": "LongTermDebt",
+        "label": "Long-term debt",
+        "value": 948176000.0,
+        "unit": "USD",
+        "period_end": "2025-12-31",
+        "filed": "2026-02-10",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "form": "10-K",
+        "accession": "0001628280-26-006635",
+        "source": "sec-companyfacts"
+      },
       "Net income": {
         "concept": "NetIncomeLoss",
         "label": "Net income",
         "value": -9605000.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-05-07",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001628280-26-031613",
+        "source": "sec-companyfacts"
+      },
+      "Retained earnings": {
+        "concept": "RetainedEarningsAccumulatedDeficit",
+        "label": "Retained earnings",
+        "value": -329838000.0,
         "unit": "USD",
         "period_end": "2026-03-31",
         "filed": "2026-05-07",
@@ -95,6 +134,296 @@
         "source": "sec-companyfacts"
       }
     },
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ACRE",
+      "cik": "0001529377",
+      "companyName": "Ares Commercial Real Estate Corp",
+      "formType": "10-Q",
+      "accession": "0001628280-26-031613",
+      "filingDate": "2026-05-07",
+      "periodEndDate": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q1",
+      "source": "sec_companyfacts",
+      "missingFields": [
+        "currentAssets",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt"
+      ],
+      "dataQualityWarnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: used same-period or latest fact from a different accession"
+      ],
+      "assets": 1836304000.0,
+      "currentAssets": null,
+      "cashAndEquivalents": 86163000.0,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": 1343886000.0,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": 948176000.0,
+      "stockholdersEquity": 492418000.0,
+      "retainedEarnings": -329838000.0,
+      "totalDebt": 948176000.0
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": 1.925551,
+      "debtToAssets": 0.51635,
+      "equityRatio": 0.268157,
+      "cashToDebt": 0.090872,
+      "netDebt": 862013000.0,
+      "goodwillIntangiblesToAssets": 0.0,
+      "shortTermDebtShare": null,
+      "bookValue": 492418000.0,
+      "bookValuePerShare": 8.875417,
+      "priceToBook": 0.499131,
+      "retainedEarnings": -329838000.0
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": 29.117647,
+      "solvencyScore": 48.5,
+      "assetQualityScore": 76.25,
+      "balanceSheetQualityScore": 48.571429,
+      "balanceSheetRiskPenalty": 61.428571,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": 1.925551,
+          "status": "risk",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity is outside the preferred range and weakens balance-sheet evidence.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": 0.51635,
+          "status": "risk",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets is outside the preferred range and weakens balance-sheet evidence.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": 0.090872,
+          "status": "severe_risk",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt is in the severe-risk range and should be reviewed before relying on the signal.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": 0.268157,
+          "status": "risk",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio is outside the preferred range and weakens balance-sheet evidence.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": 862013000.0,
+          "status": "acceptable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt is usable but not especially strong.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": 492418000.0,
+          "status": "healthy",
+          "healthyRange": "positive",
+          "interpretation": "bookValue is in the preferred screening range.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": 0.0,
+          "status": "healthy",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets is in the preferred screening range.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": -329838000.0,
+          "status": "risk",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings is outside the preferred range and weakens balance-sheet evidence.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -10,
+      "warnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: used same-period or latest fact from a different accession",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator"
+      ]
+    },
     "priceHistory": [
       {
         "ticker": "ACRE",
@@ -127,7 +456,7 @@
         "close": 4.800000190734863,
         "volume": 424400,
         "source": "yahoo-chart",
-        "adjusted_close": 4.2235612869262695
+        "adjusted_close": 4.223561763763428
       },
       {
         "ticker": "ACRE",
@@ -138,7 +467,7 @@
         "close": 4.920000076293945,
         "volume": 372900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.329150199890137
+        "adjusted_close": 4.329150676727295
       },
       {
         "ticker": "ACRE",
@@ -182,7 +511,7 @@
         "close": 4.809999942779541,
         "volume": 352200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.232360363006592
+        "adjusted_close": 4.23236083984375
       },
       {
         "ticker": "ACRE",
@@ -215,7 +544,7 @@
         "close": 4.71999979019165,
         "volume": 319400,
         "source": "yahoo-chart",
-        "adjusted_close": 4.153168201446533
+        "adjusted_close": 4.153168678283691
       },
       {
         "ticker": "ACRE",
@@ -226,7 +555,7 @@
         "close": 4.650000095367432,
         "volume": 541800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.091574668884277
+        "adjusted_close": 4.0915751457214355
       },
       {
         "ticker": "ACRE",
@@ -237,7 +566,7 @@
         "close": 4.539999961853027,
         "volume": 448500,
         "source": "yahoo-chart",
-        "adjusted_close": 3.9947848320007324
+        "adjusted_close": 3.9947853088378906
       },
       {
         "ticker": "ACRE",
@@ -248,7 +577,7 @@
         "close": 4.510000228881836,
         "volume": 390000,
         "source": "yahoo-chart",
-        "adjusted_close": 3.968388080596924
+        "adjusted_close": 3.9683878421783447
       },
       {
         "ticker": "ACRE",
@@ -270,7 +599,7 @@
         "close": 4.480000019073486,
         "volume": 447200,
         "source": "yahoo-chart",
-        "adjusted_close": 3.941990613937378
+        "adjusted_close": 3.941990852355957
       },
       {
         "ticker": "ACRE",
@@ -281,7 +610,7 @@
         "close": 4.550000190734863,
         "volume": 369900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.003583908081055
+        "adjusted_close": 4.003584384918213
       },
       {
         "ticker": "ACRE",
@@ -292,7 +621,7 @@
         "close": 4.610000133514404,
         "volume": 377300,
         "source": "yahoo-chart",
-        "adjusted_close": 4.0563788414001465
+        "adjusted_close": 4.056379318237305
       },
       {
         "ticker": "ACRE",
@@ -314,7 +643,7 @@
         "close": 4.659999847412109,
         "volume": 216500,
         "source": "yahoo-chart",
-        "adjusted_close": 4.100374221801758
+        "adjusted_close": 4.1003737449646
       },
       {
         "ticker": "ACRE",
@@ -347,7 +676,7 @@
         "close": 4.489999771118164,
         "volume": 321400,
         "source": "yahoo-chart",
-        "adjusted_close": 3.9507896900177
+        "adjusted_close": 3.950789213180542
       },
       {
         "ticker": "ACRE",
@@ -380,7 +709,7 @@
         "close": 4.519999980926514,
         "volume": 304100,
         "source": "yahoo-chart",
-        "adjusted_close": 3.977186918258667
+        "adjusted_close": 3.977186679840088
       },
       {
         "ticker": "ACRE",
@@ -391,7 +720,7 @@
         "close": 4.159999847412109,
         "volume": 1116400,
         "source": "yahoo-chart",
-        "adjusted_close": 3.6604197025299072
+        "adjusted_close": 3.660419464111328
       },
       {
         "ticker": "ACRE",
@@ -402,7 +731,7 @@
         "close": 4.139999866485596,
         "volume": 750700,
         "source": "yahoo-chart",
-        "adjusted_close": 3.6428215503692627
+        "adjusted_close": 3.6428213119506836
       },
       {
         "ticker": "ACRE",
@@ -413,7 +742,7 @@
         "close": 4.449999809265137,
         "volume": 729400,
         "source": "yahoo-chart",
-        "adjusted_close": 3.915593385696411
+        "adjusted_close": 3.915593147277832
       },
       {
         "ticker": "ACRE",
@@ -424,7 +753,7 @@
         "close": 4.329999923706055,
         "volume": 508400,
         "source": "yahoo-chart",
-        "adjusted_close": 3.810004472732544
+        "adjusted_close": 3.8100039958953857
       },
       {
         "ticker": "ACRE",
@@ -435,7 +764,7 @@
         "close": 4.159999847412109,
         "volume": 528100,
         "source": "yahoo-chart",
-        "adjusted_close": 3.6604197025299072
+        "adjusted_close": 3.660419464111328
       },
       {
         "ticker": "ACRE",
@@ -446,7 +775,7 @@
         "close": 4.400000095367432,
         "volume": 751400,
         "source": "yahoo-chart",
-        "adjusted_close": 3.8715977668762207
+        "adjusted_close": 3.8715980052948
       },
       {
         "ticker": "ACRE",
@@ -457,7 +786,7 @@
         "close": 4.53000020980835,
         "volume": 438600,
         "source": "yahoo-chart",
-        "adjusted_close": 3.9859859943389893
+        "adjusted_close": 3.9859864711761475
       },
       {
         "ticker": "ACRE",
@@ -468,7 +797,7 @@
         "close": 4.519999980926514,
         "volume": 387800,
         "source": "yahoo-chart",
-        "adjusted_close": 3.977186918258667
+        "adjusted_close": 3.977186679840088
       },
       {
         "ticker": "ACRE",
@@ -512,7 +841,7 @@
         "close": 4.510000228881836,
         "volume": 261200,
         "source": "yahoo-chart",
-        "adjusted_close": 3.968388080596924
+        "adjusted_close": 3.9683878421783447
       },
       {
         "ticker": "ACRE",
@@ -523,7 +852,7 @@
         "close": 4.360000133514404,
         "volume": 369700,
         "source": "yahoo-chart",
-        "adjusted_close": 3.83640193939209
+        "adjusted_close": 3.8364017009735107
       },
       {
         "ticker": "ACRE",
@@ -534,7 +863,7 @@
         "close": 4.659999847412109,
         "volume": 668100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.100374221801758
+        "adjusted_close": 4.1003737449646
       },
       {
         "ticker": "ACRE",
@@ -545,7 +874,7 @@
         "close": 4.550000190734863,
         "volume": 288200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.003583908081055
+        "adjusted_close": 4.003584384918213
       },
       {
         "ticker": "ACRE",
@@ -556,7 +885,7 @@
         "close": 4.599999904632568,
         "volume": 235900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.047579765319824
+        "adjusted_close": 4.047579288482666
       },
       {
         "ticker": "ACRE",
@@ -567,7 +896,7 @@
         "close": 4.630000114440918,
         "volume": 301900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.073976516723633
+        "adjusted_close": 4.073976993560791
       },
       {
         "ticker": "ACRE",
@@ -589,7 +918,7 @@
         "close": 4.71999979019165,
         "volume": 347000,
         "source": "yahoo-chart",
-        "adjusted_close": 4.153168201446533
+        "adjusted_close": 4.153168678283691
       },
       {
         "ticker": "ACRE",
@@ -611,7 +940,7 @@
         "close": 4.900000095367432,
         "volume": 456900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.31155252456665
+        "adjusted_close": 4.311552047729492
       },
       {
         "ticker": "ACRE",
@@ -622,7 +951,7 @@
         "close": 5.019999980926514,
         "volume": 568100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.417140960693359
+        "adjusted_close": 4.417141437530518
       },
       {
         "ticker": "ACRE",
@@ -644,7 +973,7 @@
         "close": 4.929999828338623,
         "volume": 798500,
         "source": "yahoo-chart",
-        "adjusted_close": 4.337949275970459
+        "adjusted_close": 4.337948799133301
       },
       {
         "ticker": "ACRE",
@@ -655,7 +984,7 @@
         "close": 4.860000133514404,
         "volume": 336300,
         "source": "yahoo-chart",
-        "adjusted_close": 4.2763566970825195
+        "adjusted_close": 4.276356220245361
       },
       {
         "ticker": "ACRE",
@@ -666,7 +995,7 @@
         "close": 4.849999904632568,
         "volume": 312200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.267556190490723
+        "adjusted_close": 4.267556667327881
       },
       {
         "ticker": "ACRE",
@@ -677,7 +1006,7 @@
         "close": 4.809999942779541,
         "volume": 319800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.232360363006592
+        "adjusted_close": 4.23236083984375
       },
       {
         "ticker": "ACRE",
@@ -688,7 +1017,7 @@
         "close": 4.829999923706055,
         "volume": 225900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.249958515167236
+        "adjusted_close": 4.249958038330078
       },
       {
         "ticker": "ACRE",
@@ -699,7 +1028,7 @@
         "close": 4.829999923706055,
         "volume": 292600,
         "source": "yahoo-chart",
-        "adjusted_close": 4.249958515167236
+        "adjusted_close": 4.249958038330078
       },
       {
         "ticker": "ACRE",
@@ -710,7 +1039,7 @@
         "close": 4.78000020980835,
         "volume": 313700,
         "source": "yahoo-chart",
-        "adjusted_close": 4.205962657928467
+        "adjusted_close": 4.205963134765625
       },
       {
         "ticker": "ACRE",
@@ -721,7 +1050,7 @@
         "close": 4.789999961853027,
         "volume": 296200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.2147626876831055
+        "adjusted_close": 4.214762210845947
       },
       {
         "ticker": "ACRE",
@@ -732,7 +1061,7 @@
         "close": 4.829999923706055,
         "volume": 356500,
         "source": "yahoo-chart",
-        "adjusted_close": 4.249958515167236
+        "adjusted_close": 4.249958038330078
       },
       {
         "ticker": "ACRE",
@@ -743,7 +1072,7 @@
         "close": 4.800000190734863,
         "volume": 716900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.2235612869262695
+        "adjusted_close": 4.223561763763428
       },
       {
         "ticker": "ACRE",
@@ -776,7 +1105,7 @@
         "close": 4.78000020980835,
         "volume": 377200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.205962657928467
+        "adjusted_close": 4.205963134765625
       },
       {
         "ticker": "ACRE",
@@ -787,7 +1116,7 @@
         "close": 4.75,
         "volume": 250800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.179565906524658
+        "adjusted_close": 4.1795654296875
       },
       {
         "ticker": "ACRE",
@@ -809,7 +1138,7 @@
         "close": 4.75,
         "volume": 641900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.179565906524658
+        "adjusted_close": 4.1795654296875
       },
       {
         "ticker": "ACRE",
@@ -842,7 +1171,7 @@
         "close": 4.599999904632568,
         "volume": 371000,
         "source": "yahoo-chart",
-        "adjusted_close": 4.179565906524658
+        "adjusted_close": 4.1795654296875
       },
       {
         "ticker": "ACRE",
@@ -864,7 +1193,7 @@
         "close": 4.599999904632568,
         "volume": 414900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.179565906524658
+        "adjusted_close": 4.1795654296875
       },
       {
         "ticker": "ACRE",
@@ -886,7 +1215,7 @@
         "close": 4.539999961853027,
         "volume": 202600,
         "source": "yahoo-chart",
-        "adjusted_close": 4.125049591064453
+        "adjusted_close": 4.125050067901611
       },
       {
         "ticker": "ACRE",
@@ -897,7 +1226,7 @@
         "close": 4.429999828338623,
         "volume": 473700,
         "source": "yahoo-chart",
-        "adjusted_close": 4.025103569030762
+        "adjusted_close": 4.02510404586792
       },
       {
         "ticker": "ACRE",
@@ -908,7 +1237,7 @@
         "close": 4.409999847412109,
         "volume": 348300,
         "source": "yahoo-chart",
-        "adjusted_close": 4.006931304931641
+        "adjusted_close": 4.006931781768799
       },
       {
         "ticker": "ACRE",
@@ -919,7 +1248,7 @@
         "close": 4.460000038146973,
         "volume": 250100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.052361965179443
+        "adjusted_close": 4.052361488342285
       },
       {
         "ticker": "ACRE",
@@ -930,7 +1259,7 @@
         "close": 4.619999885559082,
         "volume": 384000,
         "source": "yahoo-chart",
-        "adjusted_close": 4.197738170623779
+        "adjusted_close": 4.197737693786621
       },
       {
         "ticker": "ACRE",
@@ -974,7 +1303,7 @@
         "close": 4.619999885559082,
         "volume": 367100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.197738170623779
+        "adjusted_close": 4.197737693786621
       },
       {
         "ticker": "ACRE",
@@ -1051,7 +1380,7 @@
         "close": 4.429999828338623,
         "volume": 334200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.025103569030762
+        "adjusted_close": 4.02510404586792
       },
       {
         "ticker": "ACRE",
@@ -1062,7 +1391,7 @@
         "close": 4.409999847412109,
         "volume": 215100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.006931304931641
+        "adjusted_close": 4.006931781768799
       },
       {
         "ticker": "ACRE",
@@ -1073,7 +1402,7 @@
         "close": 4.460000038146973,
         "volume": 341800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.052361965179443
+        "adjusted_close": 4.052361488342285
       },
       {
         "ticker": "ACRE",
@@ -1084,7 +1413,7 @@
         "close": 4.389999866485596,
         "volume": 331900,
         "source": "yahoo-chart",
-        "adjusted_close": 3.9887592792510986
+        "adjusted_close": 3.9887595176696777
       },
       {
         "ticker": "ACRE",
@@ -1095,7 +1424,7 @@
         "close": 4.389999866485596,
         "volume": 346100,
         "source": "yahoo-chart",
-        "adjusted_close": 3.9887592792510986
+        "adjusted_close": 3.9887595176696777
       },
       {
         "ticker": "ACRE",
@@ -1106,7 +1435,7 @@
         "close": 4.619999885559082,
         "volume": 363700,
         "source": "yahoo-chart",
-        "adjusted_close": 4.197738170623779
+        "adjusted_close": 4.197737693786621
       },
       {
         "ticker": "ACRE",
@@ -1117,7 +1446,7 @@
         "close": 4.489999771118164,
         "volume": 319500,
         "source": "yahoo-chart",
-        "adjusted_close": 4.079619884490967
+        "adjusted_close": 4.079619407653809
       },
       {
         "ticker": "ACRE",
@@ -1194,7 +1523,7 @@
         "close": 4.860000133514404,
         "volume": 448200,
         "source": "yahoo-chart",
-        "adjusted_close": 4.415802955627441
+        "adjusted_close": 4.415802478790283
       },
       {
         "ticker": "ACRE",
@@ -1205,7 +1534,7 @@
         "close": 4.900000095367432,
         "volume": 474900,
         "source": "yahoo-chart",
-        "adjusted_close": 4.452146530151367
+        "adjusted_close": 4.452146053314209
       },
       {
         "ticker": "ACRE",
@@ -1216,7 +1545,7 @@
         "close": 4.860000133514404,
         "volume": 351000,
         "source": "yahoo-chart",
-        "adjusted_close": 4.415802955627441
+        "adjusted_close": 4.415802478790283
       },
       {
         "ticker": "ACRE",
@@ -1227,7 +1556,7 @@
         "close": 4.78000020980835,
         "volume": 366800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.343113899230957
+        "adjusted_close": 4.343114376068115
       },
       {
         "ticker": "ACRE",
@@ -1249,7 +1578,7 @@
         "close": 4.980000019073486,
         "volume": 404600,
         "source": "yahoo-chart",
-        "adjusted_close": 4.524834156036377
+        "adjusted_close": 4.524834632873535
       },
       {
         "ticker": "ACRE",
@@ -1359,7 +1688,7 @@
         "close": 5.190000057220459,
         "volume": 282300,
         "source": "yahoo-chart",
-        "adjusted_close": 4.715640544891357
+        "adjusted_close": 4.715641021728516
       },
       {
         "ticker": "ACRE",
@@ -1469,7 +1798,7 @@
         "close": 5.090000152587891,
         "volume": 515100,
         "source": "yahoo-chart",
-        "adjusted_close": 4.624780654907227
+        "adjusted_close": 4.624781131744385
       },
       {
         "ticker": "ACRE",
@@ -1480,7 +1809,7 @@
         "close": 5.090000152587891,
         "volume": 416300,
         "source": "yahoo-chart",
-        "adjusted_close": 4.624780654907227
+        "adjusted_close": 4.624781131744385
       },
       {
         "ticker": "ACRE",
@@ -1502,7 +1831,7 @@
         "close": 4.989999771118164,
         "volume": 503800,
         "source": "yahoo-chart",
-        "adjusted_close": 4.5339202880859375
+        "adjusted_close": 4.533920764923096
       },
       {
         "ticker": "ACRE",
@@ -2967,13 +3296,35 @@
       "filingsCleaned": false,
       "filingsChunked": false,
       "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": true,
+      "balanceSheetSource": "sec_companyfacts",
+      "balanceSheetPeriodEnd": "2026-03-31",
+      "balanceSheetWarnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": 48.571429,
+      "balanceSheetRiskPenalty": 61.428571,
+      "liquidityScore": null,
+      "leverageScore": 29.117647,
+      "solvencyScore": 48.5,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
       "officialSignal": null,
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-07",
       "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-11T07:01:46.870773+00:00"
+      "lastPipelineRun": "2026-07-12T20:25:37.055831+00:00"
     }
   }
 }
