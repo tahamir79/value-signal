@@ -13,6 +13,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.backtest import build_point_in_time_snapshots, empty_report, evaluate_snapshots
+from scripts.balance_sheet import balance_sheet_bundle, experimental_signal, write_balance_sheet_artifacts
 from scripts.build_universe import build_universe
 from scripts.cleaning import latest_facts, normalize_company_facts
 from scripts.export_json import write_json
@@ -20,7 +21,7 @@ from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, der
 from scripts.models import Security, record
 from scripts.providers.price_provider import PriceProvider, YahooChartPriceProvider
 from scripts.providers.sec_companyfacts import CompanyFactsProvider, SecCompanyFactsProvider
-from scripts.scoring import SCORE_SCHEMA_VERSION, score_universe
+from scripts.scoring import SCORE_SCHEMA_VERSION, balance_sheet_scoring_mode, score_universe
 
 SCHEMA_VERSION = "1.0.0"
 
@@ -36,6 +37,17 @@ def _empty_status(run_at: str) -> dict[str, Any]:
         "filingsCleaned": False,
         "filingsChunked": False,
         "bm25Indexed": False,
+        "balanceSheetAvailable": False,
+        "balanceSheetPartial": False,
+        "balanceSheetSource": "unavailable",
+        "balanceSheetPeriodEnd": None,
+        "balanceSheetWarnings": [],
+        "balanceSheetQualityScore": None,
+        "balanceSheetRiskPenalty": None,
+        "liquidityScore": None,
+        "leverageScore": None,
+        "solvencyScore": None,
+        "triggeredBalanceSheetGates": [],
         "scoringInputsAvailable": False,
         "scoringAvailable": False,
         "officialSignal": None,
@@ -137,6 +149,42 @@ def _coverage_report(*, universe_records: list[dict[str, Any]], signals: dict[st
     }
 
 
+def _balance_sheet_scoring_report(signals: dict[str, Any], mode: str) -> dict[str, Any]:
+    records = signals.get("records", [])
+    with_scoring = [row for row in records if row.get("balanceSheetScoringShadow")]
+    changed = []
+    liquidity = leverage = negative_equity = maturity = 0
+    for row in with_scoring:
+        scoring = row.get("balanceSheetScoringShadow") or {}
+        gates = [gate for gate in scoring.get("triggeredRiskGates", []) if gate.get("triggered")]
+        names = {gate.get("name") for gate in gates}
+        liquidity += "Liquidity Risk Gate" in names or "Severe Liquidity Risk Gate" in names
+        leverage += "High Leverage Gate" in names or "Severe Leverage Gate" in names
+        negative_equity += "Negative Equity Gate" in names
+        maturity += "Debt Maturity Pressure Gate" in names
+        impact = scoring.get("experimentalSignalImpact") or row.get("experimentalBalanceSheetAdjustedSignal") or {}
+        if impact.get("wouldChangeSignal") or impact.get("changed") or (row.get("balanceSheetOfficialChange") or {}).get("changed"):
+            changed.append({
+                "ticker": row.get("ticker"),
+                "oldSignal": (row.get("balanceSheetOfficialChange") or {}).get("previousOfficialSignal") or impact.get("currentOfficialSignal") or impact.get("previousOfficialSignal"),
+                "newSignal": (row.get("balanceSheetOfficialChange") or {}).get("newSignal") or impact.get("experimentalSignal") or impact.get("signal"),
+                "triggeredGates": [gate.get("name") for gate in gates],
+                "reason": impact.get("reason") or "; ".join(impact.get("reasons") or []),
+            })
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "mode": mode,
+        "companiesWithBalanceSheetScores": len(with_scoring),
+        "companiesWithLiquidityRisk": liquidity,
+        "companiesWithHighLeverage": leverage,
+        "companiesWithNegativeEquity": negative_equity,
+        "companiesWithDebtMaturityPressure": maturity,
+        "companiesWhereExperimentalSignalWouldChange": len(changed),
+        "companiesWhereOfficialSignalStayedStable": len(with_scoring) - len(changed) if mode == "official" else len(with_scoring),
+        "changes": changed,
+    }
+
+
 def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, output_dir: Path,
         limit: int | None = None, securities: list[Security] | None = None,
         include_backtest: bool = True, universe_records: list[dict[str, Any]] | None = None) -> dict[str, Any]:
@@ -144,6 +192,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     run_at = started.isoformat()
     rows: list[dict[str, Any]] = []
     feature_rows: list[dict[str, Any]] = []
+    balance_sheet_bundles: dict[str, dict[str, Any]] = {}
     price_history: dict[str, list[Any]] = {}
     fact_history: dict[str, list[Any]] = {}
     errors: list[dict[str, str]] = []
@@ -173,16 +222,40 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             fact_history[security.ticker] = facts
             latest = latest_facts(facts)
             report.update(priceRows=len(prices), financialFacts=len(facts))
+            shares_fact = latest.get("Shares outstanding")
+            latest_price = prices[-1].close if prices else None
+            market_cap = latest_price * shares_fact.value if latest_price and shares_fact else None
+            bundle = balance_sheet_bundle(security, facts, market_cap=market_cap, shares_outstanding=shares_fact.value if shares_fact else None)
+            balance_sheet_bundles[security.ticker] = bundle
+            bs_snapshot = bundle["snapshot"]
+            bs_scoring = bundle["scoring"]
+            triggered_gates = [gate["name"] for gate in bs_scoring.get("triggeredRiskGates", []) if gate.get("triggered")]
+            data_status.update({
+                "balanceSheetAvailable": bs_snapshot.get("source") != "unavailable" and not bs_snapshot.get("missingFields"),
+                "balanceSheetPartial": bs_snapshot.get("source") != "unavailable" and bool(bs_snapshot.get("missingFields")),
+                "balanceSheetSource": bs_snapshot.get("source"),
+                "balanceSheetPeriodEnd": bs_snapshot.get("periodEndDate"),
+                "balanceSheetWarnings": bs_scoring.get("warnings", [])[:8],
+                "balanceSheetQualityScore": bs_scoring.get("balanceSheetQualityScore"),
+                "balanceSheetRiskPenalty": bs_scoring.get("balanceSheetRiskPenalty"),
+                "liquidityScore": bs_scoring.get("liquidityScore"),
+                "leverageScore": bs_scoring.get("leverageScore"),
+                "solvencyScore": bs_scoring.get("solvencyScore"),
+                "triggeredBalanceSheetGates": triggered_gates,
+            })
             detail_row = {
                 "security": record(security),
                 "derived": derive_fields(prices, latest),
                 "latestFacts": {name: record(fact) for name, fact in latest.items()},
+                "balanceSheet": bs_snapshot,
+                "balanceSheetMetrics": bundle["metrics"],
+                "balanceSheetScoringShadow": bs_scoring,
                 "priceHistory": [record(bar) for bar in prices[-260:]],
                 "dataStatus": data_status,
             }
             write_json(output_dir / "stocks" / f"{security.ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": datetime.now(timezone.utc).isoformat(), "record": detail_row})
-            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status})
-            feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": calculate_raw_features(prices, facts)})
+            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "balanceSheetScoringShadow": bs_scoring})
+            feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": calculate_raw_features(prices, facts), "balanceSheetScoring": bs_scoring})
         except Exception as exc:
             report["status"] = "failed"
             report["error"] = f"{type(exc).__name__}: {exc}"
@@ -198,14 +271,19 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     normalized_features = normalize_universe(feature_rows)
     features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalized_features}
     signals = {"schemaVersion": SCORE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": score_universe(normalized_features)}
+    bs_mode = balance_sheet_scoring_mode()
     for signal in signals["records"]:
         status = status_by_ticker.setdefault(signal["ticker"], _empty_status(run_at))
+        bs_scoring = signal.get("balanceSheetScoringShadow") or {}
+        bs_impact = bs_scoring.get("experimentalSignalImpact") or experimental_signal(signal.get("signal"), signal.get("scores", {}), bs_scoring) if bs_scoring else {}
         status.update({
             "scoringInputsAvailable": signal.get("availableFeatures", 0) >= 5,
             "scoringAvailable": signal.get("confidence") != "Insufficient",
             "officialSignal": signal.get("signal"),
             "latestScoringDate": signal.get("asOf"),
             "insufficientEvidenceReason": "Insufficient scoring inputs" if signal.get("confidence") == "Insufficient" else None,
+            "balanceSheetExperimentalSignal": bs_impact.get("experimentalSignal") or bs_impact.get("signal"),
+            "balanceSheetWouldChangeSignal": bs_impact.get("wouldChangeSignal") if "wouldChangeSignal" in bs_impact else bs_impact.get("changed"),
         })
     try:
         if not include_backtest:
@@ -219,6 +297,21 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         backtest = empty_report(f"Backtest generation unavailable: {type(exc).__name__}: {exc}", finished.isoformat())
     coverage = _coverage_report(universe_records=universe_records, signals=signals, status_by_ticker=status_by_ticker,
                                 errors=errors, run_at=finished.isoformat())
+    balance_sheet_report = write_balance_sheet_artifacts(balance_sheet_bundles)
+    scoring_report = _balance_sheet_scoring_report(signals, bs_mode)
+    report_root = Path("data") / "reports"
+    report_root.mkdir(parents=True, exist_ok=True)
+    if bs_mode == "official":
+        write_json(report_root / "balance_sheet_scoring_official_change_report.json", scoring_report)
+    elif bs_mode == "experimental":
+        write_json(report_root / "balance_sheet_scoring_experimental_report.json", scoring_report)
+    else:
+        write_json(report_root / "balance_sheet_scoring_shadow_report.json", scoring_report)
+    coverage["counts"].update({
+        "balance_sheets_available": balance_sheet_report["balanceSheetsAvailable"],
+        "balance_sheets_partial": balance_sheet_report["balanceSheetsPartial"],
+        "balance_sheets_unavailable": balance_sheet_report["unavailableCompanies"],
+    })
     audit = {
         "schemaVersion": SCHEMA_VERSION,
         "runStartedAt": started.isoformat(),
@@ -230,6 +323,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         "errors": errors,
         "tickers": ticker_reports,
         "coverageCounts": coverage["counts"],
+        "balanceSheetCoverage": balance_sheet_report,
     }
     summary = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "records": [
         {

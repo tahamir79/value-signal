@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import os
 from copy import deepcopy
 from typing import Any
 
+from scripts.balance_sheet import experimental_signal
+
 SCORE_SCHEMA_VERSION = "1.0.0"
+BALANCE_SHEET_SCORING_MODES = {"off", "shadow", "experimental", "official"}
 WEIGHTS: dict[str, dict[str, float]] = {
     "value": {"earnings_yield": 0.60, "sales_yield": 0.40},
     "quality": {"net_margin": 0.45, "revenue_growth": 0.30, "net_margin_trend": 0.25},
@@ -21,6 +25,9 @@ EXPLANATIONS = {
     "MOMENTUM_RISK_HIGH": "Recent price performance is weak relative to the research universe.",
     "MARKET_RISK_HIGH": "Volatility or drawdown evidence indicates elevated market risk.",
     "BALANCE_SHEET_RISK_HIGH": "Leverage evidence ranks among the riskiest records in the universe.",
+    "BALANCE_SHEET_GATE_TRIGGERED": "Balance-sheet target checks triggered one or more risk gates.",
+    "BALANCE_SHEET_SUPPORTIVE": "Balance-sheet target checks support the research signal.",
+    "BALANCE_SHEET_EXPERIMENTAL": "Balance-sheet scoring was computed separately from the official signal.",
     "EVIDENCE_SPARSE": "Too many required features are missing for a responsible classification.",
     "EVIDENCE_PARTIAL": "Some inputs are missing, so the classification carries reduced confidence.",
     "EVIDENCE_COMPLETE": "Nearly all required feature inputs are available.",
@@ -78,6 +85,63 @@ def classify(scores: dict[str, float | None], confidence: str) -> str:
     return "neutral"
 
 
+def balance_sheet_scoring_mode() -> str:
+    mode = os.getenv("BALANCE_SHEET_SCORING_MODE", "shadow").strip().lower()
+    return mode if mode in BALANCE_SHEET_SCORING_MODES else "shadow"
+
+
+def _confidence_rank(confidence: str) -> int:
+    return {"Insufficient": 0, "Low": 1, "Medium": 2, "High": 3}.get(confidence, 0)
+
+
+def _confidence_label(rank: int) -> str:
+    return {0: "Insufficient", 1: "Low", 2: "Medium", 3: "High"}[max(0, min(3, rank))]
+
+
+def _adjust_confidence(confidence: str, adjustment: int) -> str:
+    if adjustment >= 5:
+        return _confidence_label(_confidence_rank(confidence) + 1)
+    if adjustment <= -10:
+        return _confidence_label(_confidence_rank(confidence) - 2)
+    if adjustment < 0:
+        return _confidence_label(_confidence_rank(confidence) - 1)
+    return confidence
+
+
+def _triggered_gates(balance_sheet_scoring: dict[str, Any] | None) -> list[dict[str, Any]]:
+    return [gate for gate in (balance_sheet_scoring or {}).get("triggeredRiskGates", []) if gate.get("triggered")]
+
+
+def _official_balance_sheet_adjustment(record: dict[str, Any], balance_sheet_scoring: dict[str, Any]) -> dict[str, Any]:
+    adjusted = deepcopy(record)
+    scores = adjusted["scores"]
+    penalty = balance_sheet_scoring.get("balanceSheetRiskPenalty")
+    quality = balance_sheet_scoring.get("balanceSheetQualityScore")
+    if isinstance(penalty, (int, float)):
+        prior = scores.get("balanceSheetRisk")
+        scores["balanceSheetRisk"] = _bounded((prior * 0.5 + penalty * 0.5) if isinstance(prior, (int, float)) else penalty)
+        adjusted["components"]["balanceSheetRisk"]["score"] = scores["balanceSheetRisk"]
+    if isinstance(quality, (int, float)) and isinstance(scores.get("quality"), (int, float)):
+        scores["quality"] = _bounded(scores["quality"] * 0.85 + quality * 0.15)
+    confidence = _adjust_confidence(adjusted["confidence"], int(balance_sheet_scoring.get("confidenceAdjustment") or 0))
+    gates = _triggered_gates(balance_sheet_scoring)
+    severe = any(gate.get("severity") == "severe" for gate in gates)
+    if confidence != "Insufficient" and severe and len([gate for gate in gates if gate.get("severity") == "severe"]) >= 2:
+        confidence = _adjust_confidence(confidence, -10)
+    adjusted["confidence"] = confidence
+    adjusted["signal"] = classify(scores, confidence)
+    if experimental_signal(record["signal"], scores, balance_sheet_scoring)["signal"] == "value-trap-risk":
+        adjusted["signal"] = "value-trap-risk"
+    adjusted["reasonCodes"] = reason_codes(scores, confidence)
+    if gates:
+        adjusted["reasonCodes"].append("BALANCE_SHEET_GATE_TRIGGERED")
+    elif isinstance(quality, (int, float)) and quality >= 70:
+        adjusted["reasonCodes"].append("BALANCE_SHEET_SUPPORTIVE")
+    adjusted["reasonCodes"] = list(dict.fromkeys(adjusted["reasonCodes"]))
+    adjusted["explanations"] = [EXPLANATIONS[code] for code in adjusted["reasonCodes"] if code in EXPLANATIONS]
+    return adjusted
+
+
 def reason_codes(scores: dict[str, float | None], confidence: str) -> list[str]:
     codes: list[str] = []
     if confidence == "Insufficient":
@@ -105,7 +169,23 @@ def score_record(feature_row: dict[str, Any], weights: dict[str, dict[str, float
     confidence, available = confidence_for(feature_row["raw"])
     label = classify(scores, confidence)
     codes = reason_codes(scores, confidence)
-    return {"ticker": feature_row["ticker"], "asOf": feature_row["asOf"], "scoreVersion": SCORE_SCHEMA_VERSION, "signal": label, "confidence": confidence, "availableFeatures": available, "totalFeatures": 10, "scores": scores, "components": components, "reasonCodes": codes, "explanations": [EXPLANATIONS[code] for code in codes]}
+    record = {"ticker": feature_row["ticker"], "asOf": feature_row["asOf"], "scoreVersion": SCORE_SCHEMA_VERSION, "signal": label, "confidence": confidence, "availableFeatures": available, "totalFeatures": 10, "scores": scores, "components": components, "reasonCodes": codes, "explanations": [EXPLANATIONS[code] for code in codes]}
+    balance_sheet_scoring = feature_row.get("balanceSheetScoring")
+    mode = balance_sheet_scoring_mode()
+    if balance_sheet_scoring and mode != "off":
+        impact = experimental_signal(record["signal"], record["scores"], balance_sheet_scoring)
+        shadow = {**balance_sheet_scoring, "experimentalSignalImpact": {"wouldChangeSignal": impact["changed"], "currentOfficialSignal": record["signal"], "experimentalSignal": impact["signal"], "reason": "; ".join(impact["reasons"]) or None}}
+        record["balanceSheetScoringShadow"] = shadow
+        if mode == "experimental":
+            record["experimentalBalanceSheetAdjustedSignal"] = impact
+        if mode == "official":
+            official = _official_balance_sheet_adjustment(record, balance_sheet_scoring)
+            official["balanceSheetScoringShadow"] = shadow
+            official["balanceSheetScoringMode"] = mode
+            official["balanceSheetOfficialChange"] = {"previousOfficialSignal": record["signal"], "newSignal": official["signal"], "changed": record["signal"] != official["signal"], "triggeredGates": impact["triggeredGates"]}
+            return official
+        record["balanceSheetScoringMode"] = mode
+    return record
 
 
 def score_universe(feature_rows: list[dict[str, Any]], weights: dict[str, dict[str, float]] = WEIGHTS) -> list[dict[str, Any]]:

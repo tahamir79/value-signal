@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "note": "Default ValueSignal balance-sheet screening bands. These are research heuristics, not universal investment rules.",
+  "metrics": [
+    {"metric": "currentRatio", "description": "Current assets divided by current liabilities.", "direction": "higher_is_better", "healthy": ">= 1.5", "acceptable": "1.0 to 1.5", "risk": "0.75 to 1.0", "severeRisk": "< 0.75", "defaultWeight": 0.35, "missingBehavior": "lower_confidence"},
+    {"metric": "quickRatio", "description": "Cash, short-term investments, and receivables divided by current liabilities.", "direction": "higher_is_better", "healthy": ">= 1.0", "acceptable": "0.75 to 1.0", "risk": "0.5 to 0.75", "severeRisk": "< 0.5", "defaultWeight": 0.3, "missingBehavior": "lower_confidence"},
+    {"metric": "cashRatio", "description": "Cash and equivalents divided by current liabilities.", "direction": "higher_is_better", "healthy": ">= 0.5", "acceptable": "0.25 to 0.5", "risk": "0.1 to 0.25", "severeRisk": "< 0.1", "defaultWeight": 0.2, "missingBehavior": "lower_confidence"},
+    {"metric": "debtToEquity", "description": "Total debt divided by stockholders' equity.", "direction": "lower_is_better", "healthy": "< 0.5", "acceptable": "0.5 to 1.5", "risk": "1.5 to 3.0", "severeRisk": "> 3.0", "defaultWeight": 0.35, "missingBehavior": "risk_warning"},
+    {"metric": "debtToAssets", "description": "Total debt divided by assets.", "direction": "lower_is_better", "healthy": "< 0.30", "acceptable": "0.30 to 0.50", "risk": "0.50 to 0.70", "severeRisk": "> 0.70", "defaultWeight": 0.3, "missingBehavior": "risk_warning"},
+    {"metric": "equityRatio", "description": "Stockholders' equity divided by assets.", "direction": "higher_is_better", "healthy": ">= 0.50", "acceptable": "0.30 to 0.50", "risk": "0.20 to 0.30", "severeRisk": "< 0.20", "defaultWeight": 0.4, "missingBehavior": "risk_warning"},
+    {"metric": "cashToDebt", "description": "Cash and equivalents divided by total debt.", "direction": "higher_is_better", "healthy": ">= 0.50", "acceptable": "0.20 to 0.50", "risk": "0.10 to 0.20", "severeRisk": "< 0.10", "defaultWeight": 0.2, "missingBehavior": "lower_confidence"},
+    {"metric": "goodwillIntangiblesToAssets", "description": "Goodwill plus intangible assets divided by assets.", "direction": "lower_is_better", "healthy": "< 0.25", "acceptable": "0.25 to 0.40", "risk": "0.40 to 0.60", "severeRisk": "> 0.60", "defaultWeight": 0.5, "missingBehavior": "neutral"}
+  ]
+}

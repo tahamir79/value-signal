@@ -124,7 +124,7 @@ export function StockTable({ records }: { records: StockRecord[] }) {
                 <td>{score(stock.scores.quality)}</td>
                 <td>{score(stock.scores.momentum)}</td>
                 <td>{stock.confidence}</td>
-                <td><small>{stock.dataStatus?.scoringAvailable ? "Scored" : "Insufficient"} · {stock.dataStatus?.bm25Indexed ? "Searchable" : "No BM25"}</small></td>
+                <td><small>{stock.dataStatus?.scoringAvailable ? "Scored" : "Insufficient"} · {stock.dataStatus?.bm25Indexed ? "Searchable" : "No BM25"} · {stock.dataStatus?.balanceSheetAvailable ? "BS full" : stock.dataStatus?.balanceSheetPartial ? "BS partial" : "No BS"}</small></td>
                 <td>${stock.price.toFixed(2)}<small className={stock.dailyChangePercent >= 0 ? "up" : "down"}>{stock.dailyChangePercent >= 0 ? "+" : ""}{stock.dailyChangePercent.toFixed(2)}%</small></td>
               </tr>
             ))}

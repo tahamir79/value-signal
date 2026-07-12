@@ -107,6 +107,13 @@ def build_stock_context(
         "rangeWarnings": (feature_row or {}).get("rangeWarnings") or [],
         "derived": (dashboard_row or {}).get("derived") or {},
         "latestFacts": (dashboard_row or {}).get("latestFacts") or {},
+        "balanceSheet": {
+            "snapshot": (dashboard_row or {}).get("balanceSheet") or {},
+            "metrics": (dashboard_row or {}).get("balanceSheetMetrics") or {},
+            "scoring": (dashboard_row or {}).get("balanceSheetScoringShadow") or (signal_row or {}).get("balanceSheetScoringShadow") or {},
+            "targetComparisons": ((dashboard_row or {}).get("balanceSheetScoringShadow") or (signal_row or {}).get("balanceSheetScoringShadow") or {}).get("targetComparisons") or [],
+            "riskGates": ((dashboard_row or {}).get("balanceSheetScoringShadow") or (signal_row or {}).get("balanceSheetScoringShadow") or {}).get("triggeredRiskGates") or [],
+        },
     }
 
 
@@ -137,7 +144,10 @@ def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6,
     raw = context.get("rawFeatures") or {}
     derived = context.get("derived") or {}
     facts = context.get("latestFacts") or {}
+    balance_sheet = context.get("balanceSheet") or {}
+    balance_scoring = balance_sheet.get("scoring") or {}
     gates = inferred_risk_gates(context)
+    bs_gates = [gate.get("name") for gate in balance_scoring.get("triggeredRiskGates", []) if isinstance(gate, dict) and gate.get("triggered")]
     fact_lines = []
     for name, fact in list(facts.items())[:max_facts]:
         if not isinstance(fact, dict):
@@ -154,6 +164,16 @@ def stock_context_summary(context: dict[str, Any] | None, *, max_facts: int = 6,
         f"- Signal confidence: {context.get('confidence') or 'Not available'}",
         f"- As of: {context.get('asOf') or 'Not available'}",
         "- Risk gates triggered: " + (", ".join(gates) or "None inferred"),
+        "- Balance-sheet shadow scores: "
+        + (
+            f"quality={balance_scoring.get('balanceSheetQualityScore')}, "
+            f"riskPenalty={balance_scoring.get('balanceSheetRiskPenalty')}, "
+            f"liquidity={balance_scoring.get('liquidityScore')}, "
+            f"leverage={balance_scoring.get('leverageScore')}, "
+            f"solvency={balance_scoring.get('solvencyScore')}"
+            if balance_scoring else "Not available"
+        ),
+        "- Balance-sheet gates: " + (", ".join(str(value) for value in bs_gates) or "None recorded"),
         "- Reason codes: " + (", ".join(str(value) for value in (context.get("reasonCodes") or [])) or "None recorded"),
     ]
     if detail != "full":

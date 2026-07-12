@@ -17,6 +17,9 @@ export type DashboardRecord = {
   derived: { latestPrice: number | null; dailyChangePercent: number | null; marketCapBillions: number | null };
   dataStatus?: DataStatus;
   latestFacts?: Record<string, unknown>;
+  balanceSheet?: BalanceSheetSnapshot;
+  balanceSheetMetrics?: Record<string, number | null>;
+  balanceSheetScoringShadow?: BalanceSheetScoringOutput;
   priceHistory?: PriceBar[];
 };
 
@@ -30,6 +33,17 @@ export type DataStatus = {
   filingsCleaned?: boolean;
   filingsChunked?: boolean;
   bm25Indexed?: boolean;
+  balanceSheetAvailable?: boolean;
+  balanceSheetPartial?: boolean;
+  balanceSheetSource?: string | null;
+  balanceSheetPeriodEnd?: string | null;
+  balanceSheetWarnings?: string[];
+  balanceSheetQualityScore?: number | null;
+  balanceSheetRiskPenalty?: number | null;
+  liquidityScore?: number | null;
+  leverageScore?: number | null;
+  solvencyScore?: number | null;
+  triggeredBalanceSheetGates?: string[];
   scoringInputsAvailable?: boolean;
   scoringAvailable?: boolean;
   officialSignal?: string | null;
@@ -37,6 +51,28 @@ export type DataStatus = {
   latestFilingDate?: string | null;
   latestScoringDate?: string | null;
   lastPipelineRun?: string | null;
+};
+
+export type BalanceSheetSnapshot = {
+  ticker:string;cik:string;companyName:string;formType?:string|null;accession?:string|null;
+  filingDate?:string|null;periodEndDate?:string|null;source?:string|null;missingFields?:string[];dataQualityWarnings?:string[];
+  assets?:number|null;currentAssets?:number|null;cashAndEquivalents?:number|null;shortTermInvestments?:number|null;
+  accountsReceivable?:number|null;inventory?:number|null;propertyPlantEquipmentNet?:number|null;goodwill?:number|null;
+  intangibleAssets?:number|null;liabilities?:number|null;currentLiabilities?:number|null;accountsPayable?:number|null;
+  shortTermDebt?:number|null;longTermDebt?:number|null;totalDebt?:number|null;stockholdersEquity?:number|null;retainedEarnings?:number|null;
+};
+
+export type BalanceSheetTargetComparison = {
+  metric:string;value:number|null;status:"healthy"|"acceptable"|"caution"|"risk"|"severe_risk"|"unavailable";healthyRange:string;interpretation:string;weight:number;
+};
+
+export type BalanceSheetRiskGate = {name:string;severity:string;triggered:boolean;explanation:string;metrics:string[]};
+
+export type BalanceSheetScoringOutput = {
+  liquidityScore:number|null;leverageScore:number|null;solvencyScore:number|null;assetQualityScore:number|null;
+  balanceSheetQualityScore:number|null;balanceSheetRiskPenalty:number|null;triggeredRiskGates:BalanceSheetRiskGate[];
+  targetComparisons:BalanceSheetTargetComparison[];confidenceAdjustment:number;warnings:string[];
+  experimentalSignalImpact?:{wouldChangeSignal:boolean;currentOfficialSignal:string;experimentalSignal?:string|null;reason?:string|null};
 };
 
 export type EtlData = {
@@ -73,6 +109,10 @@ export type SignalRecord = {
   components: Record<string, { score: number | null; coverage: number; contributions: ScoreContribution[] }>;
   reasonCodes: string[];
   explanations: string[];
+  balanceSheetScoringMode?: "off" | "shadow" | "experimental" | "official";
+  balanceSheetScoringShadow?: BalanceSheetScoringOutput;
+  experimentalBalanceSheetAdjustedSignal?: {signal:string;previousOfficialSignal:string;changed:boolean;reasons:string[];triggeredGates:string[]};
+  balanceSheetOfficialChange?: {previousOfficialSignal:string;newSignal:string;changed:boolean;triggeredGates:string[]};
 };
 
 export type SignalData = {
