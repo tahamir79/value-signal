@@ -11,9 +11,12 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 120
     env:
       VS_USER_AGENT: "ValueSignal research ETL ${{ secrets.VS_CONTACT_EMAIL }}"
+      BALANCE_SHEET_SCORING_MODE: shadow
+      VS_UNIVERSE_PATH: data/universe/universe.json
+      VS_UNIVERSE_LIMIT: "250"
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -30,9 +33,9 @@ jobs:
       - name: Run brief generator tests
         run: npm ci && npm run test:brief
       - name: Refresh live artifacts
-        run: python scripts/run_etl.py
+        run: python scripts/run_etl.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT" --skip-backtest
       - name: Refresh SEC filing search index
-        run: python scripts/build_search_index.py
+        run: python scripts/build_search_index.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT"
       - name: Audit feature outputs
         run: python scripts/audit_features.py
       - name: Audit scoring outputs
@@ -45,6 +48,6 @@ jobs:
         run: |
           git config user.name "value-signal-bot"
           git config user.email "value-signal-bot@users.noreply.github.com"
-          git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/etl_report.json
+          git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/search public/data/stocks public/data/etl_report.json public/data/universe_coverage_report.json
           git diff --cached --quiet || git commit -m "data: refresh ValueSignal artifacts"
           git push

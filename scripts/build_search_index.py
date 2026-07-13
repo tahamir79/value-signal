@@ -196,10 +196,18 @@ def write_partitioned_index(index: dict[str, Any], manifest_path: Path, search_d
 
     tickers: dict[str, dict[str, Any]] = {}
     for ticker, documents in sorted(documents_by_ticker.items()):
-        ticker_index = build_index(documents)
+        unique_documents: list[dict[str, Any]] = []
+        seen_ids: set[str] = set()
+        for document in documents:
+            document_id = str(document.get("chunkId") or document.get("id"))
+            if document_id in seen_ids:
+                continue
+            seen_ids.add(document_id)
+            unique_documents.append(document)
+        ticker_index = build_index(unique_documents)
         ticker_path = search_dir / f"{ticker}.json"
         write_compact_json(ticker_path, ticker_index)
-        filing_dates = [row.get("filingDate") for row in documents if row.get("filingDate")]
+        filing_dates = [row.get("filingDate") for row in unique_documents if row.get("filingDate")]
         tickers[ticker] = {
             "path": str(ticker_path.as_posix()),
             "documentCount": ticker_index["documentCount"],
