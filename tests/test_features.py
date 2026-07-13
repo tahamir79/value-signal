@@ -21,11 +21,12 @@ class FeatureTests(unittest.TestCase):
 
     def test_fundamental_features_and_missingness(self):
         prices = [bar(index, 10) for index in range(100)]
-        facts = [fact("Revenue", 100, 2024), fact("Revenue", 120, 2025), fact("Net income", 10, 2024), fact("Net income", 18, 2025)]
+        facts = [fact("Revenue", 100, 2024), fact("Revenue", 120, 2025), fact("Net income", 10, 2024), fact("Net income", 18, 2025), fact("Gross profit", 48, 2025)]
         raw = calculate_raw_features(prices, facts)
         self.assertAlmostEqual(raw["revenue_growth"], 0.2)
         self.assertAlmostEqual(raw["net_margin"], 0.15)
         self.assertAlmostEqual(raw["net_margin_trend"], 0.05)
+        self.assertAlmostEqual(raw["gross_margin"], 0.4)
         self.assertIsNone(raw["earnings_yield"])
 
     def test_percentiles_are_stable_and_nulls_remain_explicit(self):

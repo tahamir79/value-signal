@@ -12,9 +12,20 @@ export type PriceBar = {
   adjusted_close?: number | null;
 };
 
+export type DerivedFields = {
+  latestPrice: number | null;
+  dailyChangePercent: number | null;
+  marketCapBillions: number | null;
+  liabilitiesToAssets?: number | null;
+  latestRevenueBillions?: number | null;
+  revenueGrowthPercent?: number | null;
+  grossMarginPercent?: number | null;
+  netMarginPercent?: number | null;
+};
+
 export type DashboardRecord = {
   security: { ticker: string; cik: string; company_name: string; exchange: string; sector: string };
-  derived: { latestPrice: number | null; dailyChangePercent: number | null; marketCapBillions: number | null };
+  derived: DerivedFields;
   dataStatus?: DataStatus;
   latestFacts?: Record<string, unknown>;
   balanceSheet?: BalanceSheetSnapshot;

@@ -1,6 +1,6 @@
 # ValueSignal balance-sheet scoring v1.0.0
 
-Balance-sheet scoring is an additive, auditable layer over the existing ValueSignal ETL. It uses SEC companyfacts data and does not require an LLM. The default mode is `BALANCE_SHEET_SCORING_MODE=shadow`, which computes balance-sheet context without changing official scores, confidence, reason codes, or signals.
+Balance-sheet scoring is an additive, auditable layer over the existing ValueSignal ETL. It uses SEC companyfacts data and does not require an LLM. The default mode is now `BALANCE_SHEET_SCORING_MODE=official`, which keeps standalone balance-sheet artifacts intact while allowing vetted balance-sheet quality, risk penalties, and gates to affect official scores and signals.
 
 ## Modes
 
@@ -39,6 +39,6 @@ Target bands are centralized in `data/scoring/balance_sheet_targets.json`. Curre
 
 ## Official scoring behavior
 
-In `shadow` and `experimental` modes, official scoring remains v1-compatible. In `official` mode only, the system may blend balance-sheet risk penalty into the existing balance-sheet risk score, modestly blend balance-sheet quality into quality score, adjust confidence, and route strong value plus severe balance-sheet weakness toward value-trap risk.
+In `shadow` and `experimental` modes, official scoring remains v1-compatible. In `official` mode, the system blends balance-sheet risk penalty into the existing balance-sheet risk score, modestly blends balance-sheet quality into quality score, adjusts confidence, and routes strong value plus severe balance-sheet weakness toward value-trap risk. The emitted `balanceSheetOfficialChange` field makes official signal changes auditable.
 
 All changes should be reviewed with `scripts/compare_scoring_outputs.py` against `data/reports/scoring_baseline_before_balance_sheet_integration.json`.

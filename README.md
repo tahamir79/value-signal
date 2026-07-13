@@ -61,6 +61,23 @@ Stock pages generate cautious briefs from signal labels, validated scores, sampl
 
 The local-only RAG layer combines the schema-3 SEC corpus, BM25, cached `nomic-embed-text` vectors, and `llama3.2:3b` synthesis. It explains existing signals with cited filing evidence and degrades visibly to BM25 when semantic retrieval is unavailable. It is not required by Vercel. See `docs/rag_specification.md`.
 
+## Authentication
+
+ValueSignal includes Better Auth scaffolding for Google sign-in backed by PostgreSQL. Public research pages remain open; auth prepares protected future AI/RAG features.
+
+Required environment variables:
+
+```bash
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+NEXT_PUBLIC_BETTER_AUTH_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+DATABASE_URL=
+```
+
+Google OAuth callback URLs should point to `/api/auth/callback/google` for local and production domains.
+
 ## Scaling phase: broad universe foundation
 
 The scaling path is a separate data-engineering phase. It starts with staged universe construction instead of blindly downloading every ticker. The current foundation supports `starter`, `watchlist`, `sp500_or_largecap`, `sec_listed_core`, `sec_listed_all`, and `custom` modes, preserves CIK/ticker/name/exchange fields, marks unsupported securities, and writes restartable run reports.

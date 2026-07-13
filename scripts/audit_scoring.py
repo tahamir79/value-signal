@@ -21,7 +21,11 @@ def main() -> int:
             if score is not None and abs(score-points)>0.001: failures.append(f"{row['ticker']}:{name}: contribution mismatch")
             if score is not None and not 0<=score<=100: failures.append(f"{row['ticker']}:{name}: out of bounds")
         if row["signal"] not in labels: failures.append(f"{row['ticker']}: invalid label")
-        if row["signal"]!=classify(row["scores"],row["confidence"]): failures.append(f"{row['ticker']}: nondeterministic label")
+        expected=classify(row["scores"],row["confidence"])
+        official_change=row.get("balanceSheetOfficialChange") or {}
+        official_balance_sheet_override=row.get("balanceSheetScoringMode")=="official" and row["signal"]==official_change.get("newSignal")
+        if row["signal"]!=expected and not official_balance_sheet_override:
+            failures.append(f"{row['ticker']}: nondeterministic label")
         print(f"  {row['ticker']}: signal={row['signal']} confidence={row['confidence']} value={row['scores']['value']} quality={row['scores']['quality']} momentumRisk={row['scores']['momentumRisk']} marketRisk={row['scores']['marketRisk']} balanceRisk={row['scores']['balanceSheetRisk']}")
     scenarios=sensitivity_scenarios(features["records"])
     changed=sum(item["changedCount"] for item in scenarios)

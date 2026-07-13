@@ -86,8 +86,8 @@ def classify(scores: dict[str, float | None], confidence: str) -> str:
 
 
 def balance_sheet_scoring_mode() -> str:
-    mode = os.getenv("BALANCE_SHEET_SCORING_MODE", "shadow").strip().lower()
-    return mode if mode in BALANCE_SHEET_SCORING_MODES else "shadow"
+    mode = os.getenv("BALANCE_SHEET_SCORING_MODE", "official").strip().lower()
+    return mode if mode in BALANCE_SHEET_SCORING_MODES else "official"
 
 
 def _confidence_rank(confidence: str) -> int:
@@ -120,7 +120,36 @@ def _official_balance_sheet_adjustment(record: dict[str, Any], balance_sheet_sco
     if isinstance(penalty, (int, float)):
         prior = scores.get("balanceSheetRisk")
         scores["balanceSheetRisk"] = _bounded((prior * 0.5 + penalty * 0.5) if isinstance(prior, (int, float)) else penalty)
-        adjusted["components"]["balanceSheetRisk"]["score"] = scores["balanceSheetRisk"]
+        component = adjusted["components"]["balanceSheetRisk"]
+        prior_contributions = component.get("contributions", []) if isinstance(component, dict) else []
+        if isinstance(prior, (int, float)) and prior_contributions:
+            scaled = [
+                {
+                    **item,
+                    "weight": round(float(item.get("weight", 0)) * 0.5, 6),
+                    "points": round(float(item.get("points", 0)) * 0.5, 4),
+                }
+                for item in prior_contributions
+            ]
+            scaled.append({
+                "feature": "balance_sheet_risk_penalty",
+                "percentile": None,
+                "directedPercentile": None,
+                "weight": 0.5,
+                "points": round(float(penalty) * 0.5, 4),
+            })
+            component["coverage"] = max(component.get("coverage", 0), 1.0)
+            component["contributions"] = scaled
+        else:
+            component["coverage"] = 1.0
+            component["contributions"] = [{
+                "feature": "balance_sheet_risk_penalty",
+                "percentile": None,
+                "directedPercentile": None,
+                "weight": 1.0,
+                "points": round(float(penalty), 4),
+            }]
+        component["score"] = scores["balanceSheetRisk"]
     if isinstance(quality, (int, float)) and isinstance(scores.get("quality"), (int, float)):
         scores["quality"] = _bounded(scores["quality"] * 0.85 + quality * 0.15)
     confidence = _adjust_confidence(adjusted["confidence"], int(balance_sheet_scoring.get("confidenceAdjustment") or 0))

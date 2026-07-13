@@ -1,34 +1,49 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-12T20:43:56.589289+00:00",
+  "generatedAt": "2026-07-13T19:26:32.426975+00:00",
   "counts": {
     "raw_sec_symbols": 250,
     "unique_ciks": 230,
     "listed_nyse_nasdaq_symbols": 244,
     "supported_operating_companies": 250,
-    "recent_10k_available": 194,
-    "recent_10q_available": 199,
+    "recent_10k_available": 191,
+    "recent_10q_available": 196,
     "filings_downloaded": 199,
     "filings_indexed": 199,
     "searchable_companies": 199,
-    "companyfacts_available": 199,
-    "scoreable_companies": 190,
-    "insufficient_evidence_companies": 55,
+    "companyfacts_available": 196,
+    "scoreable_companies": 144,
+    "insufficient_evidence_companies": 98,
     "unsupported_symbols": 0,
-    "failed_symbols": 5,
+    "failed_symbols": 8,
     "balance_sheets_available": 16,
-    "balance_sheets_partial": 183,
+    "balance_sheets_partial": 180,
     "balance_sheets_unavailable": 46
   },
   "unsupportedReasons": {},
   "failuresByStage": {
-    "ticker_pipeline": 5
+    "ticker_pipeline": 8
   },
   "failedSymbols": [
     {
       "ticker": "AAC",
       "stage": "ticker_pipeline",
       "message": "ProviderError: Request failed after 3 attempts: HTTP Error 404: Not Found"
+    },
+    {
+      "ticker": "ACH",
+      "stage": "ticker_pipeline",
+      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "ticker": "ACHC",
+      "stage": "ticker_pipeline",
+      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "ticker": "ACHR",
+      "stage": "ticker_pipeline",
+      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
     },
     {
       "ticker": "ADBT",
@@ -53,6 +68,10 @@
   ],
   "insufficientEvidence": [
     {
+      "ticker": "AACB",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AACG",
       "reason": "Insufficient scoring inputs"
     },
@@ -73,11 +92,31 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AAL",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AAON",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AAPG",
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AARD",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AAUC",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AB",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ABCB",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -86,6 +125,10 @@
     },
     {
       "ticker": "ABLV",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ABOS",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -109,6 +152,10 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "ACET",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "ACGC",
       "reason": "Insufficient scoring inputs"
     },
@@ -117,7 +164,27 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "ACRV",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ACTU",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ACXP",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ADAC",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "ADAG",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ADIL",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -129,7 +196,15 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "ADVB",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "ADXN",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AEAQ",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -153,6 +228,10 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AEON",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AER",
       "reason": "Insufficient scoring inputs"
     },
@@ -165,7 +244,23 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AEXA",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AFBI",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AFJK",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AFRI",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AFRM",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -185,7 +280,19 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AGEN",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AGI",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGM",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGM-A",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -194,6 +301,42 @@
     },
     {
       "ticker": "AGMH",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNC",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCL",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCM",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCN",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCO",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCP",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGNCZ",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGO",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AGPU",
       "reason": "Insufficient scoring inputs"
     },
     {
@@ -225,6 +368,14 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AIHS",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AIIA",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AIIA-RI",
       "reason": "Insufficient scoring inputs"
     },
@@ -249,6 +400,14 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AIR",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AIRJ",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "AIXI",
       "reason": "Insufficient scoring inputs"
     },
@@ -265,11 +424,39 @@
       "reason": "Insufficient scoring inputs"
     },
     {
+      "ticker": "AKTS",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "AKTX",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
       "ticker": "ALAR",
       "reason": "Insufficient scoring inputs"
     },
     {
       "ticker": "ALC",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ALDF",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ALDS",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ALDX",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ALF",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ALIS",
       "reason": "Insufficient scoring inputs"
     }
   ]

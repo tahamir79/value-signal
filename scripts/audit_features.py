@@ -3,8 +3,14 @@ from __future__ import annotations
 import json
 import math
 import statistics
+import sys
 from pathlib import Path
 from typing import Any
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from scripts.features import FEATURE_SPECS
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -65,8 +71,11 @@ def audit(data_dir: Path = Path("public/data")) -> list[str]:
     print(f"DENOMINATOR SIGNS: {'PASS' if not bad_denominators else 'FAIL'} (non-positive={len(bad_denominators)})")
 
     print("OUTLIER TRACE (ticker-level raw extrema):")
-    for name in features["records"][0]["raw"]:
+    for name in FEATURE_SPECS:
         values = [(row["raw"][name], row) for row in features["records"] if row["raw"][name] is not None]
+        if not values:
+            print(f"  {name}: no available values")
+            continue
         low_value, low = min(values, key=lambda item: item[0])
         high_value, high = max(values, key=lambda item: item[0])
         print(f"  {name}: low={low['ticker']} raw={low_value} winsor={low['winsorized'][name]} pct={low['percentile'][name]}; high={high['ticker']} raw={high_value} winsor={high['winsorized'][name]} pct={high['percentile'][name]}")

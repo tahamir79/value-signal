@@ -6,6 +6,7 @@ from scripts.models import FinancialFact
 CONCEPTS = {
     "Revenues": ("Revenue", ("USD",)),
     "RevenueFromContractWithCustomerExcludingAssessedTax": ("Revenue", ("USD",)),
+    "GrossProfit": ("Gross profit", ("USD",)),
     "NetIncomeLoss": ("Net income", ("USD",)),
     "Assets": ("Assets", ("USD",)),
     "AssetsCurrent": ("Current assets", ("USD",)),

@@ -776,8 +776,8 @@ Important guardrails:
 
 - **Scoring v1 checkpoint:** `fa3c1ae`, with branch `checkpoint/scoring-v1-before-balance-sheet` and tag `scoring-v1-before-balance-sheet`.
 - **Baseline tooling:** `data/reports/scoring_baseline_before_balance_sheet_integration.json`, `scripts/write_scoring_baseline.py`, and `scripts/compare_scoring_outputs.py`.
-- **Balance-sheet scoring module:** `scripts/balance_sheet.py`; default mode is `BALANCE_SHEET_SCORING_MODE=shadow`.
-- **Supported modes:** `off`, `shadow`, `experimental`, and `official`. Shadow/experimental modes do not overwrite official signals.
+- **Balance-sheet scoring module:** `scripts/balance_sheet.py`; default mode is `BALANCE_SHEET_SCORING_MODE=official`.
+- **Supported modes:** `off`, `shadow`, `experimental`, and `official`. Official mode blends balance-sheet risk penalty into the balance-sheet risk score, lightly blends balance-sheet quality into quality, preserves `balanceSheetScoringShadow`, and emits `balanceSheetOfficialChange`.
 - **Frontend/RAG context:** stock detail pages can display balance-sheet health, and local RAG receives balance-sheet snapshot, metric, gate, and target-comparison context.
 - **Methodology:** see `docs/balance_sheet_scoring.md`.
 

@@ -243,9 +243,19 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
                 "solvencyScore": bs_scoring.get("solvencyScore"),
                 "triggeredBalanceSheetGates": triggered_gates,
             })
+            raw_features = calculate_raw_features(prices, facts)
+            derived = derive_fields(prices, latest)
+            if raw_features.get("revenue_growth") is not None:
+                derived["revenueGrowthPercent"] = round(raw_features["revenue_growth"] * 100, 4)
+            if raw_features.get("gross_margin") is not None:
+                derived["grossMarginPercent"] = round(raw_features["gross_margin"] * 100, 4)
+            if raw_features.get("net_margin") is not None:
+                derived["netMarginPercent"] = round(raw_features["net_margin"] * 100, 4)
+            if raw_features.get("latest_revenue") is not None:
+                derived["latestRevenueBillions"] = round(raw_features["latest_revenue"] / 1_000_000_000, 4)
             detail_row = {
                 "security": record(security),
-                "derived": derive_fields(prices, latest),
+                "derived": derived,
                 "latestFacts": {name: record(fact) for name, fact in latest.items()},
                 "balanceSheet": bs_snapshot,
                 "balanceSheetMetrics": bundle["metrics"],
@@ -255,7 +265,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             }
             write_json(output_dir / "stocks" / f"{security.ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": datetime.now(timezone.utc).isoformat(), "record": detail_row})
             rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "balanceSheetScoringShadow": bs_scoring})
-            feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": calculate_raw_features(prices, facts), "balanceSheetScoring": bs_scoring})
+            feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": raw_features, "balanceSheetScoring": bs_scoring})
         except Exception as exc:
             report["status"] = "failed"
             report["error"] = f"{type(exc).__name__}: {exc}"

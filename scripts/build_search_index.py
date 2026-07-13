@@ -221,7 +221,7 @@ def write_partitioned_index(index: dict[str, Any], manifest_path: Path, search_d
         "corpusHash": index.get("corpusHash"),
         "status": index.get("status"),
         "indexMode": "per_ticker",
-        "documentCount": index.get("documentCount", 0),
+        "documentCount": sum(row["documentCount"] for row in tickers.values()),
         "termCount": len(index.get("postings", {})),
         "tickerCount": len(tickers),
         "tickers": tickers,
