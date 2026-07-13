@@ -1,5 +1,6 @@
 import {spawn} from "node:child_process";
 import {NextRequest,NextResponse} from "next/server";
+import { isLocalRagEnabled } from "@/lib/rag-availability";
 
 export const runtime="nodejs";
 export const dynamic="force-dynamic";
@@ -35,6 +36,9 @@ function runPythonRag(payload:RagPayload){
 }
 
 export async function POST(request:NextRequest){
+  if(!isLocalRagEnabled()){
+    return NextResponse.json({error:"Online RAG synthesis is not available yet. Use local development with Ollama for the experimental RAG console."},{status:503});
+  }
   if(!isLocalRequest(request)){
     return NextResponse.json({error:"Local RAG is disabled outside local development. Run `npm run dev` with Ollama running to use it."},{status:403});
   }
