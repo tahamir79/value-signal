@@ -27,4 +27,3 @@ export function FundamentalsSnapshot({ derived }: { derived: DerivedFields | und
     </section>
   );
 }
-
