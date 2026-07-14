@@ -16,3 +16,22 @@ export function isAuthConfigured() {
   return missingAuthEnv().length === 0;
 }
 
+export function publicAuthDiagnostics() {
+  const configuredBaseURL = process.env.BETTER_AUTH_URL || null;
+  const resolvedBaseURL =
+    process.env.VERCEL && configuredBaseURL?.includes("localhost")
+      ? process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : "https://value-signal.vercel.app"
+      : configuredBaseURL || "http://localhost:3000";
+
+  return {
+    missing: missingAuthEnv(),
+    configuredBaseURL,
+    resolvedBaseURL,
+    vercel: Boolean(process.env.VERCEL),
+    hasTrustedOrigins: Boolean(process.env.BETTER_AUTH_TRUSTED_ORIGINS),
+  };
+}

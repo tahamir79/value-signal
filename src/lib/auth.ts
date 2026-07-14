@@ -14,9 +14,30 @@ const database = process.env.DATABASE_URL
     })
   : undefined;
 
+function getAuthBaseURL() {
+  const configured = process.env.BETTER_AUTH_URL?.trim();
+  if (configured && !(process.env.VERCEL && configured.includes("localhost"))) {
+    return configured;
+  }
+
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  if (process.env.VERCEL) {
+    return "https://value-signal.vercel.app";
+  }
+
+  return "http://localhost:3000";
+}
+
 export const auth = betterAuth({
   appName: "ValueSignal",
-  baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
+  baseURL: getAuthBaseURL(),
   secret: process.env.BETTER_AUTH_SECRET ?? "development-only-missing-better-auth-secret",
   database: database ? { db: database, type: "postgres" } : undefined,
   trustedOrigins: [
