@@ -15,6 +15,7 @@ jobs:
     env:
       VS_USER_AGENT: "ValueSignal research ETL ${{ secrets.VS_CONTACT_EMAIL }}"
       BALANCE_SHEET_SCORING_MODE: official
+      VS_UNIVERSE_MODE: sec_listed_core
       VS_UNIVERSE_PATH: data/universe/universe.json
       VS_UNIVERSE_LIMIT: "250"
     steps:
@@ -36,6 +37,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Run brief generator tests
         run: npm ci && npm run test:brief
+      - name: Build scaled universe
+        run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --output-dir data/universe
       - name: Refresh live artifacts
         run: python scripts/run_etl.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT" --skip-backtest
       - name: Refresh SEC filing search index
