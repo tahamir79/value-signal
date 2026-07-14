@@ -9,16 +9,21 @@ import { FundamentalsSnapshot } from "@/components/FundamentalsSnapshot";
 import { PriceChart } from "@/components/PriceChart";
 import { ScoreBreakdown } from "@/components/ScoreBreakdown";
 import { SignalBadge } from "@/components/signals/SignalBadge";
+import { UniverseLockPanel } from "@/components/UniverseLockPanel";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { ScoreCard } from "@/features/stock-detail/ScoreCard";
 import { generateAnalystBrief } from "@/lib/briefGenerator";
 import { getBacktestData } from "@/lib/etl";
+import { isPublicPreviewTicker } from "@/lib/public-universe";
 import { getResearchStockDetail } from "@/lib/research";
 import { searchFilings } from "@/lib/search";
+import { getCurrentSession } from "@/lib/server-auth";
 
 export function generateStaticParams() {
   return [];
 }
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ ticker: string }> }): Promise<Metadata> {
   const detail = await getResearchStockDetail((await params).ticker);
@@ -26,7 +31,19 @@ export async function generateMetadata({ params }: { params: Promise<{ ticker: s
 }
 
 export default async function StockPage({ params }: { params: Promise<{ ticker: string }> }) {
-  const ticker = (await params).ticker;
+  const ticker = (await params).ticker.toUpperCase();
+  const session = await getCurrentSession();
+
+  if (!session?.user && !isPublicPreviewTicker(ticker)) {
+    return (
+      <div className="page stock-page">
+        <Link className="back-link" href="/dashboard">← Back to dashboard</Link>
+        <Disclaimer />
+        <UniverseLockPanel ticker={ticker} />
+      </div>
+    );
+  }
+
   const [detail, filingEvidence, backtest] = await Promise.all([
     getResearchStockDetail(ticker),
     searchFilings(ticker, "risk factors", 3),

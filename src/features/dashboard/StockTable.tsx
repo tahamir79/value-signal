@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { GoogleSignInButton } from "@/components/GoogleSignInButton";
 import { SignalBadge } from "@/components/signals/SignalBadge";
 import type { StockRecord } from "@/types/stock";
 
@@ -11,7 +12,7 @@ const confidenceRank = { High: 4, Medium: 3, Low: 2, Insufficient: 1 };
 const PAGE_SIZE = 50;
 const score = (value: number | null) => value === null ? "—" : value.toFixed(1);
 
-export function StockTable({ records }: { records: StockRecord[] }) {
+export function StockTable({ records, totalUniverseCount = records.length, isAuthenticated = false }: { records: StockRecord[]; totalUniverseCount?: number; isAuthenticated?: boolean }) {
   const [query, setQuery] = useState("");
   const [signal, setSignal] = useState("all");
   const [exchange, setExchange] = useState("all");
@@ -46,6 +47,7 @@ export function StockTable({ records }: { records: StockRecord[] }) {
   const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   const safePage = Math.min(page, pageCount);
   const paged = visible.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const lockedCount = Math.max(0, totalUniverseCount - records.length);
 
   function resetPage() {
     setPage(1);
@@ -96,11 +98,11 @@ export function StockTable({ records }: { records: StockRecord[] }) {
       </label>
       <div className="result-count" role="status" aria-live="polite">
         <strong>{visible.length}</strong>
-        <span>of {records.length} companies</span>
+        <span>{isAuthenticated ? `of ${totalUniverseCount} companies` : `preview of ${totalUniverseCount}`}</span>
       </div>
     </div>
     {visible.length ? <>
-      <div className="table-shell">
+      <div className={`table-shell${!isAuthenticated && lockedCount ? " preview-table-shell" : ""}`}>
         <table>
           <caption className="sr-only">Company research signals; use column buttons to sort</caption>
           <thead>
@@ -131,11 +133,23 @@ export function StockTable({ records }: { records: StockRecord[] }) {
           </tbody>
         </table>
       </div>
-      <div className="pagination-controls" aria-label="Dashboard pagination">
-        <button type="button" disabled={safePage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>Previous</button>
-        <span>Page {safePage} of {pageCount}</span>
-        <button type="button" disabled={safePage === pageCount} onClick={() => setPage((value) => Math.min(pageCount, value + 1))}>Next</button>
-      </div>
+      {!isAuthenticated && lockedCount ? (
+        <div className="universe-lock" role="region" aria-label="Full universe locked behind Google sign-in">
+          <div>
+            <p className="eyebrow">FULL UNIVERSE LOCKED</p>
+            <h3>{lockedCount} more companies are available after sign-in.</h3>
+            <p>The public preview shows the original ten-stock ValueSignal universe. Sign in with Google to screen the full scaled universe and open company-level evidence pages beyond the preview set.</p>
+          </div>
+          <GoogleSignInButton label="Log in using Google" callbackURL="/dashboard" />
+        </div>
+      ) : null}
+      {isAuthenticated ? (
+        <div className="pagination-controls" aria-label="Dashboard pagination">
+          <button type="button" disabled={safePage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>Previous</button>
+          <span>Page {safePage} of {pageCount}</span>
+          <button type="button" disabled={safePage === pageCount} onClick={() => setPage((value) => Math.min(pageCount, value + 1))}>Next</button>
+        </div>
+      ) : null}
     </> : <div className="table-empty" role="status">
       <h3>No companies match these filters.</h3>
       <p>Clear the search or broaden the signal, exchange, and confidence filters.</p>

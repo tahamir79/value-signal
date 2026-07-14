@@ -4,9 +4,12 @@ import { StockTable } from "@/features/dashboard/StockTable";
 import { DataStatus } from "@/features/dashboard/DataStatus";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { getResearchDataState } from "@/lib/etl";
+import { PUBLIC_PREVIEW_TICKERS } from "@/lib/public-universe";
 import { getResearchStocks } from "@/lib/research";
+import { getCurrentSession } from "@/lib/server-auth";
 
 export const metadata: Metadata = { title: "Research dashboard" };
+export const dynamic = "force-dynamic";
 
 function median(values: number[]) {
   if (!values.length) return "—";
@@ -16,11 +19,15 @@ function median(values: number[]) {
 }
 
 export default async function DashboardPage() {
-  const [state, records] = await Promise.all([getResearchDataState(), getResearchStocks()]);
+  const [state, allRecords, session] = await Promise.all([getResearchDataState(), getResearchStocks(), getCurrentSession()]);
+  const isAuthenticated = Boolean(session?.user);
+  const publicTickers = new Set<string>(PUBLIC_PREVIEW_TICKERS);
+  const records = isAuthenticated ? allRecords : allRecords.filter((stock) => publicTickers.has(stock.ticker));
   const highConfidence = records.filter((stock) => stock.confidence === "High").length;
   const riskFlags = records.filter((stock) => stock.signal === "value-trap-risk" || stock.signal === "momentum-risk").length;
   const valueScores = records.flatMap((stock) => stock.scores.value === null ? [] : [stock.scores.value]);
   const coverage = state.report.coverageCounts ?? {};
+
   return <div className="page">
     <header className="page-head split">
       <div>
@@ -37,13 +44,13 @@ export default async function DashboardPage() {
     <DataStatus report={state.report} />
     {state.hasLoadError && <div className="load-warning" role="alert">One or more generated datasets could not be loaded. Available fields are shown with fixture fallbacks.</div>}
     <section className="kpi-row" aria-label="Research overview">
-      <MetricCard label="Companies" value={records.length} note="Current screening universe" />
+      <MetricCard label="Companies" value={isAuthenticated ? records.length : `${records.length} preview`} note={isAuthenticated ? "Current screening universe" : `${allRecords.length} available after sign-in`} />
       <MetricCard label="Median value" value={median(valueScores)} note="Relative score, 0–100" />
       <MetricCard label="High confidence" value={highConfidence} note="At least 9 features available" />
       <MetricCard label="Risk flags" value={riskFlags} note="Momentum or value-trap labels" />
     </section>
     <section className="kpi-row" aria-label="Coverage overview">
-      <MetricCard label="SEC traceable" value={coverage.raw_sec_symbols ?? records.length} note="Rows in current universe batch" />
+      <MetricCard label="SEC traceable" value={coverage.raw_sec_symbols ?? allRecords.length} note="Rows in current universe batch" />
       <MetricCard label="Scoreable" value={coverage.scoreable_companies ?? records.filter((stock) => stock.confidence !== "Insufficient").length} note="Responsible signal available" />
       <MetricCard label="Insufficient" value={coverage.insufficient_evidence_companies ?? records.filter((stock) => stock.confidence === "Insufficient").length} note="Missing or sparse inputs" />
       <MetricCard label="Failed" value={coverage.failed_symbols ?? state.report.failedTickers} note="Logged without stopping run" />
@@ -56,7 +63,7 @@ export default async function DashboardPage() {
         </div>
         <p>Filter the universe, sort any numeric column, then inspect the score contributions and price period for one company.</p>
       </div>
-      <StockTable records={records} />
+      <StockTable records={records} totalUniverseCount={allRecords.length} isAuthenticated={isAuthenticated} />
     </section>
   </div>;
 }

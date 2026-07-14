@@ -18,11 +18,11 @@ jobs:
       VS_UNIVERSE_PATH: data/universe/universe.json
       VS_UNIVERSE_LIMIT: "250"
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: npm
