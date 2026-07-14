@@ -1,49 +1,34 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-13T19:26:32.426975+00:00",
+  "generatedAt": "2026-07-14T22:37:38.213206+00:00",
   "counts": {
     "raw_sec_symbols": 250,
     "unique_ciks": 230,
     "listed_nyse_nasdaq_symbols": 244,
     "supported_operating_companies": 250,
-    "recent_10k_available": 191,
-    "recent_10q_available": 196,
+    "recent_10k_available": 194,
+    "recent_10q_available": 199,
     "filings_downloaded": 199,
     "filings_indexed": 199,
     "searchable_companies": 199,
-    "companyfacts_available": 196,
-    "scoreable_companies": 144,
-    "insufficient_evidence_companies": 98,
+    "companyfacts_available": 199,
+    "scoreable_companies": 146,
+    "insufficient_evidence_companies": 99,
     "unsupported_symbols": 0,
-    "failed_symbols": 8,
+    "failed_symbols": 5,
     "balance_sheets_available": 16,
-    "balance_sheets_partial": 180,
+    "balance_sheets_partial": 183,
     "balance_sheets_unavailable": 46
   },
   "unsupportedReasons": {},
   "failuresByStage": {
-    "ticker_pipeline": 8
+    "ticker_pipeline": 5
   },
   "failedSymbols": [
     {
       "ticker": "AAC",
       "stage": "ticker_pipeline",
       "message": "ProviderError: Request failed after 3 attempts: HTTP Error 404: Not Found"
-    },
-    {
-      "ticker": "ACH",
-      "stage": "ticker_pipeline",
-      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
-    },
-    {
-      "ticker": "ACHC",
-      "stage": "ticker_pipeline",
-      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
-    },
-    {
-      "ticker": "ACHR",
-      "stage": "ticker_pipeline",
-      "message": "ProviderError: Request failed after 3 attempts: <urlopen error [Errno 11001] getaddrinfo failed>"
     },
     {
       "ticker": "ADBT",
@@ -157,6 +142,10 @@
     },
     {
       "ticker": "ACGC",
+      "reason": "Insufficient scoring inputs"
+    },
+    {
+      "ticker": "ACH",
       "reason": "Insufficient scoring inputs"
     },
     {
