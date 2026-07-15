@@ -114,15 +114,52 @@ def rows_from_sec_mapping(records: list[dict[str, Any]], *, mode: str, limit: in
     return rows
 
 
+def prepend_starter_rows(rows: list[dict[str, Any]], *, limit: int | None = None) -> list[dict[str, Any]]:
+    """Keep the original public-preview universe in every scaled run.
+
+    Scaled SEC batches are sorted alphabetically and can exclude the original ten
+    demo companies when a limit is applied. This helper makes the first ten
+    ValueSignal seed companies canonical, then fills the remaining slots from
+    the provider-aware scaled universe without duplicate CIK/ticker rows.
+    """
+    starter_rows = rows_from_starter()
+    seen_keys = {stable_universe_key(row["cik"], row["ticker"]) for row in starter_rows}
+    seen_tickers = {row["ticker"] for row in starter_rows}
+    merged = list(starter_rows)
+
+    for row in rows:
+        key = stable_universe_key(row["cik"], row["ticker"])
+        if key in seen_keys or row["ticker"] in seen_tickers:
+            continue
+        seen_keys.add(key)
+        seen_tickers.add(row["ticker"])
+        merged.append(row)
+
+    if not limit:
+        return merged
+
+    supported: list[dict[str, Any]] = []
+    unsupported: list[dict[str, Any]] = []
+    for row in merged:
+        if row["isSupported"]:
+            if len(supported) < limit:
+                supported.append(row)
+        else:
+            unsupported.append(row)
+    return supported + unsupported[: max(0, min(len(unsupported), limit - len(supported)))]
+
+
 def build_scaled_universe(*, mode: str, limit: int | None = None, user_agent: str | None = None,
                           sec_records: list[dict[str, Any]] | None = None, offset: int = 0,
-                          exchange: str | None = None) -> list[dict[str, Any]]:
+                          exchange: str | None = None, include_starter: bool = False) -> list[dict[str, Any]]:
     if mode not in UNIVERSE_MODES:
         raise ValueError(f"unsupported universe mode: {mode}")
     if mode in {"starter", "watchlist", "custom", "sp500_or_largecap", "largecap"} and sec_records is None:
         return rows_from_starter(limit)
     records = sec_records if sec_records is not None else load_sec_mapping(user_agent or required_user_agent())
-    return rows_from_sec_mapping(records, mode=mode, limit=limit, offset=offset, exchange=exchange)
+    fetch_limit = limit + len(rows_from_starter()) if include_starter and limit else limit
+    rows = rows_from_sec_mapping(records, mode=mode, limit=fetch_limit, offset=offset, exchange=exchange)
+    return prepend_starter_rows(rows, limit=limit) if include_starter else rows
 
 
 def required_user_agent() -> str:
@@ -149,6 +186,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--exchange")
+    parser.add_argument("--include-starter", action="store_true", help="prepend the original ten-stock public preview universe and fill remaining slots from the selected scaled universe")
     parser.add_argument("--output-dir", default="data/universe")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--force", action="store_true", help="reserved for compatibility with scaled jobs")
@@ -162,7 +200,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    rows = build_scaled_universe(mode=args.mode, limit=args.limit, offset=args.offset, exchange=args.exchange)
+    rows = build_scaled_universe(mode=args.mode, limit=args.limit, offset=args.offset, exchange=args.exchange, include_starter=args.include_starter)
     manifest = write_universe(rows, mode=args.mode, limit=args.limit, output_dir=Path(args.output_dir), dry_run=args.dry_run)
     print(json.dumps(manifest, indent=2))
 

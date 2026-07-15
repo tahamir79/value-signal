@@ -52,6 +52,18 @@ class ScaledUniverseTests(unittest.TestCase):
         rows = build_scaled_universe(mode="sec_listed_core", limit=1, sec_records=SEC_FIXTURE)
         self.assertEqual([row["ticker"] for row in rows if row["isSupported"]], ["AAPL"])
 
+    def test_scaled_universe_can_preserve_starter_preview(self) -> None:
+        sec_records = SEC_FIXTURE + [
+            {"cik": 4, "name": "Zooming Example Inc.", "ticker": "ZZZ", "exchange": "NYSE"},
+        ]
+        rows = build_scaled_universe(mode="sec_listed_core", limit=11, sec_records=sec_records, include_starter=True)
+        tickers = [row["ticker"] for row in rows if row["isSupported"]]
+
+        self.assertEqual(tickers[:10], ["AAPL", "MSFT", "GOOGL", "AMZN", "JPM", "JNJ", "XOM", "F", "KO", "INTC"])
+        self.assertEqual(len(tickers), 11)
+        self.assertEqual(tickers.count("AAPL"), 1)
+        self.assertIn("ZZZ", tickers)
+
     def test_write_universe_manifest(self) -> None:
         rows = build_scaled_universe(mode="starter", limit=1)
         with tempfile.TemporaryDirectory() as tmp:

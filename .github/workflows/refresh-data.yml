@@ -38,7 +38,7 @@ jobs:
       - name: Run brief generator tests
         run: npm ci && npm run test:brief
       - name: Build scaled universe
-        run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --output-dir data/universe
+        run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --include-starter --output-dir data/universe
       - name: Refresh live artifacts
         run: python scripts/run_etl.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT" --skip-backtest
       - name: Refresh SEC filing search index
