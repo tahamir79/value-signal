@@ -28,6 +28,7 @@ const expansionProfiles:Array<[RegExp,string[]]>= [
 const expandedTerms=(query:string)=>{const terms=new Set(tokenize(query.slice(0,200)));for(const [pattern,profileTerms] of expansionProfiles){if(pattern.test(query)){for(const term of profileTerms)terms.add(term)}}return [...terms]};
 const section=(row:FilingEvidence)=>row.sectionKey??row.item??"";
 const similarity=(left:string,right:string)=>{const a=new Set(tokenize(left)),b=new Set(tokenize(right));if(!a.size&&!b.size)return 1;let overlap=0;for(const token of a)if(b.has(token))overlap++;return overlap/(a.size+b.size-overlap)};
+const publicPath=(value:string)=>`/${value.replaceAll("\\","/").replace(/^public\//,"")}`;
 
 /** Deterministic post-ranking only: BM25 scores and ordering remain untouched. */
 export function diversifyEvidence(ranked:FilingEvidence[],limit:number):FilingEvidence[]{
@@ -48,20 +49,27 @@ export function diversifyEvidence(ranked:FilingEvidence[],limit:number):FilingEv
 
 const emptyIndex=():SearchIndex=>({documentCount:0,averageDocumentLength:0,documentLengths:[],documents:[],postings:{}});
 
-async function loadIndex(ticker:string):Promise<SearchIndex>{
-  const root=path.join(process.cwd(),"public","data","search_index.json");
-  const payload=JSON.parse(await readFile(root,"utf8")) as SearchIndex&SearchManifest;
+async function readPublicJson<T>(filePath:string,origin?:string):Promise<T>{
+  try{return JSON.parse(await readFile(path.join(process.cwd(),filePath),"utf8")) as T}
+  catch(error){if(!origin)throw error}
+  const response=await fetch(new URL(publicPath(filePath),origin),{cache:"no-store"});
+  if(!response.ok)throw new Error(`Could not load ${filePath}: ${response.status}`);
+  return await response.json() as T;
+}
+
+async function loadIndex(ticker:string,origin?:string):Promise<SearchIndex>{
+  const payload=await readPublicJson<SearchIndex&SearchManifest>("public/data/search_index.json",origin);
   if(payload.indexMode==="per_ticker"){
     const entry=payload.tickers?.[ticker];
     if(!entry?.path)return emptyIndex();
-    return JSON.parse(await readFile(path.join(process.cwd(),entry.path),"utf8")) as SearchIndex;
+    return await readPublicJson<SearchIndex>(entry.path,origin);
   }
   return payload as SearchIndex;
 }
 
-export async function searchFilings(ticker:string,query:string,limit=5):Promise<FilingEvidence[]>{
+export async function searchFilings(ticker:string,query:string,limit=5,origin?:string):Promise<FilingEvidence[]>{
   const normalizedTicker=ticker.toUpperCase(),terms=expandedTerms(query);if(!terms.length)return [];
-  try{const index=await loadIndex(normalizedTicker),scores=new Map<number,number>(),average=index.averageDocumentLength||1;
+  try{const index=await loadIndex(normalizedTicker,origin),scores=new Map<number,number>(),average=index.averageDocumentLength||1;
     for(const term of terms){const posting=index.postings[term]??[];if(!posting.length)continue;const inverse=Math.log(1+(index.documentCount-posting.length+.5)/(posting.length+.5));for(const [docId,frequency] of posting){if(index.documents[docId]?.ticker!==normalizedTicker)continue;const length=index.documentLengths[docId];const score=inverse*(frequency*2.5)/(frequency+1.5*(.25+.75*length/average));scores.set(docId,(scores.get(docId)??0)+score)}}
     const ranked=[...scores.entries()].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(([docId,score])=>({...index.documents[docId],score:Number(score.toFixed(6)),matchedTerms:terms.filter(term=>(index.postings[term]??[]).some(([id])=>id===docId))}));
     return diversifyEvidence(ranked,Math.max(1,Math.min(limit,10)));
