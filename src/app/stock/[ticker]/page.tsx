@@ -9,6 +9,7 @@ import { FundamentalsSnapshot } from "@/components/FundamentalsSnapshot";
 import { PriceChart } from "@/components/PriceChart";
 import { ScoreBreakdown } from "@/components/ScoreBreakdown";
 import { SignalBadge } from "@/components/signals/SignalBadge";
+import { StockSaveActions } from "@/components/StockSaveActions";
 import { UniverseLockPanel } from "@/components/UniverseLockPanel";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { ScoreCard } from "@/features/stock-detail/ScoreCard";
@@ -71,6 +72,7 @@ export default async function StockPage({ params }: { params: Promise<{ ticker: 
           <small>{dashboardRecord ? "Latest successful ETL observation" : "Fallback observation"}</small>
         </div>
       </header>
+      {session?.user ? <StockSaveActions ticker={stock.ticker} /> : null}
       <Disclaimer />
       <section className="signal-summary">
         <div>
@@ -108,11 +110,11 @@ export default async function StockPage({ params }: { params: Promise<{ ticker: 
       <section className="evidence-grid">
         <article>
           <p className="eyebrow">SUPPORTING EVIDENCE</p>
-          {stock.supportingEvidence.length ? <ul>{stock.supportingEvidence.map(item => <li key={item}>{item}</li>)}</ul> : <p>No supporting reason codes were produced.</p>}
+          {stock.supportingEvidence.length ? <ul>{stock.supportingEvidence.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No supporting reason codes were produced.</p>}
         </article>
         <article className="risk-panel">
           <p className="eyebrow">WHAT WEAKENS THE SIGNAL</p>
-          {stock.weakeningEvidence.length ? <ul>{stock.weakeningEvidence.map(item => <li key={item}>{item}</li>)}</ul> : <p>No weakening reason codes were produced.</p>}
+          {stock.weakeningEvidence.length ? <ul>{stock.weakeningEvidence.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No weakening reason codes were produced.</p>}
         </article>
       </section>
       <AnalystBrief brief={brief} />
