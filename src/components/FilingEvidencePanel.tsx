@@ -1,13 +1,137 @@
 "use client";
 
-import {useState,type FormEvent} from "react";
-import type {FilingEvidence} from "@/lib/search";
+import { useState, type FormEvent } from "react";
+import type { FilingEvidence } from "@/lib/search";
 
-const prompts=["risk factors","supply chain","liquidity and debt","cybersecurity"];
-const range=(value:[number,number]|null|undefined)=>value?`${value[0]}–${value[1]}`:"Not recorded";
+const prompts = [
+  "risk analysis",
+  "supplier and supply chain risk",
+  "liquidity and debt",
+  "competition and demand",
+  "cybersecurity",
+];
 
-export function FilingEvidencePanel({ticker,initialResults}:{ticker:string;initialResults:FilingEvidence[]}){
-  const [query,setQuery]=useState("risk factors"),[results,setResults]=useState(initialResults),[loading,setLoading]=useState(false),[searched,setSearched]=useState(Boolean(initialResults.length));
-  async function search(event?:FormEvent,override?:string){event?.preventDefault();const value=(override??query).trim();if(value.length<2)return;setQuery(value);setLoading(true);setSearched(true);try{const response=await fetch(`/api/search?ticker=${encodeURIComponent(ticker)}&q=${encodeURIComponent(value)}`);const payload=await response.json() as {results:FilingEvidence[]};setResults(payload.results??[])}finally{setLoading(false)}}
-  return <section className="filing-evidence"><div className="section-head"><div><p className="eyebrow">RETRIEVED SEC EVIDENCE</p><h2>Search the filings</h2></div><p>Passages below are source text ranked by BM25. They are kept separate from ValueSignal’s quantitative analysis.</p></div><form onSubmit={search} className="evidence-search" role="search"><label><span className="sr-only">Search {ticker} filings</span><input value={query} onChange={event=>setQuery(event.target.value)} placeholder="Search risks, liquidity, competition…"/></label><button type="submit" disabled={loading}>{loading?"Searching…":"Search filings"}</button></form><div className="query-prompts" aria-label="Suggested filing searches">{prompts.map(prompt=><button type="button" key={prompt} onClick={()=>void search(undefined,prompt)}>{prompt}</button>)}</div>{results.length?<div className="evidence-results">{results.map(result=>{const source=result.sourceUrl??result.url;return <article key={result.id}><header><div><strong>{result.formType??result.form} · {result.sectionKey??result.item??"Unclassified section"}</strong><span>{result.sectionTitle??"Section title unavailable"} · Filed {result.filingDate}</span></div><b>BM25 {result.score.toFixed(2)}</b></header><dl className="evidence-metadata"><div><dt>Chunk</dt><dd>{result.chunkSequence??"—"} · {result.chunkId??result.id}</dd></div><div><dt>Boundary</dt><dd>{result.boundaryType??"Legacy chunk"}</dd></div><div><dt>Paragraphs</dt><dd>{range(result.paragraphRange)}</dd></div><div><dt>Sentences</dt><dd>{range(result.sentenceRange)}</dd></div></dl><blockquote>{result.text}</blockquote><div className="citation-row"><span>Matched: {result.matchedTerms.join(", ")} · Accession {result.accession}</span><a href={source} target="_blank" rel="noreferrer">Open filing citation ↗</a></div></article>})}</div>:<div className="evidence-empty" role="status"><h3>{searched?"No matching passage found.":"The filing index is awaiting its first refresh."}</h3><p>{searched?"Try a broader term or inspect the filing directly after the index refresh.":"The scheduled SEC retrieval job will populate cited 10-K and 10-Q passages."}</p></div>}</section>;
+const range = (value: [number, number] | null | undefined) =>
+  value ? `${value[0]}–${value[1]}` : "Not recorded";
+
+export function FilingEvidencePanel({
+  ticker,
+  initialResults,
+}: {
+  ticker: string;
+  initialResults: FilingEvidence[];
+}) {
+  const [query, setQuery] = useState("risk factors");
+  const [results, setResults] = useState(initialResults);
+  const [loading, setLoading] = useState(false);
+  const [searched, setSearched] = useState(Boolean(initialResults.length));
+
+  async function search(event?: FormEvent, override?: string) {
+    event?.preventDefault();
+    const value = (override ?? query).trim();
+    if (value.length < 2) return;
+    setQuery(value);
+    setLoading(true);
+    setSearched(true);
+    try {
+      const response = await fetch(`/api/search?ticker=${encodeURIComponent(ticker)}&q=${encodeURIComponent(value)}`);
+      const payload = (await response.json()) as { results: FilingEvidence[] };
+      setResults(payload.results ?? []);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <section className="filing-evidence">
+      <div className="section-head">
+        <div>
+          <p className="eyebrow">RETRIEVED SEC EVIDENCE</p>
+          <h2>Search the filings</h2>
+        </div>
+        <p>
+          Passages below are source text ranked by BM25 with deterministic query expansion for common risk themes.
+          They are kept separate from ValueSignal’s quantitative analysis.
+        </p>
+      </div>
+      <form onSubmit={search} className="evidence-search" role="search">
+        <label>
+          <span className="sr-only">Search {ticker} filings</span>
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search risks, liquidity, competition…"
+          />
+        </label>
+        <button type="submit" disabled={loading}>
+          {loading ? "Searching…" : "Search filings"}
+        </button>
+      </form>
+      <div className="query-prompts" aria-label="Suggested filing searches">
+        {prompts.map((prompt) => (
+          <button type="button" key={prompt} onClick={() => void search(undefined, prompt)}>
+            {prompt}
+          </button>
+        ))}
+      </div>
+      {results.length ? (
+        <div className="evidence-results">
+          {results.map((result) => {
+            const source = result.sourceUrl ?? result.url;
+            return (
+              <article key={result.id}>
+                <header>
+                  <div>
+                    <strong>
+                      {result.formType ?? result.form} · {result.sectionKey ?? result.item ?? "Unclassified section"}
+                    </strong>
+                    <span>{result.sectionTitle ?? "Section title unavailable"} · Filed {result.filingDate}</span>
+                  </div>
+                  <b>BM25 {result.score.toFixed(2)}</b>
+                </header>
+                <dl className="evidence-metadata">
+                  <div>
+                    <dt>Chunk</dt>
+                    <dd>
+                      {result.chunkSequence ?? "—"} · {result.chunkId ?? result.id}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Boundary</dt>
+                    <dd>{result.boundaryType ?? "Legacy chunk"}</dd>
+                  </div>
+                  <div>
+                    <dt>Paragraphs</dt>
+                    <dd>{range(result.paragraphRange)}</dd>
+                  </div>
+                  <div>
+                    <dt>Sentences</dt>
+                    <dd>{range(result.sentenceRange)}</dd>
+                  </div>
+                </dl>
+                <blockquote>{result.text}</blockquote>
+                <div className="citation-row">
+                  <span>
+                    Matched: {result.matchedTerms.join(", ")} · Accession {result.accession}
+                  </span>
+                  <a href={source} target="_blank" rel="noreferrer">
+                    Open filing citation ↗
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="evidence-empty" role="status">
+          <h3>{searched ? "No indexed passage matched this theme." : "The filing index is awaiting its first refresh."}</h3>
+          <p>
+            {searched
+              ? "Try company-specific terms such as product names, debt, competition, regulation, supplier, revenue, or liquidity. Some tickers have sparse indexed filing coverage."
+              : "The scheduled SEC retrieval job will populate cited 10-K and 10-Q passages."}
+          </p>
+        </div>
+      )}
+    </section>
+  );
 }

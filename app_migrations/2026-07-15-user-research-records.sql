@@ -25,6 +25,8 @@ create table if not exists "portfolio_position" (
   "shares" double precision,
   "dollarAmount" double precision,
   "averageCostPerShare" double precision,
+  "userReturnEstimate30Day" double precision,
+  "userReturnEstimate90Day" double precision,
   "notes" text,
   "createdAt" timestamptz default CURRENT_TIMESTAMP not null,
   "updatedAt" timestamptz default CURRENT_TIMESTAMP not null,
@@ -37,3 +39,6 @@ create table if not exists "portfolio_position" (
 create index if not exists "portfolio_position_userId_idx" on "portfolio_position" ("userId");
 create index if not exists "portfolio_position_userId_ticker_idx" on "portfolio_position" ("userId", "ticker");
 
+alter table "portfolio_position"
+  add column if not exists "userReturnEstimate30Day" double precision,
+  add column if not exists "userReturnEstimate90Day" double precision;

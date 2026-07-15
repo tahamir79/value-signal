@@ -27,6 +27,8 @@ export type PortfolioPosition = {
   shares: number | null;
   dollarAmount: number | null;
   averageCostPerShare: number | null;
+  userReturnEstimate30Day: number | null;
+  userReturnEstimate90Day: number | null;
   notes: string | null;
   createdAt: string;
   updatedAt: string;
@@ -39,5 +41,7 @@ export type PortfolioPositionInput = {
   shares?: number | null;
   dollarAmount?: number | null;
   averageCostPerShare?: number | null;
+  userReturnEstimate30Day?: number | null;
+  userReturnEstimate90Day?: number | null;
   notes?: string | null;
 };

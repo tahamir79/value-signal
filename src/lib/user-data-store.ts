@@ -60,6 +60,8 @@ function portfolioFromRow(row: QueryResultRow): PortfolioPosition {
     shares: row.shares === null || row.shares === undefined ? null : Number(row.shares),
     dollarAmount: row.dollarAmount === null || row.dollarAmount === undefined ? null : Number(row.dollarAmount),
     averageCostPerShare: row.averageCostPerShare === null || row.averageCostPerShare === undefined ? null : Number(row.averageCostPerShare),
+    userReturnEstimate30Day: row.userReturnEstimate30Day === null || row.userReturnEstimate30Day === undefined ? null : Number(row.userReturnEstimate30Day),
+    userReturnEstimate90Day: row.userReturnEstimate90Day === null || row.userReturnEstimate90Day === undefined ? null : Number(row.userReturnEstimate90Day),
     notes: row.notes === null || row.notes === undefined ? null : String(row.notes),
     createdAt: iso(row.createdAt),
     updatedAt: iso(row.updatedAt),
@@ -93,6 +95,8 @@ async function ensureTables() {
       "shares" double precision,
       "dollarAmount" double precision,
       "averageCostPerShare" double precision,
+      "userReturnEstimate30Day" double precision,
+      "userReturnEstimate90Day" double precision,
       "notes" text,
       "createdAt" timestamptz default CURRENT_TIMESTAMP not null,
       "updatedAt" timestamptz default CURRENT_TIMESTAMP not null,
@@ -101,6 +105,9 @@ async function ensureTables() {
       check ("dollarAmount" is null or "dollarAmount" > 0),
       check ("averageCostPerShare" is null or "averageCostPerShare" >= 0)
     );
+    alter table "portfolio_position"
+      add column if not exists "userReturnEstimate30Day" double precision,
+      add column if not exists "userReturnEstimate90Day" double precision;
     create index if not exists "portfolio_position_userId_idx" on "portfolio_position" ("userId");
     create index if not exists "portfolio_position_userId_ticker_idx" on "portfolio_position" ("userId", "ticker");
   `).then(() => undefined);
@@ -173,16 +180,20 @@ export function validatePortfolioInput(payload: unknown): PortfolioPositionInput
   const shares = positiveOrNull(input.shares);
   const dollarAmount = positiveOrNull(input.dollarAmount);
   const averageCostPerShare = positiveOrNull(input.averageCostPerShare);
+  const userReturnEstimate30Day = positiveOrNull(input.userReturnEstimate30Day);
+  const userReturnEstimate90Day = positiveOrNull(input.userReturnEstimate90Day);
   const notes = input.notes === undefined || input.notes === null ? null : String(input.notes).slice(0, 1000);
 
   if (!ticker) throw new Error("Ticker is required.");
   if (shares !== null && !(shares > 0)) throw new Error("Shares must be greater than zero.");
   if (dollarAmount !== null && !(dollarAmount > 0)) throw new Error("Dollar amount must be greater than zero.");
   if (averageCostPerShare !== null && !(averageCostPerShare >= 0)) throw new Error("Average cost cannot be negative.");
+  if (userReturnEstimate30Day !== null && !(userReturnEstimate30Day >= -1 && userReturnEstimate30Day <= 10)) throw new Error("30-day return estimate must be between -100% and +1000%.");
+  if (userReturnEstimate90Day !== null && !(userReturnEstimate90Day >= -1 && userReturnEstimate90Day <= 10)) throw new Error("90-day return estimate must be between -100% and +1000%.");
   if (quantityType === "shares" && shares === null) throw new Error("Share-based positions require shares.");
   if (quantityType === "dollar_amount" && dollarAmount === null) throw new Error("Dollar-based positions require a dollar amount.");
 
-  return { ticker, positionStatus, quantityType, shares, dollarAmount, averageCostPerShare, notes };
+  return { ticker, positionStatus, quantityType, shares, dollarAmount, averageCostPerShare, userReturnEstimate30Day, userReturnEstimate90Day, notes };
 }
 
 export async function listPortfolio(userId: string) {
@@ -196,10 +207,10 @@ export async function addPortfolioPosition(userId: string, input: PortfolioPosit
   await ensureTables();
   const result = await pool().query(
     `insert into "portfolio_position"
-      ("id", "userId", "ticker", "companyName", "positionStatus", "quantityType", "shares", "dollarAmount", "averageCostPerShare", "notes", "updatedAt")
-     values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP)
+      ("id", "userId", "ticker", "companyName", "positionStatus", "quantityType", "shares", "dollarAmount", "averageCostPerShare", "userReturnEstimate30Day", "userReturnEstimate90Day", "notes", "updatedAt")
+     values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, CURRENT_TIMESTAMP)
      returning *`,
-    [randomUUID(), userId, stock.ticker, stock.companyName, input.positionStatus, input.quantityType, input.shares, input.dollarAmount, input.averageCostPerShare, input.notes],
+    [randomUUID(), userId, stock.ticker, stock.companyName, input.positionStatus, input.quantityType, input.shares, input.dollarAmount, input.averageCostPerShare, input.userReturnEstimate30Day, input.userReturnEstimate90Day, input.notes],
   );
   return portfolioFromRow(result.rows[0]);
 }
@@ -210,10 +221,11 @@ export async function updatePortfolioPosition(userId: string, positionId: string
   const result = await pool().query(
     `update "portfolio_position"
      set "ticker" = $3, "companyName" = $4, "positionStatus" = $5, "quantityType" = $6,
-       "shares" = $7, "dollarAmount" = $8, "averageCostPerShare" = $9, "notes" = $10, "updatedAt" = CURRENT_TIMESTAMP
+       "shares" = $7, "dollarAmount" = $8, "averageCostPerShare" = $9,
+       "userReturnEstimate30Day" = $10, "userReturnEstimate90Day" = $11, "notes" = $12, "updatedAt" = CURRENT_TIMESTAMP
      where "userId" = $1 and "id" = $2
      returning *`,
-    [userId, positionId, stock.ticker, stock.companyName, input.positionStatus, input.quantityType, input.shares, input.dollarAmount, input.averageCostPerShare, input.notes],
+    [userId, positionId, stock.ticker, stock.companyName, input.positionStatus, input.quantityType, input.shares, input.dollarAmount, input.averageCostPerShare, input.userReturnEstimate30Day, input.userReturnEstimate90Day, input.notes],
   );
   return result.rows[0] ? portfolioFromRow(result.rows[0]) : null;
 }

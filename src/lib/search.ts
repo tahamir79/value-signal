@@ -18,6 +18,14 @@ type SearchIndex={schemaVersion?:string;documentCount:number;averageDocumentLeng
 type SearchManifest={indexMode?:"per_ticker";tickers?:Record<string,{path:string;documentCount:number;latestFilingDate?:string|null}>};
 const stopwords=new Set(["a","an","and","are","as","at","be","by","for","from","has","in","is","it","of","on","or","that","the","this","to","was","were","will","with"]);
 const tokenize=(text:string)=>(text.toLowerCase().match(/[a-z0-9]+(?:'[a-z]+)?/g)??[]).filter(token=>!stopwords.has(token)&&token.length>1);
+const expansionProfiles:Array<[RegExp,string[]]>= [
+  [/\brisk|risks|risk analysis|risk factors\b/i,["risk","risks","factors","uncertainty","uncertain","adverse","material","could","may","exposure"]],
+  [/\bsupply|supplier|suppliers|supply chain\b/i,["supply","supplier","suppliers","chain","manufacturing","inventory","third","party","logistics","disruption","disruptions"]],
+  [/\bliquidity|debt|leverage|capital\b/i,["liquidity","debt","borrowings","credit","capital","cash","maturities","obligations"]],
+  [/\bcyber|cybersecurity|security incident\b/i,["cybersecurity","cyber","security","incident","incidents","systems","data","privacy"]],
+  [/\bcompetition|competitive|demand|revenue|margin\b/i,["competition","competitive","demand","revenue","sales","margin","operating","income","pricing"]],
+];
+const expandedTerms=(query:string)=>{const terms=new Set(tokenize(query.slice(0,200)));for(const [pattern,profileTerms] of expansionProfiles){if(pattern.test(query)){for(const term of profileTerms)terms.add(term)}}return [...terms]};
 const section=(row:FilingEvidence)=>row.sectionKey??row.item??"";
 const similarity=(left:string,right:string)=>{const a=new Set(tokenize(left)),b=new Set(tokenize(right));if(!a.size&&!b.size)return 1;let overlap=0;for(const token of a)if(b.has(token))overlap++;return overlap/(a.size+b.size-overlap)};
 
@@ -52,7 +60,7 @@ async function loadIndex(ticker:string):Promise<SearchIndex>{
 }
 
 export async function searchFilings(ticker:string,query:string,limit=5):Promise<FilingEvidence[]>{
-  const normalizedTicker=ticker.toUpperCase(),terms=tokenize(query.slice(0,200));if(!terms.length)return [];
+  const normalizedTicker=ticker.toUpperCase(),terms=expandedTerms(query);if(!terms.length)return [];
   try{const index=await loadIndex(normalizedTicker),scores=new Map<number,number>(),average=index.averageDocumentLength||1;
     for(const term of terms){const posting=index.postings[term]??[];if(!posting.length)continue;const inverse=Math.log(1+(index.documentCount-posting.length+.5)/(posting.length+.5));for(const [docId,frequency] of posting){if(index.documents[docId]?.ticker!==normalizedTicker)continue;const length=index.documentLengths[docId];const score=inverse*(frequency*2.5)/(frequency+1.5*(.25+.75*length/average));scores.set(docId,(scores.get(docId)??0)+score)}}
     const ranked=[...scores.entries()].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(([docId,score])=>({...index.documents[docId],score:Number(score.toFixed(6)),matchedTerms:terms.filter(term=>(index.postings[term]??[]).some(([id])=>id===docId))}));
