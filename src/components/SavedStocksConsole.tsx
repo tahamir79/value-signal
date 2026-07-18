@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { calculatePositionProjection } from "@/lib/position-projections";
+import type { ForecastArtifact, ForecastSummary } from "@/types/forecast";
 import type { PortfolioPosition, WatchlistItem } from "@/types/user-records";
 
 type LoadState = "idle" | "loading" | "ready" | "error";
@@ -40,6 +42,16 @@ function money(value: number | null | undefined) {
   return typeof value === "number" && Number.isFinite(value) ? `$${value.toLocaleString(undefined, { maximumFractionDigits: 2 })}` : "Unavailable";
 }
 
+function percent(value: number | null | undefined) {
+  return typeof value === "number" && Number.isFinite(value) ? `${value >= 0 ? "+" : ""}${(value * 100).toFixed(2)}%` : "Unavailable";
+}
+
+function estimateRange(lower: number | null | undefined, upper: number | null | undefined) {
+  return typeof lower === "number" && Number.isFinite(lower) && typeof upper === "number" && Number.isFinite(upper)
+    ? `${percent(lower)} to ${percent(upper)}`
+    : "Range unavailable";
+}
+
 function scenarioValue(baseValue: number | null, returnEstimate: number | null) {
   if (baseValue === null || returnEstimate === null) return null;
   return baseValue * (1 + returnEstimate);
@@ -60,9 +72,21 @@ function draftFromPosition(position: PortfolioPosition): PortfolioDraft {
   };
 }
 
+async function loadForecastMap() {
+  try {
+    const response = await fetch("/data/forecasts/summary.json", { cache: "no-store" });
+    if (!response.ok) return {};
+    const payload = (await response.json()) as ForecastSummary;
+    return Object.fromEntries((payload.forecasts ?? []).map((forecast) => [forecast.ticker, forecast])) as Record<string, ForecastArtifact>;
+  } catch {
+    return {};
+  }
+}
+
 export function SavedStocksConsole() {
   const [watchlist, setWatchlist] = useState<WatchlistItem[]>([]);
   const [portfolio, setPortfolio] = useState<PortfolioPosition[]>([]);
+  const [forecasts, setForecasts] = useState<Record<string, ForecastArtifact>>({});
   const [drafts, setDrafts] = useState<Record<string, PortfolioDraft>>({});
   const [status, setStatus] = useState<LoadState>("idle");
   const [message, setMessage] = useState<string | null>(null);
@@ -85,8 +109,10 @@ export function SavedStocksConsole() {
         jsonFetch<{ records: WatchlistItem[] }>("/api/watchlist"),
         jsonFetch<{ records: PortfolioPosition[] }>("/api/portfolio"),
       ]);
+      const forecastMap = await loadForecastMap();
       setWatchlist(watchlistPayload.records);
       setPortfolio(portfolioPayload.records);
+      setForecasts(forecastMap);
       setDrafts(Object.fromEntries(portfolioPayload.records.map((position) => [position.id, draftFromPosition(position)])));
       setStatus("ready");
     } catch (error) {
@@ -257,18 +283,21 @@ export function SavedStocksConsole() {
           </label>
           <button type="button" onClick={() => void addPortfolio()}>Save Position</button>
         </div>
-        <p className="form-disclaimer">Portfolio records are research notes only. Return estimates here are user-entered scenarios, not ValueSignal model forecasts, guarantees, or investment advice.</p>
+        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections use generated forecast artifacts when available; personal scenario fields are saved separately and are not investment advice.</p>
         <div className="saved-list portfolio-list">
           {portfolio.map((position) => {
             const draft = drafts[position.id] ?? draftFromPosition(position);
-            const allocatedValue = draft.quantityType === "dollar_amount" ? Number(draft.quantity) : null;
+            const draftQuantity = Number(draft.quantity);
+            const allocatedValue = draft.quantityType === "dollar_amount" ? draftQuantity : null;
             const baseValue = allocatedValue !== null && Number.isFinite(allocatedValue) && allocatedValue > 0 ? allocatedValue : null;
-            const estimate30 = decimalFromPercent(draft.return30);
-            const estimate90 = decimalFromPercent(draft.return90);
-            const change30 = scenarioChange(baseValue, estimate30);
-            const value30 = scenarioValue(baseValue, estimate30);
-            const change90 = scenarioChange(baseValue, estimate90);
-            const value90 = scenarioValue(baseValue, estimate90);
+            const forecast = forecasts[position.ticker];
+            const projection = calculatePositionProjection({
+              quantityType: draft.quantityType,
+              shares: draft.quantityType === "shares" && Number.isFinite(draftQuantity) ? draftQuantity : null,
+              dollarAmount: draft.quantityType === "dollar_amount" ? baseValue : null,
+              averageCostPerShare: position.averageCostPerShare,
+            }, forecast);
+            const analystTarget = forecast?.analystTarget;
 
             return (
               <article key={position.id} className="portfolio-position-card">
@@ -308,12 +337,18 @@ export function SavedStocksConsole() {
                   </label>
                 </div>
                 <dl className="scenario-grid">
-                  <div><dt>30-day change</dt><dd>{money(change30)}</dd></div>
-                  <div><dt>30-day value</dt><dd>{money(value30)}</dd></div>
-                  <div><dt>90-day change</dt><dd>{money(change90)}</dd></div>
-                  <div><dt>90-day value</dt><dd>{money(value90)}</dd></div>
+                  <div><dt>VS 30-day change</dt><dd>{money(projection.horizon30Day.baseChange)}</dd><small>{projection.horizon30Day.reason ?? `${percent(forecast?.horizon30Day.returnEstimate)} · ${estimateRange(forecast?.horizon30Day.lowerReturn, forecast?.horizon30Day.upperReturn)}`}</small></div>
+                  <div><dt>VS 30-day value</dt><dd>{money(projection.horizon30Day.baseValue)}</dd><small>{forecast ? `Price ${money(forecast.horizon30Day.estimatedPrice)}` : "Forecast artifact has not been generated"}</small></div>
+                  <div><dt>VS 90-day change</dt><dd>{money(projection.horizon90Day.baseChange)}</dd><small>{projection.horizon90Day.reason ?? `${percent(forecast?.horizon90Day.returnEstimate)} · ${estimateRange(forecast?.horizon90Day.lowerReturn, forecast?.horizon90Day.upperReturn)}`}</small></div>
+                  <div><dt>VS 90-day value</dt><dd>{money(projection.horizon90Day.baseValue)}</dd><small>{forecast ? `Price ${money(forecast.horizon90Day.estimatedPrice)}` : "Forecast artifact has not been generated"}</small></div>
                 </dl>
-                {draft.quantityType === "shares" ? <p className="form-disclaimer">Dollar scenarios require an allocated dollar amount. Share-based model pricing will arrive with stored forecast artifacts.</p> : null}
+                <dl className="forecast-meta-grid">
+                  <div><dt>Current position value</dt><dd>{money(projection.currentPositionValue)}</dd><small>{projection.reason ?? `Market data as of ${forecast?.marketDataAsOf ?? "unavailable"}`}</small></div>
+                  <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{forecast?.validationStatus ?? "Forecast artifact has not been generated"}</small></div>
+                  <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{forecast?.returnType === "price_return" ? "Price return" : "Return type unavailable"}</small></div>
+                  <div><dt>Analyst consensus target</dt><dd>{money(analystTarget?.targetMean)}</dd><small>{analystTarget?.status === "available" ? `${percent(analystTarget.impliedReturnToMean)} implied return` : "Analyst target unsupported by provider"}</small></div>
+                </dl>
+                <p className="form-disclaimer">These projections are experimental, model-generated research estimates. They are not facts, guarantees, or investment advice. Actual market outcomes may differ materially.</p>
                 <div className="saved-actions">
                   <Link href={`/stock/${position.ticker}`}>Open</Link>
                   <button type="button" onClick={() => void updatePortfolio(position)}>Update</button>

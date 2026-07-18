@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-18T23:34:25.584708+00:00",
+  "passed": true,
+  "rules": [
+    "Targets use first market session on or after featureDate plus calendar horizon.",
+    "Rows are split by featureDate, never randomly.",
+    "Training rows are embargoed before validation/test windows using the horizon length.",
+    "No future analyst targets or future scoring labels are used."
+  ],
+  "splits": {
+    "30": {
+      "train": 33888,
+      "validation": 3604,
+      "test": 9099
+    },
+    "90": {
+      "train": 17776,
+      "validation": 0,
+      "test": 7237
+    }
+  }
+}
