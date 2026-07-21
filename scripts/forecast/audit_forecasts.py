@@ -12,6 +12,12 @@ def ordered(horizon: dict) -> bool:
     return all(isinstance(value, (int, float)) and math.isfinite(value) for value in values) and values[0] <= values[1] <= values[2] and values[0] > -1
 
 
+def nullable_ordered(horizon: dict) -> bool:
+    if horizon.get("returnEstimate") is None:
+        return horizon.get("lowerReturn") is None and horizon.get("upperReturn") is None
+    return ordered(horizon)
+
+
 def main() -> int:
     files = sorted(path for path in FORECAST_DIR.glob("*.json") if path.name != "summary.json")
     failures = []
@@ -23,6 +29,21 @@ def main() -> int:
             failures.append(f"{path.name}: invalid 90-day range")
         if artifact.get("analystTarget", {}).get("status") == "available" and artifact["analystTarget"].get("horizonDays") in (30, 90):
             failures.append(f"{path.name}: analyst target incorrectly treated as short-horizon model estimate")
+        source = artifact.get("displayProjectionSource")
+        if source not in {"forecast_model", "conservative_historical_scenario", "unavailable"}:
+            failures.append(f"{path.name}: invalid displayProjectionSource")
+        scenario = artifact.get("conservativeScenario")
+        if scenario:
+            if scenario.get("methodology") != "valuesignal_conservative_historical_scenario_v1":
+                failures.append(f"{path.name}: invalid conservative scenario methodology")
+            if scenario.get("status") not in {"available", "insufficient_data", "stale"}:
+                failures.append(f"{path.name}: invalid conservative scenario status")
+            if not nullable_ordered(scenario.get("horizon30Day", {})):
+                failures.append(f"{path.name}: invalid conservative 30-day range")
+            if not nullable_ordered(scenario.get("horizon90Day", {})):
+                failures.append(f"{path.name}: invalid conservative 90-day range")
+            if source == "conservative_historical_scenario" and scenario.get("status") != "available":
+                failures.append(f"{path.name}: conservative source selected without available scenario")
     print(json.dumps({"status": "PASS" if not failures else "FAIL", "forecastFiles": len(files), "failures": failures[:20]}, indent=2))
     return 0 if not failures and files else 1
 

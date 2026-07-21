@@ -1,7 +1,7 @@
-# ValueSignal Lite Project Blueprint and Session Handoff
+﻿# ValueSignal Lite Project Blueprint and Session Handoff
 
-**Version:** 1.0  
-**Date:** 2026-07-05  
+**Version:** 1.0
+**Date:** 2026-07-05
 **Purpose:** Preserve full project context between Codex/GPT sessions so the implementation does not drift when context refreshes.
 
 ---
@@ -625,6 +625,8 @@ The goal is to make this Markdown file the durable context source between sessio
 
 ## 18. Live Implementation Context - Updated by GPT-5.5/Codex
 
+**Historical note:** this 2026-07-06 block is preserved for provenance. For the current implementation context, use Section 25, "Live Implementation Context - Conservative Scenario and Pipeline Health Update."
+
 **Updated:** 2026-07-06 (America/Chicago)
 
 - **Repository path:** `C:\Users\stahm\Projects\Decision Scientist`
@@ -643,9 +645,9 @@ The goal is to make this Markdown file the durable context source between sessio
 - **Current search schema:** local feature branch `3.0.0`; remote `value-signal/main` still has schema `1.0.0` until the retrieval upgrade is merged.
 - **Known working commands:** commands in Section 16; 48 Python tests, 5 TypeScript brief tests, all publication audits, type-check, and the production build passed on 2026-07-06. Local RAG remains outside the deployment commit.
 - **Known failing/blocked commands:** full local embedding-cache generation exceeded the 20-minute execution window twice (first per chunk, then batched); no incomplete cache is published. BM25 fallback remains operational.
-- **Current implementation status:** Phases 1–8 exist; schema-3 retrieval is committed locally; local Ollama RAG is implemented but not committed; `nomic-embed-text` and `llama3.2:3b` are installed and responsive. The live local ETL/index refresh completed on 2026-07-05.
-- **Automation:** `.github/workflows/refresh-data.yml` runs at `23:25 UTC` Monday–Friday. The latest scheduled run on `value-signal/main` succeeded on 2026-07-04 UTC (Friday evening Chicago time); no weekend run is expected.
-- **Open bugs:** fixed and live-validated—schema-3 builder incorrectly referenced `security.name` instead of `security.company_name`; TOC/body anchoring, terminal signatures, malformed preambles, Item 16 overflow, and section-monopoly failures were corrected. Remaining local-only issue: embedding-cache generation needs resumable checkpointing or faster local hardware.
+- **Current implementation status:** Phases 1â€“8 exist; schema-3 retrieval is committed locally; local Ollama RAG is implemented but not committed; `nomic-embed-text` and `llama3.2:3b` are installed and responsive. The live local ETL/index refresh completed on 2026-07-05.
+- **Automation:** `.github/workflows/refresh-data.yml` runs at `23:25 UTC` Mondayâ€“Friday. The latest scheduled run on `value-signal/main` succeeded on 2026-07-04 UTC (Friday evening Chicago time); no weekend run is expected.
+- **Open bugs:** fixed and live-validatedâ€”schema-3 builder incorrectly referenced `security.name` instead of `security.company_name`; TOC/body anchoring, terminal signatures, malformed preambles, Item 16 overflow, and section-monopoly failures were corrected. Remaining local-only issue: embedding-cache generation needs resumable checkpointing or faster local hardware.
 - **Next recommended task:** commit only the retrieval/code/artifact/blueprint changes, merge/push explicitly to `value-signal/main`, and manually dispatch/verify the workflow. Keep local RAG uncommitted.
 - **Files changed this session:** this blueprint, `scripts/build_search_index.py`, `tests/test_retrieval.py`, all refreshed `public/data/*.json` artifacts, and the pre-existing local RAG implementation/documentation.
 - **Architectural decisions:** BM25 remains authoritative and always available; semantic retrieval is optional; Ollama is local-only and never required by Vercel/GitHub Actions; generated `public/data/*.json` is not hand-maintained source.
@@ -798,14 +800,164 @@ Important guardrails:
 
 ## 24. Immediate Next Step
 
-If the retrieval/chunking upgrade truly passed, commit it first:
+Current immediate workflow:
 
-```bash
-git status
-git add .
-git commit -m "Upgrade SEC filing chunking and retrieval foundation"
+1. Finish validating the conservative historical scenario, saved-position projection math, stale artifact cleanup, and pipeline health report.
+2. Review the generated artifact counts and validation results with the user.
+3. Commit only after review.
+4. Do not deploy this change automatically; the current instruction requires stopping for review before deployment.
+
+Keep local RAG available only as a separate local/experimental system. Do not reintroduce browser WebLLM.
+
+---
+
+## 25. Live Implementation Context - Conservative Scenario and Pipeline Health Update
+
+**Updated:** 2026-07-21 UTC
+**Repository path:** `C:\Users\stahm\Projects\Decision Scientist`
+**Git branch:** `scale-universe-foundation`
+**Checkpoint commit before this work:** `6043820 checkpoint: before historical scenario and pipeline health cleanup`
+**Deployment target:** Vercel production at `value-signal.vercel.app`, but this work is not deployed until reviewed.
+**Framework:** Next.js 15 App Router, React 19, TypeScript, Python ETL/research pipeline.
+
+### What changed in this session
+
+- Added a separate `ValueSignal Conservative Historical Scenario v1` for saved-position 30/90-day projections.
+- Preserved zero-return baseline as the selected 30-day and 90-day forecast model.
+- Added explicit projection-source selection:
+  - approved non-baseline forecast model;
+  - conservative historical scenario;
+  - unavailable with reason.
+- Updated saved-stock UI labels so personal scenarios are clearly user-entered and separate from ValueSignal estimates.
+- Fixed saved-stock layout overflow by allowing nested grid/flex children and form controls to shrink inside their containers.
+- Added stale generated artifact cleanup:
+  - ETL removes stale `public/data/stocks/{TICKER}.json`;
+  - forecast pipeline reads current `stocks/summary.json` and removes stale `public/data/forecasts/{TICKER}.json`.
+- Added `scripts/pipeline_health.py` with full internal and compact public health reports.
+- Updated workflow to generate pipeline health during scheduled refresh.
+- Updated technical/methodology docs:
+  - `docs/ValueSignal_Technical_Map.md`;
+  - `docs/forecast_methodology.md`;
+  - `docs/saved_stock_projection_methodology.md`;
+  - `docs/artifact_schemas.md`;
+  - this blueprint.
+
+### Current generated artifact counts
+
+- Active stock summary records: 245.
+- Stock detail files: 245.
+- Forecast summary records: 245.
+- Forecast detail files: 245.
+- Conservative historical scenarios available: 203.
+- Insufficient-history scenarios: 42.
+- Stale scenarios: 0.
+- Selected 30-day model: zero-return baseline.
+- Selected 90-day model: zero-return baseline.
+- Search index coverage: 199 indexed tickers.
+- Pipeline health: partial_success, release readiness ready_with_known_limitations, with 0 critical failures.
+
+### Current partial-success causes
+
+- 5 ETL ticker failures from provider HTTP 404s:
+  - `AAC`
+  - `ADBT`
+  - `ADIG`
+  - `AIBZ`
+  - `AIST`
+- 42 forecast artifacts have insufficient sparse historical samples for the conservative scenario.
+- Balance-sheet context is partial/unavailable for some companies because SEC companyfacts does not expose every target field.
+- Health fixture fields currently separate:
+  - critical failures: 0;
+  - true noncritical failures: 47;
+  - expected unavailable items: 246;
+  - balance-sheet/data-quality warnings: 226.
+
+### Expected unavailable states
+
+- Scaled scheduled ETL intentionally skips full backtest generation.
+- Analyst target provider is not configured.
+- Local Ollama/RAG is not part of production deployment.
+
+### Key files changed
+
+Core pipeline:
+
+```text
+scripts/run_etl.py
+scripts/forecast/pipeline.py
+scripts/forecast/audit_forecasts.py
+scripts/pipeline_health.py
+scripts/backtest.py
+scripts/build_search_index.py
+.github/workflows/refresh-data.yml
 ```
 
-Then implement the local Ollama RAG layer on top of the improved chunks.
+Frontend:
 
-Do not reintroduce browser WebLLM until the local RAG pipeline is stable.
+```text
+src/types/forecast.ts
+src/lib/position-projections.ts
+src/components/SavedStocksConsole.tsx
+src/app/globals.css
+```
+
+Tests:
+
+```text
+tests/test_pipeline.py
+tests/test_forecast_pipeline.py
+tests/test_pipeline_health.py
+tests/positionProjections.test.ts
+package.json
+```
+
+Docs:
+
+```text
+docs/ValueSignal_Technical_Map.md
+docs/forecast_methodology.md
+docs/saved_stock_projection_methodology.md
+docs/artifact_schemas.md
+docs/ValueSignal_Project_Blueprint.md
+```
+
+### Example current AAPL scenario
+
+- Current price: 326.59.
+- Market data as of: 2026-07-20.
+- 30-day return estimate: 1.999019%.
+- 30-day estimated price: 333.1186.
+- 30-day sparse samples: 25.
+- 90-day return estimate: 3.757468%.
+- 90-day estimated price: 338.8615.
+- 90-day sparse samples: 23.
+
+### Important architectural decisions
+
+- The conservative scenario is display fallback only; it does not override model selection.
+- Forecast challenger promotion is gated by `VS_ALLOW_EXPERIMENTAL_FORECAST_PROMOTION=true`.
+- Current official selected forecast model remains zero-return baseline for both horizons.
+- Analyst target fields stay unsupported/null until a legitimate data provider is added.
+- Generated JSON artifacts are cleaned by scripts, not hand-edited.
+- Partial success is allowed only when core artifacts exist and noncritical failures are explicitly reported.
+
+### Validation commands for this state
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/audit_backtest.py
+python scripts/audit_search.py
+python scripts/forecast/audit_training_dataset.py
+python scripts/forecast/evaluate_models.py
+python scripts/forecast/audit_forecasts.py
+python scripts/pipeline_health.py
+npm run test:brief
+npm run typecheck
+npm run build
+```
+
+### Next recommended task
+
+Run the full validation stack, review the final report with the user, then commit only if approved. Do not deploy until explicitly approved after review.

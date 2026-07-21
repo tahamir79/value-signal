@@ -52,14 +52,10 @@ function estimateRange(lower: number | null | undefined, upper: number | null | 
     : "Range unavailable";
 }
 
-function scenarioValue(baseValue: number | null, returnEstimate: number | null) {
-  if (baseValue === null || returnEstimate === null) return null;
-  return baseValue * (1 + returnEstimate);
-}
-
-function scenarioChange(baseValue: number | null, returnEstimate: number | null) {
-  if (baseValue === null || returnEstimate === null) return null;
-  return baseValue * returnEstimate;
+function modelStatus(name: string | undefined, validationStatus: string | undefined) {
+  if (!name) return "Unavailable";
+  if (name === "zero-return baseline" || name === "historical-mean baseline" || name === "market-return baseline") return "Baseline benchmark";
+  return validationStatus ?? "Experimental";
 }
 
 function draftFromPosition(position: PortfolioPosition): PortfolioDraft {
@@ -274,16 +270,16 @@ export function SavedStocksConsole() {
             <input value={quantity} onChange={(event) => setQuantity(event.target.value)} inputMode="decimal" placeholder={quantityType === "shares" ? "10" : "5000"} />
           </label>
           <label>
-            <span>30-day scenario %</span>
+            <span>Personal 30-day scenario %</span>
             <input value={return30} onChange={(event) => setReturn30(event.target.value)} inputMode="decimal" placeholder="3" />
           </label>
           <label>
-            <span>90-day scenario %</span>
+            <span>Personal 90-day scenario %</span>
             <input value={return90} onChange={(event) => setReturn90(event.target.value)} inputMode="decimal" placeholder="8" />
           </label>
           <button type="button" onClick={() => void addPortfolio()}>Save Position</button>
         </div>
-        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections use generated forecast artifacts when available; personal scenario fields are saved separately and are not investment advice.</p>
+        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections use generated forecast artifacts when available. Personal scenario fields are optional percentages entered by you and do not change the ValueSignal estimate.</p>
         <div className="saved-list portfolio-list">
           {portfolio.map((position) => {
             const draft = drafts[position.id] ?? draftFromPosition(position);
@@ -328,27 +324,28 @@ export function SavedStocksConsole() {
                     <input value={draft.quantity} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, quantity: event.target.value } }))} inputMode="decimal" />
                   </label>
                   <label>
-                    <span>30-day %</span>
+                    <span>Personal 30-day %</span>
                     <input value={draft.return30} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return30: event.target.value } }))} inputMode="decimal" />
                   </label>
                   <label>
-                    <span>90-day %</span>
+                    <span>Personal 90-day %</span>
                     <input value={draft.return90} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return90: event.target.value } }))} inputMode="decimal" />
                   </label>
                 </div>
                 <dl className="scenario-grid">
-                  <div><dt>VS 30-day change</dt><dd>{money(projection.horizon30Day.baseChange)}</dd><small>{projection.horizon30Day.reason ?? `${percent(forecast?.horizon30Day.returnEstimate)} · ${estimateRange(forecast?.horizon30Day.lowerReturn, forecast?.horizon30Day.upperReturn)}`}</small></div>
-                  <div><dt>VS 30-day value</dt><dd>{money(projection.horizon30Day.baseValue)}</dd><small>{forecast ? `Price ${money(forecast.horizon30Day.estimatedPrice)}` : "Forecast artifact has not been generated"}</small></div>
-                  <div><dt>VS 90-day change</dt><dd>{money(projection.horizon90Day.baseChange)}</dd><small>{projection.horizon90Day.reason ?? `${percent(forecast?.horizon90Day.returnEstimate)} · ${estimateRange(forecast?.horizon90Day.lowerReturn, forecast?.horizon90Day.upperReturn)}`}</small></div>
-                  <div><dt>VS 90-day value</dt><dd>{money(projection.horizon90Day.baseValue)}</dd><small>{forecast ? `Price ${money(forecast.horizon90Day.estimatedPrice)}` : "Forecast artifact has not been generated"}</small></div>
+                  <div><dt>VS 30-day change</dt><dd>{money(projection.horizon30Day.baseChange)}</dd><small>{projection.horizon30Day.reason ?? `${projection.horizon30Day.sourceLabel} | ${percent(projection.horizon30Day.baseReturn)} | ${estimateRange(projection.horizon30Day.lowerReturn, projection.horizon30Day.upperReturn)}`}</small></div>
+                  <div><dt>VS 30-day value</dt><dd>{money(projection.horizon30Day.baseValue)}</dd><small>{projection.horizon30Day.reason ?? `Price ${money(projection.horizon30Day.estimatedPrice)} | ${forecast?.marketDataAsOf ?? "as-of unavailable"}`}</small></div>
+                  <div><dt>VS 90-day change</dt><dd>{money(projection.horizon90Day.baseChange)}</dd><small>{projection.horizon90Day.reason ?? `${projection.horizon90Day.sourceLabel} | ${percent(projection.horizon90Day.baseReturn)} | ${estimateRange(projection.horizon90Day.lowerReturn, projection.horizon90Day.upperReturn)}`}</small></div>
+                  <div><dt>VS 90-day value</dt><dd>{money(projection.horizon90Day.baseValue)}</dd><small>{projection.horizon90Day.reason ?? `Price ${money(projection.horizon90Day.estimatedPrice)} | ${forecast?.marketDataAsOf ?? "as-of unavailable"}`}</small></div>
                 </dl>
                 <dl className="forecast-meta-grid">
                   <div><dt>Current position value</dt><dd>{money(projection.currentPositionValue)}</dd><small>{projection.reason ?? `Market data as of ${forecast?.marketDataAsOf ?? "unavailable"}`}</small></div>
-                  <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{forecast?.validationStatus ?? "Forecast artifact has not been generated"}</small></div>
-                  <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{forecast?.returnType === "price_return" ? "Price return" : "Return type unavailable"}</small></div>
-                  <div><dt>Analyst consensus target</dt><dd>{money(analystTarget?.targetMean)}</dd><small>{analystTarget?.status === "available" ? `${percent(analystTarget.impliedReturnToMean)} implied return` : "Analyst target unsupported by provider"}</small></div>
+                  <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model30Day.name, forecast?.validationStatus)}</small></div>
+                  <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model90Day.name, forecast?.validationStatus)}</small></div>
+                  <div><dt>Displayed projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` | ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
+                  <div><dt>Analyst consensus target</dt><dd>{money(analystTarget?.targetMean)}</dd><small>{analystTarget?.status === "available" ? `${percent(analystTarget.impliedReturnToMean)} implied return` : "Analyst target provider not configured"}</small></div>
                 </dl>
-                <p className="form-disclaimer">These projections are experimental, model-generated research estimates. They are not facts, guarantees, or investment advice. Actual market outcomes may differ materially.</p>
+                <p className="form-disclaimer">ValueSignal&apos;s conservative historical scenario is based on the stock&apos;s prior price behavior and is not a validated prediction, guarantee, or investment recommendation. Future market outcomes may differ materially.</p>
                 <div className="saved-actions">
                   <Link href={`/stock/${position.ticker}`}>Open</Link>
                   <button type="button" onClick={() => void updatePortfolio(position)}>Update</button>

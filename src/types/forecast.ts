@@ -7,6 +7,25 @@ export type ForecastHorizon = {
   upperEstimatedPrice: number | null;
 };
 
+export type ProjectionSource = "forecast_model" | "conservative_historical_scenario" | "unavailable";
+
+export type ForecastValidationStatus = "baseline" | "experimental" | "validated" | "insufficient_data" | "stale";
+
+export type ConservativeScenarioHorizon = ForecastHorizon & {
+  sampleCount: number;
+};
+
+export type ConservativeScenario = {
+  methodology: "valuesignal_conservative_historical_scenario_v1";
+  generatedAt: string;
+  marketDataAsOf: string;
+  currentPrice: number | null;
+  horizon30Day: ConservativeScenarioHorizon;
+  horizon90Day: ConservativeScenarioHorizon;
+  status: "available" | "insufficient_data" | "stale";
+  warnings: string[];
+};
+
 export type ForecastModelSummary = {
   name: string;
   version: string;
@@ -42,9 +61,12 @@ export type ForecastArtifact = {
   analystTarget: AnalystTargetArtifact;
   horizon30Day: ForecastHorizon;
   horizon90Day: ForecastHorizon;
+  conservativeScenario?: ConservativeScenario | null;
+  displayProjectionSource?: ProjectionSource;
+  displayProjectionReason?: string | null;
   model30Day: ForecastModelSummary;
   model90Day: ForecastModelSummary;
-  validationStatus: "validated" | "experimental" | "insufficient_data" | "stale";
+  validationStatus: ForecastValidationStatus;
   returnType: "price_return" | "total_return";
   warnings: string[];
 };

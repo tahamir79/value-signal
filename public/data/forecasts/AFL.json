@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AFL",
   "companyName": "AFLAC INC",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 122.05,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 124.08,
   "analystTarget": {
     "ticker": "AFL",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 122.05000305,
+    "currentPriceAtCollection": 124.08000183,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 122.05,
-    "lowerEstimatedPrice": 97.8916,
-    "upperEstimatedPrice": 151.5533
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 124.08,
+    "lowerEstimatedPrice": 99.9831,
+    "upperEstimatedPrice": 154.9202
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 122.05,
-    "lowerEstimatedPrice": 89.8262,
-    "upperEstimatedPrice": 189.2743
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 124.08,
+    "lowerEstimatedPrice": 85.6732,
+    "upperEstimatedPrice": 182.9846
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 124.08,
+    "horizon30Day": {
+      "returnEstimate": 0.00622662,
+      "lowerReturn": -0.02263673,
+      "upperReturn": 0.03794623,
+      "estimatedPrice": 124.8526,
+      "lowerEstimatedPrice": 121.2712,
+      "upperEstimatedPrice": 128.7884,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.01450065,
+      "lowerReturn": -0.0303062,
+      "upperReturn": 0.06409889,
+      "estimatedPrice": 125.8792,
+      "lowerEstimatedPrice": 120.3196,
+      "upperEstimatedPrice": 132.0334,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

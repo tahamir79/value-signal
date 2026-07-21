@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AGIG",
   "companyName": "ABUNDIA GLOBAL IMPACT GROUP, INC.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 1.06,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 1.03,
   "analystTarget": {
     "ticker": "AGIG",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 1.05999994,
+    "currentPriceAtCollection": 1.02999997,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,66 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 1.06,
-    "lowerEstimatedPrice": 0.8502,
-    "upperEstimatedPrice": 1.3162
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 1.03,
+    "lowerEstimatedPrice": 0.83,
+    "upperEstimatedPrice": 1.286
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 1.06,
-    "lowerEstimatedPrice": 0.7801,
-    "upperEstimatedPrice": 1.6438
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 1.03,
+    "lowerEstimatedPrice": 0.7112,
+    "upperEstimatedPrice": 1.519
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 1.03,
+    "horizon30Day": {
+      "returnEstimate": -0.08,
+      "lowerReturn": -0.08,
+      "upperReturn": -0.01599998,
+      "estimatedPrice": 0.9476,
+      "lowerEstimatedPrice": 0.9476,
+      "upperEstimatedPrice": 1.0135,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.08726289,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.15,
+      "estimatedPrice": 0.9401,
+      "lowerEstimatedPrice": 0.8755,
+      "upperEstimatedPrice": 1.1845,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: base return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

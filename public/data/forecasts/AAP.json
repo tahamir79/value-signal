@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AAP",
   "companyName": "ADVANCE AUTO PARTS INC",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 55.41,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 52.04,
   "analystTarget": {
     "ticker": "AAP",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 55.40999985,
+    "currentPriceAtCollection": 52.04000092,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,65 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 55.41,
-    "lowerEstimatedPrice": 44.4422,
-    "upperEstimatedPrice": 68.8043
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 52.04,
+    "lowerEstimatedPrice": 41.9336,
+    "upperEstimatedPrice": 64.9746
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 55.41,
-    "lowerEstimatedPrice": 40.7806,
-    "upperEstimatedPrice": 85.9295
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 52.04,
+    "lowerEstimatedPrice": 35.9319,
+    "upperEstimatedPrice": 76.745
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 52.04,
+    "horizon30Day": {
+      "returnEstimate": -0.00824177,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.05759718,
+      "estimatedPrice": 51.6111,
+      "lowerEstimatedPrice": 47.8768,
+      "upperEstimatedPrice": 55.0374,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.05023436,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.15,
+      "estimatedPrice": 54.6542,
+      "lowerEstimatedPrice": 44.234,
+      "upperEstimatedPrice": 59.846,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

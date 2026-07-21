@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "AIFF",
   "companyName": "FIREFLY NEUROSCIENCE, INC.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
   "currentPrice": 1.12,
   "analystTarget": {
     "ticker": "AIFF",
@@ -18,7 +18,7 @@
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,65 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
     "estimatedPrice": 1.12,
-    "lowerEstimatedPrice": 0.8983,
-    "upperEstimatedPrice": 1.3907
+    "lowerEstimatedPrice": 0.9025,
+    "upperEstimatedPrice": 1.3984
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
     "estimatedPrice": 1.12,
-    "lowerEstimatedPrice": 0.8243,
-    "upperEstimatedPrice": 1.7369
+    "lowerEstimatedPrice": 0.7733,
+    "upperEstimatedPrice": 1.6517
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 1.12,
+    "horizon30Day": {
+      "returnEstimate": -0.06011466,
+      "lowerReturn": -0.08,
+      "upperReturn": -0.02752302,
+      "estimatedPrice": 1.0527,
+      "lowerEstimatedPrice": 1.0304,
+      "upperEstimatedPrice": 1.0892,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.15,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.00244881,
+      "estimatedPrice": 0.952,
+      "lowerEstimatedPrice": 0.952,
+      "upperEstimatedPrice": 1.1227,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: base return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

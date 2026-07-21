@@ -1,489 +1,220 @@
-# ValueSignal Technical Map
+﻿# ValueSignal Technical Map
 
-**Purpose:** Fast handoff for an accompanying ChatGPT or mini-model that is giving financial/product instructions to Codex.  
-**Companion document:** `docs/ValueSignal_Project_Blueprint.md`  
-**Last mapped from code:** 2026-07-20  
-**Current local branch when mapped:** `scale-universe-foundation`  
-**Current local commit when mapped:** `2243a40 feat: add experimental forecast projections`
+**Purpose:** durable engineering/finance handoff for the companion ChatGPT and future Codex sessions.
+**Companion atlas:** `docs/ValueSignal_Project_Blueprint.md`
+**Last updated:** 2026-07-21 UTC
+**Repo path:** `C:\Users\stahm\Projects\Decision Scientist`
+**Branch:** `scale-universe-foundation`
+**Checkpoint commit before this projection/health work:** `6043820 checkpoint: before historical scenario and pipeline health cleanup`
+**Current state:** implementation changes are local/uncommitted until the user approves commit/deploy.
 
-This document is about how ValueSignal actually turns market/SEC observations into public research signals, forecast displays, saved-stock projections, and evidence panels. Treat code, tests, workflow YAML, and generated artifacts as source of truth if this document becomes stale.
+Treat code, tests, workflow YAML, and generated artifacts as the source of truth if this map drifts. Treat `public/data/*.json` as generated artifacts, not manually maintained data.
+
+---
 
 ## 1. Product boundary
 
-ValueSignal is a research-support system, not a trading bot.
+ValueSignal is a cautious public-company research system. It classifies companies into transparent research signals, shows the evidence and missing data behind those signals, and lets a signed-in user save stocks/positions for research tracking.
 
-The product should:
+It is not a trading bot. It must not issue buy/sell/hold advice, guarantee price movement, fabricate analyst targets, or let an LLM overwrite the deterministic signal.
 
-- classify companies into cautious research signals;
-- expose the score mechanics behind each signal;
-- show which evidence is missing or stale;
-- make balance-sheet risks visible instead of hiding them inside one score;
-- support saved watchlist/portfolio research notes;
-- provide experimental 30-day and 90-day research projections only when generated artifacts exist;
-- retrieve and summarize SEC filing passages, with RAG kept separate from the deterministic signal engine.
-
-The product must not:
-
-- issue buy/sell/hold instructions;
-- guarantee price movement;
-- let an LLM overwrite the official signal;
-- fabricate analyst targets, financial facts, filings, or model confidence;
-- hide missing evidence behind zeros.
-
-## 2. Current implementation snapshot
-
-The local app is a Next.js 15 application with generated JSON artifacts under `public/data`.
-
-Current important state:
-
-- Branch: `scale-universe-foundation`
-- Latest implementation commit: `2243a40 feat: add experimental forecast projections`
-- Public preview tickers: `AAPL`, `MSFT`, `GOOGL`, `AMZN`, `JPM`, `JNJ`, `XOM`, `F`, `KO`, `INTC`
-- Full universe access: behind Google sign-in
-- Current generated stock detail artifacts: 254 ticker files in `public/data/stocks`
-- Current generated forecast artifacts: 254 ticker files in `public/data/forecasts`
-- Current forecast validation status: `experimental`
-- Current selected forecast models: zero-return baseline for both 30-day and 90-day artifacts
-- Current analyst target provider status: unsupported; fields are typed but intentionally null
-
-Uncommitted items that existed when this map was written:
-
-- `data/reports/scoring_comparison_report.json`
-- `logs/`
-- `phases/`
-
-Do not assume those are part of the technical map unless the user explicitly asks to include or commit them.
-
-## 3. Main data flow
-
-The pipeline is intentionally modular:
+Current product layers:
 
 ```text
-Universe builder
-  -> price provider
-  -> SEC companyfacts provider
-  -> cleaning and normalization
-  -> raw feature derivation
-  -> cross-sectional percentiles
-  -> deterministic scoring
-  -> balance-sheet official adjustment
+Universe selection
+  -> price + SEC companyfacts ETL
+  -> feature engineering
+  -> deterministic scoring and balance-sheet gates
   -> generated JSON artifacts
-  -> Next.js dashboard / stock pages / saved stocks
+  -> dashboard / stock detail / methodology / saved stocks
 
 SEC filings
-  -> filing download
-  -> HTML/text cleaning
-  -> section-aware chunking
-  -> BM25 index
-  -> evidence panel / local RAG context
+  -> filing download + cleaning
+  -> section-aware chunks
+  -> BM25 per-ticker index
+  -> evidence search and local-only RAG context
 
-Stock price history artifacts
-  -> experimental forecast training rows
-  -> horizon model evaluation
-  -> forecast artifacts
-  -> saved-stock 30/90 projection display
+Stock price history
+  -> experimental forecast model evaluation
+  -> conservative historical scenario
+  -> saved-stock 30/90-day position projections
 ```
 
-Generated frontend-facing artifacts:
+---
 
-- `public/data/dashboard.json`
-- `public/data/stocks/summary.json`
-- `public/data/stocks/{TICKER}.json`
-- `public/data/features.json`
-- `public/data/signals.json`
-- `public/data/backtest_results.json`
-- `public/data/etl_report.json`
-- `public/data/universe_coverage_report.json`
-- `public/data/search_index.json`
-- `public/data/search/{TICKER}.json`
-- `public/data/forecasts/summary.json`
-- `public/data/forecasts/{TICKER}.json`
+## 2. Current generated data snapshot
 
-Generated internal/audit artifacts:
+Current cleaned artifact counts after stale-artifact cleanup:
 
-- `data/fundamentals/balance_sheets/{TICKER}.json`
-- `data/fundamentals/balance_sheets/manifest.json`
-- `data/reports/balance_sheet_coverage_report.json`
-- `data/reports/balance_sheet_scoring_official_change_report.json`
-- `data/reports/forecast_model_leaderboard.json`
-- `data/reports/forecast_backtest_30_day.json`
-- `data/reports/forecast_backtest_90_day.json`
-- `data/reports/forecast_data_quality.json`
-- `data/reports/forecast_leakage_audit.json`
-- `models/forecast/30_day/metadata.json`
-- `models/forecast/90_day/metadata.json`
+- Active stock records in `public/data/stocks/summary.json`: **245**
+- Stock detail files in `public/data/stocks/{TICKER}.json`: **245**
+- Forecast records in `public/data/forecasts/summary.json`: **245**
+- Forecast detail files in `public/data/forecasts/{TICKER}.json`: **245**
+- Conservative historical scenarios available: **203**
+- Conservative historical scenarios insufficient history: **42**
+- Stale scenario count: **0**
+- Selected 30-day model: **zero-return baseline**
+- Selected 90-day model: **zero-return baseline**
+- Search index coverage: **199 indexed tickers** in per-ticker BM25 mode
+- Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures**
 
-Do not manually edit `public/data/*.json` as source data. They are generated artifacts.
+Current true partial causes:
 
-## 4. Universe and access model
+- ETL provider 404s for 5 unsupported/unavailable symbols: `AAC`, `ADBT`, `ADIG`, `AIBZ`, `AIST`.
+- 42 stocks do not have enough sparse historical observations for the conservative 30/90-day scenario.
+- Balance-sheet coverage is partial for many companies because SEC companyfacts does not always expose every target balance-sheet field.
 
-The project started with a 10-stock public universe. It now has a scaled universe path while preserving the original 10 as the public preview.
+Expected unavailable states:
 
-Current public preview list is defined in:
+- Scaled scheduled ETL intentionally skips full backtest generation.
+- Analyst/market target provider is not configured, so analyst target fields remain null/unsupported.
+- Local Ollama/RAG is not a production dependency.
 
-- `src/lib/public-universe.ts`
+---
 
-Current dashboard behavior:
+## 3. Public preview and auth gate
 
-- `src/app/dashboard/page.tsx` is dynamic because authentication changes visibility.
-- Unauthenticated users see only the original 10 preview tickers.
-- Authenticated users see the scaled universe.
-- `src/features/dashboard/StockTable.tsx` shows a lock/fade panel with Google sign-in when additional companies are hidden.
+The app keeps the original 10-stock universe public and gates the broader universe behind Google sign-in.
 
-Current stock-detail behavior:
+Public preview tickers:
 
-- `src/app/stock/[ticker]/page.tsx` blocks non-preview company pages for unauthenticated users.
-- Locked stock pages show `UniverseLockPanel`.
-- Public preview company pages remain accessible without login.
+```text
+AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, INTC
+```
 
-This is a product gate, not a scoring gate. The ETL still generates full-universe artifacts.
+Auth/gating mechanics:
 
-## 5. Raw features used by official scoring
+- `src/lib/public-universe.ts` defines the preview set.
+- `src/app/dashboard/page.tsx` reads auth state and generated artifacts.
+- `src/features/dashboard/StockTable.tsx` shows the preview table and the lock/fade sign-in panel.
+- `src/app/stock/[ticker]/page.tsx` blocks non-preview ticker pages when signed out.
+- `src/components/AuthStatus.tsx` and `src/components/GoogleSignInButton.tsx` handle sign-in UI.
 
-Feature code lives in:
+Auth prepares future protected AI/RAG features but does not change the scoring engine.
+
+---
+
+## 4. Official feature mechanics
+
+Feature generation lives in:
 
 - `scripts/features.py`
 - `docs/feature_dictionary.md`
 
-Core official feature schema version:
+The scoring engine uses 10 primary features:
 
-- `FEATURE_SCHEMA_VERSION = "1.0.0"`
-
-The official score engine uses 10 primary features:
-
-| Feature | Group | Direction before scoring |
+| Feature | Meaning | Direction |
 |---|---|---|
-| `return_30d` | Momentum | higher recent return is stronger momentum |
-| `return_90d` | Momentum | higher recent return is stronger momentum |
-| `annualized_volatility` | Market risk | higher is riskier |
-| `max_drawdown_1y` | Market risk | more negative is riskier; inverted during scoring |
-| `earnings_yield` | Value | higher is stronger value evidence |
-| `sales_yield` | Value | higher is stronger value evidence |
-| `liabilities_to_assets` | Balance-sheet risk v1 input | higher is riskier |
-| `revenue_growth` | Quality | higher is stronger quality evidence |
-| `net_margin` | Quality | higher is stronger quality evidence |
-| `net_margin_trend` | Quality | higher is stronger quality evidence |
-
-Additional display/context fields currently derived from SEC facts:
-
-- latest price;
-- daily change percent;
-- market cap;
-- liabilities/assets;
-- latest revenue;
-- revenue growth;
-- gross profit;
-- gross margin;
-- net margin.
+| `return_30d` | recent 30-day price return | higher supports momentum |
+| `return_90d` | recent 90-day price return | higher supports momentum |
+| `annualized_volatility` | annualized daily return volatility | higher is riskier |
+| `max_drawdown_1y` | worst 1-year drawdown | more negative is riskier |
+| `earnings_yield` | earnings relative to market value | higher supports value |
+| `sales_yield` | revenue relative to market value | higher supports value |
+| `liabilities_to_assets` | liabilities as a share of assets | higher is balance-sheet risk |
+| `revenue_growth` | revenue growth | higher supports quality |
+| `net_margin` | profitability margin | higher supports quality |
+| `net_margin_trend` | margin trend | higher supports quality |
 
 Important mechanics:
 
-- Returns use adjusted close when present, raw close otherwise.
-- Annual fundamentals use latest-filed 10-K facts for each fiscal period.
-- Missing inputs stay `null`; they are not converted to zero.
-- Out-of-range values are winsorized for percentile scoring but preserved in `rangeWarnings`.
-- Percentiles are cross-sectional within the current universe batch.
-- Missing features lower confidence separately from score computation.
+- Prices prefer adjusted close when available.
+- Fundamentals come from normalized SEC companyfacts.
+- Missing values remain `null`; they are not converted to zero.
+- Outliers are winsorized for percentile scoring and tracked as range warnings.
+- Percentiles are computed inside the active universe batch.
+- Missing evidence reduces confidence separately from the score values.
 
-## 6. Component score mechanics
+Display/context fields now include latest revenue, revenue growth, gross profit/gross margin when available, net margin, liabilities/assets, price, daily change, and market cap.
 
-Scoring code lives in:
+---
+
+## 5. Component scores and signal classification
+
+Scoring lives in:
 
 - `scripts/scoring.py`
 - `docs/scoring_specification.md`
+- `src/lib/scoreExplanations.ts`
 
-Score schema version:
-
-- `SCORE_SCHEMA_VERSION = "1.0.0"`
-
-Each component score is bounded to 0-100.
-
-Weights:
+Component conventions:
 
 | Component | Inputs | Direction |
 |---|---|---|
-| Value | `earnings_yield` 60%, `sales_yield` 40% | higher is better |
-| Quality | `net_margin` 45%, `revenue_growth` 30%, `net_margin_trend` 25% | higher is better |
-| Momentum | `return_90d` 60%, `return_30d` 40% | higher is better |
-| Market risk | `max_drawdown_1y` 55%, `annualized_volatility` 45% | higher score is worse |
-| Balance-sheet risk | `liabilities_to_assets` 100%, later blended with balance-sheet risk penalty in official mode | higher score is worse |
+| Value | earnings yield 60%, sales yield 40% | higher is better |
+| Quality | net margin 45%, revenue growth 30%, net margin trend 25% | higher is better |
+| Momentum | 90-day return 60%, 30-day return 40% | higher is better |
+| Market risk | max drawdown 55%, volatility 45% | higher is worse |
+| Balance-sheet risk | liabilities/assets plus official balance-sheet risk blend | higher is worse |
+| Momentum risk | `100 - momentum` | higher is worse |
 
-Score construction:
+Each score stays in the 0-100 range. Contribution rows show feature, raw percentile, directed percentile, normalized weight, and contribution.
 
-1. Compute winsorized cross-sectional percentile per feature.
-2. Apply directionality.
-3. Drop missing inputs from the component.
-4. Renormalize remaining weights.
-5. Sum weighted points.
-6. Bound score to 0-100.
+Confidence is feature availability, not prediction certainty:
 
-Risk convention:
-
-- `value`, `quality`, and `momentum`: higher is stronger.
-- `marketRisk`, `balanceSheetRisk`, and `momentumRisk`: higher is worse.
-- `momentumRisk = 100 - momentum`.
-
-Every component stores contribution rows:
-
-- feature name;
-- raw percentile;
-- directed percentile;
-- normalized weight;
-- contributed points.
-
-Frontend display:
-
-- `src/components/ScoreBreakdown.tsx`
-- `src/features/stock-detail/ScoreCard.tsx`
-- `src/components/AnalystSummary.tsx`
-
-## 7. Confidence mechanics
-
-Confidence is feature availability, not prediction confidence.
-
-Current rule in `scripts/scoring.py`:
-
-| Available official features | Confidence |
+| Available features | Confidence |
 |---:|---|
 | 9-10 | High |
 | 7-8 | Medium |
 | 5-6 | Low |
 | fewer than 5 | Insufficient |
 
-Balance-sheet scoring can adjust confidence in official mode:
-
-- complete and usable balance sheet can add a small confidence improvement;
-- missing core fields or unavailable balance sheet can reduce confidence;
-- severe balance-sheet gate combinations can further reduce confidence.
-
-Do not describe confidence as model certainty or expected-return reliability.
-
-## 8. Official signal classification
-
-The official deterministic signal is assigned in `scripts/scoring.py`.
-
-Current classification priority:
+Official signal priority:
 
 1. `insufficient-evidence`
-   - if confidence is insufficient.
 2. `value-trap-risk`
-   - if value is strong enough but balance-sheet risk is high.
 3. `momentum-risk`
-   - if momentum risk is high.
 4. `potentially-undervalued`
-   - if value is strong, quality is acceptable, and major market/balance-sheet risks are not elevated.
 5. `quality-watchlist`
-   - if quality is strong and balance-sheet risk is not elevated.
 6. `neutral`
-   - all other combinations.
 
-Design intent:
+Risk labels intentionally take priority over attractive value/quality labels. A low valuation with severe balance-sheet weakness should route toward risk language rather than promotional undervaluation language.
 
-- Risk labels take priority over positive labels.
-- A cheap stock with a weak balance sheet should not be marketed as simply undervalued.
-- Missing evidence should never be forced into a confident label.
-- Labels are research categories, not recommendations.
+---
 
-Signal definitions live in multiple places:
+## 6. Balance-sheet-aware scoring
 
-- `docs/ValueSignal_Project_Blueprint.md`
-- `rag/stock_context.py`
-- `src/data/signals.ts`
-- `src/types/signal.ts`
-
-Keep these aligned when changing signal language.
-
-## 9. Balance-sheet scoring mechanics
-
-Balance-sheet code lives in:
+Balance-sheet work lives in:
 
 - `scripts/balance_sheet.py`
 - `docs/balance_sheet_scoring.md`
-
-Balance-sheet scoring mode currently defaults to:
-
-- `BALANCE_SHEET_SCORING_MODE=official`
-
-Supported modes:
-
-- `off`
-- `shadow`
-- `experimental`
-- `official`
-
-The balance-sheet layer keeps standalone artifacts intact while also influencing official scoring when mode is `official`.
-
-### 9.1 SEC balance-sheet extraction
-
-The balance-sheet extractor selects a reference SEC companyfacts filing context from recent 10-K/10-Q facts. It prefers facts matching the selected accession and period end, but can fall back to same-period/latest facts while warning about it.
-
-Core extracted fields include:
-
-- assets;
-- current assets;
-- cash and equivalents;
-- short-term investments;
-- accounts receivable;
-- inventory;
-- PP&E;
-- goodwill;
-- intangible assets;
-- liabilities;
-- current liabilities;
-- accounts payable;
-- short-term debt;
-- long-term debt;
-- stockholders' equity;
-- retained earnings.
-
-Missing fields remain `null` and are listed in `missingFields`.
-
-### 9.2 Balance-sheet metrics
-
-Derived metrics include:
-
-- current ratio;
-- quick ratio;
-- cash ratio;
-- working capital;
-- debt/equity;
-- debt/assets;
-- equity ratio;
-- cash/debt;
-- net debt;
-- goodwill + intangibles/assets;
-- short-term debt share;
-- book value;
-- book value/share;
-- price/book;
-- retained earnings.
-
-### 9.3 Balance-sheet sub-scores
-
-Target comparisons use status bands:
-
-- healthy;
-- acceptable;
-- caution;
-- risk;
-- severe risk;
-- unavailable.
-
-The layer produces:
-
-- `liquidityScore`;
-- `leverageScore`;
-- `solvencyScore`;
-- `assetQualityScore`;
-- `balanceSheetQualityScore`;
-- `balanceSheetRiskPenalty`.
-
-Direction:
-
-- `balanceSheetQualityScore`: higher is better.
-- `balanceSheetRiskPenalty`: higher is worse.
-
-### 9.4 Balance-sheet risk gates
-
-Current gates:
-
-- Liquidity Risk Gate
-- Severe Liquidity Risk Gate
-- High Leverage Gate
-- Severe Leverage Gate
-- Negative Equity Gate
-- Debt Maturity Pressure Gate
-- Asset Quality Warning Gate
-- Balance Sheet Incomplete Gate
-
-These gates are shown on stock detail pages through:
-
 - `src/components/BalanceSheetHealth.tsx`
 
-### 9.5 Official blend
+Current scheduled/default scoring mode is intended to be:
 
-When mode is `official`, the score engine:
+```text
+BALANCE_SHEET_SCORING_MODE=official
+```
 
-- blends `balanceSheetRiskPenalty` into `scores.balanceSheetRisk`;
-- lightly blends `balanceSheetQualityScore` into `scores.quality`;
-- adjusts confidence;
-- appends balance-sheet reason codes;
-- can reroute strong value plus severe balance-sheet weakness toward `value-trap-risk`;
-- emits `balanceSheetOfficialChange` so signal changes are auditable.
+Standalone artifacts remain intact:
 
-Current blend rule in code:
+- `data/fundamentals/balance_sheets/{TICKER}.json`
+- `data/fundamentals/balance_sheets/manifest.json`
+- related reports under `data/reports/`
 
-- balance-sheet risk becomes 50% prior `liabilities_to_assets` risk and 50% balance-sheet risk penalty when both exist;
-- quality becomes 85% prior quality and 15% balance-sheet quality when both exist.
+Balance-sheet outputs:
 
-If future financial instructions want a different balance-sheet influence, change this deliberately, update tests, and compare against the v1 scoring checkpoint/baseline.
+- `liquidityScore`
+- `leverageScore`
+- `solvencyScore`
+- `assetQualityScore`
+- `balanceSheetQualityScore` where higher is better
+- `balanceSheetRiskPenalty` where higher is worse
+- triggered risk gates
+- missing fields and extraction warnings
 
-## 10. Reason codes and evidence language
+Official scoring blend:
 
-Reason codes are generated in `scripts/scoring.py` and translated for frontend display in:
+- `scores.balanceSheetRisk` blends the prior liabilities/assets risk with `balanceSheetRiskPenalty`.
+- `scores.quality` lightly blends in `balanceSheetQualityScore`.
+- `balanceSheetScoringShadow` is preserved.
+- `balanceSheetOfficialChange` records what changed and why.
 
-- `src/lib/scoreExplanations.ts`
+Do not change official balance-sheet weights without running scoring comparison against the scoring-v1 checkpoint/baseline.
 
-Important reason-code families:
+---
 
-- `VALUE_STRONG`
-- `VALUE_WEAK`
-- `QUALITY_STRONG`
-- `QUALITY_WEAK`
-- `MOMENTUM_RISK_HIGH`
-- `MARKET_RISK_HIGH`
-- `BALANCE_SHEET_RISK_HIGH`
-- `BALANCE_SHEET_GATE_TRIGGERED`
-- `BALANCE_SHEET_SUPPORTIVE`
-- `EVIDENCE_SPARSE`
-- `EVIDENCE_PARTIAL`
-- `EVIDENCE_COMPLETE`
-
-Frontend splits these into supporting and weakening evidence on stock detail pages.
-
-If a new score component is added, add:
-
-1. raw feature derivation;
-2. feature docs;
-3. scoring weights;
-4. reason codes;
-5. frontend explanation mapping;
-6. tests;
-7. audit checks.
-
-## 11. Backtesting mechanics
-
-Backtest code lives in:
-
-- `scripts/backtest.py`
-- `scripts/audit_backtest.py`
-- `docs/backtesting_protocol.md`
-
-Current protocol:
-
-- benchmark: `SPY`;
-- execution lag: 1 session;
-- forward horizons: 30, 60, 90 sessions;
-- snapshot frequency: every 21 sessions;
-- point-in-time rule: only prices and filings available on or before the signal date are used.
-
-Backtest outputs:
-
-- observations by ticker, signal, horizon, entry date, outcome date;
-- forward return;
-- benchmark return;
-- excess return;
-- adverse drawdown;
-- cohort aggregates by signal, horizon, and market regime;
-- bias audit with leakage and alignment rejection counts.
-
-Current scaled scheduled ETL uses `--skip-backtest`, so `public/data/backtest_results.json` may be an unavailable/insufficient report during scaled artifact refreshes. Do not mistake that for a scoring failure.
-
-Known stale wording risk:
-
-- `scripts/backtest.py` still contains legacy limitation strings mentioning the original ten-company starter list. The user has already asked to update this language for the scaled universe. If touched, replace with current scaled-universe limitations: survivorship/composition bias, artifact batch limit, provider coverage gaps, transaction costs/taxes/slippage excluded, overlapping windows, and descriptive intervals only.
-
-## 12. Experimental forecast and position projection layer
+## 7. Forecast model vs conservative scenario
 
 Forecast code lives in:
 
@@ -508,107 +239,128 @@ Generated forecast artifacts:
 - `models/forecast/90_day/metadata.json`
 - compact reports in `data/reports/forecast_*.json`
 
-### 12.1 What the forecast currently is
+### 7.1 Current forecast truth
 
-The forecast layer is experimental and price-history-first.
+The current selected 30-day and 90-day models are both `zero-return baseline`.
 
-It builds point-in-time rows from existing stock `priceHistory` artifacts:
+That means:
 
-- feature date;
-- current adjusted close;
-- 5-day return;
-- 21-day return;
-- 63-day return;
-- 21-day volatility;
-- 63-day volatility;
-- 63-day drawdown;
-- 21-day volume trend;
-- future 30-calendar-day log return;
-- future 90-calendar-day log return.
+- base model return is exactly `0.0`;
+- model output is auditable and preserved;
+- lower/upper model ranges come from residual quantiles;
+- no challenger model is promoted by default.
 
-Target construction:
+`scripts/forecast/pipeline.py` evaluates challengers but only promotes a non-baseline when `VS_ALLOW_EXPERIMENTAL_FORECAST_PROMOTION=true`. Without that explicit environment gate, the selected model stays baseline.
 
-- 30-day target uses first market session on or after `featureDate + 30 calendar days`.
-- 90-day target uses first market session on or after `featureDate + 90 calendar days`.
+### 7.2 Conservative historical scenario
 
-Data split:
+The user-facing saved-position projection now uses a separate deterministic fallback:
 
-- by feature date, never random;
-- embargo before validation/test windows using horizon length;
-- no future analyst targets;
-- no future scoring labels.
+```text
+ValueSignal Conservative Historical Scenario v1
+```
 
-Candidate models:
+Artifact method string:
 
-- zero-return baseline;
-- historical-mean baseline;
-- market-return baseline;
-- ridge regression;
-- elastic net;
-- huber regression;
-- histogram gradient boosting;
-- random forest challenger;
-- CatBoost marked unavailable unless explicitly installed later;
-- small neural network disabled for lightweight local batch.
+```text
+valuesignal_conservative_historical_scenario_v1
+```
 
-Current selected model in generated artifacts:
+Projection-source priority:
 
-- 30-day: zero-return baseline;
-- 90-day: zero-return baseline.
+1. approved non-baseline forecast model;
+2. conservative historical scenario;
+3. unavailable with precise reason.
 
-This means current base VS return estimate is `0.0` in generated artifacts, while lower/upper ranges come from residual quantiles. That is conservative and intentional until a challenger proves itself.
+Scenario method:
 
-### 12.2 What the forecast is not
+- uses each stock's own generated price history;
+- sorts observations chronologically;
+- samples approximately every 21 sessions to avoid daily-overlap overconfidence;
+- uses the first market session on or after 30/90 calendar days;
+- computes simple returns;
+- requires at least 24 sparse samples for 30-day and 12 sparse samples for 90-day;
+- centers on the historical median return, shrunk toward zero;
+- uses empirical 25th/75th percentile range;
+- caps returns at +/-8% for 30-day and +/-15% for 90-day;
+- marks stale data when market data is older than 10 days;
+- does not adjust upward because a stock is labeled undervalued.
 
-The forecast layer is not a validated price prediction system.
+The scenario is not a trained model, not a forecast promotion, and not advice.
 
-It currently does not use:
+Example current AAPL scenario:
 
-- point-in-time financial feature snapshots;
-- analyst consensus target data;
-- earnings forecasts;
-- macro data;
-- options-implied probabilities;
-- sector-relative target revisions;
-- RAG/LLM labels.
+| Field | Value |
+|---|---:|
+| Current price | 326.59 |
+| Market data as of | 2026-07-20 |
+| 30-day return estimate | 1.999019% |
+| 30-day range | -4.208451% to 7.560280% |
+| 30-day estimated price | 333.1186 |
+| 30-day sparse samples | 25 |
+| 90-day return estimate | 3.757468% |
+| 90-day range | -5.457619% to 13.215285% |
+| 90-day estimated price | 338.8615 |
+| 90-day sparse samples | 23 |
 
-### 12.3 Saved-stock projection display
+User-facing disclosure:
 
-Saved positions support:
+> ValueSignal's conservative historical scenario is based on the stock's prior price behavior and is not a validated prediction, guarantee, or investment recommendation. Future market outcomes may differ materially.
 
-- watchlist items;
-- portfolio positions;
-- owned vs planned status;
-- share quantity;
-- dollar allocation amount;
-- user-entered 30/90 scenario fields;
-- VS-generated 30/90 projections when forecast artifacts exist.
+---
 
-Projection math:
+## 8. Saved-stock projection mechanics
 
-- If quantity type is `dollar_amount`, current position value equals the dollar amount.
-- If quantity type is `shares`, current position value equals shares times forecast current price.
-- 30/90 base change equals current position value times forecast return estimate.
-- 30/90 base value equals current position value times `1 + forecast return estimate`.
-- Lower/upper ranges use forecast lower/upper returns.
+Saved-stock UI and projection math live in:
 
-Current market target field:
+- `src/components/SavedStocksConsole.tsx`
+- `src/lib/position-projections.ts`
+- `src/types/forecast.ts`
 
-- `analystTarget` exists in forecast artifacts as a typed object.
-- Status is currently `unsupported`.
-- Target mean and implied return are null until a legitimate market-data provider is added.
-- Do not fabricate market target values.
+The projection layer distinguishes four concepts:
 
-The UI should distinguish:
+1. selected ValueSignal forecast model;
+2. conservative historical scenario;
+3. user's personal scenario inputs;
+4. analyst/market target object.
 
-1. ValueSignal model estimate;
-2. market/analyst target estimate;
-3. user scenario;
-4. unavailable reason.
+Personal 30/90 scenario fields are user-entered and do not change ValueSignal estimates.
 
-## 13. SEC filing retrieval and BM25
+Dollar allocation math:
 
-Search/index code lives in:
+```text
+currentPositionValue = dollarAmount
+estimatedChange = currentPositionValue * returnEstimate
+estimatedValue = currentPositionValue + estimatedChange
+```
+
+Share position math:
+
+```text
+currentPositionValue = shares * currentPrice
+estimatedChange = shares * (estimatedFuturePrice - currentPrice)
+estimatedValue = shares * estimatedFuturePrice
+```
+
+Do not calculate `shares * returnEstimate`; that was the bug avoided in `src/lib/position-projections.ts`.
+
+Current UI cards show:
+
+- VS 30-day change;
+- VS 30-day value;
+- VS 90-day change;
+- VS 90-day value;
+- source label and sample count;
+- selected model status;
+- analyst target provider status.
+
+The saved-stock layout overflow was caused by nested grid children using fixed minimum widths and form controls lacking shrink/width constraints. The fix added `min-width: 0`, `box-sizing: border-box`, `width: 100%`, `max-width: 100%`, and safer `minmax(0, ...)` grid definitions in `src/app/globals.css`.
+
+---
+
+## 9. SEC filing retrieval and BM25
+
+Retrieval code lives in:
 
 - `scripts/build_search_index.py`
 - `scripts/chunk_filings.py`
@@ -621,45 +373,32 @@ Search/index code lives in:
 
 Current search schema:
 
-- `SEARCH_SCHEMA_VERSION = "3.0.0"`
-
-Pipeline:
-
 ```text
-SEC recent filings
-  -> clean HTML
-  -> section-aware chunks
-  -> BM25 index
-  -> per-ticker partition files
-  -> frontend evidence search
+3.0.0
 ```
 
-BM25 behavior:
+Current production-safe behavior:
 
-- tokenization is deterministic;
-- stopwords removed;
-- default `k1 = 1.5`, `b = 0.75`;
-- per-ticker index files live under `public/data/search`;
-- `public/data/search_index.json` is a manifest in partitioned mode;
-- diversification happens after ranking and does not mutate BM25 scores.
+- BM25 remains the retrieval baseline.
+- `public/data/search_index.json` is a manifest in per-ticker mode.
+- Per-ticker indexes live under `public/data/search/{TICKER}.json`.
+- Query expansion broadens common user terms like risk, supply chain, liquidity, revenue, margin, competition, and cybersecurity.
+- BM25 status flags in dashboard/stock artifacts are updated from the manifest.
 
-Frontend search expansion currently broadens common queries:
+If a search says "No matching passage found," check:
 
-- risk / risk analysis;
-- supply chain;
-- liquidity/debt/capital;
-- cybersecurity;
-- competition/demand/revenue/margin.
+1. whether the ticker is indexed;
+2. whether the query maps to available filing language;
+3. whether the ticker has recent 10-K/10-Q filings;
+4. whether per-ticker search files exist.
 
-Important boundary:
+Do not blame LLM/RAG for BM25 index coverage gaps.
 
-- Query expansion can broaden recall.
-- It cannot invent passages if the filing index lacks matching chunks.
-- “No matching passage found” can mean the ticker has no indexed filing, a weak query, or genuinely absent evidence.
+---
 
-## 14. Local RAG boundary
+## 10. Local RAG boundary
 
-RAG code lives in:
+RAG code exists but is local/experimental:
 
 - `rag/`
 - `scripts/run_rag.py`
@@ -669,34 +408,9 @@ RAG code lives in:
 - `src/components/LocalRagConsole.tsx`
 - `docs/rag_specification.md`
 
-Current boundary:
+Production should show a safe placeholder unless local RAG is explicitly enabled. Local RAG may explain whether retrieved SEC evidence supports, weakens, complicates, or is insufficient for the official deterministic signal. It must not relabel the stock.
 
-- Production should not depend on local Ollama.
-- `src/lib/rag-availability.ts` keeps local RAG dev-only unless explicitly enabled.
-- RAG uses SEC evidence and structured stock context.
-- RAG can explain, support, weaken, or complicate the deterministic signal.
-- RAG must not overwrite the official signal.
-
-RAG has intent handling for risk/outlook questions:
-
-- go up/down;
-- hold value;
-- price direction;
-- downside risk;
-- upside support;
-- recovery;
-- signal strong enough.
-
-Required risk-outlook behavior:
-
-- refuse price prediction;
-- still answer as a risk-based research assessment;
-- include deterministic signal context;
-- retrieve both weakening and supporting evidence;
-- cite chunk IDs;
-- keep official signal separate from RAG interpretation.
-
-Allowed evidence assessment values:
+Allowed evidence-assessment values:
 
 - Supports signal
 - Weakens signal
@@ -704,97 +418,88 @@ Allowed evidence assessment values:
 - Insufficient evidence
 - Review recommended
 
-## 15. Authentication and saved-stock data
+---
 
-Auth code lives in:
+## 11. Pipeline health model
 
-- `src/lib/auth.ts`
-- `src/lib/auth-client.ts`
-- `src/lib/auth-config.ts`
-- `src/lib/server-auth.ts`
-- `src/app/api/auth/[...all]/route.ts`
-- `src/components/AuthStatus.tsx`
-- `src/components/GoogleSignInButton.tsx`
+Health code lives in:
 
-Saved user-data code lives in:
+- `scripts/pipeline_health.py`
+- `tests/test_pipeline_health.py`
 
-- `src/lib/user-data-store.ts`
-- `src/app/api/watchlist/route.ts`
-- `src/app/api/watchlist/[ticker]/route.ts`
-- `src/app/api/portfolio/route.ts`
-- `src/app/api/portfolio/[positionId]/route.ts`
-- `src/types/user-records.ts`
+Generated health artifacts:
 
-Current auth purpose:
+- `data/reports/pipeline_health_report.json`
+- `public/data/pipeline_health.json`
 
-- prepare protected AI/RAG features;
-- gate full universe access;
-- enable personal watchlist/portfolio research notes.
+Health statuses:
 
-Required environment variables exist outside Git:
+- `success`: core artifacts exist and no noncritical ticker/subsystem failure is present.
+- `partial_success`: core artifacts exist, but one or more noncritical per-ticker/subsystem failures occurred.
+- `failed`: a required core artifact is missing or a critical stage fails.
+- `unavailable_expected`: subsystem intentionally unsupported/skipped, such as analyst targets or scaled backtest.
 
-- `BETTER_AUTH_SECRET`
-- `BETTER_AUTH_URL`
-- `NEXT_PUBLIC_BETTER_AUTH_URL`
-- `GOOGLE_CLIENT_ID`
-- `GOOGLE_CLIENT_SECRET`
-- `DATABASE_URL`
+Top-level fixture fields:
 
-Never commit real secret values.
+- `overallStatus`: pipeline status using the strict success/partial/failed vocabulary.
+- `releaseReadiness`: deployment-testing status; current value is `ready_with_known_limitations`.
+- `criticalFailures`: failures that should block deployment/testing.
+- `nonCriticalFailures`: true ticker/subsystem failures that do not block the generated website.
+- `expectedUnavailable`: intentionally unavailable items, such as scaled backtest and analyst targets.
+- `dataQualityWarnings`: coverage warnings, currently dominated by partial balance-sheet fields.
 
-## 16. Scheduled workflow
+Current health summary:
 
-GitHub Actions workflow:
+- core artifacts: success;
+- ETL ticker pipeline: partial success, 5 provider 404 failures;
+- backtest: unavailable expected due scaled `--skip-backtest`;
+- forecast artifacts: partial success, 42 insufficient-history cases;
+- filing search index: success, 199 tickers;
+- balance-sheet context: partial success, 199 usable/partial and 46 unavailable;
+- analyst targets: unavailable expected.
+- release readiness: ready with known limitations;
+- expected unavailable count: 246;
+- data-quality warnings: 226.
+
+The public summary excludes local artifact paths and secrets.
+
+---
+
+## 12. Scheduled refresh workflow
+
+Workflow:
 
 - `.github/workflows/refresh-data.yml`
 
-Schedule:
-
-- weekday cron at `25 23 * * 1-5`
-
-Current workflow steps:
+Current intended sequence:
 
 1. checkout;
-2. setup Python 3.12;
-3. setup Node 24;
-4. install Python dependencies;
-5. validate `VS_CONTACT_EMAIL`;
-6. run Python tests;
-7. run brief generator tests;
-8. build scaled universe;
-9. refresh live ETL artifacts;
-10. refresh SEC filing BM25 index;
-11. refresh experimental forecast artifacts;
-12. audit features;
-13. audit scoring;
-14. audit backtest;
-15. audit filing search;
-16. audit forecast outputs;
-17. commit changed generated artifacts as `data: refresh ValueSignal artifacts`;
-18. push.
+2. setup Python/Node;
+3. run tests;
+4. build scaled universe;
+5. run ETL with `--skip-backtest`;
+6. rebuild BM25 search index;
+7. run forecast pipeline;
+8. run feature/scoring/backtest/search/forecast audits;
+9. generate pipeline health;
+10. commit generated artifacts if changed;
+11. push to trigger Vercel redeployment.
 
-Current workflow environment:
+Important environment/secret requirements:
 
-- `VS_USER_AGENT = ValueSignal research ETL ${{ secrets.VS_CONTACT_EMAIL }}`
-- `BALANCE_SHEET_SCORING_MODE = official`
-- `VS_UNIVERSE_MODE = sec_listed_core`
-- `VS_UNIVERSE_PATH = data/universe/universe.json`
-- `VS_UNIVERSE_LIMIT = 250`
+- `VS_CONTACT_EMAIL` in GitHub secrets for SEC `VS_USER_AGENT`.
+- Vercel auth/database variables are configured outside Git.
+- No real secret values should appear in repo docs, artifacts, or logs.
 
-Important prior failure mode:
+Workflow gotcha already fixed:
 
-- If `data/universe/universe.json` does not exist before `scripts/run_etl.py`, the ETL fails with `FileNotFoundError`.
-- The workflow now builds the scaled universe before ETL.
+- `data/universe/universe.json` must be created before `scripts/run_etl.py --universe data/universe/universe.json`.
 
-Deployment behavior:
+---
 
-- When the workflow pushes generated artifact commits to the deployment branch, Vercel should redeploy.
-- The frontend consumes JSON at build/runtime depending on route behavior.
-- Dynamic auth-gated pages use server-side reads of generated JSON, but deployment still needs fresh artifacts in the repo unless external storage is added later.
+## 13. Commands
 
-## 17. Commands
-
-Use these from the repo root.
+Run from repo root.
 
 Local app:
 
@@ -804,23 +509,20 @@ npm run typecheck
 npm run build
 ```
 
-Python tests and audits:
+Tests:
 
 ```powershell
 python -m unittest discover -s tests -p "test_*.py" -v
+npm run test:brief
+```
+
+Core audits:
+
+```powershell
 python scripts/audit_features.py
 python scripts/audit_scoring.py
 python scripts/audit_backtest.py
 python scripts/audit_search.py
-```
-
-ETL:
-
-```powershell
-$env:VS_USER_AGENT="ValueSignal research ETL your-contact-email@example.com"
-python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
-python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
-python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
 ```
 
 Forecast:
@@ -832,264 +534,86 @@ python scripts/forecast/evaluate_models.py
 python scripts/forecast/audit_forecasts.py
 ```
 
-RAG local smoke tests:
+Pipeline health:
 
 ```powershell
-python scripts/run_rag.py "should i expect this to hold value or go up or down? assess based on risk data" --ticker AAPL --mode hybrid --top-k 6 --depth deep
-python scripts/run_rag.py "is the signal strong enough?" --ticker F --mode hybrid --top-k 5
+python scripts/pipeline_health.py
 ```
 
-Scoring comparison:
+Scaled refresh:
 
 ```powershell
-python scripts/compare_scoring_outputs.py
+$env:VS_USER_AGENT="ValueSignal research ETL <contact>"
+python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
+python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
+python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
+python scripts/forecast/run_forecast_pipeline.py --summary
+python scripts/pipeline_health.py
 ```
 
-## 18. Validation gates by subsystem
+---
 
-### ETL
+## 14. Validation checklist
 
-Pass conditions:
+Before commit/deploy after scoring, ETL, forecast, or projection work:
 
-- provider failures are logged per ticker;
-- one ticker failure does not stop the run;
-- output paths exist;
-- `public/data/dashboard.json`, `features.json`, `signals.json`, and `etl_report.json` are valid JSON;
-- row counts and failed symbols appear in `etl_report.json`;
-- `VS_USER_AGENT` includes a contact email.
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/audit_backtest.py
+python scripts/audit_search.py
+python scripts/forecast/audit_training_dataset.py
+python scripts/forecast/evaluate_models.py
+python scripts/forecast/audit_forecasts.py
+python scripts/pipeline_health.py
+npm run test:brief
+npm run typecheck
+npm run build
+```
 
-Debug checklist:
+Expected caveats:
 
-- inspect HTTP status and headers;
-- check ticker-to-CIK mapping;
-- compare units and fiscal periods;
-- validate output path;
-- diff schema against frontend types.
+- `pipeline_health.py` can return partial success and still exit successfully if no critical failure exists.
+- `audit_backtest.py` can pass an intentionally unavailable scaled backtest.
+- Forecast model selection should remain baseline unless promotion is explicitly enabled and reviewed.
 
-### Features
+---
 
-Pass conditions:
+## 15. Where future financial instructions usually land
 
-- price ordering is chronological;
-- 30/90 returns use the intended lookback;
-- annualization factor is `sqrt(252)`;
-- denominator signs are handled;
-- outliers are traceable to raw rows;
-- missing values remain null.
+Map incoming financial/product instructions into one of these buckets:
 
-Debug checklist:
-
-- verify price ordering;
-- inspect annualization factor;
-- check denominator signs;
-- trace outliers to raw rows.
-
-### Scoring
-
-Pass conditions:
-
-- every score remains 0-100 or null;
-- labels are deterministic;
-- risk direction is correct;
-- missing evidence reduces confidence;
-- reason codes align with score/risk thresholds.
-
-Debug checklist:
-
-- print weighted contributions;
-- test exact boundaries;
-- confirm null branch;
-- compare reason codes to score.
-
-### Balance sheet
-
-Pass conditions:
-
-- standalone balance-sheet artifacts remain intact;
-- missing fields are listed, not filled;
-- target bands are auditable;
-- risk gates are visible;
-- official blend is traceable through `balanceSheetOfficialChange`;
-- comparison against baseline is run when changing official scoring.
-
-Debug checklist:
-
-- inspect selected filing accession and period end;
-- compare extracted fields to SEC companyfacts;
-- review missing core fields;
-- inspect triggered gates;
-- run scoring comparison report.
-
-### Retrieval
-
-Pass conditions:
-
-- index has documents;
-- per-ticker search files exist;
-- BM25 status flags update dashboard/stocks/coverage artifacts;
-- citation metadata includes ticker, form, filing date, section, URL, and chunk ID;
-- retrieval returns real chunks or a clear unavailable state.
-
-Debug checklist:
-
-- run `python scripts/audit_search.py`;
-- inspect `public/data/search_index.json`;
-- inspect `public/data/search/{TICKER}.json`;
-- test broad terms like risk, liquidity, revenue, supply chain;
-- check whether ticker is indexed before blaming query logic.
-
-### Forecast
-
-Pass conditions:
-
-- training rows are generated from existing price history;
-- 30/90 targets use future market sessions after calendar horizons;
-- split is date-based and embargoed;
-- output returns are above -100%;
-- lower/base/upper ordering is valid;
-- forecast artifact count matches stock artifact count when all stocks have price history;
-- validation status remains `experimental` unless explicitly promoted after review.
-
-Debug checklist:
-
-- run forecast audits;
-- inspect `data/reports/forecast_model_leaderboard.json`;
-- inspect one ticker artifact in `public/data/forecasts`;
-- confirm analyst target status is unsupported unless a provider has been added;
-- confirm frontend handles zero return as available, not missing.
-
-### Frontend integration
-
-Pass conditions:
-
-- `npm run typecheck` passes;
-- `npm run build` passes;
-- dashboard shows preview/full universe correctly by auth state;
-- stock detail pages block non-preview tickers when signed out;
-- saved portfolio supports share quantity and dollar allocation;
-- missing generated forecast artifacts produce explicit reasons.
-
-## 19. How to safely accept future financial instructions
-
-When a financial/product instruction arrives from the accompanying ChatGPT, map it into one of these buckets before editing:
-
-1. Display-only change
-   - Example: show 30/90 VS estimate beside market target.
-   - Usually touches React components, types, and generated artifact reading.
-   - Should not change scoring.
-
-2. New input data
-   - Example: add analyst consensus target provider.
-   - Touches provider, ETL, artifact schema, audit, and disclosure.
-   - Must not fabricate values if provider data is unavailable.
-
-3. Feature-engineering change
-   - Example: add gross margin trend.
-   - Touches `scripts/features.py`, docs, tests, generated artifacts, and frontend display.
-   - Does not automatically affect official score unless scoring weights are changed.
-
-4. Scoring change
-   - Example: make balance-sheet liquidity stronger in value-trap classification.
-   - Touches `scripts/scoring.py`, tests, docs, reason codes, comparison reports.
-   - Must run scoring audits and compare against baseline.
-
-5. Forecast/modeling change
-   - Example: promote ridge regression if it beats baseline.
-   - Touches `scripts/forecast`, artifacts, audits, and forecast disclosure.
-   - Must keep validation status honest.
-
-6. RAG/intelligence change
-   - Example: explain whether SEC evidence supports the official signal.
-   - Touches `rag/`, RAG route/UI, and retrieval tests.
-   - Must not overwrite official signal.
+| Instruction type | Likely files | Key risk |
+|---|---|---|
+| Display-only metric | React component + TypeScript type | accidentally implying recommendation |
+| New data provider | `scripts/providers/`, ETL, artifacts, audits | fabricating unsupported values |
+| Feature engineering | `scripts/features.py`, docs, tests | changing score inputs without disclosure |
+| Official scoring change | `scripts/scoring.py`, scoring docs/tests/comparison | label drift without baseline comparison |
+| Balance-sheet scoring change | `scripts/balance_sheet.py`, `scripts/scoring.py` | double-counting risk |
+| Forecast/projection change | `scripts/forecast/`, `src/lib/position-projections.ts` | presenting scenario as prediction |
+| Retrieval/RAG change | `scripts/build_search_index.py`, `rag/`, search UI | LLM overriding deterministic signal |
 
 Preferred workflow:
 
-1. checkpoint current state if the change is risky;
+1. checkpoint if the change is risky;
 2. implement the smallest modular change;
-3. regenerate only needed artifacts;
+3. regenerate artifacts from scripts;
 4. run targeted tests;
 5. run full validation before commit/deploy;
-6. document if score or artifact schema behavior changed.
+6. update this map and the blueprint.
 
-## 20. Guardrails for the next 30/90 earnings/return display work
+---
 
-The user wants the app to show:
+## 16. Do-not-break list
 
-- ValueSignal estimate of 30-day return;
-- ValueSignal estimate of 90-day return;
-- market target value based return for 30 days;
-- market target value based return for 90 days.
-
-Current truth:
-
-- VS 30/90 artifacts exist and are experimental.
-- Current base VS return is zero-return baseline in generated artifacts.
-- Current lower/upper ranges exist and are residual-quantile ranges.
-- Market/analyst target fields exist but are unsupported/null.
-- There is no legitimate analyst target provider yet.
-
-Safe next implementation path:
-
-1. Keep VS estimate and analyst/market target return visually separate.
-2. Show `Unavailable: analyst target provider not configured` instead of null-looking blank boxes.
-3. If adding market target provider, add a provider module and artifact audit first.
-4. Do not convert an analyst 12-month target into a 30/90-day target unless the artifact explicitly records the horizon and methodology.
-5. If the instruction asks for “earnings display,” clarify whether it means:
-   - expected return;
-   - earnings/revenue/gross margin fundamentals;
-   - earnings calendar;
-   - EPS estimates;
-   - portfolio dollar gain/loss.
-
-## 21. Files most likely to matter next
-
-For 30/90 projection display:
-
-- `src/components/SavedStocksConsole.tsx`
-- `src/lib/position-projections.ts`
-- `src/types/forecast.ts`
-- `public/data/forecasts/summary.json`
-- `public/data/forecasts/{TICKER}.json`
-- `scripts/forecast/pipeline.py`
-- `tests/test_forecast_pipeline.py`
-
-For analyst/market target values:
-
-- new provider module should be added under `scripts/providers/`;
-- forecast artifact schema should be extended in `src/types/forecast.ts`;
-- audit should reject stale, missing, or horizon-ambiguous target values;
-- UI should display source date, provider, analyst count, and unavailable reason.
-
-For official scoring:
-
-- `scripts/scoring.py`
-- `scripts/features.py`
-- `scripts/balance_sheet.py`
-- `docs/scoring_specification.md`
-- `docs/balance_sheet_scoring.md`
-- `src/lib/scoreExplanations.ts`
-- `tests/test_scoring.py`
-- `tests/test_balance_sheet.py`
-
-For public/full universe gating:
-
-- `src/lib/public-universe.ts`
-- `src/app/dashboard/page.tsx`
-- `src/app/stock/[ticker]/page.tsx`
-- `src/features/dashboard/StockTable.tsx`
-- `src/components/UniverseLockPanel.tsx`
-
-## 22. Do-not-break list
-
-- Keep all decision surfaces covered by research/educational disclaimers.
-- Keep signal classification deterministic.
+- Preserve cautious research/educational disclaimers.
+- Keep official signal deterministic.
 - Keep LLM/RAG interpretation separate from official signal.
 - Keep risk scores in the unfavorable direction.
-- Keep missing financial values as null, not zero.
-- Keep per-ticker ETL failures isolated and logged.
+- Keep missing values as `null`, not zero.
+- Keep per-ticker ETL failures isolated and visible.
 - Keep generated artifacts reproducible from scripts.
 - Keep production free from local Ollama dependency.
-- Keep secrets out of docs, commits, logs, and artifacts.
-- Keep `frontend.md` out of ValueSignal planning unless the user explicitly says otherwise; it is unrelated DamLogics material.
-
+- Keep analyst target fields unsupported/null until a real provider exists.
+- Keep `frontend.md` out of ValueSignal work; it is unrelated DamLogics material unless the user explicitly says otherwise.

@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AIR",
   "companyName": "AAR CORP",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 134.46,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 135.69,
   "analystTarget": {
     "ticker": "AIR",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 134.46000671,
+    "currentPriceAtCollection": 135.69000244,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,64 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 134.46,
-    "lowerEstimatedPrice": 107.8452,
-    "upperEstimatedPrice": 166.9632
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 135.69,
+    "lowerEstimatedPrice": 109.3384,
+    "upperEstimatedPrice": 169.4159
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 134.46,
-    "lowerEstimatedPrice": 98.9597,
-    "upperEstimatedPrice": 208.5197
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 135.69,
+    "lowerEstimatedPrice": 93.6896,
+    "upperEstimatedPrice": 200.1063
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 135.69,
+    "horizon30Day": {
+      "returnEstimate": 0.0286363,
+      "lowerReturn": -0.07874659,
+      "upperReturn": 0.08,
+      "estimatedPrice": 139.5757,
+      "lowerEstimatedPrice": 125.0049,
+      "upperEstimatedPrice": 146.5452,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.02515798,
+      "lowerReturn": -0.0367799,
+      "upperReturn": 0.15,
+      "estimatedPrice": 139.1037,
+      "lowerEstimatedPrice": 130.6993,
+      "upperEstimatedPrice": 156.0435,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

@@ -24,6 +24,24 @@ from scripts.providers.sec_companyfacts import CompanyFactsProvider, SecCompanyF
 from scripts.scoring import SCORE_SCHEMA_VERSION, balance_sheet_scoring_mode, score_universe
 
 SCHEMA_VERSION = "1.0.0"
+PRICE_HISTORY_EXPORT_SESSIONS = 1260
+
+
+def remove_stale_stock_artifacts(output_dir: Path, active_tickers: set[str]) -> list[str]:
+    """Delete generated stock detail artifacts that are no longer in the active ETL output."""
+    stock_dir = output_dir / "stocks"
+    if not stock_dir.exists():
+        return []
+    active = {ticker.upper() for ticker in active_tickers}
+    removed: list[str] = []
+    for path in stock_dir.glob("*.json"):
+        if path.name == "summary.json":
+            continue
+        ticker = path.stem.upper()
+        if ticker not in active:
+            path.unlink()
+            removed.append(ticker)
+    return sorted(removed)
 
 
 def _empty_status(run_at: str) -> dict[str, Any]:
@@ -260,7 +278,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
                 "balanceSheet": bs_snapshot,
                 "balanceSheetMetrics": bundle["metrics"],
                 "balanceSheetScoringShadow": bs_scoring,
-                "priceHistory": [record(bar) for bar in prices[-260:]],
+                "priceHistory": [record(bar) for bar in prices[-PRICE_HISTORY_EXPORT_SESSIONS:]],
                 "dataStatus": data_status,
             }
             write_json(output_dir / "stocks" / f"{security.ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": datetime.now(timezone.utc).isoformat(), "record": detail_row})
@@ -322,6 +340,8 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         "balance_sheets_partial": balance_sheet_report["balanceSheetsPartial"],
         "balance_sheets_unavailable": balance_sheet_report["unavailableCompanies"],
     })
+    active_tickers = {row["security"]["ticker"].upper() for row in rows}
+    stale_stock_artifacts_removed = remove_stale_stock_artifacts(output_dir, active_tickers)
     audit = {
         "schemaVersion": SCHEMA_VERSION,
         "runStartedAt": started.isoformat(),
@@ -330,6 +350,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         "requestedTickers": len(ticker_reports),
         "successfulTickers": len(rows),
         "failedTickers": len(errors),
+        "staleStockArtifactsRemoved": stale_stock_artifacts_removed,
         "errors": errors,
         "tickers": ticker_reports,
         "coverageCounts": coverage["counts"],

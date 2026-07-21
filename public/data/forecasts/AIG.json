@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AIG",
   "companyName": "AMERICAN INTERNATIONAL GROUP, INC.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 79.0,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 79.8,
   "analystTarget": {
     "ticker": "AIG",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 79.0,
+    "currentPriceAtCollection": 79.80000305,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 79.0,
-    "lowerEstimatedPrice": 63.3629,
-    "upperEstimatedPrice": 98.0968
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 79.8,
+    "lowerEstimatedPrice": 64.3025,
+    "upperEstimatedPrice": 99.6344
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 79.0,
-    "lowerEstimatedPrice": 58.1423,
-    "upperEstimatedPrice": 122.5127
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 79.8,
+    "lowerEstimatedPrice": 55.0993,
+    "upperEstimatedPrice": 117.6836
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 79.8,
+    "horizon30Day": {
+      "returnEstimate": 0.00165117,
+      "lowerReturn": -0.0352775,
+      "upperReturn": 0.03411739,
+      "estimatedPrice": 79.9318,
+      "lowerEstimatedPrice": 76.9849,
+      "upperEstimatedPrice": 82.5226,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.00233174,
+      "lowerReturn": -0.03852793,
+      "upperReturn": 0.0310064,
+      "estimatedPrice": 79.9861,
+      "lowerEstimatedPrice": 76.7255,
+      "upperEstimatedPrice": 82.2743,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

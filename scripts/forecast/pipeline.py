@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import statistics
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
@@ -47,6 +48,14 @@ FEATURE_COLUMNS = [
     "drawdown63Day",
     "volumeTrend21Day",
 ]
+BASELINE_MODEL_NAMES = {"zero-return baseline", "historical-mean baseline", "market-return baseline"}
+CONSERVATIVE_SCENARIO_METHOD = "valuesignal_conservative_historical_scenario_v1"
+SCENARIO_SAMPLE_STEP_SESSIONS = 21
+SCENARIO_MIN_SAMPLES = {30: 24, 90: 12}
+SCENARIO_SHRINKAGE_CONSTANT = {30: 24, 90: 18}
+SCENARIO_RETURN_CAPS = {30: 0.08, 90: 0.15}
+SCENARIO_STALE_MARKET_DATA_DAYS = 10
+FORECAST_PRICE_HISTORY_MAX_SESSIONS = 540
 
 
 def now_iso() -> str:
@@ -137,8 +146,46 @@ def volume_trend(prices: list[dict[str, Any]], index: int) -> float | None:
     return statistics.mean(recent) / prior_mean - 1 if prior_mean > 0 else None
 
 
+def active_stock_tickers() -> set[str] | None:
+    summary_path = STOCK_DIR / "summary.json"
+    if not summary_path.exists():
+        return None
+    try:
+        payload = json.loads(summary_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    records = payload.get("records")
+    if not isinstance(records, list):
+        return None
+    tickers = {
+        str(record.get("ticker") or "").upper()
+        for record in records
+        if isinstance(record, dict) and record.get("ticker")
+    }
+    return tickers or None
+
+
 def stock_files() -> Iterable[Path]:
-    return sorted(path for path in STOCK_DIR.glob("*.json") if path.name != "summary.json")
+    active = active_stock_tickers()
+    paths = sorted(path for path in STOCK_DIR.glob("*.json") if path.name != "summary.json")
+    if active is None:
+        return paths
+    return [path for path in paths if path.stem.upper() in active]
+
+
+def remove_stale_forecast_artifacts(active_tickers: set[str]) -> list[str]:
+    if not FORECAST_DIR.exists():
+        return []
+    active = {ticker.upper() for ticker in active_tickers}
+    removed: list[str] = []
+    for path in FORECAST_DIR.glob("*.json"):
+        if path.name == "summary.json":
+            continue
+        ticker = path.stem.upper()
+        if ticker not in active:
+            path.unlink()
+            removed.append(ticker)
+    return sorted(removed)
 
 
 def load_stock_payload(path: Path) -> dict[str, Any]:
@@ -175,6 +222,7 @@ def build_training_rows() -> list[dict[str, Any]]:
     for path in stock_files():
         payload = load_stock_payload(path)
         prices = sorted(payload.get("record", {}).get("priceHistory") or [], key=lambda row: row.get("date", ""))
+        prices = prices[-FORECAST_PRICE_HISTORY_MAX_SESSIONS:]
         for index in range(len(prices)):
             row = build_feature_row(payload, prices, index)
             if row:
@@ -293,7 +341,9 @@ def evaluate_horizon(rows: list[dict[str, Any]], horizon: int) -> dict[str, Any]
         test_metrics = metrics(target_vector(test, horizon), candidate.predict(test)) if test else metrics(np.array([]), np.array([]))
         leaderboard.append({"horizonDays": horizon, "model": candidate.name, "status": "available", "validation": validation_metrics, "test": test_metrics})
     available = [item for item in leaderboard if item["status"] == "available" and item["validation"]["mae"] is not None]
-    selected_name = min(available, key=lambda item: item["validation"]["mae"])["model"] if available else "zero-return baseline"
+    leaderboard_winner = min(available, key=lambda item: item["validation"]["mae"])["model"] if available else "zero-return baseline"
+    allow_promotion = os.getenv("VS_ALLOW_EXPERIMENTAL_FORECAST_PROMOTION", "false").strip().lower() == "true"
+    selected_name = leaderboard_winner if allow_promotion and leaderboard_winner not in BASELINE_MODEL_NAMES else "zero-return baseline"
     selected = next((candidate for candidate in candidates if candidate.name == selected_name), candidates[0])
     residual_source = test or validation or train
     if residual_source:
@@ -306,6 +356,8 @@ def evaluate_horizon(rows: list[dict[str, Any]], horizon: int) -> dict[str, Any]
         "split": {name: len(value) for name, value in split.items()},
         "selectedModel": selected,
         "selectedModelName": selected_name,
+        "leaderboardWinner": leaderboard_winner,
+        "promotionAllowed": allow_promotion,
         "leaderboard": leaderboard,
         "residualP10": float(np.quantile(residuals, 0.10)) if len(residuals) else -0.05,
         "residualP90": float(np.quantile(residuals, 0.90)) if len(residuals) else 0.05,
@@ -329,6 +381,167 @@ def return_bundle(current_price: float, prediction: float, low_residual: float, 
         "lowerEstimatedPrice": round(current_price * (1 + lower_return), 4),
         "upperEstimatedPrice": round(current_price * (1 + upper_return), 4),
     }
+
+
+def _empty_scenario_horizon(sample_count: int = 0) -> dict[str, Any]:
+    return {
+        "returnEstimate": None,
+        "lowerReturn": None,
+        "upperReturn": None,
+        "estimatedPrice": None,
+        "lowerEstimatedPrice": None,
+        "upperEstimatedPrice": None,
+        "sampleCount": sample_count,
+    }
+
+
+def quantile(values: list[float], probability: float) -> float:
+    if not values:
+        raise ValueError("quantile requires at least one value")
+    ordered = sorted(values)
+    if len(ordered) == 1:
+        return ordered[0]
+    position = (len(ordered) - 1) * probability
+    lower = math.floor(position)
+    upper = math.ceil(position)
+    if lower == upper:
+        return ordered[lower]
+    weight = position - lower
+    return ordered[lower] * (1 - weight) + ordered[upper] * weight
+
+
+def _clip(value: float, cap: float) -> float:
+    return max(-cap, min(cap, value))
+
+
+def _scenario_horizon(current_price: float, returns: list[float], horizon: int, warnings: list[str]) -> dict[str, Any]:
+    sample_count = len(returns)
+    minimum = SCENARIO_MIN_SAMPLES[horizon]
+    if sample_count < minimum:
+        warnings.append(f"{horizon}-day scenario: insufficient history ({sample_count}/{minimum} usable sparse observations)")
+        return _empty_scenario_horizon(sample_count)
+    median_return = quantile(returns, 0.50)
+    shrinkage = sample_count / (sample_count + SCENARIO_SHRINKAGE_CONSTANT[horizon])
+    base = median_return * shrinkage
+    lower = min(quantile(returns, 0.25), base)
+    upper = max(quantile(returns, 0.75), base)
+    cap = SCENARIO_RETURN_CAPS[horizon]
+    clipped = []
+    for label, original in (("lower", lower), ("base", base), ("upper", upper)):
+        bounded = _clip(original, cap)
+        clipped.append(bounded)
+        if not math.isclose(original, bounded, rel_tol=0, abs_tol=1e-12):
+            warnings.append(f"{horizon}-day scenario: {label} return clipped to +/-{cap:.0%}")
+    lower, base, upper = clipped
+    lower = min(lower, base)
+    upper = max(upper, base)
+    if lower < -1 or base < -1 or upper < -1:
+        warnings.append(f"{horizon}-day scenario: invalid return below -100% rejected")
+        return _empty_scenario_horizon(sample_count)
+    return {
+        "returnEstimate": round(base, 8),
+        "lowerReturn": round(lower, 8),
+        "upperReturn": round(upper, 8),
+        "estimatedPrice": round(current_price * (1 + base), 4),
+        "lowerEstimatedPrice": round(current_price * (1 + lower), 4),
+        "upperEstimatedPrice": round(current_price * (1 + upper), 4),
+        "sampleCount": sample_count,
+    }
+
+
+def _scenario_returns(rows: list[dict[str, Any]], horizon: int, warnings: list[str]) -> list[float]:
+    unique_rows = []
+    seen_dates: set[str] = set()
+    duplicate_count = 0
+    for row in sorted(rows, key=lambda item: item.get("featureDate", "")):
+        feature_date = str(row.get("featureDate") or "")
+        if feature_date in seen_dates:
+            duplicate_count += 1
+            continue
+        seen_dates.add(feature_date)
+        current = row.get("currentAdjustedClose")
+        target = row.get(f"targetLogReturn{horizon}")
+        if not finite(current) or float(current) <= 0:
+            continue
+        if not finite(target):
+            unique_rows.append(row)
+            continue
+        simple = math.exp(float(target)) - 1
+        if not math.isfinite(simple) or simple < -1:
+            warnings.append(f"{horizon}-day scenario: invalid historical return rejected for {feature_date}")
+            continue
+        unique_rows.append({**row, f"targetSimpleReturn{horizon}": simple})
+    if duplicate_count:
+        warnings.append(f"Duplicate historical price dates rejected: {duplicate_count}")
+    sampled = unique_rows[::SCENARIO_SAMPLE_STEP_SESSIONS]
+    return [
+        float(row[f"targetSimpleReturn{horizon}"])
+        for row in sampled
+        if finite(row.get(f"targetSimpleReturn{horizon}"))
+    ]
+
+
+def _market_data_is_stale(market_data_as_of: str, generated_at: str) -> bool:
+    try:
+        market_date = date.fromisoformat(market_data_as_of)
+        generated_date = datetime.fromisoformat(generated_at).date()
+    except ValueError:
+        return True
+    return (generated_date - market_date).days > SCENARIO_STALE_MARKET_DATA_DAYS
+
+
+def conservative_scenario(rows: list[dict[str, Any]], current_row: dict[str, Any], generated_at: str) -> dict[str, Any]:
+    warnings: list[str] = []
+    current_price = current_row.get("currentAdjustedClose")
+    market_data_as_of = str(current_row.get("featureDate") or "")
+    if not finite(current_price) or float(current_price) <= 0:
+        warnings.append("Current price is unavailable or invalid.")
+        return {
+            "methodology": CONSERVATIVE_SCENARIO_METHOD,
+            "generatedAt": generated_at,
+            "marketDataAsOf": market_data_as_of,
+            "currentPrice": None,
+            "horizon30Day": _empty_scenario_horizon(),
+            "horizon90Day": _empty_scenario_horizon(),
+            "status": "insufficient_data",
+            "warnings": warnings,
+        }
+    stale = _market_data_is_stale(market_data_as_of, generated_at)
+    if stale:
+        warnings.append(f"Market data as of {market_data_as_of} is older than {SCENARIO_STALE_MARKET_DATA_DAYS} days.")
+    horizons = {
+        30: _scenario_horizon(float(current_price), _scenario_returns(rows, 30, warnings), 30, warnings),
+        90: _scenario_horizon(float(current_price), _scenario_returns(rows, 90, warnings), 90, warnings),
+    }
+    available = all(finite(horizons[horizon].get("returnEstimate")) for horizon in (30, 90))
+    return {
+        "methodology": CONSERVATIVE_SCENARIO_METHOD,
+        "generatedAt": generated_at,
+        "marketDataAsOf": market_data_as_of,
+        "currentPrice": round(float(current_price), 4),
+        "horizon30Day": horizons[30],
+        "horizon90Day": horizons[90],
+        "status": "stale" if stale else "available" if available else "insufficient_data",
+        "warnings": list(dict.fromkeys(warnings)),
+    }
+
+
+def _is_non_baseline_model(name: str | None) -> bool:
+    return bool(name) and name not in BASELINE_MODEL_NAMES and "unavailable" not in name.lower()
+
+
+def _display_source(results: dict[int, dict[str, Any]], scenario: dict[str, Any]) -> tuple[str, str | None]:
+    if _is_non_baseline_model(results[30]["selectedModelName"]) and _is_non_baseline_model(results[90]["selectedModelName"]):
+        return "forecast_model", "Validated or approved non-baseline forecast model selected."
+    if scenario.get("status") == "available":
+        return "conservative_historical_scenario", "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario."
+    return "unavailable", scenario.get("warnings", ["Projection source unavailable"])[0]
+
+
+def _forecast_validation_status(results: dict[int, dict[str, Any]]) -> str:
+    if all(results[horizon]["selectedModelName"] == "zero-return baseline" for horizon in (30, 90)):
+        return "baseline"
+    return "experimental"
 
 
 def latest_feature_rows(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -363,9 +576,15 @@ def analyst_target_stub(ticker: str, current_price: float, generated_at: str) ->
 def forecast_artifacts(rows: list[dict[str, Any]], results: dict[int, dict[str, Any]]) -> list[dict[str, Any]]:
     generated_at = now_iso()
     current_rows = latest_feature_rows(rows)
+    rows_by_ticker: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        rows_by_ticker.setdefault(str(row["ticker"]).upper(), []).append(row)
     artifacts = []
     for ticker, row in sorted(current_rows.items()):
         current_price = row["currentAdjustedClose"]
+        scenario = conservative_scenario(rows_by_ticker.get(ticker, []), row, generated_at)
+        display_source, display_reason = _display_source(results, scenario)
+        validation_status = _forecast_validation_status(results)
         warnings = [
             "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
             "CatBoost candidate unavailable in the current project environment.",
@@ -386,6 +605,9 @@ def forecast_artifacts(rows: list[dict[str, Any]], results: dict[int, dict[str, 
             "analystTarget": analyst_target_stub(ticker, float(current_price), generated_at),
             "horizon30Day": horizon_payloads[30],
             "horizon90Day": horizon_payloads[90],
+            "conservativeScenario": scenario,
+            "displayProjectionSource": display_source,
+            "displayProjectionReason": display_reason,
             "model30Day": {
                 "name": results[30]["selectedModelName"],
                 "version": "1.0.0",
@@ -398,7 +620,7 @@ def forecast_artifacts(rows: list[dict[str, Any]], results: dict[int, dict[str, 
                 "testMAE": next((item.get("test", {}).get("mae") for item in results[90]["leaderboard"] if item.get("model") == results[90]["selectedModelName"]), None),
                 "directionalAccuracy": next((item.get("test", {}).get("directionalAccuracy") for item in results[90]["leaderboard"] if item.get("model") == results[90]["selectedModelName"]), None),
             },
-            "validationStatus": "experimental",
+            "validationStatus": validation_status,
             "returnType": "price_return",
             "warnings": warnings,
         })
@@ -461,15 +683,34 @@ def run_pipeline() -> dict[str, Any]:
     artifacts = forecast_artifacts(rows, results)
     for artifact in artifacts:
         write_json(FORECAST_DIR / f"{artifact['ticker']}.json", artifact)
+    stale_forecast_artifacts_removed = remove_stale_forecast_artifacts({artifact["ticker"] for artifact in artifacts})
     summary = {
         "schemaVersion": "1.0.0",
         "generatedAt": now_iso(),
         "count": len(artifacts),
-        "validationStatus": "experimental",
+        "staleForecastArtifactsRemoved": stale_forecast_artifacts_removed,
+        "validationStatus": _forecast_validation_status(results),
+        "displayProjectionSources": {
+            "forecast_model": sum(1 for artifact in artifacts if artifact.get("displayProjectionSource") == "forecast_model"),
+            "conservative_historical_scenario": sum(1 for artifact in artifacts if artifact.get("displayProjectionSource") == "conservative_historical_scenario"),
+            "unavailable": sum(1 for artifact in artifacts if artifact.get("displayProjectionSource") == "unavailable"),
+        },
+        "conservativeScenarioStatus": {
+            "available": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "available"),
+            "insufficient_data": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "insufficient_data"),
+            "stale": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "stale"),
+        },
         "forecasts": artifacts,
     }
     write_json(FORECAST_DIR / "summary.json", summary)
-    return {"rows": len(rows), "forecasts": len(artifacts), "selected30": results[30]["selectedModelName"], "selected90": results[90]["selectedModelName"]}
+    return {
+        "rows": len(rows),
+        "forecasts": len(artifacts),
+        "selected30": results[30]["selectedModelName"],
+        "selected90": results[90]["selectedModelName"],
+        "staleForecastArtifactsRemoved": len(stale_forecast_artifacts_removed),
+        "conservativeScenarios": summary["conservativeScenarioStatus"],
+    }
 
 
 def main() -> int:

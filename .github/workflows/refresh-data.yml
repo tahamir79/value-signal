@@ -58,11 +58,13 @@ jobs:
           python scripts/forecast/audit_training_dataset.py
           python scripts/forecast/evaluate_models.py
           python scripts/forecast/audit_forecasts.py
+      - name: Publish pipeline health report
+        run: python scripts/pipeline_health.py
       - name: Commit changed artifacts
         run: |
           git config user.name "value-signal-bot"
           git config user.email "value-signal-bot@users.noreply.github.com"
-          git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/search public/data/stocks public/data/forecasts public/data/etl_report.json public/data/universe_coverage_report.json models/forecast
-          git add -f data/reports/forecast_model_leaderboard.json data/reports/forecast_backtest_30_day.json data/reports/forecast_backtest_90_day.json data/reports/forecast_data_quality.json data/reports/forecast_leakage_audit.json
+          git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/search public/data/stocks public/data/forecasts public/data/etl_report.json public/data/universe_coverage_report.json public/data/pipeline_health.json models/forecast
+          git add -f data/reports/forecast_model_leaderboard.json data/reports/forecast_backtest_30_day.json data/reports/forecast_backtest_90_day.json data/reports/forecast_data_quality.json data/reports/forecast_leakage_audit.json data/reports/pipeline_health_report.json
           git diff --cached --quiet || git commit -m "data: refresh ValueSignal artifacts"
           git push

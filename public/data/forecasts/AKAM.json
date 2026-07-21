@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AKAM",
   "companyName": "AKAMAI TECHNOLOGIES INC",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 126.11,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 123.13,
   "analystTarget": {
     "ticker": "AKAM",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 126.11000061,
+    "currentPriceAtCollection": 123.12999725,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 126.11,
-    "lowerEstimatedPrice": 101.148,
-    "upperEstimatedPrice": 156.5947
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 123.13,
+    "lowerEstimatedPrice": 99.2176,
+    "upperEstimatedPrice": 153.7341
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 126.11,
-    "lowerEstimatedPrice": 92.8143,
-    "upperEstimatedPrice": 195.5705
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 123.13,
+    "lowerEstimatedPrice": 85.0173,
+    "upperEstimatedPrice": 181.5836
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 123.13,
+    "horizon30Day": {
+      "returnEstimate": 0.00070506,
+      "lowerReturn": -0.02381253,
+      "upperReturn": 0.06941819,
+      "estimatedPrice": 123.2168,
+      "lowerEstimatedPrice": 120.198,
+      "upperEstimatedPrice": 131.6775,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.00115001,
+      "lowerReturn": -0.04763928,
+      "upperReturn": 0.13207539,
+      "estimatedPrice": 122.9884,
+      "lowerEstimatedPrice": 117.2642,
+      "upperEstimatedPrice": 139.3924,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

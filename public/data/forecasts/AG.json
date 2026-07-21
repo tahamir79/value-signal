@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AG",
   "companyName": "FIRST MAJESTIC SILVER CORP",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 16.93,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 15.85,
   "analystTarget": {
     "ticker": "AG",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 16.93000031,
+    "currentPriceAtCollection": 15.85000038,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,64 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 16.93,
-    "lowerEstimatedPrice": 13.5789,
-    "upperEstimatedPrice": 21.0225
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 15.85,
+    "lowerEstimatedPrice": 12.7719,
+    "upperEstimatedPrice": 19.7895
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 16.93,
-    "lowerEstimatedPrice": 12.4601,
-    "upperEstimatedPrice": 26.2549
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 15.85,
+    "lowerEstimatedPrice": 10.9439,
+    "upperEstimatedPrice": 23.3745
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 15.85,
+    "horizon30Day": {
+      "returnEstimate": 0.00453918,
+      "lowerReturn": -0.06074756,
+      "upperReturn": 0.08,
+      "estimatedPrice": 15.9219,
+      "lowerEstimatedPrice": 14.8872,
+      "upperEstimatedPrice": 17.118,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.09437082,
+      "lowerReturn": -0.13219529,
+      "upperReturn": 0.15,
+      "estimatedPrice": 17.3458,
+      "lowerEstimatedPrice": 13.7547,
+      "upperEstimatedPrice": 18.2275,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

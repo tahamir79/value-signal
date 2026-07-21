@@ -7,6 +7,7 @@ from scripts.providers.price_provider import FixturePriceProvider
 from scripts.providers.sec_companyfacts import FixtureCompanyFactsProvider
 from scripts.run_etl import run
 from scripts.run_etl import _securities_from_universe_file
+from scripts.run_etl import remove_stale_stock_artifacts
 
 def facts(value=100): return {"facts":{"us-gaap":{"Assets":{"units":{"USD":[{"val":value,"end":"2025-12-31","filed":"2026-02-01","fy":2025,"fp":"FY","form":"10-K","accn":"x"}]}}}}}
 
@@ -39,5 +40,18 @@ class PipelineTests(unittest.TestCase):
             securities=_securities_from_universe_file(path)
             self.assertEqual([security.ticker for security in securities],["AAPL","MSFT"])
             self.assertEqual(securities[0].cik,"0000320193")
+
+    def test_stale_stock_artifact_cleanup_preserves_summary_and_active_tickers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            stock_dir=Path(directory)/"stocks"
+            stock_dir.mkdir()
+            (stock_dir/"summary.json").write_text("{}",encoding="utf-8")
+            (stock_dir/"AAPL.json").write_text("{}",encoding="utf-8")
+            (stock_dir/"OLD.json").write_text("{}",encoding="utf-8")
+            removed=remove_stale_stock_artifacts(Path(directory),{"AAPL"})
+            self.assertEqual(removed,["OLD"])
+            self.assertTrue((stock_dir/"summary.json").exists())
+            self.assertTrue((stock_dir/"AAPL.json").exists())
+            self.assertFalse((stock_dir/"OLD.json").exists())
 
 if __name__=="__main__": unittest.main()

@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AKAN",
   "companyName": "AKANDA CORP.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 9.48,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 8.77,
   "analystTarget": {
     "ticker": "AKAN",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 9.47999954,
+    "currentPriceAtCollection": 8.77000046,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,65 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 9.48,
-    "lowerEstimatedPrice": 7.6035,
-    "upperEstimatedPrice": 11.7716
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 8.77,
+    "lowerEstimatedPrice": 7.0668,
+    "upperEstimatedPrice": 10.9498
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 9.48,
-    "lowerEstimatedPrice": 6.9771,
-    "upperEstimatedPrice": 14.7015
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 8.77,
+    "lowerEstimatedPrice": 6.0554,
+    "upperEstimatedPrice": 12.9334
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 8.77,
+    "horizon30Day": {
+      "returnEstimate": -0.07592322,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.00606059,
+      "estimatedPrice": 8.1042,
+      "lowerEstimatedPrice": 8.0684,
+      "upperEstimatedPrice": 8.8232,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.15,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.04255319,
+      "estimatedPrice": 7.4545,
+      "lowerEstimatedPrice": 7.4545,
+      "upperEstimatedPrice": 9.1432,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: base return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

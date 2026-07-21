@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "ACNB",
   "companyName": "ACNB CORP",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 59.63,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 60.7,
   "analystTarget": {
     "ticker": "ACNB",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 59.63000107,
+    "currentPriceAtCollection": 60.70000076,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 59.63,
-    "lowerEstimatedPrice": 47.8269,
-    "upperEstimatedPrice": 74.0444
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 60.7,
+    "lowerEstimatedPrice": 48.9118,
+    "upperEstimatedPrice": 75.787
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 59.63,
-    "lowerEstimatedPrice": 43.8864,
-    "upperEstimatedPrice": 92.4738
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 60.7,
+    "lowerEstimatedPrice": 41.9114,
+    "upperEstimatedPrice": 89.5162
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 60.7,
+    "horizon30Day": {
+      "returnEstimate": 0.01606066,
+      "lowerReturn": 0.00067363,
+      "upperReturn": 0.06243096,
+      "estimatedPrice": 61.6749,
+      "lowerEstimatedPrice": 60.7409,
+      "upperEstimatedPrice": 64.4896,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.02468819,
+      "lowerReturn": 0.02468819,
+      "upperReturn": 0.1279052,
+      "estimatedPrice": 62.1986,
+      "lowerEstimatedPrice": 62.1986,
+      "upperEstimatedPrice": 68.4638,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AFGC",
   "companyName": "AMERICAN FINANCIAL GROUP INC",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 17.78,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 17.963,
   "analystTarget": {
     "ticker": "AFGC",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 17.78000069,
+    "currentPriceAtCollection": 17.96299934,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 17.78,
-    "lowerEstimatedPrice": 14.2607,
-    "upperEstimatedPrice": 22.078
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 17.963,
+    "lowerEstimatedPrice": 14.4745,
+    "upperEstimatedPrice": 22.4277
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 17.78,
-    "lowerEstimatedPrice": 13.0857,
-    "upperEstimatedPrice": 27.5731
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 17.963,
+    "lowerEstimatedPrice": 12.4029,
+    "upperEstimatedPrice": 26.4906
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 17.963,
+    "horizon30Day": {
+      "returnEstimate": -0.00171386,
+      "lowerReturn": -0.01898733,
+      "upperReturn": 0.02435154,
+      "estimatedPrice": 17.9322,
+      "lowerEstimatedPrice": 17.6219,
+      "upperEstimatedPrice": 18.4004,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.00486707,
+      "lowerReturn": -0.02682513,
+      "upperReturn": 0.03262087,
+      "estimatedPrice": 17.8756,
+      "lowerEstimatedPrice": 17.4811,
+      "upperEstimatedPrice": 18.549,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

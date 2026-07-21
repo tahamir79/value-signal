@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AIP",
   "companyName": "Arteris, Inc.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 33.41,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 30.68,
   "analystTarget": {
     "ticker": "AIP",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 33.40999985,
+    "currentPriceAtCollection": 30.68000031,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,64 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 33.41,
-    "lowerEstimatedPrice": 26.7969,
-    "upperEstimatedPrice": 41.4862
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 30.68,
+    "lowerEstimatedPrice": 24.7218,
+    "upperEstimatedPrice": 38.3055
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 33.41,
-    "lowerEstimatedPrice": 24.589,
-    "upperEstimatedPrice": 51.812
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 30.68,
+    "lowerEstimatedPrice": 21.1836,
+    "upperEstimatedPrice": 45.2448
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 30.68,
+    "horizon30Day": {
+      "returnEstimate": 0.01349746,
+      "lowerReturn": -0.05675677,
+      "upperReturn": 0.08,
+      "estimatedPrice": 31.0941,
+      "lowerEstimatedPrice": 28.9387,
+      "upperEstimatedPrice": 33.1344,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.10816844,
+      "lowerReturn": 0.00568738,
+      "upperReturn": 0.15,
+      "estimatedPrice": 33.9986,
+      "lowerEstimatedPrice": 30.8545,
+      "upperEstimatedPrice": 35.282,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

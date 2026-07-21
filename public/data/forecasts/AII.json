@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AII",
   "companyName": "American Integrity Insurance Group, Inc.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 18.68,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 18.93,
   "analystTarget": {
     "ticker": "AII",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 18.68000031,
+    "currentPriceAtCollection": 18.93000031,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,64 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 18.68,
-    "lowerEstimatedPrice": 14.9825,
-    "upperEstimatedPrice": 23.1955
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 18.93,
+    "lowerEstimatedPrice": 15.2537,
+    "upperEstimatedPrice": 23.6351
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 18.68,
-    "lowerEstimatedPrice": 13.7481,
-    "upperEstimatedPrice": 28.9688
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 18.93,
+    "lowerEstimatedPrice": 13.0706,
+    "upperEstimatedPrice": 27.9167
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 18.93,
+    "horizon30Day": {
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 14
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.01008772,
+      "lowerReturn": -0.03971217,
+      "upperReturn": 0.15,
+      "estimatedPrice": 19.121,
+      "lowerEstimatedPrice": 18.1782,
+      "upperEstimatedPrice": 21.7695,
+      "sampleCount": 12
+    },
+    "status": "insufficient_data",
+    "warnings": [
+      "30-day scenario: insufficient history (14/24 usable sparse observations)",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "30-day scenario: insufficient history (14/24 usable sparse observations)",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

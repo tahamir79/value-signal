@@ -38,7 +38,8 @@ def empty_report(reason: str, generated_at: str | None = None) -> dict[str, Any]
         "biasAudit": {"passed": False, "rejectedForLeakage": 0, "rejectedForDateAlignment": 0, "overlappingWindows": 0, "missingExpectedSymbols": [], "notes": [reason]},
         "traceObservation": None,
         "limitations": [
-            "The universe uses today’s ten-company starter list, so survivorship bias remains.",
+            "The scaled universe is a current screened batch, so composition and survivorship bias remain.",
+            "Scaled scheduled ETL may intentionally skip backtest generation to control artifact size and runtime.",
             "Transaction costs, taxes, slippage, and corporate actions beyond adjusted prices are excluded.",
             "Confidence intervals are descriptive normal intervals and are not proof of economic significance.",
         ],
@@ -167,7 +168,8 @@ def evaluate_snapshots(
         "biasAudit": {"passed": rejected_leakage == 0 and not missing, "rejectedForLeakage": rejected_leakage, "rejectedForDateAlignment": rejected_alignment, "overlappingWindows": overlaps, "missingExpectedSymbols": missing, "notes": ["Overlapping windows are disclosed and make observations non-independent."]},
         "traceObservation": observations[0],
         "limitations": [
-            "The universe uses today’s ten-company starter list, so survivorship bias remains.",
+            "The scaled universe is a current screened batch, so composition and survivorship bias remain.",
+            "Scaled scheduled ETL may intentionally skip backtest generation to control artifact size and runtime.",
             "Transaction costs, taxes, slippage, and corporate actions beyond adjusted prices are excluded.",
             "Confidence intervals are descriptive normal intervals and are not proof of economic significance.",
         ],

@@ -117,13 +117,19 @@ def _mark_status(status: dict[str, Any], *, indexed: bool, latest_filing_date: s
 
 def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[str, Any]:
     latest_by_ticker: dict[str, str] = {}
-    for document in index.get("documents", []):
-        ticker = str(document.get("ticker") or "").upper()
-        filing_date = document.get("filingDate")
-        if not ticker:
-            continue
-        if filing_date and filing_date > latest_by_ticker.get(ticker, ""):
-            latest_by_ticker[ticker] = filing_date
+    if index.get("indexMode") == "per_ticker" and isinstance(index.get("tickers"), dict):
+        for ticker, entry in index["tickers"].items():
+            normalized = str(ticker).upper()
+            if normalized:
+                latest_by_ticker[normalized] = entry.get("latestFilingDate")
+    else:
+        for document in index.get("documents", []):
+            ticker = str(document.get("ticker") or "").upper()
+            filing_date = document.get("filingDate")
+            if not ticker:
+                continue
+            if filing_date and filing_date > latest_by_ticker.get(ticker, ""):
+                latest_by_ticker[ticker] = filing_date
     indexed_tickers = set(latest_by_ticker)
 
     def apply_to_records(payload: dict[str, Any] | None, ticker_getter: Any) -> bool:

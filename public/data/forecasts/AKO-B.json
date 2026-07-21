@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AKO-B",
   "companyName": "ANDINA BOTTLING CO INC",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 30.4,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 29.85,
   "analystTarget": {
     "ticker": "AKO-B",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 30.39999962,
+    "currentPriceAtCollection": 29.85000038,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,63 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 30.4,
-    "lowerEstimatedPrice": 24.3827,
-    "upperEstimatedPrice": 37.7486
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 29.85,
+    "lowerEstimatedPrice": 24.053,
+    "upperEstimatedPrice": 37.2692
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 30.4,
-    "lowerEstimatedPrice": 22.3737,
-    "upperEstimatedPrice": 47.1441
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 29.85,
+    "lowerEstimatedPrice": 20.6105,
+    "upperEstimatedPrice": 44.0207
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 29.85,
+    "horizon30Day": {
+      "returnEstimate": 0.02361311,
+      "lowerReturn": -0.01311775,
+      "upperReturn": 0.07754004,
+      "estimatedPrice": 30.5549,
+      "lowerEstimatedPrice": 29.4584,
+      "upperEstimatedPrice": 32.1646,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.04215288,
+      "lowerReturn": -0.0428663,
+      "upperReturn": 0.15,
+      "estimatedPrice": 31.1083,
+      "lowerEstimatedPrice": 28.5704,
+      "upperEstimatedPrice": 34.3275,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": [
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

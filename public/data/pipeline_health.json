@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-21T01:27:47.949639+00:00",
+  "overallStatus": "partial_success",
+  "releaseReadiness": "ready_with_known_limitations",
+  "criticalFailures": 0,
+  "nonCriticalFailures": 47,
+  "expectedUnavailable": 246,
+  "dataQualityWarnings": 226,
+  "warnings": 226,
+  "stages": [
+    {
+      "name": "core_artifacts",
+      "status": "success",
+      "attempted": 8,
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0,
+      "commonReasons": []
+    },
+    {
+      "name": "etl_ticker_pipeline",
+      "status": "partial_success",
+      "attempted": 250,
+      "succeeded": 245,
+      "failed": 5,
+      "skipped": 0,
+      "commonReasons": [
+        {
+          "reason": "PROVIDER_HTTP_404",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "backtest",
+      "status": "unavailable_expected",
+      "attempted": 0,
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1,
+      "commonReasons": [
+        {
+          "reason": "EXPECTED_BACKTEST_SKIPPED",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "forecast_artifacts",
+      "status": "partial_success",
+      "attempted": 245,
+      "succeeded": 203,
+      "failed": 42,
+      "skipped": 0,
+      "commonReasons": [
+        {
+          "reason": "FORECAST_INSUFFICIENT_HISTORY",
+          "count": 42
+        },
+        {
+          "reason": "PROJECTION_SOURCE_UNAVAILABLE",
+          "count": 42
+        }
+      ]
+    },
+    {
+      "name": "filing_search_index",
+      "status": "success",
+      "attempted": 199,
+      "succeeded": 199,
+      "failed": 0,
+      "skipped": 0,
+      "commonReasons": []
+    },
+    {
+      "name": "balance_sheet_context",
+      "status": "partial_success",
+      "attempted": 245,
+      "succeeded": 199,
+      "failed": 0,
+      "skipped": 46,
+      "commonReasons": [
+        {
+          "reason": "BALANCE_SHEET_PARTIAL",
+          "count": 180
+        },
+        {
+          "reason": "BALANCE_SHEET_UNAVAILABLE",
+          "count": 46
+        }
+      ]
+    },
+    {
+      "name": "analyst_targets",
+      "status": "unavailable_expected",
+      "attempted": 245,
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 245,
+      "commonReasons": [
+        {
+          "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
+          "count": 245
+        }
+      ]
+    }
+  ],
+  "failedTickers": [
+    {
+      "ticker": "AAC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ADBT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ADIG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "AIBZ",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "AIST",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    }
+  ]
+}

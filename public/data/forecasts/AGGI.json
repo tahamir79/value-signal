@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "AGGI",
   "companyName": "BILI Social International, Inc.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-13",
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-17",
   "currentPrice": 4.2,
   "analystTarget": {
     "ticker": "AGGI",
@@ -18,7 +18,7 @@
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,64 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
     "estimatedPrice": 4.2,
-    "lowerEstimatedPrice": 3.3687,
-    "upperEstimatedPrice": 5.2153
+    "lowerEstimatedPrice": 3.3843,
+    "upperEstimatedPrice": 5.2439
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
     "estimatedPrice": 4.2,
-    "lowerEstimatedPrice": 3.0911,
-    "upperEstimatedPrice": 6.5133
+    "lowerEstimatedPrice": 2.9,
+    "upperEstimatedPrice": 6.1939
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-17",
+    "currentPrice": 4.2,
+    "horizon30Day": {
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0
+    },
+    "horizon90Day": {
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0
+    },
+    "status": "insufficient_data",
+    "warnings": [
+      "30-day scenario: insufficient history (0/24 usable sparse observations)",
+      "90-day scenario: insufficient history (0/12 usable sparse observations)"
+    ]
+  },
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "30-day scenario: insufficient history (0/24 usable sparse observations)",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

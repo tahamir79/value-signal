@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "ALF",
   "companyName": "Centurion Acquisition Corp.",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 10.95,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-17",
+  "currentPrice": 10.88,
   "analystTarget": {
     "ticker": "ALF",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 10.94999981,
+    "currentPriceAtCollection": 10.88000011,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,63 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 10.95,
-    "lowerEstimatedPrice": 8.7826,
-    "upperEstimatedPrice": 13.597
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 10.88,
+    "lowerEstimatedPrice": 8.7671,
+    "upperEstimatedPrice": 13.5842
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 10.95,
-    "lowerEstimatedPrice": 8.059,
-    "upperEstimatedPrice": 16.9812
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 10.88,
+    "lowerEstimatedPrice": 7.5123,
+    "upperEstimatedPrice": 16.0451
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-17",
+    "currentPrice": 10.88,
+    "horizon30Day": {
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 23
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.00485587,
+      "lowerReturn": 0.00485587,
+      "upperReturn": 0.01503758,
+      "estimatedPrice": 10.9328,
+      "lowerEstimatedPrice": 10.9328,
+      "upperEstimatedPrice": 11.0436,
+      "sampleCount": 21
+    },
+    "status": "insufficient_data",
+    "warnings": [
+      "30-day scenario: insufficient history (23/24 usable sparse observations)"
+    ]
+  },
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "30-day scenario: insufficient history (23/24 usable sparse observations)",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",

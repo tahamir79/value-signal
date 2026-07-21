@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "ACM",
   "companyName": "AECOM",
-  "generatedAt": "2026-07-18T23:34:25.590708+00:00",
-  "marketDataAsOf": "2026-07-14",
-  "currentPrice": 68.55,
+  "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+  "marketDataAsOf": "2026-07-20",
+  "currentPrice": 67.94,
   "analystTarget": {
     "ticker": "ACM",
     "targetLow": null,
@@ -12,13 +12,13 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 68.55000305,
+    "currentPriceAtCollection": 67.94000244,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-18T23:34:25.590708+00:00",
+    "collectedAt": "2026-07-21T00:48:20.376970+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -26,33 +26,61 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.1979383,
-    "upperReturn": 0.24173117,
-    "estimatedPrice": 68.55,
-    "lowerEstimatedPrice": 54.9813,
-    "upperEstimatedPrice": 85.1207
+    "lowerReturn": -0.19420476,
+    "upperReturn": 0.24855102,
+    "estimatedPrice": 67.94,
+    "lowerEstimatedPrice": 54.7457,
+    "upperEstimatedPrice": 84.8266
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.26402141,
-    "upperReturn": 0.55079324,
-    "estimatedPrice": 68.55,
-    "lowerEstimatedPrice": 50.4513,
-    "upperEstimatedPrice": 106.3069
+    "lowerReturn": -0.30953221,
+    "upperReturn": 0.47473118,
+    "estimatedPrice": 67.94,
+    "lowerEstimatedPrice": 46.9104,
+    "upperEstimatedPrice": 100.1932
   },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-21T00:48:20.376970+00:00",
+    "marketDataAsOf": "2026-07-20",
+    "currentPrice": 67.94,
+    "horizon30Day": {
+      "returnEstimate": 0.00859502,
+      "lowerReturn": -0.03708455,
+      "upperReturn": 0.03470448,
+      "estimatedPrice": 68.5239,
+      "lowerEstimatedPrice": 65.4205,
+      "upperEstimatedPrice": 70.2978,
+      "sampleCount": 25
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.02605525,
+      "lowerReturn": -0.13423767,
+      "upperReturn": 0.13302647,
+      "estimatedPrice": 69.7102,
+      "lowerEstimatedPrice": 58.8199,
+      "upperEstimatedPrice": 76.9778,
+      "sampleCount": 23
+    },
+    "status": "available",
+    "warnings": []
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.14055965938943582,
-    "directionalAccuracy": 0.00560501153972964
+    "testMAE": 0.15075731067997106,
+    "directionalAccuracy": 0.005419617943764756
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2509939486262758,
-    "directionalAccuracy": 0.0023490396573165677
+    "testMAE": 0.25539529856390375,
+    "directionalAccuracy": 0.0025243418680129825
   },
-  "validationStatus": "experimental",
+  "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
     "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
