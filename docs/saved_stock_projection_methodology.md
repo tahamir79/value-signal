@@ -107,8 +107,8 @@ The market-target layer is separate from ValueSignal estimates. A market-target 
 The current fixture has no configured analyst target provider, so market-target cards show:
 
 ```text
-Market-target scenario unavailable
-Analyst target data or target horizon is not available.
+Unavailable
+Analyst target data is not currently available.
 ```
 
 When valid provider data exists, the calculation is:
@@ -132,15 +132,19 @@ Current saved-position cards:
 
 Each card is normalized as a `HoldingOutcome` by `src/lib/position-projections.ts` before React renders it. The card shows:
 
-- estimated gain/loss per share;
-- shares held;
-- estimated total gain/loss;
+- estimated total gain/loss once, as the headline;
+- estimated return;
 - estimated sell price;
 - estimated position value;
-- estimated return percentage;
-- as-of date;
-- source/methodology;
-- explicit unavailable reason when needed.
+- gain/loss per share;
+- human-readable as-of date;
+- concise unavailable reason when needed.
+
+The current reference area above the four cards shows current price, current position value, allocation when the position is dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Current price is not repeated inside each outcome card.
+
+When a ValueSignal horizon is unavailable because the historical scenario lacks observations, the card shows `Not enough historical data` plus the horizon-specific observation count, such as `8 of 24 required observations` or `8 of 12 required observations`. The 90-day card must never reuse the 30-day observation requirement.
+
+When a market-target card is unavailable, `methodology`, `sourceProvider`, and `sourceHorizonDays` remain `null` in the `HoldingOutcome`; scenario-source language only appears after a valid target, provider, horizon, and implied scenario exist.
 
 Internal model-status area is collapsed under `Forecast methodology`:
 

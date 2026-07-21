@@ -383,7 +383,16 @@ def return_bundle(current_price: float, prediction: float, low_residual: float, 
     }
 
 
-def _empty_scenario_horizon(sample_count: int = 0) -> dict[str, Any]:
+def _scenario_unavailable_reason(horizon: int, sample_count: int, minimum: int) -> str:
+    return f"Not enough {horizon}-day history: {sample_count} of {minimum} required observations."
+
+
+def _empty_scenario_horizon(
+    sample_count: int = 0,
+    horizon: int | None = None,
+    required_count: int | None = None,
+    unavailable_reason: str | None = None,
+) -> dict[str, Any]:
     return {
         "returnEstimate": None,
         "lowerReturn": None,
@@ -392,6 +401,10 @@ def _empty_scenario_horizon(sample_count: int = 0) -> dict[str, Any]:
         "lowerEstimatedPrice": None,
         "upperEstimatedPrice": None,
         "sampleCount": sample_count,
+        "status": "insufficient_data",
+        "usableObservationCount": sample_count,
+        "requiredObservationCount": required_count if required_count is not None else (SCENARIO_MIN_SAMPLES[horizon] if horizon else None),
+        "unavailableReason": unavailable_reason,
     }
 
 
@@ -418,8 +431,9 @@ def _scenario_horizon(current_price: float, returns: list[float], horizon: int, 
     sample_count = len(returns)
     minimum = SCENARIO_MIN_SAMPLES[horizon]
     if sample_count < minimum:
-        warnings.append(f"{horizon}-day scenario: insufficient history ({sample_count}/{minimum} usable sparse observations)")
-        return _empty_scenario_horizon(sample_count)
+        reason = _scenario_unavailable_reason(horizon, sample_count, minimum)
+        warnings.append(reason)
+        return _empty_scenario_horizon(sample_count, horizon, minimum, reason)
     median_return = quantile(returns, 0.50)
     shrinkage = sample_count / (sample_count + SCENARIO_SHRINKAGE_CONSTANT[horizon])
     base = median_return * shrinkage
@@ -437,7 +451,7 @@ def _scenario_horizon(current_price: float, returns: list[float], horizon: int, 
     upper = max(upper, base)
     if lower < -1 or base < -1 or upper < -1:
         warnings.append(f"{horizon}-day scenario: invalid return below -100% rejected")
-        return _empty_scenario_horizon(sample_count)
+        return _empty_scenario_horizon(sample_count, horizon, minimum, f"{horizon}-day scenario unavailable: invalid return below -100%.")
     return {
         "returnEstimate": round(base, 8),
         "lowerReturn": round(lower, 8),
@@ -446,6 +460,10 @@ def _scenario_horizon(current_price: float, returns: list[float], horizon: int, 
         "lowerEstimatedPrice": round(current_price * (1 + lower), 4),
         "upperEstimatedPrice": round(current_price * (1 + upper), 4),
         "sampleCount": sample_count,
+        "status": "available",
+        "usableObservationCount": sample_count,
+        "requiredObservationCount": minimum,
+        "unavailableReason": None,
     }
 
 
@@ -501,8 +519,8 @@ def conservative_scenario(rows: list[dict[str, Any]], current_row: dict[str, Any
             "generatedAt": generated_at,
             "marketDataAsOf": market_data_as_of,
             "currentPrice": None,
-            "horizon30Day": _empty_scenario_horizon(),
-            "horizon90Day": _empty_scenario_horizon(),
+            "horizon30Day": _empty_scenario_horizon(0, 30, SCENARIO_MIN_SAMPLES[30], "Current price is unavailable or invalid."),
+            "horizon90Day": _empty_scenario_horizon(0, 90, SCENARIO_MIN_SAMPLES[90], "Current price is unavailable or invalid."),
             "status": "insufficient_data",
             "warnings": warnings,
         }

@@ -25,12 +25,17 @@ export type HorizonProjection = {
   lowerEstimatedPrice: number | null;
   upperEstimatedPrice: number | null;
   sampleCount?: number | null;
+  status?: ForecastHorizon["status"] | null;
+  usableObservationCount?: number | null;
+  requiredObservationCount?: number | null;
+  unavailableReason?: string | null;
 };
 
 export type PositionProjection = {
   currentPrice: number | null;
   marketDataAsOf: string | null;
   sharesHeld: number | null;
+  shareLabel: HoldingOutcome["shareLabel"];
   currentPositionValue: number | null;
   costBasis: number | null;
   currentUnrealizedChange: number | null;
@@ -57,6 +62,7 @@ type PositionValueContext = {
   currentPositionValue: number | null;
   currentPrice: number | null;
   sharesHeld: number | null;
+  shareLabel: HoldingOutcome["shareLabel"];
   reason: string | null;
 };
 
@@ -92,7 +98,7 @@ export function selectProjectionSource(forecast: ForecastArtifact | null | undef
     return { source: "forecast_model", sourceLabel: "ValueSignal forecast model", sourceDetail: forecast.validationStatus === "validated" ? "Validated model output" : "Experimental model output", reason: forecast.displayProjectionReason ?? null, currentPrice: forecast.currentPrice, marketDataAsOf: forecast.marketDataAsOf, horizon30Day: forecast.horizon30Day, horizon90Day: forecast.horizon90Day };
   }
   const scenario = forecast.conservativeScenario;
-  if (scenario?.status === "available" && validPrice(scenario.currentPrice) && completeHorizon(scenario.horizon30Day) && completeHorizon(scenario.horizon90Day)) {
+  if (scenario && validPrice(scenario.currentPrice)) {
     return { source: "conservative_historical_scenario", sourceLabel: "ValueSignal historical scenario", sourceDetail: "Conservative estimate based on historical price behavior", reason: forecast.displayProjectionReason ?? "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.", currentPrice: scenario.currentPrice, marketDataAsOf: scenario.marketDataAsOf, horizon30Day: scenario.horizon30Day, horizon90Day: scenario.horizon90Day };
   }
   return { source: "unavailable", sourceLabel: "Projection unavailable", sourceDetail: forecast.displayProjectionReason ?? scenario?.warnings?.[0] ?? "No approved model or sufficient historical scenario is available", reason: forecast.displayProjectionReason ?? scenario?.warnings?.[0] ?? "No approved model or sufficient historical scenario is available", currentPrice: validPrice(forecast.currentPrice) ? forecast.currentPrice : null, marketDataAsOf: forecast.marketDataAsOf, horizon30Day: null, horizon90Day: null };
@@ -103,29 +109,31 @@ function positionValueContext(input: ProjectionInput, currentPrice: number | nul
   if (input.quantityType === "shares") {
     const sharesHeld = isFiniteNumber(input.shares) && input.shares > 0 ? input.shares : null;
     if (sharesHeld === null) {
-      return { currentPositionValue: null, currentPrice: purchasePrice, sharesHeld: null, reason: "Position amount is required" };
+      return { currentPositionValue: null, currentPrice: purchasePrice, sharesHeld: null, shareLabel: "Shares held", reason: "Position amount is required" };
     }
     if (purchasePrice === null) {
-      return { currentPositionValue: null, currentPrice: null, sharesHeld, reason: "Current stock price unavailable" };
+      return { currentPositionValue: null, currentPrice: null, sharesHeld, shareLabel: "Shares held", reason: "Current stock price unavailable" };
     }
     return {
       currentPositionValue: sharesHeld * purchasePrice,
       currentPrice: purchasePrice,
       sharesHeld,
+      shareLabel: "Shares held",
       reason: null,
     };
   }
   const dollarAmount = isFiniteNumber(input.dollarAmount) && input.dollarAmount > 0 ? input.dollarAmount : null;
   if (dollarAmount === null) {
-    return { currentPositionValue: null, currentPrice: purchasePrice, sharesHeld: null, reason: "Position amount is required" };
+    return { currentPositionValue: null, currentPrice: purchasePrice, sharesHeld: null, shareLabel: "Implied shares", reason: "Position amount is required" };
   }
   if (purchasePrice === null) {
-    return { currentPositionValue: dollarAmount, currentPrice: null, sharesHeld: null, reason: "Current stock price unavailable" };
+    return { currentPositionValue: dollarAmount, currentPrice: null, sharesHeld: null, shareLabel: "Implied shares", reason: "Current stock price unavailable" };
   }
   return {
     currentPositionValue: dollarAmount,
     currentPrice: purchasePrice,
     sharesHeld: dollarAmount / purchasePrice,
+    shareLabel: "Implied shares",
     reason: null,
   };
 }
@@ -137,8 +145,36 @@ function costBasis(input: ProjectionInput) {
   return input.shares * input.averageCostPerShare;
 }
 
-function emptyHorizon(reason: string, source: SelectedProjection): HorizonProjection {
-  return { reason, source: source.source, sourceLabel: source.sourceLabel, sourceDetail: source.sourceDetail, lowerChange: null, baseChange: null, upperChange: null, lowerValue: null, baseValue: null, upperValue: null, lowerReturn: null, baseReturn: null, upperReturn: null, estimatedPrice: null, lowerEstimatedPrice: null, upperEstimatedPrice: null, sampleCount: null };
+function observationDetail(horizon: ForecastHorizon & { sampleCount?: number }) {
+  const usable = isFiniteNumber(horizon.usableObservationCount) ? horizon.usableObservationCount : isFiniteNumber(horizon.sampleCount) ? horizon.sampleCount : null;
+  const required = isFiniteNumber(horizon.requiredObservationCount) ? horizon.requiredObservationCount : null;
+  return usable !== null && required !== null ? `${usable} of ${required} required observations` : null;
+}
+
+function emptyHorizon(reason: string, source: SelectedProjection, horizon?: (ForecastHorizon & { sampleCount?: number }) | null): HorizonProjection {
+  return {
+    reason,
+    source: source.source,
+    sourceLabel: source.sourceLabel,
+    sourceDetail: source.sourceDetail,
+    lowerChange: null,
+    baseChange: null,
+    upperChange: null,
+    lowerValue: null,
+    baseValue: null,
+    upperValue: null,
+    lowerReturn: null,
+    baseReturn: null,
+    upperReturn: null,
+    estimatedPrice: null,
+    lowerEstimatedPrice: null,
+    upperEstimatedPrice: null,
+    sampleCount: horizon?.sampleCount ?? null,
+    status: horizon?.status ?? null,
+    usableObservationCount: horizon?.usableObservationCount ?? horizon?.sampleCount ?? null,
+    requiredObservationCount: horizon?.requiredObservationCount ?? null,
+    unavailableReason: horizon ? observationDetail(horizon) : null,
+  };
 }
 
 function horizonProjection(input: ProjectionInput, baseValue: number | null, currentPrice: number | null, horizon: (ForecastHorizon & { sampleCount?: number }) | null | undefined, source: SelectedProjection): HorizonProjection {
@@ -148,8 +184,14 @@ function horizonProjection(input: ProjectionInput, baseValue: number | null, cur
   if (!horizon) {
     return emptyHorizon(source.reason ?? "Projection source unavailable", source);
   }
+  if (horizon.status === "insufficient_data") {
+    return emptyHorizon("Not enough historical data", source, horizon);
+  }
+  if (horizon.status === "stale" && !completeHorizon(horizon)) {
+    return emptyHorizon("Historical scenario is stale", source, horizon);
+  }
   if (!validReturn(horizon.returnEstimate) || !validReturn(horizon.lowerReturn) || !validReturn(horizon.upperReturn)) {
-    return emptyHorizon("Projection return unavailable", source);
+    return emptyHorizon(horizon.unavailableReason ?? "Projection return unavailable", source, horizon);
   }
   const base = Number(horizon.returnEstimate);
   const lower = validReturn(horizon.lowerReturn) ? Number(horizon.lowerReturn) : base;
@@ -183,6 +225,10 @@ function horizonProjection(input: ProjectionInput, baseValue: number | null, cur
       lowerEstimatedPrice: lowerPrice,
       upperEstimatedPrice: upperPrice,
       sampleCount: horizon.sampleCount ?? null,
+      status: horizon.status ?? "available",
+      usableObservationCount: horizon.usableObservationCount ?? horizon.sampleCount ?? null,
+      requiredObservationCount: horizon.requiredObservationCount ?? null,
+      unavailableReason: null,
     };
   }
   return {
@@ -203,6 +249,10 @@ function horizonProjection(input: ProjectionInput, baseValue: number | null, cur
     lowerEstimatedPrice: lowerPrice,
     upperEstimatedPrice: upperPrice,
     sampleCount: horizon.sampleCount ?? null,
+    status: horizon.status ?? "available",
+    usableObservationCount: horizon.usableObservationCount ?? horizon.sampleCount ?? null,
+    requiredObservationCount: horizon.requiredObservationCount ?? null,
+    unavailableReason: null,
   };
 }
 
@@ -223,6 +273,7 @@ function unavailableOutcome(
     status: "unavailable",
     estimatedReturn: null,
     sharesHeld: extras.sharesHeld ?? null,
+    shareLabel: extras.shareLabel ?? "Shares held",
     currentPurchasePrice: extras.currentPurchasePrice ?? null,
     estimatedGainLossPerShare: null,
     estimatedGainLoss: null,
@@ -231,6 +282,7 @@ function unavailableOutcome(
     asOf: extras.asOf ?? null,
     label,
     unavailableReason: reason,
+    unavailableDetail: extras.unavailableDetail ?? null,
     methodology: extras.methodology ?? null,
     sourceProvider: extras.sourceProvider ?? null,
     sourceHorizonDays: extras.sourceHorizonDays ?? null,
@@ -266,6 +318,7 @@ function valuesignalOutcome(
     return unavailableOutcome("valuesignal", horizonDays, label, context.reason ?? "Position amount is required", {
       asOf,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
     });
   }
@@ -274,7 +327,9 @@ function valuesignalOutcome(
       asOf,
       methodology: projection.sourceLabel,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
+      unavailableDetail: projection.unavailableReason ?? null,
       warnings: [projection.reason ?? "ValueSignal scenario unavailable"],
     });
   }
@@ -284,6 +339,7 @@ function valuesignalOutcome(
       asOf,
       methodology: projection.sourceLabel,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
     });
   }
@@ -294,6 +350,7 @@ function valuesignalOutcome(
     status: sourceStatus,
     estimatedReturn: projection.baseReturn,
     sharesHeld: context.sharesHeld,
+    shareLabel: context.shareLabel,
     currentPurchasePrice: context.currentPrice,
     estimatedGainLossPerShare: roundMoney(holding.gainLossPerShare),
     estimatedGainLoss: roundMoney(holding.totalGainLoss),
@@ -323,8 +380,8 @@ function targetHorizonLabel(target: AnalystTargetArtifact | null | undefined): s
 }
 
 function analystTargetUnavailableReason(target: AnalystTargetArtifact | null | undefined): string | null {
-  if (!target) return "Analyst target provider not configured";
-  if (target.status === "unsupported") return "Analyst target provider not configured";
+  if (!target) return "Analyst target data is not currently available.";
+  if (target.status === "unsupported") return "Analyst target data is not currently available.";
   if (target.status === "stale") return "Analyst target is stale";
   if (target.status === "horizon_unknown") return "Analyst target horizon not supplied";
   if (target.status === "insufficient_data") return "Analyst target unavailable for this stock";
@@ -373,10 +430,8 @@ function marketTargetOutcome(
   const targetLabel = targetHorizonLabel(target);
   if (context.currentPositionValue === null || context.currentPrice === null || context.sharesHeld === null) {
     return unavailableOutcome("market_target", horizonDays, label, context.reason ?? "Position amount is required", {
-      asOf,
-      sourceProvider,
-      sourceHorizonDays,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
       consensusTarget: target?.targetMean ?? null,
     });
@@ -384,11 +439,8 @@ function marketTargetOutcome(
   const reason = analystTargetUnavailableReason(target);
   if (reason || !target || !sourceHorizonDays || !validPrice(target.targetMean) || !validPrice(target.currentPriceAtCollection)) {
     return unavailableOutcome("market_target", horizonDays, label, reason ?? "Market-target scenario unavailable", {
-      asOf,
-      methodology: "Market-target implied scenario",
-      sourceProvider,
-      sourceHorizonDays,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
       consensusTarget: target?.targetMean ?? null,
       warnings: target?.warnings?.length ? target.warnings : [reason ?? "Market-target scenario unavailable"],
@@ -397,11 +449,8 @@ function marketTargetOutcome(
   const estimatedReturn = scaledTargetReturn(Number(target.targetMean), Number(target.currentPriceAtCollection), horizonDays, sourceHorizonDays);
   if (!isFiniteNumber(estimatedReturn) || estimatedReturn <= -1) {
     return unavailableOutcome("market_target", horizonDays, label, "Market-target scenario unavailable", {
-      asOf,
-      methodology: "Market-target implied scenario",
-      sourceProvider,
-      sourceHorizonDays,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
       consensusTarget: target.targetMean,
       warnings: target.warnings,
@@ -410,11 +459,8 @@ function marketTargetOutcome(
   const calculated = positionValueFromReturn(context, estimatedReturn);
   if (calculated.estimatedGainLossPerShare === null || calculated.estimatedGainLoss === null || calculated.estimatedPositionValue === null || calculated.estimatedSellPrice === null) {
     return unavailableOutcome("market_target", horizonDays, label, "Current stock price unavailable", {
-      asOf,
-      methodology: "Market-target implied scenario",
-      sourceProvider,
-      sourceHorizonDays,
       sharesHeld: context.sharesHeld,
+      shareLabel: context.shareLabel,
       currentPurchasePrice: context.currentPrice,
       consensusTarget: target.targetMean,
     });
@@ -427,6 +473,7 @@ function marketTargetOutcome(
     status: target.status === "stale" ? "stale" : "available",
     estimatedReturn,
     sharesHeld: context.sharesHeld,
+    shareLabel: context.shareLabel,
     currentPurchasePrice: context.currentPrice,
     estimatedGainLossPerShare: calculated.estimatedGainLossPerShare,
     estimatedGainLoss: calculated.estimatedGainLoss,
@@ -469,6 +516,7 @@ export function calculatePositionProjection(input: ProjectionInput, forecast: Fo
     currentPrice: selected.currentPrice,
     marketDataAsOf: selected.marketDataAsOf,
     sharesHeld: context.sharesHeld,
+    shareLabel: context.shareLabel,
     currentPositionValue: value,
     costBasis: basis,
     currentUnrealizedChange: value !== null && basis !== null ? value - basis : null,

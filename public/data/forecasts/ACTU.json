@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ACTU",
   "companyName": "ACTUATE THERAPEUTICS, INC.",
-  "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+  "generatedAt": "2026-07-21T07:03:30.106725+00:00",
   "marketDataAsOf": "2026-07-20",
   "currentPrice": 1.4,
   "analystTarget": {
@@ -16,9 +16,11 @@
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-21T03:51:42.553875+00:00",
+    "collectedAt": "2026-07-21T07:03:30.106725+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -42,7 +44,7 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+    "generatedAt": "2026-07-21T07:03:30.106725+00:00",
     "marketDataAsOf": "2026-07-20",
     "currentPrice": 1.4,
     "horizon30Day": {
@@ -52,7 +54,11 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 23
+      "sampleCount": 23,
+      "status": "insufficient_data",
+      "usableObservationCount": 23,
+      "requiredObservationCount": 24,
+      "unavailableReason": "Not enough 30-day history: 23 of 24 required observations."
     },
     "horizon90Day": {
       "returnEstimate": -0.06785942,
@@ -61,16 +67,20 @@
       "estimatedPrice": 1.305,
       "lowerEstimatedPrice": 1.19,
       "upperEstimatedPrice": 1.4585,
-      "sampleCount": 21
+      "sampleCount": 21,
+      "status": "available",
+      "usableObservationCount": 21,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
     },
     "status": "insufficient_data",
     "warnings": [
-      "30-day scenario: insufficient history (23/24 usable sparse observations)",
+      "Not enough 30-day history: 23 of 24 required observations.",
       "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "30-day scenario: insufficient history (23/24 usable sparse observations)",
+  "displayProjectionReason": "Not enough 30-day history: 23 of 24 required observations.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

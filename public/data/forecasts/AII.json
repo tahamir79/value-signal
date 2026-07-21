@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AII",
   "companyName": "American Integrity Insurance Group, Inc.",
-  "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+  "generatedAt": "2026-07-21T07:03:30.106725+00:00",
   "marketDataAsOf": "2026-07-20",
   "currentPrice": 18.93,
   "analystTarget": {
@@ -16,9 +16,11 @@
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-21T03:51:42.553875+00:00",
+    "collectedAt": "2026-07-21T07:03:30.106725+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -42,7 +44,7 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+    "generatedAt": "2026-07-21T07:03:30.106725+00:00",
     "marketDataAsOf": "2026-07-20",
     "currentPrice": 18.93,
     "horizon30Day": {
@@ -52,7 +54,11 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 14
+      "sampleCount": 14,
+      "status": "insufficient_data",
+      "usableObservationCount": 14,
+      "requiredObservationCount": 24,
+      "unavailableReason": "Not enough 30-day history: 14 of 24 required observations."
     },
     "horizon90Day": {
       "returnEstimate": 0.01008772,
@@ -61,16 +67,20 @@
       "estimatedPrice": 19.121,
       "lowerEstimatedPrice": 18.1782,
       "upperEstimatedPrice": 21.7695,
-      "sampleCount": 12
+      "sampleCount": 12,
+      "status": "available",
+      "usableObservationCount": 12,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
     },
     "status": "insufficient_data",
     "warnings": [
-      "30-day scenario: insufficient history (14/24 usable sparse observations)",
+      "Not enough 30-day history: 14 of 24 required observations.",
       "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "30-day scenario: insufficient history (14/24 usable sparse observations)",
+  "displayProjectionReason": "Not enough 30-day history: 14 of 24 required observations.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

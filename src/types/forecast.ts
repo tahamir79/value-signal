@@ -5,6 +5,10 @@ export type ForecastHorizon = {
   estimatedPrice: number | null;
   lowerEstimatedPrice: number | null;
   upperEstimatedPrice: number | null;
+  status?: "available" | "insufficient_data" | "stale";
+  usableObservationCount?: number | null;
+  requiredObservationCount?: number | null;
+  unavailableReason?: string | null;
 };
 
 export type ProjectionSource = "forecast_model" | "conservative_historical_scenario" | "unavailable";
@@ -13,6 +17,10 @@ export type ForecastValidationStatus = "baseline" | "experimental" | "validated"
 
 export type ConservativeScenarioHorizon = ForecastHorizon & {
   sampleCount: number;
+  status: "available" | "insufficient_data" | "stale";
+  usableObservationCount: number;
+  requiredObservationCount: number;
+  unavailableReason?: string | null;
 };
 
 export type ConservativeScenario = {
@@ -59,6 +67,7 @@ export type HoldingOutcome = {
   status: "available" | "stale" | "unavailable";
   estimatedReturn: number | null;
   sharesHeld: number | null;
+  shareLabel: "Shares held" | "Implied shares";
   currentPurchasePrice: number | null;
   estimatedGainLossPerShare: number | null;
   estimatedGainLoss: number | null;
@@ -71,6 +80,7 @@ export type HoldingOutcome = {
   asOf: string | null;
   label: string;
   unavailableReason?: string | null;
+  unavailableDetail?: string | null;
   methodology?: string | null;
   sourceProvider?: string | null;
   sourceHorizonDays?: number | null;

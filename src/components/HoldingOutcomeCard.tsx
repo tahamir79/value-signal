@@ -1,87 +1,90 @@
-﻿import React from "react";
+import React from "react";
+import { formatDisplayDate } from "@/lib/display-format";
 import type { HoldingOutcome } from "@/types/forecast";
 
 function money(value: number | null | undefined) {
-  return typeof value === "number" && Number.isFinite(value) ? `$${value.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}` : "Unavailable";
+  return typeof value === "number" && Number.isFinite(value)
+    ? `$${value.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}`
+    : "Unavailable";
 }
 
 function signedMoney(value: number | null | undefined) {
   if (typeof value !== "number" || !Number.isFinite(value)) return "Unavailable";
-  return `${value >= 0 ? "+" : "-"}$${Math.abs(value).toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}`;
+  if (value === 0) return "$0.00";
+  return `${value > 0 ? "+" : "-"}$${Math.abs(value).toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}`;
 }
 
 function percent(value: number | null | undefined) {
   return typeof value === "number" && Number.isFinite(value) ? `${value >= 0 ? "+" : ""}${(value * 100).toFixed(2)}%` : "Unavailable";
 }
 
-function shares(value: number | null | undefined) {
-  if (typeof value !== "number" || !Number.isFinite(value)) return "Unavailable";
-  return value.toLocaleString(undefined, { maximumFractionDigits: 4 });
+function primaryCaption(outcome: HoldingOutcome) {
+  if (typeof outcome.estimatedGainLoss !== "number" || !Number.isFinite(outcome.estimatedGainLoss)) return null;
+  if (outcome.estimatedGainLoss === 0) return "No estimated change";
+  const kind = outcome.estimatedGainLoss > 0 ? "gain" : "loss";
+  return outcome.source === "market_target" ? `Market-implied ${kind}` : `Estimated ${kind}`;
 }
 
-function range(outcome: HoldingOutcome) {
-  if (typeof outcome.lowerReturn === "number" && Number.isFinite(outcome.lowerReturn) && typeof outcome.upperReturn === "number" && Number.isFinite(outcome.upperReturn)) {
-    return `${percent(outcome.lowerReturn)} to ${percent(outcome.upperReturn)}`;
-  }
-  if (typeof outcome.lowerEstimatedPositionValue === "number" && typeof outcome.upperEstimatedPositionValue === "number") {
-    return `${money(outcome.lowerEstimatedPositionValue)} to ${money(outcome.upperEstimatedPositionValue)}`;
-  }
-  return null;
+function perShareLabel(outcome: HoldingOutcome) {
+  return typeof outcome.estimatedGainLossPerShare === "number" && Number.isFinite(outcome.estimatedGainLossPerShare) && outcome.estimatedGainLossPerShare < 0
+    ? "Loss per share"
+    : "Gain per share";
+}
+
+function sourceLabel(outcome: HoldingOutcome) {
+  if (outcome.methodology === "ValueSignal historical scenario") return "Historical scenario";
+  if (outcome.methodology === "ValueSignal forecast model") return "Forecast model";
+  return outcome.methodology ?? outcome.sourceProvider ?? null;
 }
 
 export function HoldingOutcomeCard({ outcome }: { outcome: HoldingOutcome }) {
   const unavailable = outcome.status === "unavailable";
-  const cardRange = range(outcome);
   const isMarketTarget = outcome.source === "market_target";
-  const prefix = isMarketTarget ? "Market-implied" : "Estimated";
+  const caption = primaryCaption(outcome);
+  const formattedDate = outcome.asOf ? formatDisplayDate(outcome.asOf) : null;
+  const conciseReason = isMarketTarget ? "Analyst target data is not currently available." : outcome.unavailableReason ?? "Scenario unavailable";
+
   return (
     <article className={`holding-outcome-card ${isMarketTarget ? "market-target" : "valuesignal"} ${unavailable ? "unavailable" : ""}`}>
       <header>
         <span>{outcome.label}</span>
         <strong>{unavailable ? "Unavailable" : signedMoney(outcome.estimatedGainLoss)}</strong>
-        {!unavailable ? <small>{prefix} total gain/loss</small> : null}
+        {!unavailable && caption ? <small>{caption}</small> : null}
       </header>
       {unavailable ? (
-        <p className="outcome-unavailable">
-          {isMarketTarget ? `Market-target scenario unavailable. Analyst target data or target horizon is not available.${outcome.unavailableReason ? ` Reason: ${outcome.unavailableReason}` : ""}` : outcome.unavailableReason ?? "Scenario unavailable"}
-        </p>
+        <div className="outcome-unavailable">
+          <p>{conciseReason}</p>
+          {outcome.unavailableDetail ? <small>{outcome.unavailableDetail}</small> : null}
+          {isMarketTarget ? (
+            <details>
+              <summary>Why unavailable?</summary>
+              <small>ValueSignal does not currently have a configured external analyst-target provider.</small>
+            </details>
+          ) : null}
+        </div>
       ) : (
         <dl>
           <div>
-            <dt>{prefix} gain/loss per share</dt>
-            <dd>{signedMoney(outcome.estimatedGainLossPerShare)}</dd>
+            <dt>Return</dt>
+            <dd>{percent(outcome.estimatedReturn)}</dd>
           </div>
           <div>
-            <dt>Shares held</dt>
-            <dd>{shares(outcome.sharesHeld)}</dd>
-          </div>
-          <div>
-            <dt>{prefix} total gain/loss</dt>
-            <dd>{signedMoney(outcome.estimatedGainLoss)}</dd>
-          </div>
-          <div>
-            <dt>{prefix} sell price</dt>
+            <dt>Sell price</dt>
             <dd>{money(outcome.estimatedSellPrice)}</dd>
           </div>
           <div>
-            <dt>{prefix} position value</dt>
+            <dt>Position value</dt>
             <dd>{money(outcome.estimatedPositionValue)}</dd>
           </div>
           <div>
-            <dt>{prefix} return percentage</dt>
-            <dd>{percent(outcome.estimatedReturn)}</dd>
+            <dt>{perShareLabel(outcome)}</dt>
+            <dd>{signedMoney(outcome.estimatedGainLossPerShare)}</dd>
           </div>
         </dl>
       )}
       <footer>
-        {cardRange && !unavailable ? <small>Scenario range: {cardRange}</small> : null}
-        <small>As of: {outcome.asOf ?? "Unavailable"}</small>
-        <small>Source: {outcome.methodology ?? outcome.sourceProvider ?? "Unavailable"}</small>
-        {outcome.source === "market_target" ? (
-          <small>
-            Provider: {outcome.sourceProvider ?? "Unavailable"} · Target horizon: {outcome.sourceHorizonDays ? `${outcome.sourceHorizonDays} days` : "Unavailable"}
-          </small>
-        ) : null}
+        {formattedDate ? <small>As of {formattedDate}</small> : null}
+        {!unavailable && sourceLabel(outcome) ? <small>{sourceLabel(outcome)}</small> : null}
       </footer>
     </article>
   );
@@ -96,4 +99,3 @@ export function HoldingOutcomeGrid({ outcomes }: { outcomes: HoldingOutcome[] })
     </section>
   );
 }
-

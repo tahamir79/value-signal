@@ -51,6 +51,12 @@ class ForecastPipelineTests(unittest.TestCase):
         self.assertGreaterEqual(scenario["horizon90Day"]["returnEstimate"], -0.15)
         self.assertGreaterEqual(scenario["horizon30Day"]["sampleCount"], 24)
         self.assertGreaterEqual(scenario["horizon90Day"]["sampleCount"], 12)
+        self.assertEqual(scenario["horizon30Day"]["status"], "available")
+        self.assertEqual(scenario["horizon30Day"]["usableObservationCount"], scenario["horizon30Day"]["sampleCount"])
+        self.assertEqual(scenario["horizon30Day"]["requiredObservationCount"], 24)
+        self.assertIsNone(scenario["horizon30Day"]["unavailableReason"])
+        self.assertEqual(scenario["horizon90Day"]["status"], "available")
+        self.assertEqual(scenario["horizon90Day"]["requiredObservationCount"], 12)
 
     def test_conservative_scenario_marks_insufficient_history(self):
         rows = [{
@@ -63,6 +69,13 @@ class ForecastPipelineTests(unittest.TestCase):
         scenario = conservative_scenario(rows, rows[-1], "2026-02-10T00:00:00+00:00")
         self.assertEqual(scenario["status"], "insufficient_data")
         self.assertIsNone(scenario["horizon30Day"]["returnEstimate"])
+        self.assertEqual(scenario["horizon30Day"]["status"], "insufficient_data")
+        self.assertEqual(scenario["horizon30Day"]["usableObservationCount"], 2)
+        self.assertEqual(scenario["horizon30Day"]["requiredObservationCount"], 24)
+        self.assertEqual(scenario["horizon30Day"]["unavailableReason"], "Not enough 30-day history: 2 of 24 required observations.")
+        self.assertEqual(scenario["horizon90Day"]["status"], "insufficient_data")
+        self.assertEqual(scenario["horizon90Day"]["requiredObservationCount"], 12)
+        self.assertEqual(scenario["horizon90Day"]["unavailableReason"], "Not enough 90-day history: 2 of 12 required observations.")
 
     def test_quantile_is_deterministic(self):
         self.assertEqual(quantile([3, 1, 2], 0.5), 2)

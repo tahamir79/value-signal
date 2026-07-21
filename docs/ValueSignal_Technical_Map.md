@@ -354,7 +354,7 @@ Current UI cards show a compact two-by-two outcome grid:
 - `Market Target 30 Days`;
 - `Market Target 90 Days`.
 
-At the top of each saved position, the UI shows current price, shares held, and current position value. Each outcome card makes estimated total gain/loss the largest number, then shows gain/loss per share, shares held, estimated sell price, estimated position value, estimated return percentage, source/as-of date, and an explicit unavailable reason when needed. The component receives normalized `HoldingOutcome` records from `src/lib/position-projections.ts`; React does not reproduce forecast-source selection or target time-scaling logic.
+At the top of each saved position, the UI shows current price, current position value, allocation when dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Each outcome card makes estimated total gain/loss the largest number and does not repeat it as a row. Available cards then show return, estimated sell price, estimated position value, and gain/loss per share. Unavailable cards show only `Unavailable`, a concise reason, a horizon-specific observation detail when available, and a meaningful as-of date. The component receives normalized `HoldingOutcome` records from `src/lib/position-projections.ts`; React does not reproduce forecast-source selection or target time-scaling logic.
 
 Internal fields now live inside a collapsed `Forecast methodology` panel:
 
@@ -364,7 +364,7 @@ Internal fields now live inside a collapsed `Forecast methodology` panel:
 - analyst/market target provider status;
 - optional user-entered personal 30/90-day scenarios.
 
-Market-target scenarios stay unavailable until a legitimate provider supplies a consensus target plus documented horizon. If a future provider gives a valid horizon, the implied 30/90-day scenario is time-scaled as `(1 + targetReturn)^(horizon / targetHorizonDays) - 1`; it is labeled as an assumption-based scenario, not an analyst-issued short-term forecast.
+Market-target scenarios stay unavailable until a legitimate provider supplies a consensus target plus documented horizon. Unavailable market-target outcomes keep scenario source fields null and display `Analyst target data is not currently available.` If a future provider gives a valid horizon, the implied 30/90-day scenario is time-scaled as `(1 + targetReturn)^(horizon / targetHorizonDays) - 1`; it is labeled as an assumption-based scenario, not an analyst-issued short-term forecast.
 
 The saved-stock layout overflow was caused by nested grid children using fixed minimum widths and form controls lacking shrink/width constraints. The fix added `min-width: 0`, `box-sizing: border-box`, `width: 100%`, `max-width: 100%`, and safer `minmax(0, ...)` grid definitions in `src/app/globals.css`.
 

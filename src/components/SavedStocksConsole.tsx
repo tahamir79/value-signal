@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { HoldingOutcomeGrid } from "@/components/HoldingOutcomeCard";
+import { formatDisplayDate, formatShareQuantity } from "@/lib/display-format";
 import { calculatePositionProjection } from "@/lib/position-projections";
 import type { ForecastArtifact, ForecastSummary } from "@/types/forecast";
 import type { PortfolioPosition, WatchlistItem } from "@/types/user-records";
@@ -46,10 +47,6 @@ function money(value: number | null | undefined) {
 function percent(value: number | null | undefined) {
   return typeof value === "number" && Number.isFinite(value) ? `${value >= 0 ? "+" : ""}${(value * 100).toFixed(2)}%` : "Unavailable";
 }
-function shares(value: number | null | undefined) {
-  return typeof value === "number" && Number.isFinite(value) ? value.toLocaleString(undefined, { maximumFractionDigits: 4 }) : "Unavailable";
-}
-
 function modelStatus(name: string | undefined, validationStatus: string | undefined) {
   if (!name) return "Unavailable";
   if (name === "zero-return baseline" || name === "historical-mean baseline" || name === "market-return baseline") return "Baseline benchmark";
@@ -312,16 +309,22 @@ export function SavedStocksConsole() {
                       <dd>{money(projection.currentPrice)}</dd>
                     </div>
                     <div>
-                      <dt>Shares held</dt>
-                      <dd>{shares(projection.sharesHeld)}</dd>
-                    </div>
-                    <div>
                       <dt>Current position value</dt>
                       <dd>{money(projection.currentPositionValue)}</dd>
                     </div>
+                    {draft.quantityType === "dollar_amount" ? (
+                      <div>
+                        <dt>Allocation</dt>
+                        <dd>{money(baseValue)}</dd>
+                      </div>
+                    ) : null}
+                    <div>
+                      <dt>{projection.shareLabel}</dt>
+                      <dd>{formatShareQuantity(projection.sharesHeld)}</dd>
+                    </div>
                     <div>
                       <dt>Market data as of</dt>
-                      <dd>{projection.marketDataAsOf ?? "Unavailable"}</dd>
+                      <dd>{formatDisplayDate(projection.marketDataAsOf)}</dd>
                     </div>
                   </dl>
                 </div>
@@ -367,7 +370,7 @@ export function SavedStocksConsole() {
                     <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model30Day.name, forecast?.validationStatus)}</small></div>
                     <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model90Day.name, forecast?.validationStatus)}</small></div>
                     <div><dt>Displayed projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` · ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
-                    <div><dt>Market target status</dt><dd>{forecast?.analystTarget.status ?? "Unsupported"}</dd><small>{forecast?.analystTarget.warnings?.[0] ?? "Analyst target provider not configured"}</small></div>
+                    <div><dt>Market target status</dt><dd>{forecast?.analystTarget.status ?? "Unsupported"}</dd><small>{forecast?.analystTarget.warnings?.[0] ?? "Analyst target data is not currently available."}</small></div>
                     <div><dt>Personal 30-day scenario</dt><dd>{percent(decimalFromPercent(draft.return30))}</dd><small>User-entered; not used by ValueSignal estimates.</small></div>
                     <div><dt>Personal 90-day scenario</dt><dd>{percent(decimalFromPercent(draft.return90))}</dd><small>User-entered; not used by market-target scenarios.</small></div>
                   </dl>

@@ -107,8 +107,14 @@ Each horizon includes:
 - `lowerEstimatedPrice`
 - `upperEstimatedPrice`
 - `sampleCount`
+- `status`
+- `usableObservationCount`
+- `requiredObservationCount`
+- `unavailableReason`
 
 Null return/price fields mean the scenario is unavailable for that horizon. Do not substitute zero unless the artifact explicitly stores zero.
+
+`unavailableReason` is horizon-specific. The frontend should render a compact display reason such as `Not enough historical data` plus `usableObservationCount of requiredObservationCount required observations`; it should not reuse a 30-day reason on a 90-day card.
 
 ## 4. Growth Spurt artifact
 

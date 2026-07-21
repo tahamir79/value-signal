@@ -1184,6 +1184,13 @@ npm run build
   - `estimatedTotalGainLoss = sharesHeld * estimatedGainLossPerShare`;
   - `estimatedPositionValue = sharesHeld * estimatedSellPrice`;
   - dollar allocation first converts to `impliedShares = dollarAllocation / currentPrice`, then uses the same per-share formulas.
+- Cleaned the final saved-position card UI:
+  - dollar allocations display `Implied shares`;
+  - share positions display `Shares held`;
+  - total gain/loss appears only once as the card headline;
+  - ValueSignal unavailable cards use horizon-specific observation details;
+  - market-target unavailable cards stay compact and do not claim scenario-source metadata;
+  - displayed dates use `Jul 20, 2026` style formatting instead of raw ISO timestamps.
 - Added market-target time-scaling logic, but only when a legitimate provider supplies target mean, current price at collection, and a documented horizon.
 - Current market-target state remains explicitly unavailable because no analyst target provider is configured.
 - Updated pipeline health so expected unavailable forecast/market-target/Growth Spurt coverage gaps do not count as real failures.
@@ -1197,7 +1204,7 @@ Use:
 Estimated gain/loss
 Estimated gain/loss per share
 Shares held
-Estimated total gain/loss
+Implied shares
 Estimated return
 Estimated sell price
 Estimated position value
@@ -1219,9 +1226,11 @@ marketImpliedReturn90 = (1 + totalTargetReturn)^(90 / targetHorizonDays) - 1
 The current fixture reports:
 
 ```text
-Market-target scenario unavailable
-Reason: Analyst target provider not configured
+Unavailable
+Analyst target data is not currently available.
 ```
+
+Unavailable market-target `HoldingOutcome` records keep `methodology`, `sourceProvider`, and `sourceHorizonDays` null. A market-implied scenario source exists only after a target, provider, horizon, and implied 30/90-day scenario are valid.
 
 ### Health state after this update
 

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AADX",
   "companyName": "Applied Aerospace & Defense, Inc.",
-  "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+  "generatedAt": "2026-07-21T07:03:30.106725+00:00",
   "marketDataAsOf": "2026-07-20",
   "currentPrice": 16.85,
   "analystTarget": {
@@ -16,9 +16,11 @@
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-21T03:51:42.553875+00:00",
+    "collectedAt": "2026-07-21T07:03:30.106725+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -42,7 +44,7 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-21T03:51:42.553875+00:00",
+    "generatedAt": "2026-07-21T07:03:30.106725+00:00",
     "marketDataAsOf": "2026-07-20",
     "currentPrice": 16.85,
     "horizon30Day": {
@@ -52,7 +54,11 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 1
+      "sampleCount": 1,
+      "status": "insufficient_data",
+      "usableObservationCount": 1,
+      "requiredObservationCount": 24,
+      "unavailableReason": "Not enough 30-day history: 1 of 24 required observations."
     },
     "horizon90Day": {
       "returnEstimate": null,
@@ -61,16 +67,20 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 0
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
+      "requiredObservationCount": 12,
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "insufficient_data",
     "warnings": [
-      "30-day scenario: insufficient history (1/24 usable sparse observations)",
-      "90-day scenario: insufficient history (0/12 usable sparse observations)"
+      "Not enough 30-day history: 1 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "30-day scenario: insufficient history (1/24 usable sparse observations)",
+  "displayProjectionReason": "Not enough 30-day history: 1 of 24 required observations.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

@@ -134,7 +134,7 @@ The saved-position UI shows four main cards:
 - `Market Target 30 Days`
 - `Market Target 90 Days`
 
-Each card should show estimated gain/loss per share, shares held, estimated total gain/loss, estimated sell price, estimated position value, estimated return percentage, source/as-of date, and an explicit unavailable reason. The total gain/loss is the primary/largest number.
+Each available card should show total gain/loss once as the headline, then return, estimated sell price, estimated position value, gain/loss per share, source label, and a human-readable as-of date. Do not repeat total gain/loss as a body row.
 
 Core formula:
 
@@ -144,7 +144,9 @@ estimatedTotalGainLoss = sharesHeld * estimatedGainLossPerShare
 estimatedPositionValue = sharesHeld * estimatedSellPrice
 ```
 
-For dollar-allocation mode, first calculate `impliedShares = dollarAllocation / currentPrice`, then use the same per-share formulas. Do not multiply a dollar allocation by the estimated sell price. Do not use "earnings" for a user's position outcome.
+For dollar-allocation mode, first calculate `impliedShares = dollarAllocation / currentPrice`, then use the same per-share formulas. Display that quantity as `Implied shares`, not `Shares held`. For share positions, display `Shares held`. Do not multiply a dollar allocation by the estimated sell price. Do not use "earnings" for a user's position outcome.
+
+Unavailable ValueSignal cards should stay compact and use horizon-specific observation details, for example `Not enough historical data` plus `8 of 24 required observations` for 30 days or `8 of 12 required observations` for 90 days. Unavailable market-target cards should say `Analyst target data is not currently available.` and must not display provider/source/horizon implementation details.
 
 Projection-source priority:
 
@@ -250,7 +252,7 @@ Saved outcomes:
 - Dollar allocations first convert to `impliedShares = dollarAllocation / currentPrice`, then use per-share gain/loss math.
 - Share positions use `shares * (estimatedFuturePrice - currentPrice)`.
 - Valid zero-dollar change must render `$0.00`, not `Unavailable`.
-- Missing/stale/currently unsupported market targets must show a specific reason.
+- Missing/stale/currently unsupported market targets must show a compact reason and keep unavailable scenario-source fields null.
 
 ## Handoff template
 
