@@ -31,3 +31,9 @@ Drawdown percentiles are inverted because a more-negative drawdown has a lower r
 6. **Neutral:** all other combinations.
 
 Risk rules precede positive labels so positive evidence cannot erase a material warning. Thresholds are hypotheses for later calibration and backtesting, not validated investment cutoffs.
+
+## Display-only Growth Spurt detector
+
+The Growth Spurt detector is intentionally outside official scoring in v1. It does not alter value, quality, momentum, market risk, balance-sheet risk, momentum risk, confidence, or the mutually exclusive signal classification.
+
+Its `growthSpurtScore` is a separate 0-100 descriptive score for recent historical price behavior. The tag can coexist with any official signal, including risk labels. A detected tag should be read as "recent prices formed a persistent upward trend versus SPY with controlled drawdown," not as a buy/sell/hold recommendation or a price prediction.

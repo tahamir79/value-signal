@@ -1,8 +1,9 @@
 import json
 import tempfile
 import unittest
+from datetime import date, timedelta
 from pathlib import Path
-from scripts.models import PriceBar
+from scripts.models import PriceBar, Security
 from scripts.providers.price_provider import FixturePriceProvider
 from scripts.providers.sec_companyfacts import FixtureCompanyFactsProvider
 from scripts.run_etl import run
@@ -27,6 +28,33 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(signals["records"][0]["signal"],"insufficient-evidence")
             backtest=json.loads((Path(directory)/"backtest_results.json").read_text())
             self.assertEqual(backtest["status"],"insufficient_data")
+
+    def test_growth_spurt_artifacts_are_published_without_changing_scoring(self):
+        def series(ticker: str, daily_growth: float) -> list[PriceBar]:
+            start = date(2025, 1, 1)
+            rows = []
+            for index in range(130):
+                close = 100 * (daily_growth ** index)
+                rows.append(PriceBar(ticker, (start + timedelta(days=index)).isoformat(), close, close, close, close, 1000, "fixture", close))
+            return rows
+
+        security = Security("AAPL", "0000320193", "Apple Inc.", "NASDAQ", "Technology")
+        with tempfile.TemporaryDirectory() as directory:
+            audit = run(
+                FixturePriceProvider({"AAPL": series("AAPL", 1.003), "SPY": series("SPY", 1.001)}),
+                FixtureCompanyFactsProvider({"0000320193": facts()}),
+                Path(directory),
+                securities=[security],
+                include_backtest=False,
+            )
+            self.assertEqual(audit["successfulTickers"], 1)
+            self.assertEqual(audit["growthSpurtCoverage"]["stocksGrowthSpurtDetected"], 1)
+            dashboard = json.loads((Path(directory) / "dashboard.json").read_text())
+            self.assertEqual(dashboard["records"][0]["growthSpurt"]["status"], "detected")
+            detail = json.loads((Path(directory) / "stocks" / "AAPL.json").read_text())
+            self.assertEqual(detail["record"]["growthSpurt"]["status"], "detected")
+            signals = json.loads((Path(directory) / "signals.json").read_text())
+            self.assertEqual(signals["records"][0]["signal"], "insufficient-evidence")
 
     def test_scaled_universe_file_feeds_existing_etl(self):
         payload={"records":[

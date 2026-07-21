@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:48.038237+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ALGM",
@@ -513,6 +513,57 @@
       "warnings": [
         "shortTermInvestments: unavailable in SEC companyfacts for selected period",
         "accountsPayable: unavailable in SEC companyfacts for selected period"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ALGM",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 41.14,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.14116338,
+        "return63d": 0.15900002,
+        "trendSlope21d": -0.01298469,
+        "trendSlope63d": 0.00412929,
+        "trendAnnualizedReturn63d": 1.83086315,
+        "trendFitR2_63d": 0.38418291,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.09330984,
+        "maxDrawdown63d": -0.33409941,
+        "downsideVolatility63d": 0.03742272,
+        "excessReturnVsSpy21d": -0.14526861,
+        "excessReturnVsSpy63d": 0.11131675,
+        "trendAcceleration": -0.01698726,
+        "largestOneDayContribution63d": 0.05026847,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 80.0,
+        "consistencyScore": 16.5753,
+        "relativeStrengthScore": 65.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.580851,
+      "metricPercentiles": {
+        "trendSlope63d": 0.855319,
+        "trendFitR2_63d": 0.446809,
+        "excessReturnVsSpy63d": 0.782979,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.580851
+      },
+      "reasonCodes": [
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -14335,13 +14386,20 @@
       "leverageScore": 90.0,
       "solvencyScore": 87.0,
       "triggeredBalanceSheetGates": [],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-21",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 41.14,
+      "growthSpurtBenchmarkPercentile": 0.580851,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

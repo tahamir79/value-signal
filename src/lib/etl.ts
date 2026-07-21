@@ -1,6 +1,7 @@
 import "server-only";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import type { GrowthSpurtArtifact, GrowthSpurtStatus } from "@/types/stock";
 
 export type PriceBar = {
   date: string;
@@ -31,6 +32,7 @@ export type DashboardRecord = {
   balanceSheet?: BalanceSheetSnapshot;
   balanceSheetMetrics?: Record<string, number | null>;
   balanceSheetScoringShadow?: BalanceSheetScoringOutput;
+  growthSpurt?: GrowthSpurtArtifact | null;
   priceHistory?: PriceBar[];
 };
 
@@ -61,6 +63,11 @@ export type DataStatus = {
   insufficientEvidenceReason?: string | null;
   latestFilingDate?: string | null;
   latestScoringDate?: string | null;
+  growthSpurtAvailable?: boolean;
+  growthSpurtStatus?: GrowthSpurtStatus | null;
+  growthSpurtScore?: number | null;
+  growthSpurtBenchmarkPercentile?: number | null;
+  growthSpurtMarketDataAsOf?: string | null;
   lastPipelineRun?: string | null;
 };
 
@@ -99,7 +106,7 @@ export type EtlReport = {
   runFinishedAt: string | null;
   successfulTickers: number;
   failedTickers: number;
-  coverageCounts?: Record<string, number>;
+  coverageCounts?: Record<string, number | string>;
   loadError?: string;
 };
 

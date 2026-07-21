@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:39:17.129368+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AIOS",
@@ -330,6 +330,57 @@
         "shortTermDebtShare: missing numerator or denominator",
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AIOS",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 47.22,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.09836064,
+        "return63d": 0.13559317,
+        "trendSlope21d": 0.00171635,
+        "trendSlope63d": -0.00282326,
+        "trendAnnualizedReturn63d": -0.50907338,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.22786702,
+        "maxDrawdown63d": -0.47000001,
+        "downsideVolatility63d": 0.06987707,
+        "excessReturnVsSpy21d": 0.09425541,
+        "excessReturnVsSpy63d": 0.08790991,
+        "trendAcceleration": 0.00484922,
+        "largestOneDayContribution63d": 0.23797976,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 55.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
+      },
+      "benchmarkPercentile": 0.642553,
+      "metricPercentiles": {
+        "trendSlope63d": 0.242553,
+        "trendFitR2_63d": 0.053191,
+        "excessReturnVsSpy63d": 0.757447,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.642553
+      },
+      "reasonCodes": [
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -14162,11 +14213,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 47.22,
+      "growthSpurtBenchmarkPercentile": 0.642553,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

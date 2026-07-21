@@ -21,6 +21,8 @@ Generated JSON artifacts are reproducible outputs from scripts. Do not hand-main
 | `public/data/search/{TICKER}.json` | `scripts/build_search_index.py` | search route, local RAG | ticker-specific BM25 corpus |
 | `public/data/pipeline_health.json` | `scripts/pipeline_health.py` | future frontend/status | compact safe health summary |
 
+The `growthSpurt` object is produced by `scripts/run_etl.py` during a normal ETL run. `scripts/build_growth_spurt_artifacts.py` can repopulate only the Growth Spurt fields from existing generated stock price histories when a full provider refresh is unnecessary.
+
 ## 2. Forecast artifacts
 
 Summary:
@@ -108,7 +110,79 @@ Each horizon includes:
 
 Null return/price fields mean the scenario is unavailable for that horizon. Do not substitute zero unless the artifact explicitly stores zero.
 
-## 4. Pipeline health artifacts
+## 4. Growth Spurt artifact
+
+Embedded paths:
+
+```text
+public/data/dashboard.json records[].growthSpurt
+public/data/stocks/summary.json records[].growthSpurt
+public/data/stocks/{TICKER}.json record.growthSpurt
+```
+
+Benchmark report:
+
+```text
+data/reports/growth_spurt_benchmark.json
+```
+
+Allowed `status` values:
+
+```text
+detected
+emerging
+not_detected
+unavailable
+```
+
+Core fields:
+
+- `ticker`
+- `generatedAt`
+- `marketDataAsOf`
+- `growthSpurtScore`
+- `primaryWindowSessions`
+- `confirmationWindowSessions`
+- `metrics`
+- `scoreBreakdown`
+- `benchmarkPercentile`
+- `metricPercentiles`
+- `reasonCodes`
+- `warnings`
+
+`analystTarget` is a normalized provider placeholder until a legitimate market-data provider is configured:
+
+```text
+targetLow
+targetMean
+targetMedian
+targetHigh
+analystCount
+currentPriceAtCollection
+targetHorizonDays / horizonDays
+targetHorizonLabel / horizonLabel
+provider
+sourceAsOf
+collectedAt
+status
+warnings
+```
+
+Allowed analyst/market target status:
+
+```text
+available
+stale
+horizon_unknown
+insufficient_data
+unsupported
+```
+
+Do not fabricate analyst targets and do not populate these fields from ValueSignal scenarios. `src/lib/position-projections.ts` derives customer-facing `HoldingOutcome` records from forecast artifacts at render time.
+
+Important distinction: `unavailable` means insufficient usable stock or SPY benchmark history. It is not a zero score.
+
+## 5. Pipeline health artifacts
 
 Full internal report:
 
@@ -156,9 +230,9 @@ ready_with_known_limitations
 blocked
 ```
 
-The current fixture should read as `ready_with_known_limitations`: all core artifacts are present, but the report still exposes true noncritical ticker failures, insufficient forecast history, expected unavailable analyst targets/backtest, and balance-sheet coverage warnings.
+The current fixture should read as `ready_with_known_limitations`: all core artifacts are present, but the report still exposes true noncritical ETL ticker failures, expected unavailable market targets/backtest, skipped insufficient forecast-history cases, and balance-sheet coverage warnings.
 
-## 5. Stale artifact cleanup
+## 6. Stale artifact cleanup
 
 `scripts/run_etl.py` removes stale stock detail files that are not in the successful active ETL roster.
 
@@ -166,7 +240,7 @@ The current fixture should read as `ready_with_known_limitations`: all core arti
 
 This prevents old ticker files from lingering after a partial provider run.
 
-## 6. Commit/deploy caution
+## 7. Commit/deploy caution
 
 Generated artifacts can be large. Before commit:
 

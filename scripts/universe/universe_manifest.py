@@ -12,7 +12,8 @@ def utc_now() -> str:
 
 
 def build_manifest(*, mode: str, requested_limit: int | None, rows: list[dict[str, Any]],
-                   source: str, warnings: list[str] | None = None) -> dict[str, Any]:
+                   source: str, warnings: list[str] | None = None,
+                   batch_size: int | None = None, offset: int = 0, resume: bool = False) -> dict[str, Any]:
     supported = [row for row in rows if row.get("isSupported")]
     unsupported = [row for row in rows if not row.get("isSupported")]
     return {
@@ -20,6 +21,10 @@ def build_manifest(*, mode: str, requested_limit: int | None, rows: list[dict[st
         "createdAt": utc_now(),
         "universeMode": mode,
         "requestedLimit": requested_limit,
+        "batchSize": batch_size,
+        "offset": offset,
+        "resume": resume,
+        "isBatch": batch_size is not None or offset > 0,
         "source": source,
         "companyCount": len(rows),
         "supportedCount": len(supported),
@@ -28,4 +33,3 @@ def build_manifest(*, mode: str, requested_limit: int | None, rows: list[dict[st
         "tickersIncluded": [row["ticker"] for row in supported],
         "warnings": warnings or [],
     }
-

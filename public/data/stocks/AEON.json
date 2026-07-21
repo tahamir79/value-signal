@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:36:35.437723+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AEON",
@@ -443,6 +443,53 @@
         "priceToBook: denominator is zero or negative",
         "Negative equity: stockholders' equity is zero or negative"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AEON",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 7.45,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.57121663,
+        "return63d": -0.71666666,
+        "trendSlope21d": -0.04466014,
+        "trendSlope63d": -0.01108045,
+        "trendAnnualizedReturn63d": -0.93871827,
+        "trendFitR2_63d": 0.63451483,
+        "positiveWeekRatio63d": 0.08333333,
+        "trendResidualVolatility63d": 0.19023373,
+        "maxDrawdown63d": -0.73486239,
+        "downsideVolatility63d": 0.08153986,
+        "excessReturnVsSpy21d": -0.57532186,
+        "excessReturnVsSpy63d": -0.76434992,
+        "trendAcceleration": -0.03314315,
+        "largestOneDayContribution63d": 0.13055174,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 29.8129,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.089362,
+      "metricPercentiles": {
+        "trendSlope63d": 0.055319,
+        "trendFitR2_63d": 0.693617,
+        "excessReturnVsSpy63d": 0.021277,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.089362
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -10198,7 +10245,7 @@
         "high": 0.3100000023841858,
         "low": 0.2750000059604645,
         "close": 0.29499998688697815,
-        "volume": 658700,
+        "volume": 662800,
         "source": "yahoo-chart",
         "adjusted_close": 0.29499998688697815
       },
@@ -10247,13 +10294,20 @@
         "Liquidity Risk Gate",
         "Negative Equity Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-14",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 7.45,
+      "growthSpurtBenchmarkPercentile": 0.089362,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

@@ -30,15 +30,25 @@ const transparencyNotes = [
   "SEC-derived fundamentals are normalized for dates, units, fiscal periods, nulls, and comparable feature names before scoring.",
   "Official scores stay on a 0-100 scale. Value, quality, and momentum are favorable when higher; market risk, momentum risk, and balance-sheet risk are worse when higher.",
   "Balance-sheet scoring is now part of the official signal process while the standalone balance-sheet artifact remains visible for inspection.",
+  "The Growth Spurt tag is display-only in v1. It describes recent historical price behavior and is not blended into official scores or signals.",
   "Missing or stale evidence reduces confidence and can force an insufficient-evidence label instead of allowing the system to overstate precision.",
   "Signals are deterministic rule outputs, not LLM outputs. The RAG layer, when available, may explain or challenge evidence but does not overwrite the official signal.",
   "The weekday data refresh publishes regenerated artifacts through the repository. The public site updates after the workflow commits the artifacts and Vercel redeploys.",
+];
+
+const growthSpurtNotes = [
+  "The detector uses a 63-session primary price window and a 21-session confirmation window, using adjusted close when available and close otherwise.",
+  "It scores direction, trend consistency, SPY-relative strength, drawdown control, and recent confirmation or acceleration.",
+  "A stock is detected only when the score is at least 70 and the raw checks also pass: positive 63-session slope, positive 63-session return, non-negative 21-session return, R² at least 0.45, positive-week ratio at least 60%, maximum drawdown no worse than -15%, and no one-day spike dominance warning.",
+  "If recent price or SPY benchmark history is insufficient, the tag is unavailable rather than treated as a zero score.",
+  "Historical benchmark results evaluate later 21/30/63/90-session outcomes after detection dates. They audit the tag; they do not turn it into a prediction model.",
 ];
 
 const researchBoundaries = [
   "ValueSignal does not produce buy, sell, or hold recommendations.",
   "No score accounts for a specific investor's objectives, constraints, taxes, liquidity needs, or risk tolerance.",
   "SEC facts can be amended, restated, unavailable, or difficult to compare across sectors; the app exposes confidence and warnings rather than hiding those gaps.",
+  "The Growth Spurt tag does not mean a price will continue rising, and it should not be read as an attractiveness signal by itself.",
   "A strong signal means the company may deserve deeper research. It does not predict future price direction or guarantee performance.",
 ];
 
@@ -112,6 +122,16 @@ export default function MethodologyPage() {
       </section>
       <section className="method-block">
         <span>05</span>
+        <div>
+          <p className="eyebrow">GROWTH SPURT TAG</p>
+          <h2>Recent price behavior, not a forecast</h2>
+          <ul className="limitations">
+            {growthSpurtNotes.map((note) => <li key={note}>{note}</li>)}
+          </ul>
+        </div>
+      </section>
+      <section className="method-block">
+        <span>06</span>
         <div>
           <p className="eyebrow">RESEARCH BOUNDARIES</p>
           <h2>What users should and should not infer</h2>

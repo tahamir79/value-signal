@@ -647,7 +647,7 @@ The goal is to make this Markdown file the durable context source between sessio
 - **Known failing/blocked commands:** full local embedding-cache generation exceeded the 20-minute execution window twice (first per chunk, then batched); no incomplete cache is published. BM25 fallback remains operational.
 - **Current implementation status:** Phases 1â€“8 exist; schema-3 retrieval is committed locally; local Ollama RAG is implemented but not committed; `nomic-embed-text` and `llama3.2:3b` are installed and responsive. The live local ETL/index refresh completed on 2026-07-05.
 - **Automation:** `.github/workflows/refresh-data.yml` runs at `23:25 UTC` Mondayâ€“Friday. The latest scheduled run on `value-signal/main` succeeded on 2026-07-04 UTC (Friday evening Chicago time); no weekend run is expected.
-- **Open bugs:** fixed and live-validatedâ€”schema-3 builder incorrectly referenced `security.name` instead of `security.company_name`; TOC/body anchoring, terminal signatures, malformed preambles, Item 16 overflow, and section-monopoly failures were corrected. Remaining local-only issue: embedding-cache generation needs resumable checkpointing or faster local hardware.
+- **Open bugs:** fixed and live-validated — schema-3 builder incorrectly referenced `security.name` instead of `security.company_name`; TOC/body anchoring, terminal signatures, malformed preambles, Item 16 overflow, and section-monopoly failures were corrected. Remaining local-only issue: embedding-cache generation needs resumable checkpointing or faster local hardware.
 - **Next recommended task:** commit only the retrieval/code/artifact/blueprint changes, merge/push explicitly to `value-signal/main`, and manually dispatch/verify the workflow. Keep local RAG uncommitted.
 - **Files changed this session:** this blueprint, `scripts/build_search_index.py`, `tests/test_retrieval.py`, all refreshed `public/data/*.json` artifacts, and the pre-existing local RAG implementation/documentation.
 - **Architectural decisions:** BM25 remains authoritative and always available; semantic retrieval is optional; Ollama is local-only and never required by Vercel/GitHub Actions; generated `public/data/*.json` is not hand-maintained source.
@@ -961,3 +961,301 @@ npm run build
 ### Next recommended task
 
 Run the full validation stack, review the final report with the user, then commit only if approved. Do not deploy until explicitly approved after review.
+
+---
+
+## 26. Live Implementation Context - Growth Spurt Detector
+
+**Updated:** 2026-07-21 UTC
+**Repository path:** `C:\Users\stahm\Projects\Decision Scientist`
+**Git branch:** `scale-universe-foundation`
+**Pre-change rollback anchors:** branch `checkpoint/pre-growth-spurt-detector`, tag `checkpoint-pre-growth-spurt-detector`, both pointing to `543be62`.
+
+### What changed
+
+- Added a deterministic, benchmark-backed Growth Spurt detector for recent historical price behavior.
+- The detector is display-only in v1 and does not alter official ValueSignal scores, confidence, or signal classification.
+- Added `GROWTH_SPURT_MODE=off|shadow|display|official`; default/display mode shows artifacts, while `official` remains reserved and inert.
+- Added generated `growthSpurt` artifacts to:
+  - `public/data/dashboard.json`
+  - `public/data/stocks/summary.json`
+  - `public/data/stocks/{TICKER}.json`
+- Added point-in-time benchmark report:
+  - `data/reports/growth_spurt_benchmark.json`
+- Added dashboard Growth column, score sorting, and "Growth spurt detected" filter.
+- Added stock-detail Recent Trend card with score, 63-day return, SPY excess return, trend consistency, drawdown, percentile, as-of date, warnings, and non-prediction disclosure.
+- Updated pipeline health to report detector coverage.
+- Updated methodology, feature, scoring, backtesting, and technical docs.
+
+### Detector mechanics
+
+Growth Spurt means:
+
+```text
+Recent prices have formed a relatively persistent and orderly upward trend.
+```
+
+It does not mean:
+
+```text
+buy, sell, hold, guaranteed continuation, forecasted upside, or official signal improvement.
+```
+
+Formula summary:
+
+- adjusted close preferred, close fallback;
+- 63-session primary window;
+- 21-session confirmation window;
+- Theil-Sen trend on log prices;
+- score weights:
+  - 30% direction;
+  - 25% consistency;
+  - 20% SPY-relative strength;
+  - 15% drawdown control;
+  - 10% recent confirmation/acceleration;
+- one-day spike dominance warning/rejection via `largestOneDayContribution63d`;
+- cross-sectional percentiles for slope, R2, SPY excess, drawdown-control score, and total score.
+
+Detected threshold:
+
+```text
+growthSpurtScore >= 70
+trendSlope63d > 0
+return63d > 0
+return21d >= 0
+trendFitR2_63d >= 0.45
+positiveWeekRatio63d >= 0.60
+maxDrawdown63d >= -0.15
+no ONE_DAY_SPIKE_DOMINATED warning
+```
+
+Emerging threshold:
+
+```text
+growthSpurtScore >= 55
+trendSlope63d > 0
+return63d > 0
+no spike dominance
+```
+
+### Current generated detector counts
+
+- Stocks evaluated: 245.
+- Growth Spurt detected: 19.
+- Emerging upward trend: 30.
+- Not detected: 187.
+- Unavailable: 9.
+- Calculation failures: 0.
+- Median detected 63-day return: about 20.97%.
+- Median detected 63-day SPY excess return: about 16.20%.
+
+Example current detections:
+
+```text
+AAPL, JPM, KO, ABBV, ACA, ACCL, ACIW, ACNB, ACVA, AEG
+```
+
+Example current one-day-spike rejections:
+
+```text
+GOOGL, AMZN, XOM, F, A, AACB, AAON, ABEV, ABLV, ABNB
+```
+
+### Benchmark snapshot
+
+`scripts/benchmark_growth_spurt.py` produced:
+
+- candidate snapshots: 9,950;
+- detected snapshots: 570;
+- forward observations: 2,280;
+- unique tickers detected historically: 135.
+
+Forward benchmark summaries:
+
+| Horizon | Positive forward % | Median forward return | Median SPY excess | False-positive rate |
+|---:|---:|---:|---:|---:|
+| 21 sessions | 51.58% | 0.24% | -0.87% | 24.21% |
+| 30 sessions | 49.47% | -0.04% | -1.02% | 26.84% |
+| 63 sessions | 49.82% | -0.14% | -3.40% | 38.07% |
+| 90 sessions | 50.35% | 0.29% | -4.67% | 39.30% |
+
+Interpretation: current starting thresholds are good enough for a descriptive UI tag but not strong enough to justify official scoring integration. Treat benchmark results as calibration evidence, not a performance claim.
+
+### Validation results
+
+Passed:
+
+```text
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/benchmark_growth_spurt.py
+python scripts/audit_backtest.py
+python scripts/audit_search.py
+python scripts/forecast/audit_training_dataset.py
+python scripts/forecast/audit_forecasts.py
+python scripts/pipeline_health.py
+npm run test:brief
+npm run typecheck
+npm run build
+```
+
+Notes:
+
+- Python suite passed 100 tests.
+- TypeScript test bundle passed 12 tests.
+- Production Next.js build passed.
+- Pipeline health remains `partial_success` with `ready_with_known_limitations`, 0 critical failures, 47 noncritical ticker/forecast failures, 246 expected unavailable items, and 235 data-quality warnings.
+- `python scripts/forecast/evaluate_models.py` timed out on the scaled fixture after a long validation window. Growth Spurt does not change forecast model selection; selected 30-day and 90-day models remain zero-return baseline.
+- This feature has not been deployed. Stop for review before deployment.
+
+### Key files
+
+```text
+scripts/growth_spurt.py
+scripts/build_growth_spurt_artifacts.py
+scripts/benchmark_growth_spurt.py
+scripts/run_etl.py
+scripts/pipeline_health.py
+tests/test_growth_spurt.py
+tests/test_pipeline.py
+tests/test_pipeline_health.py
+tests/growthSpurtBadge.test.tsx
+src/components/GrowthSpurtBadge.tsx
+src/features/dashboard/StockTable.tsx
+src/app/stock/[ticker]/page.tsx
+src/app/methodology/page.tsx
+src/types/stock.ts
+src/lib/etl.ts
+src/lib/research.ts
+```
+
+### Commands
+
+```powershell
+python scripts/build_growth_spurt_artifacts.py
+python scripts/benchmark_growth_spurt.py
+python scripts/pipeline_health.py
+npm run test:brief
+```
+
+Full validation remains:
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/benchmark_growth_spurt.py
+python scripts/audit_backtest.py
+npm run typecheck
+npm run build
+```
+
+### Guardrails
+
+- Do not blend Growth Spurt into official scoring until a later reviewed scoring-integration phase.
+- Do not present the tag as a price prediction.
+- Keep insufficient detector history as `unavailable`, not zero.
+- Preserve generated artifacts as script outputs, not hand-maintained source.
+- Stop for review before deployment for this feature.
+
+---
+
+## 27. Live Implementation Context - Saved Outcome Cards and Market-Target Guardrails
+
+**Updated:** 2026-07-21 UTC
+**Repository path:** `C:\Users\stahm\Projects\Decision Scientist`
+**Git branch:** `scale-universe-foundation`
+**Pre-change rollback anchors:** branch `checkpoint/pre-saved-outcomes-final-instruction`, tag `checkpoint-pre-saved-outcomes-final-instruction`, both pointing to `543be62`.
+
+### What changed
+
+- Refactored saved-position projections into normalized `HoldingOutcome` records in `src/lib/position-projections.ts`.
+- Added a reusable `src/components/HoldingOutcomeCard.tsx` renderer for the new two-by-two outcome grid.
+- Replaced the main saved-position display with:
+  - `ValueSignal 30 Days`;
+  - `ValueSignal 90 Days`;
+  - `Market Target 30 Days`;
+  - `Market Target 90 Days`.
+- Moved zero-return baseline names, selected model details, sample counts, market-target provider status, and personal scenario fields into collapsed panels.
+- Kept personal 30/90-day percentages separate as `Personal 30-Day Scenario %` and `Personal 90-Day Scenario %`.
+- Standardized holding gain/loss math:
+  - `estimatedGainLossPerShare = estimatedSellPrice - currentPurchasePrice`;
+  - `estimatedTotalGainLoss = sharesHeld * estimatedGainLossPerShare`;
+  - `estimatedPositionValue = sharesHeld * estimatedSellPrice`;
+  - dollar allocation first converts to `impliedShares = dollarAllocation / currentPrice`, then uses the same per-share formulas.
+- Added market-target time-scaling logic, but only when a legitimate provider supplies target mean, current price at collection, and a documented horizon.
+- Current market-target state remains explicitly unavailable because no analyst target provider is configured.
+- Updated pipeline health so expected unavailable forecast/market-target/Growth Spurt coverage gaps do not count as real failures.
+- Added `--limit all` / omitted-limit parsing and batch metadata for scaling scripts without removing the safe scheduled batch cap.
+
+### Customer-facing language
+
+Use:
+
+```text
+Estimated gain/loss
+Estimated gain/loss per share
+Shares held
+Estimated total gain/loss
+Estimated return
+Estimated sell price
+Estimated position value
+Market-implied scenario
+```
+
+Do not use "earnings" for a user's saved-position outcome. "Earnings" is reserved for company net income/EPS/earnings releases.
+
+### Market-target mechanics
+
+Market-target scenarios are not ValueSignal estimates and are not analyst-issued 30/90-day forecasts. If a future provider supplies a target with known horizon:
+
+```text
+totalTargetReturn = targetMean / currentPriceAtCollection - 1
+marketImpliedReturn30 = (1 + totalTargetReturn)^(30 / targetHorizonDays) - 1
+marketImpliedReturn90 = (1 + totalTargetReturn)^(90 / targetHorizonDays) - 1
+```
+
+The current fixture reports:
+
+```text
+Market-target scenario unavailable
+Reason: Analyst target provider not configured
+```
+
+### Health state after this update
+
+- Overall status: `partial_success`.
+- Release readiness: `ready_with_known_limitations`.
+- Critical failures: `0`.
+- True noncritical failures: `5` ETL provider 404s.
+- Expected unavailable count: `246` items, dominated by unavailable market targets and intentionally skipped scaled backtest.
+- Data-quality warnings: `226`, currently from partial balance-sheet context.
+
+### Validation results
+
+Passed:
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/audit_backtest.py
+python scripts/audit_search.py
+python scripts/forecast/audit_training_dataset.py
+python scripts/forecast/evaluate_models.py
+python scripts/forecast/audit_forecasts.py
+python scripts/benchmark_growth_spurt.py
+python scripts/pipeline_health.py
+npm run test:brief
+npm run typecheck
+npm run build
+```
+
+Notes:
+
+- Python suite passed 105 tests.
+- TypeScript brief/render/projection suite passed 21 tests.
+- Forecast evaluator passed this time on the scaled fixture and retained zero-return baselines for 30/90 days.
+- Production Next.js build passed after the saved-outcome and market-target UI changes.
+- This feature has not been deployed. Stop for review before deployment.

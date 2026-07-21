@@ -18,10 +18,18 @@ from scripts.build_universe import build_universe
 from scripts.cleaning import latest_facts, normalize_company_facts
 from scripts.export_json import write_json
 from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, derive_fields, normalize_universe
+from scripts.growth_spurt import (
+    apply_growth_spurt_percentiles,
+    calculate_growth_spurt,
+    growth_spurt_counts,
+    growth_spurt_mode,
+    unavailable_growth_spurt_artifact,
+)
 from scripts.models import Security, record
 from scripts.providers.price_provider import PriceProvider, YahooChartPriceProvider
 from scripts.providers.sec_companyfacts import CompanyFactsProvider, SecCompanyFactsProvider
 from scripts.scoring import SCORE_SCHEMA_VERSION, balance_sheet_scoring_mode, score_universe
+from scripts.universe.limits import parse_optional_limit, parse_optional_offset
 
 SCHEMA_VERSION = "1.0.0"
 PRICE_HISTORY_EXPORT_SESSIONS = 1260
@@ -72,6 +80,11 @@ def _empty_status(run_at: str) -> dict[str, Any]:
         "insufficientEvidenceReason": None,
         "latestFilingDate": None,
         "latestScoringDate": None,
+        "growthSpurtAvailable": False,
+        "growthSpurtStatus": None,
+        "growthSpurtScore": None,
+        "growthSpurtBenchmarkPercentile": None,
+        "growthSpurtMarketDataAsOf": None,
         "lastPipelineRun": run_at,
     }
 
@@ -209,6 +222,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     started = datetime.now(timezone.utc)
     run_at = started.isoformat()
     rows: list[dict[str, Any]] = []
+    detail_rows: dict[str, dict[str, Any]] = {}
     feature_rows: list[dict[str, Any]] = []
     balance_sheet_bundles: dict[str, dict[str, Any]] = {}
     price_history: dict[str, list[Any]] = {}
@@ -221,6 +235,14 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         {"ticker": security.ticker, "cik": security.cik, "companyName": security.company_name, "exchange": security.exchange, "isSupported": True}
         for security in universe
     ]
+    growth_mode = growth_spurt_mode()
+    growth_spurt_benchmark_prices: list[Any] = []
+    growth_spurt_calculation_failures = 0
+    if growth_mode != "off":
+        try:
+            growth_spurt_benchmark_prices = price_provider.fetch("SPY")
+        except Exception:
+            growth_spurt_benchmark_prices = []
     for security in universe:
         began = perf_counter()
         report: dict[str, Any] = {"ticker": security.ticker, "status": "success", "priceRows": 0, "financialFacts": 0}
@@ -271,6 +293,27 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
                 derived["netMarginPercent"] = round(raw_features["net_margin"] * 100, 4)
             if raw_features.get("latest_revenue") is not None:
                 derived["latestRevenueBillions"] = round(raw_features["latest_revenue"] / 1_000_000_000, 4)
+            growth_spurt = None
+            if growth_mode != "off":
+                try:
+                    growth_spurt = calculate_growth_spurt(security.ticker, prices, growth_spurt_benchmark_prices, generated_at=run_at)
+                except Exception as exc:
+                    growth_spurt_calculation_failures += 1
+                    growth_spurt = unavailable_growth_spurt_artifact(
+                        security.ticker,
+                        run_at,
+                        f"GROWTH_SPURT_CALCULATION_FAILED: {type(exc).__name__}: {exc}",
+                    )
+                data_status.update({
+                    "growthSpurtAvailable": growth_spurt.get("status") != "unavailable",
+                    "growthSpurtStatus": growth_spurt.get("status"),
+                    "growthSpurtScore": growth_spurt.get("growthSpurtScore"),
+                    "growthSpurtMarketDataAsOf": growth_spurt.get("marketDataAsOf"),
+                })
+                report.update({
+                    "growthSpurtStatus": growth_spurt.get("status"),
+                    "growthSpurtScore": growth_spurt.get("growthSpurtScore"),
+                })
             detail_row = {
                 "security": record(security),
                 "derived": derived,
@@ -278,11 +321,12 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
                 "balanceSheet": bs_snapshot,
                 "balanceSheetMetrics": bundle["metrics"],
                 "balanceSheetScoringShadow": bs_scoring,
+                "growthSpurt": growth_spurt,
                 "priceHistory": [record(bar) for bar in prices[-PRICE_HISTORY_EXPORT_SESSIONS:]],
                 "dataStatus": data_status,
             }
-            write_json(output_dir / "stocks" / f"{security.ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": datetime.now(timezone.utc).isoformat(), "record": detail_row})
-            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "balanceSheetScoringShadow": bs_scoring})
+            detail_rows[security.ticker] = detail_row
+            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "balanceSheetScoringShadow": bs_scoring, "growthSpurt": growth_spurt})
             feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": raw_features, "balanceSheetScoring": bs_scoring})
         except Exception as exc:
             report["status"] = "failed"
@@ -295,7 +339,6 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             status_by_ticker[security.ticker] = data_status
             ticker_reports.append(report)
     finished = datetime.now(timezone.utc)
-    dashboard = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "mode": "live", "records": rows}
     normalized_features = normalize_universe(feature_rows)
     features = {"schemaVersion": FEATURE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": normalized_features}
     signals = {"schemaVersion": SCORE_SCHEMA_VERSION, "generatedAt": finished.isoformat(), "universeSize": len(feature_rows), "records": score_universe(normalized_features)}
@@ -313,10 +356,27 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             "balanceSheetExperimentalSignal": bs_impact.get("experimentalSignal") or bs_impact.get("signal"),
             "balanceSheetWouldChangeSignal": bs_impact.get("wouldChangeSignal") if "wouldChangeSignal" in bs_impact else bs_impact.get("changed"),
         })
+    growth_artifacts = [row["growthSpurt"] for row in rows if row.get("growthSpurt")]
+    apply_growth_spurt_percentiles(growth_artifacts)
+    for row in rows:
+        artifact = row.get("growthSpurt")
+        if not artifact:
+            continue
+        ticker = row["security"]["ticker"]
+        status = status_by_ticker.setdefault(ticker, _empty_status(run_at))
+        status.update({
+            "growthSpurtAvailable": artifact.get("status") != "unavailable",
+            "growthSpurtStatus": artifact.get("status"),
+            "growthSpurtScore": artifact.get("growthSpurtScore"),
+            "growthSpurtBenchmarkPercentile": artifact.get("benchmarkPercentile"),
+            "growthSpurtMarketDataAsOf": artifact.get("marketDataAsOf"),
+        })
+        row["dataStatus"] = status
+    dashboard = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "mode": "live", "records": rows}
     try:
         if not include_backtest:
             raise RuntimeError("Backtest skipped for scaled ETL artifact size control")
-        benchmark_prices = price_provider.fetch("SPY")
+        benchmark_prices = growth_spurt_benchmark_prices or price_provider.fetch("SPY")
         eligible_dates = [bar.date for index, bar in enumerate(benchmark_prices) if index >= 252 and index + 90 < len(benchmark_prices)]
         signal_dates = eligible_dates[::21]
         snapshots = build_point_in_time_snapshots(price_history, fact_history, signal_dates)
@@ -340,6 +400,10 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         "balance_sheets_partial": balance_sheet_report["balanceSheetsPartial"],
         "balance_sheets_unavailable": balance_sheet_report["unavailableCompanies"],
     })
+    growth_counts = growth_spurt_counts(growth_artifacts, growth_spurt_calculation_failures, growth_mode)
+    coverage["counts"].update(growth_counts)
+    for ticker, detail_row in detail_rows.items():
+        write_json(output_dir / "stocks" / f"{ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "record": detail_row})
     active_tickers = {row["security"]["ticker"].upper() for row in rows}
     stale_stock_artifacts_removed = remove_stale_stock_artifacts(output_dir, active_tickers)
     audit = {
@@ -355,6 +419,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
         "tickers": ticker_reports,
         "coverageCounts": coverage["counts"],
         "balanceSheetCoverage": balance_sheet_report,
+        "growthSpurtCoverage": growth_counts,
     }
     summary = {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "records": [
         {
@@ -364,6 +429,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
             "sector": row["security"].get("sector"),
             "derived": row["derived"],
             "dataStatus": status_by_ticker.get(row["security"]["ticker"], _empty_status(run_at)),
+            "growthSpurt": row.get("growthSpurt"),
         } for row in rows
     ]}
     write_json(output_dir / "dashboard.json", dashboard)
@@ -379,8 +445,8 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the ValueSignal market and SEC ETL pipeline")
     parser.add_argument("--output", type=Path, default=Path("public/data"))
-    parser.add_argument("--limit", type=int)
-    parser.add_argument("--offset", type=int, default=0)
+    parser.add_argument("--limit", type=parse_optional_limit)
+    parser.add_argument("--offset", type=parse_optional_offset, default=0)
     parser.add_argument("--ticker")
     parser.add_argument("--tickers", nargs="*")
     parser.add_argument("--exchange")

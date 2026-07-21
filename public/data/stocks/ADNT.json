@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:35:45.099788+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ADNT",
@@ -506,6 +506,53 @@
         "liabilities: unavailable in SEC companyfacts for selected period",
         "longTermDebt: used same-period or latest fact from a different accession"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ADNT",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 4.86,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.03864975,
+        "return63d": -0.09821024,
+        "trendSlope21d": -0.00168706,
+        "trendSlope63d": -0.00208779,
+        "trendAnnualizedReturn63d": -0.40910896,
+        "trendFitR2_63d": 0.32857371,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.05529205,
+        "maxDrawdown63d": -0.24479604,
+        "downsideVolatility63d": 0.02216481,
+        "excessReturnVsSpy21d": -0.04275498,
+        "excessReturnVsSpy63d": -0.1458935,
+        "trendAcceleration": -0.00256384,
+        "largestOneDayContribution63d": 0.05858123,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 8.397,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 18.4013,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.046809,
+      "metricPercentiles": {
+        "trendSlope63d": 0.27234,
+        "trendFitR2_63d": 0.395745,
+        "excessReturnVsSpy63d": 0.280851,
+        "drawdownControlScore": 0.455319,
+        "growthSpurtScore": 0.046809
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14332,13 +14379,20 @@
         "Liquidity Risk Gate",
         "Balance Sheet Incomplete Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-06",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 4.86,
+      "growthSpurtBenchmarkPercentile": 0.046809,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

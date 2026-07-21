@@ -22,6 +22,7 @@ from scripts.models import Security
 from scripts.providers.sec_filings import SecFilingProvider
 from scripts.retrieval import diversify_results
 from scripts.text_cleaning import clean_filing_html
+from scripts.universe.limits import parse_optional_limit
 
 SEARCH_SCHEMA_VERSION = "3.0.0"
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+(?:'[a-z]+)?")
@@ -241,7 +242,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build the ValueSignal SEC filing search index")
     parser.add_argument("--output", type=Path, default=Path("public/data/search_index.json"))
     parser.add_argument("--universe", type=Path, help="Optional scaled universe JSON file with records containing ticker, cik, and companyName")
-    parser.add_argument("--limit", type=int)
+    parser.add_argument("--limit", type=parse_optional_limit)
     parser.add_argument("--per-form", type=int, default=1)
     parser.add_argument("--search-dir", type=Path, help="Directory for per-ticker BM25 index files. Defaults to public/data/search.")
     parser.add_argument("--monolith", action="store_true", help="Write one large search_index.json instead of a manifest plus per-ticker indexes")

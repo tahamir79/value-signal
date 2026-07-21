@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:32:58.205501+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ACGC",
@@ -404,6 +404,54 @@
         "Negative equity: stockholders' equity is zero or negative"
       ]
     },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ACGC",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
     "priceHistory": [
       {
         "ticker": "ACGC",
@@ -789,6 +837,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.9399995803833
+      },
+      {
+        "ticker": "ACGC",
+        "date": "2026-07-20",
+        "open": 9.9399995803833,
+        "high": 9.9399995803833,
+        "low": 9.9399995803833,
+        "close": 9.9399995803833,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.9399995803833
       }
     ],
     "dataStatus": {
@@ -826,11 +885,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-14",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

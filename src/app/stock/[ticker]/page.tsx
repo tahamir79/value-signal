@@ -6,6 +6,7 @@ import { AnalystSummary } from "@/components/AnalystSummary";
 import { BalanceSheetHealth } from "@/components/BalanceSheetHealth";
 import { FilingEvidencePanel } from "@/components/FilingEvidencePanel";
 import { FundamentalsSnapshot } from "@/components/FundamentalsSnapshot";
+import { GrowthSpurtBadge } from "@/components/GrowthSpurtBadge";
 import { PriceChart } from "@/components/PriceChart";
 import { ScoreBreakdown } from "@/components/ScoreBreakdown";
 import { SignalBadge } from "@/components/signals/SignalBadge";
@@ -88,6 +89,7 @@ export default async function StockPage({ params }: { params: Promise<{ ticker: 
       </section>
       <AnalystSummary stock={stock} signal={signalRecord} />
       <FundamentalsSnapshot derived={dashboardRecord?.derived} />
+      <GrowthSpurtBadge artifact={dashboardRecord?.growthSpurt ?? stock.growthSpurt} variant="detail" />
       <PriceChart prices={dashboardRecord?.priceHistory ?? []} />
       <section className="score-section">
         <div className="section-head">

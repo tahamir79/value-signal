@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:30:17.668958+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AACO",
@@ -411,6 +411,55 @@
         "priceToBook: missing numerator or denominator",
         "Negative equity: stockholders' equity is zero or negative"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AACO",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 38.3,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.0080808,
+        "return63d": 0.01217037,
+        "trendSlope21d": 0.00050302,
+        "trendSlope63d": 0.00011228,
+        "trendAnnualizedReturn63d": 0.02869918,
+        "trendFitR2_63d": 0.32421186,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00283589,
+        "maxDrawdown63d": -0.00603616,
+        "downsideVolatility63d": 0.00190972,
+        "excessReturnVsSpy21d": 0.00397557,
+        "excessReturnVsSpy63d": -0.03551289,
+        "trendAcceleration": 0.00042835,
+        "largestOneDayContribution63d": 0.1030358,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 12.6268,
+        "consistencyScore": 31.3461,
+        "relativeStrengthScore": 37.3122,
+        "drawdownControlScore": 97.9879,
+        "confirmationScore": 45.1787
+      },
+      "benchmarkPercentile": 0.531915,
+      "metricPercentiles": {
+        "trendSlope63d": 0.480851,
+        "trendFitR2_63d": 0.391489,
+        "excessReturnVsSpy63d": 0.523404,
+        "drawdownControlScore": 0.982979,
+        "growthSpurtScore": 0.531915
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1138,6 +1187,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.979999542236328
+      },
+      {
+        "ticker": "AACO",
+        "date": "2026-07-20",
+        "open": 9.979999542236328,
+        "high": 9.979999542236328,
+        "low": 9.979999542236328,
+        "close": 9.979999542236328,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.979999542236328
       }
     ],
     "dataStatus": {
@@ -1174,11 +1234,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-11",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 38.3,
+      "growthSpurtBenchmarkPercentile": 0.531915,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

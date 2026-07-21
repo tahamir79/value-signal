@@ -3,10 +3,11 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { GoogleSignInButton } from "@/components/GoogleSignInButton";
+import { GrowthSpurtBadge } from "@/components/GrowthSpurtBadge";
 import { SignalBadge } from "@/components/signals/SignalBadge";
 import type { StockRecord } from "@/types/stock";
 
-type SortKey = "ticker" | "value" | "quality" | "momentum" | "confidence" | "price";
+type SortKey = "ticker" | "value" | "quality" | "momentum" | "confidence" | "price" | "growthSpurt";
 
 const confidenceRank = { High: 4, Medium: 3, Low: 2, Insufficient: 1 };
 const PAGE_SIZE = 50;
@@ -17,6 +18,7 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
   const [signal, setSignal] = useState("all");
   const [exchange, setExchange] = useState("all");
   const [confidence, setConfidence] = useState("all");
+  const [growthSpurt, setGrowthSpurt] = useState("all");
   const [sort, setSort] = useState<SortKey>("ticker");
   const [descending, setDescending] = useState(false);
   const [page, setPage] = useState(1);
@@ -29,7 +31,8 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
     return matchesQuery
       && (signal === "all" || item.signal === signal)
       && (exchange === "all" || item.exchange === exchange)
-      && (confidence === "all" || item.confidence === confidence);
+      && (confidence === "all" || item.confidence === confidence)
+      && (growthSpurt === "all" || item.growthSpurt?.status === growthSpurt);
   }).sort((a, b) => {
     const values: { [K in SortKey]: [string | number, string | number] } = {
       ticker: [a.ticker, b.ticker],
@@ -38,11 +41,12 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
       momentum: [a.scores.momentum ?? -1, b.scores.momentum ?? -1],
       confidence: [confidenceRank[a.confidence], confidenceRank[b.confidence]],
       price: [a.price, b.price],
+      growthSpurt: [a.growthSpurt?.growthSpurtScore ?? -1, b.growthSpurt?.growthSpurtScore ?? -1],
     };
     const [left, right] = values[sort];
     const result = typeof left === "string" ? left.localeCompare(String(right)) : left - Number(right);
     return descending ? -result : result;
-  }), [records, query, signal, exchange, confidence, sort, descending]);
+  }), [records, query, signal, exchange, confidence, growthSpurt, sort, descending]);
 
   const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   const safePage = Math.min(page, pageCount);
@@ -96,6 +100,15 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
           {["High", "Medium", "Low", "Insufficient"].map((value) => <option key={value}>{value}</option>)}
         </select>
       </label>
+      <label>
+        <span>Growth</span>
+        <select value={growthSpurt} onChange={(event) => { setGrowthSpurt(event.target.value); resetPage(); }}>
+          <option value="all">All trend tags</option>
+          <option value="detected">Growth spurt detected</option>
+          <option value="emerging">Emerging upward trend</option>
+          <option value="unavailable">Unavailable</option>
+        </select>
+      </label>
       <div className="result-count" role="status" aria-live="polite">
         <strong>{visible.length}</strong>
         <span>{isAuthenticated ? `of ${totalUniverseCount} companies` : `preview of ${totalUniverseCount}`}</span>
@@ -109,6 +122,7 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
             <tr>
               <th aria-sort={sort === "ticker" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Company", "ticker")}</th>
               <th>Signal</th>
+              <th aria-sort={sort === "growthSpurt" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Growth", "growthSpurt")}</th>
               <th aria-sort={sort === "value" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Value", "value")}</th>
               <th aria-sort={sort === "quality" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Quality", "quality")}</th>
               <th aria-sort={sort === "momentum" ? (descending ? "descending" : "ascending") : "none"}>{sortButton("Momentum", "momentum")}</th>
@@ -122,6 +136,7 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
               <tr key={stock.ticker}>
                 <td><Link href={`/stock/${stock.ticker}`}><strong>{stock.ticker}</strong><span>{stock.companyName}</span></Link></td>
                 <td><SignalBadge signal={stock.signal} /></td>
+                <td><GrowthSpurtBadge artifact={stock.growthSpurt} /></td>
                 <td>{score(stock.scores.value)}</td>
                 <td>{score(stock.scores.quality)}</td>
                 <td>{score(stock.scores.momentum)}</td>
@@ -153,7 +168,7 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
     </> : <div className="table-empty" role="status">
       <h3>No companies match these filters.</h3>
       <p>Clear the search or broaden the signal, exchange, and confidence filters.</p>
-      <button type="button" onClick={() => { setQuery(""); setSignal("all"); setExchange("all"); setConfidence("all"); resetPage(); }}>Reset filters</button>
+      <button type="button" onClick={() => { setQuery(""); setSignal("all"); setExchange("all"); setConfidence("all"); setGrowthSpurt("all"); resetPage(); }}>Reset filters</button>
     </div>}
   </>;
 }

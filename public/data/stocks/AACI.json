@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:30:14.672065+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AACI",
@@ -410,6 +410,56 @@
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator",
         "Negative equity: stockholders' equity is zero or negative"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AACI",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 39.16,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.00100404,
+        "return63d": 0.00808897,
+        "trendSlope21d": 0.0,
+        "trendSlope63d": 0.00010784,
+        "trendAnnualizedReturn63d": 0.02754907,
+        "trendFitR2_63d": 0.71767218,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00131659,
+        "maxDrawdown63d": -0.00400801,
+        "downsideVolatility63d": 0.00067032,
+        "excessReturnVsSpy21d": -0.00310119,
+        "excessReturnVsSpy63d": -0.03959429,
+        "trendAcceleration": -0.00011836,
+        "largestOneDayContribution63d": 0.12198113,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 6.5707,
+        "consistencyScore": 59.4408,
+        "relativeStrengthScore": 32.558,
+        "drawdownControlScore": 98.664,
+        "confirmationScore": 10.1551
+      },
+      "benchmarkPercentile": 0.544681,
+      "metricPercentiles": {
+        "trendSlope63d": 0.476596,
+        "trendFitR2_63d": 0.8,
+        "excessReturnVsSpy63d": 0.502128,
+        "drawdownControlScore": 0.987234,
+        "growthSpurtScore": 0.544681
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -1259,6 +1309,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.970000267028809
+      },
+      {
+        "ticker": "AACI",
+        "date": "2026-07-20",
+        "open": 9.970000267028809,
+        "high": 9.970000267028809,
+        "low": 9.970000267028809,
+        "close": 9.970000267028809,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.970000267028809
       }
     ],
     "dataStatus": {
@@ -1295,11 +1356,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-08",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 39.16,
+      "growthSpurtBenchmarkPercentile": 0.544681,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

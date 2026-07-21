@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:36:54.797312+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AEYE",
@@ -516,6 +516,54 @@
         "inventory: unavailable in SEC companyfacts for selected period",
         "accountsPayable: unavailable in SEC companyfacts for selected period"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AEYE",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 24.6,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.09784406,
+        "return63d": -0.06891705,
+        "trendSlope21d": 0.00851555,
+        "trendSlope63d": -0.00218907,
+        "trendAnnualizedReturn63d": -0.42399839,
+        "trendFitR2_63d": 0.23051389,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.07796784,
+        "maxDrawdown63d": -0.34080183,
+        "downsideVolatility63d": 0.02168893,
+        "excessReturnVsSpy21d": 0.09373882,
+        "excessReturnVsSpy63d": -0.11660031,
+        "trendAcceleration": 0.01029199,
+        "largestOneDayContribution63d": 0.05855312,
+        "percentAboveTrendLine63d": 0.49206349
+      },
+      "scoreBreakdown": {
+        "directionScore": 20.0,
+        "consistencyScore": 6.3889,
+        "relativeStrengthScore": 35.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
+      },
+      "benchmarkPercentile": 0.353191,
+      "metricPercentiles": {
+        "trendSlope63d": 0.268085,
+        "trendFitR2_63d": 0.302128,
+        "excessReturnVsSpy63d": 0.344681,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.353191
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14342,13 +14390,20 @@
         "Severe Leverage Gate",
         "Asset Quality Warning Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-12",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 24.6,
+      "growthSpurtBenchmarkPercentile": 0.353191,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

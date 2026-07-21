@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:33:39.562035+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ACIU",
@@ -331,6 +331,53 @@
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ACIU",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 9.17,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.0384615,
+        "return63d": -0.25249169,
+        "trendSlope21d": -0.00435636,
+        "trendSlope63d": -0.0043786,
+        "trendAnnualizedReturn63d": -0.66826126,
+        "trendFitR2_63d": 0.61823791,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.0641121,
+        "maxDrawdown63d": -0.30718957,
+        "downsideVolatility63d": 0.02699156,
+        "excessReturnVsSpy21d": -0.04256674,
+        "excessReturnVsSpy63d": -0.30017495,
+        "trendAcceleration": 0.00295617,
+        "largestOneDayContribution63d": 0.05806434,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 28.6735,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 20.0
+      },
+      "benchmarkPercentile": 0.13617,
+      "metricPercentiles": {
+        "trendSlope63d": 0.174468,
+        "trendFitR2_63d": 0.676596,
+        "excessReturnVsSpy63d": 0.161702,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.13617
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14112,7 +14159,7 @@
         "high": 2.200000047683716,
         "low": 2.119999885559082,
         "close": 2.200000047683716,
-        "volume": 353400,
+        "volume": 356200,
         "source": "yahoo-chart",
         "adjusted_close": 2.200000047683716
       },
@@ -14162,11 +14209,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 9.17,
+      "growthSpurtBenchmarkPercentile": 0.13617,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

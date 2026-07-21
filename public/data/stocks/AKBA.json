@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:14.443906+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AKBA",
@@ -524,6 +524,54 @@
         "shortTermInvestments: used same-period or latest fact from a different accession",
         "intangibleAssets: used same-period or latest fact from a different accession"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AKBA",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 24.8,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.25490196,
+        "return63d": -0.08896797,
+        "trendSlope21d": 0.01625017,
+        "trendSlope63d": -0.00098283,
+        "trendAnnualizedReturn63d": -0.21938574,
+        "trendFitR2_63d": 0.00144916,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.16321767,
+        "maxDrawdown63d": -0.41799998,
+        "downsideVolatility63d": 0.04619637,
+        "excessReturnVsSpy21d": 0.25079672,
+        "excessReturnVsSpy63d": -0.13665123,
+        "trendAcceleration": 0.02912035,
+        "largestOneDayContribution63d": 0.09988453,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 20.0,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 35.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
+      },
+      "benchmarkPercentile": 0.357447,
+      "metricPercentiles": {
+        "trendSlope63d": 0.357447,
+        "trendFitR2_63d": 0.110638,
+        "excessReturnVsSpy63d": 0.323404,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.357447
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14305,7 +14353,7 @@
         "high": 1.4049999713897705,
         "low": 1.340000033378601,
         "close": 1.340000033378601,
-        "volume": 2522000,
+        "volume": 2525000,
         "source": "yahoo-chart",
         "adjusted_close": 1.340000033378601
       },
@@ -14347,13 +14395,20 @@
       "triggeredBalanceSheetGates": [
         "High Leverage Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-07",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 24.8,
+      "growthSpurtBenchmarkPercentile": 0.357447,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

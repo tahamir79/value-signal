@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.pipeline_health import _balance_sheet_stage, normalize_failure, public_summary
+from scripts.pipeline_health import _analyst_targets_stage, _balance_sheet_stage, _forecast_stage, _growth_spurt_stage, normalize_failure, public_summary
 
 
 class PipelineHealthTests(unittest.TestCase):
@@ -55,6 +55,43 @@ class PipelineHealthTests(unittest.TestCase):
         self.assertEqual(stage["succeeded"], 199)
         self.assertEqual(stage["skipped"], 46)
         self.assertEqual(stage["status"], "partial_success")
+
+    def test_growth_spurt_stage_counts_unavailable_as_expected_gap(self):
+        stage = _growth_spurt_stage({
+            "growthSpurtCoverage": {
+                "growthSpurtMode": "display",
+                "stocksGrowthSpurtAttempted": 245,
+                "stocksGrowthSpurtDetected": 12,
+                "stocksGrowthSpurtEmerging": 31,
+                "stocksGrowthSpurtNotDetected": 190,
+                "stocksGrowthSpurtUnavailable": 12,
+                "growthSpurtCalculationFailures": 0,
+            }
+        })
+        self.assertEqual(stage["attempted"], 245)
+        self.assertEqual(stage["succeeded"], 233)
+        self.assertEqual(stage["skipped"], 12)
+        self.assertEqual(stage["failed"], 0)
+        self.assertEqual(stage["status"], "success")
+
+    def test_forecast_insufficient_history_is_skipped_coverage_not_failure(self):
+        stage = _forecast_stage({
+            "count": 245,
+            "displayProjectionSources": {"conservative_historical_scenario": 203, "unavailable": 42},
+            "conservativeScenarioStatus": {"available": 203, "insufficient_data": 42, "stale": 0},
+        })
+        self.assertEqual(stage["attempted"], 245)
+        self.assertEqual(stage["succeeded"], 203)
+        self.assertEqual(stage["skipped"], 42)
+        self.assertEqual(stage["failed"], 0)
+        self.assertEqual(stage["status"], "success")
+
+    def test_market_target_provider_unconfigured_is_expected_unavailable(self):
+        stage = _analyst_targets_stage({"count": 245})
+        self.assertEqual(stage["name"], "market_targets")
+        self.assertEqual(stage["status"], "unavailable_expected")
+        self.assertEqual(stage["skipped"], 245)
+        self.assertEqual(stage["failed"], 0)
 
 
 if __name__ == "__main__":

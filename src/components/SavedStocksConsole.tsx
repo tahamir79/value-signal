@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { HoldingOutcomeGrid } from "@/components/HoldingOutcomeCard";
 import { calculatePositionProjection } from "@/lib/position-projections";
 import type { ForecastArtifact, ForecastSummary } from "@/types/forecast";
 import type { PortfolioPosition, WatchlistItem } from "@/types/user-records";
@@ -45,11 +46,8 @@ function money(value: number | null | undefined) {
 function percent(value: number | null | undefined) {
   return typeof value === "number" && Number.isFinite(value) ? `${value >= 0 ? "+" : ""}${(value * 100).toFixed(2)}%` : "Unavailable";
 }
-
-function estimateRange(lower: number | null | undefined, upper: number | null | undefined) {
-  return typeof lower === "number" && Number.isFinite(lower) && typeof upper === "number" && Number.isFinite(upper)
-    ? `${percent(lower)} to ${percent(upper)}`
-    : "Range unavailable";
+function shares(value: number | null | undefined) {
+  return typeof value === "number" && Number.isFinite(value) ? value.toLocaleString(undefined, { maximumFractionDigits: 4 }) : "Unavailable";
 }
 
 function modelStatus(name: string | undefined, validationStatus: string | undefined) {
@@ -269,17 +267,23 @@ export function SavedStocksConsole() {
             <span>{quantityType === "shares" ? "Shares" : "Allocated amount"}</span>
             <input value={quantity} onChange={(event) => setQuantity(event.target.value)} inputMode="decimal" placeholder={quantityType === "shares" ? "10" : "5000"} />
           </label>
-          <label>
-            <span>Personal 30-day scenario %</span>
-            <input value={return30} onChange={(event) => setReturn30(event.target.value)} inputMode="decimal" placeholder="3" />
-          </label>
-          <label>
-            <span>Personal 90-day scenario %</span>
-            <input value={return90} onChange={(event) => setReturn90(event.target.value)} inputMode="decimal" placeholder="8" />
-          </label>
+          <details className="personal-scenario-panel">
+            <summary>Try your own scenario</summary>
+            <div className="personal-scenario-grid">
+              <label>
+                <span>Personal 30-Day Scenario %</span>
+                <input value={return30} onChange={(event) => setReturn30(event.target.value)} inputMode="decimal" placeholder="3" />
+              </label>
+              <label>
+                <span>Personal 90-Day Scenario %</span>
+                <input value={return90} onChange={(event) => setReturn90(event.target.value)} inputMode="decimal" placeholder="8" />
+              </label>
+            </div>
+            <small>Optional percentages entered by you. They do not change ValueSignal estimates or market-target scenarios.</small>
+          </details>
           <button type="button" onClick={() => void addPortfolio()}>Save Position</button>
         </div>
-        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections use generated forecast artifacts when available. Personal scenario fields are optional percentages entered by you and do not change the ValueSignal estimate.</p>
+        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections and market-target scenarios are uncertain research estimates, not guarantees or investment advice.</p>
         <div className="saved-list portfolio-list">
           {portfolio.map((position) => {
             const draft = drafts[position.id] ?? draftFromPosition(position);
@@ -293,7 +297,6 @@ export function SavedStocksConsole() {
               dollarAmount: draft.quantityType === "dollar_amount" ? baseValue : null,
               averageCostPerShare: position.averageCostPerShare,
             }, forecast);
-            const analystTarget = forecast?.analystTarget;
 
             return (
               <article key={position.id} className="portfolio-position-card">
@@ -303,6 +306,24 @@ export function SavedStocksConsole() {
                   <small>
                     {draft.positionStatus === "owned" ? "Owned" : "Planned"} · {draft.quantityType === "shares" ? `${draft.quantity || "—"} shares` : `${money(baseValue)} allocation`}
                   </small>
+                  <dl className="position-current-summary">
+                    <div>
+                      <dt>Current price</dt>
+                      <dd>{money(projection.currentPrice)}</dd>
+                    </div>
+                    <div>
+                      <dt>Shares held</dt>
+                      <dd>{shares(projection.sharesHeld)}</dd>
+                    </div>
+                    <div>
+                      <dt>Current position value</dt>
+                      <dd>{money(projection.currentPositionValue)}</dd>
+                    </div>
+                    <div>
+                      <dt>Market data as of</dt>
+                      <dd>{projection.marketDataAsOf ?? "Unavailable"}</dd>
+                    </div>
+                  </dl>
                 </div>
                 <div className="position-editor" aria-label={`${position.ticker} scenario editor`}>
                   <label>
@@ -323,29 +344,34 @@ export function SavedStocksConsole() {
                     <span>{draft.quantityType === "shares" ? "Shares" : "Allocation"}</span>
                     <input value={draft.quantity} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, quantity: event.target.value } }))} inputMode="decimal" />
                   </label>
-                  <label>
-                    <span>Personal 30-day %</span>
-                    <input value={draft.return30} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return30: event.target.value } }))} inputMode="decimal" />
-                  </label>
-                  <label>
-                    <span>Personal 90-day %</span>
-                    <input value={draft.return90} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return90: event.target.value } }))} inputMode="decimal" />
-                  </label>
+                  <details className="personal-scenario-panel">
+                    <summary>Try your own scenario</summary>
+                    <div className="personal-scenario-grid">
+                      <label>
+                        <span>Personal 30-Day Scenario %</span>
+                        <input value={draft.return30} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return30: event.target.value } }))} inputMode="decimal" />
+                      </label>
+                      <label>
+                        <span>Personal 90-Day Scenario %</span>
+                        <input value={draft.return90} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return90: event.target.value } }))} inputMode="decimal" />
+                      </label>
+                    </div>
+                    <small>These personal percentages stay separate from generated ValueSignal and market-target outcomes.</small>
+                  </details>
                 </div>
-                <dl className="scenario-grid">
-                  <div><dt>VS 30-day change</dt><dd>{money(projection.horizon30Day.baseChange)}</dd><small>{projection.horizon30Day.reason ?? `${projection.horizon30Day.sourceLabel} | ${percent(projection.horizon30Day.baseReturn)} | ${estimateRange(projection.horizon30Day.lowerReturn, projection.horizon30Day.upperReturn)}`}</small></div>
-                  <div><dt>VS 30-day value</dt><dd>{money(projection.horizon30Day.baseValue)}</dd><small>{projection.horizon30Day.reason ?? `Price ${money(projection.horizon30Day.estimatedPrice)} | ${forecast?.marketDataAsOf ?? "as-of unavailable"}`}</small></div>
-                  <div><dt>VS 90-day change</dt><dd>{money(projection.horizon90Day.baseChange)}</dd><small>{projection.horizon90Day.reason ?? `${projection.horizon90Day.sourceLabel} | ${percent(projection.horizon90Day.baseReturn)} | ${estimateRange(projection.horizon90Day.lowerReturn, projection.horizon90Day.upperReturn)}`}</small></div>
-                  <div><dt>VS 90-day value</dt><dd>{money(projection.horizon90Day.baseValue)}</dd><small>{projection.horizon90Day.reason ?? `Price ${money(projection.horizon90Day.estimatedPrice)} | ${forecast?.marketDataAsOf ?? "as-of unavailable"}`}</small></div>
-                </dl>
-                <dl className="forecast-meta-grid">
-                  <div><dt>Current position value</dt><dd>{money(projection.currentPositionValue)}</dd><small>{projection.reason ?? `Market data as of ${forecast?.marketDataAsOf ?? "unavailable"}`}</small></div>
-                  <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model30Day.name, forecast?.validationStatus)}</small></div>
-                  <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model90Day.name, forecast?.validationStatus)}</small></div>
-                  <div><dt>Displayed projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` | ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
-                  <div><dt>Analyst consensus target</dt><dd>{money(analystTarget?.targetMean)}</dd><small>{analystTarget?.status === "available" ? `${percent(analystTarget.impliedReturnToMean)} implied return` : "Analyst target provider not configured"}</small></div>
-                </dl>
-                <p className="form-disclaimer">ValueSignal&apos;s conservative historical scenario is based on the stock&apos;s prior price behavior and is not a validated prediction, guarantee, or investment recommendation. Future market outcomes may differ materially.</p>
+                <HoldingOutcomeGrid outcomes={projection.outcomes} />
+                <p className="form-disclaimer">ValueSignal projections and market-target scenarios are uncertain research estimates, not guarantees or investment advice. Market-target scenarios may be time-scaled from a longer-horizon analyst consensus target and are not direct analyst forecasts for 30 or 90 days. Actual outcomes may differ materially.</p>
+                <details className="forecast-details">
+                  <summary>Forecast methodology</summary>
+                  <dl className="forecast-meta-grid">
+                    <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model30Day.name, forecast?.validationStatus)}</small></div>
+                    <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model90Day.name, forecast?.validationStatus)}</small></div>
+                    <div><dt>Displayed projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` · ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
+                    <div><dt>Market target status</dt><dd>{forecast?.analystTarget.status ?? "Unsupported"}</dd><small>{forecast?.analystTarget.warnings?.[0] ?? "Analyst target provider not configured"}</small></div>
+                    <div><dt>Personal 30-day scenario</dt><dd>{percent(decimalFromPercent(draft.return30))}</dd><small>User-entered; not used by ValueSignal estimates.</small></div>
+                    <div><dt>Personal 90-day scenario</dt><dd>{percent(decimalFromPercent(draft.return90))}</dd><small>User-entered; not used by market-target scenarios.</small></div>
+                  </dl>
+                </details>
                 <div className="saved-actions">
                   <Link href={`/stock/${position.ticker}`}>Open</Link>
                   <button type="button" onClick={() => void updatePortfolio(position)}>Update</button>

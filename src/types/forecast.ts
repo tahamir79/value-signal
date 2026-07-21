@@ -42,12 +42,39 @@ export type AnalystTargetArtifact = {
   analystCount: number | null;
   currentPriceAtCollection: number | null;
   impliedReturnToMean: number | null;
-  horizonDays: number | null;
-  horizonLabel: string | null;
-  provider: string;
+  horizonDays?: number | null;
+  horizonLabel?: string | null;
+  targetHorizonDays?: number | null;
+  targetHorizonLabel?: string | null;
+  provider: string | null;
   sourceAsOf: string | null;
-  collectedAt: string;
-  status: "available" | "stale" | "insufficient_data" | "unsupported";
+  collectedAt: string | null;
+  status: "available" | "stale" | "horizon_unknown" | "insufficient_data" | "unsupported";
+  warnings: string[];
+};
+
+export type HoldingOutcome = {
+  source: "valuesignal" | "market_target";
+  horizonDays: 30 | 90;
+  status: "available" | "stale" | "unavailable";
+  estimatedReturn: number | null;
+  sharesHeld: number | null;
+  currentPurchasePrice: number | null;
+  estimatedGainLossPerShare: number | null;
+  estimatedGainLoss: number | null;
+  estimatedSellPrice: number | null;
+  estimatedPositionValue: number | null;
+  lowerReturn?: number | null;
+  upperReturn?: number | null;
+  lowerEstimatedPositionValue?: number | null;
+  upperEstimatedPositionValue?: number | null;
+  asOf: string | null;
+  label: string;
+  unavailableReason?: string | null;
+  methodology?: string | null;
+  sourceProvider?: string | null;
+  sourceHorizonDays?: number | null;
+  consensusTarget?: number | null;
   warnings: string[];
 };
 

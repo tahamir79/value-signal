@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.pipeline.run_scaled_pipeline import main as pipeline_main
 from scripts.sec.sec_client import SecClient
+from scripts.universe.limits import parse_optional_limit
 from scripts.universe.build_universe import build_scaled_universe, write_universe
 from scripts.universe.normalize_symbols import normalize_cik, normalize_ticker
 from scripts.universe.universe_filters import classify_security
@@ -64,16 +65,31 @@ class ScaledUniverseTests(unittest.TestCase):
         self.assertEqual(tickers.count("AAPL"), 1)
         self.assertIn("ZZZ", tickers)
 
+    def test_optional_limit_supports_omitted_and_all(self) -> None:
+        self.assertIsNone(parse_optional_limit(None))
+        self.assertIsNone(parse_optional_limit("all"))
+        self.assertEqual(parse_optional_limit("500"), 500)
+
+    def test_omitted_limit_does_not_cap_fixture_universe(self) -> None:
+        rows = build_scaled_universe(mode="sec_listed_core", sec_records=SEC_FIXTURE)
+        self.assertEqual(len([row for row in rows if row["isSupported"]]), 2)
+
     def test_write_universe_manifest(self) -> None:
         rows = build_scaled_universe(mode="starter", limit=1)
         with tempfile.TemporaryDirectory() as tmp:
-            manifest = write_universe(rows, mode="starter", limit=1, output_dir=Path(tmp))
+            manifest = write_universe(rows, mode="starter", limit=1, output_dir=Path(tmp), batch_size=250, offset=0, resume=True)
             self.assertEqual(manifest["supportedCount"], 1)
+            self.assertEqual(manifest["batchSize"], 250)
+            self.assertTrue(manifest["resume"])
             self.assertTrue((Path(tmp) / "universe.json").exists())
             self.assertTrue((Path(tmp) / "universe_manifest.json").exists())
 
     def test_scaled_pipeline_dry_run_report(self) -> None:
         with patch("sys.argv", ["run_scaled_pipeline.py", "--mode", "starter", "--limit", "2", "--dry-run"]):
+            pipeline_main()
+
+    def test_scaled_pipeline_parses_all_limit_for_staged_batch(self) -> None:
+        with patch("sys.argv", ["run_scaled_pipeline.py", "--mode", "starter", "--limit", "all", "--batch-size", "2", "--dry-run"]):
             pipeline_main()
 
 

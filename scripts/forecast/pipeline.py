@@ -565,6 +565,8 @@ def analyst_target_stub(ticker: str, current_price: float, generated_at: str) ->
         "impliedReturnToMean": None,
         "horizonDays": None,
         "horizonLabel": None,
+        "targetHorizonDays": None,
+        "targetHorizonLabel": None,
         "provider": "unsupported",
         "sourceAsOf": None,
         "collectedAt": generated_at,

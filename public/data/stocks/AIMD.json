@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:39:12.959072+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AIMD",
@@ -512,6 +512,53 @@
         "cashToDebt: missing numerator or denominator",
         "shortTermDebtShare: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AIMD",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 7.3,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.2205882,
+        "return63d": -0.1928934,
+        "trendSlope21d": 0.0,
+        "trendSlope63d": 0.00062476,
+        "trendAnnualizedReturn63d": 0.17050849,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.13308399,
+        "maxDrawdown63d": -0.49683545,
+        "downsideVolatility63d": 0.0470279,
+        "excessReturnVsSpy21d": -0.22469344,
+        "excessReturnVsSpy63d": -0.24057666,
+        "trendAcceleration": -0.00207371,
+        "largestOneDayContribution63d": 0.30509194,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 21.9225,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.085106,
+      "metricPercentiles": {
+        "trendSlope63d": 0.608511,
+        "trendFitR2_63d": 0.053191,
+        "excessReturnVsSpy63d": 0.204255,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.085106
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14343,13 +14390,20 @@
         "Severe Liquidity Risk Gate",
         "Asset Quality Warning Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-13",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 7.3,
+      "growthSpurtBenchmarkPercentile": 0.085106,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

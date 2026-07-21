@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:34:57.723211+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ADAC",
@@ -411,6 +411,55 @@
         "priceToBook: missing numerator or denominator",
         "Negative equity: stockholders' equity is zero or negative"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ADAC",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 47.6,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.00299399,
+        "return63d": 0.01412718,
+        "trendSlope21d": 0.00022565,
+        "trendSlope63d": 0.00027697,
+        "trendAnnualizedReturn63d": 0.0722902,
+        "trendFitR2_63d": 0.87380911,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.00199398,
+        "maxDrawdown63d": -0.00792078,
+        "downsideVolatility63d": 0.00220161,
+        "excessReturnVsSpy21d": -0.00111125,
+        "excessReturnVsSpy63d": -0.03355608,
+        "trendAcceleration": -4.544e-05,
+        "largestOneDayContribution63d": 0.15123532,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 15.4109,
+        "consistencyScore": 75.7432,
+        "relativeStrengthScore": 35.8817,
+        "drawdownControlScore": 97.3597,
+        "confirmationScore": 22.5636
+      },
+      "benchmarkPercentile": 0.651064,
+      "metricPercentiles": {
+        "trendSlope63d": 0.540426,
+        "trendFitR2_63d": 0.948936,
+        "excessReturnVsSpy63d": 0.544681,
+        "drawdownControlScore": 0.970213,
+        "growthSpurtScore": 0.651064
+      },
+      "reasonCodes": [
+        "TREND_CONSISTENCY_STRONG",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1667,13 +1716,20 @@
       "triggeredBalanceSheetGates": [
         "Negative Equity Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-15",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 47.6,
+      "growthSpurtBenchmarkPercentile": 0.651064,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

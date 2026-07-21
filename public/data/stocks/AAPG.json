@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:30:47.968993+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AAPG",
@@ -331,6 +331,54 @@
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AAPG",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 28.59,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.07489764,
+        "return63d": -0.329562,
+        "trendSlope21d": 0.00961937,
+        "trendSlope63d": -0.00518713,
+        "trendAnnualizedReturn63d": -0.72941152,
+        "trendFitR2_63d": 0.52806071,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.08023571,
+        "maxDrawdown63d": -0.3638088,
+        "downsideVolatility63d": 0.02518088,
+        "excessReturnVsSpy21d": 0.07079241,
+        "excessReturnVsSpy63d": -0.37724526,
+        "trendAcceleration": 0.01926797,
+        "largestOneDayContribution63d": 0.06808043,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 20.0,
+        "consistencyScore": 22.3611,
+        "relativeStrengthScore": 35.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
+      },
+      "benchmarkPercentile": 0.404255,
+      "metricPercentiles": {
+        "trendSlope63d": 0.144681,
+        "trendFitR2_63d": 0.565957,
+        "excessReturnVsSpy63d": 0.123404,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.404255
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -4460,11 +4508,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 28.59,
+      "growthSpurtBenchmarkPercentile": 0.404255,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

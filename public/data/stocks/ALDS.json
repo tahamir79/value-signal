@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:38.227846+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ALDS",
@@ -489,6 +489,53 @@
         "priceToBook: denominator is zero or negative",
         "Negative equity: stockholders' equity is zero or negative"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ALDS",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-17",
+      "status": "not_detected",
+      "growthSpurtScore": 11.47,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.822,
+        "return63d": -0.90407185,
+        "trendSlope21d": 0.0,
+        "trendSlope63d": -0.04251191,
+        "trendAnnualizedReturn63d": -0.99997775,
+        "trendFitR2_63d": 0.75406013,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.51760099,
+        "maxDrawdown63d": -0.9288,
+        "downsideVolatility63d": 0.49144884,
+        "excessReturnVsSpy21d": -0.81516944,
+        "excessReturnVsSpy63d": -0.96613165,
+        "trendAcceleration": 0.01724823,
+        "largestOneDayContribution63d": 0.17036122,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 37.8968,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 20.0
+      },
+      "benchmarkPercentile": 0.225532,
+      "metricPercentiles": {
+        "trendSlope63d": 0.004255,
+        "trendFitR2_63d": 0.838298,
+        "excessReturnVsSpy63d": 0.004255,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.225532
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14310,13 +14357,20 @@
         "Negative Equity Gate",
         "Asset Quality Warning Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-13",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-17",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 11.47,
+      "growthSpurtBenchmarkPercentile": 0.225532,
+      "growthSpurtMarketDataAsOf": "2026-07-17",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

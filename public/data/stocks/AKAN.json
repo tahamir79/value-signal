@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:12.525824+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AKAN",
@@ -330,6 +330,56 @@
         "shortTermDebtShare: missing numerator or denominator",
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AKAN",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 24.22,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.53842103,
+        "return63d": 1.47740129,
+        "trendSlope21d": -0.03555749,
+        "trendSlope63d": -0.01885054,
+        "trendAnnualizedReturn63d": -0.99135121,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.51303675,
+        "maxDrawdown63d": -0.8463829,
+        "downsideVolatility63d": 0.09273966,
+        "excessReturnVsSpy21d": -0.54252626,
+        "excessReturnVsSpy63d": 1.42971803,
+        "trendAcceleration": -0.0250795,
+        "largestOneDayContribution63d": 0.22993328,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 35.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 65.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.33617,
+      "metricPercentiles": {
+        "trendSlope63d": 0.021277,
+        "trendFitR2_63d": 0.053191,
+        "excessReturnVsSpy63d": 0.991489,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.33617
+      },
+      "reasonCodes": [
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -12358,11 +12408,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 24.22,
+      "growthSpurtBenchmarkPercentile": 0.33617,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

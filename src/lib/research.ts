@@ -36,6 +36,7 @@ function liveStockFromTicker(ticker:string,etl:Awaited<ReturnType<typeof getEtlD
     supportingEvidence:support.length?support:fallback?.supportingEvidence??[],
     weakeningEvidence:risks.length?risks:fallback?.weakeningEvidence??[],
     dataStatus:dashboardRecord?.dataStatus,
+    growthSpurt:dashboardRecord?.growthSpurt,
     fundamentals:{
       latestRevenueBillions:derived?.latestRevenueBillions,
       revenueGrowthPercent:derived?.revenueGrowthPercent,

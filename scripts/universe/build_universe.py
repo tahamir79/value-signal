@@ -12,6 +12,7 @@ if __package__ is None or __package__ == "":
     sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 from scripts.build_universe import build_universe as build_starter_universe
+from scripts.universe.limits import parse_optional_limit, parse_optional_offset
 from scripts.universe.normalize_symbols import normalize_cik, normalize_ticker, stable_universe_key
 from scripts.universe.universe_filters import classify_security
 from scripts.universe.universe_manifest import build_manifest
@@ -170,8 +171,9 @@ def required_user_agent() -> str:
 
 
 def write_universe(rows: list[dict[str, Any]], *, mode: str, limit: int | None, output_dir: Path,
-                   source: str = SEC_TICKER_EXCHANGE_URL, dry_run: bool = False) -> dict[str, Any]:
-    manifest = build_manifest(mode=mode, requested_limit=limit, rows=rows, source=source)
+                   source: str = SEC_TICKER_EXCHANGE_URL, dry_run: bool = False,
+                   batch_size: int | None = None, offset: int = 0, resume: bool = False) -> dict[str, Any]:
+    manifest = build_manifest(mode=mode, requested_limit=limit, rows=rows, source=source, batch_size=batch_size, offset=offset, resume=resume)
     if dry_run:
         return manifest
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -183,8 +185,8 @@ def write_universe(rows: list[dict[str, Any]], *, mode: str, limit: int | None, 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build a staged ValueSignal stock universe.")
     parser.add_argument("--mode", choices=sorted(UNIVERSE_MODES), default="starter")
-    parser.add_argument("--limit", type=int)
-    parser.add_argument("--offset", type=int, default=0)
+    parser.add_argument("--limit", type=parse_optional_limit)
+    parser.add_argument("--offset", type=parse_optional_offset, default=0)
     parser.add_argument("--exchange")
     parser.add_argument("--include-starter", action="store_true", help="prepend the original ten-stock public preview universe and fill remaining slots from the selected scaled universe")
     parser.add_argument("--output-dir", default="data/universe")
@@ -201,7 +203,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     rows = build_scaled_universe(mode=args.mode, limit=args.limit, offset=args.offset, exchange=args.exchange, include_starter=args.include_starter)
-    manifest = write_universe(rows, mode=args.mode, limit=args.limit, output_dir=Path(args.output_dir), dry_run=args.dry_run)
+    manifest = write_universe(rows, mode=args.mode, limit=args.limit, output_dir=Path(args.output_dir), dry_run=args.dry_run, offset=args.offset, resume=args.resume)
     print(json.dumps(manifest, indent=2))
 
 

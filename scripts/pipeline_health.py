@@ -139,7 +139,7 @@ def _forecast_stage(summary: dict[str, Any]) -> dict[str, Any]:
     count = int(summary.get("count") or 0)
     sources = summary.get("displayProjectionSources") or {}
     unavailable = int(sources.get("unavailable") or 0)
-    status = "failed" if not count else "partial_success" if unavailable else "success"
+    status = "failed" if not count else "success"
     reasons = Counter()
     scenario_status = summary.get("conservativeScenarioStatus") or {}
     if scenario_status.get("insufficient_data"):
@@ -151,7 +151,8 @@ def _forecast_stage(summary: dict[str, Any]) -> dict[str, Any]:
         status=status,
         attempted=count,
         succeeded=max(0, count - unavailable),
-        failed=unavailable,
+        failed=0,
+        skipped=unavailable,
         reasons=reasons,
         artifact_paths=["public/data/forecasts/summary.json", "public/data/forecasts", "models/forecast"],
     )
@@ -196,6 +197,55 @@ def _balance_sheet_stage(coverage: dict[str, Any]) -> dict[str, Any]:
     )
 
 
+def _growth_spurt_stage(etl: dict[str, Any]) -> dict[str, Any]:
+    coverage = etl.get("growthSpurtCoverage") or etl.get("coverageCounts") or {}
+    mode = str(coverage.get("growthSpurtMode") or "display")
+    attempted = int(coverage.get("stocksGrowthSpurtAttempted") or 0)
+    detected = int(coverage.get("stocksGrowthSpurtDetected") or 0)
+    emerging = int(coverage.get("stocksGrowthSpurtEmerging") or 0)
+    not_detected = int(coverage.get("stocksGrowthSpurtNotDetected") or 0)
+    unavailable = int(coverage.get("stocksGrowthSpurtUnavailable") or 0)
+    failures = int(coverage.get("growthSpurtCalculationFailures") or 0)
+    reasons = Counter()
+    if unavailable:
+        reasons["GROWTH_SPURT_UNAVAILABLE_EXPECTED"] = unavailable
+    if failures:
+        reasons["GROWTH_SPURT_CALCULATION_FAILURE"] = failures
+    if mode == "off":
+        return _stage(
+            name="growth_spurt_detector",
+            status="unavailable_expected",
+            attempted=0,
+            skipped=1,
+            reasons=Counter({"GROWTH_SPURT_MODE_OFF": 1}),
+            artifact_paths=["public/data/stocks", "public/data/etl_report.json"],
+        )
+    status = "failed" if not attempted else "partial_success" if failures else "success"
+    return _stage(
+        name="growth_spurt_detector",
+        status=status,
+        attempted=attempted,
+        succeeded=detected + emerging + not_detected,
+        failed=failures,
+        skipped=unavailable,
+        reasons=reasons,
+        artifact_paths=["public/data/stocks", "public/data/etl_report.json", "data/reports/growth_spurt_benchmark.json"],
+    )
+
+
+def _analyst_targets_stage(forecast: dict[str, Any]) -> dict[str, Any]:
+    count = int(forecast.get("count") or 0)
+    return _stage(
+        name="market_targets",
+        status="unavailable_expected",
+        attempted=count,
+        succeeded=0,
+        skipped=count,
+        reasons=Counter({"ANALYST_TARGET_PROVIDER_NOT_CONFIGURED": count}) if count else Counter({"ANALYST_TARGET_PROVIDER_NOT_CONFIGURED": 1}),
+        artifact_paths=["public/data/forecasts/summary.json"],
+    )
+
+
 def build_health_report() -> dict[str, Any]:
     etl = _load(PUBLIC_DATA / "etl_report.json")
     coverage = _load(PUBLIC_DATA / "universe_coverage_report.json")
@@ -211,15 +261,8 @@ def build_health_report() -> dict[str, Any]:
         _forecast_stage(forecast),
         _search_stage(search),
         _balance_sheet_stage(coverage),
-        _stage(
-            name="analyst_targets",
-            status="unavailable_expected",
-            attempted=int(forecast.get("count") or 0),
-            succeeded=0,
-            skipped=int(forecast.get("count") or 0),
-            reasons=Counter({"ANALYST_TARGET_PROVIDER_NOT_CONFIGURED": int(forecast.get("count") or 0)}),
-            artifact_paths=["public/data/forecasts/summary.json"],
-        ),
+        _growth_spurt_stage(etl),
+        _analyst_targets_stage(forecast),
     ]
     noncritical_failures = sum(stage["failed"] for stage in stages if stage["name"] != "core_artifacts")
     expected_unavailable = sum(stage["skipped"] for stage in stages if stage["status"] == "unavailable_expected")

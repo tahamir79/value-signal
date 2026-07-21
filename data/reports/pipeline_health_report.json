@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-21T01:27:47.949639+00:00",
+  "generatedAt": "2026-07-21T04:37:21.307874+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 47,
+  "nonCriticalFailures": 5,
   "expectedUnavailable": 246,
   "dataQualityWarnings": 226,
   "warnings": 226,
@@ -75,11 +75,11 @@
     },
     {
       "name": "forecast_artifacts",
-      "status": "partial_success",
+      "status": "success",
       "attempted": 245,
       "succeeded": 203,
-      "failed": 42,
-      "skipped": 0,
+      "failed": 0,
+      "skipped": 42,
       "failedTickers": [],
       "commonReasons": [
         {
@@ -135,7 +135,27 @@
       ]
     },
     {
-      "name": "analyst_targets",
+      "name": "growth_spurt_detector",
+      "status": "success",
+      "attempted": 245,
+      "succeeded": 236,
+      "failed": 0,
+      "skipped": 9,
+      "failedTickers": [],
+      "commonReasons": [
+        {
+          "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
+          "count": 9
+        }
+      ],
+      "artifactPaths": [
+        "public/data/stocks",
+        "public/data/etl_report.json",
+        "data/reports/growth_spurt_benchmark.json"
+      ]
+    },
+    {
+      "name": "market_targets",
       "status": "unavailable_expected",
       "attempted": 245,
       "succeeded": 0,

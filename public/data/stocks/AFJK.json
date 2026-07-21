@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:37:17.905221+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AFJK",
@@ -415,6 +415,53 @@
         "priceToBook: denominator is zero or negative",
         "Negative equity: stockholders' equity is zero or negative"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AFJK",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 6.32,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.65441176,
+        "return63d": -0.74067536,
+        "trendSlope21d": -0.0534358,
+        "trendSlope63d": -0.01247185,
+        "trendAnnualizedReturn63d": -0.9568428,
+        "trendFitR2_63d": 0.56955815,
+        "positiveWeekRatio63d": 0.16666667,
+        "trendResidualVolatility63d": 0.26535812,
+        "maxDrawdown63d": -0.75233052,
+        "downsideVolatility63d": 0.12586562,
+        "excessReturnVsSpy21d": -0.658517,
+        "excessReturnVsSpy63d": -0.78835862,
+        "trendAcceleration": -0.04813271,
+        "largestOneDayContribution63d": 0.17868621,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 25.2659,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.06383,
+      "metricPercentiles": {
+        "trendSlope63d": 0.038298,
+        "trendFitR2_63d": 0.604255,
+        "excessReturnVsSpy63d": 0.017021,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.06383
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -7326,13 +7373,20 @@
         "Liquidity Risk Gate",
         "Negative Equity Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-06-16",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 6.32,
+      "growthSpurtBenchmarkPercentile": 0.06383,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

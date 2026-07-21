@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:30.515786+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ALBT",
@@ -511,6 +511,53 @@
         "longTermDebt: used same-period or latest fact from a different accession",
         "shortTermDebtShare: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ALBT",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 9.47,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.20500007,
+        "return63d": -0.36258355,
+        "trendSlope21d": -0.00990898,
+        "trendSlope63d": -0.00719435,
+        "trendAnnualizedReturn63d": -0.83683211,
+        "trendFitR2_63d": 0.76453289,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.07191855,
+        "maxDrawdown63d": -0.47755101,
+        "downsideVolatility63d": 0.04390538,
+        "excessReturnVsSpy21d": -0.2091053,
+        "excessReturnVsSpy63d": -0.41026681,
+        "trendAcceleration": -0.0037878,
+        "largestOneDayContribution63d": 0.06300043,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 37.8968,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.148936,
+      "metricPercentiles": {
+        "trendSlope63d": 0.097872,
+        "trendFitR2_63d": 0.855319,
+        "excessReturnVsSpy63d": 0.097872,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.148936
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14292,7 +14339,7 @@
         "high": 0.3310000002384186,
         "low": 0.2809999883174896,
         "close": 0.28999999165534973,
-        "volume": 1126800,
+        "volume": 1137200,
         "source": "yahoo-chart",
         "adjusted_close": 0.28999999165534973
       },
@@ -14341,13 +14388,20 @@
         "Severe Liquidity Risk Gate",
         "Asset Quality Warning Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-11",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 9.47,
+      "growthSpurtBenchmarkPercentile": 0.148936,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:32:22.445996+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ACAA",
@@ -410,6 +410,58 @@
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator",
         "Negative equity: stockholders' equity is zero or negative"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ACAA",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 31.14,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.003009,
+        "return63d": 0.01112231,
+        "trendSlope21d": 0.00017673,
+        "trendSlope63d": 0.00013547,
+        "trendAnnualizedReturn63d": 0.03472905,
+        "trendFitR2_63d": 0.24780144,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00627855,
+        "maxDrawdown63d": -0.02154753,
+        "downsideVolatility63d": 0.00515448,
+        "excessReturnVsSpy21d": -0.00109623,
+        "excessReturnVsSpy63d": -0.03656095,
+        "trendAcceleration": 0.00010976,
+        "largestOneDayContribution63d": 0.1855499,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 9.7152,
+        "consistencyScore": 20.6137,
+        "relativeStrengthScore": 34.6675,
+        "drawdownControlScore": 92.8175,
+        "confirmationScore": 22.1788
+      },
+      "benchmarkPercentile": 0.434043,
+      "metricPercentiles": {
+        "trendSlope63d": 0.489362,
+        "trendFitR2_63d": 0.310638,
+        "excessReturnVsSpy63d": 0.514894,
+        "drawdownControlScore": 0.92766,
+        "growthSpurtScore": 0.434043
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -1160,6 +1212,17 @@
         "volume": 800,
         "source": "yahoo-chart",
         "adjusted_close": 10.0
+      },
+      {
+        "ticker": "ACAA",
+        "date": "2026-07-20",
+        "open": 10.0,
+        "high": 10.0,
+        "low": 10.0,
+        "close": 10.0,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.0
       }
     ],
     "dataStatus": {
@@ -1196,11 +1259,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-14",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 31.14,
+      "growthSpurtBenchmarkPercentile": 0.434043,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

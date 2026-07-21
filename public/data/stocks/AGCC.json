@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:37:30.868123+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AGCC",
@@ -331,6 +331,53 @@
         "bookValuePerShare: missing numerator or denominator",
         "priceToBook: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AGCC",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 13.42,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.02068087,
+        "return63d": -0.18441973,
+        "trendSlope21d": 0.0005424,
+        "trendSlope63d": -0.00484104,
+        "trendAnnualizedReturn63d": -0.70475285,
+        "trendFitR2_63d": 0.66109113,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.06824923,
+        "maxDrawdown63d": -0.44198663,
+        "downsideVolatility63d": 0.05429479,
+        "excessReturnVsSpy21d": -0.0247861,
+        "excessReturnVsSpy63d": -0.23210299,
+        "trendAcceleration": 0.0089949,
+        "largestOneDayContribution63d": 0.09639895,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 31.6732,
+        "relativeStrengthScore": 6.6561,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 41.696
+      },
+      "benchmarkPercentile": 0.242553,
+      "metricPercentiles": {
+        "trendSlope63d": 0.161702,
+        "trendFitR2_63d": 0.72766,
+        "excessReturnVsSpy63d": 0.212766,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.242553
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -2403,11 +2450,18 @@
       ],
       "scoringInputsAvailable": false,
       "scoringAvailable": false,
-      "officialSignal": null,
-      "insufficientEvidenceReason": null,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 13.42,
+      "growthSpurtBenchmarkPercentile": 0.242553,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

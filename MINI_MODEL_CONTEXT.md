@@ -1,216 +1,258 @@
 # ValueSignal Mini-Model Context
 
-Use this briefing for small debugging, maintenance, and implementation tasks. If it conflicts with the repository, **the code, tests, and active workflow configuration are the source of truth**.
+Use this briefing for small debugging, maintenance, and implementation tasks. If it conflicts with the repository, code, tests, workflow YAML, and generated artifacts are the source of truth.
 
 ## Product intent
 
-ValueSignal is a public-company research tool. It organizes valuation, quality, momentum, market-risk, and balance-sheet-risk evidence into transparent signals. It is cautious educational research support—not a trading bot, financial advice, or a source of buy/sell recommendations.
+ValueSignal is a cautious public-company research tool. It organizes valuation, quality, momentum, market-risk, balance-sheet-risk, filing evidence, backtests, saved-position scenarios, and recent trend tags into transparent research views.
 
-Keep the educational-use disclaimer visible at decision surfaces. Describe outputs as signals, evidence, risks, or research observations rather than recommendations.
+It is not a trading bot, financial advisor, or source of buy/sell/hold recommendations. Keep educational-use disclaimers visible at decision surfaces. Describe outputs as signals, evidence, risks, caveats, scenarios, or historical observations.
 
 ## Current state
 
-- **Phase 01 — Product shell:** landing page, dashboard, stock detail pages, methodology, typed fixtures, responsive layout, and disclaimer.
-- **Phase 02 — ETL:** ten-company universe, Yahoo chart price provider, SEC Company Facts provider, normalization, derived fields, JSON exports, audit report, partial-failure isolation, and fixture tests.
-- **Phase 03 — Features:** raw financial/market features, winsorization, universe percentile ranks, missingness, range warnings, and feature audit tooling.
-- **Phase 04 — Scoring:** bounded component scores, missing-input weight renormalization, confidence, deterministic six-label classification, reason codes, explanations, contributions, and sensitivity audit.
-- **Phase 05 — Research interface:** typed fallback loaders, research KPIs, search/sort/filters, labeled price charts, score decomposition, analyst summaries, and visible empty, partial, and stale states.
-- **Phase 06 — Backtesting lab:** point-in-time snapshots, a one-session execution lag, SPY-aligned 30/60/90-session outcomes, cohort metrics, confidence intervals, bias auditing, and an honest insufficient-history state.
-- **Phase 07 — SEC retrieval:** recent filing fetch, HTML cleanup, section-aware chunks, inverted indexing, BM25 ranking, complete SEC citations, and ticker-level evidence search without generation.
-- **Phase 08 — Analyst briefs:** deterministic six-label templates, claim provenance, validated score facts, sample-sized backtest context, cited evidence, missingness disclosure, research questions, Markdown copy, and print views.
+- Product shell, dashboard, stock detail, methodology, auth, saved stocks, and responsive layouts exist.
+- Scaled universe artifacts currently cover 245 active stock detail files.
+- The original public preview tickers remain: AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, INTC.
+- The full scaled universe is gated behind Google sign-in.
+- ETL uses provider-aware Python modules for Yahoo chart prices and SEC company facts.
+- Official scoring remains deterministic: value, quality, momentum, market risk, balance-sheet risk, momentum risk, confidence, and one mutually exclusive signal.
+- Balance-sheet-aware scoring is official, but standalone balance-sheet artifacts remain intact.
+- BM25 SEC filing retrieval is production-safe; local Ollama/RAG remains local/experimental or a production placeholder.
+- Saved-stock 30/90-day projections use approved forecast output when available, then conservative historical scenario fallback, then unavailable. Customer-facing cards are normalized `HoldingOutcome` records, not ad-hoc UI math.
+- Market-target scenarios are separate from ValueSignal projections and currently unavailable because no analyst target provider is configured.
+- Growth Spurt detector is display-only in v1. It does not alter official scoring or signals.
 
-The current universe is AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, and INTC.
+## Main architecture map
 
-## Architecture map
+Frontend:
 
-### Frontend
+- `src/app/` - Next.js App Router pages and API routes.
+- `src/features/dashboard/StockTable.tsx` - dashboard filters/table, including Growth Spurt filter.
+- `src/app/stock/[ticker]/page.tsx` - stock detail page.
+- `src/components/GrowthSpurtBadge.tsx` - compact badge and detail Recent Trend card.
+- `src/components/HoldingOutcomeCard.tsx` - reusable saved-position outcome card/grid.
+- `src/components/SavedStocksConsole.tsx` - user watchlist/portfolio/projection UI.
+- `src/lib/etl.ts` - server-only generated JSON readers and shared artifact types.
+- `src/lib/research.ts` - merges generated data with fallback stock fixtures.
+- `src/types/stock.ts`, `src/types/forecast.ts`, `src/types/signal.ts` - frontend contracts.
 
-- `src/app/` — Next.js App Router pages: `/`, `/dashboard`, `/methodology`, and `/stock/[ticker]`.
-- `src/features/` — page-specific modules for the dashboard, stock detail, and disclaimer.
-- `src/components/` — reusable presentation and layout components.
-- `src/lib/etl.ts` — server-only readers for generated JSON.
-- `src/lib/research.ts` — merges live ETL/scoring values into typed stock fixtures, with per-field fixture fallbacks.
-- `src/lib/briefGenerator.ts` — pure rule-based brief generation and Markdown export.
-- `src/types/` and `src/data/` — frontend types, signal definitions, and fallback stock records.
+Python/data pipeline:
 
-### Python research pipeline
+- `scripts/run_etl.py` - main ETL boundary; writes dashboard/features/signals/stocks/ETL report.
+- `scripts/features.py` - official feature engineering.
+- `scripts/scoring.py` - official scoring and classification.
+- `scripts/balance_sheet.py` - balance-sheet extraction and score/risk gates.
+- `scripts/growth_spurt.py` - deterministic Growth Spurt formula and thresholds.
+- `scripts/build_growth_spurt_artifacts.py` - repopulates Growth Spurt fields from existing generated price histories.
+- `scripts/benchmark_growth_spurt.py` - point-in-time SPY benchmark for Growth Spurt.
+- `scripts/build_search_index.py` - per-ticker BM25 index.
+- `scripts/forecast/run_forecast_pipeline.py` - forecast/conservative scenario artifacts.
+- `scripts/pipeline_health.py` - internal/public health reports.
 
-- `scripts/run_etl.py` — pipeline entry point and per-ticker failure boundary.
-- `scripts/build_universe.py` — ticker/CIK universe.
-- `scripts/providers/` — swappable Yahoo price and SEC Company Facts providers plus HTTP utilities.
-- `scripts/cleaning.py` — financial-fact normalization and latest-fact selection.
-- `scripts/features.py` — derived fields, raw features, winsorization, percentiles, and validation metadata.
-- `scripts/scoring.py` — component scoring, classification, explanations, and sensitivity scenarios.
-- `scripts/backtest.py` — point-in-time snapshots, forward returns, benchmark alignment, cohort metrics, and bias audit.
-- `scripts/providers/sec_filings.py`, `scripts/text_cleaning.py`, and `scripts/chunk_filings.py` — filing acquisition and document preparation.
-- `scripts/build_search_index.py` — tokenization, inverted index export, and BM25 reference implementation.
-- `scripts/export_json.py` — JSON writer.
-- `scripts/audit_features.py` and `scripts/audit_scoring.py` — publish gates and diagnostic output.
+Docs:
 
-### Specifications and tests
+- `docs/ValueSignal_Technical_Map.md` - current detailed engineering/finance atlas.
+- `docs/ValueSignal_Project_Blueprint.md` - durable session handoff and product protocol.
+- `docs/feature_dictionary.md` - official features plus display-only Growth Spurt features.
+- `docs/scoring_specification.md` - official score/signaling rules.
+- `docs/backtesting_protocol.md` - official signal backtest and Growth Spurt benchmark protocol.
+- `docs/artifact_schemas.md` - generated artifact schema map.
 
-- `docs/feature_dictionary.md` — feature formulas, units, and valid ranges.
-- `docs/scoring_specification.md` — weights, directionality, confidence, and classification boundaries.
-- `docs/backtesting_protocol.md` — frozen evaluation protocol and known bias limitations.
-- `docs/retrieval_specification.md` — retrieval, chunking, ranking, and citation contract.
-- `docs/brief_specification.md` — evidence hierarchy, language constraints, missingness, and export rules.
-- `tests/` — fixture-based unit coverage for cleaning, pipeline resilience, features, and scoring.
-- `.github/workflows/refresh-data.yml` — scheduled and manual ETL workflow.
-
-> **Do not use `frontend.md` for ValueSignal work.** It is an unrelated DamLogics design brief left in the repository and does not describe this product.
+Do not use `frontend.md` for ValueSignal work. It is unrelated DamLogics material unless the user explicitly says otherwise.
 
 ## Data flow
 
 ```text
-Ticker/CIK universe
-  -> Yahoo prices + SEC Company Facts
-  -> normalization and latest facts
-  -> derived fields and raw features
-  -> winsorized values and universe percentiles
-  -> component scores, confidence, and signal labels
-  -> public/data/*.json
-  -> Next.js server-side file readers
-  -> dashboard and stock-detail pages
+Universe JSON
+  -> prices + SEC companyfacts
+  -> cleaning/latest facts
+  -> official features
+  -> official scores/signals
+  -> balance-sheet context
+  -> display-only Growth Spurt artifact
+  -> forecast/conservative scenario artifacts
+  -> HoldingOutcome saved-position estimates
+  -> generated public/data JSON
+  -> Next.js server readers
+  -> dashboard / stock detail / saved stocks / methodology
 ```
 
-Generated artifacts:
+SEC filing flow:
 
-- `public/data/dashboard.json` — security metadata, current derived values, facts, and price history.
-- `public/data/features.json` — raw, winsorized, percentile, missingness, and warning fields.
-- `public/data/signals.json` — scores, signal labels, confidence, reason codes, explanations, and contributions.
-- `public/data/etl_report.json` — run status, row counts, durations, and per-ticker errors.
-- `public/data/backtest_results.json` — reproducible protocol, cohorts, intervals, audit, and trace observation.
-- `public/data/search_index.json` — filing chunks, preserved metadata, document lengths, and term postings.
+```text
+SEC filings
+  -> clean text
+  -> section-aware chunks
+  -> per-ticker BM25 index
+  -> evidence search / local RAG context
+```
 
-Treat all `public/data/*.json` files as **generated artifacts**. Change pipeline logic or fixtures and regenerate them; do not hand-maintain production values.
+Generated artifacts are not hand-maintained source data. Change scripts, regenerate artifacts, and commit only intended generated outputs.
 
-The site currently reads these JSON files during Next.js rendering/build. It is not a continuously querying browser application. Refreshed data becomes public after GitHub Actions commits changed artifacts and the connected Vercel project redeploys that commit.
+Important generated paths:
+
+- `public/data/dashboard.json`
+- `public/data/features.json`
+- `public/data/signals.json`
+- `public/data/stocks/summary.json`
+- `public/data/stocks/{TICKER}.json`
+- `public/data/etl_report.json`
+- `public/data/universe_coverage_report.json`
+- `public/data/backtest_results.json`
+- `public/data/search_index.json`
+- `public/data/search/{TICKER}.json`
+- `public/data/forecasts/summary.json`
+- `public/data/forecasts/{TICKER}.json`
+- `public/data/pipeline_health.json`
+- `data/reports/growth_spurt_benchmark.json`
+
+## Growth Spurt detector v1
+
+Meaning: recent prices have formed a relatively persistent and orderly upward trend. It is a historical-pattern detector, not a prediction.
+
+Mechanics:
+
+- adjusted close preferred, close fallback;
+- 63-session primary window;
+- 21-session confirmation window;
+- Theil-Sen trend on log prices;
+- SPY-relative returns required when available;
+- score components: 30% direction, 25% consistency, 20% SPY-relative strength, 15% drawdown control, 10% confirmation/acceleration;
+- one-day spike dominance triggers `ONE_DAY_SPIKE_DOMINATED` and prevents detected status;
+- statuses: `detected`, `emerging`, `not_detected`, `unavailable`;
+- insufficient history is `unavailable`, never zero;
+- current generated counts: 245 attempted, 19 detected, 30 emerging, 187 not detected, 9 unavailable, 0 calculation failures.
+
+Guardrail: do not blend Growth Spurt into official scoring without a later approved scoring-integration phase.
+
+## Saved-position outcome cards
+
+The saved-position UI shows four main cards:
+
+- `ValueSignal 30 Days`
+- `ValueSignal 90 Days`
+- `Market Target 30 Days`
+- `Market Target 90 Days`
+
+Each card should show estimated gain/loss per share, shares held, estimated total gain/loss, estimated sell price, estimated position value, estimated return percentage, source/as-of date, and an explicit unavailable reason. The total gain/loss is the primary/largest number.
+
+Core formula:
+
+```text
+estimatedGainLossPerShare = estimatedSellPrice - currentPurchasePrice
+estimatedTotalGainLoss = sharesHeld * estimatedGainLossPerShare
+estimatedPositionValue = sharesHeld * estimatedSellPrice
+```
+
+For dollar-allocation mode, first calculate `impliedShares = dollarAllocation / currentPrice`, then use the same per-share formulas. Do not multiply a dollar allocation by the estimated sell price. Do not use "earnings" for a user's position outcome.
+
+Projection-source priority:
+
+```text
+approved non-baseline forecast model
+  -> ValueSignal Conservative Historical Scenario
+  -> unavailable with reason
+```
+
+Market-target scenarios can be calculated only from legitimate provider data with `targetMean`, `currentPriceAtCollection`, and a known `targetHorizonDays`. Current artifacts are `unsupported`; do not fabricate targets or substitute ValueSignal estimates.
+
+Personal 30/90-day scenario fields are user-entered and must remain collapsed/separate. They do not overwrite ValueSignal or market-target outcomes.
 
 ## Commands
 
-Run commands from the repository root.
+Run from repository root.
 
-### Frontend
+Frontend:
 
 ```powershell
-npm install
 npm run dev
-npm run typecheck
 npm run test:brief
+npm run typecheck
 npm run build
-npm run start
 ```
 
-`npm run dev` serves the local site at `http://localhost:3000`. Use `npm run start` only after a successful production build.
-
-### Python tests and audits
+Python:
 
 ```powershell
-python -m unittest discover -s tests -v
+python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/audit_features.py
 python scripts/audit_scoring.py
 python scripts/audit_backtest.py
 python scripts/audit_search.py
+python scripts/build_growth_spurt_artifacts.py
+python scripts/benchmark_growth_spurt.py
+python scripts/pipeline_health.py
 ```
 
-Audits read the existing files under `public/data/`; they do not fetch fresh data.
-
-### Live ETL
-
-The SEC requires an identifying User-Agent containing a contact email. Set it locally without committing it:
+Scaled refresh:
 
 ```powershell
 $env:VS_USER_AGENT="ValueSignal research ETL <CONTACT_EMAIL>"
-python scripts/run_etl.py
+$env:BALANCE_SHEET_SCORING_MODE="official"
+$env:GROWTH_SPURT_MODE="display"
+python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
+python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
+python scripts/benchmark_growth_spurt.py
+python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
+python scripts/forecast/run_forecast_pipeline.py --summary
+python scripts/pipeline_health.py
 ```
 
-Useful scoped run:
+Use `--limit all` or omit `--limit` for an uncapped universe command only when that is intentional. Use staged batches for broader runs.
 
-```powershell
-python scripts/run_etl.py --limit 1 --output .tmp/etl-check
-```
+Never commit `.env*`, secrets, tokens, real credentials, model files, caches, or local logs.
 
-Never put a real email address, token, or secret value in source, logs intended for publication, or this document.
+## Scheduled refresh
 
-## Scheduled refresh and deployment
+`.github/workflows/refresh-data.yml` runs weekdays at `25 23 * * 1-5` UTC and supports manual dispatch.
 
-The GitHub workflow supports manual dispatch and runs on weekdays with cron `25 23 * * 1-5`—**23:25 UTC**, not local time. It:
+It builds the scaled universe, runs ETL, benchmarks Growth Spurt, rebuilds BM25, refreshes forecasts, runs audits, publishes pipeline health, commits changed generated artifacts, and pushes. A pushed artifact commit triggers Vercel when automatic deployment is enabled.
 
-1. Checks out the repository and sets up Python.
-2. builds `VS_USER_AGENT` from the repository secret `VS_CONTACT_EMAIL`.
-3. Runs unit tests.
-4. Runs the live ETL.
-5. Runs feature and scoring audits.
-6. Commits and pushes the six generated JSON artifacts only when they changed.
+Required GitHub secret:
 
-The workflow needs `contents: write`. A successful artifact push triggers Vercel only when that GitHub repository/branch is connected with automatic deployments enabled. If data does not change, the workflow creates no commit, so there may be no redeployment.
+- `VS_CONTACT_EMAIL`
 
-## Debugging runbook
+Vercel auth/database variables are configured outside Git.
 
-### ETL/provider failures
+## Debugging checklist
 
-- Confirm the command runs from the repository root and `scripts/run_etl.py` exists.
-- Confirm `VS_USER_AGENT` is present and contains `@`; in GitHub, confirm `VS_CONTACT_EMAIL` exists without printing its value.
-- Inspect HTTP status, response headers, timeout/retry behavior, and provider-specific error text.
-- Check `scripts/build_universe.py` ticker-to-CIK mappings, including zero padding expected by SEC requests.
-- Compare SEC units, forms, filing dates, fiscal years, and fiscal periods before selecting a fact.
-- Inspect `public/data/etl_report.json` for per-ticker status, row counts, and errors.
-- Verify one ticker exception remains inside the ticker boundary and does not abort the universe.
-- Verify the intended output directory and all six expected artifacts.
+ETL:
 
-### Feature calculations
+- Confirm `VS_USER_AGENT` contains a contact email.
+- Confirm `data/universe/universe.json` exists before scaled ETL.
+- Inspect `public/data/etl_report.json` for per-ticker failures.
+- One ticker failure must not stop the batch.
 
-- Run the unit tests before the audit.
-- Run `python scripts/audit_features.py`.
-- Verify price dates are ascending and contain no duplicates.
-- Verify volatility uses daily log returns multiplied by `sqrt(252)`.
-- Check that price, shares, assets, and revenue denominators are positive before division.
-- Trace outliers from percentile/winsorized values back to ticker-level raw inputs and source rows.
-- Treat range warnings as items requiring investigation, not values to silently clamp away.
+Features/scoring:
 
-### Scoring
+- Missing inputs stay `null`.
+- Scores stay 0-100.
+- Risk scores are worse when higher.
+- Official signal must remain deterministic.
 
-- Read `docs/scoring_specification.md` before changing weights or thresholds.
-- Run `python scripts/audit_scoring.py`.
-- Verify component scores stay within 0–100 and equal their weighted contributions.
-- Verify missing features renormalize available weights and reduce confidence.
-- Verify the classifier returns only the six IDs defined in `src/types/signal.ts`.
-- Verify identical scores/confidence produce deterministic labels.
-- Review the ±20% weight-sensitivity scenarios after scoring changes.
+Growth Spurt:
 
-### Schema/frontend integration
+- Run `python -m unittest tests.test_growth_spurt -v`.
+- Confirm statuses are distinct.
+- Confirm spike-dominated moves are rejected.
+- Confirm SPY-relative fields are present or unavailable is explicit.
+- Confirm official `signals.json` does not change because of Growth Spurt.
 
-- Compare generated keys and nullability with `src/lib/etl.ts`, `src/types/stock.ts`, and `src/types/signal.ts`.
-- Ensure ticker is the unique join key across dashboard, features, signals, and fixtures.
-- Check schema versions and timestamps in every artifact.
-- Confirm fixture fallbacks still work when a ticker or individual live field is missing.
-- Run `npm run typecheck` and `npm run build`.
-- Test `/dashboard`, `/methodology`, and at least one valid and invalid `/stock/[ticker]` route.
-- Check keyboard navigation, focus visibility, semantic headings, narrow mobile layout, and disclaimer visibility.
+Frontend:
 
-## Engineering guardrails
+- Compare generated keys with `src/lib/etl.ts` and `src/types/stock.ts`.
+- Run `npm run test:brief`, `npm run typecheck`, and `npm run build`.
+- Check mobile layout and long labels in dashboard/detail cards.
 
-- Preserve modular boundaries: providers, cleaning, features, scoring, exporting, UI modules, and audits should remain independently testable.
-- Do not let a single ticker failure stop the ETL run; record it in the audit report.
-- Avoid coupling provider response shapes directly to frontend types.
-- Keep formulas and classification policy transparent, deterministic, and documented.
-- Preserve nulls and missingness honestly; do not invent financial values.
-- Do not silently change score weights, feature directionality, thresholds, or schema versions.
-- Keep educational disclaimers and cautious language at decision surfaces.
-- Never claim certainty, predict returns, or generate direct buy/sell recommendations.
-- Never commit `.env` files, contact details, API credentials, repository secrets, or private data.
-- Preserve unrelated user changes in a dirty worktree. Avoid destructive Git commands.
+Saved outcomes:
 
-## Small-task workflow
+- `src/lib/position-projections.ts` owns all ValueSignal and market-target calculations.
+- Dollar allocations first convert to `impliedShares = dollarAllocation / currentPrice`, then use per-share gain/loss math.
+- Share positions use `shares * (estimatedFuturePrice - currentPrice)`.
+- Valid zero-dollar change must render `$0.00`, not `Unavailable`.
+- Missing/stale/currently unsupported market targets must show a specific reason.
 
-1. Read this file, then inspect the specific implementation and tests involved.
-2. State the intended change and assumptions briefly.
-3. Make the smallest modular change that solves the task.
-4. Run focused tests, then the relevant broader gate.
-5. Do not regenerate live artifacts unless the task requires it and `VS_USER_AGENT` is configured.
-6. Report results using the handoff format below.
-
-## Task handoff template
+## Handoff template
 
 ```markdown
 Outcome: <what now works or what was diagnosed>
@@ -219,7 +261,7 @@ Changed files:
 - <path>: <purpose>
 
 Commands/checks:
-- `<command>` — PASS/FAIL and important result
+- `<command>` - PASS/FAIL and important result
 
 Generated artifacts:
 - Regenerated: yes/no

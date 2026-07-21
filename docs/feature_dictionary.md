@@ -23,3 +23,27 @@ All features are computed using observations dated on or before each record's `a
 - Percentiles use average ranks for ties and return `0.5` for a one-company universe.
 - Percentiles are ascending raw-feature ranks. Directionality belongs to the later scoring phase.
 - `rangeWarnings` preserves plausible-but-suspicious observations for review.
+
+## Display-only Growth Spurt detector v1
+
+The Growth Spurt detector is not part of official ValueSignal scoring in v1. It is a separate recent-price-behavior artifact under `growthSpurt` in dashboard, summary, and stock-detail JSON.
+
+| Feature | Formula | Window | Notes |
+|---|---|---:|---|
+| `return21d` | adjusted close(t) / adjusted close(t-21 sessions) - 1 | 21 | Recent confirmation |
+| `return63d` | adjusted close(t) / adjusted close(t-63 sessions) - 1 | 63 | Primary direction |
+| `trendSlope21d` | Theil-Sen slope of log prices | 21 | Robust confirmation trend |
+| `trendSlope63d` | Theil-Sen slope of log prices | 63 | Primary rising-slash slope |
+| `trendAnnualizedReturn63d` | exp(`trendSlope63d` x 252) - 1 | 63 | Direction magnitude, not a forecast |
+| `trendFitR2_63d` | fit quality around robust trend line | 63 | Consistency check |
+| `positiveWeekRatio63d` | positive 5-session chunks / valid chunks | 63 | Persistence check |
+| `percentAboveTrendLine63d` | observations at or above fitted trend / observations | 63 | Shape check |
+| `trendResidualVolatility63d` | stdev of robust-trend residuals | 63 | Zigzag/noise control |
+| `maxDrawdown63d` | minimum price / running peak - 1 | 63 | Drawdown control |
+| `downsideVolatility63d` | stdev of negative log returns | 63 | Downside-only volatility |
+| `largestOneDayContribution63d` | largest absolute daily return / total absolute movement | 63 | Spike rejection |
+| `excessReturnVsSpy21d` | `return21d` - SPY 21-session return | 21 | Market-relative confirmation |
+| `excessReturnVsSpy63d` | `return63d` - SPY 63-session return | 63 | Required market benchmark |
+| `trendAcceleration` | `trendSlope21d` - prior 42-session slope | 21 vs prior 42 | Optional confirmation boost |
+
+Detection is `unavailable` when usable stock or SPY history is insufficient. Insufficient history is never converted to zero.

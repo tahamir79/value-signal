@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:40:10.748741+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "AKAM",
@@ -496,6 +496,56 @@
         "debtToAssets: missing numerator or denominator",
         "cashToDebt: missing numerator or denominator",
         "shortTermDebtShare: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AKAM",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 28.22,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.03699361,
+        "return63d": 0.28407548,
+        "trendSlope21d": 0.00150098,
+        "trendSlope63d": -0.00037902,
+        "trendAnnualizedReturn63d": -0.09109414,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.15562937,
+        "maxDrawdown63d": -0.30042197,
+        "downsideVolatility63d": 0.01996654,
+        "excessReturnVsSpy21d": -0.04109884,
+        "excessReturnVsSpy63d": 0.23639222,
+        "trendAcceleration": -0.00773572,
+        "largestOneDayContribution63d": 0.14301362,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 35.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 65.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 40.0
+      },
+      "benchmarkPercentile": 0.391489,
+      "metricPercentiles": {
+        "trendSlope63d": 0.429787,
+        "trendFitR2_63d": 0.053191,
+        "excessReturnVsSpy63d": 0.902128,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.391489
+      },
+      "reasonCodes": [
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -14324,13 +14374,20 @@
       "leverageScore": null,
       "solvencyScore": 75.454545,
       "triggeredBalanceSheetGates": [],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-08",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 28.22,
+      "growthSpurtBenchmarkPercentile": 0.391489,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

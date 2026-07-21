@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-20T23:34:19.598973+00:00",
+  "generatedAt": "2026-07-21T03:28:43.617800+00:00",
   "record": {
     "security": {
       "ticker": "ACR",
@@ -425,6 +425,52 @@
         "cashRatio: missing numerator or denominator",
         "shortTermDebtShare: missing numerator or denominator"
       ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "ACR",
+      "generatedAt": "2026-07-21T03:20:30.151432+00:00",
+      "marketDataAsOf": "2026-07-20",
+      "status": "not_detected",
+      "growthSpurtScore": 30.3,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.05393936,
+        "return63d": -0.14754903,
+        "trendSlope21d": -0.00034047,
+        "trendSlope63d": -0.00368435,
+        "trendAnnualizedReturn63d": -0.60483716,
+        "trendFitR2_63d": 0.67192485,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.05126852,
+        "maxDrawdown63d": -0.3021016,
+        "downsideVolatility63d": 0.02000399,
+        "excessReturnVsSpy21d": 0.04983412,
+        "excessReturnVsSpy63d": -0.19523229,
+        "trendAcceleration": 0.00481675,
+        "largestOneDayContribution63d": 0.07754659,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 20.0,
+        "consistencyScore": 45.217,
+        "relativeStrengthScore": 35.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 60.0
+      },
+      "benchmarkPercentile": 0.429787,
+      "metricPercentiles": {
+        "trendSlope63d": 0.2,
+        "trendFitR2_63d": 0.73617,
+        "excessReturnVsSpy63d": 0.238298,
+        "drawdownControlScore": 0.180851,
+        "growthSpurtScore": 0.429787
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET"
+      ],
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -14256,13 +14302,20 @@
         "Severe Leverage Gate",
         "Balance Sheet Incomplete Gate"
       ],
-      "scoringInputsAvailable": false,
-      "scoringAvailable": false,
-      "officialSignal": null,
+      "scoringInputsAvailable": true,
+      "scoringAvailable": true,
+      "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-06",
-      "latestScoringDate": null,
-      "lastPipelineRun": "2026-07-20T23:29:15.968142+00:00"
+      "latestScoringDate": "2026-07-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 30.3,
+      "growthSpurtBenchmarkPercentile": 0.429787,
+      "growthSpurtMarketDataAsOf": "2026-07-20",
+      "lastPipelineRun": "2026-07-21T03:20:30.151432+00:00",
+      "balanceSheetExperimentalSignal": "value-trap-risk",
+      "balanceSheetWouldChangeSignal": false
     }
   }
 }

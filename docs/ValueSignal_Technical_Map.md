@@ -38,6 +38,7 @@ Stock price history
   -> experimental forecast model evaluation
   -> conservative historical scenario
   -> saved-stock 30/90-day position projections
+  -> display-only Growth Spurt detector + SPY-relative benchmark
 ```
 
 ---
@@ -55,18 +56,21 @@ Current cleaned artifact counts after stale-artifact cleanup:
 - Stale scenario count: **0**
 - Selected 30-day model: **zero-return baseline**
 - Selected 90-day model: **zero-return baseline**
+- Growth Spurt detector: **245 attempted**, **19 detected**, **30 emerging**, **187 not detected**, **9 unavailable**, **0 calculation failures**
+- Growth Spurt historical benchmark: **9,950 candidate snapshots**, **570 detected snapshots**, **2,280 forward observations**
 - Search index coverage: **199 indexed tickers** in per-ticker BM25 mode
-- Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures**
+- Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures** and **5 true noncritical ETL failures**
 
 Current true partial causes:
 
 - ETL provider 404s for 5 unsupported/unavailable symbols: `AAC`, `ADBT`, `ADIG`, `AIBZ`, `AIST`.
-- 42 stocks do not have enough sparse historical observations for the conservative 30/90-day scenario.
 - Balance-sheet coverage is partial for many companies because SEC companyfacts does not always expose every target balance-sheet field.
 
 Expected unavailable states:
 
 - Scaled scheduled ETL intentionally skips full backtest generation.
+- 42 stocks do not have enough sparse historical observations for the conservative 30/90-day scenario.
+- 9 stocks do not have enough usable recent price/SPY-aligned detector history for Growth Spurt.
 - Analyst/market target provider is not configured, so analyst target fields remain null/unsupported.
 - Local Ollama/RAG is not a production dependency.
 
@@ -314,6 +318,7 @@ User-facing disclosure:
 Saved-stock UI and projection math live in:
 
 - `src/components/SavedStocksConsole.tsx`
+- `src/components/HoldingOutcomeCard.tsx`
 - `src/lib/position-projections.ts`
 - `src/types/forecast.ts`
 
@@ -326,35 +331,105 @@ The projection layer distinguishes four concepts:
 
 Personal 30/90 scenario fields are user-entered and do not change ValueSignal estimates.
 
-Dollar allocation math:
+Saved-position holding math:
 
 ```text
-currentPositionValue = dollarAmount
-estimatedChange = currentPositionValue * returnEstimate
-estimatedValue = currentPositionValue + estimatedChange
+estimatedGainLossPerShare = estimatedSellPrice - currentPurchasePrice
+estimatedTotalGainLoss = sharesHeld * estimatedGainLossPerShare
+estimatedPositionValue = sharesHeld * estimatedSellPrice
 ```
 
-Share position math:
+For dollar-allocation mode, the projection layer first calculates implied shares:
 
 ```text
-currentPositionValue = shares * currentPrice
-estimatedChange = shares * (estimatedFuturePrice - currentPrice)
-estimatedValue = shares * estimatedFuturePrice
+impliedShares = dollarAllocation / currentPrice
 ```
 
-Do not calculate `shares * returnEstimate`; that was the bug avoided in `src/lib/position-projections.ts`.
+Then it uses the same per-share formula. Do not calculate `shares * returnEstimate`, and do not multiply a dollar allocation by an estimated sell price.
 
-Current UI cards show:
+Current UI cards show a compact two-by-two outcome grid:
 
-- VS 30-day change;
-- VS 30-day value;
-- VS 90-day change;
-- VS 90-day value;
-- source label and sample count;
-- selected model status;
-- analyst target provider status.
+- `ValueSignal 30 Days`;
+- `ValueSignal 90 Days`;
+- `Market Target 30 Days`;
+- `Market Target 90 Days`.
+
+At the top of each saved position, the UI shows current price, shares held, and current position value. Each outcome card makes estimated total gain/loss the largest number, then shows gain/loss per share, shares held, estimated sell price, estimated position value, estimated return percentage, source/as-of date, and an explicit unavailable reason when needed. The component receives normalized `HoldingOutcome` records from `src/lib/position-projections.ts`; React does not reproduce forecast-source selection or target time-scaling logic.
+
+Internal fields now live inside a collapsed `Forecast methodology` panel:
+
+- zero-return baseline status;
+- selected model names;
+- displayed projection source and sample count;
+- analyst/market target provider status;
+- optional user-entered personal 30/90-day scenarios.
+
+Market-target scenarios stay unavailable until a legitimate provider supplies a consensus target plus documented horizon. If a future provider gives a valid horizon, the implied 30/90-day scenario is time-scaled as `(1 + targetReturn)^(horizon / targetHorizonDays) - 1`; it is labeled as an assumption-based scenario, not an analyst-issued short-term forecast.
 
 The saved-stock layout overflow was caused by nested grid children using fixed minimum widths and form controls lacking shrink/width constraints. The fix added `min-width: 0`, `box-sizing: border-box`, `width: 100%`, `max-width: 100%`, and safer `minmax(0, ...)` grid definitions in `src/app/globals.css`.
+
+---
+
+## 8.5 Growth Spurt detector
+
+Growth Spurt code lives in:
+
+- `scripts/growth_spurt.py`
+- `scripts/build_growth_spurt_artifacts.py`
+- `scripts/benchmark_growth_spurt.py`
+- `src/components/GrowthSpurtBadge.tsx`
+- `tests/test_growth_spurt.py`
+- `tests/growthSpurtBadge.test.tsx`
+
+Current mode:
+
+```text
+GROWTH_SPURT_MODE=display
+```
+
+Supported modes are `off`, `shadow`, `display`, and `official`. `official` is reserved and currently does not influence the official signal.
+
+Formula mechanics:
+
+- Uses adjusted close when available, otherwise close.
+- Normalizes and sorts prices by date, deduping same-date rows.
+- Requires at least 50 usable observations and uses a 63-session primary window with 21-session confirmation.
+- Fits a Theil-Sen trend to log prices for robust 63-session and 21-session slope.
+- Scores direction, consistency, SPY-relative strength, drawdown control, and recent confirmation/acceleration into `growthSpurtScore`.
+- Rejects spike-dominated moves using `largestOneDayContribution63d` and `ONE_DAY_SPIKE_DOMINATED`.
+- Computes cross-sectional percentiles for trend slope, R2, SPY excess return, drawdown-control score, and total Growth Spurt Score.
+
+Detection threshold:
+
+```text
+detected if:
+  score >= 70
+  trendSlope63d > 0
+  return63d > 0
+  return21d >= 0
+  trendFitR2_63d >= 0.45
+  positiveWeekRatio63d >= 0.60
+  maxDrawdown63d >= -0.15
+  no ONE_DAY_SPIKE_DOMINATED warning
+
+emerging if:
+  score >= 55
+  trendSlope63d > 0
+  return63d > 0
+  no spike dominance
+```
+
+Generated artifact locations:
+
+- `public/data/dashboard.json` has dashboard-row `growthSpurt`.
+- `public/data/stocks/summary.json` has compact summary `growthSpurt`.
+- `public/data/stocks/{TICKER}.json` has full `growthSpurt` metrics.
+- `data/reports/growth_spurt_benchmark.json` has point-in-time benchmark results.
+- `public/data/etl_report.json`, `public/data/universe_coverage_report.json`, and `public/data/pipeline_health.json` include detector coverage counts.
+
+User-facing boundary:
+
+> This tag describes recent historical price behavior. It does not predict that the price will continue rising.
 
 ---
 
@@ -453,13 +528,14 @@ Current health summary:
 - core artifacts: success;
 - ETL ticker pipeline: partial success, 5 provider 404 failures;
 - backtest: unavailable expected due scaled `--skip-backtest`;
-- forecast artifacts: partial success, 42 insufficient-history cases;
+- forecast artifacts: success with 42 skipped insufficient-history scenario cases;
 - filing search index: success, 199 tickers;
 - balance-sheet context: partial success, 199 usable/partial and 46 unavailable;
-- analyst targets: unavailable expected.
+- growth-spurt detector: success with 245 attempted, 236 available states, 9 expected unavailable, 0 calculation failures;
+- market targets: unavailable expected because no analyst target provider is configured.
 - release readiness: ready with known limitations;
 - expected unavailable count: 246;
-- data-quality warnings: 226.
+- data-quality warnings: 226, currently from partial balance-sheet context rather than expected forecast/market-target gaps.
 
 The public summary excludes local artifact paths and secrets.
 
@@ -477,13 +553,14 @@ Current intended sequence:
 2. setup Python/Node;
 3. run tests;
 4. build scaled universe;
-5. run ETL with `--skip-backtest`;
-6. rebuild BM25 search index;
-7. run forecast pipeline;
-8. run feature/scoring/backtest/search/forecast audits;
-9. generate pipeline health;
-10. commit generated artifacts if changed;
-11. push to trigger Vercel redeployment.
+5. run ETL with `--skip-backtest`, including Growth Spurt artifacts when mode is `display`;
+6. benchmark the Growth Spurt detector against SPY point-in-time snapshots;
+7. rebuild BM25 search index;
+8. run forecast pipeline;
+9. run feature/scoring/backtest/search/forecast audits;
+10. generate pipeline health;
+11. commit generated artifacts if changed;
+12. push to trigger Vercel redeployment.
 
 Important environment/secret requirements:
 
@@ -523,6 +600,8 @@ python scripts/audit_features.py
 python scripts/audit_scoring.py
 python scripts/audit_backtest.py
 python scripts/audit_search.py
+python scripts/build_growth_spurt_artifacts.py
+python scripts/benchmark_growth_spurt.py
 ```
 
 Forecast:
@@ -546,6 +625,7 @@ Scaled refresh:
 $env:VS_USER_AGENT="ValueSignal research ETL <contact>"
 python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
 python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
+python scripts/benchmark_growth_spurt.py
 python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
 python scripts/forecast/run_forecast_pipeline.py --summary
 python scripts/pipeline_health.py
@@ -561,6 +641,7 @@ Before commit/deploy after scoring, ETL, forecast, or projection work:
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/audit_features.py
 python scripts/audit_scoring.py
+python scripts/benchmark_growth_spurt.py
 python scripts/audit_backtest.py
 python scripts/audit_search.py
 python scripts/forecast/audit_training_dataset.py

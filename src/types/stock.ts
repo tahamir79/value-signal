@@ -1,10 +1,50 @@
 import type { SignalId } from "./signal";
 export type ScoreSet = { value: number | null; quality: number | null; momentum: number | null; marketRisk?: number | null; balanceSheetRisk: number | null };
+export type GrowthSpurtStatus = "detected" | "emerging" | "not_detected" | "unavailable";
+export type GrowthSpurtArtifact = {
+  schemaVersion?: string;
+  ticker: string;
+  generatedAt: string;
+  marketDataAsOf: string | null;
+  status: GrowthSpurtStatus;
+  growthSpurtScore: number | null;
+  primaryWindowSessions: number;
+  confirmationWindowSessions: number;
+  metrics: {
+    return21d: number | null;
+    return63d: number | null;
+    trendSlope21d: number | null;
+    trendSlope63d: number | null;
+    trendAnnualizedReturn63d: number | null;
+    trendFitR2_63d: number | null;
+    positiveWeekRatio63d: number | null;
+    trendResidualVolatility63d: number | null;
+    maxDrawdown63d: number | null;
+    downsideVolatility63d: number | null;
+    excessReturnVsSpy21d: number | null;
+    excessReturnVsSpy63d: number | null;
+    trendAcceleration: number | null;
+    largestOneDayContribution63d: number | null;
+    percentAboveTrendLine63d: number | null;
+  };
+  scoreBreakdown: {
+    directionScore: number | null;
+    consistencyScore: number | null;
+    relativeStrengthScore: number | null;
+    drawdownControlScore: number | null;
+    confirmationScore: number | null;
+  };
+  benchmarkPercentile?: number | null;
+  metricPercentiles?: Record<string, number | null>;
+  reasonCodes?: string[];
+  warnings: string[];
+};
 export type StockRecord = {
   ticker: string; companyName: string; sector: string; exchange: string;
   price: number; dailyChangePercent: number; marketCapBillions: number;
   signal: SignalId; confidence: "High" | "Medium" | "Low" | "Insufficient"; scores: ScoreSet;
   summary: string; supportingEvidence: string[]; weakeningEvidence: string[]; asOf: string;
-  dataStatus?: { scoringAvailable?: boolean; bm25Indexed?: boolean; latestFilingDate?: string | null; insufficientEvidenceReason?: string | null; balanceSheetAvailable?: boolean; balanceSheetPartial?: boolean; balanceSheetQualityScore?: number | null; balanceSheetRiskPenalty?: number | null; triggeredBalanceSheetGates?: string[] };
+  dataStatus?: { scoringAvailable?: boolean; bm25Indexed?: boolean; latestFilingDate?: string | null; insufficientEvidenceReason?: string | null; balanceSheetAvailable?: boolean; balanceSheetPartial?: boolean; balanceSheetQualityScore?: number | null; balanceSheetRiskPenalty?: number | null; triggeredBalanceSheetGates?: string[]; growthSpurtStatus?: GrowthSpurtStatus | null; growthSpurtScore?: number | null; growthSpurtBenchmarkPercentile?: number | null; growthSpurtMarketDataAsOf?: string | null };
   fundamentals?: { latestRevenueBillions?: number | null; revenueGrowthPercent?: number | null; grossMarginPercent?: number | null; netMarginPercent?: number | null };
+  growthSpurt?: GrowthSpurtArtifact | null;
 };

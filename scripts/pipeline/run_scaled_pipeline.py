@@ -12,6 +12,7 @@ if __package__ is None or __package__ == "":
 
 from scripts.filings.ingest_filings import IngestPaths, filter_universe, ingest_company
 from scripts.sec.sec_client import SecClient
+from scripts.universe.limits import parse_optional_limit, parse_optional_offset
 from scripts.universe.build_universe import build_scaled_universe, write_universe
 from scripts.universe.universe_manifest import utc_now
 
@@ -19,7 +20,9 @@ from scripts.universe.universe_manifest import utc_now
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run a staged, restartable ValueSignal scaling pipeline.")
     parser.add_argument("--mode", default="starter")
-    parser.add_argument("--limit", type=int)
+    parser.add_argument("--limit", type=parse_optional_limit)
+    parser.add_argument("--offset", type=parse_optional_offset, default=0)
+    parser.add_argument("--batch-size", type=parse_optional_limit, default=250)
     parser.add_argument("--ticker")
     parser.add_argument("--tickers", nargs="*")
     parser.add_argument("--forms", nargs="*", default=["10-K", "10-Q"])
@@ -42,8 +45,18 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     universe_dir = output_dir / "universe"
     report_dir = output_dir / "reports"
-    rows = build_scaled_universe(mode=args.mode, limit=args.limit)
-    manifest = write_universe(rows, mode=args.mode, limit=args.limit, output_dir=universe_dir, dry_run=args.dry_run)
+    batch_limit = args.batch_size if args.batch_size is not None else args.limit
+    rows = build_scaled_universe(mode=args.mode, limit=batch_limit, offset=args.offset)
+    manifest = write_universe(
+        rows,
+        mode=args.mode,
+        limit=args.limit,
+        output_dir=universe_dir,
+        dry_run=args.dry_run,
+        batch_size=args.batch_size,
+        offset=args.offset,
+        resume=args.resume,
+    )
     supported = [row for row in rows if row.get("isSupported")]
     metadata: list[dict] = []
     chunks: list[dict] = []
@@ -80,6 +93,9 @@ def main() -> None:
         "durationSeconds": round(time.time() - started, 3),
         "universeMode": args.mode,
         "requestedLimit": args.limit,
+        "batchSize": args.batch_size,
+        "offset": args.offset,
+        "resume": args.resume,
         "companiesAttempted": len(supported),
         "companiesSucceeded": len(supported) - len({failure.get("ticker") for failure in failures}),
         "companiesFailed": len({failure.get("ticker") for failure in failures}),
