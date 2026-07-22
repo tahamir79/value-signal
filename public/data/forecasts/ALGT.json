@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "ALGT",
+  "companyName": "Allegiant Travel CO",
+  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "marketDataAsOf": "2026-07-21",
+  "currentPrice": 101.35,
+  "analystTarget": {
+    "ticker": "ALGT",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 101.34999847,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.19053463,
+    "upperReturn": 0.25121167,
+    "estimatedPrice": 101.35,
+    "lowerEstimatedPrice": 82.0393,
+    "upperEstimatedPrice": 126.8103
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.30726303,
+    "upperReturn": 0.47327104,
+    "estimatedPrice": 101.35,
+    "lowerEstimatedPrice": 70.2089,
+    "upperEstimatedPrice": 149.316
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "marketDataAsOf": "2026-07-21",
+    "currentPrice": 101.35,
+    "horizon30Day": {
+      "returnEstimate": 0.04118352,
+      "lowerReturn": -0.030875,
+      "upperReturn": 0.08,
+      "estimatedPrice": 105.5239,
+      "lowerEstimatedPrice": 98.2208,
+      "upperEstimatedPrice": 109.458,
+      "sampleCount": 25,
+      "status": "available",
+      "usableObservationCount": 25,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.06669541,
+      "lowerReturn": -0.09639918,
+      "upperReturn": 0.15,
+      "estimatedPrice": 108.1096,
+      "lowerEstimatedPrice": 91.5799,
+      "upperEstimatedPrice": 116.5525,
+      "sampleCount": 23,
+      "status": "available",
+      "usableObservationCount": 23,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "warnings": [
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": 0.15009596668270966,
+    "directionalAccuracy": 0.005408621342419817
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": 0.25469076777129984,
+    "directionalAccuracy": 0.0025112107623318385
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
+    "CatBoost candidate unavailable in the current project environment."
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-21T07:03:29.765508+00:00",
+  "generatedAt": "2026-07-22T00:32:21.644466+00:00",
   "horizonDays": 90,
   "split": {
-    "train": 57170,
-    "validation": 2424,
-    "test": 16648
+    "train": 57459,
+    "validation": 2437,
+    "test": 16725
   },
   "selectedModel": "zero-return baseline",
   "leaderboard": [
@@ -14,20 +14,20 @@
       "model": "zero-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2670339707238216,
-        "rmse": 0.43842035679486263,
-        "medianAbsoluteError": 0.12666240640535278,
-        "directionalAccuracy": 0.0024752475247524753,
+        "mae": 0.26678877275267804,
+        "rmse": 0.4374328518102154,
+        "medianAbsoluteError": 0.12857471339124713,
+        "directionalAccuracy": 0.002051702913418137,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.13331258473371688
+        "predictionBias": 0.1309404159226192
       },
       "test": {
-        "mae": 0.2552473249805195,
-        "rmse": 0.4362396997519113,
-        "medianAbsoluteError": 0.13225940200465064,
-        "directionalAccuracy": 0.0025228255646323884,
+        "mae": 0.25469076777129984,
+        "rmse": 0.43582294221879375,
+        "medianAbsoluteError": 0.13239931696836404,
+        "directionalAccuracy": 0.0025112107623318385,
         "spearmanRankCorrelation": null,
-        "predictionBias": -0.0014324409899170822
+        "predictionBias": -0.002168716629721546
       }
     },
     {
@@ -35,20 +35,20 @@
       "model": "historical-mean baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2664782459670312,
-        "rmse": 0.4329359896935422,
-        "medianAbsoluteError": 0.1347642390566838,
-        "directionalAccuracy": 0.5334158415841584,
+        "mae": 0.2663162987894585,
+        "rmse": 0.43222020636250225,
+        "medianAbsoluteError": 0.1353271411274781,
+        "directionalAccuracy": 0.5318013951579811,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.11398862736333232
+        "predictionBias": 0.11230404920221985
       },
       "test": {
-        "mae": 0.2578095004269704,
-        "rmse": 0.4367308688715965,
-        "medianAbsoluteError": 0.1341962042934529,
-        "directionalAccuracy": 0.45873378183565594,
-        "spearmanRankCorrelation": -0.032240289627946304,
-        "predictionBias": -0.020756398360301628
+        "mae": 0.2571818114824548,
+        "rmse": 0.4363138607993465,
+        "medianAbsoluteError": 0.13426481039453966,
+        "directionalAccuracy": 0.4572795216741405,
+        "spearmanRankCorrelation": null,
+        "predictionBias": -0.020805083350120903
       }
     },
     {
@@ -56,138 +56,27 @@
       "model": "market-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2664782459670312,
-        "rmse": 0.4329359896935422,
-        "medianAbsoluteError": 0.1347642390566838,
-        "directionalAccuracy": 0.5334158415841584,
+        "mae": 0.2663162987894585,
+        "rmse": 0.43222020636250225,
+        "medianAbsoluteError": 0.1353271411274781,
+        "directionalAccuracy": 0.5318013951579811,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.11398862736333232
+        "predictionBias": 0.11230404920221985
       },
       "test": {
-        "mae": 0.2578095004269704,
-        "rmse": 0.4367308688715965,
-        "medianAbsoluteError": 0.1341962042934529,
-        "directionalAccuracy": 0.45873378183565594,
-        "spearmanRankCorrelation": -0.032240289627946304,
-        "predictionBias": -0.020756398360301628
+        "mae": 0.2571818114824548,
+        "rmse": 0.4363138607993465,
+        "medianAbsoluteError": 0.13426481039453966,
+        "directionalAccuracy": 0.4572795216741405,
+        "spearmanRankCorrelation": null,
+        "predictionBias": -0.020805083350120903
       }
     },
     {
       "horizonDays": 90,
-      "model": "ridge regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.2591353150160836,
-        "rmse": 0.42097823449748273,
-        "medianAbsoluteError": 0.12262894272514646,
-        "directionalAccuracy": 0.5874587458745875,
-        "spearmanRankCorrelation": 0.20186043374686907,
-        "predictionBias": 0.11027404356535657
-      },
-      "test": {
-        "mae": 0.25706331391760634,
-        "rmse": 0.43367362136839704,
-        "medianAbsoluteError": 0.13349368992705601,
-        "directionalAccuracy": 0.49981979817395483,
-        "spearmanRankCorrelation": -0.027271547483703928,
-        "predictionBias": -0.022192032040003813
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "elastic net",
-      "status": "available",
-      "validation": {
-        "mae": 0.2569732168228017,
-        "rmse": 0.41805011456274555,
-        "medianAbsoluteError": 0.1225673266682272,
-        "directionalAccuracy": 0.5985973597359736,
-        "spearmanRankCorrelation": 0.26138317376376424,
-        "predictionBias": 0.10973192697240702
-      },
-      "test": {
-        "mae": 0.2563384376932768,
-        "rmse": 0.43289848439374107,
-        "medianAbsoluteError": 0.13177929236491687,
-        "directionalAccuracy": 0.5064872657376261,
-        "spearmanRankCorrelation": -0.016415381756701507,
-        "predictionBias": -0.022273445698000646
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "huber regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.26592052779573366,
-        "rmse": 0.4354417725609732,
-        "medianAbsoluteError": 0.12481631474538142,
-        "directionalAccuracy": 0.5457920792079208,
-        "spearmanRankCorrelation": 0.09253513598016623,
-        "predictionBias": 0.11720061588818528
-      },
-      "test": {
-        "mae": 0.25610610941780526,
-        "rmse": 0.43183972934708714,
-        "medianAbsoluteError": 0.13286645919115644,
-        "directionalAccuracy": 0.5195819317635753,
-        "spearmanRankCorrelation": -0.01275205741768867,
-        "predictionBias": -0.002889949803951072
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "hist gradient boosting",
-      "status": "available",
-      "validation": {
-        "mae": 0.2561186944175124,
-        "rmse": 0.4229197774879706,
-        "medianAbsoluteError": 0.12398796644310171,
-        "directionalAccuracy": 0.5297029702970297,
-        "spearmanRankCorrelation": 0.08828262679989421,
-        "predictionBias": 0.10766092515041346
-      },
-      "test": {
-        "mae": 0.26919547424319673,
-        "rmse": 0.468865565038534,
-        "medianAbsoluteError": 0.13407997652549206,
-        "directionalAccuracy": 0.5061268620855358,
-        "spearmanRankCorrelation": -0.00010769507689482511,
-        "predictionBias": -0.03150624972342826
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "random forest challenger",
-      "status": "available",
-      "validation": {
-        "mae": 0.27068831577211905,
-        "rmse": 0.4358713784560082,
-        "medianAbsoluteError": 0.14735579685318062,
-        "directionalAccuracy": 0.5305280528052805,
-        "spearmanRankCorrelation": 0.06147235685909728,
-        "predictionBias": 0.08821739676576025
-      },
-      "test": {
-        "mae": 0.29429245740567705,
-        "rmse": 0.5076717227047153,
-        "medianAbsoluteError": 0.14883209562575456,
-        "directionalAccuracy": 0.5194617972128784,
-        "spearmanRankCorrelation": 0.02332922772392566,
-        "predictionBias": -0.03982579102989683
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "catboost regressor",
+      "model": "sklearn candidates",
       "status": "unavailable",
-      "reason": "CatBoost is not installed in this project environment."
-    },
-    {
-      "horizonDays": 90,
-      "model": "small neural network challenger",
-      "status": "unavailable",
-      "reason": "Neural-network challenger is disabled for the lightweight local batch and cannot be selected."
+      "reason": "scikit-learn unavailable or no train rows"
     }
   ]
 }

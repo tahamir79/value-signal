@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-21T04:37:21.307874+00:00",
+  "generatedAt": "2026-07-22T00:32:21.895101+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 5,
-  "expectedUnavailable": 246,
-  "dataQualityWarnings": 226,
-  "warnings": 226,
+  "nonCriticalFailures": 4,
+  "expectedUnavailable": 247,
+  "dataQualityWarnings": 227,
+  "warnings": 227,
   "stages": [
     {
       "name": "core_artifacts",
@@ -33,20 +33,19 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 250,
-      "succeeded": 245,
-      "failed": 5,
+      "succeeded": 246,
+      "failed": 4,
       "skipped": 0,
       "failedTickers": [
         "AAC",
         "ADBT",
         "ADIG",
-        "AIBZ",
-        "AIST"
+        "AIBZ"
       ],
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 5
+          "count": 4
         }
       ],
       "artifactPaths": [
@@ -76,8 +75,8 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 245,
-      "succeeded": 203,
+      "attempted": 246,
+      "succeeded": 204,
       "failed": 0,
       "skipped": 42,
       "failedTickers": [],
@@ -100,8 +99,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 199,
-      "succeeded": 199,
+      "attempted": 200,
+      "succeeded": 200,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -114,15 +113,15 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 245,
-      "succeeded": 199,
+      "attempted": 246,
+      "succeeded": 200,
       "failed": 0,
       "skipped": 46,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 180
+          "count": 181
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
@@ -137,8 +136,8 @@
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 245,
-      "succeeded": 236,
+      "attempted": 246,
+      "succeeded": 237,
       "failed": 0,
       "skipped": 9,
       "failedTickers": [],
@@ -157,15 +156,15 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 245,
+      "attempted": 246,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 245,
+      "skipped": 246,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 245
+          "count": 246
         }
       ],
       "artifactPaths": [
@@ -194,12 +193,6 @@
     },
     {
       "ticker": "AIBZ",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "AIST",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false

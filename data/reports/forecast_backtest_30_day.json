@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-21T07:03:29.763556+00:00",
+  "generatedAt": "2026-07-22T00:32:21.644466+00:00",
   "horizonDays": 30,
   "split": {
-    "train": 72457,
-    "validation": 12876,
-    "test": 18642
+    "train": 72598,
+    "validation": 12937,
+    "test": 18489
   },
   "selectedModel": "zero-return baseline",
   "leaderboard": [
@@ -14,20 +14,20 @@
       "model": "zero-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13710125730670022,
-        "rmse": 0.22973720126396344,
-        "medianAbsoluteError": 0.07731941971692478,
-        "directionalAccuracy": 0.005203479341410376,
+        "mae": 0.13713230733236997,
+        "rmse": 0.22965418589532555,
+        "medianAbsoluteError": 0.07736848414818759,
+        "directionalAccuracy": 0.0051016464404421424,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.02225189947659819
+        "predictionBias": 0.02168171623098983
       },
       "test": {
-        "mae": 0.15071104998078666,
-        "rmse": 0.27030049402742057,
-        "medianAbsoluteError": 0.08260068818885923,
-        "directionalAccuracy": 0.0054715159317669775,
+        "mae": 0.15009596668270966,
+        "rmse": 0.2694505806383362,
+        "medianAbsoluteError": 0.08232494310349826,
+        "directionalAccuracy": 0.005408621342419817,
         "spearmanRankCorrelation": null,
-        "predictionBias": -0.005977032787725118
+        "predictionBias": -0.007920282974699999
       }
     },
     {
@@ -35,20 +35,20 @@
       "model": "historical-mean baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13760384779629034,
-        "rmse": 0.2293224793927087,
-        "medianAbsoluteError": 0.07837268879596418,
-        "directionalAccuracy": 0.4572072072072072,
-        "spearmanRankCorrelation": 0.06985994930188692,
-        "predictionBias": 0.01745751816659776
+        "mae": 0.1376208113850725,
+        "rmse": 0.22926863744392784,
+        "medianAbsoluteError": 0.07850634741770496,
+        "directionalAccuracy": 0.4556697843394914,
+        "spearmanRankCorrelation": -0.04101825897115109,
+        "predictionBias": 0.017121910958525
       },
       "test": {
-        "mae": 0.15127251753689086,
-        "rmse": 0.27044898874313944,
-        "medianAbsoluteError": 0.08329368844542911,
-        "directionalAccuracy": 0.45284840682330224,
-        "spearmanRankCorrelation": null,
-        "predictionBias": -0.010771414097725545
+        "mae": 0.15067081859386675,
+        "rmse": 0.26962313907859287,
+        "medianAbsoluteError": 0.08297985404912409,
+        "directionalAccuracy": 0.4478879333657851,
+        "spearmanRankCorrelation": -0.029957804844964048,
+        "predictionBias": -0.01248008824716483
       }
     },
     {
@@ -56,138 +56,27 @@
       "model": "market-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13760384779629034,
-        "rmse": 0.2293224793927087,
-        "medianAbsoluteError": 0.07837268879596418,
-        "directionalAccuracy": 0.4572072072072072,
-        "spearmanRankCorrelation": 0.06985994930188692,
-        "predictionBias": 0.01745751816659776
+        "mae": 0.1376208113850725,
+        "rmse": 0.22926863744392784,
+        "medianAbsoluteError": 0.07850634741770496,
+        "directionalAccuracy": 0.4556697843394914,
+        "spearmanRankCorrelation": -0.04101825897115109,
+        "predictionBias": 0.017121910958525
       },
       "test": {
-        "mae": 0.15127251753689086,
-        "rmse": 0.27044898874313944,
-        "medianAbsoluteError": 0.08329368844542911,
-        "directionalAccuracy": 0.45284840682330224,
-        "spearmanRankCorrelation": null,
-        "predictionBias": -0.010771414097725545
+        "mae": 0.15067081859386675,
+        "rmse": 0.26962313907859287,
+        "medianAbsoluteError": 0.08297985404912409,
+        "directionalAccuracy": 0.4478879333657851,
+        "spearmanRankCorrelation": -0.029957804844964048,
+        "predictionBias": -0.01248008824716483
       }
     },
     {
       "horizonDays": 30,
-      "model": "ridge regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.1355773709683184,
-        "rmse": 0.22767344863357367,
-        "medianAbsoluteError": 0.07625935214267147,
-        "directionalAccuracy": 0.5840323081702392,
-        "spearmanRankCorrelation": 0.11942995667009594,
-        "predictionBias": 0.017424569638155113
-      },
-      "test": {
-        "mae": 0.14966926856896923,
-        "rmse": 0.2676667174316421,
-        "medianAbsoluteError": 0.08143706838846931,
-        "directionalAccuracy": 0.5490827164467332,
-        "spearmanRankCorrelation": 0.04793326018184655,
-        "predictionBias": -0.013232887941750458
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "elastic net",
-      "status": "available",
-      "validation": {
-        "mae": 0.1350989383394382,
-        "rmse": 0.22673141165563898,
-        "medianAbsoluteError": 0.07644641486640626,
-        "directionalAccuracy": 0.5962255358807083,
-        "spearmanRankCorrelation": 0.15046147252107114,
-        "predictionBias": 0.017131501667928196
-      },
-      "test": {
-        "mae": 0.1498095033350438,
-        "rmse": 0.2680382559908645,
-        "medianAbsoluteError": 0.08185000638580975,
-        "directionalAccuracy": 0.5445231198369274,
-        "spearmanRankCorrelation": 0.041811223070486424,
-        "predictionBias": -0.013819972219718823
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "huber regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.13573502197300996,
-        "rmse": 0.22810776536173552,
-        "medianAbsoluteError": 0.0765393751972589,
-        "directionalAccuracy": 0.5747903075489282,
-        "spearmanRankCorrelation": 0.09444787092673596,
-        "predictionBias": 0.019649953445222003
-      },
-      "test": {
-        "mae": 0.14892924001144733,
-        "rmse": 0.26667191709410903,
-        "medianAbsoluteError": 0.08105160034075712,
-        "directionalAccuracy": 0.5576118442227229,
-        "spearmanRankCorrelation": 0.07647495237414705,
-        "predictionBias": -0.011375935061483301
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "hist gradient boosting",
-      "status": "available",
-      "validation": {
-        "mae": 0.13987083421113955,
-        "rmse": 0.23408212165866968,
-        "medianAbsoluteError": 0.07863178150303198,
-        "directionalAccuracy": 0.5708294501397949,
-        "spearmanRankCorrelation": 0.0003069099541466571,
-        "predictionBias": 0.018619529666231087
-      },
-      "test": {
-        "mae": 0.15407503321378443,
-        "rmse": 0.2863210219269287,
-        "medianAbsoluteError": 0.08203975611333686,
-        "directionalAccuracy": 0.5588992597360798,
-        "spearmanRankCorrelation": 0.06925742023316196,
-        "predictionBias": -0.018742449259417916
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "random forest challenger",
-      "status": "available",
-      "validation": {
-        "mae": 0.14696280049571547,
-        "rmse": 0.24351422785436527,
-        "medianAbsoluteError": 0.08304337041707818,
-        "directionalAccuracy": 0.5259397328362846,
-        "spearmanRankCorrelation": 0.03571144176559723,
-        "predictionBias": 0.017963894437062998
-      },
-      "test": {
-        "mae": 0.1617984621156649,
-        "rmse": 0.29671746326750315,
-        "medianAbsoluteError": 0.08582730797089197,
-        "directionalAccuracy": 0.5241926831884991,
-        "spearmanRankCorrelation": 0.05406128091782108,
-        "predictionBias": -0.019709220533778743
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "catboost regressor",
+      "model": "sklearn candidates",
       "status": "unavailable",
-      "reason": "CatBoost is not installed in this project environment."
-    },
-    {
-      "horizonDays": 30,
-      "model": "small neural network challenger",
-      "status": "unavailable",
-      "reason": "Neural-network challenger is disabled for the lightweight local batch and cannot be selected."
+      "reason": "scikit-learn unavailable or no train rows"
     }
   ]
 }

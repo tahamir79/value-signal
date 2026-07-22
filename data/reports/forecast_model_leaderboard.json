@@ -1,26 +1,26 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-21T07:03:29.760572+00:00",
+  "generatedAt": "2026-07-22T00:32:21.644466+00:00",
   "models": [
     {
       "horizonDays": 30,
       "model": "zero-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13710125730670022,
-        "rmse": 0.22973720126396344,
-        "medianAbsoluteError": 0.07731941971692478,
-        "directionalAccuracy": 0.005203479341410376,
+        "mae": 0.13713230733236997,
+        "rmse": 0.22965418589532555,
+        "medianAbsoluteError": 0.07736848414818759,
+        "directionalAccuracy": 0.0051016464404421424,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.02225189947659819
+        "predictionBias": 0.02168171623098983
       },
       "test": {
-        "mae": 0.15071104998078666,
-        "rmse": 0.27030049402742057,
-        "medianAbsoluteError": 0.08260068818885923,
-        "directionalAccuracy": 0.0054715159317669775,
+        "mae": 0.15009596668270966,
+        "rmse": 0.2694505806383362,
+        "medianAbsoluteError": 0.08232494310349826,
+        "directionalAccuracy": 0.005408621342419817,
         "spearmanRankCorrelation": null,
-        "predictionBias": -0.005977032787725118
+        "predictionBias": -0.007920282974699999
       }
     },
     {
@@ -28,20 +28,20 @@
       "model": "historical-mean baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13760384779629034,
-        "rmse": 0.2293224793927087,
-        "medianAbsoluteError": 0.07837268879596418,
-        "directionalAccuracy": 0.4572072072072072,
-        "spearmanRankCorrelation": 0.06985994930188692,
-        "predictionBias": 0.01745751816659776
+        "mae": 0.1376208113850725,
+        "rmse": 0.22926863744392784,
+        "medianAbsoluteError": 0.07850634741770496,
+        "directionalAccuracy": 0.4556697843394914,
+        "spearmanRankCorrelation": -0.04101825897115109,
+        "predictionBias": 0.017121910958525
       },
       "test": {
-        "mae": 0.15127251753689086,
-        "rmse": 0.27044898874313944,
-        "medianAbsoluteError": 0.08329368844542911,
-        "directionalAccuracy": 0.45284840682330224,
-        "spearmanRankCorrelation": null,
-        "predictionBias": -0.010771414097725545
+        "mae": 0.15067081859386675,
+        "rmse": 0.26962313907859287,
+        "medianAbsoluteError": 0.08297985404912409,
+        "directionalAccuracy": 0.4478879333657851,
+        "spearmanRankCorrelation": -0.029957804844964048,
+        "predictionBias": -0.01248008824716483
       }
     },
     {
@@ -49,158 +49,47 @@
       "model": "market-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.13760384779629034,
-        "rmse": 0.2293224793927087,
-        "medianAbsoluteError": 0.07837268879596418,
-        "directionalAccuracy": 0.4572072072072072,
-        "spearmanRankCorrelation": 0.06985994930188692,
-        "predictionBias": 0.01745751816659776
+        "mae": 0.1376208113850725,
+        "rmse": 0.22926863744392784,
+        "medianAbsoluteError": 0.07850634741770496,
+        "directionalAccuracy": 0.4556697843394914,
+        "spearmanRankCorrelation": -0.04101825897115109,
+        "predictionBias": 0.017121910958525
       },
       "test": {
-        "mae": 0.15127251753689086,
-        "rmse": 0.27044898874313944,
-        "medianAbsoluteError": 0.08329368844542911,
-        "directionalAccuracy": 0.45284840682330224,
-        "spearmanRankCorrelation": null,
-        "predictionBias": -0.010771414097725545
+        "mae": 0.15067081859386675,
+        "rmse": 0.26962313907859287,
+        "medianAbsoluteError": 0.08297985404912409,
+        "directionalAccuracy": 0.4478879333657851,
+        "spearmanRankCorrelation": -0.029957804844964048,
+        "predictionBias": -0.01248008824716483
       }
     },
     {
       "horizonDays": 30,
-      "model": "ridge regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.1355773709683184,
-        "rmse": 0.22767344863357367,
-        "medianAbsoluteError": 0.07625935214267147,
-        "directionalAccuracy": 0.5840323081702392,
-        "spearmanRankCorrelation": 0.11942995667009594,
-        "predictionBias": 0.017424569638155113
-      },
-      "test": {
-        "mae": 0.14966926856896923,
-        "rmse": 0.2676667174316421,
-        "medianAbsoluteError": 0.08143706838846931,
-        "directionalAccuracy": 0.5490827164467332,
-        "spearmanRankCorrelation": 0.04793326018184655,
-        "predictionBias": -0.013232887941750458
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "elastic net",
-      "status": "available",
-      "validation": {
-        "mae": 0.1350989383394382,
-        "rmse": 0.22673141165563898,
-        "medianAbsoluteError": 0.07644641486640626,
-        "directionalAccuracy": 0.5962255358807083,
-        "spearmanRankCorrelation": 0.15046147252107114,
-        "predictionBias": 0.017131501667928196
-      },
-      "test": {
-        "mae": 0.1498095033350438,
-        "rmse": 0.2680382559908645,
-        "medianAbsoluteError": 0.08185000638580975,
-        "directionalAccuracy": 0.5445231198369274,
-        "spearmanRankCorrelation": 0.041811223070486424,
-        "predictionBias": -0.013819972219718823
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "huber regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.13573502197300996,
-        "rmse": 0.22810776536173552,
-        "medianAbsoluteError": 0.0765393751972589,
-        "directionalAccuracy": 0.5747903075489282,
-        "spearmanRankCorrelation": 0.09444787092673596,
-        "predictionBias": 0.019649953445222003
-      },
-      "test": {
-        "mae": 0.14892924001144733,
-        "rmse": 0.26667191709410903,
-        "medianAbsoluteError": 0.08105160034075712,
-        "directionalAccuracy": 0.5576118442227229,
-        "spearmanRankCorrelation": 0.07647495237414705,
-        "predictionBias": -0.011375935061483301
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "hist gradient boosting",
-      "status": "available",
-      "validation": {
-        "mae": 0.13987083421113955,
-        "rmse": 0.23408212165866968,
-        "medianAbsoluteError": 0.07863178150303198,
-        "directionalAccuracy": 0.5708294501397949,
-        "spearmanRankCorrelation": 0.0003069099541466571,
-        "predictionBias": 0.018619529666231087
-      },
-      "test": {
-        "mae": 0.15407503321378443,
-        "rmse": 0.2863210219269287,
-        "medianAbsoluteError": 0.08203975611333686,
-        "directionalAccuracy": 0.5588992597360798,
-        "spearmanRankCorrelation": 0.06925742023316196,
-        "predictionBias": -0.018742449259417916
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "random forest challenger",
-      "status": "available",
-      "validation": {
-        "mae": 0.14696280049571547,
-        "rmse": 0.24351422785436527,
-        "medianAbsoluteError": 0.08304337041707818,
-        "directionalAccuracy": 0.5259397328362846,
-        "spearmanRankCorrelation": 0.03571144176559723,
-        "predictionBias": 0.017963894437062998
-      },
-      "test": {
-        "mae": 0.1617984621156649,
-        "rmse": 0.29671746326750315,
-        "medianAbsoluteError": 0.08582730797089197,
-        "directionalAccuracy": 0.5241926831884991,
-        "spearmanRankCorrelation": 0.05406128091782108,
-        "predictionBias": -0.019709220533778743
-      }
-    },
-    {
-      "horizonDays": 30,
-      "model": "catboost regressor",
+      "model": "sklearn candidates",
       "status": "unavailable",
-      "reason": "CatBoost is not installed in this project environment."
-    },
-    {
-      "horizonDays": 30,
-      "model": "small neural network challenger",
-      "status": "unavailable",
-      "reason": "Neural-network challenger is disabled for the lightweight local batch and cannot be selected."
+      "reason": "scikit-learn unavailable or no train rows"
     },
     {
       "horizonDays": 90,
       "model": "zero-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2670339707238216,
-        "rmse": 0.43842035679486263,
-        "medianAbsoluteError": 0.12666240640535278,
-        "directionalAccuracy": 0.0024752475247524753,
+        "mae": 0.26678877275267804,
+        "rmse": 0.4374328518102154,
+        "medianAbsoluteError": 0.12857471339124713,
+        "directionalAccuracy": 0.002051702913418137,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.13331258473371688
+        "predictionBias": 0.1309404159226192
       },
       "test": {
-        "mae": 0.2552473249805195,
-        "rmse": 0.4362396997519113,
-        "medianAbsoluteError": 0.13225940200465064,
-        "directionalAccuracy": 0.0025228255646323884,
+        "mae": 0.25469076777129984,
+        "rmse": 0.43582294221879375,
+        "medianAbsoluteError": 0.13239931696836404,
+        "directionalAccuracy": 0.0025112107623318385,
         "spearmanRankCorrelation": null,
-        "predictionBias": -0.0014324409899170822
+        "predictionBias": -0.002168716629721546
       }
     },
     {
@@ -208,20 +97,20 @@
       "model": "historical-mean baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2664782459670312,
-        "rmse": 0.4329359896935422,
-        "medianAbsoluteError": 0.1347642390566838,
-        "directionalAccuracy": 0.5334158415841584,
+        "mae": 0.2663162987894585,
+        "rmse": 0.43222020636250225,
+        "medianAbsoluteError": 0.1353271411274781,
+        "directionalAccuracy": 0.5318013951579811,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.11398862736333232
+        "predictionBias": 0.11230404920221985
       },
       "test": {
-        "mae": 0.2578095004269704,
-        "rmse": 0.4367308688715965,
-        "medianAbsoluteError": 0.1341962042934529,
-        "directionalAccuracy": 0.45873378183565594,
-        "spearmanRankCorrelation": -0.032240289627946304,
-        "predictionBias": -0.020756398360301628
+        "mae": 0.2571818114824548,
+        "rmse": 0.4363138607993465,
+        "medianAbsoluteError": 0.13426481039453966,
+        "directionalAccuracy": 0.4572795216741405,
+        "spearmanRankCorrelation": null,
+        "predictionBias": -0.020805083350120903
       }
     },
     {
@@ -229,138 +118,27 @@
       "model": "market-return baseline",
       "status": "available",
       "validation": {
-        "mae": 0.2664782459670312,
-        "rmse": 0.4329359896935422,
-        "medianAbsoluteError": 0.1347642390566838,
-        "directionalAccuracy": 0.5334158415841584,
+        "mae": 0.2663162987894585,
+        "rmse": 0.43222020636250225,
+        "medianAbsoluteError": 0.1353271411274781,
+        "directionalAccuracy": 0.5318013951579811,
         "spearmanRankCorrelation": null,
-        "predictionBias": 0.11398862736333232
+        "predictionBias": 0.11230404920221985
       },
       "test": {
-        "mae": 0.2578095004269704,
-        "rmse": 0.4367308688715965,
-        "medianAbsoluteError": 0.1341962042934529,
-        "directionalAccuracy": 0.45873378183565594,
-        "spearmanRankCorrelation": -0.032240289627946304,
-        "predictionBias": -0.020756398360301628
+        "mae": 0.2571818114824548,
+        "rmse": 0.4363138607993465,
+        "medianAbsoluteError": 0.13426481039453966,
+        "directionalAccuracy": 0.4572795216741405,
+        "spearmanRankCorrelation": null,
+        "predictionBias": -0.020805083350120903
       }
     },
     {
       "horizonDays": 90,
-      "model": "ridge regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.2591353150160836,
-        "rmse": 0.42097823449748273,
-        "medianAbsoluteError": 0.12262894272514646,
-        "directionalAccuracy": 0.5874587458745875,
-        "spearmanRankCorrelation": 0.20186043374686907,
-        "predictionBias": 0.11027404356535657
-      },
-      "test": {
-        "mae": 0.25706331391760634,
-        "rmse": 0.43367362136839704,
-        "medianAbsoluteError": 0.13349368992705601,
-        "directionalAccuracy": 0.49981979817395483,
-        "spearmanRankCorrelation": -0.027271547483703928,
-        "predictionBias": -0.022192032040003813
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "elastic net",
-      "status": "available",
-      "validation": {
-        "mae": 0.2569732168228017,
-        "rmse": 0.41805011456274555,
-        "medianAbsoluteError": 0.1225673266682272,
-        "directionalAccuracy": 0.5985973597359736,
-        "spearmanRankCorrelation": 0.26138317376376424,
-        "predictionBias": 0.10973192697240702
-      },
-      "test": {
-        "mae": 0.2563384376932768,
-        "rmse": 0.43289848439374107,
-        "medianAbsoluteError": 0.13177929236491687,
-        "directionalAccuracy": 0.5064872657376261,
-        "spearmanRankCorrelation": -0.016415381756701507,
-        "predictionBias": -0.022273445698000646
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "huber regression",
-      "status": "available",
-      "validation": {
-        "mae": 0.26592052779573366,
-        "rmse": 0.4354417725609732,
-        "medianAbsoluteError": 0.12481631474538142,
-        "directionalAccuracy": 0.5457920792079208,
-        "spearmanRankCorrelation": 0.09253513598016623,
-        "predictionBias": 0.11720061588818528
-      },
-      "test": {
-        "mae": 0.25610610941780526,
-        "rmse": 0.43183972934708714,
-        "medianAbsoluteError": 0.13286645919115644,
-        "directionalAccuracy": 0.5195819317635753,
-        "spearmanRankCorrelation": -0.01275205741768867,
-        "predictionBias": -0.002889949803951072
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "hist gradient boosting",
-      "status": "available",
-      "validation": {
-        "mae": 0.2561186944175124,
-        "rmse": 0.4229197774879706,
-        "medianAbsoluteError": 0.12398796644310171,
-        "directionalAccuracy": 0.5297029702970297,
-        "spearmanRankCorrelation": 0.08828262679989421,
-        "predictionBias": 0.10766092515041346
-      },
-      "test": {
-        "mae": 0.26919547424319673,
-        "rmse": 0.468865565038534,
-        "medianAbsoluteError": 0.13407997652549206,
-        "directionalAccuracy": 0.5061268620855358,
-        "spearmanRankCorrelation": -0.00010769507689482511,
-        "predictionBias": -0.03150624972342826
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "random forest challenger",
-      "status": "available",
-      "validation": {
-        "mae": 0.27068831577211905,
-        "rmse": 0.4358713784560082,
-        "medianAbsoluteError": 0.14735579685318062,
-        "directionalAccuracy": 0.5305280528052805,
-        "spearmanRankCorrelation": 0.06147235685909728,
-        "predictionBias": 0.08821739676576025
-      },
-      "test": {
-        "mae": 0.29429245740567705,
-        "rmse": 0.5076717227047153,
-        "medianAbsoluteError": 0.14883209562575456,
-        "directionalAccuracy": 0.5194617972128784,
-        "spearmanRankCorrelation": 0.02332922772392566,
-        "predictionBias": -0.03982579102989683
-      }
-    },
-    {
-      "horizonDays": 90,
-      "model": "catboost regressor",
+      "model": "sklearn candidates",
       "status": "unavailable",
-      "reason": "CatBoost is not installed in this project environment."
-    },
-    {
-      "horizonDays": 90,
-      "model": "small neural network challenger",
-      "status": "unavailable",
-      "reason": "Neural-network challenger is disabled for the lightweight local batch and cannot be selected."
+      "reason": "scikit-learn unavailable or no train rows"
     }
   ]
 }

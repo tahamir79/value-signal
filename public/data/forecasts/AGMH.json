@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "AGMH",
   "companyName": "AGM GROUP HOLDINGS, INC.",
-  "generatedAt": "2026-07-21T07:03:30.106725+00:00",
-  "marketDataAsOf": "2026-07-20",
-  "currentPrice": 1.045,
+  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "marketDataAsOf": "2026-07-21",
+  "currentPrice": 1.03,
   "analystTarget": {
     "ticker": "AGMH",
     "targetLow": null,
@@ -12,7 +12,7 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 1.04499996,
+    "currentPriceAtCollection": 1.02999997,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-21T07:03:30.106725+00:00",
+    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,32 +28,32 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19414815,
-    "upperReturn": 0.24848183,
-    "estimatedPrice": 1.045,
-    "lowerEstimatedPrice": 0.8421,
-    "upperEstimatedPrice": 1.3047
+    "lowerReturn": -0.19053463,
+    "upperReturn": 0.25121167,
+    "estimatedPrice": 1.03,
+    "lowerEstimatedPrice": 0.8337,
+    "upperEstimatedPrice": 1.2887
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30941964,
-    "upperReturn": 0.47468804,
-    "estimatedPrice": 1.045,
-    "lowerEstimatedPrice": 0.7217,
-    "upperEstimatedPrice": 1.541
+    "lowerReturn": -0.30726303,
+    "upperReturn": 0.47327104,
+    "estimatedPrice": 1.03,
+    "lowerEstimatedPrice": 0.7135,
+    "upperEstimatedPrice": 1.5175
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-21T07:03:30.106725+00:00",
-    "marketDataAsOf": "2026-07-20",
-    "currentPrice": 1.045,
+    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "marketDataAsOf": "2026-07-21",
+    "currentPrice": 1.03,
     "horizon30Day": {
-      "returnEstimate": -0.06759113,
+      "returnEstimate": -0.05752302,
       "lowerReturn": -0.08,
-      "upperReturn": 0.00469483,
-      "estimatedPrice": 0.9744,
-      "lowerEstimatedPrice": 0.9614,
-      "upperEstimatedPrice": 1.0499,
+      "upperReturn": 0.08,
+      "estimatedPrice": 0.9708,
+      "lowerEstimatedPrice": 0.9476,
+      "upperEstimatedPrice": 1.1124,
       "sampleCount": 25,
       "status": "available",
       "usableObservationCount": 25,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.13414634,
+      "returnEstimate": -0.15,
       "lowerReturn": -0.15,
-      "upperReturn": 0.13104396,
-      "estimatedPrice": 0.9048,
-      "lowerEstimatedPrice": 0.8882,
-      "upperEstimatedPrice": 1.1819,
+      "upperReturn": 0.15,
+      "estimatedPrice": 0.8755,
+      "lowerEstimatedPrice": 0.8755,
+      "upperEstimatedPrice": 1.1845,
       "sampleCount": 23,
       "status": "available",
       "usableObservationCount": 23,
@@ -76,7 +76,10 @@
     "status": "available",
     "warnings": [
       "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: base return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
@@ -84,14 +87,14 @@
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15071104998078666,
-    "directionalAccuracy": 0.0054715159317669775
+    "testMAE": 0.15009596668270966,
+    "directionalAccuracy": 0.005408621342419817
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.2552473249805195,
-    "directionalAccuracy": 0.0025228255646323884
+    "testMAE": 0.25469076777129984,
+    "directionalAccuracy": 0.0025112107623318385
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
