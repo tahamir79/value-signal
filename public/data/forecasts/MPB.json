@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "MPB",
+  "companyName": "MID PENN BANCORP INC",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 34.89,
+  "analystTarget": {
+    "ticker": "MPB",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 34.88999939,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 34.89,
+    "lowerEstimatedPrice": 33.1884,
+    "upperEstimatedPrice": 36.6788
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 34.89,
+    "lowerEstimatedPrice": 33.1884,
+    "upperEstimatedPrice": 36.6788
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 34.89,
+    "horizon30Day": {
+      "returnEstimate": 0.01989778,
+      "lowerReturn": -0.02000204,
+      "upperReturn": 0.07231257,
+      "estimatedPrice": 35.5842,
+      "lowerEstimatedPrice": 34.1921,
+      "upperEstimatedPrice": 37.413,
+      "sampleCount": 46,
+      "status": "available",
+      "usableObservationCount": 46,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.04216713,
+      "lowerReturn": -0.00441777,
+      "upperReturn": 0.10129017,
+      "estimatedPrice": 36.3612,
+      "lowerEstimatedPrice": 34.7359,
+      "upperEstimatedPrice": 38.424,
+      "sampleCount": 38,
+      "status": "available",
+      "usableObservationCount": 38,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

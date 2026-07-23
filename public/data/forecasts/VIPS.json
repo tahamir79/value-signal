@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "VIPS",
+  "companyName": "Vipshop Holdings Ltd",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 14.68,
+  "analystTarget": {
+    "ticker": "VIPS",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 14.68000031,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 14.68,
+    "lowerEstimatedPrice": 13.964,
+    "upperEstimatedPrice": 15.4327
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 14.68,
+    "lowerEstimatedPrice": 13.964,
+    "upperEstimatedPrice": 15.4327
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 14.68,
+    "horizon30Day": {
+      "returnEstimate": -0.00617719,
+      "lowerReturn": -0.06827899,
+      "upperReturn": 0.03924801,
+      "estimatedPrice": 14.5893,
+      "lowerEstimatedPrice": 13.6777,
+      "upperEstimatedPrice": 15.2562,
+      "sampleCount": 46,
+      "status": "available",
+      "usableObservationCount": 46,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.055679,
+      "lowerReturn": -0.13702308,
+      "upperReturn": 0.01254805,
+      "estimatedPrice": 13.8626,
+      "lowerEstimatedPrice": 12.6685,
+      "upperEstimatedPrice": 14.8642,
+      "sampleCount": 38,
+      "status": "available",
+      "usableObservationCount": 38,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

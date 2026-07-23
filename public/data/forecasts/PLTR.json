@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "PLTR",
+  "companyName": "Palantir Technologies Inc.",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 124.57,
+  "analystTarget": {
+    "ticker": "PLTR",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 124.56999969,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 124.57,
+    "lowerEstimatedPrice": 118.4946,
+    "upperEstimatedPrice": 130.9568
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 124.57,
+    "lowerEstimatedPrice": 118.4946,
+    "upperEstimatedPrice": 130.9568
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 124.57,
+    "horizon30Day": {
+      "returnEstimate": -0.00931406,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.06784918,
+      "estimatedPrice": 123.4097,
+      "lowerEstimatedPrice": 114.6044,
+      "upperEstimatedPrice": 133.022,
+      "sampleCount": 46,
+      "status": "available",
+      "usableObservationCount": 46,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.05096429,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.01447892,
+      "estimatedPrice": 118.2214,
+      "lowerEstimatedPrice": 105.8845,
+      "upperEstimatedPrice": 126.3736,
+      "sampleCount": 38,
+      "status": "available",
+      "usableObservationCount": 38,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

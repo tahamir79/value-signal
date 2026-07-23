@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "NODK",
+  "companyName": "NI Holdings, Inc.",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 15.9,
+  "analystTarget": {
+    "ticker": "NODK",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 15.89999962,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 15.9,
+    "lowerEstimatedPrice": 15.1245,
+    "upperEstimatedPrice": 16.7152
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 15.9,
+    "lowerEstimatedPrice": 15.1245,
+    "upperEstimatedPrice": 16.7152
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 15.9,
+    "horizon30Day": {
+      "returnEstimate": 0.00281034,
+      "lowerReturn": -0.01119733,
+      "upperReturn": 0.03904651,
+      "estimatedPrice": 15.9447,
+      "lowerEstimatedPrice": 15.722,
+      "upperEstimatedPrice": 16.5208,
+      "sampleCount": 46,
+      "status": "available",
+      "usableObservationCount": 46,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.00916013,
+      "lowerReturn": -0.01663197,
+      "upperReturn": 0.03301387,
+      "estimatedPrice": 16.0456,
+      "lowerEstimatedPrice": 15.6356,
+      "upperEstimatedPrice": 16.4249,
+      "sampleCount": 38,
+      "status": "available",
+      "usableObservationCount": 38,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

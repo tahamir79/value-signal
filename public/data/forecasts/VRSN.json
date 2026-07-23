@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "VRSN",
+  "companyName": "VERISIGN INC/CA",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 262.59,
+  "analystTarget": {
+    "ticker": "VRSN",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 262.58999634,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 262.59,
+    "lowerEstimatedPrice": 249.7833,
+    "upperEstimatedPrice": 276.0533
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 262.59,
+    "lowerEstimatedPrice": 249.7833,
+    "upperEstimatedPrice": 276.0533
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 262.59,
+    "horizon30Day": {
+      "returnEstimate": 0.00475403,
+      "lowerReturn": -0.05553929,
+      "upperReturn": 0.06859981,
+      "estimatedPrice": 263.8384,
+      "lowerEstimatedPrice": 248.0059,
+      "upperEstimatedPrice": 280.6036,
+      "sampleCount": 46,
+      "status": "available",
+      "usableObservationCount": 46,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.00911893,
+      "lowerReturn": -0.09073441,
+      "upperReturn": 0.07728969,
+      "estimatedPrice": 260.1955,
+      "lowerEstimatedPrice": 238.764,
+      "upperEstimatedPrice": 282.8855,
+      "sampleCount": 38,
+      "status": "available",
+      "usableObservationCount": 38,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "BKH",
+  "companyName": "BLACK HILLS CORP /SD/",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 75.09,
+  "analystTarget": {
+    "ticker": "BKH",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 75.08999634,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 75.09,
+    "lowerEstimatedPrice": 71.4278,
+    "upperEstimatedPrice": 78.9399
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 75.09,
+    "lowerEstimatedPrice": 71.4278,
+    "upperEstimatedPrice": 78.9399
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 75.09,
+    "horizon30Day": {
+      "returnEstimate": 0.01159768,
+      "lowerReturn": -0.0150383,
+      "upperReturn": 0.05766347,
+      "estimatedPrice": 75.9609,
+      "lowerEstimatedPrice": 73.9608,
+      "upperEstimatedPrice": 79.4199,
+      "sampleCount": 47,
+      "status": "available",
+      "usableObservationCount": 47,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.04501643,
+      "lowerReturn": 0.02063291,
+      "upperReturn": 0.15,
+      "estimatedPrice": 78.4703,
+      "lowerEstimatedPrice": 76.6393,
+      "upperEstimatedPrice": 86.3535,
+      "sampleCount": 39,
+      "status": "available",
+      "usableObservationCount": 39,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

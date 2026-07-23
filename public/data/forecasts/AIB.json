@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AIB",
   "companyName": "AIB Data Centers Inc.",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 1.97,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,23 +28,23 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 1.97,
-    "lowerEstimatedPrice": 1.5946,
-    "upperEstimatedPrice": 2.4649
+    "lowerEstimatedPrice": 1.8739,
+    "upperEstimatedPrice": 2.071
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 1.97,
-    "lowerEstimatedPrice": 1.3647,
-    "upperEstimatedPrice": 2.9023
+    "lowerEstimatedPrice": 1.8739,
+    "upperEstimatedPrice": 2.071
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 1.97,
     "horizon30Day": {
@@ -54,11 +54,11 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 4,
+      "sampleCount": 14,
       "status": "insufficient_data",
-      "usableObservationCount": 4,
+      "usableObservationCount": 14,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 4 of 24 required observations."
+      "unavailableReason": "Not enough 30-day history: 14 of 24 required observations."
     },
     "horizon90Day": {
       "returnEstimate": null,
@@ -67,36 +67,39 @@
       "estimatedPrice": null,
       "lowerEstimatedPrice": null,
       "upperEstimatedPrice": null,
-      "sampleCount": 2,
+      "sampleCount": 6,
       "status": "insufficient_data",
-      "usableObservationCount": 2,
+      "usableObservationCount": 6,
       "requiredObservationCount": 12,
-      "unavailableReason": "Not enough 90-day history: 2 of 12 required observations."
+      "unavailableReason": "Not enough 90-day history: 6 of 12 required observations."
     },
     "status": "insufficient_data",
+    "sampleStepSessions": 5,
     "warnings": [
-      "Not enough 30-day history: 4 of 24 required observations.",
-      "Not enough 90-day history: 2 of 12 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "Not enough 30-day history: 14 of 24 required observations.",
+      "Not enough 90-day history: 6 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Not enough 30-day history: 4 of 24 required observations.",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

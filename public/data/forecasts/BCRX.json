@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "BCRX",
+  "companyName": "BIOCRYST PHARMACEUTICALS INC",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 9.629,
+  "analystTarget": {
+    "ticker": "BCRX",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 9.62899971,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 9.629,
+    "lowerEstimatedPrice": 9.1594,
+    "upperEstimatedPrice": 10.1227
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 9.629,
+    "lowerEstimatedPrice": 9.1594,
+    "upperEstimatedPrice": 10.1227
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 9.629,
+    "horizon30Day": {
+      "returnEstimate": -0.01177242,
+      "lowerReturn": -0.05570649,
+      "upperReturn": 0.07323868,
+      "estimatedPrice": 9.5156,
+      "lowerEstimatedPrice": 9.0926,
+      "upperEstimatedPrice": 10.3342,
+      "sampleCount": 47,
+      "status": "available",
+      "usableObservationCount": 47,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.00602828,
+      "lowerReturn": -0.06173026,
+      "upperReturn": 0.12260558,
+      "estimatedPrice": 9.571,
+      "lowerEstimatedPrice": 9.0346,
+      "upperEstimatedPrice": 10.8096,
+      "sampleCount": 39,
+      "status": "available",
+      "usableObservationCount": 39,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

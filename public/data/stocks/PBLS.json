@@ -1,0 +1,752 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "PBLS",
+      "cik": "0001657677",
+      "company_name": "Parabilis Medicines, Inc.",
+      "exchange": "Nasdaq",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 30.81,
+      "dailyChangePercent": 2.5632,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "PBLS",
+      "cik": "0001657677",
+      "companyName": "Parabilis Medicines, Inc.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "PBLS",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-10",
+        "open": 33.349998474121094,
+        "high": 34.02000045776367,
+        "low": 26.610000610351562,
+        "close": 31.600000381469727,
+        "volume": 5496700,
+        "source": "yahoo-chart",
+        "adjusted_close": 31.600000381469727
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-11",
+        "open": 30.0,
+        "high": 34.470001220703125,
+        "low": 29.649999618530273,
+        "close": 30.309999465942383,
+        "volume": 1600200,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.309999465942383
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-12",
+        "open": 29.860000610351562,
+        "high": 32.470001220703125,
+        "low": 26.8799991607666,
+        "close": 27.260000228881836,
+        "volume": 1035500,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.260000228881836
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-15",
+        "open": 26.799999237060547,
+        "high": 28.079999923706055,
+        "low": 24.510000228881836,
+        "close": 25.010000228881836,
+        "volume": 1280300,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.010000228881836
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-16",
+        "open": 25.260000228881836,
+        "high": 26.719999313354492,
+        "low": 24.90999984741211,
+        "close": 26.59000015258789,
+        "volume": 3384300,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.59000015258789
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-17",
+        "open": 30.0,
+        "high": 30.219999313354492,
+        "low": 25.979999542236328,
+        "close": 26.030000686645508,
+        "volume": 1929200,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.030000686645508
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-18",
+        "open": 25.979999542236328,
+        "high": 27.0,
+        "low": 25.350000381469727,
+        "close": 25.850000381469727,
+        "volume": 685100,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.850000381469727
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-22",
+        "open": 26.0,
+        "high": 28.059999465942383,
+        "low": 25.559999465942383,
+        "close": 27.540000915527344,
+        "volume": 830800,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.540000915527344
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-23",
+        "open": 26.510000228881836,
+        "high": 28.280000686645508,
+        "low": 26.229999542236328,
+        "close": 27.510000228881836,
+        "volume": 627900,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.510000228881836
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-24",
+        "open": 27.459999084472656,
+        "high": 28.420000076293945,
+        "low": 26.579999923706055,
+        "close": 27.31999969482422,
+        "volume": 599800,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.31999969482422
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-25",
+        "open": 27.31999969482422,
+        "high": 27.989999771118164,
+        "low": 25.700000762939453,
+        "close": 26.360000610351562,
+        "volume": 1043400,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.360000610351562
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-26",
+        "open": 26.049999237060547,
+        "high": 29.100000381469727,
+        "low": 26.049999237060547,
+        "close": 28.799999237060547,
+        "volume": 581300,
+        "source": "yahoo-chart",
+        "adjusted_close": 28.799999237060547
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-29",
+        "open": 29.040000915527344,
+        "high": 30.190000534057617,
+        "low": 27.440000534057617,
+        "close": 29.190000534057617,
+        "volume": 557000,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.190000534057617
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-06-30",
+        "open": 29.190000534057617,
+        "high": 29.860000610351562,
+        "low": 27.09000015258789,
+        "close": 27.3700008392334,
+        "volume": 580200,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.3700008392334
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-01",
+        "open": 27.06999969482422,
+        "high": 28.489999771118164,
+        "low": 26.68000030517578,
+        "close": 27.760000228881836,
+        "volume": 596300,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.760000228881836
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-02",
+        "open": 27.84000015258789,
+        "high": 29.610000610351562,
+        "low": 27.40999984741211,
+        "close": 29.579999923706055,
+        "volume": 302500,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.579999923706055
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-06",
+        "open": 29.579999923706055,
+        "high": 30.0,
+        "low": 28.149999618530273,
+        "close": 29.200000762939453,
+        "volume": 281700,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.200000762939453
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-07",
+        "open": 29.450000762939453,
+        "high": 31.510000228881836,
+        "low": 28.389999389648438,
+        "close": 30.350000381469727,
+        "volume": 508600,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.350000381469727
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-08",
+        "open": 29.889999389648438,
+        "high": 31.170000076293945,
+        "low": 29.299999237060547,
+        "close": 30.829999923706055,
+        "volume": 399200,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.829999923706055
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-09",
+        "open": 30.709999084472656,
+        "high": 33.650001525878906,
+        "low": 29.899999618530273,
+        "close": 30.360000610351562,
+        "volume": 402100,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.360000610351562
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-10",
+        "open": 30.360000610351562,
+        "high": 31.0,
+        "low": 28.510000228881836,
+        "close": 30.56999969482422,
+        "volume": 690400,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.56999969482422
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-13",
+        "open": 30.350000381469727,
+        "high": 30.3799991607666,
+        "low": 28.68000030517578,
+        "close": 29.6299991607666,
+        "volume": 640700,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.6299991607666
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-14",
+        "open": 28.829999923706055,
+        "high": 31.399999618530273,
+        "low": 28.549999237060547,
+        "close": 31.149999618530273,
+        "volume": 540500,
+        "source": "yahoo-chart",
+        "adjusted_close": 31.149999618530273
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-15",
+        "open": 31.200000762939453,
+        "high": 31.600000381469727,
+        "low": 29.209999084472656,
+        "close": 29.90999984741211,
+        "volume": 463800,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.90999984741211
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-16",
+        "open": 29.790000915527344,
+        "high": 30.59000015258789,
+        "low": 28.56999969482422,
+        "close": 29.059999465942383,
+        "volume": 520600,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.059999465942383
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-17",
+        "open": 28.690000534057617,
+        "high": 29.850000381469727,
+        "low": 28.0,
+        "close": 29.549999237060547,
+        "volume": 472500,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.549999237060547
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-20",
+        "open": 29.530000686645508,
+        "high": 30.209999084472656,
+        "low": 26.420000076293945,
+        "close": 27.309999465942383,
+        "volume": 641900,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.309999465942383
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-21",
+        "open": 27.84000015258789,
+        "high": 30.239999771118164,
+        "low": 27.360000610351562,
+        "close": 30.040000915527344,
+        "volume": 326300,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.040000915527344
+      },
+      {
+        "ticker": "PBLS",
+        "date": "2026-07-22",
+        "open": 29.799999237060547,
+        "high": 31.149999618530273,
+        "low": 29.350000381469727,
+        "close": 30.809999465942383,
+        "volume": 316237,
+        "source": "yahoo-chart",
+        "adjusted_close": 30.809999465942383
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

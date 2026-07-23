@@ -2,6 +2,7 @@ import "server-only";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { GrowthSpurtArtifact, GrowthSpurtStatus } from "@/types/stock";
+import { tickerArtifactStem } from "@/lib/artifact-paths";
 
 export type PriceBar = {
   date: string;
@@ -187,7 +188,7 @@ export async function getSignalData(): Promise<SignalData> {
 
 export async function getStockDetailData(ticker:string):Promise<DashboardRecord|undefined>{
   try{
-    const payload=await read<{record:DashboardRecord}>(`stocks/${ticker.toUpperCase()}.json`);
+    const payload=await read<{record:DashboardRecord}>(`stocks/${tickerArtifactStem(ticker)}.json`);
     return payload.record;
   }catch{
     return undefined;

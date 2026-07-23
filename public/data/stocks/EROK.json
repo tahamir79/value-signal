@@ -1,0 +1,961 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "EROK",
+      "cik": "0002104882",
+      "company_name": "EagleRock Land, LLC",
+      "exchange": "NYSE",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 22.37,
+      "dailyChangePercent": 5.8684,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {
+      "Liabilities": {
+        "concept": "Liabilities",
+        "label": "Liabilities",
+        "value": 0.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-06-23",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001193125-26-279687",
+        "source": "sec-companyfacts"
+      }
+    },
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "EROK",
+      "cik": "0002104882",
+      "companyName": "EagleRock Land, LLC",
+      "formType": "10-Q",
+      "accession": "0001193125-26-279687",
+      "filingDate": "2026-06-23",
+      "periodEndDate": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q1",
+      "source": "sec_companyfacts",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": 0.0,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -20,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "EROK",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "EROK",
+        "date": "2026-05-14",
+        "open": 23.0,
+        "high": 23.84000015258789,
+        "low": 21.75,
+        "close": 21.84000015258789,
+        "volume": 4882400,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.84000015258789
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-15",
+        "open": 21.469999313354492,
+        "high": 22.6200008392334,
+        "low": 21.200000762939453,
+        "close": 21.549999237060547,
+        "volume": 1144900,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.549999237060547
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-18",
+        "open": 21.6299991607666,
+        "high": 23.1200008392334,
+        "low": 21.6299991607666,
+        "close": 23.0,
+        "volume": 595300,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.0
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-19",
+        "open": 23.0,
+        "high": 23.729999542236328,
+        "low": 22.350000381469727,
+        "close": 23.290000915527344,
+        "volume": 519200,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.290000915527344
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-20",
+        "open": 23.520000457763672,
+        "high": 24.350000381469727,
+        "low": 22.850000381469727,
+        "close": 23.040000915527344,
+        "volume": 1357600,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.040000915527344
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-21",
+        "open": 23.020000457763672,
+        "high": 23.309999465942383,
+        "low": 22.510000228881836,
+        "close": 22.579999923706055,
+        "volume": 357300,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.579999923706055
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-22",
+        "open": 22.809999465942383,
+        "high": 23.5,
+        "low": 22.760000228881836,
+        "close": 23.420000076293945,
+        "volume": 364300,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.420000076293945
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-26",
+        "open": 23.25,
+        "high": 24.6299991607666,
+        "low": 23.059999465942383,
+        "close": 24.31999969482422,
+        "volume": 498900,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.31999969482422
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-27",
+        "open": 24.469999313354492,
+        "high": 24.799999237060547,
+        "low": 22.149999618530273,
+        "close": 22.260000228881836,
+        "volume": 824400,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.260000228881836
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-28",
+        "open": 22.260000228881836,
+        "high": 22.899999618530273,
+        "low": 22.0,
+        "close": 22.260000228881836,
+        "volume": 156100,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.260000228881836
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-05-29",
+        "open": 22.309999465942383,
+        "high": 22.670000076293945,
+        "low": 22.020000457763672,
+        "close": 22.290000915527344,
+        "volume": 299200,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.290000915527344
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-01",
+        "open": 22.290000915527344,
+        "high": 22.860000610351562,
+        "low": 21.850000381469727,
+        "close": 21.860000610351562,
+        "volume": 221100,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.860000610351562
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-02",
+        "open": 22.139999389648438,
+        "high": 22.18000030517578,
+        "low": 21.219999313354492,
+        "close": 21.81999969482422,
+        "volume": 536500,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.81999969482422
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-03",
+        "open": 21.600000381469727,
+        "high": 22.549999237060547,
+        "low": 21.329999923706055,
+        "close": 21.649999618530273,
+        "volume": 306700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.649999618530273
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-04",
+        "open": 21.329999923706055,
+        "high": 22.899999618530273,
+        "low": 21.329999923706055,
+        "close": 22.25,
+        "volume": 288100,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.25
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-05",
+        "open": 22.190000534057617,
+        "high": 22.979999542236328,
+        "low": 21.270000457763672,
+        "close": 21.3700008392334,
+        "volume": 185500,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.3700008392334
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-08",
+        "open": 21.260000228881836,
+        "high": 22.280000686645508,
+        "low": 21.0,
+        "close": 21.100000381469727,
+        "volume": 248400,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.100000381469727
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-09",
+        "open": 21.0,
+        "high": 21.549999237060547,
+        "low": 20.549999237060547,
+        "close": 20.850000381469727,
+        "volume": 518300,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.850000381469727
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-10",
+        "open": 21.0,
+        "high": 21.610000610351562,
+        "low": 20.350000381469727,
+        "close": 20.459999084472656,
+        "volume": 186500,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.459999084472656
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-11",
+        "open": 22.0,
+        "high": 22.0,
+        "low": 20.3700008392334,
+        "close": 21.0,
+        "volume": 208700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.0
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-12",
+        "open": 20.989999771118164,
+        "high": 21.540000915527344,
+        "low": 20.760000228881836,
+        "close": 21.25,
+        "volume": 108700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.25
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-15",
+        "open": 21.1299991607666,
+        "high": 21.280000686645508,
+        "low": 20.25,
+        "close": 20.280000686645508,
+        "volume": 187300,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.280000686645508
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-16",
+        "open": 20.09000015258789,
+        "high": 21.450000762939453,
+        "low": 20.0,
+        "close": 20.209999084472656,
+        "volume": 252600,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.209999084472656
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-17",
+        "open": 20.43000030517578,
+        "high": 20.729999542236328,
+        "low": 19.850000381469727,
+        "close": 19.989999771118164,
+        "volume": 306800,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.989999771118164
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-18",
+        "open": 20.649999618530273,
+        "high": 21.110000610351562,
+        "low": 19.75,
+        "close": 20.649999618530273,
+        "volume": 333800,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.649999618530273
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-22",
+        "open": 20.860000610351562,
+        "high": 21.260000228881836,
+        "low": 20.299999237060547,
+        "close": 21.09000015258789,
+        "volume": 107900,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.09000015258789
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-23",
+        "open": 20.540000915527344,
+        "high": 21.350000381469727,
+        "low": 20.540000915527344,
+        "close": 21.110000610351562,
+        "volume": 89100,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.110000610351562
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-24",
+        "open": 21.450000762939453,
+        "high": 21.450000762939453,
+        "low": 20.3700008392334,
+        "close": 20.459999084472656,
+        "volume": 270800,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.459999084472656
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-25",
+        "open": 20.15999984741211,
+        "high": 20.709999084472656,
+        "low": 20.059999465942383,
+        "close": 20.1200008392334,
+        "volume": 383500,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.1200008392334
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-26",
+        "open": 20.079999923706055,
+        "high": 21.440000534057617,
+        "low": 20.059999465942383,
+        "close": 21.170000076293945,
+        "volume": 198700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.170000076293945
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-29",
+        "open": 21.170000076293945,
+        "high": 22.3700008392334,
+        "low": 20.799999237060547,
+        "close": 21.549999237060547,
+        "volume": 460300,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.549999237060547
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-06-30",
+        "open": 21.43000030517578,
+        "high": 22.18000030517578,
+        "low": 20.959999084472656,
+        "close": 21.25,
+        "volume": 619000,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.25
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-01",
+        "open": 21.40999984741211,
+        "high": 22.0,
+        "low": 20.6200008392334,
+        "close": 21.200000762939453,
+        "volume": 495700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.200000762939453
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-02",
+        "open": 21.360000610351562,
+        "high": 21.610000610351562,
+        "low": 20.170000076293945,
+        "close": 20.510000228881836,
+        "volume": 204400,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.510000228881836
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-06",
+        "open": 20.3700008392334,
+        "high": 21.239999771118164,
+        "low": 20.110000610351562,
+        "close": 21.030000686645508,
+        "volume": 250800,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.030000686645508
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-07",
+        "open": 20.93000030517578,
+        "high": 21.079999923706055,
+        "low": 20.420000076293945,
+        "close": 20.90999984741211,
+        "volume": 210600,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.90999984741211
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-08",
+        "open": 21.079999923706055,
+        "high": 22.1200008392334,
+        "low": 20.5,
+        "close": 21.8700008392334,
+        "volume": 112200,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.8700008392334
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-09",
+        "open": 22.1200008392334,
+        "high": 22.1299991607666,
+        "low": 21.459999084472656,
+        "close": 21.700000762939453,
+        "volume": 81000,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.700000762939453
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-10",
+        "open": 21.709999084472656,
+        "high": 21.709999084472656,
+        "low": 20.899999618530273,
+        "close": 21.1299991607666,
+        "volume": 98700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.1299991607666
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-13",
+        "open": 21.3700008392334,
+        "high": 21.84000015258789,
+        "low": 21.059999465942383,
+        "close": 21.729999542236328,
+        "volume": 105300,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.729999542236328
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-14",
+        "open": 21.979999542236328,
+        "high": 22.450000762939453,
+        "low": 21.399999618530273,
+        "close": 21.809999465942383,
+        "volume": 106700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.809999465942383
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-15",
+        "open": 22.049999237060547,
+        "high": 22.06999969482422,
+        "low": 21.489999771118164,
+        "close": 21.700000762939453,
+        "volume": 108400,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.700000762939453
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-16",
+        "open": 21.959999084472656,
+        "high": 22.43000030517578,
+        "low": 20.649999618530273,
+        "close": 20.649999618530273,
+        "volume": 193100,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.649999618530273
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-17",
+        "open": 20.75,
+        "high": 21.239999771118164,
+        "low": 20.1299991607666,
+        "close": 20.360000610351562,
+        "volume": 247500,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.360000610351562
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-20",
+        "open": 20.469999313354492,
+        "high": 21.059999465942383,
+        "low": 20.200000762939453,
+        "close": 20.290000915527344,
+        "volume": 94800,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.290000915527344
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-21",
+        "open": 20.350000381469727,
+        "high": 21.5,
+        "low": 20.239999771118164,
+        "close": 21.1299991607666,
+        "volume": 254700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.1299991607666
+      },
+      {
+        "ticker": "EROK",
+        "date": "2026-07-22",
+        "open": 21.149999618530273,
+        "high": 22.475000381469727,
+        "low": 21.010000228881836,
+        "close": 22.3700008392334,
+        "volume": 97390,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.3700008392334
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": true,
+      "recent10KAvailable": false,
+      "recent10QAvailable": true,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": true,
+      "balanceSheetSource": "sec_companyfacts",
+      "balanceSheetPeriodEnd": "2026-03-31",
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": "2026-06-23",
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

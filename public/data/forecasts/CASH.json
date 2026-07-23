@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "CASH",
+  "companyName": "PATHWARD FINANCIAL, INC.",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 88.39,
+  "analystTarget": {
+    "ticker": "CASH",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 88.38999939,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 88.39,
+    "lowerEstimatedPrice": 84.0792,
+    "upperEstimatedPrice": 92.9219
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 88.39,
+    "lowerEstimatedPrice": 84.0792,
+    "upperEstimatedPrice": 92.9219
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 88.39,
+    "horizon30Day": {
+      "returnEstimate": -0.00063577,
+      "lowerReturn": -0.05123818,
+      "upperReturn": 0.06870956,
+      "estimatedPrice": 88.3338,
+      "lowerEstimatedPrice": 83.8611,
+      "upperEstimatedPrice": 94.4632,
+      "sampleCount": 47,
+      "status": "available",
+      "usableObservationCount": 47,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": -0.01692755,
+      "lowerReturn": -0.08385092,
+      "upperReturn": 0.15,
+      "estimatedPrice": 86.8938,
+      "lowerEstimatedPrice": 80.9784,
+      "upperEstimatedPrice": 101.6485,
+      "sampleCount": 39,
+      "status": "available",
+      "usableObservationCount": 39,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

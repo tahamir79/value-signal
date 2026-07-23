@@ -34,6 +34,8 @@ CONCEPTS = {
     "EntityCommonStockSharesOutstanding": ("Shares outstanding", ("shares",)),
 }
 
+POSITIVE_ONLY_LABELS = {"Assets", "Shares outstanding"}
+
 def _iso(value: str) -> str:
     return date.fromisoformat(value).isoformat()
 
@@ -49,7 +51,10 @@ def normalize_company_facts(payload: dict[str, Any]) -> list[FinancialFact]:
                 if item.get("form") not in {"10-K", "10-Q"} or item.get("val") is None:
                     continue
                 try:
-                    normalized.append(FinancialFact(concept, label, float(item["val"]), unit, _iso(item["end"]), _iso(item["filed"]), item.get("fy"), item.get("fp"), item["form"], item.get("accn", "")))
+                    value = float(item["val"])
+                    if label in POSITIVE_ONLY_LABELS and value <= 0:
+                        continue
+                    normalized.append(FinancialFact(concept, label, value, unit, _iso(item["end"]), _iso(item["filed"]), item.get("fy"), item.get("fp"), item["form"], item.get("accn", "")))
                 except (TypeError, ValueError, KeyError):
                     continue
     return sorted(normalized, key=lambda fact: (fact.concept, fact.period_end, fact.filed))

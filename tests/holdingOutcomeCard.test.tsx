@@ -92,26 +92,40 @@ const outcomes: HoldingOutcome[] = [
   },
 ];
 
-test("HoldingOutcomeGrid renders four simplified outcome cards", () => {
+test("HoldingOutcomeGrid renders only two ValueSignal outcome cards", () => {
   const html = renderToStaticMarkup(<HoldingOutcomeGrid outcomes={outcomes} />);
+  const articleCount = (html.match(/<article/g) ?? []).length;
+  assert.equal(articleCount, 2);
   assert.match(html, /ValueSignal 30 Days/);
   assert.match(html, /ValueSignal 90 Days/);
-  assert.match(html, /Market Target 30 Days/);
-  assert.match(html, /Market Target 90 Days/);
-  assert.match(html, /Estimated gain/);
-  assert.match(html, /Estimated loss/);
-  assert.match(html, /Return/);
-  assert.match(html, /Sell price/);
-  assert.match(html, /Position value/);
+  assert.doesNotMatch(html, /Market Target 30 Days/);
+  assert.doesNotMatch(html, /Market Target 90 Days/);
+  assert.match(html, /Estimated total gain/);
+  assert.match(html, /Estimated total loss/);
+  assert.match(html, /Estimated return/);
+  assert.match(html, /Estimated sell price/);
+  assert.match(html, /Estimated position value/);
   assert.match(html, /Gain per share/);
   assert.match(html, /Loss per share/);
+  assert.match(html, /Scenario range/);
+  assert.match(html, /-3.00% to \+6.00%/);
+  assert.match(html, /Projection source/);
+  assert.match(html, /Historical scenario/);
   assert.match(html, /As of Jul 20, 2026/);
   assert.match(html, /As of Jul 21, 2026/);
-  assert.match(html, /Analyst target data is not currently available/);
+  assert.doesNotMatch(html, /Analyst target data is not currently available/);
   assert.doesNotMatch(html, /Estimated total gain\/loss/);
   assert.doesNotMatch(html, /Provider: unsupported/);
   assert.doesNotMatch(html, /Target horizon: Unavailable/);
   assert.doesNotMatch(html, /2026-07-21T03:51:42/);
+});
+
+test("HoldingOutcomeGrid shows total gain only once per available card", () => {
+  const html = renderToStaticMarkup(<HoldingOutcomeGrid outcomes={[outcomes[0]]} />);
+  assert.equal((html.match(/Estimated total gain/g) ?? []).length, 1);
+  assert.equal((html.match(/\+\$0\.02/g) ?? []).length, 1);
+  assert.match(html, /Gain per share/);
+  assert.doesNotMatch(html, /Estimated total gain\/loss/);
 });
 
 test("HoldingOutcomeGrid renders exact zero as no estimated change", () => {
@@ -126,6 +140,8 @@ test("HoldingOutcomeGrid renders exact zero as no estimated change", () => {
   const html = renderToStaticMarkup(<HoldingOutcomeGrid outcomes={[zero]} />);
   assert.match(html, /\$0.00/);
   assert.match(html, /No estimated change/);
+  assert.match(html, /Change per share/);
+  assert.doesNotMatch(html, /Unavailable/);
 });
 
 test("HoldingOutcomeGrid renders compact horizon-specific unavailable ValueSignal cards", () => {
@@ -157,8 +173,10 @@ test("HoldingOutcomeGrid renders compact horizon-specific unavailable ValueSigna
   assert.match(html, /Not enough historical data/);
   assert.match(html, /8 of 24 required observations/);
   assert.match(html, /8 of 12 required observations/);
+  assert.match(html, /As of Jul 20, 2026/);
+  assert.match(html, /As of Jul 21, 2026/);
   assert.doesNotMatch(html, /30-day scenario/);
-  assert.doesNotMatch(html, /Sell price/);
+  assert.doesNotMatch(html, /Estimated sell price/);
   assert.doesNotMatch(html, /Gain per share/);
   assert.doesNotMatch(html, /Source:/);
 });

@@ -1,0 +1,1069 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "PSUS",
+      "cik": "0002002660",
+      "company_name": "Pershing Square USA, Ltd.",
+      "exchange": "NYSE",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 36.8,
+      "dailyChangePercent": -0.1899,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "PSUS",
+      "cik": "0002002660",
+      "companyName": "Pershing Square USA, Ltd.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "PSUS",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": "2026-07-22",
+      "status": "not_detected",
+      "growthSpurtScore": 22.12,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.0458906,
+        "return63d": null,
+        "trendSlope21d": -0.00077592,
+        "trendSlope63d": -0.0026433,
+        "trendAnnualizedReturn63d": -0.48629736,
+        "trendFitR2_63d": 0.78121193,
+        "positiveWeekRatio63d": 0.27272727,
+        "trendResidualVolatility63d": 0.02202715,
+        "maxDrawdown63d": -0.14495113,
+        "downsideVolatility63d": 0.00769978,
+        "excessReturnVsSpy21d": -0.05111638,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": 0.00265383,
+        "largestOneDayContribution63d": 0.06162747,
+        "percentAboveTrendLine63d": 0.5
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 49.4901,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 51.683,
+        "confirmationScore": 20.0
+      },
+      "benchmarkPercentile": 0.339381,
+      "metricPercentiles": {
+        "trendSlope63d": 0.256106,
+        "trendFitR2_63d": 0.829204,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": 0.654336,
+        "growthSpurtScore": 0.339381
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET"
+      ],
+      "warnings": []
+    },
+    "priceHistory": [
+      {
+        "ticker": "PSUS",
+        "date": "2026-04-29",
+        "open": 42.0,
+        "high": 42.709999084472656,
+        "low": 40.33000183105469,
+        "close": 40.900001525878906,
+        "volume": 9103800,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.900001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-04-30",
+        "open": 42.47999954223633,
+        "high": 43.93000030517578,
+        "low": 42.0,
+        "close": 42.709999084472656,
+        "volume": 4553600,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.709999084472656
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-01",
+        "open": 44.0,
+        "high": 44.0,
+        "low": 42.599998474121094,
+        "close": 42.79999923706055,
+        "volume": 1950800,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.79999923706055
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-04",
+        "open": 43.7400016784668,
+        "high": 43.7400016784668,
+        "low": 41.79999923706055,
+        "close": 42.5099983215332,
+        "volume": 2357000,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.5099983215332
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-05",
+        "open": 42.52000045776367,
+        "high": 43.349998474121094,
+        "low": 42.52000045776367,
+        "close": 42.97999954223633,
+        "volume": 1292700,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.97999954223633
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-06",
+        "open": 43.25,
+        "high": 43.29999923706055,
+        "low": 42.43000030517578,
+        "close": 42.790000915527344,
+        "volume": 955400,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.790000915527344
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-07",
+        "open": 42.88999938964844,
+        "high": 42.88999938964844,
+        "low": 42.16999816894531,
+        "close": 42.33000183105469,
+        "volume": 708700,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.33000183105469
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-08",
+        "open": 42.59000015258789,
+        "high": 42.79999923706055,
+        "low": 41.900001525878906,
+        "close": 41.91999816894531,
+        "volume": 1055200,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.91999816894531
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-11",
+        "open": 42.04999923706055,
+        "high": 42.18000030517578,
+        "low": 40.9900016784668,
+        "close": 41.130001068115234,
+        "volume": 1327500,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.130001068115234
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-12",
+        "open": 41.0099983215332,
+        "high": 41.4900016784668,
+        "low": 40.5,
+        "close": 40.75,
+        "volume": 963700,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.75
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-13",
+        "open": 40.54999923706055,
+        "high": 42.369998931884766,
+        "low": 40.529998779296875,
+        "close": 42.2400016784668,
+        "volume": 1219500,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.2400016784668
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-14",
+        "open": 42.25,
+        "high": 42.41999816894531,
+        "low": 41.61000061035156,
+        "close": 41.68000030517578,
+        "volume": 415300,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.68000030517578
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-15",
+        "open": 41.5,
+        "high": 41.900001525878906,
+        "low": 41.29999923706055,
+        "close": 41.369998931884766,
+        "volume": 562500,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.369998931884766
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-18",
+        "open": 41.5,
+        "high": 41.79999923706055,
+        "low": 41.20000076293945,
+        "close": 41.209999084472656,
+        "volume": 316900,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.209999084472656
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-19",
+        "open": 41.779998779296875,
+        "high": 41.83000183105469,
+        "low": 41.0,
+        "close": 41.0,
+        "volume": 184800,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.0
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-20",
+        "open": 41.25,
+        "high": 42.099998474121094,
+        "low": 41.0,
+        "close": 42.04999923706055,
+        "volume": 253300,
+        "source": "yahoo-chart",
+        "adjusted_close": 42.04999923706055
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-21",
+        "open": 42.099998474121094,
+        "high": 42.099998474121094,
+        "low": 41.45000076293945,
+        "close": 41.599998474121094,
+        "volume": 301800,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.599998474121094
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-22",
+        "open": 41.54999923706055,
+        "high": 41.70000076293945,
+        "low": 41.119998931884766,
+        "close": 41.29999923706055,
+        "volume": 366800,
+        "source": "yahoo-chart",
+        "adjusted_close": 41.29999923706055
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-26",
+        "open": 41.29999923706055,
+        "high": 41.439998626708984,
+        "low": 40.29999923706055,
+        "close": 40.400001525878906,
+        "volume": 825400,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.400001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-27",
+        "open": 40.45000076293945,
+        "high": 40.459999084472656,
+        "low": 40.29999923706055,
+        "close": 40.400001525878906,
+        "volume": 382900,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.400001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-28",
+        "open": 40.65999984741211,
+        "high": 40.68000030517578,
+        "low": 40.20000076293945,
+        "close": 40.220001220703125,
+        "volume": 450200,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.220001220703125
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-05-29",
+        "open": 40.25,
+        "high": 40.349998474121094,
+        "low": 40.11000061035156,
+        "close": 40.130001068115234,
+        "volume": 304800,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.130001068115234
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-01",
+        "open": 40.099998474121094,
+        "high": 40.11000061035156,
+        "low": 39.25,
+        "close": 39.400001525878906,
+        "volume": 658200,
+        "source": "yahoo-chart",
+        "adjusted_close": 39.400001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-02",
+        "open": 39.29999923706055,
+        "high": 39.650001525878906,
+        "low": 38.61000061035156,
+        "close": 38.900001525878906,
+        "volume": 867500,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.900001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-03",
+        "open": 38.90999984741211,
+        "high": 39.099998474121094,
+        "low": 38.150001525878906,
+        "close": 38.22999954223633,
+        "volume": 550900,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.22999954223633
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-04",
+        "open": 39.0,
+        "high": 39.400001525878906,
+        "low": 38.20000076293945,
+        "close": 38.7599983215332,
+        "volume": 513400,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.7599983215332
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-05",
+        "open": 38.7599983215332,
+        "high": 39.2400016784668,
+        "low": 38.0099983215332,
+        "close": 38.16999816894531,
+        "volume": 428900,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.16999816894531
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-08",
+        "open": 38.63999938964844,
+        "high": 38.66999816894531,
+        "low": 37.38999938964844,
+        "close": 37.84000015258789,
+        "volume": 422100,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.84000015258789
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-09",
+        "open": 38.0,
+        "high": 38.25,
+        "low": 37.58000183105469,
+        "close": 37.9900016784668,
+        "volume": 517100,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.9900016784668
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-10",
+        "open": 37.95000076293945,
+        "high": 38.310001373291016,
+        "low": 37.400001525878906,
+        "close": 37.900001525878906,
+        "volume": 466300,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.900001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-11",
+        "open": 37.5,
+        "high": 37.79999923706055,
+        "low": 37.150001525878906,
+        "close": 37.2599983215332,
+        "volume": 398500,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.2599983215332
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-12",
+        "open": 37.5,
+        "high": 38.29999923706055,
+        "low": 37.4900016784668,
+        "close": 37.880001068115234,
+        "volume": 485300,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.880001068115234
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-15",
+        "open": 38.41999816894531,
+        "high": 39.9900016784668,
+        "low": 38.0099983215332,
+        "close": 39.61000061035156,
+        "volume": 1529600,
+        "source": "yahoo-chart",
+        "adjusted_close": 39.61000061035156
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-16",
+        "open": 40.0099983215332,
+        "high": 40.150001525878906,
+        "low": 39.790000915527344,
+        "close": 40.06999969482422,
+        "volume": 687300,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.06999969482422
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-17",
+        "open": 40.150001525878906,
+        "high": 40.220001220703125,
+        "low": 39.11000061035156,
+        "close": 39.40999984741211,
+        "volume": 493000,
+        "source": "yahoo-chart",
+        "adjusted_close": 39.40999984741211
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-18",
+        "open": 39.349998474121094,
+        "high": 40.040000915527344,
+        "low": 39.20000076293945,
+        "close": 39.790000915527344,
+        "volume": 488700,
+        "source": "yahoo-chart",
+        "adjusted_close": 39.790000915527344
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-22",
+        "open": 39.63999938964844,
+        "high": 39.7599983215332,
+        "low": 38.459999084472656,
+        "close": 38.56999969482422,
+        "volume": 353800,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.56999969482422
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-23",
+        "open": 38.56999969482422,
+        "high": 38.56999969482422,
+        "low": 37.79999923706055,
+        "close": 37.900001525878906,
+        "volume": 318900,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.900001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-24",
+        "open": 37.83000183105469,
+        "high": 37.849998474121094,
+        "low": 37.43000030517578,
+        "close": 37.7400016784668,
+        "volume": 414400,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.7400016784668
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-25",
+        "open": 37.459999084472656,
+        "high": 37.70000076293945,
+        "low": 36.79999923706055,
+        "close": 37.119998931884766,
+        "volume": 671700,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.119998931884766
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-26",
+        "open": 37.0,
+        "high": 37.709999084472656,
+        "low": 36.72999954223633,
+        "close": 36.95000076293945,
+        "volume": 651700,
+        "source": "yahoo-chart",
+        "adjusted_close": 36.95000076293945
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-29",
+        "open": 37.29999923706055,
+        "high": 37.79999923706055,
+        "low": 37.0099983215332,
+        "close": 37.25,
+        "volume": 486000,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.25
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-06-30",
+        "open": 37.540000915527344,
+        "high": 37.900001525878906,
+        "low": 36.790000915527344,
+        "close": 37.380001068115234,
+        "volume": 622600,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.380001068115234
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-01",
+        "open": 37.560001373291016,
+        "high": 39.470001220703125,
+        "low": 37.52000045776367,
+        "close": 38.880001068115234,
+        "volume": 601900,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.880001068115234
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-02",
+        "open": 39.13999938964844,
+        "high": 39.33000183105469,
+        "low": 37.68000030517578,
+        "close": 37.900001525878906,
+        "volume": 279400,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.900001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-06",
+        "open": 38.0,
+        "high": 38.72999954223633,
+        "low": 37.79999923706055,
+        "close": 38.060001373291016,
+        "volume": 271900,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.060001373291016
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-07",
+        "open": 38.220001220703125,
+        "high": 38.25,
+        "low": 37.72999954223633,
+        "close": 37.84000015258789,
+        "volume": 304100,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.84000015258789
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-08",
+        "open": 37.36000061035156,
+        "high": 38.13999938964844,
+        "low": 37.06999969482422,
+        "close": 37.290000915527344,
+        "volume": 264300,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.290000915527344
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-09",
+        "open": 37.400001525878906,
+        "high": 38.029998779296875,
+        "low": 37.310001373291016,
+        "close": 37.849998474121094,
+        "volume": 1060300,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.849998474121094
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-10",
+        "open": 38.0,
+        "high": 38.47999954223633,
+        "low": 37.72999954223633,
+        "close": 37.86000061035156,
+        "volume": 494100,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.86000061035156
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-13",
+        "open": 37.86000061035156,
+        "high": 38.22999954223633,
+        "low": 37.25,
+        "close": 37.439998626708984,
+        "volume": 235400,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.439998626708984
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-14",
+        "open": 37.099998474121094,
+        "high": 37.56999969482422,
+        "low": 36.90999984741211,
+        "close": 37.290000915527344,
+        "volume": 361600,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.290000915527344
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-15",
+        "open": 37.33000183105469,
+        "high": 38.70000076293945,
+        "low": 37.029998779296875,
+        "close": 38.27000045776367,
+        "volume": 417100,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.27000045776367
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-16",
+        "open": 38.380001068115234,
+        "high": 38.58000183105469,
+        "low": 37.93000030517578,
+        "close": 38.150001525878906,
+        "volume": 211000,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.150001525878906
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-17",
+        "open": 37.75,
+        "high": 37.84000015258789,
+        "low": 36.84000015258789,
+        "close": 37.02000045776367,
+        "volume": 422500,
+        "source": "yahoo-chart",
+        "adjusted_close": 37.02000045776367
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-20",
+        "open": 37.150001525878906,
+        "high": 37.220001220703125,
+        "low": 36.52000045776367,
+        "close": 36.75,
+        "volume": 322700,
+        "source": "yahoo-chart",
+        "adjusted_close": 36.75
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-21",
+        "open": 37.0,
+        "high": 37.0,
+        "low": 36.61000061035156,
+        "close": 36.869998931884766,
+        "volume": 310400,
+        "source": "yahoo-chart",
+        "adjusted_close": 36.869998931884766
+      },
+      {
+        "ticker": "PSUS",
+        "date": "2026-07-22",
+        "open": 37.7400016784668,
+        "high": 37.7400016784668,
+        "low": 36.65999984741211,
+        "close": 36.79999923706055,
+        "volume": 272425,
+        "source": "yahoo-chart",
+        "adjusted_close": 36.79999923706055
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 22.12,
+      "growthSpurtBenchmarkPercentile": 0.339381,
+      "growthSpurtMarketDataAsOf": "2026-07-22",
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

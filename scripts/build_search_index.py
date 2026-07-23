@@ -18,6 +18,7 @@ if __package__ in {None, ""}:
 from scripts.build_universe import build_universe
 from scripts.chunk_filings import chunk_filing
 from scripts.export_json import write_json
+from scripts.artifact_paths import ticker_artifact_path
 from scripts.models import Security
 from scripts.providers.sec_filings import SecFilingProvider
 from scripts.retrieval import diversify_results
@@ -212,7 +213,7 @@ def write_partitioned_index(index: dict[str, Any], manifest_path: Path, search_d
             seen_ids.add(document_id)
             unique_documents.append(document)
         ticker_index = build_index(unique_documents)
-        ticker_path = search_dir / f"{ticker}.json"
+        ticker_path = ticker_artifact_path(search_dir, ticker)
         write_compact_json(ticker_path, ticker_index)
         filing_dates = [row.get("filingDate") for row in unique_documents if row.get("filingDate")]
         tickers[ticker] = {

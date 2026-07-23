@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "FFIV",
+  "companyName": "F5, INC.",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+  "marketDataAsOf": "2026-07-22",
+  "currentPrice": 400.72,
+  "analystTarget": {
+    "ticker": "FFIV",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 400.72000122,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 400.72,
+    "lowerEstimatedPrice": 381.1767,
+    "upperEstimatedPrice": 421.2654
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 400.72,
+    "lowerEstimatedPrice": 381.1767,
+    "upperEstimatedPrice": 421.2654
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
+    "marketDataAsOf": "2026-07-22",
+    "currentPrice": 400.72,
+    "horizon30Day": {
+      "returnEstimate": 0.01768361,
+      "lowerReturn": 0.00946333,
+      "upperReturn": 0.08,
+      "estimatedPrice": 407.8062,
+      "lowerEstimatedPrice": 404.5121,
+      "upperEstimatedPrice": 432.7776,
+      "sampleCount": 47,
+      "status": "available",
+      "usableObservationCount": 47,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.07803125,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.15,
+      "estimatedPrice": 431.9887,
+      "lowerEstimatedPrice": 340.612,
+      "upperEstimatedPrice": 460.828,
+      "sampleCount": 39,
+      "status": "available",
+      "usableObservationCount": 39,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}

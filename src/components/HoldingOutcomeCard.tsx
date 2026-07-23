@@ -18,17 +18,24 @@ function percent(value: number | null | undefined) {
   return typeof value === "number" && Number.isFinite(value) ? `${value >= 0 ? "+" : ""}${(value * 100).toFixed(2)}%` : "Unavailable";
 }
 
+function scenarioRange(outcome: HoldingOutcome) {
+  if (typeof outcome.lowerReturn !== "number" || !Number.isFinite(outcome.lowerReturn)) return "Unavailable";
+  if (typeof outcome.upperReturn !== "number" || !Number.isFinite(outcome.upperReturn)) return "Unavailable";
+  return `${percent(outcome.lowerReturn)} to ${percent(outcome.upperReturn)}`;
+}
+
 function primaryCaption(outcome: HoldingOutcome) {
   if (typeof outcome.estimatedGainLoss !== "number" || !Number.isFinite(outcome.estimatedGainLoss)) return null;
   if (outcome.estimatedGainLoss === 0) return "No estimated change";
   const kind = outcome.estimatedGainLoss > 0 ? "gain" : "loss";
-  return outcome.source === "market_target" ? `Market-implied ${kind}` : `Estimated ${kind}`;
+  return `Estimated total ${kind}`;
 }
 
 function perShareLabel(outcome: HoldingOutcome) {
-  return typeof outcome.estimatedGainLossPerShare === "number" && Number.isFinite(outcome.estimatedGainLossPerShare) && outcome.estimatedGainLossPerShare < 0
-    ? "Loss per share"
-    : "Gain per share";
+  if (typeof outcome.estimatedGainLossPerShare !== "number" || !Number.isFinite(outcome.estimatedGainLossPerShare)) return "Gain/loss per share";
+  if (outcome.estimatedGainLossPerShare > 0) return "Gain per share";
+  if (outcome.estimatedGainLossPerShare < 0) return "Loss per share";
+  return "Change per share";
 }
 
 function sourceLabel(outcome: HoldingOutcome) {
@@ -39,13 +46,13 @@ function sourceLabel(outcome: HoldingOutcome) {
 
 export function HoldingOutcomeCard({ outcome }: { outcome: HoldingOutcome }) {
   const unavailable = outcome.status === "unavailable";
-  const isMarketTarget = outcome.source === "market_target";
   const caption = primaryCaption(outcome);
   const formattedDate = outcome.asOf ? formatDisplayDate(outcome.asOf) : null;
-  const conciseReason = isMarketTarget ? "Analyst target data is not currently available." : outcome.unavailableReason ?? "Scenario unavailable";
+  const projectionSource = sourceLabel(outcome);
+  const conciseReason = outcome.unavailableReason ?? "Scenario unavailable";
 
   return (
-    <article className={`holding-outcome-card ${isMarketTarget ? "market-target" : "valuesignal"} ${unavailable ? "unavailable" : ""}`}>
+    <article className={`holding-outcome-card ${outcome.source === "market_target" ? "market-target" : "valuesignal"} ${unavailable ? "unavailable" : ""}`}>
       <header>
         <span>{outcome.label}</span>
         <strong>{unavailable ? "Unavailable" : signedMoney(outcome.estimatedGainLoss)}</strong>
@@ -55,45 +62,48 @@ export function HoldingOutcomeCard({ outcome }: { outcome: HoldingOutcome }) {
         <div className="outcome-unavailable">
           <p>{conciseReason}</p>
           {outcome.unavailableDetail ? <small>{outcome.unavailableDetail}</small> : null}
-          {isMarketTarget ? (
-            <details>
-              <summary>Why unavailable?</summary>
-              <small>ValueSignal does not currently have a configured external analyst-target provider.</small>
-            </details>
-          ) : null}
         </div>
       ) : (
         <dl>
           <div>
-            <dt>Return</dt>
-            <dd>{percent(outcome.estimatedReturn)}</dd>
+            <dt>{perShareLabel(outcome)}</dt>
+            <dd>{signedMoney(outcome.estimatedGainLossPerShare)}</dd>
           </div>
           <div>
-            <dt>Sell price</dt>
+            <dt>Estimated sell price</dt>
             <dd>{money(outcome.estimatedSellPrice)}</dd>
           </div>
           <div>
-            <dt>Position value</dt>
+            <dt>Estimated position value</dt>
             <dd>{money(outcome.estimatedPositionValue)}</dd>
           </div>
           <div>
-            <dt>{perShareLabel(outcome)}</dt>
-            <dd>{signedMoney(outcome.estimatedGainLossPerShare)}</dd>
+            <dt>Estimated return</dt>
+            <dd>{percent(outcome.estimatedReturn)}</dd>
+          </div>
+          <div>
+            <dt>Scenario range</dt>
+            <dd>{scenarioRange(outcome)}</dd>
+          </div>
+          <div>
+            <dt>Projection source</dt>
+            <dd>{projectionSource ?? "Unavailable"}</dd>
           </div>
         </dl>
       )}
       <footer>
         {formattedDate ? <small>As of {formattedDate}</small> : null}
-        {!unavailable && sourceLabel(outcome) ? <small>{sourceLabel(outcome)}</small> : null}
       </footer>
     </article>
   );
 }
 
 export function HoldingOutcomeGrid({ outcomes }: { outcomes: HoldingOutcome[] }) {
+  const valueSignalOutcomes = outcomes.filter((outcome) => outcome.source === "valuesignal");
+
   return (
     <section className="holding-outcome-grid" aria-label="Saved position outcome estimates">
-      {outcomes.map((outcome) => (
+      {valueSignalOutcomes.map((outcome) => (
         <HoldingOutcomeCard key={`${outcome.source}-${outcome.horizonDays}`} outcome={outcome} />
       ))}
     </section>

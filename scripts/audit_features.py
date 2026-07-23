@@ -11,6 +11,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.features import FEATURE_SPECS
+from scripts.artifact_paths import ticker_artifact_path
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -24,7 +25,7 @@ def audit(data_dir: Path = Path("public/data")) -> list[str]:
     failures: list[str] = []
 
     def load_stock_record(ticker: str) -> dict[str, Any]:
-        stock_path = data_dir / "stocks" / f"{ticker}.json"
+        stock_path = ticker_artifact_path(data_dir / "stocks", ticker)
         if not stock_path.exists():
             raise FileNotFoundError(f"missing stock detail artifact: {stock_path}")
         payload = load(stock_path)

@@ -1,0 +1,851 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "AZUL",
+      "cik": "0001432364",
+      "company_name": "AZUL SA",
+      "exchange": "NYSE",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 8.64,
+      "dailyChangePercent": 0.3484,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AZUL",
+      "cik": "0001432364",
+      "companyName": "AZUL SA",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "AZUL",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "AZUL",
+        "date": "2026-05-28",
+        "open": 9.029999732971191,
+        "high": 9.029999732971191,
+        "low": 9.029999732971191,
+        "close": 9.029999732971191,
+        "volume": 41900,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.029999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-05-29",
+        "open": 8.920000076293945,
+        "high": 8.920000076293945,
+        "low": 8.920000076293945,
+        "close": 8.920000076293945,
+        "volume": 96500,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.920000076293945
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-01",
+        "open": 9.149999618530273,
+        "high": 9.149999618530273,
+        "low": 8.359999656677246,
+        "close": 8.880000114440918,
+        "volume": 63600,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.880000114440918
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-02",
+        "open": 8.960000038146973,
+        "high": 9.399999618530273,
+        "low": 8.609999656677246,
+        "close": 9.0,
+        "volume": 260100,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.0
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-03",
+        "open": 9.149999618530273,
+        "high": 9.640000343322754,
+        "low": 8.800000190734863,
+        "close": 8.890000343322754,
+        "volume": 30200,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.890000343322754
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-04",
+        "open": 9.0,
+        "high": 9.1899995803833,
+        "low": 8.829999923706055,
+        "close": 9.029999732971191,
+        "volume": 515800,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.029999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-05",
+        "open": 8.989999771118164,
+        "high": 9.079999923706055,
+        "low": 8.579999923706055,
+        "close": 9.079999923706055,
+        "volume": 346800,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.079999923706055
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-08",
+        "open": 8.600000381469727,
+        "high": 9.050000190734863,
+        "low": 8.25,
+        "close": 8.300000190734863,
+        "volume": 113700,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.300000190734863
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-09",
+        "open": 8.270000457763672,
+        "high": 8.510000228881836,
+        "low": 7.840000152587891,
+        "close": 8.369999885559082,
+        "volume": 65500,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.369999885559082
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-10",
+        "open": 8.229999542236328,
+        "high": 8.59000015258789,
+        "low": 8.050000190734863,
+        "close": 8.59000015258789,
+        "volume": 3300,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.59000015258789
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-11",
+        "open": 8.220000267028809,
+        "high": 8.819999694824219,
+        "low": 8.199999809265137,
+        "close": 8.800000190734863,
+        "volume": 68800,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.800000190734863
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-12",
+        "open": 8.8100004196167,
+        "high": 9.0,
+        "low": 8.5,
+        "close": 8.529999732971191,
+        "volume": 29000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.529999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-15",
+        "open": 8.75,
+        "high": 9.25,
+        "low": 8.729999542236328,
+        "close": 8.819999694824219,
+        "volume": 188000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.819999694824219
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-16",
+        "open": 8.829999923706055,
+        "high": 8.979999542236328,
+        "low": 8.75,
+        "close": 8.779999732971191,
+        "volume": 10800,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.779999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-17",
+        "open": 8.800000190734863,
+        "high": 8.84000015258789,
+        "low": 8.369999885559082,
+        "close": 8.600000381469727,
+        "volume": 43600,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.600000381469727
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-18",
+        "open": 8.350000381469727,
+        "high": 9.100000381469727,
+        "low": 8.350000381469727,
+        "close": 8.739999771118164,
+        "volume": 68900,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.739999771118164
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-22",
+        "open": 8.979999542236328,
+        "high": 9.100000381469727,
+        "low": 8.850000381469727,
+        "close": 8.9399995803833,
+        "volume": 86000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.9399995803833
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-23",
+        "open": 8.789999961853027,
+        "high": 8.880000114440918,
+        "low": 8.609999656677246,
+        "close": 8.739999771118164,
+        "volume": 14900,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.739999771118164
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-24",
+        "open": 8.739999771118164,
+        "high": 9.15999984741211,
+        "low": 8.680000305175781,
+        "close": 9.0,
+        "volume": 76400,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.0
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-25",
+        "open": 9.529999732971191,
+        "high": 9.529999732971191,
+        "low": 9.0,
+        "close": 9.100000381469727,
+        "volume": 47000,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.100000381469727
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-26",
+        "open": 9.09000015258789,
+        "high": 9.649999618530273,
+        "low": 9.069999694824219,
+        "close": 9.119999885559082,
+        "volume": 112200,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.119999885559082
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-29",
+        "open": 9.170000076293945,
+        "high": 9.289999961853027,
+        "low": 9.09000015258789,
+        "close": 9.15999984741211,
+        "volume": 18200,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.15999984741211
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-06-30",
+        "open": 9.109999656677246,
+        "high": 9.220000267028809,
+        "low": 8.989999771118164,
+        "close": 8.989999771118164,
+        "volume": 33000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.989999771118164
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-01",
+        "open": 8.979999542236328,
+        "high": 9.829999923706055,
+        "low": 8.6899995803833,
+        "close": 9.829999923706055,
+        "volume": 21500,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.829999923706055
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-02",
+        "open": 8.649999618530273,
+        "high": 9.199999809265137,
+        "low": 8.649999618530273,
+        "close": 8.819999694824219,
+        "volume": 31400,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.819999694824219
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-06",
+        "open": 9.010000228881836,
+        "high": 9.25,
+        "low": 9.010000228881836,
+        "close": 9.229999542236328,
+        "volume": 20300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.229999542236328
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-07",
+        "open": 9.300000190734863,
+        "high": 9.300000190734863,
+        "low": 9.0,
+        "close": 9.0,
+        "volume": 4900,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.0
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-08",
+        "open": 8.930000305175781,
+        "high": 8.960000038146973,
+        "low": 8.729999542236328,
+        "close": 8.729999542236328,
+        "volume": 5700,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.729999542236328
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-09",
+        "open": 8.789999961853027,
+        "high": 9.210000038146973,
+        "low": 8.789999961853027,
+        "close": 9.050000190734863,
+        "volume": 153500,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.050000190734863
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-10",
+        "open": 9.239999771118164,
+        "high": 9.25,
+        "low": 8.979999542236328,
+        "close": 9.029999732971191,
+        "volume": 380300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.029999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-13",
+        "open": 9.199999809265137,
+        "high": 9.199999809265137,
+        "low": 8.699999809265137,
+        "close": 8.770000457763672,
+        "volume": 142900,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.770000457763672
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-14",
+        "open": 8.84000015258789,
+        "high": 8.920000076293945,
+        "low": 8.470000267028809,
+        "close": 8.470000267028809,
+        "volume": 83600,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.470000267028809
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-15",
+        "open": 8.630000114440918,
+        "high": 8.84000015258789,
+        "low": 8.619999885559082,
+        "close": 8.649999618530273,
+        "volume": 199000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.649999618530273
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-16",
+        "open": 8.600000381469727,
+        "high": 8.720000267028809,
+        "low": 8.529999732971191,
+        "close": 8.579999923706055,
+        "volume": 167900,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.579999923706055
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-17",
+        "open": 8.5,
+        "high": 8.609999656677246,
+        "low": 8.350000381469727,
+        "close": 8.479999542236328,
+        "volume": 304500,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.479999542236328
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-20",
+        "open": 8.5,
+        "high": 8.75,
+        "low": 8.460000038146973,
+        "close": 8.529999732971191,
+        "volume": 20000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.529999732971191
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-21",
+        "open": 8.640000343322754,
+        "high": 8.770000457763672,
+        "low": 8.5600004196167,
+        "close": 8.609999656677246,
+        "volume": 15600,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.609999656677246
+      },
+      {
+        "ticker": "AZUL",
+        "date": "2026-07-22",
+        "open": 8.510000228881836,
+        "high": 8.6899995803833,
+        "low": 8.510000228881836,
+        "close": 8.640000343322754,
+        "volume": 4148,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.640000343322754
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

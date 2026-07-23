@@ -4,7 +4,7 @@
 **Last updated:** 2026-07-21 UTC
 **Primary code:** `src/lib/position-projections.ts`, `src/components/SavedStocksConsole.tsx`
 
-This document explains how ValueSignal turns a saved stock or position into 30-day and 90-day outcome cards.
+This document explains how ValueSignal turns a saved stock or position into the two customer-facing 30-day and 90-day ValueSignal outcome cards.
 
 ## 1. Conceptual separation
 
@@ -13,7 +13,7 @@ Saved-stock projections keep four concepts separate:
 1. **ValueSignal selected model**: the auditable forecast model chosen by the forecast pipeline.
 2. **ValueSignal conservative historical scenario**: deterministic fallback based on the stock's own prior price behavior.
 3. **Personal scenario fields**: optional user-entered percentages for private planning.
-4. **Analyst/market target**: unsupported until a legitimate provider and a documented target horizon are added.
+4. **Analyst/market target**: preserved as backend schema/extension points, but hidden from the saved-position UI until a legitimate provider and documented target horizon are configured.
 
 The UI must never use personal scenario fields or analyst-target placeholders as ValueSignal projections. It also must never describe position outcomes as "earnings"; use estimated gain/loss, estimated position value, and estimated sell price.
 
@@ -95,21 +95,17 @@ upperEstimatedFuturePrice = currentPrice * (1 + upperReturn)
 
 These prices are scenario outputs, not price targets or guarantees.
 
-## 6. Market-target implied scenario
+## 6. Analyst/market-target extension point
 
 The market-target layer is separate from ValueSignal estimates. A market-target scenario can be calculated only when a real provider supplies:
 
 - `targetMean`;
 - `currentPriceAtCollection`;
 - `targetHorizonDays`;
-- non-stale provider status.
+- non-stale provider status;
+- display/redistribution permission.
 
-The current fixture has no configured analyst target provider, so market-target cards show:
-
-```text
-Unavailable
-Analyst target data is not currently available.
-```
+The current fixture has no configured analyst target provider, so market-target cards are not displayed in the primary saved-portfolio interface. The `AnalystTargetArtifact` schema and `marketTargetOutcomes` remain in `src/lib/position-projections.ts` for a future provider-backed integration.
 
 When valid provider data exists, the calculation is:
 
@@ -119,39 +115,38 @@ marketImpliedReturn30 = (1 + totalTargetReturn)^(30 / targetHorizonDays) - 1
 marketImpliedReturn90 = (1 + totalTargetReturn)^(90 / targetHorizonDays) - 1
 ```
 
-This is labeled as a market-implied scenario, not an analyst 30-day or 90-day forecast.
+This would be labeled as a market-implied scenario, not an analyst 30-day or 90-day forecast. Do not scrape unofficial financial websites or convert targets with unknown horizons.
 
 ## 7. UI labels
 
 Current saved-position cards:
 
 - `ValueSignal 30 Days`;
-- `ValueSignal 90 Days`;
-- `Market Target 30 Days`;
-- `Market Target 90 Days`.
+- `ValueSignal 90 Days`.
 
 Each card is normalized as a `HoldingOutcome` by `src/lib/position-projections.ts` before React renders it. The card shows:
 
 - estimated total gain/loss once, as the headline;
-- estimated return;
+- gain/loss per share;
 - estimated sell price;
 - estimated position value;
-- gain/loss per share;
+- estimated return;
+- scenario range;
+- projection source;
 - human-readable as-of date;
 - concise unavailable reason when needed.
 
-The current reference area above the four cards shows current price, current position value, allocation when the position is dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Current price is not repeated inside each outcome card.
+The current reference area above the two cards shows position type, current price, current position value, allocation when the position is dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Current price is not repeated inside each outcome card.
 
 When a ValueSignal horizon is unavailable because the historical scenario lacks observations, the card shows `Not enough historical data` plus the horizon-specific observation count, such as `8 of 24 required observations` or `8 of 12 required observations`. The 90-day card must never reuse the 30-day observation requirement.
 
-When a market-target card is unavailable, `methodology`, `sourceProvider`, and `sourceHorizonDays` remain `null` in the `HoldingOutcome`; scenario-source language only appears after a valid target, provider, horizon, and implied scenario exist.
+Unsupported market-target outcomes are not rendered in the primary saved-portfolio UI. If a future provider is configured, `methodology`, `sourceProvider`, and `sourceHorizonDays` must remain `null` for unavailable outcomes; scenario-source language appears only after a valid target, provider, horizon, and implied scenario exist.
 
 Internal model-status area is collapsed under `Forecast methodology`:
 
 - selected ValueSignal model names;
 - zero-return baseline status;
 - displayed projection source and sample count;
-- market-target provider status;
 - personal scenario values.
 
 Personal scenario inputs are labeled:
@@ -161,7 +156,7 @@ Personal scenario inputs are labeled:
 
 Helper text:
 
-> Optional percentages entered by you. They do not change ValueSignal estimates or market-target scenarios.
+> Optional percentages entered by you. They do not change ValueSignal estimates.
 
 ## 8. Layout and overflow fix
 
@@ -196,7 +191,7 @@ Projection test coverage includes:
 - zero-return outcomes remain available and display `$0.00`;
 - negative returns show estimated losses;
 - approved non-baseline models outrank conservative scenarios;
-- known-horizon market targets convert to 30/90-day implied scenarios;
-- unknown/stale/unsupported market targets produce explicit unavailable reasons;
+- analyst-target schema and backend outcomes stay backward compatible for future provider integration;
+- market-target cards are absent from the primary saved-portfolio UI;
 - analyst target not used as fallback;
 - personal scenario not used as fallback.

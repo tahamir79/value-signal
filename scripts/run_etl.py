@@ -17,6 +17,7 @@ from scripts.balance_sheet import balance_sheet_bundle, experimental_signal, wri
 from scripts.build_universe import build_universe
 from scripts.cleaning import latest_facts, normalize_company_facts
 from scripts.export_json import write_json
+from scripts.artifact_paths import ticker_artifact_path, ticker_from_artifact_stem
 from scripts.features import FEATURE_SCHEMA_VERSION, calculate_raw_features, derive_fields, normalize_universe
 from scripts.growth_spurt import (
     apply_growth_spurt_percentiles,
@@ -45,7 +46,7 @@ def remove_stale_stock_artifacts(output_dir: Path, active_tickers: set[str]) -> 
     for path in stock_dir.glob("*.json"):
         if path.name == "summary.json":
             continue
-        ticker = path.stem.upper()
+        ticker = ticker_from_artifact_stem(path.stem)
         if ticker not in active:
             path.unlink()
             removed.append(ticker)
@@ -326,7 +327,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
                 "dataStatus": data_status,
             }
             detail_rows[security.ticker] = detail_row
-            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "balanceSheetScoringShadow": bs_scoring, "growthSpurt": growth_spurt})
+            rows.append({"security": record(security), "derived": detail_row["derived"], "dataStatus": data_status, "growthSpurt": growth_spurt})
             feature_rows.append({"ticker": security.ticker, "asOf": prices[-1].date, "raw": raw_features, "balanceSheetScoring": bs_scoring})
         except Exception as exc:
             report["status"] = "failed"
@@ -403,7 +404,7 @@ def run(price_provider: PriceProvider, facts_provider: CompanyFactsProvider, out
     growth_counts = growth_spurt_counts(growth_artifacts, growth_spurt_calculation_failures, growth_mode)
     coverage["counts"].update(growth_counts)
     for ticker, detail_row in detail_rows.items():
-        write_json(output_dir / "stocks" / f"{ticker}.json", {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "record": detail_row})
+        write_json(ticker_artifact_path(output_dir / "stocks", ticker), {"schemaVersion": SCHEMA_VERSION, "generatedAt": finished.isoformat(), "record": detail_row})
     active_tickers = {row["security"]["ticker"].upper() for row in rows}
     stale_stock_artifacts_removed = remove_stale_stock_artifacts(output_dir, active_tickers)
     audit = {

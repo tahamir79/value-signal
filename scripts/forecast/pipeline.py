@@ -12,6 +12,8 @@ from typing import Any, Iterable
 
 import numpy as np
 
+from scripts.artifact_paths import ticker_artifact_path, ticker_from_artifact_stem
+
 try:
     from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
     from sklearn.impute import SimpleImputer
@@ -51,11 +53,16 @@ FEATURE_COLUMNS = [
 BASELINE_MODEL_NAMES = {"zero-return baseline", "historical-mean baseline", "market-return baseline"}
 CONSERVATIVE_SCENARIO_METHOD = "valuesignal_conservative_historical_scenario_v1"
 SCENARIO_SAMPLE_STEP_SESSIONS = 21
+SCALED_FAST_SCENARIO_SAMPLE_STEP_SESSIONS = 5
 SCENARIO_MIN_SAMPLES = {30: 24, 90: 12}
 SCENARIO_SHRINKAGE_CONSTANT = {30: 24, 90: 18}
 SCENARIO_RETURN_CAPS = {30: 0.08, 90: 0.15}
 SCENARIO_STALE_MARKET_DATA_DAYS = 10
 FORECAST_PRICE_HISTORY_MAX_SESSIONS = 540
+
+
+def baseline_only_mode() -> bool:
+    return os.getenv("VS_FORECAST_BASELINE_ONLY", "false").strip().lower() in {"1", "true", "yes"}
 
 
 def now_iso() -> str:
@@ -170,7 +177,7 @@ def stock_files() -> Iterable[Path]:
     paths = sorted(path for path in STOCK_DIR.glob("*.json") if path.name != "summary.json")
     if active is None:
         return paths
-    return [path for path in paths if path.stem.upper() in active]
+    return [path for path in paths if ticker_from_artifact_stem(path.stem) in active]
 
 
 def remove_stale_forecast_artifacts(active_tickers: set[str]) -> list[str]:
@@ -181,7 +188,7 @@ def remove_stale_forecast_artifacts(active_tickers: set[str]) -> list[str]:
     for path in FORECAST_DIR.glob("*.json"):
         if path.name == "summary.json":
             continue
-        ticker = path.stem.upper()
+        ticker = ticker_from_artifact_stem(path.stem)
         if ticker not in active:
             path.unlink()
             removed.append(ticker)
@@ -279,6 +286,11 @@ def candidate_models(train_rows: list[dict[str, Any]], horizon: int) -> list[Fit
         FittedModel("historical-mean baseline", "1.0.0", None, mean),
         FittedModel("market-return baseline", "1.0.0", None, mean),
     ]
+    if baseline_only_mode():
+        candidates.append(FittedModel("sklearn challengers", "unavailable", None, unavailable_reason="Disabled by VS_FORECAST_BASELINE_ONLY for scaled refresh; official selected model remains zero-return baseline."))
+        candidates.append(FittedModel("catboost regressor", "unavailable", None, unavailable_reason="CatBoost is not installed in this project environment."))
+        candidates.append(FittedModel("small neural network challenger", "unavailable", None, unavailable_reason="Neural-network challenger is disabled for the lightweight local batch and cannot be selected."))
+        return candidates
     if not train_rows or Ridge is None:
         candidates.append(FittedModel("sklearn candidates", "unavailable", None, unavailable_reason="scikit-learn unavailable or no train rows"))
         return candidates
@@ -544,6 +556,60 @@ def conservative_scenario(rows: list[dict[str, Any]], current_row: dict[str, Any
     }
 
 
+def _scenario_returns_from_prices(prices: list[dict[str, Any]], horizon: int, warnings: list[str], *, sample_step_sessions: int = SCENARIO_SAMPLE_STEP_SESSIONS) -> list[float]:
+    sampled_indexes = range(0, len(prices), max(1, sample_step_sessions))
+    returns: list[float] = []
+    for index in sampled_indexes:
+        target = target_log_return(prices, index, horizon)
+        if not finite(target):
+            continue
+        simple = math.exp(float(target)) - 1
+        if not math.isfinite(simple) or simple < -1:
+            warnings.append(f"{horizon}-day scenario: invalid historical return rejected for {prices[index].get('date')}")
+            continue
+        returns.append(simple)
+    return returns
+
+
+def conservative_scenario_from_prices(prices: list[dict[str, Any]], current_row: dict[str, Any], generated_at: str, *, sample_step_sessions: int = SCENARIO_SAMPLE_STEP_SESSIONS) -> dict[str, Any]:
+    warnings: list[str] = []
+    current_price = current_row.get("currentAdjustedClose")
+    market_data_as_of = str(current_row.get("featureDate") or "")
+    if not finite(current_price) or float(current_price) <= 0:
+        warnings.append("Current price is unavailable or invalid.")
+        return {
+            "methodology": CONSERVATIVE_SCENARIO_METHOD,
+            "generatedAt": generated_at,
+            "marketDataAsOf": market_data_as_of,
+            "currentPrice": None,
+            "horizon30Day": _empty_scenario_horizon(0, 30, SCENARIO_MIN_SAMPLES[30], "Current price is unavailable or invalid."),
+            "horizon90Day": _empty_scenario_horizon(0, 90, SCENARIO_MIN_SAMPLES[90], "Current price is unavailable or invalid."),
+            "status": "insufficient_data",
+            "warnings": warnings,
+        }
+    stale = _market_data_is_stale(market_data_as_of, generated_at)
+    if sample_step_sessions != SCENARIO_SAMPLE_STEP_SESSIONS:
+        warnings.append(f"Scaled-fast scenario uses {sample_step_sessions}-session sampling because the current scaled price checkpoint contains shorter price history.")
+    if stale:
+        warnings.append(f"Market data as of {market_data_as_of} is older than {SCENARIO_STALE_MARKET_DATA_DAYS} days.")
+    horizons = {
+        30: _scenario_horizon(float(current_price), _scenario_returns_from_prices(prices, 30, warnings, sample_step_sessions=sample_step_sessions), 30, warnings),
+        90: _scenario_horizon(float(current_price), _scenario_returns_from_prices(prices, 90, warnings, sample_step_sessions=sample_step_sessions), 90, warnings),
+    }
+    available = all(finite(horizons[horizon].get("returnEstimate")) for horizon in (30, 90))
+    return {
+        "methodology": CONSERVATIVE_SCENARIO_METHOD,
+        "generatedAt": generated_at,
+        "marketDataAsOf": market_data_as_of,
+        "currentPrice": round(float(current_price), 4),
+        "horizon30Day": horizons[30],
+        "horizon90Day": horizons[90],
+        "status": "stale" if stale else "available" if available else "insufficient_data",
+        "sampleStepSessions": sample_step_sessions,
+        "warnings": list(dict.fromkeys(warnings)),
+    }
+
+
 def _is_non_baseline_model(name: str | None) -> bool:
     return bool(name) and name not in BASELINE_MODEL_NAMES and "unavailable" not in name.lower()
 
@@ -702,7 +768,7 @@ def run_pipeline() -> dict[str, Any]:
         })
     artifacts = forecast_artifacts(rows, results)
     for artifact in artifacts:
-        write_json(FORECAST_DIR / f"{artifact['ticker']}.json", artifact)
+        write_json(ticker_artifact_path(FORECAST_DIR, artifact["ticker"]), artifact)
     stale_forecast_artifacts_removed = remove_stale_forecast_artifacts({artifact["ticker"] for artifact in artifacts})
     summary = {
         "schemaVersion": "1.0.0",
@@ -733,11 +799,147 @@ def run_pipeline() -> dict[str, Any]:
     }
 
 
+def run_scaled_fast_pipeline() -> dict[str, Any]:
+    generated_at = now_iso()
+    artifacts: list[dict[str, Any]] = []
+    stale_forecast_artifacts_removed: list[str] = []
+    warnings = [
+        "Scaled fast forecast refresh; challenger model training skipped.",
+        "Official model estimate remains the zero-return baseline.",
+        "Display projection uses the conservative historical scenario when sufficient history exists.",
+    ]
+    leaderboard = []
+    for horizon in (30, 90):
+        leaderboard.extend([
+            {"horizonDays": horizon, "model": "zero-return baseline", "status": "available", "validation": {"mae": None}, "test": {"mae": None, "directionalAccuracy": None}},
+            {"horizonDays": horizon, "model": "historical-mean baseline", "status": "unavailable", "reason": "Scaled fast mode does not train/evaluate historical-mean baseline."},
+            {"horizonDays": horizon, "model": "market-return baseline", "status": "unavailable", "reason": "Scaled fast mode does not train/evaluate market-return baseline."},
+            {"horizonDays": horizon, "model": "sklearn challengers", "status": "unavailable", "reason": "Disabled by scaled fast mode."},
+        ])
+    write_json(TRAINING_DATASET_PATH, {"schemaVersion": "1.0.0", "generatedAt": generated_at, "mode": "scaled_fast_current_only", "rows": []})
+    write_json(LEADERBOARD_PATH, {"schemaVersion": "1.0.0", "generatedAt": generated_at, "mode": "scaled_fast_current_only", "models": leaderboard})
+    for horizon, path in ((30, BACKTEST_30_PATH), (90, BACKTEST_90_PATH)):
+        write_json(path, {
+            "schemaVersion": "1.0.0",
+            "generatedAt": generated_at,
+            "mode": "scaled_fast_current_only",
+            "horizonDays": horizon,
+            "split": {"train": 0, "validation": 0, "test": 0},
+            "selectedModel": "zero-return baseline",
+            "leaderboard": [row for row in leaderboard if row["horizonDays"] == horizon],
+        })
+    write_json(QUALITY_PATH, {
+        "schemaVersion": "1.0.0",
+        "generatedAt": generated_at,
+        "mode": "scaled_fast_current_only",
+        "stocks": 0,
+        "rows": 0,
+        "labeled30DayRows": 0,
+        "labeled90DayRows": 0,
+        "status": "baseline_only",
+        "warnings": warnings,
+    })
+    write_json(LEAKAGE_PATH, {
+        "schemaVersion": "1.0.0",
+        "generatedAt": generated_at,
+        "passed": True,
+        "mode": "scaled_fast_current_only",
+        "rules": [
+            "No trained model is selected in scaled fast mode.",
+            "Current display scenario uses only each ticker's historical price path.",
+            "No future analyst targets or future scoring labels are used.",
+        ],
+        "splits": {"30": {"train": 0, "validation": 0, "test": 0}, "90": {"train": 0, "validation": 0, "test": 0}},
+    })
+    for horizon in (30, 90):
+        write_json(MODEL_DIR / f"{horizon}_day" / "metadata.json", {
+            "schemaVersion": "1.0.0",
+            "generatedAt": generated_at,
+            "horizonDays": horizon,
+            "selectedModel": "zero-return baseline",
+            "modelStorage": "metadata-only; scaled fast forecasts are generated offline into public/data/forecasts",
+            "validationStatus": "baseline",
+            "mode": "scaled_fast_current_only",
+        })
+    for path in stock_files():
+        payload = load_stock_payload(path)
+        record = payload.get("record", {})
+        security = record.get("security", {})
+        prices = sorted(record.get("priceHistory") or [], key=lambda row: row.get("date", ""))
+        prices = prices[-FORECAST_PRICE_HISTORY_MAX_SESSIONS:]
+        if not prices:
+            continue
+        current_row = build_feature_row(payload, prices, len(prices) - 1)
+        if not current_row:
+            continue
+        ticker = str(current_row.get("ticker") or security.get("ticker") or path.stem).upper()
+        current_price = float(current_row["currentAdjustedClose"])
+        scenario = conservative_scenario_from_prices(prices, current_row, generated_at, sample_step_sessions=SCALED_FAST_SCENARIO_SAMPLE_STEP_SESSIONS)
+        display_source, display_reason = _display_source({
+            30: {"selectedModelName": "zero-return baseline"},
+            90: {"selectedModelName": "zero-return baseline"},
+        }, scenario)
+        artifacts.append({
+            "schemaVersion": "1.0.0",
+            "ticker": ticker,
+            "companyName": current_row.get("companyName") or ticker,
+            "generatedAt": generated_at,
+            "marketDataAsOf": current_row["featureDate"],
+            "currentPrice": round(current_price, 4),
+            "analystTarget": analyst_target_stub(ticker, current_price, generated_at),
+            "horizon30Day": return_bundle(current_price, 0.0, -0.05, 0.05),
+            "horizon90Day": return_bundle(current_price, 0.0, -0.05, 0.05),
+            "conservativeScenario": scenario,
+            "displayProjectionSource": display_source,
+            "displayProjectionReason": display_reason,
+            "model30Day": {"name": "zero-return baseline", "version": "1.0.0", "testMAE": None, "directionalAccuracy": None},
+            "model90Day": {"name": "zero-return baseline", "version": "1.0.0", "testMAE": None, "directionalAccuracy": None},
+            "validationStatus": "baseline",
+            "returnType": "price_return",
+            "warnings": warnings,
+        })
+    for artifact in artifacts:
+        write_json(ticker_artifact_path(FORECAST_DIR, artifact["ticker"]), artifact)
+    stale_forecast_artifacts_removed = remove_stale_forecast_artifacts({artifact["ticker"] for artifact in artifacts})
+    summary = {
+        "schemaVersion": "1.0.0",
+        "generatedAt": generated_at,
+        "mode": "scaled_fast_current_only",
+        "count": len(artifacts),
+        "staleForecastArtifactsRemoved": stale_forecast_artifacts_removed,
+        "validationStatus": "baseline",
+        "displayProjectionSources": {
+            "forecast_model": 0,
+            "conservative_historical_scenario": sum(1 for artifact in artifacts if artifact.get("displayProjectionSource") == "conservative_historical_scenario"),
+            "unavailable": sum(1 for artifact in artifacts if artifact.get("displayProjectionSource") == "unavailable"),
+        },
+        "conservativeScenarioStatus": {
+            "available": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "available"),
+            "insufficient_data": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "insufficient_data"),
+            "stale": sum(1 for artifact in artifacts if (artifact.get("conservativeScenario") or {}).get("status") == "stale"),
+        },
+        "forecasts": artifacts,
+    }
+    write_json(FORECAST_DIR / "summary.json", summary)
+    return {
+        "mode": "scaled_fast_current_only",
+        "forecasts": len(artifacts),
+        "selected30": "zero-return baseline",
+        "selected90": "zero-return baseline",
+        "staleForecastArtifactsRemoved": len(stale_forecast_artifacts_removed),
+        "conservativeScenarios": summary["conservativeScenarioStatus"],
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--summary", action="store_true")
+    parser.add_argument("--baseline-only", action="store_true", help="Skip expensive challenger fitting; keep official zero-return baseline plus conservative scenario outputs.")
+    parser.add_argument("--scaled-fast", action="store_true", help="Generate current-only zero-baseline/conservative-scenario artifacts for large universes.")
     args = parser.parse_args()
-    result = run_pipeline()
+    if args.baseline_only:
+        os.environ["VS_FORECAST_BASELINE_ONLY"] = "true"
+    result = run_scaled_fast_pipeline() if args.scaled_fast else run_pipeline()
     print(json.dumps(result if args.summary else {"forecastPipeline": result}, indent=2))
     return 0
 

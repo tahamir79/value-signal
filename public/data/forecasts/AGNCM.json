@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AGNCM",
   "companyName": "AGNC Investment Corp.",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 25.015,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,72 +28,76 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 25.015,
-    "lowerEstimatedPrice": 20.2488,
-    "upperEstimatedPrice": 31.2991
+    "lowerEstimatedPrice": 23.795,
+    "upperEstimatedPrice": 26.2975
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 25.015,
-    "lowerEstimatedPrice": 17.3288,
-    "upperEstimatedPrice": 36.8539
+    "lowerEstimatedPrice": 23.795,
+    "upperEstimatedPrice": 26.2975
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 25.015,
     "horizon30Day": {
-      "returnEstimate": 0.00322788,
-      "lowerReturn": 7.931e-05,
-      "upperReturn": 0.01195695,
-      "estimatedPrice": 25.0957,
-      "lowerEstimatedPrice": 25.017,
-      "upperEstimatedPrice": 25.3141,
-      "sampleCount": 25,
+      "returnEstimate": 0.0028902,
+      "lowerReturn": -0.00337089,
+      "upperReturn": 0.01336259,
+      "estimatedPrice": 25.0873,
+      "lowerEstimatedPrice": 24.9307,
+      "upperEstimatedPrice": 25.3493,
+      "sampleCount": 46,
       "status": "available",
-      "usableObservationCount": 25,
+      "usableObservationCount": 46,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01180657,
-      "lowerReturn": 0.01180657,
-      "upperReturn": 0.03271214,
-      "estimatedPrice": 25.3103,
-      "lowerEstimatedPrice": 25.3103,
-      "upperEstimatedPrice": 25.8333,
-      "sampleCount": 23,
+      "returnEstimate": 0.01227508,
+      "lowerReturn": 0.00309753,
+      "upperReturn": 0.03664475,
+      "estimatedPrice": 25.3221,
+      "lowerEstimatedPrice": 25.0925,
+      "upperEstimatedPrice": 25.9317,
+      "sampleCount": 38,
       "status": "available",
-      "usableObservationCount": 23,
+      "usableObservationCount": 38,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
-    "warnings": []
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
   "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

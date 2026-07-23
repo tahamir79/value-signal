@@ -2,11 +2,11 @@
 
 **Purpose:** durable engineering/finance handoff for the companion ChatGPT and future Codex sessions.
 **Companion atlas:** `docs/ValueSignal_Project_Blueprint.md`
-**Last updated:** 2026-07-21 UTC
+**Last updated:** 2026-07-22 UTC
 **Repo path:** `C:\Users\stahm\Projects\Decision Scientist`
 **Branch:** `scale-universe-foundation`
 **Checkpoint commit before this projection/health work:** `6043820 checkpoint: before historical scenario and pipeline health cleanup`
-**Current state:** implementation changes are local/uncommitted until the user approves commit/deploy.
+**Current state:** full-universe local artifacts are generated and validated; commit/deploy is pending a final packaging decision because the public JSON payload is now much larger than the previous 245-stock fixture.
 
 Treat code, tests, workflow YAML, and generated artifacts as the source of truth if this map drifts. Treat `public/data/*.json` as generated artifacts, not manually maintained data.
 
@@ -45,34 +45,39 @@ Stock price history
 
 ## 2. Current generated data snapshot
 
-Current cleaned artifact counts after stale-artifact cleanup:
+Current cleaned artifact counts after the checkpointed full-universe merge:
 
-- Active stock records in `public/data/stocks/summary.json`: **245**
-- Stock detail files in `public/data/stocks/{TICKER}.json`: **245**
-- Forecast records in `public/data/forecasts/summary.json`: **245**
-- Forecast detail files in `public/data/forecasts/{TICKER}.json`: **245**
-- Conservative historical scenarios available: **203**
-- Conservative historical scenarios insufficient history: **42**
-- Stale scenario count: **0**
+- Supported universe in `data/universe/universe_manifest.json`: **6,017** operating-company rows.
+- Raw checkpoint fetches completed: **6,017 attempted**, **5,802 raw successes**, **215 raw failures**.
+- Active stock records in `public/data/stocks/summary.json`: **5,799**
+- Stock detail files in `public/data/stocks/{TICKER}.json`: **5,799**
+- Forecast records in `public/data/forecasts/summary.json`: **5,799**
+- Forecast detail files in `public/data/forecasts/{TICKER}.json`: **5,799**
+- Conservative scaled-fast scenarios available: **5,475**
+- Conservative scaled-fast scenarios insufficient history: **321**
+- Stale scenario count: **3**
 - Selected 30-day model: **zero-return baseline**
 - Selected 90-day model: **zero-return baseline**
-- Growth Spurt detector: **245 attempted**, **19 detected**, **30 emerging**, **187 not detected**, **9 unavailable**, **0 calculation failures**
-- Growth Spurt historical benchmark: **9,950 candidate snapshots**, **570 detected snapshots**, **2,280 forward observations**
+- Growth Spurt detector: generated from the merged ETL artifact; rerun `python scripts/benchmark_growth_spurt.py` for a fresh benchmark if the detector itself changes.
 - Search index coverage: **199 indexed tickers** in per-ticker BM25 mode
-- Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures** and **5 true noncritical ETL failures**
+- Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures** and **218 noncritical ETL failures**
+- Local raw checkpoint store: about **26.2 GB** under ignored `data/checkpoints/etl_raw/`.
+- `public/data/dashboard.json` is a dashboard-summary artifact, not the full per-ticker detail store. It omits repeated heavy blocks such as `balanceSheetScoringShadow`; full detail remains under `public/data/stocks/{TICKER}.json`, and scoring components remain in `public/data/signals.json`.
+- Per-ticker artifact filenames are normalized through `scripts/artifact_paths.py` and `src/lib/artifact-paths.ts`. Windows-reserved ticker names keep their official ticker in JSON/URLs but receive a prefixed filename, e.g. ticker `CON` is stored at `public/data/stocks/_CON.json` and `public/data/forecasts/_CON.json`.
 
 Current true partial causes:
 
-- ETL provider 404s for 5 unsupported/unavailable symbols: `AAC`, `ADBT`, `ADIG`, `AIBZ`, `AIST`.
+- ETL provider failures for 218 symbols across price/facts fetches. These are noncritical because ticker failures are isolated and all successful tickers still publish.
 - Balance-sheet coverage is partial for many companies because SEC companyfacts does not always expose every target balance-sheet field.
 
 Expected unavailable states:
 
 - Scaled scheduled ETL intentionally skips full backtest generation.
-- 42 stocks do not have enough sparse historical observations for the conservative 30/90-day scenario.
-- 9 stocks do not have enough usable recent price/SPY-aligned detector history for Growth Spurt.
+- 321 stocks do not have enough sparse historical observations for the conservative 30/90-day scenario.
+- 3 forecast records are stale relative to the current scaled-fast run.
 - Analyst/market target provider is not configured, so analyst target fields remain null/unsupported.
 - Local Ollama/RAG is not a production dependency.
+- BM25 filing evidence remains capped at 199 indexed tickers and should be scaled separately from market/companyfacts ETL.
 
 ---
 
@@ -347,24 +352,21 @@ impliedShares = dollarAllocation / currentPrice
 
 Then it uses the same per-share formula. Do not calculate `shares * returnEstimate`, and do not multiply a dollar allocation by an estimated sell price.
 
-Current UI cards show a compact two-by-two outcome grid:
+Current UI cards show a compact two-card ValueSignal grid:
 
 - `ValueSignal 30 Days`;
-- `ValueSignal 90 Days`;
-- `Market Target 30 Days`;
-- `Market Target 90 Days`.
+- `ValueSignal 90 Days`.
 
-At the top of each saved position, the UI shows current price, current position value, allocation when dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Each outcome card makes estimated total gain/loss the largest number and does not repeat it as a row. Available cards then show return, estimated sell price, estimated position value, and gain/loss per share. Unavailable cards show only `Unavailable`, a concise reason, a horizon-specific observation detail when available, and a meaningful as-of date. The component receives normalized `HoldingOutcome` records from `src/lib/position-projections.ts`; React does not reproduce forecast-source selection or target time-scaling logic.
+At the top of each saved position, the UI shows position type, current price, current position value, allocation when dollar-based, `Implied shares` for dollar allocations, `Shares held` for share positions, and market data as-of date. Each ValueSignal outcome card makes estimated total gain/loss the largest number and does not repeat it as a row. Available cards then show gain/loss per share, estimated sell price, estimated position value, estimated return, scenario range, and projection source. Unavailable cards show only `Unavailable`, a concise reason, a horizon-specific observation detail when available, and a meaningful as-of date. The component receives normalized `HoldingOutcome` records from `src/lib/position-projections.ts`; React does not reproduce forecast-source selection or target time-scaling logic.
 
 Internal fields now live inside a collapsed `Forecast methodology` panel:
 
 - zero-return baseline status;
 - selected model names;
 - displayed projection source and sample count;
-- analyst/market target provider status;
 - optional user-entered personal 30/90-day scenarios.
 
-Market-target scenarios stay unavailable until a legitimate provider supplies a consensus target plus documented horizon. Unavailable market-target outcomes keep scenario source fields null and display `Analyst target data is not currently available.` If a future provider gives a valid horizon, the implied 30/90-day scenario is time-scaled as `(1 + targetReturn)^(horizon / targetHorizonDays) - 1`; it is labeled as an assumption-based scenario, not an analyst-issued short-term forecast.
+Market-target scenarios stay hidden from the primary saved-portfolio UI until a legitimate provider supplies a consensus target plus documented horizon. Backend `marketTargetOutcomes` and `AnalystTargetArtifact` records remain for future compatibility. Unavailable market-target outcomes keep scenario source fields null. If a future provider gives a valid horizon, the implied 30/90-day scenario is time-scaled as `(1 + targetReturn)^(horizon / targetHorizonDays) - 1`; it is labeled as an assumption-based scenario, not an analyst-issued short-term forecast.
 
 The saved-stock layout overflow was caused by nested grid children using fixed minimum widths and form controls lacking shrink/width constraints. The fix added `min-width: 0`, `box-sizing: border-box`, `width: 100%`, `max-width: 100%`, and safer `minmax(0, ...)` grid definitions in `src/app/globals.css`.
 
@@ -631,6 +633,31 @@ python scripts/forecast/run_forecast_pipeline.py --summary
 python scripts/pipeline_health.py
 ```
 
+Full or near-full universe refresh:
+
+```powershell
+$env:VS_USER_AGENT="ValueSignal research ETL <contact>"
+$env:BALANCE_SHEET_SCORING_MODE="official"
+$env:GROWTH_SPURT_MODE="display"
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --max-workers 5 --fetch-only --skip-backtest
+powershell -ExecutionPolicy Bypass -File scripts/pipeline/diagnose_checkpointed_etl.ps1
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --merge-only --skip-backtest
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
+python scripts/pipeline_health.py
+```
+
+Operational notes:
+
+- `scripts/pipeline/run_checkpointed_etl.py` is a safety wrapper around the existing ETL, not a scoring rewrite.
+- Fetch mode writes raw provider checkpoints under `data/checkpoints/etl_raw/`; this path is ignored by Git.
+- Each ticker completion rewrites the active batch checkpoint atomically and updates a small `batch_*.status.json` sidecar, so interruption should lose at most the current provider request and diagnostics do not need to parse huge raw checkpoints.
+- `--max-workers 5` allows up to five tickers to fetch concurrently inside one coordinated process. Do not run multiple independent checkpoint fetch processes against the same checkpoint directory.
+- Merge mode replays completed checkpoints through the existing `scripts/run_etl.py` scoring/export path so official percentiles/signals are still computed over the selected universe in one global pass.
+- Merge mode blocks incomplete checkpoint sets unless `--allow-partial-merge` is passed deliberately.
+- SEC Company Facts payloads for mega-caps can be tens of MB per ticker, so a true 6,000-company fundamentals refresh is bandwidth- and time-heavy.
+- Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed 5,799-stock checkpoint run used shorter provider-default price histories, so the scaled-fast forecast path is current-only and uses sparse historical scenario fallback instead of expensive model retraining.
+- The weekday GitHub Action is still capped for runner safety. Scheduled runs validate health but do not commit public artifacts; manual dispatch is required for artifact commits while the deployed dataset is full-universe. Do not let a capped scheduled refresh overwrite a manually published 5,799-stock artifact set without an incremental refresh plan.
+
 ---
 
 ## 14. Validation checklist
@@ -651,6 +678,13 @@ python scripts/pipeline_health.py
 npm run test:brief
 npm run typecheck
 npm run build
+```
+
+For the current 5,799-stock scaled-fast forecast artifacts, use this forecast validation instead of expensive full retraining:
+
+```powershell
+python -m unittest tests.test_forecast_pipeline -v
+python scripts/forecast/audit_forecasts.py
 ```
 
 Expected caveats:

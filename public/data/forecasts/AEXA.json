@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AEXA",
   "companyName": "American Exceptionalism Acquisition Corp. A",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 11.5,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,75 +28,76 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 11.5,
-    "lowerEstimatedPrice": 9.3089,
-    "upperEstimatedPrice": 14.3889
+    "lowerEstimatedPrice": 10.9391,
+    "upperEstimatedPrice": 12.0896
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 11.5,
-    "lowerEstimatedPrice": 7.9665,
-    "upperEstimatedPrice": 16.9426
+    "lowerEstimatedPrice": 10.9391,
+    "upperEstimatedPrice": 12.0896
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 11.5,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 9,
-      "status": "insufficient_data",
-      "usableObservationCount": 9,
+      "returnEstimate": 0.00424908,
+      "lowerReturn": -0.01696425,
+      "upperReturn": 0.03528311,
+      "estimatedPrice": 11.5489,
+      "lowerEstimatedPrice": 11.3049,
+      "upperEstimatedPrice": 11.9058,
+      "sampleCount": 37,
+      "status": "available",
+      "usableObservationCount": 37,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 9 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 7,
-      "status": "insufficient_data",
-      "usableObservationCount": 7,
+      "returnEstimate": 0.01173682,
+      "lowerReturn": 0.00089368,
+      "upperReturn": 0.0347904,
+      "estimatedPrice": 11.635,
+      "lowerEstimatedPrice": 11.5103,
+      "upperEstimatedPrice": 11.9001,
+      "sampleCount": 29,
+      "status": "available",
+      "usableObservationCount": 29,
       "requiredObservationCount": 12,
-      "unavailableReason": "Not enough 90-day history: 7 of 12 required observations."
+      "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
+    "sampleStepSessions": 5,
     "warnings": [
-      "Not enough 30-day history: 9 of 24 required observations.",
-      "Not enough 90-day history: 7 of 12 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Not enough 30-day history: 9 of 24 required observations.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

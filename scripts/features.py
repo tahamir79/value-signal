@@ -69,20 +69,27 @@ def _latest(facts: list[FinancialFact], label: str) -> FinancialFact | None:
     return max(matches, key=lambda fact: (fact.period_end, fact.filed), default=None)
 
 
+def _positive(value: float | None) -> float | None:
+    return value if value is not None and value > 0 else None
+
+
 def derive_fields(prices: list[PriceBar], facts: dict[str, FinancialFact]) -> dict[str, float | None]:
     latest = prices[-1]
     prior = prices[-2] if len(prices) > 1 else None
     change = ((latest.close / prior.close) - 1) * 100 if prior and prior.close else None
     shares, assets, liabilities = facts.get("Shares outstanding"), facts.get("Assets"), facts.get("Liabilities")
     revenue, income, gross_profit = facts.get("Revenue"), facts.get("Net income"), facts.get("Gross profit")
+    shares_value = _positive(shares.value if shares else None)
+    assets_value = _positive(assets.value if assets else None)
+    revenue_value = _positive(revenue.value if revenue else None)
     return {
         "latestPrice": round(latest.close, 4),
         "dailyChangePercent": round(change, 4) if change is not None else None,
-        "marketCapBillions": round(latest.close * shares.value / 1_000_000_000, 4) if shares else None,
-        "liabilitiesToAssets": round(liabilities.value / assets.value, 6) if assets and liabilities and assets.value else None,
-        "latestRevenueBillions": round(revenue.value / 1_000_000_000, 4) if revenue else None,
-        "grossMarginPercent": round(gross_profit.value / revenue.value * 100, 4) if gross_profit and revenue and revenue.value else None,
-        "netMarginPercent": round(income.value / revenue.value * 100, 4) if income and revenue and revenue.value else None,
+        "marketCapBillions": round(latest.close * shares_value / 1_000_000_000, 4) if shares_value else None,
+        "liabilitiesToAssets": round(liabilities.value / assets_value, 6) if assets_value and liabilities else None,
+        "latestRevenueBillions": round(revenue_value / 1_000_000_000, 4) if revenue_value else None,
+        "grossMarginPercent": round(gross_profit.value / revenue_value * 100, 4) if gross_profit and revenue_value else None,
+        "netMarginPercent": round(income.value / revenue_value * 100, 4) if income and revenue_value else None,
     }
 
 
@@ -90,13 +97,15 @@ def calculate_raw_features(prices: list[PriceBar], facts: list[FinancialFact]) -
     prices = sorted(prices, key=lambda bar: bar.date)
     revenue, income = _annual_series(facts, "Revenue"), _annual_series(facts, "Net income")
     gross_profit = _annual_series(facts, "Gross profit")
-    latest_revenue = revenue[-1].value if revenue else None
+    latest_revenue = _positive(revenue[-1].value if revenue else None)
     latest_income = income[-1].value if income else None
     latest_gross_profit = gross_profit[-1].value if gross_profit else None
-    previous_revenue = revenue[-2].value if len(revenue) > 1 else None
+    previous_revenue = _positive(revenue[-2].value if len(revenue) > 1 else None)
     previous_income = income[-2].value if len(income) > 1 else None
     shares, assets, liabilities = _latest(facts, "Shares outstanding"), _latest(facts, "Assets"), _latest(facts, "Liabilities")
-    market_cap = _price(prices[-1]) * shares.value if prices and shares else None
+    shares_value = _positive(shares.value if shares else None)
+    assets_value = _positive(assets.value if assets else None)
+    market_cap = _price(prices[-1]) * shares_value if prices and shares_value else None
     current_margin = latest_income / latest_revenue if latest_income is not None and latest_revenue else None
     previous_margin = previous_income / previous_revenue if previous_income is not None and previous_revenue else None
     raw = {
@@ -104,9 +113,9 @@ def calculate_raw_features(prices: list[PriceBar], facts: list[FinancialFact]) -
         "return_90d": _return(prices, 90),
         "annualized_volatility": _volatility(prices),
         "max_drawdown_1y": _drawdown(prices),
-        "earnings_yield": latest_income / market_cap if latest_income is not None and market_cap else None,
-        "sales_yield": latest_revenue / market_cap if latest_revenue is not None and market_cap else None,
-        "liabilities_to_assets": liabilities.value / assets.value if assets and liabilities and assets.value else None,
+        "earnings_yield": latest_income / market_cap if latest_income is not None and market_cap and market_cap > 0 else None,
+        "sales_yield": latest_revenue / market_cap if latest_revenue is not None and market_cap and market_cap > 0 else None,
+        "liabilities_to_assets": liabilities.value / assets_value if assets_value and liabilities else None,
         "revenue_growth": latest_revenue / previous_revenue - 1 if latest_revenue is not None and previous_revenue else None,
         "net_margin": current_margin,
         "net_margin_trend": current_margin - previous_margin if current_margin is not None and previous_margin is not None else None,

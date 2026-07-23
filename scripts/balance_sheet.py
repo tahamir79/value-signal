@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from scripts.artifact_paths import ticker_artifact_path
 from scripts.models import FinancialFact, Security
 
 BALANCE_SHEET_SCHEMA_VERSION = "1.0.0"
@@ -365,7 +366,7 @@ def write_balance_sheet_artifacts(bundles: dict[str, dict[str, Any]], output_roo
         source = snapshot.get("source", "unavailable")
         source_breakdown[source] = source_breakdown.get(source, 0) + 1
         warnings.extend(f"{ticker}: {warning}" for warning in bundle.get("scoring", {}).get("warnings", [])[:3])
-        (balance_dir / f"{ticker}.json").write_text(json.dumps(bundle, indent=2) + "\n", encoding="utf-8")
+        ticker_artifact_path(balance_dir, ticker).write_text(json.dumps(bundle, indent=2) + "\n", encoding="utf-8")
     available = sum(1 for bundle in bundles.values() if not bundle["snapshot"].get("missingFields"))
     partial = sum(1 for bundle in bundles.values() if bundle["snapshot"].get("source") != "unavailable" and bundle["snapshot"].get("missingFields"))
     manifest = {

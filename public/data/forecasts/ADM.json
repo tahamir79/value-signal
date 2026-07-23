@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ADM",
   "companyName": "Archer-Daniels-Midland Co",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 86.2,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,72 +28,78 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 86.2,
-    "lowerEstimatedPrice": 69.7759,
-    "upperEstimatedPrice": 107.8544
+    "lowerEstimatedPrice": 81.996,
+    "upperEstimatedPrice": 90.6196
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 86.2,
-    "lowerEstimatedPrice": 59.7139,
-    "upperEstimatedPrice": 126.996
+    "lowerEstimatedPrice": 81.996,
+    "upperEstimatedPrice": 90.6196
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 86.2,
     "horizon30Day": {
-      "returnEstimate": 0.0084589,
-      "lowerReturn": -0.03254801,
-      "upperReturn": 0.03925266,
-      "estimatedPrice": 86.9292,
-      "lowerEstimatedPrice": 83.3944,
-      "upperEstimatedPrice": 89.5836,
-      "sampleCount": 25,
+      "returnEstimate": 0.01751416,
+      "lowerReturn": -0.0144019,
+      "upperReturn": 0.08,
+      "estimatedPrice": 87.7097,
+      "lowerEstimatedPrice": 84.9586,
+      "upperEstimatedPrice": 93.096,
+      "sampleCount": 46,
       "status": "available",
-      "usableObservationCount": 25,
+      "usableObservationCount": 46,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0256669,
-      "lowerReturn": -0.07335907,
-      "upperReturn": 0.14686724,
-      "estimatedPrice": 88.4125,
-      "lowerEstimatedPrice": 79.8764,
-      "upperEstimatedPrice": 98.86,
-      "sampleCount": 23,
+      "returnEstimate": 0.09117718,
+      "lowerReturn": 0.01673237,
+      "upperReturn": 0.15,
+      "estimatedPrice": 94.0595,
+      "lowerEstimatedPrice": 87.6423,
+      "upperEstimatedPrice": 99.13,
+      "sampleCount": 38,
       "status": "available",
-      "usableObservationCount": 23,
+      "usableObservationCount": 38,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
-    "warnings": []
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
   "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

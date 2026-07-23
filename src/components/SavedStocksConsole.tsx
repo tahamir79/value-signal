@@ -41,7 +41,7 @@ function percentFromDecimal(value: number | null) {
 }
 
 function money(value: number | null | undefined) {
-  return typeof value === "number" && Number.isFinite(value) ? `$${value.toLocaleString(undefined, { maximumFractionDigits: 2 })}` : "Unavailable";
+  return typeof value === "number" && Number.isFinite(value) ? `$${value.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}` : "Unavailable";
 }
 
 function percent(value: number | null | undefined) {
@@ -276,11 +276,11 @@ export function SavedStocksConsole() {
                 <input value={return90} onChange={(event) => setReturn90(event.target.value)} inputMode="decimal" placeholder="8" />
               </label>
             </div>
-            <small>Optional percentages entered by you. They do not change ValueSignal estimates or market-target scenarios.</small>
+            <small>Optional percentages entered by you. They do not change ValueSignal estimates.</small>
           </details>
           <button type="button" onClick={() => void addPortfolio()}>Save Position</button>
         </div>
-        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections and market-target scenarios are uncertain research estimates, not guarantees or investment advice.</p>
+        <p className="form-disclaimer">Portfolio records are research notes only. ValueSignal projections are uncertain research estimates, not guarantees or investment advice.</p>
         <div className="saved-list portfolio-list">
           {portfolio.map((position) => {
             const draft = drafts[position.id] ?? draftFromPosition(position);
@@ -304,6 +304,10 @@ export function SavedStocksConsole() {
                     {draft.positionStatus === "owned" ? "Owned" : "Planned"} · {draft.quantityType === "shares" ? `${draft.quantity || "—"} shares` : `${money(baseValue)} allocation`}
                   </small>
                   <dl className="position-current-summary">
+                    <div>
+                      <dt>Position type</dt>
+                      <dd>{draft.quantityType === "shares" ? "Shares" : "Dollar allocation"}</dd>
+                    </div>
                     <div>
                       <dt>Current price</dt>
                       <dd>{money(projection.currentPrice)}</dd>
@@ -359,20 +363,20 @@ export function SavedStocksConsole() {
                         <input value={draft.return90} onChange={(event) => setDrafts((current) => ({ ...current, [position.id]: { ...draft, return90: event.target.value } }))} inputMode="decimal" />
                       </label>
                     </div>
-                    <small>These personal percentages stay separate from generated ValueSignal and market-target outcomes.</small>
+                    <small>These personal percentages stay separate from generated ValueSignal outcomes.</small>
                   </details>
                 </div>
-                <HoldingOutcomeGrid outcomes={projection.outcomes} />
-                <p className="form-disclaimer">ValueSignal projections and market-target scenarios are uncertain research estimates, not guarantees or investment advice. Market-target scenarios may be time-scaled from a longer-horizon analyst consensus target and are not direct analyst forecasts for 30 or 90 days. Actual outcomes may differ materially.</p>
+                <HoldingOutcomeGrid outcomes={projection.valueSignalOutcomes} />
+                <p className="form-disclaimer">ValueSignal projections are uncertain research estimates, not guarantees or investment advice. Actual outcomes may differ materially.</p>
                 <details className="forecast-details">
                   <summary>Forecast methodology</summary>
                   <dl className="forecast-meta-grid">
                     <div><dt>ValueSignal 30-day model</dt><dd>{forecast?.model30Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model30Day.name, forecast?.validationStatus)}</small></div>
                     <div><dt>ValueSignal 90-day model</dt><dd>{forecast?.model90Day.name ?? "Unavailable"}</dd><small>{modelStatus(forecast?.model90Day.name, forecast?.validationStatus)}</small></div>
-                    <div><dt>Displayed projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` · ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
-                    <div><dt>Market target status</dt><dd>{forecast?.analystTarget.status ?? "Unsupported"}</dd><small>{forecast?.analystTarget.warnings?.[0] ?? "Analyst target data is not currently available."}</small></div>
+                    <div><dt>30-day projection</dt><dd>{projection.horizon30Day.sourceLabel}</dd><small>{projection.horizon30Day.sourceDetail}{projection.horizon30Day.sampleCount ? ` · ${projection.horizon30Day.sampleCount} samples` : ""}</small></div>
+                    <div><dt>90-day projection</dt><dd>{projection.horizon90Day.sourceLabel}</dd><small>{projection.horizon90Day.sourceDetail}{projection.horizon90Day.sampleCount ? ` · ${projection.horizon90Day.sampleCount} samples` : ""}</small></div>
                     <div><dt>Personal 30-day scenario</dt><dd>{percent(decimalFromPercent(draft.return30))}</dd><small>User-entered; not used by ValueSignal estimates.</small></div>
-                    <div><dt>Personal 90-day scenario</dt><dd>{percent(decimalFromPercent(draft.return90))}</dd><small>User-entered; not used by market-target scenarios.</small></div>
+                    <div><dt>Personal 90-day scenario</dt><dd>{percent(decimalFromPercent(draft.return90))}</dd><small>User-entered; not used by ValueSignal estimates.</small></div>
                   </dl>
                 </details>
                 <div className="saved-actions">

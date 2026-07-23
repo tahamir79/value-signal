@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AFJK",
   "companyName": "Aimei Health Technology Co., Ltd.",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 12.0,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,72 +28,79 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 12.0,
-    "lowerEstimatedPrice": 9.7136,
-    "upperEstimatedPrice": 15.0145
+    "lowerEstimatedPrice": 11.4148,
+    "upperEstimatedPrice": 12.6153
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 12.0,
-    "lowerEstimatedPrice": 8.3128,
-    "upperEstimatedPrice": 17.6793
+    "lowerEstimatedPrice": 11.4148,
+    "upperEstimatedPrice": 12.6153
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 12.0,
     "horizon30Day": {
-      "returnEstimate": 0.0019548,
-      "lowerReturn": 0.00088341,
-      "upperReturn": 0.01269269,
-      "estimatedPrice": 12.0235,
-      "lowerEstimatedPrice": 12.0106,
-      "upperEstimatedPrice": 12.1523,
-      "sampleCount": 25,
+      "returnEstimate": -0.0226667,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.0231001,
+      "estimatedPrice": 11.728,
+      "lowerEstimatedPrice": 11.04,
+      "upperEstimatedPrice": 12.2772,
+      "sampleCount": 46,
       "status": "available",
-      "usableObservationCount": 25,
+      "usableObservationCount": 46,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01035538,
-      "lowerReturn": 0.01035538,
-      "upperReturn": 0.03366568,
-      "estimatedPrice": 12.1243,
-      "lowerEstimatedPrice": 12.1243,
-      "upperEstimatedPrice": 12.404,
-      "sampleCount": 23,
+      "returnEstimate": 0.05358356,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.15,
+      "estimatedPrice": 12.643,
+      "lowerEstimatedPrice": 10.2,
+      "upperEstimatedPrice": 13.8,
+      "sampleCount": 38,
       "status": "available",
-      "usableObservationCount": 23,
+      "usableObservationCount": 38,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
-    "warnings": []
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
+    ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
   "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

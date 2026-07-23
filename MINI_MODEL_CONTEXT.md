@@ -19,7 +19,7 @@ It is not a trading bot, financial advisor, or source of buy/sell/hold recommend
 - Balance-sheet-aware scoring is official, but standalone balance-sheet artifacts remain intact.
 - BM25 SEC filing retrieval is production-safe; local Ollama/RAG remains local/experimental or a production placeholder.
 - Saved-stock 30/90-day projections use approved forecast output when available, then conservative historical scenario fallback, then unavailable. Customer-facing cards are normalized `HoldingOutcome` records, not ad-hoc UI math.
-- Market-target scenarios are separate from ValueSignal projections and currently unavailable because no analyst target provider is configured.
+- Market-target scenarios are separate from ValueSignal projections. The schema/backend extension point remains, but market-target cards are hidden from the saved-portfolio UI until a legitimate provider is configured.
 - Growth Spurt detector is display-only in v1. It does not alter official scoring or signals.
 
 ## Main architecture map
@@ -127,14 +127,12 @@ Guardrail: do not blend Growth Spurt into official scoring without a later appro
 
 ## Saved-position outcome cards
 
-The saved-position UI shows four main cards:
+The saved-position UI shows two primary cards:
 
 - `ValueSignal 30 Days`
 - `ValueSignal 90 Days`
-- `Market Target 30 Days`
-- `Market Target 90 Days`
 
-Each available card should show total gain/loss once as the headline, then return, estimated sell price, estimated position value, gain/loss per share, source label, and a human-readable as-of date. Do not repeat total gain/loss as a body row.
+Each available card should show total gain/loss once as the headline, then gain/loss per share, estimated sell price, estimated position value, estimated return, scenario range, projection source, and a human-readable as-of date. Do not repeat total gain/loss as a body row.
 
 Core formula:
 
@@ -146,7 +144,7 @@ estimatedPositionValue = sharesHeld * estimatedSellPrice
 
 For dollar-allocation mode, first calculate `impliedShares = dollarAllocation / currentPrice`, then use the same per-share formulas. Display that quantity as `Implied shares`, not `Shares held`. For share positions, display `Shares held`. Do not multiply a dollar allocation by the estimated sell price. Do not use "earnings" for a user's position outcome.
 
-Unavailable ValueSignal cards should stay compact and use horizon-specific observation details, for example `Not enough historical data` plus `8 of 24 required observations` for 30 days or `8 of 12 required observations` for 90 days. Unavailable market-target cards should say `Analyst target data is not currently available.` and must not display provider/source/horizon implementation details.
+Unavailable ValueSignal cards should stay compact and use horizon-specific observation details, for example `Not enough historical data` plus `8 of 24 required observations` for 30 days or `8 of 12 required observations` for 90 days. Do not render unsupported market-target cards in the primary saved-portfolio UI.
 
 Projection-source priority:
 
@@ -156,9 +154,9 @@ approved non-baseline forecast model
   -> unavailable with reason
 ```
 
-Market-target scenarios can be calculated only from legitimate provider data with `targetMean`, `currentPriceAtCollection`, and a known `targetHorizonDays`. Current artifacts are `unsupported`; do not fabricate targets or substitute ValueSignal estimates.
+Market-target scenarios can be calculated only from legitimate provider data with `targetMean`, `currentPriceAtCollection`, and a known `targetHorizonDays`. Current artifacts are `unsupported`; do not fabricate targets, scrape unofficial endpoints, or substitute ValueSignal estimates.
 
-Personal 30/90-day scenario fields are user-entered and must remain collapsed/separate. They do not overwrite ValueSignal or market-target outcomes.
+Personal 30/90-day scenario fields are user-entered and must remain collapsed/separate. They do not overwrite ValueSignal outcomes.
 
 ## Commands
 
@@ -200,7 +198,33 @@ python scripts/forecast/run_forecast_pipeline.py --summary
 python scripts/pipeline_health.py
 ```
 
-Use `--limit all` or omit `--limit` for an uncapped universe command only when that is intentional. Use staged batches for broader runs.
+Use `--limit all` or omit `--limit` for an uncapped universe command only when that is intentional.
+
+For broad/full-universe refreshes, do not run one monolithic live ETL. Use checkpointed raw fetches first, then merge:
+
+```powershell
+$env:VS_USER_AGENT="ValueSignal research ETL <CONTACT_EMAIL>"
+$env:BALANCE_SHEET_SCORING_MODE="official"
+$env:GROWTH_SPURT_MODE="display"
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --max-workers 5 --fetch-only --skip-backtest
+powershell -ExecutionPolicy Bypass -File scripts/pipeline/diagnose_checkpointed_etl.ps1
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --merge-only --skip-backtest
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
+python scripts/pipeline_health.py
+```
+
+Checkpoint files live under `data/checkpoints/etl_raw/` and are ignored by Git. The fetch writes/resumes after each ticker and also writes tiny `batch_*.status.json` sidecars for lightweight diagnostics. `--max-workers 5` fetches up to five tickers at once inside one coordinated process; do not start five independent scripts against the same checkpoint directory. Public `public/data/*.json` artifacts are not regenerated until the merge pass succeeds. SEC Company Facts payloads can be tens of MB for mega-caps, so full-universe fundamentals collection is bandwidth-heavy and may take many hours or days on a laptop. Future checkpoint fetches default to the normal 5-year price window; the first 5,799-stock run used shorter checkpointed price histories, so scaled-fast forecasts intentionally fall back to sparse historical scenarios where available.
+
+Latest full-universe local result on 2026-07-22 UTC:
+
+- Universe supported count: `6017`.
+- Raw checkpoint fetch processed: `6017`; raw successes: `5802`; raw failures: `215`; local checkpoint store size: about `26.2 GB`.
+- Merge/export published: `5799` stocks and forecasts; ETL failures/noncritical rows: `218`.
+- Forecast scaled-fast scenarios: `5475` available, `321` insufficient data, `3` stale.
+- `audit_features.py`, `audit_scoring.py`, `audit_search.py`, `forecast/audit_forecasts.py`, `pipeline_health.py`, `npm run test:brief`, `npm run typecheck`, and `npm run build` passed after the merge.
+- `public/data/dashboard.json` is intentionally a lean dashboard-summary artifact; full per-ticker detail remains under `public/data/stocks/{TICKER}.json`, and official scoring detail remains in `signals.json`.
+- Per-ticker artifact filenames use `scripts/artifact_paths.py` / `src/lib/artifact-paths.ts`; Windows-reserved tickers such as `CON` are stored as `_CON.json` while ticker IDs remain unchanged in JSON and URLs.
+- BM25 remains indexed for `199` tickers, not the whole 5,799-stock universe. Full filing/BM25 coverage is a separate large SEC filing ingestion job.
 
 Never commit `.env*`, secrets, tokens, real credentials, model files, caches, or local logs.
 
@@ -208,7 +232,7 @@ Never commit `.env*`, secrets, tokens, real credentials, model files, caches, or
 
 `.github/workflows/refresh-data.yml` runs weekdays at `25 23 * * 1-5` UTC and supports manual dispatch.
 
-It builds the scaled universe, runs ETL, benchmarks Growth Spurt, rebuilds BM25, refreshes forecasts, runs audits, publishes pipeline health, commits changed generated artifacts, and pushes. A pushed artifact commit triggers Vercel when automatic deployment is enabled.
+It currently builds a capped scaled universe, runs ETL, benchmarks Growth Spurt, rebuilds BM25, refreshes forecasts, runs audits, and publishes pipeline health. Scheduled runs are health checks only while the deployed dataset is full-universe; the artifact commit step is guarded to run on manual dispatch only. A pushed artifact commit triggers Vercel when automatic deployment is enabled. Important: do not remove this guard until an incremental/full-run automation design exists.
 
 Required GitHub secret:
 
@@ -248,11 +272,11 @@ Frontend:
 
 Saved outcomes:
 
-- `src/lib/position-projections.ts` owns all ValueSignal and market-target calculations.
+- `src/lib/position-projections.ts` owns all ValueSignal calculations and preserves market-target schema/backend extension points.
 - Dollar allocations first convert to `impliedShares = dollarAllocation / currentPrice`, then use per-share gain/loss math.
 - Share positions use `shares * (estimatedFuturePrice - currentPrice)`.
 - Valid zero-dollar change must render `$0.00`, not `Unavailable`.
-- Missing/stale/currently unsupported market targets must show a compact reason and keep unavailable scenario-source fields null.
+- Missing/stale/currently unsupported market targets must not render as primary saved-portfolio cards; unavailable market-target scenario-source fields stay null for future compatibility.
 
 ## Handoff template
 

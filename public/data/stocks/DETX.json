@@ -1,0 +1,1136 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "DETX",
+      "cik": "0001919776",
+      "company_name": "LIBERTY DEFENSE HOLDINGS, LTD.",
+      "exchange": "Nasdaq",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 3.31,
+      "dailyChangePercent": -1.7804,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "DETX",
+      "cik": "0001919776",
+      "companyName": "LIBERTY DEFENSE HOLDINGS, LTD.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "DETX",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": "2026-07-22",
+      "status": "not_detected",
+      "growthSpurtScore": 5.27,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.19464724,
+        "return63d": -0.42031525,
+        "trendSlope21d": -0.0116992,
+        "trendSlope63d": -0.00339749,
+        "trendAnnualizedReturn63d": -0.57521253,
+        "trendFitR2_63d": 0.50995423,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.05953451,
+        "maxDrawdown63d": -0.31078225,
+        "downsideVolatility63d": 0.02200992,
+        "excessReturnVsSpy21d": -0.19987302,
+        "excessReturnVsSpy63d": -0.48583017,
+        "trendAcceleration": -0.0106359,
+        "largestOneDayContribution63d": 0.07700929,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 21.0936,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.074956,
+      "metricPercentiles": {
+        "trendSlope63d": 0.219823,
+        "trendFitR2_63d": 0.551681,
+        "excessReturnVsSpy63d": 0.077634,
+        "drawdownControlScore": 0.164159,
+        "growthSpurtScore": 0.074956
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
+    },
+    "priceHistory": [
+      {
+        "ticker": "DETX",
+        "date": "2026-04-21",
+        "open": 4.099999904632568,
+        "high": 7.0,
+        "low": 4.099999904632568,
+        "close": 5.710000038146973,
+        "volume": 54800,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.710000038146973
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-22",
+        "open": 4.5,
+        "high": 4.980000019073486,
+        "low": 3.9000000953674316,
+        "close": 4.559999942779541,
+        "volume": 1418600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.559999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-23",
+        "open": 4.380000114440918,
+        "high": 4.75,
+        "low": 4.309999942779541,
+        "close": 4.670000076293945,
+        "volume": 278400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.670000076293945
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-24",
+        "open": 4.75,
+        "high": 4.75,
+        "low": 4.510000228881836,
+        "close": 4.619999885559082,
+        "volume": 76500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.619999885559082
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-27",
+        "open": 4.599999904632568,
+        "high": 4.75,
+        "low": 4.150000095367432,
+        "close": 4.360000133514404,
+        "volume": 74800,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.360000133514404
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-28",
+        "open": 4.360000133514404,
+        "high": 4.360000133514404,
+        "low": 4.050000190734863,
+        "close": 4.119999885559082,
+        "volume": 82200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.119999885559082
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-29",
+        "open": 4.079999923706055,
+        "high": 4.079999923706055,
+        "low": 3.75,
+        "close": 4.059999942779541,
+        "volume": 50400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.059999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-04-30",
+        "open": 3.940000057220459,
+        "high": 4.130000114440918,
+        "low": 3.890000104904175,
+        "close": 3.9600000381469727,
+        "volume": 31300,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9600000381469727
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-01",
+        "open": 3.930000066757202,
+        "high": 4.179999828338623,
+        "low": 3.930000066757202,
+        "close": 4.130000114440918,
+        "volume": 44000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.130000114440918
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-04",
+        "open": 4.150000095367432,
+        "high": 4.769999980926514,
+        "low": 4.150000095367432,
+        "close": 4.5,
+        "volume": 146300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.5
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-05",
+        "open": 4.519999980926514,
+        "high": 4.690000057220459,
+        "low": 4.320000171661377,
+        "close": 4.449999809265137,
+        "volume": 35000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.449999809265137
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-06",
+        "open": 4.380000114440918,
+        "high": 4.599999904632568,
+        "low": 4.269999980926514,
+        "close": 4.309999942779541,
+        "volume": 16500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.309999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-07",
+        "open": 4.440000057220459,
+        "high": 4.679999828338623,
+        "low": 4.300000190734863,
+        "close": 4.309999942779541,
+        "volume": 13100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.309999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-08",
+        "open": 4.289999961853027,
+        "high": 4.809999942779541,
+        "low": 4.25,
+        "close": 4.53000020980835,
+        "volume": 38100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.53000020980835
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-11",
+        "open": 4.5,
+        "high": 4.5,
+        "low": 4.320000171661377,
+        "close": 4.360000133514404,
+        "volume": 13700,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.360000133514404
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-12",
+        "open": 4.260000228881836,
+        "high": 4.449999809265137,
+        "low": 4.190000057220459,
+        "close": 4.260000228881836,
+        "volume": 21900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.260000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-13",
+        "open": 4.210000038146973,
+        "high": 4.400000095367432,
+        "low": 3.940000057220459,
+        "close": 3.940000057220459,
+        "volume": 28300,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.940000057220459
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-14",
+        "open": 3.990000009536743,
+        "high": 4.400000095367432,
+        "low": 3.740000009536743,
+        "close": 4.150000095367432,
+        "volume": 71500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.150000095367432
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-15",
+        "open": 4.099999904632568,
+        "high": 4.349999904632568,
+        "low": 3.759999990463257,
+        "close": 4.150000095367432,
+        "volume": 43500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.150000095367432
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-18",
+        "open": 4.190000057220459,
+        "high": 4.28000020980835,
+        "low": 4.0,
+        "close": 4.059999942779541,
+        "volume": 15500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.059999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-19",
+        "open": 4.010000228881836,
+        "high": 4.380000114440918,
+        "low": 3.859999895095825,
+        "close": 3.859999895095825,
+        "volume": 50300,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.859999895095825
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-20",
+        "open": 3.9000000953674316,
+        "high": 4.230000019073486,
+        "low": 3.75,
+        "close": 4.010000228881836,
+        "volume": 29200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-21",
+        "open": 4.119999885559082,
+        "high": 4.289999961853027,
+        "low": 3.940000057220459,
+        "close": 4.079999923706055,
+        "volume": 24200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.079999923706055
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-22",
+        "open": 4.010000228881836,
+        "high": 4.300000190734863,
+        "low": 3.890000104904175,
+        "close": 3.9600000381469727,
+        "volume": 33800,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9600000381469727
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-26",
+        "open": 4.0,
+        "high": 4.389999866485596,
+        "low": 3.700000047683716,
+        "close": 4.199999809265137,
+        "volume": 102200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.199999809265137
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-27",
+        "open": 4.380000114440918,
+        "high": 4.730000019073486,
+        "low": 4.380000114440918,
+        "close": 4.730000019073486,
+        "volume": 56100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.730000019073486
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-28",
+        "open": 4.75,
+        "high": 4.75,
+        "low": 4.199999809265137,
+        "close": 4.309999942779541,
+        "volume": 64900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.309999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-05-29",
+        "open": 4.400000095367432,
+        "high": 4.800000190734863,
+        "low": 4.199999809265137,
+        "close": 4.5,
+        "volume": 34100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.5
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-01",
+        "open": 4.75,
+        "high": 4.75,
+        "low": 4.389999866485596,
+        "close": 4.409999847412109,
+        "volume": 20400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.409999847412109
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-02",
+        "open": 4.619999885559082,
+        "high": 4.929999828338623,
+        "low": 4.300000190734863,
+        "close": 4.460000038146973,
+        "volume": 69900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.460000038146973
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-03",
+        "open": 4.420000076293945,
+        "high": 4.840000152587891,
+        "low": 4.420000076293945,
+        "close": 4.510000228881836,
+        "volume": 30300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.510000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-04",
+        "open": 4.429999828338623,
+        "high": 4.53000020980835,
+        "low": 4.210000038146973,
+        "close": 4.25,
+        "volume": 83500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.25
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-05",
+        "open": 4.0,
+        "high": 4.400000095367432,
+        "low": 4.0,
+        "close": 4.210000038146973,
+        "volume": 27100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.210000038146973
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-08",
+        "open": 4.210000038146973,
+        "high": 4.400000095367432,
+        "low": 4.099999904632568,
+        "close": 4.150000095367432,
+        "volume": 15700,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.150000095367432
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-09",
+        "open": 4.059999942779541,
+        "high": 4.460000038146973,
+        "low": 4.059999942779541,
+        "close": 4.179999828338623,
+        "volume": 24900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.179999828338623
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-10",
+        "open": 4.230000019073486,
+        "high": 4.230000019073486,
+        "low": 4.0,
+        "close": 4.050000190734863,
+        "volume": 26400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.050000190734863
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-11",
+        "open": 4.050000190734863,
+        "high": 4.269999980926514,
+        "low": 3.9600000381469727,
+        "close": 4.070000171661377,
+        "volume": 42600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.070000171661377
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-12",
+        "open": 4.210000038146973,
+        "high": 4.409999847412109,
+        "low": 4.050000190734863,
+        "close": 4.199999809265137,
+        "volume": 22700,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.199999809265137
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-15",
+        "open": 4.119999885559082,
+        "high": 4.449999809265137,
+        "low": 4.039999961853027,
+        "close": 4.230000019073486,
+        "volume": 17900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.230000019073486
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-16",
+        "open": 4.21999979019165,
+        "high": 4.480000019073486,
+        "low": 4.039999961853027,
+        "close": 4.28000020980835,
+        "volume": 28600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.28000020980835
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-17",
+        "open": 4.239999771118164,
+        "high": 4.389999866485596,
+        "low": 4.119999885559082,
+        "close": 4.239999771118164,
+        "volume": 13500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.239999771118164
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-18",
+        "open": 4.21999979019165,
+        "high": 4.21999979019165,
+        "low": 4.099999904632568,
+        "close": 4.110000133514404,
+        "volume": 15300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.110000133514404
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-22",
+        "open": 4.079999923706055,
+        "high": 4.199999809265137,
+        "low": 3.950000047683716,
+        "close": 4.110000133514404,
+        "volume": 25400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.110000133514404
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-23",
+        "open": 4.03000020980835,
+        "high": 4.170000076293945,
+        "low": 3.940000057220459,
+        "close": 4.0,
+        "volume": 27400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.0
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-24",
+        "open": 4.110000133514404,
+        "high": 4.110000133514404,
+        "low": 3.930000066757202,
+        "close": 4.0,
+        "volume": 29800,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.0
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-25",
+        "open": 3.9100000858306885,
+        "high": 4.130000114440918,
+        "low": 3.9100000858306885,
+        "close": 4.010000228881836,
+        "volume": 34400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-26",
+        "open": 4.03000020980835,
+        "high": 4.170000076293945,
+        "low": 3.9700000286102295,
+        "close": 4.010000228881836,
+        "volume": 19600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-29",
+        "open": 4.010000228881836,
+        "high": 4.190000057220459,
+        "low": 4.0,
+        "close": 4.019999980926514,
+        "volume": 8500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.019999980926514
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-06-30",
+        "open": 4.079999923706055,
+        "high": 4.25,
+        "low": 4.0,
+        "close": 4.03000020980835,
+        "volume": 10300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.03000020980835
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-01",
+        "open": 4.0,
+        "high": 4.199999809265137,
+        "low": 4.0,
+        "close": 4.019999980926514,
+        "volume": 20300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.019999980926514
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-02",
+        "open": 4.139999866485596,
+        "high": 4.190000057220459,
+        "low": 4.0,
+        "close": 4.010000228881836,
+        "volume": 9700,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-06",
+        "open": 3.990000009536743,
+        "high": 4.059999942779541,
+        "low": 3.9100000858306885,
+        "close": 3.9100000858306885,
+        "volume": 16100,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9100000858306885
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-07",
+        "open": 3.9000000953674316,
+        "high": 4.070000171661377,
+        "low": 3.799999952316284,
+        "close": 3.9100000858306885,
+        "volume": 17000,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9100000858306885
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-08",
+        "open": 3.819999933242798,
+        "high": 3.890000104904175,
+        "low": 3.799999952316284,
+        "close": 3.799999952316284,
+        "volume": 13100,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.799999952316284
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-09",
+        "open": 3.759999990463257,
+        "high": 3.880000114440918,
+        "low": 3.759999990463257,
+        "close": 3.819999933242798,
+        "volume": 5900,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.819999933242798
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-10",
+        "open": 4.0,
+        "high": 4.0,
+        "low": 3.809999942779541,
+        "close": 3.809999942779541,
+        "volume": 6300,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.809999942779541
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-13",
+        "open": 3.799999952316284,
+        "high": 3.869999885559082,
+        "low": 3.619999885559082,
+        "close": 3.619999885559082,
+        "volume": 12900,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.619999885559082
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-14",
+        "open": 3.6700000762939453,
+        "high": 3.890000104904175,
+        "low": 3.5199999809265137,
+        "close": 3.5199999809265137,
+        "volume": 12700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.5199999809265137
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-15",
+        "open": 3.549999952316284,
+        "high": 3.630000114440918,
+        "low": 3.3299999237060547,
+        "close": 3.3299999237060547,
+        "volume": 13700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.3299999237060547
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-16",
+        "open": 3.25,
+        "high": 3.4200000762939453,
+        "low": 3.25,
+        "close": 3.259999990463257,
+        "volume": 10300,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.259999990463257
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-17",
+        "open": 3.2699999809265137,
+        "high": 3.359999895095825,
+        "low": 3.25,
+        "close": 3.299999952316284,
+        "volume": 8800,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.299999952316284
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-20",
+        "open": 3.319999933242798,
+        "high": 3.390000104904175,
+        "low": 3.25,
+        "close": 3.359999895095825,
+        "volume": 23400,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.359999895095825
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-21",
+        "open": 3.390000104904175,
+        "high": 3.4100000858306885,
+        "low": 3.3299999237060547,
+        "close": 3.369999885559082,
+        "volume": 25100,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.369999885559082
+      },
+      {
+        "ticker": "DETX",
+        "date": "2026-07-22",
+        "open": 3.380000114440918,
+        "high": 3.390000104904175,
+        "low": 3.309999942779541,
+        "close": 3.309999942779541,
+        "volume": 2632,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.309999942779541
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 5.27,
+      "growthSpurtBenchmarkPercentile": 0.074956,
+      "growthSpurtMarketDataAsOf": "2026-07-22",
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

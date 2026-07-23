@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "HMH",
+      "cik": "0002021880",
+      "company_name": "HMH Holding Inc",
+      "exchange": "Nasdaq",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 20.78,
+      "dailyChangePercent": 4.6851,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {
+      "Accounts receivable": {
+        "concept": "AccountsReceivableNetCurrent",
+        "label": "Accounts receivable",
+        "value": 10.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-05-06",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001628280-26-031295",
+        "source": "sec-companyfacts"
+      },
+      "Assets": {
+        "concept": "Assets",
+        "label": "Assets",
+        "value": 10.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-05-06",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001628280-26-031295",
+        "source": "sec-companyfacts"
+      },
+      "Stockholders' equity": {
+        "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+        "label": "Stockholders' equity",
+        "value": 10.0,
+        "unit": "USD",
+        "period_end": "2026-03-31",
+        "filed": "2026-05-06",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "form": "10-Q",
+        "accession": "0001628280-26-031295",
+        "source": "sec-companyfacts"
+      }
+    },
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "HMH",
+      "cik": "0002021880",
+      "companyName": "HMH Holding Inc",
+      "formType": "10-Q",
+      "accession": "0001628280-26-031295",
+      "filingDate": "2026-05-06",
+      "periodEndDate": "2026-03-31",
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q1",
+      "source": "sec_companyfacts",
+      "missingFields": [
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": 10.0,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": 10.0,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": 10.0,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": 1.0,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": 0.0,
+      "shortTermDebtShare": null,
+      "bookValue": 10.0,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": 90.0,
+      "assetQualityScore": 90.0,
+      "balanceSheetQualityScore": 90.0,
+      "balanceSheetRiskPenalty": 20.0,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": 1.0,
+          "status": "healthy",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio is in the preferred screening range.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": 10.0,
+          "status": "healthy",
+          "healthyRange": "positive",
+          "interpretation": "bookValue is in the preferred screening range.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": 0.0,
+          "status": "healthy",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets is in the preferred screening range.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -20,
+      "warnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "HMH",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": "2026-07-22",
+      "status": "not_detected",
+      "growthSpurtScore": 31.19,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": 0.07390182,
+        "return63d": 0.00971821,
+        "trendSlope21d": 0.00303349,
+        "trendSlope63d": -0.0021247,
+        "trendAnnualizedReturn63d": -0.41457931,
+        "trendFitR2_63d": 0.38117154,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.0530602,
+        "maxDrawdown63d": -0.25638909,
+        "downsideVolatility63d": 0.0201833,
+        "excessReturnVsSpy21d": 0.06867605,
+        "excessReturnVsSpy63d": -0.05579671,
+        "trendAcceleration": 0.00358698,
+        "largestOneDayContribution63d": 0.04699695,
+        "percentAboveTrendLine63d": 0.50793651
+      },
+      "scoreBreakdown": {
+        "directionScore": 22.8345,
+        "consistencyScore": 12.7842,
+        "relativeStrengthScore": 44.8326,
+        "drawdownControlScore": 14.537,
+        "confirmationScore": 100.0
+      },
+      "benchmarkPercentile": 0.467434,
+      "metricPercentiles": {
+        "trendSlope63d": 0.289204,
+        "trendFitR2_63d": 0.446372,
+        "excessReturnVsSpy63d": 0.516433,
+        "drawdownControlScore": 0.400177,
+        "growthSpurtScore": 0.467434
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
+      ],
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "HMH",
+        "date": "2026-04-01",
+        "open": 18.899999618530273,
+        "high": 20.0,
+        "low": 18.5,
+        "close": 19.280000686645508,
+        "volume": 4415000,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.280000686645508
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-02",
+        "open": 19.559999465942383,
+        "high": 19.56999969482422,
+        "low": 18.100000381469727,
+        "close": 18.81999969482422,
+        "volume": 1316700,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.81999969482422
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-06",
+        "open": 18.81999969482422,
+        "high": 19.260000228881836,
+        "low": 18.200000762939453,
+        "close": 18.600000381469727,
+        "volume": 673900,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.600000381469727
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-07",
+        "open": 18.43000030517578,
+        "high": 18.770000457763672,
+        "low": 17.540000915527344,
+        "close": 18.25,
+        "volume": 973800,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.25
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-08",
+        "open": 17.260000228881836,
+        "high": 18.239999771118164,
+        "low": 16.31999969482422,
+        "close": 16.889999389648438,
+        "volume": 1230800,
+        "source": "yahoo-chart",
+        "adjusted_close": 16.889999389648438
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-09",
+        "open": 16.719999313354492,
+        "high": 18.450000762939453,
+        "low": 16.690000534057617,
+        "close": 18.260000228881836,
+        "volume": 650600,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.260000228881836
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-10",
+        "open": 17.75,
+        "high": 18.8700008392334,
+        "low": 17.75,
+        "close": 18.690000534057617,
+        "volume": 274000,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.690000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-13",
+        "open": 18.65999984741211,
+        "high": 19.079999923706055,
+        "low": 18.520000457763672,
+        "close": 18.959999084472656,
+        "volume": 171100,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.959999084472656
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-14",
+        "open": 18.770000457763672,
+        "high": 19.639999389648438,
+        "low": 18.65999984741211,
+        "close": 18.940000534057617,
+        "volume": 313700,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.940000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-15",
+        "open": 18.93000030517578,
+        "high": 18.950000762939453,
+        "low": 18.0,
+        "close": 18.149999618530273,
+        "volume": 218100,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.149999618530273
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-16",
+        "open": 17.979999542236328,
+        "high": 19.06999969482422,
+        "low": 17.760000228881836,
+        "close": 19.0,
+        "volume": 400000,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.0
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-17",
+        "open": 18.809999465942383,
+        "high": 19.100000381469727,
+        "low": 18.010000228881836,
+        "close": 18.510000228881836,
+        "volume": 365500,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.510000228881836
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-20",
+        "open": 18.520000457763672,
+        "high": 19.489999771118164,
+        "low": 18.520000457763672,
+        "close": 19.25,
+        "volume": 281900,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.25
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-21",
+        "open": 19.270000457763672,
+        "high": 20.649999618530273,
+        "low": 19.270000457763672,
+        "close": 20.579999923706055,
+        "volume": 356100,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.579999923706055
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-22",
+        "open": 20.729999542236328,
+        "high": 21.0,
+        "low": 20.010000228881836,
+        "close": 20.739999771118164,
+        "volume": 208700,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.739999771118164
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-23",
+        "open": 20.739999771118164,
+        "high": 21.0,
+        "low": 20.079999923706055,
+        "close": 20.209999084472656,
+        "volume": 265300,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.209999084472656
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-24",
+        "open": 20.299999237060547,
+        "high": 20.459999084472656,
+        "low": 19.809999465942383,
+        "close": 20.1299991607666,
+        "volume": 192800,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.1299991607666
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-27",
+        "open": 20.65999984741211,
+        "high": 21.649999618530273,
+        "low": 19.950000762939453,
+        "close": 21.0,
+        "volume": 556500,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.0
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-28",
+        "open": 21.040000915527344,
+        "high": 21.209999084472656,
+        "low": 20.059999465942383,
+        "close": 20.559999465942383,
+        "volume": 203100,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.559999465942383
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-29",
+        "open": 20.84000015258789,
+        "high": 21.350000381469727,
+        "low": 20.649999618530273,
+        "close": 21.1200008392334,
+        "volume": 242200,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.1200008392334
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-04-30",
+        "open": 21.200000762939453,
+        "high": 21.59000015258789,
+        "low": 20.780000686645508,
+        "close": 21.200000762939453,
+        "volume": 139900,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.200000762939453
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-01",
+        "open": 21.15999984741211,
+        "high": 21.389999389648438,
+        "low": 20.6200008392334,
+        "close": 21.260000228881836,
+        "volume": 130600,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.260000228881836
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-04",
+        "open": 21.43000030517578,
+        "high": 22.729999542236328,
+        "low": 20.8700008392334,
+        "close": 22.219999313354492,
+        "volume": 248700,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.219999313354492
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-05",
+        "open": 21.889999389648438,
+        "high": 22.489999771118164,
+        "low": 21.8700008392334,
+        "close": 22.100000381469727,
+        "volume": 216800,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.100000381469727
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-06",
+        "open": 21.469999313354492,
+        "high": 22.059999465942383,
+        "low": 20.889999389648438,
+        "close": 21.110000610351562,
+        "volume": 190600,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.110000610351562
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-07",
+        "open": 21.110000610351562,
+        "high": 21.979999542236328,
+        "low": 20.8799991607666,
+        "close": 21.549999237060547,
+        "volume": 166700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.549999237060547
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-08",
+        "open": 21.510000228881836,
+        "high": 22.18000030517578,
+        "low": 21.190000534057617,
+        "close": 21.5,
+        "volume": 128600,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.5
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-11",
+        "open": 21.510000228881836,
+        "high": 22.40999984741211,
+        "low": 20.649999618530273,
+        "close": 21.15999984741211,
+        "volume": 126600,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.15999984741211
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-12",
+        "open": 21.049999237060547,
+        "high": 21.280000686645508,
+        "low": 20.520000457763672,
+        "close": 21.030000686645508,
+        "volume": 210200,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.030000686645508
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-13",
+        "open": 20.90999984741211,
+        "high": 21.5,
+        "low": 20.889999389648438,
+        "close": 21.0,
+        "volume": 112200,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.0
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-14",
+        "open": 21.06999969482422,
+        "high": 21.639999389648438,
+        "low": 20.860000610351562,
+        "close": 21.229999542236328,
+        "volume": 230500,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.229999542236328
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-15",
+        "open": 21.520000457763672,
+        "high": 21.75,
+        "low": 20.719999313354492,
+        "close": 21.690000534057617,
+        "volume": 123900,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.690000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-18",
+        "open": 21.690000534057617,
+        "high": 22.010000228881836,
+        "low": 21.5,
+        "close": 21.799999237060547,
+        "volume": 123500,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.799999237060547
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-19",
+        "open": 21.799999237060547,
+        "high": 23.139999389648438,
+        "low": 21.799999237060547,
+        "close": 23.020000457763672,
+        "volume": 155700,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.020000457763672
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-20",
+        "open": 22.719999313354492,
+        "high": 23.209999084472656,
+        "low": 22.270000457763672,
+        "close": 23.1200008392334,
+        "volume": 186200,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.1200008392334
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-21",
+        "open": 23.1200008392334,
+        "high": 23.799999237060547,
+        "low": 22.469999313354492,
+        "close": 23.25,
+        "volume": 379800,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.25
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-22",
+        "open": 22.940000534057617,
+        "high": 24.5,
+        "low": 22.34000015258789,
+        "close": 24.260000228881836,
+        "volume": 313100,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.260000228881836
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-26",
+        "open": 24.3700008392334,
+        "high": 24.3700008392334,
+        "low": 21.75,
+        "close": 22.440000534057617,
+        "volume": 456500,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.440000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-27",
+        "open": 22.450000762939453,
+        "high": 22.540000915527344,
+        "low": 20.219999313354492,
+        "close": 21.5,
+        "volume": 239400,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.5
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-28",
+        "open": 21.25,
+        "high": 22.459999084472656,
+        "low": 20.5,
+        "close": 20.969999313354492,
+        "volume": 293700,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.969999313354492
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-05-29",
+        "open": 20.790000915527344,
+        "high": 21.450000762939453,
+        "low": 20.5,
+        "close": 21.360000610351562,
+        "volume": 314300,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.360000610351562
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-01",
+        "open": 21.549999237060547,
+        "high": 22.5,
+        "low": 21.110000610351562,
+        "close": 21.360000610351562,
+        "volume": 168000,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.360000610351562
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-02",
+        "open": 21.360000610351562,
+        "high": 22.610000610351562,
+        "low": 21.0,
+        "close": 21.959999084472656,
+        "volume": 416600,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.959999084472656
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-03",
+        "open": 22.229999542236328,
+        "high": 23.5,
+        "low": 21.979999542236328,
+        "close": 22.43000030517578,
+        "volume": 281700,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.43000030517578
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-04",
+        "open": 22.0,
+        "high": 22.34000015258789,
+        "low": 21.360000610351562,
+        "close": 21.649999618530273,
+        "volume": 256200,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.649999618530273
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-05",
+        "open": 21.889999389648438,
+        "high": 22.479999542236328,
+        "low": 20.81999969482422,
+        "close": 21.219999313354492,
+        "volume": 446800,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.219999313354492
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-08",
+        "open": 21.420000076293945,
+        "high": 22.670000076293945,
+        "low": 21.420000076293945,
+        "close": 22.0,
+        "volume": 267400,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.0
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-09",
+        "open": 22.170000076293945,
+        "high": 22.190000534057617,
+        "low": 20.459999084472656,
+        "close": 20.700000762939453,
+        "volume": 297200,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.700000762939453
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-10",
+        "open": 20.950000762939453,
+        "high": 21.579999923706055,
+        "low": 20.600000381469727,
+        "close": 21.0,
+        "volume": 262700,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.0
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-11",
+        "open": 21.149999618530273,
+        "high": 21.530000686645508,
+        "low": 20.049999237060547,
+        "close": 20.469999313354492,
+        "volume": 151200,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.469999313354492
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-12",
+        "open": 20.469999313354492,
+        "high": 21.219999313354492,
+        "low": 20.260000228881836,
+        "close": 20.8700008392334,
+        "volume": 101300,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.8700008392334
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-15",
+        "open": 20.34000015258789,
+        "high": 21.149999618530273,
+        "low": 19.639999389648438,
+        "close": 19.84000015258789,
+        "volume": 161500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.84000015258789
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-16",
+        "open": 19.760000228881836,
+        "high": 20.059999465942383,
+        "low": 18.799999237060547,
+        "close": 19.040000915527344,
+        "volume": 262500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.040000915527344
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-17",
+        "open": 19.040000915527344,
+        "high": 19.3700008392334,
+        "low": 17.65999984741211,
+        "close": 18.040000915527344,
+        "volume": 541500,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.040000915527344
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-18",
+        "open": 18.329999923706055,
+        "high": 18.709999084472656,
+        "low": 17.190000534057617,
+        "close": 18.65999984741211,
+        "volume": 1671500,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.65999984741211
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-22",
+        "open": 18.670000076293945,
+        "high": 19.469999313354492,
+        "low": 18.049999237060547,
+        "close": 19.350000381469727,
+        "volume": 241600,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.350000381469727
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-23",
+        "open": 19.030000686645508,
+        "high": 19.6200008392334,
+        "low": 18.899999618530273,
+        "close": 19.270000457763672,
+        "volume": 255300,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.270000457763672
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-24",
+        "open": 18.979999542236328,
+        "high": 19.100000381469727,
+        "low": 17.799999237060547,
+        "close": 18.15999984741211,
+        "volume": 393700,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.15999984741211
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-25",
+        "open": 18.350000381469727,
+        "high": 19.639999389648438,
+        "low": 18.350000381469727,
+        "close": 19.520000457763672,
+        "volume": 283800,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.520000457763672
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-26",
+        "open": 19.520000457763672,
+        "high": 20.34000015258789,
+        "low": 18.600000381469727,
+        "close": 20.040000915527344,
+        "volume": 1982500,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.040000915527344
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-29",
+        "open": 20.010000228881836,
+        "high": 20.440000534057617,
+        "low": 19.06999969482422,
+        "close": 19.459999084472656,
+        "volume": 415700,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.459999084472656
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-06-30",
+        "open": 19.469999313354492,
+        "high": 20.5,
+        "low": 18.489999771118164,
+        "close": 18.739999771118164,
+        "volume": 372100,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.739999771118164
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-01",
+        "open": 18.6299991607666,
+        "high": 18.860000610351562,
+        "low": 18.139999389648438,
+        "close": 18.360000610351562,
+        "volume": 303100,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.360000610351562
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-02",
+        "open": 18.360000610351562,
+        "high": 18.760000228881836,
+        "low": 17.989999771118164,
+        "close": 18.09000015258789,
+        "volume": 187200,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.09000015258789
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-06",
+        "open": 18.110000610351562,
+        "high": 18.59000015258789,
+        "low": 18.110000610351562,
+        "close": 18.3700008392334,
+        "volume": 193500,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.3700008392334
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-07",
+        "open": 18.3700008392334,
+        "high": 18.969999313354492,
+        "low": 18.190000534057617,
+        "close": 18.709999084472656,
+        "volume": 164500,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.709999084472656
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-08",
+        "open": 18.8700008392334,
+        "high": 19.549999237060547,
+        "low": 18.530000686645508,
+        "close": 19.329999923706055,
+        "volume": 131500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.329999923706055
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-09",
+        "open": 19.18000030517578,
+        "high": 19.459999084472656,
+        "low": 18.90999984741211,
+        "close": 19.149999618530273,
+        "volume": 91500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.149999618530273
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-10",
+        "open": 19.260000228881836,
+        "high": 19.959999084472656,
+        "low": 19.149999618530273,
+        "close": 19.799999237060547,
+        "volume": 124300,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.799999237060547
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-13",
+        "open": 20.059999465942383,
+        "high": 20.329999923706055,
+        "low": 19.700000762939453,
+        "close": 19.90999984741211,
+        "volume": 86600,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.90999984741211
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-14",
+        "open": 19.920000076293945,
+        "high": 20.09000015258789,
+        "low": 19.75,
+        "close": 19.940000534057617,
+        "volume": 94300,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.940000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-15",
+        "open": 19.90999984741211,
+        "high": 19.90999984741211,
+        "low": 18.920000076293945,
+        "close": 19.260000228881836,
+        "volume": 171200,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.260000228881836
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-16",
+        "open": 19.3799991607666,
+        "high": 20.170000076293945,
+        "low": 19.360000610351562,
+        "close": 19.440000534057617,
+        "volume": 137000,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.440000534057617
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-17",
+        "open": 19.670000076293945,
+        "high": 19.799999237060547,
+        "low": 18.639999389648438,
+        "close": 19.649999618530273,
+        "volume": 183500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.649999618530273
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-20",
+        "open": 19.420000076293945,
+        "high": 19.719999313354492,
+        "low": 19.030000686645508,
+        "close": 19.1299991607666,
+        "volume": 116000,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.1299991607666
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-21",
+        "open": 19.229999542236328,
+        "high": 20.139999389648438,
+        "low": 19.229999542236328,
+        "close": 19.850000381469727,
+        "volume": 145200,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.850000381469727
+      },
+      {
+        "ticker": "HMH",
+        "date": "2026-07-22",
+        "open": 20.049999237060547,
+        "high": 21.079999923706055,
+        "low": 19.600000381469727,
+        "close": 20.780000686645508,
+        "volume": 99877,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.780000686645508
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": true,
+      "recent10KAvailable": false,
+      "recent10QAvailable": true,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": true,
+      "balanceSheetSource": "sec_companyfacts",
+      "balanceSheetPeriodEnd": "2026-03-31",
+      "balanceSheetWarnings": [
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": 90.0,
+      "balanceSheetRiskPenalty": 20.0,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": 90.0,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": "2026-05-06",
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 31.19,
+      "growthSpurtBenchmarkPercentile": 0.467434,
+      "growthSpurtMarketDataAsOf": "2026-07-22",
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

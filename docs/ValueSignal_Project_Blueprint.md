@@ -1171,13 +1171,12 @@ npm run build
 ### What changed
 
 - Refactored saved-position projections into normalized `HoldingOutcome` records in `src/lib/position-projections.ts`.
-- Added a reusable `src/components/HoldingOutcomeCard.tsx` renderer for the new two-by-two outcome grid.
-- Replaced the main saved-position display with:
+- Added a reusable `src/components/HoldingOutcomeCard.tsx` renderer for normalized saved-position outcome cards.
+- Replaced the main saved-position display with two primary ValueSignal cards:
   - `ValueSignal 30 Days`;
-  - `ValueSignal 90 Days`;
-  - `Market Target 30 Days`;
-  - `Market Target 90 Days`.
-- Moved zero-return baseline names, selected model details, sample counts, market-target provider status, and personal scenario fields into collapsed panels.
+  - `ValueSignal 90 Days`.
+- Hid customer-facing Market Target 30/90 cards until a legitimate analyst-target provider is configured, while preserving backend `AnalystTargetArtifact` and `marketTargetOutcomes` extension points.
+- Moved zero-return baseline names, selected model details, sample counts, and personal scenario fields into collapsed panels.
 - Kept personal 30/90-day percentages separate as `Personal 30-Day Scenario %` and `Personal 90-Day Scenario %`.
 - Standardized holding gain/loss math:
   - `estimatedGainLossPerShare = estimatedSellPrice - currentPurchasePrice`;
@@ -1189,10 +1188,10 @@ npm run build
   - share positions display `Shares held`;
   - total gain/loss appears only once as the card headline;
   - ValueSignal unavailable cards use horizon-specific observation details;
-  - market-target unavailable cards stay compact and do not claim scenario-source metadata;
+  - market-target unavailable outcomes stay in backend data only and do not render as primary cards;
   - displayed dates use `Jul 20, 2026` style formatting instead of raw ISO timestamps.
-- Added market-target time-scaling logic, but only when a legitimate provider supplies target mean, current price at collection, and a documented horizon.
-- Current market-target state remains explicitly unavailable because no analyst target provider is configured.
+- Added market-target time-scaling logic, but only as a future backend extension when a legitimate provider supplies target mean, current price at collection, and a documented horizon.
+- Current market-target state remains unavailable and hidden from the saved-portfolio primary interface because no analyst target provider is configured.
 - Updated pipeline health so expected unavailable forecast/market-target/Growth Spurt coverage gaps do not count as real failures.
 - Added `--limit all` / omitted-limit parsing and batch metadata for scaling scripts without removing the safe scheduled batch cap.
 
@@ -1208,7 +1207,8 @@ Implied shares
 Estimated return
 Estimated sell price
 Estimated position value
-Market-implied scenario
+Scenario range
+Projection source
 ```
 
 Do not use "earnings" for a user's saved-position outcome. "Earnings" is reserved for company net income/EPS/earnings releases.
@@ -1223,7 +1223,7 @@ marketImpliedReturn30 = (1 + totalTargetReturn)^(30 / targetHorizonDays) - 1
 marketImpliedReturn90 = (1 + totalTargetReturn)^(90 / targetHorizonDays) - 1
 ```
 
-The current fixture reports:
+The current fixture keeps market-target artifacts unsupported and hidden from the primary saved-portfolio UI. Backend unavailable outcomes report:
 
 ```text
 Unavailable
@@ -1264,7 +1264,144 @@ npm run build
 Notes:
 
 - Python suite passed 105 tests.
-- TypeScript brief/render/projection suite passed 21 tests.
+- TypeScript brief/render/projection suite passed 31 tests after the two-card saved-portfolio cleanup.
 - Forecast evaluator passed this time on the scaled fixture and retained zero-return baselines for 30/90 days.
 - Production Next.js build passed after the saved-outcome and market-target UI changes.
 - This feature has not been deployed. Stop for review before deployment.
+
+---
+
+## 28. Live Implementation Context - Checkpointed Full-Universe ETL
+
+**Updated:** 2026-07-22 UTC
+**Git branch:** `scale-universe-foundation`
+**Reason:** A single uncapped live ETL process over the supported SEC-listed universe was too fragile for laptop/network interruptions and did not publish artifacts until the whole run ended.
+
+### Current universe scale
+
+- `data/universe/universe.json` contains the uncapped SEC-listed universe built by the scaling track.
+- `data/universe/universe_manifest.json` reports:
+  - supported operating companies: `6017`;
+  - unsupported/excluded symbols: `4397`;
+  - total company rows: `10414`.
+- The local frontend artifacts now represent the completed checkpoint merge: `5799` published stock records from `6017` supported requests, with `218` isolated noncritical ETL failures.
+
+### New checkpointed ETL workflow
+
+Use `scripts/pipeline/run_checkpointed_etl.py` for broad/full refreshes:
+
+```powershell
+$env:VS_USER_AGENT="ValueSignal research ETL <contact>"
+$env:BALANCE_SHEET_SCORING_MODE="official"
+$env:GROWTH_SPURT_MODE="display"
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --fetch-only --skip-backtest
+powershell -ExecutionPolicy Bypass -File scripts/pipeline/diagnose_checkpointed_etl.ps1
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --merge-only --skip-backtest
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
+python scripts/pipeline_health.py
+```
+
+Mechanics:
+
+- Fetch mode writes raw provider checkpoints into `data/checkpoints/etl_raw/`.
+- The active batch checkpoint is atomically rewritten after each ticker, not only after each batch.
+- Existing complete batches are cache hits on resume.
+- Existing partial batches resume from completed ticker records and ticker-level errors.
+- `--max-workers 5` can parallelize up to five ticker fetches inside one process while keeping a single checkpoint writer.
+- Do not run multiple independent checkpoint fetch scripts against the same checkpoint directory because they can race on batch files.
+- Merge mode replays completed checkpoint data through the existing `scripts/run_etl.py` scoring/export path so official scoring is still one global universe calculation.
+- Merge mode blocks incomplete checkpoint sets by default; `--allow-partial-merge` must be intentional.
+- `scripts/pipeline/diagnose_checkpointed_etl.ps1` reports the live Python process, batch counts, partial progress, ticker success/failure counts, latest batch file, and latest log lines.
+- Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed full-universe checkpoint used shorter provider-default price histories, so the first scaled-fast forecast set intentionally falls back to sparse historical scenarios where available.
+
+### Operational reality
+
+SEC Company Facts payloads are large for mega-caps. In the first live checkpointed refresh attempt:
+
+- AAPL company facts produced about 34 MB of checkpointed facts and took about 85 seconds.
+- MSFT company facts produced about 43 MB of checkpointed facts and took about 86 seconds.
+
+Therefore a true 6,000-company fundamentals refresh may take many hours or days on a laptop, even though it is now resumable. Do not assume full-universe fundamentals can be refreshed quickly without either a stronger runtime, parallelism with SEC-safe rate limiting, or a more selective fundamentals strategy. The current raw checkpoint store is about `26.2 GB` and must stay out of Git.
+
+### Validation added
+
+New tests:
+
+```powershell
+python -m unittest tests.test_checkpointed_etl tests.test_pipeline tests.test_scaled_universe -v
+```
+
+Passed on 2026-07-22 UTC:
+
+- checkpoint cache reuse;
+- partial/incomplete merge blocking;
+- complete checkpoint replay through the real scoring/export pipeline;
+- existing one-ticker-failure isolation;
+- scaled universe parser/regression tests.
+
+### Parallel fetch restart
+
+On 2026-07-22 UTC, the single-worker run was stopped at:
+
+- processed tickers: `996 / 6017`;
+- successful tickers: `953`;
+- failed tickers: `43`;
+- latest partial batch: `batch_00990_01000.json`.
+
+The runner was upgraded with `--max-workers` and restarted with:
+
+```powershell
+python scripts/pipeline/run_checkpointed_etl.py --universe data/universe/universe.json --limit all --batch-size 10 --max-workers 5 --fetch-only --skip-backtest
+```
+
+Validation before restart:
+
+```powershell
+python -m unittest tests.test_checkpointed_etl tests.test_pipeline tests.test_scaled_universe -v
+```
+
+Result: `19` ETL/scaling tests passed. The five-worker run resumed from existing checkpoints and completed the supported universe.
+
+### Completed full-universe local run
+
+Final local status on 2026-07-22 UTC:
+
+- Raw checkpoint fetch processed: `6017 / 6017`.
+- Raw checkpoint successes: `5802`.
+- Raw checkpoint failures: `215`.
+- Corrected merge/export published: `5799` stock detail artifacts and aggregate dashboard/features/signals artifacts.
+- ETL report status: `partial_success` with `218` noncritical failures and zero critical pipeline-health failures.
+- Forecast scaled-fast artifacts: `5799` records; `5475` conservative scenarios available, `321` insufficient-data scenarios, `3` stale scenarios.
+- Largest deployable public artifacts after merge and dashboard trim: `public/data/dashboard.json` about `24 MB`, `public/data/signals.json` about `66 MB`, `public/data/features.json` about `54 MB`, and `public/data/etl_report.json` about `13 MB`.
+- `public/data/dashboard.json` is now an intentional dashboard-summary artifact. Full per-ticker balance-sheet and price-history detail remains in `public/data/stocks/{TICKER}.json`, and official scoring components remain in `public/data/signals.json`.
+- BM25 filing search remains capped at `199` indexed tickers. Scaling SEC filing/BM25 evidence for all `5799` stocks is a separate large ingestion job and was not completed by the market/companyfacts ETL merge.
+
+Validation after the corrected merge:
+
+```powershell
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python -m unittest tests.test_forecast_pipeline -v
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
+python scripts/forecast/audit_forecasts.py
+python scripts/pipeline_health.py
+python scripts/audit_search.py
+npm run test:brief
+npm run typecheck
+npm run build
+```
+
+Results:
+
+- Feature audit passed price ordering, annualization, and denominator-sign gates after the `scripts/cleaning.py` / `scripts/features.py` denominator fix.
+- Scoring audit passed 0-100 bounds and deterministic sensitivity checks across `5799` records.
+- Forecast audit passed for `5799` scaled-fast forecast files.
+- Search audit passed structurally, but only for the current `199`-ticker BM25 corpus.
+- Next.js type-check, production build, and brief UI tests passed.
+- The post-trim dashboard validation passed `python -m unittest tests.test_pipeline tests.test_checkpointed_etl -v`, `python scripts/audit_features.py`, `python scripts/pipeline_health.py`, `npm run typecheck`, `npm run build`, and `npm run test:brief`.
+
+Automation caution:
+
+- `.github/workflows/refresh-data.yml` is still capped at `VS_UNIVERSE_LIMIT: "250"` for GitHub runner safety.
+- Scheduled workflow runs now act as health checks and do not commit public artifacts; manual dispatch is required for the artifact commit step while the deployed dataset is full-universe.
+- Do not remove this guard or let a capped scheduled refresh overwrite the `5799` artifact set until an incremental/full-run automation design exists.

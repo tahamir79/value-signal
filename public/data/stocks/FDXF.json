@@ -1,0 +1,862 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "FDXF",
+      "cik": "0002082247",
+      "company_name": "FedEx Freight Holding Company, Inc.",
+      "exchange": "NYSE",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 150.205,
+      "dailyChangePercent": -0.1164,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "FDXF",
+      "cik": "0002082247",
+      "companyName": "FedEx Freight Holding Company, Inc.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "FDXF",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "FDXF",
+        "date": "2026-05-27",
+        "open": 135.0,
+        "high": 159.89999389648438,
+        "low": 135.0,
+        "close": 151.0,
+        "volume": 14200,
+        "source": "yahoo-chart",
+        "adjusted_close": 151.0
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-05-28",
+        "open": 158.10000610351562,
+        "high": 200.0,
+        "low": 158.10000610351562,
+        "close": 185.0,
+        "volume": 6300,
+        "source": "yahoo-chart",
+        "adjusted_close": 185.0
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-05-29",
+        "open": 189.0,
+        "high": 199.5,
+        "low": 160.3699951171875,
+        "close": 160.3699951171875,
+        "volume": 15400,
+        "source": "yahoo-chart",
+        "adjusted_close": 160.3699951171875
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-01",
+        "open": 164.0,
+        "high": 166.89999389648438,
+        "low": 141.3300018310547,
+        "close": 149.52999877929688,
+        "volume": 7419200,
+        "source": "yahoo-chart",
+        "adjusted_close": 149.52999877929688
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-02",
+        "open": 150.00999450683594,
+        "high": 158.49000549316406,
+        "low": 149.11000061035156,
+        "close": 153.33999633789062,
+        "volume": 4482500,
+        "source": "yahoo-chart",
+        "adjusted_close": 153.33999633789062
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-03",
+        "open": 152.3000030517578,
+        "high": 153.2100067138672,
+        "low": 145.00999450683594,
+        "close": 152.0,
+        "volume": 4596400,
+        "source": "yahoo-chart",
+        "adjusted_close": 152.0
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-04",
+        "open": 150.66000366210938,
+        "high": 166.27000427246094,
+        "low": 150.66000366210938,
+        "close": 157.7100067138672,
+        "volume": 2928400,
+        "source": "yahoo-chart",
+        "adjusted_close": 157.7100067138672
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-05",
+        "open": 157.47999572753906,
+        "high": 175.0,
+        "low": 157.47999572753906,
+        "close": 167.83999633789062,
+        "volume": 2924900,
+        "source": "yahoo-chart",
+        "adjusted_close": 167.83999633789062
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-08",
+        "open": 167.02000427246094,
+        "high": 183.0,
+        "low": 166.1300048828125,
+        "close": 178.77000427246094,
+        "volume": 1759900,
+        "source": "yahoo-chart",
+        "adjusted_close": 178.77000427246094
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-09",
+        "open": 178.1199951171875,
+        "high": 194.27000427246094,
+        "low": 178.1199951171875,
+        "close": 188.4600067138672,
+        "volume": 2448900,
+        "source": "yahoo-chart",
+        "adjusted_close": 188.4600067138672
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-10",
+        "open": 175.5,
+        "high": 186.11000061035156,
+        "low": 169.99000549316406,
+        "close": 175.35000610351562,
+        "volume": 2595700,
+        "source": "yahoo-chart",
+        "adjusted_close": 175.35000610351562
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-11",
+        "open": 177.0,
+        "high": 188.3300018310547,
+        "low": 177.0,
+        "close": 180.0,
+        "volume": 1894500,
+        "source": "yahoo-chart",
+        "adjusted_close": 180.0
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-12",
+        "open": 180.5399932861328,
+        "high": 182.0,
+        "low": 168.11000061035156,
+        "close": 174.75999450683594,
+        "volume": 1477800,
+        "source": "yahoo-chart",
+        "adjusted_close": 174.75999450683594
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-15",
+        "open": 173.91000366210938,
+        "high": 177.80999755859375,
+        "low": 166.0399932861328,
+        "close": 167.16000366210938,
+        "volume": 1707700,
+        "source": "yahoo-chart",
+        "adjusted_close": 167.16000366210938
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-16",
+        "open": 162.10000610351562,
+        "high": 167.02000427246094,
+        "low": 160.02000427246094,
+        "close": 163.83999633789062,
+        "volume": 1914300,
+        "source": "yahoo-chart",
+        "adjusted_close": 163.83999633789062
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-17",
+        "open": 163.89999389648438,
+        "high": 165.85000610351562,
+        "low": 157.8000030517578,
+        "close": 161.89999389648438,
+        "volume": 2465500,
+        "source": "yahoo-chart",
+        "adjusted_close": 161.89999389648438
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-18",
+        "open": 165.0,
+        "high": 167.4199981689453,
+        "low": 160.10000610351562,
+        "close": 162.85000610351562,
+        "volume": 3231500,
+        "source": "yahoo-chart",
+        "adjusted_close": 162.85000610351562
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-22",
+        "open": 165.4499969482422,
+        "high": 169.5399932861328,
+        "low": 160.0800018310547,
+        "close": 160.94000244140625,
+        "volume": 2276200,
+        "source": "yahoo-chart",
+        "adjusted_close": 160.94000244140625
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-23",
+        "open": 162.0,
+        "high": 171.66000366210938,
+        "low": 161.0,
+        "close": 166.47000122070312,
+        "volume": 1694400,
+        "source": "yahoo-chart",
+        "adjusted_close": 166.47000122070312
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-24",
+        "open": 169.0,
+        "high": 170.97999572753906,
+        "low": 157.9600067138672,
+        "close": 160.4499969482422,
+        "volume": 1805800,
+        "source": "yahoo-chart",
+        "adjusted_close": 160.4499969482422
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-25",
+        "open": 161.02000427246094,
+        "high": 164.1300048828125,
+        "low": 157.75,
+        "close": 158.52999877929688,
+        "volume": 1217500,
+        "source": "yahoo-chart",
+        "adjusted_close": 158.52999877929688
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-26",
+        "open": 155.36000061035156,
+        "high": 157.5,
+        "low": 144.27000427246094,
+        "close": 153.88999938964844,
+        "volume": 6564800,
+        "source": "yahoo-chart",
+        "adjusted_close": 153.88999938964844
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-29",
+        "open": 152.49000549316406,
+        "high": 154.94000244140625,
+        "low": 147.4600067138672,
+        "close": 149.69000244140625,
+        "volume": 1978200,
+        "source": "yahoo-chart",
+        "adjusted_close": 149.69000244140625
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-06-30",
+        "open": 149.83999633789062,
+        "high": 154.0500030517578,
+        "low": 145.49000549316406,
+        "close": 151.0,
+        "volume": 2118500,
+        "source": "yahoo-chart",
+        "adjusted_close": 151.0
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-01",
+        "open": 151.0,
+        "high": 156.49000549316406,
+        "low": 148.3300018310547,
+        "close": 155.77000427246094,
+        "volume": 2519600,
+        "source": "yahoo-chart",
+        "adjusted_close": 155.77000427246094
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-02",
+        "open": 155.67999267578125,
+        "high": 157.32000732421875,
+        "low": 149.30999755859375,
+        "close": 150.80999755859375,
+        "volume": 1091000,
+        "source": "yahoo-chart",
+        "adjusted_close": 150.80999755859375
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-06",
+        "open": 151.05999755859375,
+        "high": 156.17999267578125,
+        "low": 150.5,
+        "close": 152.67999267578125,
+        "volume": 985100,
+        "source": "yahoo-chart",
+        "adjusted_close": 152.67999267578125
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-07",
+        "open": 154.3800048828125,
+        "high": 154.3800048828125,
+        "low": 144.4499969482422,
+        "close": 144.72000122070312,
+        "volume": 1122900,
+        "source": "yahoo-chart",
+        "adjusted_close": 144.72000122070312
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-08",
+        "open": 144.10000610351562,
+        "high": 146.3699951171875,
+        "low": 140.6699981689453,
+        "close": 143.3000030517578,
+        "volume": 1323400,
+        "source": "yahoo-chart",
+        "adjusted_close": 143.3000030517578
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-09",
+        "open": 145.0,
+        "high": 155.69000244140625,
+        "low": 145.0,
+        "close": 154.25,
+        "volume": 1190900,
+        "source": "yahoo-chart",
+        "adjusted_close": 154.25
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-10",
+        "open": 155.66000366210938,
+        "high": 156.6999969482422,
+        "low": 147.19000244140625,
+        "close": 149.52999877929688,
+        "volume": 1305700,
+        "source": "yahoo-chart",
+        "adjusted_close": 149.52999877929688
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-13",
+        "open": 151.33999633789062,
+        "high": 152.4499969482422,
+        "low": 147.80999755859375,
+        "close": 148.3699951171875,
+        "volume": 1304200,
+        "source": "yahoo-chart",
+        "adjusted_close": 148.3699951171875
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-14",
+        "open": 148.13999938964844,
+        "high": 149.0500030517578,
+        "low": 144.08999633789062,
+        "close": 144.75,
+        "volume": 1799300,
+        "source": "yahoo-chart",
+        "adjusted_close": 144.75
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-15",
+        "open": 145.0,
+        "high": 145.35000610351562,
+        "low": 139.57000732421875,
+        "close": 141.8000030517578,
+        "volume": 1264600,
+        "source": "yahoo-chart",
+        "adjusted_close": 141.8000030517578
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-16",
+        "open": 143.92999267578125,
+        "high": 153.2899932861328,
+        "low": 141.19000244140625,
+        "close": 152.42999267578125,
+        "volume": 1531700,
+        "source": "yahoo-chart",
+        "adjusted_close": 152.42999267578125
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-17",
+        "open": 152.49000549316406,
+        "high": 158.27000427246094,
+        "low": 150.4600067138672,
+        "close": 152.25999450683594,
+        "volume": 1326100,
+        "source": "yahoo-chart",
+        "adjusted_close": 152.25999450683594
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-20",
+        "open": 152.0,
+        "high": 154.58999633789062,
+        "low": 148.41000366210938,
+        "close": 150.13999938964844,
+        "volume": 831700,
+        "source": "yahoo-chart",
+        "adjusted_close": 150.13999938964844
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-21",
+        "open": 150.11000061035156,
+        "high": 153.39999389648438,
+        "low": 148.25,
+        "close": 150.3800048828125,
+        "volume": 663400,
+        "source": "yahoo-chart",
+        "adjusted_close": 150.3800048828125
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-07-22",
+        "open": 149.6300048828125,
+        "high": 152.27000427246094,
+        "low": 148.11000061035156,
+        "close": 150.2050018310547,
+        "volume": 345861,
+        "source": "yahoo-chart",
+        "adjusted_close": 150.2050018310547
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

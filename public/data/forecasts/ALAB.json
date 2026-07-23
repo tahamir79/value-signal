@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ALAB",
   "companyName": "Astera Labs, Inc.",
-  "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+  "generatedAt": "2026-07-22T23:16:08.956255+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 319.79,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-22T00:30:47.373726+00:00",
+    "collectedAt": "2026-07-22T23:16:08.956255+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -28,55 +28,58 @@
   },
   "horizon30Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.19053463,
-    "upperReturn": 0.25121167,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 319.79,
-    "lowerEstimatedPrice": 258.8589,
-    "upperEstimatedPrice": 400.125
+    "lowerEstimatedPrice": 304.1937,
+    "upperEstimatedPrice": 336.186
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
-    "lowerReturn": -0.30726303,
-    "upperReturn": 0.47327104,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
     "estimatedPrice": 319.79,
-    "lowerEstimatedPrice": 221.5304,
-    "upperEstimatedPrice": 471.1374
+    "lowerEstimatedPrice": 304.1937,
+    "upperEstimatedPrice": 336.186
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-22T00:30:47.373726+00:00",
+    "generatedAt": "2026-07-22T23:16:08.956255+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 319.79,
     "horizon30Day": {
-      "returnEstimate": 0.02673311,
+      "returnEstimate": 0.05923682,
       "lowerReturn": -0.08,
       "upperReturn": 0.08,
-      "estimatedPrice": 328.339,
+      "estimatedPrice": 338.7334,
       "lowerEstimatedPrice": 294.2068,
       "upperEstimatedPrice": 345.3732,
-      "sampleCount": 25,
+      "sampleCount": 46,
       "status": "available",
-      "usableObservationCount": 25,
+      "usableObservationCount": 46,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.09827212,
-      "lowerReturn": -0.14544304,
+      "returnEstimate": -0.01661087,
+      "lowerReturn": -0.15,
       "upperReturn": 0.15,
-      "estimatedPrice": 351.2165,
-      "lowerEstimatedPrice": 273.2788,
+      "estimatedPrice": 314.478,
+      "lowerEstimatedPrice": 271.8215,
       "upperEstimatedPrice": 367.7585,
-      "sampleCount": 23,
+      "sampleCount": 38,
       "status": "available",
-      "usableObservationCount": 23,
+      "usableObservationCount": 38,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
+    "sampleStepSessions": 5,
     "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "30-day scenario: lower return clipped to +/-8%",
       "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
       "90-day scenario: upper return clipped to +/-15%"
     ]
   },
@@ -85,19 +88,20 @@
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.15009596668270966,
-    "directionalAccuracy": 0.005408621342419817
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "model90Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
-    "testMAE": 0.25469076777129984,
-    "directionalAccuracy": 0.0025112107623318385
+    "testMAE": null,
+    "directionalAccuracy": null
   },
   "validationStatus": "baseline",
   "returnType": "price_return",
   "warnings": [
-    "Experimental price-history model; financial point-in-time feature snapshots are not yet part of the forecast training set.",
-    "CatBoost candidate unavailable in the current project environment."
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
   ]
 }

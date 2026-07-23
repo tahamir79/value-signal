@@ -63,7 +63,11 @@ jobs:
           python scripts/forecast/audit_forecasts.py
       - name: Publish pipeline health report
         run: python scripts/pipeline_health.py
+      - name: Explain scheduled artifact guard
+        if: github.event_name == 'schedule'
+        run: echo "Scheduled capped ETL completed as a health check. Public artifact commits are manual-only while the deployed dataset is full-universe."
       - name: Commit changed artifacts
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "value-signal-bot"
           git config user.email "value-signal-bot@users.noreply.github.com"

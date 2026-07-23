@@ -1,0 +1,719 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "record": {
+    "security": {
+      "ticker": "HONA",
+      "cik": "0002089271",
+      "company_name": "Honeywell Aerospace Inc.",
+      "exchange": "Nasdaq",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 206.81,
+      "dailyChangePercent": 3.3327,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "HONA",
+      "cik": "0002089271",
+      "companyName": "Honeywell Aerospace Inc.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "HONA",
+      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
+      "marketDataAsOf": null,
+      "status": "unavailable",
+      "growthSpurtScore": null,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": null,
+        "return63d": null,
+        "trendSlope21d": null,
+        "trendSlope63d": null,
+        "trendAnnualizedReturn63d": null,
+        "trendFitR2_63d": null,
+        "positiveWeekRatio63d": null,
+        "trendResidualVolatility63d": null,
+        "maxDrawdown63d": null,
+        "downsideVolatility63d": null,
+        "excessReturnVsSpy21d": null,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": null,
+        "largestOneDayContribution63d": null,
+        "percentAboveTrendLine63d": null
+      },
+      "scoreBreakdown": {
+        "directionScore": null,
+        "consistencyScore": null,
+        "relativeStrengthScore": null,
+        "drawdownControlScore": null,
+        "confirmationScore": null
+      },
+      "benchmarkPercentile": null,
+      "metricPercentiles": {
+        "trendSlope63d": null,
+        "trendFitR2_63d": null,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": null,
+        "growthSpurtScore": null
+      },
+      "reasonCodes": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ],
+      "warnings": [
+        "TREND_HISTORY_INSUFFICIENT"
+      ]
+    },
+    "priceHistory": [
+      {
+        "ticker": "HONA",
+        "date": "2026-06-15",
+        "open": 200.0,
+        "high": 200.0,
+        "low": 200.0,
+        "close": 200.0,
+        "volume": 400,
+        "source": "yahoo-chart",
+        "adjusted_close": 200.0
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-16",
+        "open": 297.5,
+        "high": 297.5,
+        "low": 269.95001220703125,
+        "close": 269.95001220703125,
+        "volume": 7300,
+        "source": "yahoo-chart",
+        "adjusted_close": 269.95001220703125
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-17",
+        "open": 285.0,
+        "high": 295.4100036621094,
+        "low": 269.95001220703125,
+        "close": 269.95001220703125,
+        "volume": 11700,
+        "source": "yahoo-chart",
+        "adjusted_close": 269.95001220703125
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-18",
+        "open": 277.70001220703125,
+        "high": 277.70001220703125,
+        "low": 256.010009765625,
+        "close": 267.79998779296875,
+        "volume": 2800,
+        "source": "yahoo-chart",
+        "adjusted_close": 267.79998779296875
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-22",
+        "open": 273.989990234375,
+        "high": 280.0,
+        "low": 261.0299987792969,
+        "close": 261.0299987792969,
+        "volume": 9500,
+        "source": "yahoo-chart",
+        "adjusted_close": 261.0299987792969
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-23",
+        "open": 255.10000610351562,
+        "high": 256.57000732421875,
+        "low": 245.0,
+        "close": 245.0,
+        "volume": 8400,
+        "source": "yahoo-chart",
+        "adjusted_close": 245.0
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-24",
+        "open": 245.0,
+        "high": 259.0,
+        "low": 245.0,
+        "close": 245.0,
+        "volume": 29600,
+        "source": "yahoo-chart",
+        "adjusted_close": 245.0
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-25",
+        "open": 258.45001220703125,
+        "high": 258.45001220703125,
+        "low": 221.0,
+        "close": 221.00999450683594,
+        "volume": 44000,
+        "source": "yahoo-chart",
+        "adjusted_close": 221.00999450683594
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-26",
+        "open": 229.75,
+        "high": 238.19000244140625,
+        "low": 206.00999450683594,
+        "close": 221.00999450683594,
+        "volume": 3493900,
+        "source": "yahoo-chart",
+        "adjusted_close": 221.00999450683594
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-29",
+        "open": 230.0,
+        "high": 239.97999572753906,
+        "low": 212.5,
+        "close": 220.19000244140625,
+        "volume": 8471200,
+        "source": "yahoo-chart",
+        "adjusted_close": 220.19000244140625
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-06-30",
+        "open": 220.85000610351562,
+        "high": 227.99000549316406,
+        "low": 214.5,
+        "close": 221.0800018310547,
+        "volume": 5986300,
+        "source": "yahoo-chart",
+        "adjusted_close": 221.0800018310547
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-01",
+        "open": 212.9199981689453,
+        "high": 231.72999572753906,
+        "low": 212.57000732421875,
+        "close": 227.2899932861328,
+        "volume": 6509700,
+        "source": "yahoo-chart",
+        "adjusted_close": 227.2899932861328
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-02",
+        "open": 229.99000549316406,
+        "high": 248.72999572753906,
+        "low": 221.5,
+        "close": 247.14999389648438,
+        "volume": 5557200,
+        "source": "yahoo-chart",
+        "adjusted_close": 247.14999389648438
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-06",
+        "open": 249.00999450683594,
+        "high": 266.6199951171875,
+        "low": 236.6999969482422,
+        "close": 237.6999969482422,
+        "volume": 7550800,
+        "source": "yahoo-chart",
+        "adjusted_close": 237.6999969482422
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-07",
+        "open": 237.92999267578125,
+        "high": 246.02000427246094,
+        "low": 233.63999938964844,
+        "close": 238.13999938964844,
+        "volume": 4866100,
+        "source": "yahoo-chart",
+        "adjusted_close": 238.13999938964844
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-08",
+        "open": 230.58999633789062,
+        "high": 235.9499969482422,
+        "low": 223.02999877929688,
+        "close": 224.35000610351562,
+        "volume": 4156700,
+        "source": "yahoo-chart",
+        "adjusted_close": 224.35000610351562
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-09",
+        "open": 225.6699981689453,
+        "high": 230.89999389648438,
+        "low": 217.25,
+        "close": 223.1199951171875,
+        "volume": 3395200,
+        "source": "yahoo-chart",
+        "adjusted_close": 223.1199951171875
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-10",
+        "open": 222.77999877929688,
+        "high": 228.9499969482422,
+        "low": 218.85000610351562,
+        "close": 220.75,
+        "volume": 1926200,
+        "source": "yahoo-chart",
+        "adjusted_close": 220.75
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-13",
+        "open": 220.6699981689453,
+        "high": 221.58999633789062,
+        "low": 210.22999572753906,
+        "close": 213.0500030517578,
+        "volume": 2956700,
+        "source": "yahoo-chart",
+        "adjusted_close": 213.0500030517578
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-14",
+        "open": 213.0500030517578,
+        "high": 215.97999572753906,
+        "low": 205.55999755859375,
+        "close": 207.50999450683594,
+        "volume": 3334200,
+        "source": "yahoo-chart",
+        "adjusted_close": 207.50999450683594
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-15",
+        "open": 203.14999389648438,
+        "high": 215.5,
+        "low": 203.0,
+        "close": 212.5500030517578,
+        "volume": 2107800,
+        "source": "yahoo-chart",
+        "adjusted_close": 212.5500030517578
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-16",
+        "open": 211.6999969482422,
+        "high": 215.7899932861328,
+        "low": 204.1999969482422,
+        "close": 208.3699951171875,
+        "volume": 2878500,
+        "source": "yahoo-chart",
+        "adjusted_close": 208.3699951171875
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-17",
+        "open": 207.52000427246094,
+        "high": 217.8300018310547,
+        "low": 205.00999450683594,
+        "close": 211.6300048828125,
+        "volume": 2548500,
+        "source": "yahoo-chart",
+        "adjusted_close": 211.6300048828125
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-20",
+        "open": 207.27999877929688,
+        "high": 210.0,
+        "low": 198.8800048828125,
+        "close": 202.47000122070312,
+        "volume": 3279200,
+        "source": "yahoo-chart",
+        "adjusted_close": 202.47000122070312
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-21",
+        "open": 202.86000061035156,
+        "high": 203.5,
+        "low": 195.16000366210938,
+        "close": 200.13999938964844,
+        "volume": 3221200,
+        "source": "yahoo-chart",
+        "adjusted_close": 200.13999938964844
+      },
+      {
+        "ticker": "HONA",
+        "date": "2026-07-22",
+        "open": 200.3800048828125,
+        "high": 207.80999755859375,
+        "low": 199.02000427246094,
+        "close": 206.80999755859375,
+        "volume": 1345600,
+        "source": "yahoo-chart",
+        "adjusted_close": 206.80999755859375
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-07-22",
+      "growthSpurtAvailable": false,
+      "growthSpurtStatus": "unavailable",
+      "growthSpurtScore": null,
+      "growthSpurtBenchmarkPercentile": null,
+      "growthSpurtMarketDataAsOf": null,
+      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

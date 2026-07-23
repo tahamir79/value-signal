@@ -96,6 +96,8 @@ describe("position projections", () => {
     assert.equal(projection.valueSignalOutcomes[0].estimatedGainLoss, 20);
     assert.equal(projection.valueSignalOutcomes[0].estimatedPositionValue, 1020);
     assert.equal(projection.valueSignalOutcomes[1].estimatedGainLoss, 40);
+    assert.equal(projection.valueSignalOutcomes.length, 2);
+    assert.equal(projection.outcomes.length, 4);
   });
 
   it("calculates share values from future price deltas", () => {
@@ -108,6 +110,20 @@ describe("position projections", () => {
     assert.equal(projection.horizon90Day.upperValue, 1100);
     assert.equal(projection.valueSignalOutcomes[0].estimatedGainLossPerShare, 2);
     assert.equal(projection.valueSignalOutcomes[1].estimatedSellPrice, 104);
+    assert.equal(
+      (projection.valueSignalOutcomes[0].estimatedPositionValue ?? 0) - (projection.currentPositionValue ?? 0),
+      projection.valueSignalOutcomes[0].estimatedGainLoss,
+    );
+  });
+
+  it("satisfies the total gain/loss identity for dollar allocations", () => {
+    const projection = calculatePositionProjection({ quantityType: "dollar_amount", shares: null, dollarAmount: 250 }, artifact());
+    const outcome = projection.valueSignalOutcomes[0];
+    assert.equal(projection.currentPositionValue, 250);
+    assert.equal(outcome.estimatedGainLoss, 5);
+    assert.equal(outcome.estimatedPositionValue, 255);
+    assert.ok(Math.abs(((outcome.estimatedPositionValue ?? 0) - (projection.currentPositionValue ?? 0)) - (outcome.estimatedGainLoss ?? 0)) < 0.01);
+    assert.equal(outcome.estimatedGainLoss, Number(((projection.sharesHeld ?? 0) * (outcome.estimatedGainLossPerShare ?? 0)).toFixed(2)));
   });
 
   it("matches the holding gain formula for the 44 dollar example", () => {
