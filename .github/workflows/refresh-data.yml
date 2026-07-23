@@ -19,6 +19,7 @@ jobs:
       VS_UNIVERSE_MODE: sec_listed_core
       VS_UNIVERSE_PATH: data/universe/universe.json
       VS_UNIVERSE_LIMIT: "250"
+      VS_SEARCH_BATCH_SIZE: "50"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -45,7 +46,7 @@ jobs:
       - name: Benchmark growth spurt detector
         run: python scripts/benchmark_growth_spurt.py
       - name: Refresh SEC filing search index
-        run: python scripts/build_search_index.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT"
+        run: python scripts/build_search_index_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_SEARCH_BATCH_SIZE"
       - name: Refresh experimental forecast artifacts
         run: python scripts/forecast/run_forecast_pipeline.py --summary
       - name: Audit feature outputs

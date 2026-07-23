@@ -106,7 +106,6 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
           <option value="all">All trend tags</option>
           <option value="detected">Growth spurt detected</option>
           <option value="emerging">Emerging upward trend</option>
-          <option value="unavailable">Unavailable</option>
         </select>
       </label>
       <div className="result-count" role="status" aria-live="polite">

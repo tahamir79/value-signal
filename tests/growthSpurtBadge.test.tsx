@@ -58,8 +58,13 @@ test("GrowthSpurtBadge renders emerging without the green check wording", () => 
   assert.doesNotMatch(html, /✅ Growth spurt detected/);
 });
 
+test("GrowthSpurtBadge leaves compact non-tags empty", () => {
+  assert.equal(renderToStaticMarkup(<GrowthSpurtBadge artifact={{ ...baseArtifact, status: "not_detected", growthSpurtScore: 12 }} />), "");
+  assert.equal(renderToStaticMarkup(<GrowthSpurtBadge artifact={{ ...baseArtifact, status: "unavailable", growthSpurtScore: null }} />), "");
+});
+
 test("GrowthSpurtBadge renders unavailable reason", () => {
   const html = renderToStaticMarkup(<GrowthSpurtBadge artifact={{ ...baseArtifact, status: "unavailable", growthSpurtScore: null, warnings: ["TREND_HISTORY_INSUFFICIENT"] }} variant="detail" />);
-  assert.match(html, /Trend history unavailable/);
+  assert.match(html, /not enough usable recent price/);
   assert.match(html, /trend history insufficient/);
 });

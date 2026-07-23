@@ -18,7 +18,7 @@ if __package__ in {None, ""}:
 from scripts.build_universe import build_universe
 from scripts.chunk_filings import chunk_filing
 from scripts.export_json import write_json
-from scripts.artifact_paths import ticker_artifact_path
+from scripts.artifact_paths import ticker_artifact_path, ticker_from_artifact_stem
 from scripts.models import Security
 from scripts.providers.sec_filings import SecFilingProvider
 from scripts.retrieval import diversify_results
@@ -108,13 +108,16 @@ def _read_json(path: Path) -> dict[str, Any] | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _mark_status(status: dict[str, Any], *, indexed: bool, latest_filing_date: str | None) -> None:
-    status["filingsDownloaded"] = indexed
-    status["filingsCleaned"] = indexed
-    status["filingsChunked"] = indexed
-    status["bm25Indexed"] = indexed
-    if latest_filing_date:
-        status["latestFilingDate"] = latest_filing_date
+def _mark_status(status: dict[str, Any], *, indexed: bool, latest_filing_date: str | None) -> bool:
+    updates = {
+        "filingsDownloaded": indexed,
+        "filingsCleaned": indexed,
+        "filingsChunked": indexed,
+        "bm25Indexed": indexed,
+    }
+    changed = any(status.get(key) != value for key, value in updates.items())
+    status.update(updates)
+    return changed
 
 
 def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[str, Any]:
@@ -142,8 +145,7 @@ def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[
             ticker = str(ticker_getter(row) or "").upper()
             status = row.get("dataStatus")
             if isinstance(status, dict):
-                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
-                changed = True
+                changed = _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker)) or changed
         return changed
 
     dashboard = _read_json(data_dir / "dashboard.json")
@@ -156,12 +158,14 @@ def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[
 
     etl_report = _read_json(data_dir / "etl_report.json")
     if etl_report and isinstance(etl_report.get("tickers"), list):
+        changed = False
         for row in etl_report["tickers"]:
             ticker = str(row.get("ticker") or "").upper()
             status = row.get("dataStatus")
             if isinstance(status, dict):
-                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
-        write_json(data_dir / "etl_report.json", etl_report)
+                changed = _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker)) or changed
+        if changed:
+            write_json(data_dir / "etl_report.json", etl_report)
 
     stocks_dir = data_dir / "stocks"
     if stocks_dir.exists():
@@ -170,11 +174,11 @@ def update_bm25_status_artifacts(data_dir: Path, index: dict[str, Any]) -> dict[
                 continue
             payload = _read_json(stock_path)
             record = (payload or {}).get("record", payload or {})
-            ticker = str(record.get("security", {}).get("ticker") or stock_path.stem).upper()
+            ticker = str(record.get("security", {}).get("ticker") or ticker_from_artifact_stem(stock_path.stem)).upper()
             status = record.get("dataStatus")
             if isinstance(status, dict):
-                _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker))
-                write_json(stock_path, payload or {})
+                if _mark_status(status, indexed=ticker in indexed_tickers, latest_filing_date=latest_by_ticker.get(ticker)):
+                    write_json(stock_path, payload or {})
 
     coverage = _read_json(data_dir / "universe_coverage_report.json")
     if coverage and isinstance(coverage.get("counts"), dict):

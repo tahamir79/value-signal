@@ -4,7 +4,7 @@ import type { GrowthSpurtArtifact, GrowthSpurtStatus } from "@/types/stock";
 const statusCopy: Record<GrowthSpurtStatus, { label: string; compact: string; tone: string }> = {
   detected: { label: "✅ Growth spurt detected", compact: "✅ Growth spurt", tone: "detected" },
   emerging: { label: "↗ Emerging upward trend", compact: "↗ Emerging", tone: "emerging" },
-  not_detected: { label: "No growth spurt detected", compact: "No tag", tone: "neutral" },
+  not_detected: { label: "No growth spurt detected", compact: "", tone: "neutral" },
   unavailable: { label: "Trend history unavailable", compact: "Unavailable", tone: "unavailable" },
 };
 
@@ -48,6 +48,7 @@ export function GrowthSpurtBadge({
     : "Growth Spurt detector unavailable.";
 
   if (variant === "compact") {
+    if (status !== "detected" && status !== "emerging") return null;
     return (
       <span className={`growth-spurt-badge growth-spurt-${copy.tone}`} title={title} aria-label={title}>
         {copy.compact}

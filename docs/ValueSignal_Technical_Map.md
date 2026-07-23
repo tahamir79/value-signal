@@ -6,7 +6,7 @@
 **Repo path:** `C:\Users\stahm\Projects\Decision Scientist`
 **Branch:** `scale-universe-foundation`
 **Checkpoint commit before this projection/health work:** `6043820 checkpoint: before historical scenario and pipeline health cleanup`
-**Current state:** full-universe local artifacts are generated and validated; commit/deploy is pending a final packaging decision because the public JSON payload is now much larger than the previous 245-stock fixture.
+**Current state:** full-universe local artifacts are generated/deployed, Growth Spurt coverage spans every published stock, and BM25 filing evidence is now populated through a resumable batch-aware per-ticker indexer.
 
 Treat code, tests, workflow YAML, and generated artifacts as the source of truth if this map drifts. Treat `public/data/*.json` as generated artifacts, not manually maintained data.
 
@@ -58,8 +58,8 @@ Current cleaned artifact counts after the checkpointed full-universe merge:
 - Stale scenario count: **3**
 - Selected 30-day model: **zero-return baseline**
 - Selected 90-day model: **zero-return baseline**
-- Growth Spurt detector: generated from the merged ETL artifact; rerun `python scripts/benchmark_growth_spurt.py` for a fresh benchmark if the detector itself changes.
-- Search index coverage: **199 indexed tickers** in per-ticker BM25 mode
+- Growth Spurt detector: generated for all **5,799** published stocks; current statuses are **357 detected**, **746 emerging**, **4,548 not detected**, and **148 unavailable**. Compact dashboard cells intentionally show only detected/emerging tags; non-tags render empty.
+- Search index coverage: **210 indexed tickers**, **54,272 SEC chunks**, and **50 logged no-searchable-filing gaps** in per-ticker BM25 mode.
 - Pipeline health: **partial_success**, release readiness **ready_with_known_limitations**, with **0 critical failures** and **218 noncritical ETL failures**
 - Local raw checkpoint store: about **26.2 GB** under ignored `data/checkpoints/etl_raw/`.
 - `public/data/dashboard.json` is a dashboard-summary artifact, not the full per-ticker detail store. It omits repeated heavy blocks such as `balanceSheetScoringShadow`; full detail remains under `public/data/stocks/{TICKER}.json`, and scoring components remain in `public/data/signals.json`.
@@ -77,7 +77,7 @@ Expected unavailable states:
 - 3 forecast records are stale relative to the current scaled-fast run.
 - Analyst/market target provider is not configured, so analyst target fields remain null/unsupported.
 - Local Ollama/RAG is not a production dependency.
-- BM25 filing evidence remains capped at 199 indexed tickers and should be scaled separately from market/companyfacts ETL.
+- BM25 filing evidence is scaled separately from market/companyfacts ETL. Continue coverage with `scripts/build_search_index_batch.py`; do not rebuild a monolithic search file.
 
 ---
 
@@ -440,6 +440,7 @@ User-facing boundary:
 Retrieval code lives in:
 
 - `scripts/build_search_index.py`
+- `scripts/build_search_index_batch.py`
 - `scripts/chunk_filings.py`
 - `scripts/text_cleaning.py`
 - `scripts/retrieval.py`
@@ -459,8 +460,10 @@ Current production-safe behavior:
 - BM25 remains the retrieval baseline.
 - `public/data/search_index.json` is a manifest in per-ticker mode.
 - Per-ticker indexes live under `public/data/search/{TICKER}.json`.
+- `scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 25` selects the next unattempted supported tickers, indexes the ones with searchable 10-K/10-Q chunks, records no-searchable-filing gaps, and advances without retrying the same failures unless `--force` is passed.
+- The current batch-aware manifest has `batchAware: true`, `tickerCount: 210`, `documentCount: 54272`, `errors: 50`, and `remainingUnattempted: 5757`.
 - Query expansion broadens common user terms like risk, supply chain, liquidity, revenue, margin, competition, and cybersecurity.
-- BM25 status flags in dashboard/stock artifacts are updated from the manifest.
+- BM25 status flags in dashboard/stock artifacts are updated from the manifest. This sync must not erase broader filing freshness fields such as `latestFilingDate`.
 
 If a search says "No matching passage found," check:
 
@@ -531,9 +534,9 @@ Current health summary:
 - ETL ticker pipeline: partial success, 5 provider 404 failures;
 - backtest: unavailable expected due scaled `--skip-backtest`;
 - forecast artifacts: success with 42 skipped insufficient-history scenario cases;
-- filing search index: success, 199 tickers;
+- filing search index: success, 210 tickers in per-ticker manifest mode;
 - balance-sheet context: partial success, 199 usable/partial and 46 unavailable;
-- growth-spurt detector: success with 245 attempted, 236 available states, 9 expected unavailable, 0 calculation failures;
+- growth-spurt detector: success with 5,799 attempted, 5,651 available states, 148 expected unavailable, 0 missing stock artifacts;
 - market targets: unavailable expected because no analyst target provider is configured.
 - release readiness: ready with known limitations;
 - expected unavailable count: 246;
@@ -557,7 +560,7 @@ Current intended sequence:
 4. build scaled universe;
 5. run ETL with `--skip-backtest`, including Growth Spurt artifacts when mode is `display`;
 6. benchmark the Growth Spurt detector against SPY point-in-time snapshots;
-7. rebuild BM25 search index;
+7. run the batch-aware BM25 filing-search increment;
 8. run forecast pipeline;
 9. run feature/scoring/backtest/search/forecast audits;
 10. generate pipeline health;

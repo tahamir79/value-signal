@@ -1405,3 +1405,85 @@ Automation caution:
 - `.github/workflows/refresh-data.yml` is still capped at `VS_UNIVERSE_LIMIT: "250"` for GitHub runner safety.
 - Scheduled workflow runs now act as health checks and do not commit public artifacts; manual dispatch is required for the artifact commit step while the deployed dataset is full-universe.
 - Do not remove this guard or let a capped scheduled refresh overwrite the `5799` artifact set until an incremental/full-run automation design exists.
+
+---
+
+## 29. Live Implementation Context - Growth Spurt Full Coverage and Batch-Aware BM25
+
+**Updated:** 2026-07-23 UTC
+**Git branch:** `scale-universe-foundation`
+**Reason:** The scaled dashboard needed two cleanups before subscription/paywall work: Growth Spurt tags had to reflect all published stocks without noisy "No tag" cells, and BM25 filing evidence needed a resumable indexing path instead of a brittle monolithic rebuild.
+
+### Growth Spurt coverage
+
+Current generated dashboard/summary artifacts include a Growth Spurt record for every published stock:
+
+- published stocks: `5799`;
+- Growth Spurt detected: `357`;
+- emerging upward trend: `746`;
+- not detected: `4548`;
+- unavailable: `148`;
+- missing Growth Spurt stock artifacts: `0`.
+
+Frontend behavior:
+
+- `src/components/GrowthSpurtBadge.tsx` compact mode renders only `detected` and `emerging`.
+- `not_detected` and `unavailable` compact cells intentionally render empty instead of "No tag".
+- The stock-detail Recent Trend card still explains unavailable/not-detected states when the user opens the company page.
+- `src/features/dashboard/StockTable.tsx` Growth filter now exposes only the actionable display tags: "Growth spurt detected" and "Emerging upward trend".
+
+Guardrail: Growth Spurt remains display-only. It does not alter official ValueSignal scoring, confidence, or signal classification.
+
+### Batch-aware BM25 filing index
+
+Current BM25 layout:
+
+- `public/data/search_index.json` remains a lightweight per-ticker manifest.
+- Ticker corpora live under `public/data/search/{TICKER}.json`.
+- The manifest is marked `batchAware: true`.
+- Current coverage is `210` indexed tickers and `54272` SEC filing chunks.
+- `50` no-searchable-filing gaps are logged in the manifest instead of being retried forever.
+- Latest successful increment requested `25` tickers, indexed `10`, failed/logged `15`, and left `5757` supported universe rows unattempted.
+
+New batch command:
+
+```powershell
+$env:VS_USER_AGENT="ValueSignal research ETL <contact-email>"
+python scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 25
+```
+
+Batch mechanics:
+
+- Selects the next unattempted supported tickers from `data/universe/universe.json`.
+- Skips both already indexed tickers and previously failed/no-searchable-filing tickers unless `--force` is passed.
+- Writes per-ticker search files after each successful ticker, then updates the manifest so the run is resumable.
+- Stores the batch report at `data/reports/search_index_batch_report.json`.
+- Updates dashboard, ETL report, stock summary, and stock detail BM25 status flags from the manifest.
+- Must not erase broader filing freshness fields such as `latestFilingDate`; those come from the SEC/companyfacts pipeline, not from BM25 coverage alone.
+
+GitHub Actions change:
+
+- `.github/workflows/refresh-data.yml` now uses `scripts/build_search_index_batch.py` with `VS_SEARCH_BATCH_SIZE`.
+- This avoids rebuilding a monolithic search index during scheduled/dispatch refreshes.
+- Scheduled artifact commits remain guarded; manual dispatch is still required to publish changed artifacts while the deployed dataset is full-universe.
+
+Validation:
+
+```powershell
+python -m unittest tests.test_search_index_batch tests.test_artifact_paths tests.test_retrieval -v
+npm run test:brief
+npm run typecheck
+python scripts/audit_search.py
+```
+
+Results:
+
+- BM25 batch/retrieval tests passed: `22` Python tests.
+- Brief/dashboard component tests passed: `32` TypeScript/TSX tests.
+- Type-check passed.
+- Search audit passed against the per-ticker manifest: `54272` chunks, `210` tickers, schema `3.0.0`, no metadata/citation failures.
+- Local ACDC smoke searches now return cited passages for `risk analysis`, `supply chain`, `market risk`, and `liquidity`.
+
+### Pre-Stripe checkpoint rule
+
+Before implementing subscription billing, commit this BM25/Growth Spurt checkpoint first. Do not mix Stripe code, Stripe env placeholders, or subscription gating changes into the BM25 artifact commit.

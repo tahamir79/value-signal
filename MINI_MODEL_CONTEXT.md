@@ -11,7 +11,7 @@ It is not a trading bot, financial advisor, or source of buy/sell/hold recommend
 ## Current state
 
 - Product shell, dashboard, stock detail, methodology, auth, saved stocks, and responsive layouts exist.
-- Scaled universe artifacts currently cover 245 active stock detail files.
+- Scaled universe artifacts currently cover 5,799 active stock detail files.
 - The original public preview tickers remain: AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, INTC.
 - The full scaled universe is gated behind Google sign-in.
 - ETL uses provider-aware Python modules for Yahoo chart prices and SEC company facts.
@@ -45,7 +45,8 @@ Python/data pipeline:
 - `scripts/growth_spurt.py` - deterministic Growth Spurt formula and thresholds.
 - `scripts/build_growth_spurt_artifacts.py` - repopulates Growth Spurt fields from existing generated price histories.
 - `scripts/benchmark_growth_spurt.py` - point-in-time SPY benchmark for Growth Spurt.
-- `scripts/build_search_index.py` - per-ticker BM25 index.
+- `scripts/build_search_index.py` - full/per-ticker BM25 index utilities and status synchronization.
+- `scripts/build_search_index_batch.py` - resumable batch-aware BM25 population for scaled filing coverage.
 - `scripts/forecast/run_forecast_pipeline.py` - forecast/conservative scenario artifacts.
 - `scripts/pipeline_health.py` - internal/public health reports.
 
@@ -121,7 +122,8 @@ Mechanics:
 - one-day spike dominance triggers `ONE_DAY_SPIKE_DOMINATED` and prevents detected status;
 - statuses: `detected`, `emerging`, `not_detected`, `unavailable`;
 - insufficient history is `unavailable`, never zero;
-- current generated counts: 245 attempted, 19 detected, 30 emerging, 187 not detected, 9 unavailable, 0 calculation failures.
+- current generated counts: 5,799 attempted, 357 detected, 746 emerging, 4,548 not detected, 148 unavailable, 0 missing stock artifacts.
+- compact dashboard/table cells render only `detected` and `emerging`; `not_detected` and `unavailable` intentionally render as empty cells instead of a "No tag" label.
 
 Guardrail: do not blend Growth Spurt into official scoring without a later approved scoring-integration phase.
 
@@ -193,7 +195,7 @@ $env:GROWTH_SPURT_MODE="display"
 python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
 python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
 python scripts/benchmark_growth_spurt.py
-python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
+python scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 25
 python scripts/forecast/run_forecast_pipeline.py --summary
 python scripts/pipeline_health.py
 ```
@@ -224,7 +226,7 @@ Latest full-universe local result on 2026-07-22 UTC:
 - `audit_features.py`, `audit_scoring.py`, `audit_search.py`, `forecast/audit_forecasts.py`, `pipeline_health.py`, `npm run test:brief`, `npm run typecheck`, and `npm run build` passed after the merge.
 - `public/data/dashboard.json` is intentionally a lean dashboard-summary artifact; full per-ticker detail remains under `public/data/stocks/{TICKER}.json`, and official scoring detail remains in `signals.json`.
 - Per-ticker artifact filenames use `scripts/artifact_paths.py` / `src/lib/artifact-paths.ts`; Windows-reserved tickers such as `CON` are stored as `_CON.json` while ticker IDs remain unchanged in JSON and URLs.
-- BM25 remains indexed for `199` tickers, not the whole 5,799-stock universe. Full filing/BM25 coverage is a separate large SEC filing ingestion job.
+- BM25 is in per-ticker manifest mode. Current local coverage is 210 indexed tickers / 54,272 SEC chunks with 50 logged no-searchable-filing gaps and 5,757 unattempted supported universe rows. Continue coverage with `scripts/build_search_index_batch.py`; do not rebuild a monolithic search file.
 
 Never commit `.env*`, secrets, tokens, real credentials, model files, caches, or local logs.
 
@@ -232,7 +234,7 @@ Never commit `.env*`, secrets, tokens, real credentials, model files, caches, or
 
 `.github/workflows/refresh-data.yml` runs weekdays at `25 23 * * 1-5` UTC and supports manual dispatch.
 
-It currently builds a capped scaled universe, runs ETL, benchmarks Growth Spurt, rebuilds BM25, refreshes forecasts, runs audits, and publishes pipeline health. Scheduled runs are health checks only while the deployed dataset is full-universe; the artifact commit step is guarded to run on manual dispatch only. A pushed artifact commit triggers Vercel when automatic deployment is enabled. Important: do not remove this guard until an incremental/full-run automation design exists.
+It currently builds a capped scaled universe, runs ETL, benchmarks Growth Spurt, runs a batch-aware BM25 filing-search increment, refreshes forecasts, runs audits, and publishes pipeline health. Scheduled runs are health checks only while the deployed dataset is full-universe; the artifact commit step is guarded to run on manual dispatch only. A pushed artifact commit triggers Vercel when automatic deployment is enabled. Important: do not remove this guard until an incremental/full-run automation design exists.
 
 Required GitHub secret:
 
