@@ -14,6 +14,17 @@ const confidenceRank = { High: 4, Medium: 3, Low: 2, Insufficient: 1 };
 const PAGE_SIZE = 50;
 const score = (value: number | null) => value === null ? "—" : value.toFixed(1);
 
+function dataStatusLabel(stock: StockRecord) {
+  const scoring = stock.dataStatus?.scoringAvailable ? "Scored" : "Insufficient";
+  const retrieval = stock.dataStatus?.bm25Indexed ? "Searchable" : "No BM25";
+  const balanceSheet = stock.dataStatus?.balanceSheetAvailable
+    ? "Balance sheet full"
+    : stock.dataStatus?.balanceSheetPartial
+      ? "Balance sheet partial"
+      : "No balance sheet";
+  return `${scoring} · ${retrieval} · ${balanceSheet}`;
+}
+
 export function StockTable({
   records,
   totalUniverseCount = records.length,
@@ -155,7 +166,7 @@ export function StockTable({
                 <td>{score(stock.scores.quality)}</td>
                 <td>{score(stock.scores.momentum)}</td>
                 <td>{stock.confidence}</td>
-                <td><small>{stock.dataStatus?.scoringAvailable ? "Scored" : "Insufficient"} · {stock.dataStatus?.bm25Indexed ? "Searchable" : "No BM25"} · {stock.dataStatus?.balanceSheetAvailable ? "BS full" : stock.dataStatus?.balanceSheetPartial ? "BS partial" : "No BS"}</small></td>
+                <td><small>{dataStatusLabel(stock)}</small></td>
                 <td>${stock.price.toFixed(2)}<small className={stock.dailyChangePercent >= 0 ? "up" : "down"}>{stock.dailyChangePercent >= 0 ? "+" : ""}{stock.dailyChangePercent.toFixed(2)}%</small></td>
               </tr>
             ))}

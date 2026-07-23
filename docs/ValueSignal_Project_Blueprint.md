@@ -1629,14 +1629,17 @@ Results:
 - Type-check passed.
 - Production Next.js build passed and includes `/billing`, `/billing/success`, `/billing/cancel`, and the billing API routes.
 
-### Remaining Stripe setup before deployment
+### Current Stripe deployment notes
 
-- Create or reuse test-mode Stripe Product `ValueSignal Pro`.
-- Confirm the final tax code in Stripe before Product creation.
-- Create/reuse monthly Price ID; optionally create/reuse annual Price ID.
-- Add test-mode env vars locally and in Vercel Preview.
-- Configure webhook endpoint:
-  - local testing through Stripe CLI or Dashboard forwarding;
-  - deployed endpoint `/api/billing/webhook` only after test-mode validation.
-- Complete a test subscription and confirm webhook-granted Pro access.
-- Only after test-mode validation, rotate any exposed live keys and decide whether to create live-mode resources.
+- Production deploy for the Stripe/Pro access gate is live on `https://value-signal.vercel.app`.
+- Test-mode Stripe keys and webhook envs are configured in Vercel.
+- Production smoke tests confirmed `/billing`, signed-out entitlement, signed-out checkout rejection, unsigned webhook rejection, and healthy auth debug configuration.
+- User-facing dashboard copy now avoids `BS`; balance-sheet coverage is spelled out as `Balance sheet full`, `Balance sheet partial`, or `No balance sheet`.
+- User-facing ETL status should say `Data pipeline succeeded` when more than 25% of requested tickers populate successfully. Raw audit artifacts may still use `partial_success` for strict lineage.
+
+### Known next improvements
+
+- Complete a full test subscription in-browser and verify webhook-granted Pro unlock with the signed-in user session.
+- Add a Stripe billing portal / manage-subscription flow after checkout is stable.
+- Consider updating the Neon `DATABASE_URL` SSL query from `sslmode=require` to `sslmode=verify-full` to silence the current Postgres driver warning.
+- Rotate any live-mode Stripe key if it was ever exposed before enabling real payments.

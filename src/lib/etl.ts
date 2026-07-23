@@ -105,6 +105,7 @@ export type EtlData = {
 export type EtlReport = {
   status: "not_run" | "success" | "partial_success";
   runFinishedAt: string | null;
+  requestedTickers?: number;
   successfulTickers: number;
   failedTickers: number;
   coverageCounts?: Record<string, number | string>;

@@ -779,3 +779,13 @@ Preferred workflow:
 - Keep production free from local Ollama dependency.
 - Keep analyst target fields unsupported/null until a real provider exists.
 - Keep `frontend.md` out of ValueSignal work; it is unrelated DamLogics material unless the user explicitly says otherwise.
+
+---
+
+## 17. Current product-copy and billing notes
+
+- Pro billing is deployed in test mode with Google-authenticated Stripe Checkout and webhook-backed entitlement storage.
+- Access tiers remain: signed-out public preview, Google free preview expansion, and Pro full-universe access.
+- Dashboard data-status copy must spell out `Balance sheet`; do not abbreviate it as `BS`.
+- Frontend pipeline health copy intentionally translates a strict artifact `partial_success` into `Data pipeline succeeded` when more than 25% of requested tickers populated. Keep success/failure counts visible beside that friendlier label.
+- Next billing follow-ups: validate a complete test subscription/webhook unlock, then add a manage-subscription portal before live-mode payments.
