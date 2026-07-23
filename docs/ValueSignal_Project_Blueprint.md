@@ -1487,3 +1487,156 @@ Results:
 ### Pre-Stripe checkpoint rule
 
 Before implementing subscription billing, commit this BM25/Growth Spurt checkpoint first. Do not mix Stripe code, Stripe env placeholders, or subscription gating changes into the BM25 artifact commit.
+
+---
+
+## 30. Live Implementation Context - Stripe Billing and Pro Access Gate
+
+**Updated:** 2026-07-23 UTC
+**Git branch:** `scale-universe-foundation`
+**Pre-Stripe checkpoint:** `40b40222 feat: add batch-aware BM25 growth checkpoint`
+**Reason:** ValueSignal now needs a paid access layer after Google auth so the full scaled universe can be reserved for Pro users while still offering a limited signed-in preview.
+
+### Access tiers
+
+The current intended access model is:
+
+```text
+1. Signed out
+   -> original 10-stock public preview only
+
+2. Google signed-in free
+   -> original preview
+   -> up to 3 potentially-undervalued candidates
+   -> up to 3 Growth Spurt/emerging candidates
+
+3. ValueSignal Pro
+   -> full 5,799-stock universe
+   -> full stock-detail access
+```
+
+The full universe is no longer unlocked by Google sign-in alone. Google sign-in associates the user identity; Stripe/webhook-backed Pro entitlement unlocks the full universe.
+
+### Stripe implementation boundary
+
+The current code implements the app-side billing system only:
+
+- no live Stripe resources were created;
+- no live Stripe key was committed;
+- no deployment was performed for the billing layer;
+- the live secret key pasted in chat should be rotated before real use;
+- test-mode Stripe Product/Price/Webhook setup must happen before production use.
+
+Current Stripe documentation differences from the pasted blueprint:
+
+- The app-side Stripe wrapper defaults to request-scoped `STRIPE_API_VERSION=2025-03-31.basil` for Managed Payments requests rather than the older blueprint preview header.
+- The product tax code should be confirmed in the Stripe Dashboard/MCP before Product creation. Browser SaaS appears closer to `txcd_10103000` than an electronic-download tax code, but this is not hardcoded or created by the app code.
+
+### Code modules
+
+Billing routes:
+
+- `src/app/billing/page.tsx`
+- `src/app/billing/success/page.tsx`
+- `src/app/billing/cancel/page.tsx`
+- `src/app/api/billing/checkout/route.ts`
+- `src/app/api/billing/subscription/route.ts`
+- `src/app/api/billing/webhook/route.ts`
+
+Billing/server modules:
+
+- `src/lib/access-policy.ts` centralizes public/free/pro visibility.
+- `src/lib/billing-policy.ts` centralizes subscription-status-to-Pro rules.
+- `src/lib/billing-store.ts` creates/reads PostgreSQL subscription and processed-event tables.
+- `src/lib/stripe-server.ts` creates server-controlled Stripe Checkout Sessions and customers through Stripe REST.
+- `src/lib/stripe-signature.ts` verifies raw-body webhook signatures.
+- `src/components/BillingPlans.tsx` starts monthly/yearly Checkout from the client without exposing Price IDs.
+
+Database tables created at runtime, following the existing saved-data pattern:
+
+- `user_subscription`
+- `processed_stripe_event`
+
+### Checkout and webhook policy
+
+Checkout behavior:
+
+- authenticated user is resolved server-side;
+- unauthenticated requests are rejected;
+- client cannot submit arbitrary Product IDs, Price IDs, user IDs, plan state, or entitlement state;
+- monthly Price ID comes from `STRIPE_VALUE_SIGNAL_MONTHLY_PRICE_ID`;
+- annual Price ID comes from `STRIPE_VALUE_SIGNAL_ANNUAL_PRICE_ID` and is disabled when absent;
+- quantity is fixed at `1`;
+- mode is `subscription`;
+- Managed Payments is enabled with `managed_payments[enabled]=true`;
+- success URL returns to `/billing/success`;
+- cancel URL returns to `/billing/cancel`;
+- success page explicitly says webhook verification is required before access changes.
+
+Webhook behavior:
+
+- raw request body is used;
+- Stripe signature is verified;
+- duplicate event IDs are idempotently ignored via `processed_stripe_event`;
+- handled events:
+  - `checkout.session.completed`
+  - `checkout.session.async_payment_succeeded`
+  - `checkout.session.async_payment_failed`
+  - `invoice.paid`
+  - `invoice.payment_failed`
+  - `customer.subscription.created`
+  - `customer.subscription.updated`
+  - `customer.subscription.deleted`
+
+Subscription statuses:
+
+- Pro access: `active`, `trialing`;
+- Pro through paid period: `canceled` with future `currentPeriodEnd`;
+- no Pro: `past_due`, `paused`, `unpaid`, `incomplete`, `incomplete_expired`, `none`.
+
+### Environment variables
+
+Use placeholders only in Git:
+
+```text
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_VALUE_SIGNAL_PRODUCT_ID=
+STRIPE_VALUE_SIGNAL_MONTHLY_PRICE_ID=
+STRIPE_VALUE_SIGNAL_ANNUAL_PRICE_ID=
+STRIPE_API_VERSION=2025-03-31.basil
+NEXT_PUBLIC_APP_URL=
+```
+
+For local/test setup, use Stripe test-mode keys and price IDs first. Do not use the pasted live secret key. If a live key was exposed, rotate it in Stripe before production.
+
+### Validation
+
+Passed after the billing implementation:
+
+```powershell
+npm run test:billing
+npm run test:brief
+npm run typecheck
+npm run build
+```
+
+Results:
+
+- Billing/access/signature tests: `4` passed.
+- Existing brief/dashboard/saved-position tests: `32` passed.
+- Type-check passed.
+- Production Next.js build passed and includes `/billing`, `/billing/success`, `/billing/cancel`, and the billing API routes.
+
+### Remaining Stripe setup before deployment
+
+- Create or reuse test-mode Stripe Product `ValueSignal Pro`.
+- Confirm the final tax code in Stripe before Product creation.
+- Create/reuse monthly Price ID; optionally create/reuse annual Price ID.
+- Add test-mode env vars locally and in Vercel Preview.
+- Configure webhook endpoint:
+  - local testing through Stripe CLI or Dashboard forwarding;
+  - deployed endpoint `/api/billing/webhook` only after test-mode validation.
+- Complete a test subscription and confirm webhook-granted Pro access.
+- Only after test-mode validation, rotate any exposed live keys and decide whether to create live-mode resources.

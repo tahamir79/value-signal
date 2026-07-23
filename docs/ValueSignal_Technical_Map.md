@@ -2,7 +2,7 @@
 
 **Purpose:** durable engineering/finance handoff for the companion ChatGPT and future Codex sessions.
 **Companion atlas:** `docs/ValueSignal_Project_Blueprint.md`
-**Last updated:** 2026-07-22 UTC
+**Last updated:** 2026-07-23 UTC
 **Repo path:** `C:\Users\stahm\Projects\Decision Scientist`
 **Branch:** `scale-universe-foundation`
 **Checkpoint commit before this projection/health work:** `6043820 checkpoint: before historical scenario and pipeline health cleanup`
@@ -81,9 +81,9 @@ Expected unavailable states:
 
 ---
 
-## 3. Public preview and auth gate
+## 3. Public preview, auth gate, and Pro entitlement
 
-The app keeps the original 10-stock universe public and gates the broader universe behind Google sign-in.
+The app keeps the original 10-stock universe public, gives Google signed-in users a small free expansion, and gates the full scaled universe behind ValueSignal Pro.
 
 Public preview tickers:
 
@@ -91,15 +91,59 @@ Public preview tickers:
 AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, INTC
 ```
 
-Auth/gating mechanics:
+Access tiers:
+
+```text
+Signed out
+  -> original 10-stock public preview only
+
+Google signed-in free
+  -> public preview
+  -> up to 3 potentially-undervalued candidates
+  -> up to 3 Growth Spurt/emerging candidates
+
+ValueSignal Pro
+  -> full 5,799-stock universe
+  -> full company detail access
+```
+
+Auth/billing/gating mechanics:
 
 - `src/lib/public-universe.ts` defines the preview set.
-- `src/app/dashboard/page.tsx` reads auth state and generated artifacts.
-- `src/features/dashboard/StockTable.tsx` shows the preview table and the lock/fade sign-in panel.
-- `src/app/stock/[ticker]/page.tsx` blocks non-preview ticker pages when signed out.
+- `src/lib/access-policy.ts` centralizes public/free/pro stock visibility.
+- `src/lib/billing-store.ts` creates/reads PostgreSQL subscription records and processed Stripe webhook events.
+- `src/lib/billing-policy.ts` defines which subscription statuses grant Pro access.
+- `src/app/dashboard/page.tsx` reads auth state, entitlement, and generated artifacts.
+- `src/features/dashboard/StockTable.tsx` shows the preview/pro lock panels.
+- `src/app/stock/[ticker]/page.tsx` blocks pages outside the current user's access tier.
+- `src/app/billing/page.tsx` exposes the ValueSignal Pro billing shell.
+- `src/app/api/billing/checkout/route.ts` creates server-controlled Stripe Checkout Sessions.
+- `src/app/api/billing/webhook/route.ts` verifies Stripe signatures and updates subscription state idempotently.
 - `src/components/AuthStatus.tsx` and `src/components/GoogleSignInButton.tsx` handle sign-in UI.
 
-Auth prepares future protected AI/RAG features but does not change the scoring engine.
+Subscription status policy:
+
+- `active` and `trialing` grant Pro.
+- `canceled` grants Pro only through a future `currentPeriodEnd`.
+- `past_due`, `paused`, `unpaid`, `incomplete`, `incomplete_expired`, and `none` do not grant Pro.
+- Checkout success redirect is not proof of payment; verified webhook state is authoritative.
+
+Billing prepares paid access and future protected AI/RAG features but does not change the scoring engine.
+
+Stripe environment placeholders:
+
+```text
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_VALUE_SIGNAL_PRODUCT_ID=
+STRIPE_VALUE_SIGNAL_MONTHLY_PRICE_ID=
+STRIPE_VALUE_SIGNAL_ANNUAL_PRICE_ID=
+STRIPE_API_VERSION=2025-03-31.basil
+NEXT_PUBLIC_APP_URL=
+```
+
+Use test-mode Stripe resources first. Do not create live resources or deploy billing changes without explicit approval.
 
 ---
 

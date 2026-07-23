@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GoogleSignInButton } from "@/components/GoogleSignInButton";
 import { GrowthSpurtBadge } from "@/components/GrowthSpurtBadge";
 import { SignalBadge } from "@/components/signals/SignalBadge";
+import type { Entitlement } from "@/types/billing";
 import type { StockRecord } from "@/types/stock";
 
 type SortKey = "ticker" | "value" | "quality" | "momentum" | "confidence" | "price" | "growthSpurt";
@@ -13,7 +14,19 @@ const confidenceRank = { High: 4, Medium: 3, Low: 2, Insufficient: 1 };
 const PAGE_SIZE = 50;
 const score = (value: number | null) => value === null ? "—" : value.toFixed(1);
 
-export function StockTable({ records, totalUniverseCount = records.length, isAuthenticated = false }: { records: StockRecord[]; totalUniverseCount?: number; isAuthenticated?: boolean }) {
+export function StockTable({
+  records,
+  totalUniverseCount = records.length,
+  entitlement,
+  freeUndervaluedCount = 0,
+  freeGrowthCount = 0,
+}: {
+  records: StockRecord[];
+  totalUniverseCount?: number;
+  entitlement: Entitlement;
+  freeUndervaluedCount?: number;
+  freeGrowthCount?: number;
+}) {
   const [query, setQuery] = useState("");
   const [signal, setSignal] = useState("all");
   const [exchange, setExchange] = useState("all");
@@ -52,6 +65,8 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
   const safePage = Math.min(page, pageCount);
   const paged = visible.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
   const lockedCount = Math.max(0, totalUniverseCount - records.length);
+  const isAuthenticated = entitlement.isAuthenticated;
+  const isPro = entitlement.isPro;
 
   function resetPage() {
     setPage(1);
@@ -110,7 +125,7 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
       </label>
       <div className="result-count" role="status" aria-live="polite">
         <strong>{visible.length}</strong>
-        <span>{isAuthenticated ? `of ${totalUniverseCount} companies` : `preview of ${totalUniverseCount}`}</span>
+        <span>{isPro ? `of ${totalUniverseCount} companies` : `preview of ${totalUniverseCount}`}</span>
       </div>
     </div>
     {visible.length ? <>
@@ -148,13 +163,23 @@ export function StockTable({ records, totalUniverseCount = records.length, isAut
         </table>
       </div>
       {!isAuthenticated && lockedCount ? (
-        <div className="universe-lock" role="region" aria-label="Full universe locked behind Google sign-in">
+        <div className="universe-lock" role="region" aria-label="Free preview locked behind Google sign-in">
           <div>
-            <p className="eyebrow">FULL UNIVERSE LOCKED</p>
-            <h3>{lockedCount} more companies are available after sign-in.</h3>
-            <p>The public preview shows the original ten-stock ValueSignal universe. Sign in with Google to screen the full scaled universe and open company-level evidence pages beyond the preview set.</p>
+            <p className="eyebrow">FREE PREVIEW LOCKED</p>
+            <h3>More companies are available after sign-in.</h3>
+            <p>The public preview shows the original ten-stock ValueSignal universe. Sign in with Google to preview a limited set of undervalued and Growth Spurt candidates.</p>
           </div>
           <GoogleSignInButton label="Log in using Google" callbackURL="/dashboard" />
+        </div>
+      ) : null}
+      {isAuthenticated && !isPro && lockedCount ? (
+        <div className="universe-lock premium-lock" role="region" aria-label="Full universe locked behind ValueSignal Pro">
+          <div>
+            <p className="eyebrow">FULL UNIVERSE / PRO</p>
+            <h3>{lockedCount} more companies are available with ValueSignal Pro.</h3>
+            <p>Your free account includes the original preview plus {freeUndervaluedCount} undervalued and {freeGrowthCount} Growth Spurt/emerging candidates. Upgrade to unlock the full scaled universe.</p>
+          </div>
+          <Link className="button" href="/billing">Upgrade to Pro</Link>
         </div>
       ) : null}
       {isAuthenticated ? (

@@ -15,9 +15,11 @@ import { UniverseLockPanel } from "@/components/UniverseLockPanel";
 import { Disclaimer } from "@/features/disclaimer/Disclaimer";
 import { ScoreCard } from "@/features/stock-detail/ScoreCard";
 import { generateAnalystBrief } from "@/lib/briefGenerator";
+import { canAccessStock } from "@/lib/access-policy";
+import { entitlementForUser } from "@/lib/billing-store";
 import { getBacktestData } from "@/lib/etl";
 import { isPublicPreviewTicker } from "@/lib/public-universe";
-import { getResearchStockDetail } from "@/lib/research";
+import { getResearchStockDetail, getResearchStocks } from "@/lib/research";
 import { searchFilings } from "@/lib/search";
 import { getCurrentSession } from "@/lib/server-auth";
 
@@ -35,6 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ ticker: s
 export default async function StockPage({ params }: { params: Promise<{ ticker: string }> }) {
   const ticker = (await params).ticker.toUpperCase();
   const session = await getCurrentSession();
+  const entitlement = await entitlementForUser(session?.user?.id);
 
   if (!session?.user && !isPublicPreviewTicker(ticker)) {
     return (
@@ -44,6 +47,19 @@ export default async function StockPage({ params }: { params: Promise<{ ticker: 
         <UniverseLockPanel ticker={ticker} />
       </div>
     );
+  }
+
+  if (session?.user && !entitlement.isPro) {
+    const allRecords = await getResearchStocks();
+    if (!canAccessStock(ticker, allRecords, entitlement)) {
+      return (
+        <div className="page stock-page">
+          <Link className="back-link" href="/dashboard">← Back to dashboard</Link>
+          <Disclaimer />
+          <UniverseLockPanel ticker={ticker} mode="pro" />
+        </div>
+      );
+    }
   }
 
   const [detail, filingEvidence, backtest] = await Promise.all([

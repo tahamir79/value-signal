@@ -10,10 +10,10 @@ It is not a trading bot, financial advisor, or source of buy/sell/hold recommend
 
 ## Current state
 
-- Product shell, dashboard, stock detail, methodology, auth, saved stocks, and responsive layouts exist.
+- Product shell, dashboard, stock detail, methodology, auth, billing shell, saved stocks, and responsive layouts exist.
 - Scaled universe artifacts currently cover 5,799 active stock detail files.
 - The original public preview tickers remain: AAPL, MSFT, GOOGL, AMZN, JPM, JNJ, XOM, F, KO, INTC.
-- The full scaled universe is gated behind Google sign-in.
+- Access tiers are centralized: signed out sees the original 10-stock preview; Google signed-in free users see the preview plus up to 3 potentially-undervalued and up to 3 Growth Spurt/emerging candidates; Pro users see the full 5,799-stock universe.
 - ETL uses provider-aware Python modules for Yahoo chart prices and SEC company facts.
 - Official scoring remains deterministic: value, quality, momentum, market risk, balance-sheet risk, momentum risk, confidence, and one mutually exclusive signal.
 - Balance-sheet-aware scoring is official, but standalone balance-sheet artifacts remain intact.
@@ -30,10 +30,14 @@ Frontend:
 - `src/features/dashboard/StockTable.tsx` - dashboard filters/table, including Growth Spurt filter.
 - `src/app/stock/[ticker]/page.tsx` - stock detail page.
 - `src/components/GrowthSpurtBadge.tsx` - compact badge and detail Recent Trend card.
+- `src/components/BillingPlans.tsx` - Stripe Checkout buttons for monthly/yearly ValueSignal Pro plans.
 - `src/components/HoldingOutcomeCard.tsx` - reusable saved-position outcome card/grid.
 - `src/components/SavedStocksConsole.tsx` - user watchlist/portfolio/projection UI.
 - `src/lib/etl.ts` - server-only generated JSON readers and shared artifact types.
 - `src/lib/research.ts` - merges generated data with fallback stock fixtures.
+- `src/lib/access-policy.ts` - public/free/pro stock visibility policy.
+- `src/lib/billing-store.ts` - PostgreSQL subscription/event tables and entitlement lookup.
+- `src/lib/stripe-server.ts` / `src/lib/stripe-signature.ts` - server-controlled Stripe REST calls and webhook signature verification.
 - `src/types/stock.ts`, `src/types/forecast.ts`, `src/types/signal.ts` - frontend contracts.
 
 Python/data pipeline:
@@ -107,6 +111,46 @@ Important generated paths:
 - `public/data/pipeline_health.json`
 - `data/reports/growth_spurt_benchmark.json`
 
+## Billing / Stripe boundary
+
+Stripe work is app-side and test-mode-first. Do not commit real Stripe keys. The live secret key previously pasted in chat should be rotated before real use.
+
+Routes:
+
+- `src/app/billing/page.tsx`
+- `src/app/billing/success/page.tsx`
+- `src/app/billing/cancel/page.tsx`
+- `src/app/api/billing/checkout/route.ts`
+- `src/app/api/billing/subscription/route.ts`
+- `src/app/api/billing/webhook/route.ts`
+
+Server-side subscription tables are created by `src/lib/billing-store.ts`:
+
+- `user_subscription`
+- `processed_stripe_event`
+
+Access policy:
+
+- `active` and `trialing` grant Pro.
+- `canceled` grants Pro only until `currentPeriodEnd` when present and in the future.
+- `past_due`, `paused`, `unpaid`, `incomplete`, `incomplete_expired`, and `none` do not grant Pro.
+- Checkout success page is not proof of payment; verified webhooks are authoritative.
+
+Required env placeholders:
+
+```text
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_VALUE_SIGNAL_PRODUCT_ID=
+STRIPE_VALUE_SIGNAL_MONTHLY_PRICE_ID=
+STRIPE_VALUE_SIGNAL_ANNUAL_PRICE_ID=
+STRIPE_API_VERSION=2025-03-31.basil
+NEXT_PUBLIC_APP_URL=
+```
+
+Use test-mode Stripe resources first. Do not create live resources, push, or deploy Stripe billing until explicitly approved.
+
 ## Growth Spurt detector v1
 
 Meaning: recent prices have formed a relatively persistent and orderly upward trend. It is a historical-pattern detector, not a prediction.
@@ -169,6 +213,7 @@ Frontend:
 ```powershell
 npm run dev
 npm run test:brief
+npm run test:billing
 npm run typecheck
 npm run build
 ```
@@ -223,7 +268,7 @@ Latest full-universe local result on 2026-07-22 UTC:
 - Raw checkpoint fetch processed: `6017`; raw successes: `5802`; raw failures: `215`; local checkpoint store size: about `26.2 GB`.
 - Merge/export published: `5799` stocks and forecasts; ETL failures/noncritical rows: `218`.
 - Forecast scaled-fast scenarios: `5475` available, `321` insufficient data, `3` stale.
-- `audit_features.py`, `audit_scoring.py`, `audit_search.py`, `forecast/audit_forecasts.py`, `pipeline_health.py`, `npm run test:brief`, `npm run typecheck`, and `npm run build` passed after the merge.
+- `audit_features.py`, `audit_scoring.py`, `audit_search.py`, `forecast/audit_forecasts.py`, `pipeline_health.py`, `npm run test:brief`, `npm run test:billing`, `npm run typecheck`, and `npm run build` passed after the merge/billing checkpoint.
 - `public/data/dashboard.json` is intentionally a lean dashboard-summary artifact; full per-ticker detail remains under `public/data/stocks/{TICKER}.json`, and official scoring detail remains in `signals.json`.
 - Per-ticker artifact filenames use `scripts/artifact_paths.py` / `src/lib/artifact-paths.ts`; Windows-reserved tickers such as `CON` are stored as `_CON.json` while ticker IDs remain unchanged in JSON and URLs.
 - BM25 is in per-ticker manifest mode. Current local coverage is 210 indexed tickers / 54,272 SEC chunks with 50 logged no-searchable-filing gaps and 5,757 unattempted supported universe rows. Continue coverage with `scripts/build_search_index_batch.py`; do not rebuild a monolithic search file.
@@ -269,7 +314,7 @@ Growth Spurt:
 Frontend:
 
 - Compare generated keys with `src/lib/etl.ts` and `src/types/stock.ts`.
-- Run `npm run test:brief`, `npm run typecheck`, and `npm run build`.
+- Run `npm run test:brief`, `npm run test:billing`, `npm run typecheck`, and `npm run build`.
 - Check mobile layout and long labels in dashboard/detail cards.
 
 Saved outcomes:

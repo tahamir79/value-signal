@@ -16,6 +16,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <Link href="/saved">Saved</Link>
           <Link href="/backtest">Backtest</Link>
           <Link href="/rag">RAG</Link>
+          <Link href="/billing">Billing</Link>
           <Link href="/methodology">Methodology</Link>
         </nav>
         <AuthStatus />
