@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { hasProAccess } from "../src/lib/billing-policy";
+import { hasProAccess, subscriptionMatchesStripeMode } from "../src/lib/billing-policy";
 import { selectAccessibleStocks } from "../src/lib/access-policy";
 import type { Entitlement, UserSubscription } from "../src/types/billing";
 import type { StockRecord } from "../src/types/stock";
@@ -51,6 +51,18 @@ test("subscription entitlement only grants Pro for active/trialing or paid-perio
   assert.equal(hasProAccess(subscription("past_due")), false);
   assert.equal(hasProAccess(subscription("canceled", "2099-01-01T00:00:00.000Z")), true);
   assert.equal(hasProAccess(subscription("canceled", "2020-01-01T00:00:00.000Z")), false);
+});
+
+test("subscription entitlement only grants Pro for the current Stripe mode when known", () => {
+  const liveSubscription = { ...subscription("active"), stripeLivemode: true };
+  const testSubscription = { ...subscription("active"), stripeLivemode: false };
+  const legacySubscription = subscription("active");
+  assert.equal(subscriptionMatchesStripeMode(liveSubscription, true), true);
+  assert.equal(subscriptionMatchesStripeMode(testSubscription, true), false);
+  assert.equal(subscriptionMatchesStripeMode(legacySubscription, true), false);
+  assert.equal(hasProAccess(liveSubscription, new Date(), true), true);
+  assert.equal(hasProAccess(testSubscription, new Date(), true), false);
+  assert.equal(hasProAccess(legacySubscription, new Date(), true), false);
 });
 
 test("access policy separates public, free, and pro dashboard universes", () => {

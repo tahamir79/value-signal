@@ -789,3 +789,4 @@ Preferred workflow:
 - Dashboard data-status copy must spell out `Balance sheet`; do not abbreviate it as `BS`.
 - Frontend pipeline health copy intentionally translates a strict artifact `partial_success` into `Data pipeline succeeded` when more than 25% of requested tickers populated. Keep success/failure counts visible beside that friendlier label.
 - Next billing follow-ups: validate a complete test subscription/webhook unlock, then add a manage-subscription portal before live-mode payments.
+- Stripe live/test cutovers require mode-aware billing rows. Checkout verifies any saved customer ID against the active Stripe key before reuse, and entitlement only treats a subscription as Pro when its `stripeLivemode` matches the current key mode.

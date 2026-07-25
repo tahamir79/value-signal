@@ -1643,3 +1643,7 @@ Results:
 - Add a Stripe billing portal / manage-subscription flow after checkout is stable.
 - Consider updating the Neon `DATABASE_URL` SSL query from `sslmode=require` to `sslmode=verify-full` to silence the current Postgres driver warning.
 - Rotate any live-mode Stripe key if it was ever exposed before enabling real payments.
+
+### Live Stripe cutover guardrail
+
+When switching from Stripe test mode to live mode, saved test-mode customer/subscription IDs must not be trusted as live records. Checkout now verifies any stored customer ID against the active Stripe key, finds or creates a customer in the active mode when needed, and tags subscription rows with `stripeLivemode`. Entitlement checks only grant Pro when the stored subscription row matches the current Stripe mode.

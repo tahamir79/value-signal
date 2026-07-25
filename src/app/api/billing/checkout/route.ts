@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getUserSubscription } from "@/lib/billing-store";
+import { currentStripeLivemode, getUserSubscription } from "@/lib/billing-store";
 import { hasProAccess } from "@/lib/billing-policy";
 import { getCurrentSession } from "@/lib/server-auth";
 import { createValueSignalCheckoutSession, getOrCreateStripeCustomer, missingStripeCheckoutEnv } from "@/lib/stripe-server";
@@ -23,7 +23,8 @@ export async function POST(request: NextRequest) {
   }
 
   const subscription = await getUserSubscription(session.user.id);
-  if (hasProAccess(subscription)) {
+  const stripeLivemode = currentStripeLivemode();
+  if (hasProAccess(subscription, new Date(), stripeLivemode)) {
     return error("This account already has ValueSignal Pro access.", 409, { subscription });
   }
 

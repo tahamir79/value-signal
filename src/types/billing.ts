@@ -17,6 +17,7 @@ export type UserSubscription = {
   stripeSubscriptionId: string | null;
   stripeProductId: string | null;
   stripePriceId: string | null;
+  stripeLivemode?: boolean | null;
   plan: SubscriptionPlan;
   status: SubscriptionStatus;
   currentPeriodEnd: string | null;

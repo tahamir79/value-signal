@@ -19,8 +19,15 @@ export function normalizeSubscriptionStatus(value: unknown): SubscriptionStatus 
   return "none";
 }
 
-export function hasProAccess(subscription: UserSubscription | null, now = new Date()) {
+export function subscriptionMatchesStripeMode(subscription: UserSubscription | null, currentLivemode: boolean | null) {
   if (!subscription) return false;
+  if (currentLivemode === null) return true;
+  return subscription.stripeLivemode === currentLivemode;
+}
+
+export function hasProAccess(subscription: UserSubscription | null, now = new Date(), currentLivemode: boolean | null = null) {
+  if (!subscription) return false;
+  if (!subscriptionMatchesStripeMode(subscription, currentLivemode)) return false;
   if (PRO_STATUSES.has(subscription.status)) return true;
   if (subscription.status === "canceled" && subscription.currentPeriodEnd) {
     return new Date(subscription.currentPeriodEnd).getTime() > now.getTime();
