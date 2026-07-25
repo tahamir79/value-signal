@@ -1,28 +1,14 @@
 import "server-only";
 
 import { randomUUID } from "node:crypto";
-import { Pool, type QueryResultRow } from "pg";
+import type { QueryResultRow } from "pg";
+import { postgresQuery } from "@/lib/postgres";
 import { getResearchStock } from "@/lib/research";
 import type { PortfolioPosition, PortfolioPositionInput, WatchlistAlertPatch, WatchlistItem } from "@/types/user-records";
 
 declare global {
   // eslint-disable-next-line no-var
-  var valueSignalUserDataPool: Pool | undefined;
-  // eslint-disable-next-line no-var
   var valueSignalUserDataTablesReady: Promise<void> | undefined;
-}
-
-function pool() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is required for saved Watchlist and Portfolio records.");
-  }
-
-  globalThis.valueSignalUserDataPool ??= new Pool({
-    connectionString: process.env.DATABASE_URL,
-    connectionTimeoutMillis: 10_000,
-  });
-
-  return globalThis.valueSignalUserDataPool;
 }
 
 function bool(value: unknown) {
@@ -69,7 +55,7 @@ function portfolioFromRow(row: QueryResultRow): PortfolioPosition {
 }
 
 async function ensureTables() {
-  globalThis.valueSignalUserDataTablesReady ??= pool().query(`
+  globalThis.valueSignalUserDataTablesReady ??= postgresQuery(`
     create table if not exists "watchlist_item" (
       "id" text not null primary key,
       "userId" text not null references "user" ("id") on delete cascade,
@@ -129,14 +115,14 @@ export async function assertSupportedStock(ticker: string) {
 
 export async function listWatchlist(userId: string) {
   await ensureTables();
-  const result = await pool().query(`select * from "watchlist_item" where "userId" = $1 order by "createdAt" desc`, [userId]);
+  const result = await postgresQuery(`select * from "watchlist_item" where "userId" = $1 order by "createdAt" desc`, [userId]);
   return result.rows.map(watchlistFromRow);
 }
 
 export async function addWatchlistItem(userId: string, ticker: string) {
   const stock = await assertSupportedStock(ticker);
   await ensureTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `insert into "watchlist_item" ("id", "userId", "ticker", "companyName")
      values ($1, $2, $3, $4)
      on conflict ("userId", "ticker") do update set "companyName" = excluded."companyName"
@@ -153,7 +139,7 @@ export async function updateWatchlistAlerts(userId: string, ticker: string, patc
   await ensureTables();
   const assignments = entries.map(({ key, index }) => `"${key}" = $${index + 3}`).join(", ");
   const values = entries.map(({ key }) => patch[key]);
-  const result = await pool().query(
+  const result = await postgresQuery(
     `update "watchlist_item" set ${assignments} where "userId" = $1 and "ticker" = $2 returning *`,
     [userId, ticker.toUpperCase(), ...values],
   );
@@ -162,7 +148,7 @@ export async function updateWatchlistAlerts(userId: string, ticker: string, patc
 
 export async function removeWatchlistItem(userId: string, ticker: string) {
   await ensureTables();
-  const result = await pool().query(`delete from "watchlist_item" where "userId" = $1 and "ticker" = $2`, [userId, ticker.toUpperCase()]);
+  const result = await postgresQuery(`delete from "watchlist_item" where "userId" = $1 and "ticker" = $2`, [userId, ticker.toUpperCase()]);
   return (result.rowCount ?? 0) > 0;
 }
 
@@ -198,14 +184,14 @@ export function validatePortfolioInput(payload: unknown): PortfolioPositionInput
 
 export async function listPortfolio(userId: string) {
   await ensureTables();
-  const result = await pool().query(`select * from "portfolio_position" where "userId" = $1 order by "updatedAt" desc`, [userId]);
+  const result = await postgresQuery(`select * from "portfolio_position" where "userId" = $1 order by "updatedAt" desc`, [userId]);
   return result.rows.map(portfolioFromRow);
 }
 
 export async function addPortfolioPosition(userId: string, input: PortfolioPositionInput) {
   const stock = await assertSupportedStock(input.ticker);
   await ensureTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `insert into "portfolio_position"
       ("id", "userId", "ticker", "companyName", "positionStatus", "quantityType", "shares", "dollarAmount", "averageCostPerShare", "userReturnEstimate30Day", "userReturnEstimate90Day", "notes", "updatedAt")
      values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, CURRENT_TIMESTAMP)
@@ -218,7 +204,7 @@ export async function addPortfolioPosition(userId: string, input: PortfolioPosit
 export async function updatePortfolioPosition(userId: string, positionId: string, input: PortfolioPositionInput) {
   const stock = await assertSupportedStock(input.ticker);
   await ensureTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `update "portfolio_position"
      set "ticker" = $3, "companyName" = $4, "positionStatus" = $5, "quantityType" = $6,
        "shares" = $7, "dollarAmount" = $8, "averageCostPerShare" = $9,
@@ -232,6 +218,6 @@ export async function updatePortfolioPosition(userId: string, positionId: string
 
 export async function removePortfolioPosition(userId: string, positionId: string) {
   await ensureTables();
-  const result = await pool().query(`delete from "portfolio_position" where "userId" = $1 and "id" = $2`, [userId, positionId]);
+  const result = await postgresQuery(`delete from "portfolio_position" where "userId" = $1 and "id" = $2`, [userId, positionId]);
   return (result.rowCount ?? 0) > 0;
 }

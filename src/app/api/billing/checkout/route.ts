@@ -22,13 +22,13 @@ export async function POST(request: NextRequest) {
     return error("Stripe checkout is not configured yet.", 503, { missing });
   }
 
-  const subscription = await getUserSubscription(session.user.id);
-  const stripeLivemode = currentStripeLivemode();
-  if (hasProAccess(subscription, new Date(), stripeLivemode)) {
-    return error("This account already has ValueSignal Pro access.", 409, { subscription });
-  }
-
   try {
+    const subscription = await getUserSubscription(session.user.id);
+    const stripeLivemode = currentStripeLivemode();
+    if (hasProAccess(subscription, new Date(), stripeLivemode)) {
+      return error("This account already has ValueSignal Pro access.", 409, { subscription });
+    }
+
     const stripeCustomerId = await getOrCreateStripeCustomer(
       {
         id: session.user.id,
@@ -50,6 +50,7 @@ export async function POST(request: NextRequest) {
     if (!url) return error("Stripe did not return a Checkout URL.", 502);
     return NextResponse.json({ url });
   } catch (err) {
+    console.error("ValueSignal checkout failed", err instanceof Error ? err.message : err);
     return error(err instanceof Error ? err.message : "Could not start Stripe Checkout.", 502);
   }
 }

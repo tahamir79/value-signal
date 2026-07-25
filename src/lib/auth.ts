@@ -1,15 +1,12 @@
 import { betterAuth } from "better-auth";
 import { Kysely, PostgresDialect } from "kysely";
-import { Pool } from "pg";
 import { isAuthConfigured } from "@/lib/auth-config";
+import { getPostgresPool, hasDatabaseUrl } from "@/lib/postgres";
 
-const database = process.env.DATABASE_URL
+const database = hasDatabaseUrl()
   ? new Kysely({
       dialect: new PostgresDialect({
-        pool: new Pool({
-          connectionString: process.env.DATABASE_URL,
-          connectionTimeoutMillis: 10_000,
-        }),
+        pool: getPostgresPool(),
       }),
     })
   : undefined;

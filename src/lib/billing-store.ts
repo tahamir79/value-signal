@@ -1,27 +1,13 @@
 import "server-only";
 
-import { Pool, type QueryResultRow } from "pg";
+import type { QueryResultRow } from "pg";
 import { hasProAccess, normalizeSubscriptionStatus, planForStatus, subscriptionMatchesStripeMode } from "@/lib/billing-policy";
+import { postgresQuery } from "@/lib/postgres";
 import type { Entitlement, SubscriptionStatus, UserSubscription } from "@/types/billing";
 
 declare global {
   // eslint-disable-next-line no-var
-  var valueSignalBillingPool: Pool | undefined;
-  // eslint-disable-next-line no-var
   var valueSignalBillingTablesReady: Promise<void> | undefined;
-}
-
-function pool() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is required for ValueSignal subscription records.");
-  }
-
-  globalThis.valueSignalBillingPool ??= new Pool({
-    connectionString: process.env.DATABASE_URL,
-    connectionTimeoutMillis: 10_000,
-  });
-
-  return globalThis.valueSignalBillingPool;
 }
 
 export function currentStripeLivemode() {
@@ -55,7 +41,7 @@ function subscriptionFromRow(row: QueryResultRow): UserSubscription {
 }
 
 export async function ensureBillingTables() {
-  globalThis.valueSignalBillingTablesReady ??= pool().query(`
+  globalThis.valueSignalBillingTablesReady ??= postgresQuery(`
     create table if not exists "user_subscription" (
       "userId" text not null primary key references "user" ("id") on delete cascade,
       "stripeCustomerId" text unique,
@@ -83,7 +69,7 @@ export async function ensureBillingTables() {
 
 export async function getUserSubscription(userId: string) {
   await ensureBillingTables();
-  const result = await pool().query(`select * from "user_subscription" where "userId" = $1`, [userId]);
+  const result = await postgresQuery(`select * from "user_subscription" where "userId" = $1`, [userId]);
   return result.rows[0] ? subscriptionFromRow(result.rows[0]) : null;
 }
 
@@ -91,14 +77,14 @@ export async function getSubscriptionByCustomer(stripeCustomerId: string) {
   await ensureBillingTables();
   const livemode = currentStripeLivemode();
   const result = livemode === null
-    ? await pool().query(`select * from "user_subscription" where "stripeCustomerId" = $1`, [stripeCustomerId])
-    : await pool().query(`select * from "user_subscription" where "stripeCustomerId" = $1 and "stripeLivemode" = $2`, [stripeCustomerId, livemode]);
+    ? await postgresQuery(`select * from "user_subscription" where "stripeCustomerId" = $1`, [stripeCustomerId])
+    : await postgresQuery(`select * from "user_subscription" where "stripeCustomerId" = $1 and "stripeLivemode" = $2`, [stripeCustomerId, livemode]);
   return result.rows[0] ? subscriptionFromRow(result.rows[0]) : null;
 }
 
 export async function upsertCustomerForUser(userId: string, stripeCustomerId: string) {
   await ensureBillingTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `insert into "user_subscription" ("userId", "stripeCustomerId", "stripeLivemode", "updatedAt")
      values ($1, $2, $3, CURRENT_TIMESTAMP)
      on conflict ("userId") do update set
@@ -122,7 +108,7 @@ export async function upsertSubscription(input: {
   cancelAtPeriodEnd: boolean;
 }) {
   await ensureBillingTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `insert into "user_subscription"
       ("userId", "stripeCustomerId", "stripeSubscriptionId", "stripeProductId", "stripePriceId", "stripeLivemode", "plan", "status", "currentPeriodEnd", "cancelAtPeriodEnd", "updatedAt")
      values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP)
@@ -156,7 +142,7 @@ export async function upsertSubscription(input: {
 
 export async function claimStripeEvent(stripeEventId: string, eventType: string) {
   await ensureBillingTables();
-  const result = await pool().query(
+  const result = await postgresQuery(
     `insert into "processed_stripe_event" ("stripeEventId", "eventType")
      values ($1, $2)
      on conflict ("stripeEventId") do nothing`,
