@@ -120,6 +120,7 @@ Auth/billing/gating mechanics:
 - `src/app/api/billing/checkout/route.ts` creates server-controlled Stripe Checkout Sessions.
 - `src/app/api/billing/webhook/route.ts` verifies Stripe signatures and updates subscription state idempotently.
 - `src/components/AuthStatus.tsx` and `src/components/GoogleSignInButton.tsx` handle sign-in UI.
+- Stripe Checkout defaults to normal subscription Checkout. Managed Payments is only sent when `STRIPE_ENABLE_MANAGED_PAYMENTS=true`, because Managed Payments requires the exact Stripe Product behind each configured Price ID to expose an eligible product-level tax code.
 
 Subscription status policy:
 
@@ -784,9 +785,9 @@ Preferred workflow:
 
 ## 17. Current product-copy and billing notes
 
-- Pro billing is deployed in test mode with Google-authenticated Stripe Checkout and webhook-backed entitlement storage.
+- Pro billing is deployed with Google-authenticated Stripe Checkout and webhook-backed entitlement storage.
 - Access tiers remain: signed-out public preview, Google free preview expansion, and Pro full-universe access.
 - Dashboard data-status copy must spell out `Balance sheet`; do not abbreviate it as `BS`.
 - Frontend pipeline health copy intentionally translates a strict artifact `partial_success` into `Data pipeline succeeded` when more than 25% of requested tickers populated. Keep success/failure counts visible beside that friendlier label.
-- Next billing follow-ups: validate a complete test subscription/webhook unlock, then add a manage-subscription portal before live-mode payments.
+- Next billing follow-up: validate a complete live subscription/webhook unlock, then add a manage-subscription portal.
 - Stripe live/test cutovers require mode-aware billing rows. Checkout verifies any saved customer ID against the active Stripe key before reuse, and entitlement only treats a subscription as Pro when its `stripeLivemode` matches the current key mode.

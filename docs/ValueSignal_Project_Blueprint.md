@@ -1568,7 +1568,9 @@ Checkout behavior:
 - annual Price ID comes from `STRIPE_VALUE_SIGNAL_ANNUAL_PRICE_ID` and is disabled when absent;
 - quantity is fixed at `1`;
 - mode is `subscription`;
-- Managed Payments is enabled with `managed_payments[enabled]=true`;
+- normal Stripe Checkout is the default;
+- Managed Payments is opt-in only when `STRIPE_ENABLE_MANAGED_PAYMENTS=true`;
+- if Managed Payments is enabled, the exact live Stripe Product attached to the configured Price IDs must expose an eligible product-level `tax_code`;
 - success URL returns to `/billing/success`;
 - cancel URL returns to `/billing/cancel`;
 - success page explicitly says webhook verification is required before access changes.

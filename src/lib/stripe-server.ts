@@ -3,7 +3,7 @@ import "server-only";
 import { upsertCustomerForUser } from "@/lib/billing-store";
 import { verifyStripeSignature } from "@/lib/stripe-signature";
 
-export const STRIPE_MANAGED_PAYMENTS_API_VERSION = process.env.STRIPE_API_VERSION || "2025-03-31.basil";
+export const STRIPE_API_VERSION = process.env.STRIPE_API_VERSION || "2025-03-31.basil";
 
 type StripeUser = { id: string; email?: string | null; name?: string | null };
 type StripeObject = Record<string, unknown>;
@@ -42,7 +42,7 @@ async function stripeRequest<T extends StripeObject>(path: string, init: Request
     ...init,
     headers: {
       Authorization: `Bearer ${secretKey()}`,
-      "Stripe-Version": STRIPE_MANAGED_PAYMENTS_API_VERSION,
+      "Stripe-Version": STRIPE_API_VERSION,
       ...(init.body ? { "Content-Type": "application/x-www-form-urlencoded" } : {}),
       ...(init.headers || {}),
     },
@@ -120,6 +120,10 @@ export async function getOrCreateStripeCustomer(user: StripeUser, existingCustom
   return customerId;
 }
 
+function managedPaymentsEnabled() {
+  return process.env.STRIPE_ENABLE_MANAGED_PAYMENTS === "true";
+}
+
 export async function createValueSignalCheckoutSession(input: {
   user: StripeUser;
   stripeCustomerId: string;
@@ -137,7 +141,6 @@ export async function createValueSignalCheckoutSession(input: {
       "line_items[0][price]": priceId,
       "line_items[0][quantity]": 1,
       mode: "subscription",
-      "managed_payments[enabled]": true,
       customer: input.stripeCustomerId,
       client_reference_id: input.user.id,
       success_url: `${appUrl()}/billing/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -148,6 +151,7 @@ export async function createValueSignalCheckoutSession(input: {
       "subscription_data[metadata][valueSignalUserId]": input.user.id,
       "subscription_data[metadata][valueSignalPlan]": "pro",
       "subscription_data[metadata][valueSignalInterval]": input.interval,
+      ...(managedPaymentsEnabled() ? { "managed_payments[enabled]": true } : {}),
     }),
   });
 }
