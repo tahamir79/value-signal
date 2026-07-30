@@ -1,6 +1,15 @@
 name: Refresh ValueSignal data
 on:
   workflow_dispatch:
+    inputs:
+      etl_batch_size:
+        description: "Number of companies to refresh and merge into the published universe"
+        required: false
+        default: "250"
+      etl_batch_count:
+        description: "Number of consecutive ETL batches to refresh"
+        required: false
+        default: "1"
   schedule:
     - cron: "25 23 * * 1-5"
 permissions:
@@ -18,7 +27,9 @@ jobs:
       GROWTH_SPURT_MODE: display
       VS_UNIVERSE_MODE: sec_listed_core
       VS_UNIVERSE_PATH: data/universe/universe.json
-      VS_UNIVERSE_LIMIT: "250"
+      VS_UNIVERSE_LIMIT: "all"
+      VS_ETL_BATCH_SIZE: ${{ github.event.inputs.etl_batch_size || '250' }}
+      VS_ETL_BATCH_COUNT: ${{ github.event.inputs.etl_batch_count || '1' }}
       VS_SEARCH_BATCH_SIZE: "50"
     steps:
       - uses: actions/checkout@v4
@@ -41,8 +52,8 @@ jobs:
         run: npm ci && npm run test:brief
       - name: Build scaled universe
         run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --include-starter --output-dir data/universe
-      - name: Refresh live artifacts
-        run: python scripts/run_etl.py --universe "$VS_UNIVERSE_PATH" --limit "$VS_UNIVERSE_LIMIT" --skip-backtest
+      - name: Refresh and merge live ETL batch
+        run: python scripts/pipeline/refresh_public_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_ETL_BATCH_SIZE" --batch-count "$VS_ETL_BATCH_COUNT" --skip-backtest
       - name: Benchmark growth spurt detector
         run: python scripts/benchmark_growth_spurt.py
       - name: Refresh SEC filing search index
@@ -64,15 +75,13 @@ jobs:
           python scripts/forecast/audit_forecasts.py
       - name: Publish pipeline health report
         run: python scripts/pipeline_health.py
-      - name: Explain scheduled artifact guard
-        if: github.event_name == 'schedule'
-        run: echo "Scheduled capped ETL completed as a health check. Public artifact commits are manual-only while the deployed dataset is full-universe."
       - name: Commit changed artifacts
-        if: github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "value-signal-bot"
           git config user.email "value-signal-bot@users.noreply.github.com"
+          git add -f data/reports/scheduled_etl_batch_state.json
           git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/search public/data/stocks public/data/forecasts public/data/etl_report.json public/data/universe_coverage_report.json public/data/pipeline_health.json models/forecast
           git add -f data/reports/forecast_model_leaderboard.json data/reports/forecast_backtest_30_day.json data/reports/forecast_backtest_90_day.json data/reports/forecast_data_quality.json data/reports/forecast_leakage_audit.json data/reports/pipeline_health_report.json data/reports/growth_spurt_benchmark.json
           git diff --cached --quiet || git commit -m "data: refresh ValueSignal artifacts"
+          git pull --rebase
           git push

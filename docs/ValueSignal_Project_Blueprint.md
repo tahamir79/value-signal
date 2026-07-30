@@ -1649,3 +1649,71 @@ Results:
 ### Live Stripe cutover guardrail
 
 When switching from Stripe test mode to live mode, saved test-mode customer/subscription IDs must not be trusted as live records. Checkout now verifies any stored customer ID against the active Stripe key, finds or creates a customer in the active mode when needed, and tags subscription rows with `stripeLivemode`. Entitlement checks only grant Pro when the stored subscription row matches the current Stripe mode.
+
+---
+
+## 31. Live Implementation Context - Scheduled Batch ETL Publishing
+
+**Updated:** 2026-07-29 America/Chicago
+**Git branch:** `scale-universe-foundation`
+**Reason:** The deployed dashboard reported old committed data even though GitHub Actions scheduled runs were green.
+
+### Root cause
+
+The hosted workflow `.github/workflows/refresh-data.yml` was still running on schedule, and recent scheduled runs were successful. The problem was operational, not provider failure:
+
+- the workflow refreshed a capped ETL slice for health checking;
+- the scheduled path intentionally skipped artifact commits to avoid overwriting the 5,799-company deployed dataset with a 250-company output;
+- therefore the bot could show green runs while `public/data/*.json` remained old.
+
+### New scheduled behavior
+
+The cron time remains unchanged:
+
+```yaml
+cron: "25 23 * * 1-5"
+```
+
+The workflow now builds the full SEC-listed universe file, refreshes a bounded ETL batch, merges that batch into the existing published full-universe artifacts, recomputes global feature percentiles and official scores, then commits the changed artifacts on both scheduled and manual runs.
+
+New module:
+
+```powershell
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 1 --skip-backtest
+```
+
+Safety mechanics:
+
+- `public/data/dashboard.json` keeps the full published universe instead of shrinking to the batch.
+- `public/data/features.json` replaces only refreshed raw feature rows, then re-normalizes all published rows.
+- `public/data/signals.json` is regenerated from the merged, globally normalized feature set.
+- refreshed stock detail files replace only the tickers in the current batch.
+- `data/reports/scheduled_etl_batch_state.json` tracks the next universe offset so weekday runs progress through the universe in resumable batches.
+- `git pull --rebase` runs before the bot push to reduce GitHub-side race failures.
+
+### User-facing stale-data display
+
+`src/features/dashboard/DataStatus.tsx` no longer promotes age over pipeline health. If more than 25 percent of the requested tickers were populated, the status headline says `Data pipeline succeeded`; the success/failure counts and last run time remain visible in the body copy. Older artifact age is now a plain explanatory note instead of a `Stale data` screen.
+
+### Validation
+
+Passed on 2026-07-29 America/Chicago:
+
+```powershell
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 2 --dry-run
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/audit_features.py
+python scripts/audit_scoring.py
+python scripts/audit_search.py
+python scripts/pipeline_health.py
+npm run typecheck
+npm run build
+```
+
+Results:
+
+- scheduled batch selection dry-run selected the first six supported tickers and preserved a 6,017-supported-row universe;
+- full Python suite passed 115 tests;
+- feature, scoring, and search audits passed;
+- pipeline health reported zero critical failures;
+- TypeScript type-check and production build passed.
