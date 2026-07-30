@@ -59,7 +59,7 @@ jobs:
       - name: Refresh SEC filing search index
         run: python scripts/build_search_index_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_SEARCH_BATCH_SIZE"
       - name: Refresh experimental forecast artifacts
-        run: python scripts/forecast/run_forecast_pipeline.py --summary
+        run: python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
       - name: Audit feature outputs
         run: python scripts/audit_features.py
       - name: Audit scoring outputs

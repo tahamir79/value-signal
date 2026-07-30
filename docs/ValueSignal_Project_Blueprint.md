@@ -1689,6 +1689,7 @@ Safety mechanics:
 - `public/data/signals.json` is regenerated from the merged, globally normalized feature set.
 - refreshed stock detail files replace only the tickers in the current batch.
 - `data/reports/scheduled_etl_batch_state.json` tracks the next universe offset so weekday runs progress through the universe in resumable batches.
+- forecast publication uses `python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` because the published dataset remains full-universe scale even when only one ETL batch is refreshed.
 - `git pull --rebase` runs before the bot push to reduce GitHub-side race failures.
 
 ### User-facing stale-data display
@@ -1706,6 +1707,7 @@ python scripts/audit_features.py
 python scripts/audit_scoring.py
 python scripts/audit_search.py
 python scripts/pipeline_health.py
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
 npm run typecheck
 npm run build
 ```
