@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "GTLS",
   "companyName": "CHART INDUSTRIES INC",
-  "generatedAt": "2026-07-30T21:27:18.110580+00:00",
+  "generatedAt": "2026-07-30T22:38:01.833906+00:00",
   "marketDataAsOf": "2026-07-16",
   "currentPrice": 209.9,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-30T21:27:18.110580+00:00",
+    "collectedAt": "2026-07-30T22:38:01.833906+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,40 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-30T21:27:18.110580+00:00",
+    "generatedAt": "2026-07-30T22:38:01.833906+00:00",
     "marketDataAsOf": "2026-07-16",
     "currentPrice": 209.9,
     "horizon30Day": {
-      "returnEstimate": 0.00217738,
-      "lowerReturn": -0.00048102,
-      "upperReturn": 0.00856455,
-      "estimatedPrice": 210.357,
-      "lowerEstimatedPrice": 209.799,
-      "upperEstimatedPrice": 211.6977,
-      "sampleCount": 46,
-      "status": "available",
-      "usableObservationCount": 46,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.00686878,
-      "lowerReturn": 0.00411216,
-      "upperReturn": 0.02864047,
-      "estimatedPrice": 211.3418,
-      "lowerEstimatedPrice": 210.7631,
-      "upperEstimatedPrice": 215.9116,
-      "sampleCount": 38,
-      "status": "available",
-      "usableObservationCount": 38,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-07-16 is older than 10 days."
+      "Market data as of 2026-07-16 is older than 10 days.",
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",

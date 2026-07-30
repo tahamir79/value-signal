@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-22T22:37:02.483874+00:00",
+  "generatedAt": "2026-07-30T22:22:58.517064+00:00",
   "record": {
     "security": {
       "ticker": "FCNCN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.14,
-      "dailyChangePercent": -0.0398,
+      "latestPrice": 25.0,
+      "dailyChangePercent": 0.5227,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.90656,
       "latestRevenueBillions": 9.541,
@@ -459,49 +459,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FCNCN",
-      "generatedAt": "2026-07-22T22:26:40.996158+00:00",
-      "marketDataAsOf": "2026-07-22",
+      "generatedAt": "2026-07-30T22:08:46.218407+00:00",
+      "marketDataAsOf": "2026-07-30",
       "status": "not_detected",
-      "growthSpurtScore": 43.55,
+      "growthSpurtScore": 37.61,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00079612,
-        "return63d": 0.02888811,
-        "trendSlope21d": -0.00059096,
-        "trendSlope63d": 0.00061162,
-        "trendAnnualizedReturn63d": 0.16663965,
-        "trendFitR2_63d": 0.73566874,
+        "return21d": -0.02152639,
+        "return63d": 0.02234165,
+        "trendSlope21d": -0.00118758,
+        "trendSlope63d": 0.00051125,
+        "trendAnnualizedReturn63d": 0.13750196,
+        "trendFitR2_63d": 0.52825004,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00689306,
-        "maxDrawdown63d": -0.01800388,
-        "downsideVolatility63d": 0.00190879,
-        "excessReturnVsSpy21d": -0.00442965,
-        "excessReturnVsSpy63d": -0.03662681,
-        "trendAcceleration": -0.00109679,
-        "largestOneDayContribution63d": 0.0644509,
+        "trendResidualVolatility63d": 0.00860703,
+        "maxDrawdown63d": -0.02661442,
+        "downsideVolatility63d": 0.00200066,
+        "excessReturnVsSpy21d": -0.01472374,
+        "excessReturnVsSpy63d": -0.02265787,
+        "trendAcceleration": -0.00179059,
+        "largestOneDayContribution63d": 0.05948786,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 30.3815,
-        "consistencyScore": 54.3871,
-        "relativeStrengthScore": 33.1824,
-        "drawdownControlScore": 93.9987,
-        "confirmationScore": 1.0615
+        "directionScore": 24.1951,
+        "consistencyScore": 39.2445,
+        "relativeStrengthScore": 34.3536,
+        "drawdownControlScore": 91.1285,
+        "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.633097,
+      "benchmarkPercentile": 0.548309,
       "metricPercentiles": {
-        "trendSlope63d": 0.58885,
-        "trendFitR2_63d": 0.770442,
-        "excessReturnVsSpy63d": 0.590158,
-        "drawdownControlScore": 0.951327,
-        "growthSpurtScore": 0.633097
+        "trendSlope63d": 0.576087,
+        "trendFitR2_63d": 0.547705,
+        "excessReturnVsSpy63d": 0.54915,
+        "drawdownControlScore": 0.944444,
+        "growthSpurtScore": 0.548309
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1808,10 +1812,76 @@
         "open": 25.059999465942383,
         "high": 25.139999389648438,
         "low": 25.059999465942383,
-        "close": 25.139999389648438,
-        "volume": 6157,
+        "close": 25.110000610351562,
+        "volume": 11600,
         "source": "yahoo-chart",
-        "adjusted_close": 25.139999389648438
+        "adjusted_close": 25.110000610351562
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-23",
+        "open": 25.020000457763672,
+        "high": 25.100000381469727,
+        "low": 24.959999084472656,
+        "close": 24.959999084472656,
+        "volume": 12000,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.959999084472656
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-24",
+        "open": 25.030000686645508,
+        "high": 25.06999969482422,
+        "low": 24.899999618530273,
+        "close": 24.899999618530273,
+        "volume": 12600,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.899999618530273
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-27",
+        "open": 25.06999969482422,
+        "high": 25.06999969482422,
+        "low": 24.899999618530273,
+        "close": 25.040000915527344,
+        "volume": 7800,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.040000915527344
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-28",
+        "open": 25.06999969482422,
+        "high": 25.06999969482422,
+        "low": 24.93000030517578,
+        "close": 25.0,
+        "volume": 13600,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.0
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-29",
+        "open": 25.0,
+        "high": 25.0,
+        "low": 24.8700008392334,
+        "close": 24.8700008392334,
+        "volume": 28700,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.8700008392334
+      },
+      {
+        "ticker": "FCNCN",
+        "date": "2026-07-30",
+        "open": 24.969999313354492,
+        "high": 25.0,
+        "low": 24.889999389648438,
+        "close": 25.0,
+        "volume": 18855,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.0
       }
     ],
     "dataStatus": {
@@ -1851,13 +1921,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-08",
-      "latestScoringDate": "2026-07-22",
+      "latestScoringDate": "2026-07-30",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 43.55,
-      "growthSpurtBenchmarkPercentile": 0.633097,
-      "growthSpurtMarketDataAsOf": "2026-07-22",
-      "lastPipelineRun": "2026-07-22T22:26:40.996158+00:00",
+      "growthSpurtScore": 37.61,
+      "growthSpurtBenchmarkPercentile": 0.548309,
+      "growthSpurtMarketDataAsOf": "2026-07-30",
+      "lastPipelineRun": "2026-07-30T22:08:46.218407+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

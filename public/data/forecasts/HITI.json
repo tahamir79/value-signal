@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "HITI",
   "companyName": "High Tide Inc.",
-  "generatedAt": "2026-07-30T21:27:18.110580+00:00",
-  "marketDataAsOf": "2026-07-22",
+  "generatedAt": "2026-07-30T22:38:01.833906+00:00",
+  "marketDataAsOf": "2026-07-30",
   "currentPrice": 2.14,
   "analystTarget": {
     "ticker": "HITI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-30T21:27:18.110580+00:00",
+    "collectedAt": "2026-07-30T22:38:01.833906+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,32 +44,32 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-30T21:27:18.110580+00:00",
-    "marketDataAsOf": "2026-07-22",
+    "generatedAt": "2026-07-30T22:38:01.833906+00:00",
+    "marketDataAsOf": "2026-07-30",
     "currentPrice": 2.14,
     "horizon30Day": {
-      "returnEstimate": -0.01922744,
-      "lowerReturn": -0.07770465,
-      "upperReturn": 0.05718429,
-      "estimatedPrice": 2.0989,
-      "lowerEstimatedPrice": 1.9737,
-      "upperEstimatedPrice": 2.2624,
-      "sampleCount": 47,
+      "returnEstimate": -0.00840545,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.08,
+      "estimatedPrice": 2.122,
+      "lowerEstimatedPrice": 1.9688,
+      "upperEstimatedPrice": 2.3112,
+      "sampleCount": 104,
       "status": "available",
-      "usableObservationCount": 47,
+      "usableObservationCount": 104,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.06813715,
+      "returnEstimate": -0.02615975,
       "lowerReturn": -0.15,
-      "upperReturn": -0.01306579,
-      "estimatedPrice": 1.9942,
+      "upperReturn": 0.15,
+      "estimatedPrice": 2.084,
       "lowerEstimatedPrice": 1.819,
-      "upperEstimatedPrice": 2.112,
-      "sampleCount": 39,
+      "upperEstimatedPrice": 2.461,
+      "sampleCount": 96,
       "status": "available",
-      "usableObservationCount": 39,
+      "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
@@ -77,7 +77,10 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "90-day scenario: lower return clipped to +/-15%"
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
