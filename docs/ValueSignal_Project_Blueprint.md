@@ -1700,20 +1700,22 @@ As of 2026-07-30, the hosted GitHub Action still runs at the original weekday cr
 cron: "25 23 * * 1-5"
 ```
 
-The schedule now uses four weekday sweep slots:
+The schedule now uses six weekday sweep slots:
 
 ```yaml
 cron: "25 23 * * 1-5"
-cron: "25 2 * * 2-6"
+cron: "25 1 * * 2-6"
+cron: "25 3 * * 2-6"
 cron: "25 5 * * 2-6"
-cron: "25 8 * * 2-6"
+cron: "25 7 * * 2-6"
+cron: "25 9 * * 2-6"
 ```
 
-Each slot refreshes seven consecutive 250-company ETL chunks, for a maximum of 1,750 active universe rows per run and roughly 7,000 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual active universe size, so the dashboard describes the real full-universe sweep target instead of the theoretical ceiling. This maximizes GitHub Actions usage while keeping each bot run bounded under the 120-minute job cap. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
+Each slot refreshes five consecutive 250-company ETL chunks, for a maximum of 1,250 active universe rows per run and roughly 7,500 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual active universe size, so the dashboard describes the real full-universe sweep target instead of the theoretical ceiling. This maximizes GitHub Actions usage while reducing individual run duration and preserving one missed-window buffer. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
 
 The scheduled refresh uses the scaled-fast forecast path and audits the generated forecast artifacts with `scripts/forecast/audit_forecasts.py`. Heavy challenger-model evaluation through `scripts/forecast/evaluate_models.py` is reserved for dedicated forecast-methodology work, not the routine artifact bot, because it can consume the action budget without changing the public baseline forecast model.
 
-The latest batch report may say, for example, `246 / 250 companies refreshed; 4 failed`. That is not the deployed universe size. It means the most recent bounded GitHub batch refreshed 246 rows and logged four ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
+The latest batch report may say, for example, `1,203 / 1,250 companies refreshed; 47 failed`. That is not the deployed universe size. It means the most recent bounded GitHub sweep slice refreshed 1,203 rows and logged ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
 
 - `publicationMode: "incremental_batch_merge"`;
 - `fullUniversePublishedTickers`, the number of companies currently present in public dashboard artifacts;
@@ -1730,7 +1732,7 @@ The latest batch report may say, for example, `246 / 250 companies refreshed; 4 
 Passed on 2026-07-30 America/Chicago:
 
 ```powershell
-$env:VS_DAILY_SWEEP_SLOTS='4'; python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 7 --dry-run
+$env:VS_DAILY_SWEEP_SLOTS='6'; python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 5 --dry-run
 python -m unittest tests.test_scheduled_batch_refresh tests.test_pipeline_health -v
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/pipeline_health.py
