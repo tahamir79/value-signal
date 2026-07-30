@@ -505,8 +505,8 @@ Current production-safe behavior:
 - BM25 remains the retrieval baseline.
 - `public/data/search_index.json` is a manifest in per-ticker mode.
 - Per-ticker indexes live under `public/data/search/{TICKER}.json`.
-- `scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 25` selects the next unattempted supported tickers, indexes the ones with searchable 10-K/10-Q chunks, records no-searchable-filing gaps, and advances without retrying the same failures unless `--force` is passed.
-- The current batch-aware manifest has `batchAware: true`, `tickerCount: 210`, `documentCount: 54272`, `errors: 50`, and `remainingUnattempted: 5757`.
+- `scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 50` selects the next unattempted supported tickers, indexes the ones with searchable 10-K/10-Q chunks, records no-searchable-filing gaps, and advances without retrying the same failures unless `--force` is passed.
+- The current batch-aware manifest has `batchAware: true`, `tickerCount: 334`, `documentCount: 88423`, and `errors: 76` as of the July 30, 2026 GitHub refresh.
 - Query expansion broadens common user terms like risk, supply chain, liquidity, revenue, margin, competition, and cybersecurity.
 - BM25 status flags in dashboard/stock artifacts are updated from the manifest. This sync must not erase broader filing freshness fields such as `latestFilingDate`.
 
@@ -606,7 +606,7 @@ Current intended sequence:
 5. run ETL with `--skip-backtest`, including Growth Spurt artifacts when mode is `display`;
 6. benchmark the Growth Spurt detector against SPY point-in-time snapshots;
 7. run the batch-aware BM25 filing-search increment;
-8. run forecast pipeline;
+8. run forecast pipeline in scaled-fast mode;
 9. run feature/scoring/backtest/search/forecast audits;
 10. generate pipeline health;
 11. commit generated artifacts if changed;
@@ -621,6 +621,7 @@ Important environment/secret requirements:
 Workflow gotcha already fixed:
 
 - `data/universe/universe.json` must be created before `scripts/run_etl.py --universe data/universe/universe.json`.
+- The scheduled refresh now uses 7 ETL chunks of 250 tickers per run and 4 weekday sweep slots. That gives 1,750 attempted rows per run and enough daily sweep capacity to cover the roughly 6,000-row active universe, while the shared `value-signal-etl` concurrency group keeps artifact-writing jobs serialized.
 
 ---
 
@@ -673,11 +674,11 @@ Scaled refresh:
 
 ```powershell
 $env:VS_USER_AGENT="ValueSignal research ETL <contact>"
-python scripts/universe/build_universe.py --mode sec_listed_core --limit 250 --include-starter --output-dir data/universe
-python scripts/run_etl.py --universe data/universe/universe.json --limit 250 --skip-backtest
+python scripts/universe/build_universe.py --mode sec_listed_core --limit all --include-starter --output-dir data/universe
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 7 --skip-backtest
 python scripts/benchmark_growth_spurt.py
-python scripts/build_search_index.py --universe data/universe/universe.json --limit 250
-python scripts/forecast/run_forecast_pipeline.py --summary
+python scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 50
+python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
 python scripts/pipeline_health.py
 ```
 
@@ -704,7 +705,7 @@ Operational notes:
 - Merge mode blocks incomplete checkpoint sets unless `--allow-partial-merge` is passed deliberately.
 - SEC Company Facts payloads for mega-caps can be tens of MB per ticker, so a true 6,000-company fundamentals refresh is bandwidth- and time-heavy.
 - Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed 5,799-stock checkpoint run used shorter provider-default price histories, so the scaled-fast forecast path is current-only and uses sparse historical scenario fallback instead of expensive model retraining.
-- The weekday GitHub Action is still capped for runner safety. Scheduled runs validate health but do not commit public artifacts; manual dispatch is required for artifact commits while the deployed dataset is full-universe. Do not let a capped scheduled refresh overwrite a manually published 5,799-stock artifact set without an incremental refresh plan.
+- The weekday GitHub Action commits changed public artifacts with the `value-signal-bot` identity and pushes to `main`, which triggers Vercel. The current safe maximum is 7 chunks of 250 tickers per run across 4 weekday sweep slots. Do not run multiple independent artifact-writing workflows in parallel; use the existing concurrency group or a checkpointed merge plan to avoid corrupting generated JSON.
 
 ---
 
