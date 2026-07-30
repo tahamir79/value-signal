@@ -50,6 +50,15 @@ class ScheduledBatchRefreshTests(unittest.TestCase):
         self.assertEqual(state["previousOffset"], 3)
         self.assertEqual(state["nextOffset"], 1)
 
+    def test_select_refresh_rows_records_daily_sweep_capacity(self) -> None:
+        rows = [{"ticker": ticker, "cik": str(index), "isSupported": True} for index, ticker in enumerate(["A", "B", "C", "D", "E"], 1)]
+        selected, state = select_refresh_rows(rows, {}, batch_size=2, batch_count=2, daily_sweep_slots=4)
+        self.assertEqual([row["ticker"] for row in selected], ["A", "B", "C", "D"])
+        self.assertEqual(state["batchSize"], 2)
+        self.assertEqual(state["batchCount"], 2)
+        self.assertEqual(state["dailySweepSlots"], 4)
+        self.assertEqual(state["plannedDailyRefreshTickers"], 5)
+
     def test_merge_refreshed_batch_preserves_full_dashboard(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

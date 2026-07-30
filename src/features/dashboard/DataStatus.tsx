@@ -22,7 +22,9 @@ export function DataStatus({report}:{report:EtlReport}){
   const rotationCount=formatInteger(rotationPosition);
   const batchSize=formatInteger(report.batchState?.batchSize);
   const batchCount=formatInteger(report.batchState?.batchCount);
-  const batchWindow=batchSize&&batchCount?` The scheduled job is configured as ${batchCount} chunk${report.batchState?.batchCount===1?"":"s"} of ${batchSize} tickers per run.`:"";
+  const dailySweepSlots=formatInteger(report.batchState?.dailySweepSlots);
+  const plannedDailyRefreshTickers=formatInteger(report.batchState?.plannedDailyRefreshTickers);
+  const batchWindow=batchSize&&batchCount?` The scheduled job is configured as ${batchCount} chunk${report.batchState?.batchCount===1?"":"s"} of ${batchSize} tickers per run${dailySweepSlots&&plannedDailyRefreshTickers?`, across ${dailySweepSlots} weekday sweep slots for up to ${plannedDailyRefreshTickers} tickers per business-day sweep.`:"."}`:"";
   const rotationNote=publishedCount&&universeSize
     ? ` Published artifacts currently cover ${publishedCount} companies. Rotation checkpoint: ${rotationCount??"unknown"} / ${universeSize} active universe rows.${batchWindow}`
     : "";

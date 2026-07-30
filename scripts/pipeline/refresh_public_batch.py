@@ -62,6 +62,7 @@ def select_refresh_rows(
     *,
     batch_size: int,
     batch_count: int,
+    daily_sweep_slots: int = 1,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     supported = supported_universe_rows(rows)
     if not supported:
@@ -70,6 +71,8 @@ def select_refresh_rows(
         raise ValueError("batch_size must be greater than zero.")
     if batch_count < 1:
         raise ValueError("batch_count must be greater than zero.")
+    if daily_sweep_slots < 1:
+        raise ValueError("daily_sweep_slots must be greater than zero.")
 
     fingerprint = universe_fingerprint(rows)
     next_offset = int(state.get("nextOffset") or 0)
@@ -100,6 +103,8 @@ def select_refresh_rows(
         "nextOffset": cursor % total,
         "batchSize": batch_size,
         "batchCount": batch_count,
+        "dailySweepSlots": daily_sweep_slots,
+        "plannedDailyRefreshTickers": min(total, batch_size * batch_count * daily_sweep_slots),
         "selectedTickers": [str(row["ticker"]).upper() for row in selected],
         "updatedAt": utc_now(),
     }
@@ -325,11 +330,13 @@ def merge_refreshed_batch(
 def run_batch_refresh(args: argparse.Namespace) -> dict[str, Any]:
     universe_records = _load_universe_records(args.universe)
     state = load_json(args.state_path, {})
+    daily_sweep_slots = int(os.getenv("VS_DAILY_SWEEP_SLOTS") or "1")
     selected_rows, next_state = select_refresh_rows(
         universe_records,
         state,
         batch_size=args.batch_size,
         batch_count=args.batch_count,
+        daily_sweep_slots=daily_sweep_slots,
     )
     if args.dry_run:
         return {
@@ -338,6 +345,8 @@ def run_batch_refresh(args: argparse.Namespace) -> dict[str, Any]:
             "previousOffset": next_state["previousOffset"],
             "nextOffset": next_state["nextOffset"],
             "universeSize": next_state["universeSize"],
+            "dailySweepSlots": next_state["dailySweepSlots"],
+            "plannedDailyRefreshTickers": next_state["plannedDailyRefreshTickers"],
         }
 
     user_agent = os.getenv("VS_USER_AGENT", "")
@@ -382,6 +391,8 @@ def run_batch_refresh(args: argparse.Namespace) -> dict[str, Any]:
         "failedTickers": merged_audit["failedTickers"],
         "fullUniversePublishedTickers": merged_audit["fullUniversePublishedTickers"],
         "nextOffset": next_state["nextOffset"],
+        "dailySweepSlots": next_state["dailySweepSlots"],
+        "plannedDailyRefreshTickers": next_state["plannedDailyRefreshTickers"],
     }
 
 

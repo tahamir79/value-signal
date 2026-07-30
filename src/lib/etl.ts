@@ -119,6 +119,8 @@ export type EtlReport = {
     nextOffset?: number;
     batchSize?: number;
     batchCount?: number;
+    dailySweepSlots?: number;
+    plannedDailyRefreshTickers?: number;
     selectedTickers?: string[];
     updatedAt?: string;
     lastRunStartedAt?: string;

@@ -1679,7 +1679,7 @@ The workflow now builds the full SEC-listed universe file, refreshes a bounded E
 New module:
 
 ```powershell
-python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 4 --skip-backtest
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 6 --skip-backtest
 ```
 
 Safety mechanics:
@@ -1700,7 +1700,16 @@ As of 2026-07-30, the hosted GitHub Action still runs at the original weekday cr
 cron: "25 23 * * 1-5"
 ```
 
-The schedule now refreshes four consecutive 250-company ETL chunks per run, for a maximum of 1,000 active universe rows per weekday run. This keeps each bot run bounded for GitHub Actions while advancing through the full SEC-listed universe in roughly seven business-day runs. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
+The schedule now uses four weekday sweep slots:
+
+```yaml
+cron: "25 23 * * 1-5"
+cron: "25 2 * * 2-6"
+cron: "25 5 * * 2-6"
+cron: "25 8 * * 2-6"
+```
+
+Each slot refreshes six consecutive 250-company ETL chunks, for a maximum of 1,500 active universe rows per run and roughly 6,000 rows across the full business-day sweep. This maximizes GitHub Actions usage while keeping each bot run bounded under the 120-minute job cap. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
 
 The latest batch report may say, for example, `246 / 250 companies refreshed; 4 failed`. That is not the deployed universe size. It means the most recent bounded GitHub batch refreshed 246 rows and logged four ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
 
@@ -1708,6 +1717,7 @@ The latest batch report may say, for example, `246 / 250 companies refreshed; 4 
 - `fullUniversePublishedTickers`, the number of companies currently present in public dashboard artifacts;
 - `batchState.universeSize`, the active universe row count;
 - `batchState.nextOffset`, the next cursor position for the following scheduled run.
+- `batchState.dailySweepSlots` and `batchState.plannedDailyRefreshTickers`, the planned hosted sweep capacity.
 
 ### User-facing stale-data display
 
@@ -1718,7 +1728,7 @@ The latest batch report may say, for example, `246 / 250 companies refreshed; 4 
 Passed on 2026-07-30 America/Chicago:
 
 ```powershell
-python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 4 --dry-run
+$env:VS_DAILY_SWEEP_SLOTS='4'; python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 6 --dry-run
 python -m unittest tests.test_scheduled_batch_refresh tests.test_pipeline_health -v
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/pipeline_health.py
@@ -1729,9 +1739,9 @@ npm run build
 
 Results:
 
-- scheduled batch selection dry-run selected the first twelve supported tickers and preserved a 6,017-supported-row universe;
+- scheduled batch selection dry-run selected the first eighteen supported tickers and preserved a 6,017-supported-row universe;
 - targeted scheduled-batch and pipeline-health tests passed;
-- full Python suite passed 115 tests;
+- full Python suite passed 116 tests;
 - pipeline health reported zero critical failures;
 - existing frontend brief/dashboard/saved-position tests passed 32 tests;
 - TypeScript type-check and production build passed.
