@@ -109,6 +109,23 @@ export type EtlReport = {
   successfulTickers: number;
   failedTickers: number;
   coverageCounts?: Record<string, number | string>;
+  publicationMode?: "incremental_batch_merge" | string;
+  fullUniversePublishedTickers?: number;
+  batchState?: {
+    schemaVersion?: string;
+    universeFingerprint?: string;
+    universeSize?: number;
+    previousOffset?: number;
+    nextOffset?: number;
+    batchSize?: number;
+    batchCount?: number;
+    selectedTickers?: string[];
+    updatedAt?: string;
+    lastRunStartedAt?: string;
+    lastRunFinishedAt?: string;
+    lastSuccessfulTickers?: number;
+    lastFailedTickers?: number;
+  };
   loadError?: string;
 };
 

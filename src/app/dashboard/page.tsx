@@ -51,7 +51,7 @@ export default async function DashboardPage() {
       <MetricCard label="Risk flags" value={riskFlags} note="Momentum or value-trap labels" />
     </section>
     <section className="kpi-row" aria-label="Coverage overview">
-      <MetricCard label="SEC traceable" value={coverage.raw_sec_symbols ?? allRecords.length} note="Rows in current universe batch" />
+      <MetricCard label="SEC traceable" value={coverage.raw_sec_symbols ?? allRecords.length} note="Rows in published universe" />
       <MetricCard label="Scoreable" value={coverage.scoreable_companies ?? records.filter((stock) => stock.confidence !== "Insufficient").length} note="Responsible signal available" />
       <MetricCard label="Insufficient" value={coverage.insufficient_evidence_companies ?? records.filter((stock) => stock.confidence === "Insufficient").length} note="Missing or sparse inputs" />
       <MetricCard label="Failed" value={coverage.failed_symbols ?? state.report.failedTickers} note="Logged without stopping run" />

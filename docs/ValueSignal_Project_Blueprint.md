@@ -1654,7 +1654,7 @@ When switching from Stripe test mode to live mode, saved test-mode customer/subs
 
 ## 31. Live Implementation Context - Scheduled Batch ETL Publishing
 
-**Updated:** 2026-07-29 America/Chicago
+**Updated:** 2026-07-30 America/Chicago
 **Git branch:** `scale-universe-foundation`
 **Reason:** The deployed dashboard reported old committed data even though GitHub Actions scheduled runs were green.
 
@@ -1679,7 +1679,7 @@ The workflow now builds the full SEC-listed universe file, refreshes a bounded E
 New module:
 
 ```powershell
-python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 1 --skip-backtest
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 4 --skip-backtest
 ```
 
 Safety mechanics:
@@ -1692,30 +1692,46 @@ Safety mechanics:
 - forecast publication uses `python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` because the published dataset remains full-universe scale even when only one ETL batch is refreshed.
 - `git pull --rebase` runs before the bot push to reduce GitHub-side race failures.
 
+### Current hosted rotation policy
+
+As of 2026-07-30, the hosted GitHub Action still runs at the original weekday cron time:
+
+```yaml
+cron: "25 23 * * 1-5"
+```
+
+The schedule now refreshes four consecutive 250-company ETL chunks per run, for a maximum of 1,000 active universe rows per weekday run. This keeps each bot run bounded for GitHub Actions while advancing through the full SEC-listed universe in roughly seven business-day runs. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
+
+The latest batch report may say, for example, `246 / 250 companies refreshed; 4 failed`. That is not the deployed universe size. It means the most recent bounded GitHub batch refreshed 246 rows and logged four ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
+
+- `publicationMode: "incremental_batch_merge"`;
+- `fullUniversePublishedTickers`, the number of companies currently present in public dashboard artifacts;
+- `batchState.universeSize`, the active universe row count;
+- `batchState.nextOffset`, the next cursor position for the following scheduled run.
+
 ### User-facing stale-data display
 
-`src/features/dashboard/DataStatus.tsx` no longer promotes age over pipeline health. If more than 25 percent of the requested tickers were populated, the status headline says `Data pipeline succeeded`; the success/failure counts and last run time remain visible in the body copy. Older artifact age is now a plain explanatory note instead of a `Stale data` screen.
+`src/features/dashboard/DataStatus.tsx` no longer promotes age over pipeline health. If more than 25 percent of the requested tickers were populated, the status headline says `Data pipeline succeeded`; the latest-batch success/failure counts, full published universe count, rotation checkpoint, batch configuration, and last run time remain visible in the body copy. Older artifact age is now a plain explanatory note instead of a `Stale data` screen.
 
 ### Validation
 
-Passed on 2026-07-29 America/Chicago:
+Passed on 2026-07-30 America/Chicago:
 
 ```powershell
-python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 2 --dry-run
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 4 --dry-run
+python -m unittest tests.test_scheduled_batch_refresh tests.test_pipeline_health -v
 python -m unittest discover -s tests -p "test_*.py" -v
-python scripts/audit_features.py
-python scripts/audit_scoring.py
-python scripts/audit_search.py
 python scripts/pipeline_health.py
-python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
+npm run test:brief
 npm run typecheck
 npm run build
 ```
 
 Results:
 
-- scheduled batch selection dry-run selected the first six supported tickers and preserved a 6,017-supported-row universe;
+- scheduled batch selection dry-run selected the first twelve supported tickers and preserved a 6,017-supported-row universe;
+- targeted scheduled-batch and pipeline-health tests passed;
 - full Python suite passed 115 tests;
-- feature, scoring, and search audits passed;
 - pipeline health reported zero critical failures;
+- existing frontend brief/dashboard/saved-position tests passed 32 tests;
 - TypeScript type-check and production build passed.

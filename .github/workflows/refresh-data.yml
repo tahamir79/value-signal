@@ -9,7 +9,7 @@ on:
       etl_batch_count:
         description: "Number of consecutive ETL batches to refresh"
         required: false
-        default: "1"
+        default: "4"
   schedule:
     - cron: "25 23 * * 1-5"
 permissions:
@@ -29,7 +29,7 @@ jobs:
       VS_UNIVERSE_PATH: data/universe/universe.json
       VS_UNIVERSE_LIMIT: "all"
       VS_ETL_BATCH_SIZE: ${{ github.event.inputs.etl_batch_size || '250' }}
-      VS_ETL_BATCH_COUNT: ${{ github.event.inputs.etl_batch_count || '1' }}
+      VS_ETL_BATCH_COUNT: ${{ github.event.inputs.etl_batch_count || '4' }}
       VS_SEARCH_BATCH_SIZE: "50"
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
         run: npm ci && npm run test:brief
       - name: Build scaled universe
         run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --include-starter --output-dir data/universe
-      - name: Refresh and merge live ETL batch
+      - name: Refresh and merge live ETL rotation batches
         run: python scripts/pipeline/refresh_public_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_ETL_BATCH_SIZE" --batch-count "$VS_ETL_BATCH_COUNT" --skip-backtest
       - name: Benchmark growth spurt detector
         run: python scripts/benchmark_growth_spurt.py
