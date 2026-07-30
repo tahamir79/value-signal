@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-30T03:13:47.087098+00:00",
+  "generatedAt": "2026-07-30T19:58:17.403825+00:00",
   "record": {
     "security": {
       "ticker": "AIOT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.0,
-      "dailyChangePercent": 2.3018,
-      "marketCapBillions": 0.5367,
+      "latestPrice": 3.87,
+      "dailyChangePercent": -3.25,
+      "marketCapBillions": 0.5193,
       "liabilitiesToAssets": 0.495989,
       "latestRevenueBillions": 0.4438,
       "grossMarginPercent": 55.5283,
@@ -329,7 +329,7 @@
       "shortTermDebtShare": 0.025874,
       "bookValue": 475494000.0,
       "bookValuePerShare": 3.543679,
-      "priceToBook": 1.12877,
+      "priceToBook": 1.092085,
       "retainedEarnings": -226335000.0
     },
     "balanceSheetScoringShadow": {
@@ -539,51 +539,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AIOT",
-      "generatedAt": "2026-07-30T03:12:04.187938+00:00",
-      "marketDataAsOf": "2026-07-29",
-      "status": "emerging",
-      "growthSpurtScore": 69.08,
+      "generatedAt": "2026-07-30T19:46:44.077210+00:00",
+      "marketDataAsOf": "2026-07-30",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.06382979,
-        "return63d": 0.29449842,
-        "trendSlope21d": -0.00502676,
-        "trendSlope63d": 0.00475639,
-        "trendAnnualizedReturn63d": 2.31550783,
-        "trendFitR2_63d": 0.63738794,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.0644095,
+        "return21d": 0.01044385,
+        "return63d": 0.26885244,
+        "trendSlope21d": -0.00608988,
+        "trendSlope63d": 0.00438426,
+        "trendAnnualizedReturn63d": 2.01872461,
+        "trendFitR2_63d": 0.59879338,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.06551889,
         "maxDrawdown63d": -0.14840184,
-        "downsideVolatility63d": 0.02007937,
-        "excessReturnVsSpy21d": 0.07940331,
-        "excessReturnVsSpy63d": 0.26688905,
-        "trendAcceleration": -0.01137769,
-        "largestOneDayContribution63d": 0.09226137,
+        "downsideVolatility63d": 0.01983545,
+        "excessReturnVsSpy21d": 0.01716616,
+        "excessReturnVsSpy63d": 0.22376839,
+        "trendAcceleration": -0.01202346,
+        "largestOneDayContribution63d": 0.09365968,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 30.014,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 86.9626,
+        "consistencyScore": 27.3124,
+        "relativeStrengthScore": 90.0102,
         "drawdownControlScore": 50.5327,
-        "confirmationScore": 40.0
+        "confirmationScore": 13.9251
       },
-      "benchmarkPercentile": 0.838983,
+      "benchmarkPercentile": 0.755591,
       "metricPercentiles": {
-        "trendSlope63d": 0.898305,
-        "trendFitR2_63d": 0.669492,
-        "excessReturnVsSpy63d": 0.885106,
-        "drawdownControlScore": 0.639831,
-        "growthSpurtScore": 0.838983
+        "trendSlope63d": 0.889244,
+        "trendFitR2_63d": 0.626198,
+        "excessReturnVsSpy63d": 0.862955,
+        "drawdownControlScore": 0.641108,
+        "growthSpurtScore": 0.755591
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14373,12 +14375,23 @@
         "ticker": "AIOT",
         "date": "2026-07-29",
         "open": 3.9000000953674316,
-        "high": 4.114999771118164,
-        "low": 3.8301000595092773,
+        "high": 4.119999885559082,
+        "low": 3.8299999237060547,
         "close": 4.0,
-        "volume": 805226,
+        "volume": 805200,
         "source": "yahoo-chart",
         "adjusted_close": 4.0
+      },
+      {
+        "ticker": "AIOT",
+        "date": "2026-07-30",
+        "open": 4.019999980926514,
+        "high": 4.025000095367432,
+        "low": 3.8350000381469727,
+        "close": 3.869999885559082,
+        "volume": 316168,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.869999885559082
       }
     ],
     "dataStatus": {
@@ -14411,13 +14424,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-06-15",
-      "latestScoringDate": "2026-07-29",
+      "latestScoringDate": "2026-07-30",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 69.08,
-      "growthSpurtBenchmarkPercentile": 0.838983,
-      "growthSpurtMarketDataAsOf": "2026-07-29",
-      "lastPipelineRun": "2026-07-30T03:12:04.187938+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.755591,
+      "growthSpurtMarketDataAsOf": "2026-07-30",
+      "lastPipelineRun": "2026-07-30T19:46:44.077210+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
