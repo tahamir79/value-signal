@@ -1711,6 +1711,8 @@ cron: "25 8 * * 2-6"
 
 Each slot refreshes seven consecutive 250-company ETL chunks, for a maximum of 1,750 active universe rows per run and roughly 7,000 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual active universe size, so the dashboard describes the real full-universe sweep target instead of the theoretical ceiling. This maximizes GitHub Actions usage while keeping each bot run bounded under the 120-minute job cap. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
 
+The scheduled refresh uses the scaled-fast forecast path and audits the generated forecast artifacts with `scripts/forecast/audit_forecasts.py`. Heavy challenger-model evaluation through `scripts/forecast/evaluate_models.py` is reserved for dedicated forecast-methodology work, not the routine artifact bot, because it can consume the action budget without changing the public baseline forecast model.
+
 The latest batch report may say, for example, `246 / 250 companies refreshed; 4 failed`. That is not the deployed universe size. It means the most recent bounded GitHub batch refreshed 246 rows and logged four ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
 
 - `publicationMode: "incremental_batch_merge"`;

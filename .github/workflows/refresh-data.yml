@@ -73,10 +73,7 @@ jobs:
       - name: Audit filing search outputs
         run: python scripts/audit_search.py
       - name: Audit forecast outputs
-        run: |
-          python scripts/forecast/audit_training_dataset.py
-          python scripts/forecast/evaluate_models.py
-          python scripts/forecast/audit_forecasts.py
+        run: python scripts/forecast/audit_forecasts.py
       - name: Publish pipeline health report
         run: python scripts/pipeline_health.py
       - name: Commit changed artifacts

@@ -706,6 +706,7 @@ Operational notes:
 - SEC Company Facts payloads for mega-caps can be tens of MB per ticker, so a true 6,000-company fundamentals refresh is bandwidth- and time-heavy.
 - Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed 5,799-stock checkpoint run used shorter provider-default price histories, so the scaled-fast forecast path is current-only and uses sparse historical scenario fallback instead of expensive model retraining.
 - The weekday GitHub Action commits changed public artifacts with the `value-signal-bot` identity and pushes to `main`, which triggers Vercel. The current safe maximum is 7 chunks of 250 tickers per run across 4 weekday sweep slots. Do not run multiple independent artifact-writing workflows in parallel; use the existing concurrency group or a checkpointed merge plan to avoid corrupting generated JSON.
+- Routine scheduled refreshes use `scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` plus `scripts/forecast/audit_forecasts.py`. Do not put `scripts/forecast/evaluate_models.py` in the daily artifact bot unless forecast-model research is the active goal; that script is a heavier challenger-model evaluation and can consume the GitHub Actions budget without changing the public baseline forecast selection.
 
 ---
 
