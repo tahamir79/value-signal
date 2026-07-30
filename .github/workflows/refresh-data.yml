@@ -60,8 +60,6 @@ jobs:
         run: python scripts/universe/build_universe.py --mode "$VS_UNIVERSE_MODE" --limit "$VS_UNIVERSE_LIMIT" --include-starter --output-dir data/universe
       - name: Refresh and merge live ETL rotation batches
         run: python scripts/pipeline/refresh_public_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_ETL_BATCH_SIZE" --batch-count "$VS_ETL_BATCH_COUNT" --skip-backtest
-      - name: Benchmark growth spurt detector
-        run: python scripts/benchmark_growth_spurt.py
       - name: Refresh SEC filing search index
         run: python scripts/build_search_index_batch.py --universe "$VS_UNIVERSE_PATH" --batch-size "$VS_SEARCH_BATCH_SIZE"
       - name: Refresh experimental forecast artifacts
@@ -84,7 +82,7 @@ jobs:
           git config user.email "value-signal-bot@users.noreply.github.com"
           git add -f data/reports/scheduled_etl_batch_state.json
           git add public/data/dashboard.json public/data/features.json public/data/signals.json public/data/backtest_results.json public/data/search_index.json public/data/search public/data/stocks public/data/forecasts public/data/etl_report.json public/data/universe_coverage_report.json public/data/pipeline_health.json models/forecast
-          git add -f data/reports/forecast_model_leaderboard.json data/reports/forecast_backtest_30_day.json data/reports/forecast_backtest_90_day.json data/reports/forecast_data_quality.json data/reports/forecast_leakage_audit.json data/reports/pipeline_health_report.json data/reports/growth_spurt_benchmark.json
+          git add -f data/reports/forecast_model_leaderboard.json data/reports/forecast_backtest_30_day.json data/reports/forecast_backtest_90_day.json data/reports/forecast_data_quality.json data/reports/forecast_leakage_audit.json data/reports/pipeline_health_report.json
           git diff --cached --quiet || git commit -m "data: refresh ValueSignal artifacts"
           git pull --rebase
           git push

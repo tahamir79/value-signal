@@ -1713,7 +1713,13 @@ cron: "25 9 * * 2-6"
 
 Each slot refreshes five consecutive 250-company ETL chunks, for a maximum of 1,250 active universe rows per run and roughly 7,500 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual active universe size, so the dashboard describes the real full-universe sweep target instead of the theoretical ceiling. This maximizes GitHub Actions usage while reducing individual run duration and preserving one missed-window buffer. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
 
-The scheduled refresh uses the scaled-fast forecast path and audits the generated forecast artifacts with `scripts/forecast/audit_forecasts.py`. Heavy challenger-model evaluation through `scripts/forecast/evaluate_models.py` is reserved for dedicated forecast-methodology work, not the routine artifact bot, because it can consume the action budget without changing the public baseline forecast model.
+The scheduled refresh uses the scaled-fast forecast path and audits the generated forecast artifacts with `scripts/forecast/audit_forecasts.py`. Heavy challenger-model evaluation through `scripts/forecast/evaluate_models.py` is reserved for dedicated forecast-methodology work, not the routine artifact bot, because it can consume the action budget without changing the public baseline forecast model. The expensive historical Growth Spurt benchmark through `scripts/benchmark_growth_spurt.py` is also separated from the frequent data refresh because ETL already calculates current Growth Spurt artifacts as each stock rotates through the daily sweep.
+
+Additional GitHub bots:
+
+- `.github/workflows/benchmark-growth-spurt.yml` runs weekly/manual Growth Spurt detector benchmarking and commits `data/reports/growth_spurt_benchmark.json`.
+- `.github/workflows/audit-forecast-models.yml` runs weekly/manual forecast training-data and challenger-model audits, then commits compact forecast reports.
+- These bots share the `value-signal-etl` concurrency group with the scheduled data refresh, so generated artifact writes stay serialized even though separate workflow files exist.
 
 The latest batch report may say, for example, `1,203 / 1,250 companies refreshed; 47 failed`. That is not the deployed universe size. It means the most recent bounded GitHub sweep slice refreshed 1,203 rows and logged ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
 

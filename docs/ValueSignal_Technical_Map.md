@@ -596,6 +596,8 @@ The public summary excludes local artifact paths and secrets.
 Workflow:
 
 - `.github/workflows/refresh-data.yml`
+- `.github/workflows/benchmark-growth-spurt.yml`
+- `.github/workflows/audit-forecast-models.yml`
 
 Current intended sequence:
 
@@ -604,13 +606,18 @@ Current intended sequence:
 3. run tests;
 4. build scaled universe;
 5. run ETL with `--skip-backtest`, including Growth Spurt artifacts when mode is `display`;
-6. benchmark the Growth Spurt detector against SPY point-in-time snapshots;
-7. run the batch-aware BM25 filing-search increment;
-8. run forecast pipeline in scaled-fast mode;
-9. run feature/scoring/backtest/search/forecast audits;
-10. generate pipeline health;
-11. commit generated artifacts if changed;
-12. push to trigger Vercel redeployment.
+6. run the batch-aware BM25 filing-search increment;
+7. run forecast pipeline in scaled-fast mode;
+8. run feature/scoring/backtest/search/forecast audits;
+9. generate pipeline health;
+10. commit generated artifacts if changed;
+11. push to trigger Vercel redeployment.
+
+Separate weekly/manual research-validation bots:
+
+- `.github/workflows/benchmark-growth-spurt.yml` runs the expensive SPY point-in-time Growth Spurt benchmark and commits `data/reports/growth_spurt_benchmark.json`.
+- `.github/workflows/audit-forecast-models.yml` runs the heavier forecast training-data audit and challenger-model evaluation, then commits compact forecast model reports.
+- Both use the same `value-signal-etl` concurrency group as the daily refresh, so generated artifact commits stay serialized even across different workflow files.
 
 Important environment/secret requirements:
 
@@ -706,7 +713,7 @@ Operational notes:
 - SEC Company Facts payloads for mega-caps can be tens of MB per ticker, so a true 6,000-company fundamentals refresh is bandwidth- and time-heavy.
 - Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed 5,799-stock checkpoint run used shorter provider-default price histories, so the scaled-fast forecast path is current-only and uses sparse historical scenario fallback instead of expensive model retraining.
 - The weekday GitHub Action commits changed public artifacts with the `value-signal-bot` identity and pushes to `main`, which triggers Vercel. The current safe maximum is 5 chunks of 250 tickers per run across 6 weekday sweep slots. Do not run multiple independent artifact-writing workflows in parallel; use the existing concurrency group or a checkpointed merge plan to avoid corrupting generated JSON.
-- Routine scheduled refreshes use `scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` plus `scripts/forecast/audit_forecasts.py`. Do not put `scripts/forecast/evaluate_models.py` in the daily artifact bot unless forecast-model research is the active goal; that script is a heavier challenger-model evaluation and can consume the GitHub Actions budget without changing the public baseline forecast selection.
+- Routine scheduled refreshes use `scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` plus `scripts/forecast/audit_forecasts.py`. Do not put `scripts/forecast/evaluate_models.py` or `scripts/benchmark_growth_spurt.py` in the daily artifact bot unless model/detector research is the active goal; those scripts are heavier research-validation jobs and can consume the GitHub Actions budget without improving daily price/data freshness.
 
 ---
 
