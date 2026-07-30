@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "CRAN",
   "companyName": "Crane Harbor Acquisition Corp. II",
-  "generatedAt": "2026-07-30T20:05:49.554321+00:00",
-  "marketDataAsOf": "2026-07-21",
+  "generatedAt": "2026-07-30T21:27:18.110580+00:00",
+  "marketDataAsOf": "2026-07-29",
   "currentPrice": 10.14,
   "analystTarget": {
     "ticker": "CRAN",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-30T20:05:49.554321+00:00",
+    "collectedAt": "2026-07-30T21:27:18.110580+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,43 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-30T20:05:49.554321+00:00",
-    "marketDataAsOf": "2026-07-21",
+    "generatedAt": "2026-07-30T21:27:18.110580+00:00",
+    "marketDataAsOf": "2026-07-29",
     "currentPrice": 10.14,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 22,
-      "status": "insufficient_data",
-      "usableObservationCount": 22,
+      "returnEstimate": 0.00262661,
+      "lowerReturn": 0.00011446,
+      "upperReturn": 0.00832722,
+      "estimatedPrice": 10.1666,
+      "lowerEstimatedPrice": 10.1412,
+      "upperEstimatedPrice": 10.2244,
+      "sampleCount": 24,
+      "status": "available",
+      "usableObservationCount": 24,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 22 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00396572,
-      "lowerReturn": 0.00150531,
-      "upperReturn": 0.01983827,
-      "estimatedPrice": 10.1802,
-      "lowerEstimatedPrice": 10.1553,
-      "upperEstimatedPrice": 10.3412,
-      "sampleCount": 14,
+      "returnEstimate": 0.00637142,
+      "lowerReturn": 0.00251389,
+      "upperReturn": 0.0193945,
+      "estimatedPrice": 10.2046,
+      "lowerEstimatedPrice": 10.1655,
+      "upperEstimatedPrice": 10.3367,
+      "sampleCount": 16,
       "status": "available",
-      "usableObservationCount": 14,
+      "usableObservationCount": 16,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 22 of 24 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
