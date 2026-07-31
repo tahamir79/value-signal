@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-30T23:49:23.687551+00:00",
+  "generatedAt": "2026-07-31T00:11:57.995223+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 53,
+  "nonCriticalFailures": 42,
   "expectedUnavailable": 5829,
   "dataQualityWarnings": 5493,
   "warnings": 5493,
@@ -21,14 +21,14 @@
     {
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
-      "attempted": 1750,
-      "succeeded": 1697,
-      "failed": 53,
+      "attempted": 1250,
+      "succeeded": 1208,
+      "failed": 42,
       "skipped": 0,
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 43
+          "count": 32
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -54,25 +54,25 @@
       "name": "forecast_artifacts",
       "status": "success",
       "attempted": 5828,
-      "succeeded": 5501,
+      "succeeded": 5500,
       "failed": 0,
-      "skipped": 327,
+      "skipped": 328,
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 327
+          "count": 328
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 307
+          "count": 305
         }
       ]
     },
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 408,
-      "succeeded": 408,
+      "attempted": 448,
+      "succeeded": 448,
       "failed": 0,
       "skipped": 0,
       "commonReasons": []
@@ -81,17 +81,17 @@
       "name": "balance_sheet_context",
       "status": "partial_success",
       "attempted": 5828,
-      "succeeded": 4556,
+      "succeeded": 4557,
       "failed": 0,
-      "skipped": 1272,
+      "skipped": 1271,
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4221
+          "count": 4222
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1272
+          "count": 1271
         }
       ]
     },
@@ -139,12 +139,6 @@
     },
     {
       "ticker": "ADIG",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "ADIG-WI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -238,12 +232,6 @@
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
-    },
-    {
-      "ticker": "BIOT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
     },
     {
       "ticker": "BLDC",
@@ -385,60 +373,6 @@
     },
     {
       "ticker": "CMBY",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CMLS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CONE",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CRGT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CSCM",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CUVL",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "DAVI",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "DTSS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "EAI",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "EFGH",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
