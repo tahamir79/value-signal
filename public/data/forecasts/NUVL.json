@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "NUVL",
   "companyName": "Nuvalent, Inc.",
-  "generatedAt": "2026-07-31T01:15:16.774844+00:00",
+  "generatedAt": "2026-07-31T04:12:11.255513+00:00",
   "marketDataAsOf": "2026-07-21",
   "currentPrice": 123.96,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-31T01:15:16.774844+00:00",
+    "collectedAt": "2026-07-31T04:12:11.255513+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-31T01:15:16.774844+00:00",
+    "generatedAt": "2026-07-31T04:12:11.255513+00:00",
     "marketDataAsOf": "2026-07-21",
     "currentPrice": 123.96,
     "horizon30Day": {
-      "returnEstimate": 0.02111256,
-      "lowerReturn": -0.04725794,
-      "upperReturn": 0.08,
-      "estimatedPrice": 126.5771,
-      "lowerEstimatedPrice": 118.1019,
-      "upperEstimatedPrice": 133.8768,
-      "sampleCount": 46,
-      "status": "available",
-      "usableObservationCount": 46,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.11002335,
-      "lowerReturn": -0.01401926,
-      "upperReturn": 0.15,
-      "estimatedPrice": 137.5985,
-      "lowerEstimatedPrice": 122.2222,
-      "upperEstimatedPrice": 142.554,
-      "sampleCount": 38,
-      "status": "available",
-      "usableObservationCount": 38,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

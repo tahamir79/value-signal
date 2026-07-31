@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0.0",
   "ticker": "PCSC",
-  "companyName": "Perceptive Capital Solutions Corp",
-  "generatedAt": "2026-07-31T01:15:16.774844+00:00",
+  "companyName": "Freenome, Inc.",
+  "generatedAt": "2026-07-31T04:12:11.255513+00:00",
   "marketDataAsOf": "2026-07-17",
   "currentPrice": 11.975,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-07-31T01:15:16.774844+00:00",
+    "collectedAt": "2026-07-31T04:12:11.255513+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,41 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-07-31T01:15:16.774844+00:00",
+    "generatedAt": "2026-07-31T04:12:11.255513+00:00",
     "marketDataAsOf": "2026-07-17",
     "currentPrice": 11.975,
     "horizon30Day": {
-      "returnEstimate": 0.0043031,
-      "lowerReturn": -0.01132219,
-      "upperReturn": 0.02667926,
-      "estimatedPrice": 12.0265,
-      "lowerEstimatedPrice": 11.8394,
-      "upperEstimatedPrice": 12.2945,
-      "sampleCount": 46,
-      "status": "available",
-      "usableObservationCount": 46,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.00834573,
-      "lowerReturn": -0.10803723,
-      "upperReturn": 0.15,
-      "estimatedPrice": 12.0749,
-      "lowerEstimatedPrice": 10.6813,
-      "upperEstimatedPrice": 13.7713,
-      "sampleCount": 38,
-      "status": "available",
-      "usableObservationCount": 38,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "Market data as of 2026-07-17 is older than 10 days.",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",
