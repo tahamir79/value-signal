@@ -628,7 +628,7 @@ Important environment/secret requirements:
 Workflow gotcha already fixed:
 
 - `data/universe/universe.json` must be created before `scripts/run_etl.py --universe data/universe/universe.json`.
-- The scheduled refresh now uses 12 ETL chunks of 250 tickers per run and 3 weekday sweep slots. That gives 3,000 attempted rows per run and enough daily sweep capacity to refresh the roughly 6,000-row active universe each business day, while the shared `value-signal-etl` concurrency group keeps artifact-writing jobs serialized.
+- The scheduled refresh now uses one 2,000-ticker ETL batch per run and 3 weekday sweep slots. That gives 2,000 attempted rows per run and roughly 6,000 attempted rows per business-day sweep, while the shared `value-signal-etl` concurrency group keeps artifact-writing jobs serialized.
 
 ---
 
@@ -682,7 +682,7 @@ Scaled refresh:
 ```powershell
 $env:VS_USER_AGENT="ValueSignal research ETL <contact>"
 python scripts/universe/build_universe.py --mode sec_listed_core --limit all --include-starter --output-dir data/universe
-python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 250 --batch-count 12 --skip-backtest
+python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 2000 --batch-count 1 --skip-backtest
 python scripts/benchmark_growth_spurt.py
 python scripts/build_search_index_batch.py --universe data/universe/universe.json --batch-size 50
 python scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast
@@ -712,7 +712,7 @@ Operational notes:
 - Merge mode blocks incomplete checkpoint sets unless `--allow-partial-merge` is passed deliberately.
 - SEC Company Facts payloads for mega-caps can be tens of MB per ticker, so a true 6,000-company fundamentals refresh is bandwidth- and time-heavy.
 - Future checkpoint fetches default to the same 5-year Yahoo price window as `scripts/run_etl.py`. The first completed 5,799-stock checkpoint run used shorter provider-default price histories, so the scaled-fast forecast path is current-only and uses sparse historical scenario fallback instead of expensive model retraining.
-- The weekday GitHub Action commits changed public artifacts with the `value-signal-bot` identity and pushes to `main`, which triggers Vercel. The current high-freshness policy is 12 chunks of 250 tickers per run across 3 weekday sweep slots. Do not run multiple independent artifact-writing workflows in parallel; use the existing concurrency group or a checkpointed merge plan to avoid corrupting generated JSON.
+- The weekday GitHub Action commits changed public artifacts with the `value-signal-bot` identity and pushes to `main`, which triggers Vercel. The current high-freshness policy is one 2,000-ticker batch per run across 3 weekday sweep slots. Do not run multiple independent artifact-writing workflows in parallel; use the existing concurrency group or a checkpointed merge plan to avoid corrupting generated JSON.
 - Routine scheduled refreshes use `scripts/forecast/run_forecast_pipeline.py --summary --scaled-fast` plus `scripts/forecast/audit_forecasts.py`. Do not put `scripts/forecast/evaluate_models.py` or `scripts/benchmark_growth_spurt.py` in the daily artifact bot unless model/detector research is the active goal; those scripts are heavier research-validation jobs and can consume the GitHub Actions budget without improving daily price/data freshness.
 
 ---

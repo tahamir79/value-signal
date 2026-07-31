@@ -1708,7 +1708,7 @@ cron: "25 3 * * 2-6"
 cron: "25 7 * * 2-6"
 ```
 
-Each slot refreshes twelve consecutive 250-company ETL chunks, for a maximum of 3,000 active universe rows per run and roughly 9,000 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual active universe size, so the dashboard describes the real full-universe sweep target instead of the theoretical ceiling. This is the high-freshness policy: larger nightly runs accept more provider/runtime risk in exchange for aiming to refresh every active stock price each business day. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
+Each slot refreshes one 2,000-company ETL batch, for a maximum of 2,000 active universe rows per run and roughly 6,000 rows across the full business-day sweep. The published `plannedDailyRefreshTickers` field is capped to the actual planned sweep capacity or active universe size, so the dashboard describes the real sweep target instead of an inflated theoretical ceiling. This is the high-freshness policy: three larger weekday runs accept more provider/runtime risk in exchange for near-full daily price freshness across the active stock universe. The shared `value-signal-etl` concurrency group remains enabled with `cancel-in-progress: false`, so only one artifact-writing run is allowed at a time. Manual dispatch can still override `etl_batch_size` and `etl_batch_count`.
 
 The scheduled refresh uses the scaled-fast forecast path and audits the generated forecast artifacts with `scripts/forecast/audit_forecasts.py`. Heavy challenger-model evaluation through `scripts/forecast/evaluate_models.py` is reserved for dedicated forecast-methodology work, not the routine artifact bot, because it can consume the action budget without changing the public baseline forecast model. The expensive historical Growth Spurt benchmark through `scripts/benchmark_growth_spurt.py` is also separated from the frequent data refresh because ETL already calculates current Growth Spurt artifacts as each stock rotates through the daily sweep.
 
@@ -1718,7 +1718,7 @@ Additional GitHub bots:
 - `.github/workflows/audit-forecast-models.yml` runs weekly/manual forecast training-data and challenger-model audits, then commits compact forecast reports.
 - These bots share the `value-signal-etl` concurrency group with the scheduled data refresh, so generated artifact writes stay serialized even though separate workflow files exist.
 
-The latest batch report may say, for example, `2,880 / 3,000 companies refreshed; 120 failed`. That is not the deployed universe size. It means the most recent bounded GitHub sweep slice refreshed 2,880 rows and logged ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
+The latest batch report may say, for example, `1,940 / 2,000 companies refreshed; 60 failed`. That is not the deployed universe size. It means the most recent bounded GitHub sweep slice refreshed 1,940 rows and logged ticker-level provider failures. The public artifacts remain full-universe merged artifacts, and `public/data/etl_report.json` exposes:
 
 - `publicationMode: "incremental_batch_merge"`;
 - `fullUniversePublishedTickers`, the number of companies currently present in public dashboard artifacts;
@@ -1735,7 +1735,7 @@ The latest batch report may say, for example, `2,880 / 3,000 companies refreshed
 Passed on 2026-07-30 America/Chicago:
 
 ```powershell
-$env:VS_DAILY_SWEEP_SLOTS='3'; python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 3 --batch-count 12 --dry-run
+$env:VS_DAILY_SWEEP_SLOTS='3'; python scripts/pipeline/refresh_public_batch.py --universe data/universe/universe.json --batch-size 2000 --batch-count 1 --dry-run
 python -m unittest tests.test_scheduled_batch_refresh tests.test_pipeline_health -v
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/pipeline_health.py
@@ -1746,7 +1746,7 @@ npm run build
 
 Results:
 
-- scheduled batch selection dry-run selected the first eighteen supported tickers and preserved a 6,017-supported-row universe;
+- scheduled batch selection dry-run selected 2,000 supported tickers, set `nextOffset` to `2,000`, and reported `plannedDailyRefreshTickers: 6,000` against a 6,017-supported-row local universe;
 - targeted scheduled-batch and pipeline-health tests passed;
 - full Python suite passed 116 tests;
 - pipeline health reported zero critical failures;
