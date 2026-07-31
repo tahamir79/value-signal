@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T00:11:57.995223+00:00",
+  "generatedAt": "2026-07-31T01:16:51.165857+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
   "nonCriticalFailures": 42,
-  "expectedUnavailable": 5829,
-  "dataQualityWarnings": 5493,
-  "warnings": 5493,
+  "expectedUnavailable": 5830,
+  "dataQualityWarnings": 5494,
+  "warnings": 5494,
   "stages": [
     {
       "name": "core_artifacts",
@@ -28,11 +28,11 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 32
+          "count": 33
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
-          "count": 10
+          "count": 9
         }
       ]
     },
@@ -53,14 +53,14 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 5828,
+      "attempted": 5829,
       "succeeded": 5500,
       "failed": 0,
-      "skipped": 328,
+      "skipped": 329,
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 328
+          "count": 329
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
@@ -71,8 +71,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 448,
-      "succeeded": 448,
+      "attempted": 489,
+      "succeeded": 489,
       "failed": 0,
       "skipped": 0,
       "commonReasons": []
@@ -80,26 +80,26 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 5828,
-      "succeeded": 4557,
+      "attempted": 5829,
+      "succeeded": 4556,
       "failed": 0,
-      "skipped": 1271,
+      "skipped": 1273,
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4222
+          "count": 4221
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1271
+          "count": 1273
         }
       ]
     },
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 5828,
-      "succeeded": 5682,
+      "attempted": 5829,
+      "succeeded": 5683,
       "failed": 0,
       "skipped": 146,
       "commonReasons": [
@@ -112,14 +112,14 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 5828,
+      "attempted": 5829,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 5828,
+      "skipped": 5829,
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 5828
+          "count": 5829
         }
       ]
     }
@@ -234,6 +234,12 @@
       "retryable": true
     },
     {
+      "ticker": "BIOT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
       "ticker": "BLDC",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -316,12 +322,6 @@
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
-    },
-    {
-      "ticker": "CCCT",
-      "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
     },
     {
       "ticker": "CCIL",
