@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T06:49:54.415115+00:00",
+  "generatedAt": "2026-07-31T10:25:08.298014+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 59,
+  "nonCriticalFailures": 60,
   "expectedUnavailable": 5842,
   "dataQualityWarnings": 5506,
   "warnings": 5506,
@@ -33,8 +33,8 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1941,
-      "failed": 59,
+      "succeeded": 1940,
+      "failed": 60,
       "skipped": 0,
       "failedTickers": [
         "AAC",
@@ -54,6 +54,7 @@
         "AYR",
         "BCCQ",
         "BDDD",
+        "BIOT",
         "BLDC",
         "BLSM",
         "BLTG",
@@ -100,7 +101,7 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 47
+          "count": 48
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -158,8 +159,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 563,
-      "succeeded": 563,
+      "attempted": 599,
+      "succeeded": 599,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -173,18 +174,18 @@
       "name": "balance_sheet_context",
       "status": "partial_success",
       "attempted": 5841,
-      "succeeded": 4561,
+      "succeeded": 4560,
       "failed": 0,
-      "skipped": 1280,
+      "skipped": 1281,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4226
+          "count": 4225
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1280
+          "count": 1281
         }
       ],
       "artifactPaths": [
@@ -333,6 +334,12 @@
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
+    },
+    {
+      "ticker": "BIOT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
     },
     {
       "ticker": "BLDC",
