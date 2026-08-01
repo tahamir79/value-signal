@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T06:33:43.883707+00:00",
+  "generatedAt": "2026-08-01T09:56:01.511132+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 59,
+  "nonCriticalFailures": 58,
   "expectedUnavailable": 5843,
   "dataQualityWarnings": 5507,
   "warnings": 5507,
@@ -22,13 +22,13 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1941,
-      "failed": 59,
+      "succeeded": 1942,
+      "failed": 58,
       "skipped": 0,
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 47
+          "count": 46
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -71,8 +71,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 665,
-      "succeeded": 665,
+      "attempted": 699,
+      "succeeded": 699,
       "failed": 0,
       "skipped": 0,
       "commonReasons": []
@@ -139,12 +139,6 @@
     },
     {
       "ticker": "ADIG",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "ADIG-WI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
