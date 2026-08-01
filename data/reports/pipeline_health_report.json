@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T00:42:17.827289+00:00",
+  "generatedAt": "2026-08-01T06:33:43.883707+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 58,
+  "nonCriticalFailures": 59,
   "expectedUnavailable": 5843,
   "dataQualityWarnings": 5507,
   "warnings": 5507,
@@ -33,13 +33,14 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1942,
-      "failed": 58,
+      "succeeded": 1941,
+      "failed": 59,
       "skipped": 0,
       "failedTickers": [
         "AAC",
         "ADBT",
         "ADIG",
+        "ADIG-WI",
         "AIBZ",
         "ALPS",
         "AMAC",
@@ -99,7 +100,7 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 46
+          "count": 47
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -145,7 +146,7 @@
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 293
+          "count": 290
         }
       ],
       "artifactPaths": [
@@ -157,8 +158,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 634,
-      "succeeded": 634,
+      "attempted": 665,
+      "succeeded": 665,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -245,6 +246,12 @@
     },
     {
       "ticker": "ADIG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ADIG-WI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
