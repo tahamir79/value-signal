@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T10:19:15.251697+00:00",
+  "generatedAt": "2026-08-01T00:36:48.761579+00:00",
   "record": {
     "security": {
       "ticker": "AMSS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.24,
-      "dailyChangePercent": 14.8148,
-      "marketCapBillions": 0.0142,
+      "latestPrice": 1.21,
+      "dailyChangePercent": -2.4194,
+      "marketCapBillions": 0.0138,
       "liabilitiesToAssets": 1.114481,
       "latestRevenueBillions": 0.0041,
       "grossMarginPercent": 25.8581,
@@ -513,50 +513,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AMSS",
-      "generatedAt": "2026-07-31T10:05:52.226288+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-01T00:17:47.146172+00:00",
+      "marketDataAsOf": "2026-07-31",
+      "status": "not_detected",
+      "growthSpurtScore": 11.38,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.37628866,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": -0.03292333,
+        "trendSlope63d": -0.03406912,
+        "trendAnnualizedReturn63d": -0.99981319,
+        "trendFitR2_63d": 0.8940759,
+        "positiveWeekRatio63d": 0.0,
+        "trendResidualVolatility63d": 0.17741675,
+        "maxDrawdown63d": -0.92422908,
+        "downsideVolatility63d": 0.11761554,
+        "excessReturnVsSpy21d": -0.37799165,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.00958941,
+        "largestOneDayContribution63d": 0.11757615,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 37.5,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 20.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.24179,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.003178,
+        "trendFitR2_63d": 0.95339,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.167638,
+        "growthSpurtScore": 0.24179
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1097,6 +1096,17 @@
         "volume": 219900,
         "source": "yahoo-chart",
         "adjusted_close": 1.2400000095367432
+      },
+      {
+        "ticker": "AMSS",
+        "date": "2026-07-31",
+        "open": 1.2100000381469727,
+        "high": 1.25,
+        "low": 1.1646000146865845,
+        "close": 1.2100000381469727,
+        "volume": 67574,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.2100000381469727
       }
     ],
     "dataStatus": {
@@ -1138,13 +1148,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-06-29",
-      "latestScoringDate": "2026-07-30",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-07-31T10:05:52.226288+00:00",
+      "latestScoringDate": "2026-07-31",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 11.38,
+      "growthSpurtBenchmarkPercentile": 0.24179,
+      "growthSpurtMarketDataAsOf": "2026-07-31",
+      "lastPipelineRun": "2026-08-01T00:17:47.146172+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

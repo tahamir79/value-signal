@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T06:44:14.907572+00:00",
+  "generatedAt": "2026-08-01T00:36:48.761579+00:00",
   "record": {
     "security": {
       "ticker": "CFNB",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 33.95,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.3491,
+      "latestPrice": 1440.0,
+      "dailyChangePercent": 4141.5316,
+      "marketCapBillions": 14.8092,
       "liabilitiesToAssets": 0.725911,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -217,7 +217,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 196134000.0,
       "bookValuePerShare": 19.071504,
-      "priceToBook": 1.780143,
+      "priceToBook": 75.505319,
       "retainedEarnings": 193728000.0
     },
     "balanceSheetScoringShadow": {
@@ -439,52 +439,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CFNB",
-      "generatedAt": "2026-07-31T06:30:56.250642+00:00",
-      "marketDataAsOf": "2026-07-30",
-      "status": "emerging",
-      "growthSpurtScore": 63.09,
+      "generatedAt": "2026-08-01T00:17:47.146172+00:00",
+      "marketDataAsOf": "2026-07-31",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0,
-        "return63d": 0.25787333,
+        "return21d": 41.41531569,
+        "return63d": 52.35309419,
         "trendSlope21d": 0.0,
         "trendSlope63d": 0.00207377,
         "trendAnnualizedReturn63d": 0.68639031,
-        "trendFitR2_63d": 0.65740935,
+        "trendFitR2_63d": 0.03015066,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.03228145,
+        "trendResidualVolatility63d": 0.46956164,
         "maxDrawdown63d": -0.05845183,
         "downsideVolatility63d": 0.01082164,
-        "excessReturnVsSpy21d": 0.00680265,
-        "excessReturnVsSpy63d": 0.21287381,
-        "trendAcceleration": -0.00395027,
-        "largestOneDayContribution63d": 0.13127676,
+        "excessReturnVsSpy21d": 41.4136127,
+        "excessReturnVsSpy63d": 52.31093993,
+        "trendAcceleration": -0.00363877,
+        "largestOneDayContribution63d": 0.99207715,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 39.6768,
-        "relativeStrengthScore": 85.4762,
+        "directionScore": 100.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 80.5161,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.824934,
+      "benchmarkPercentile": 0.762182,
       "metricPercentiles": {
-        "trendSlope63d": 0.725729,
-        "trendFitR2_63d": 0.685942,
-        "excessReturnVsSpy63d": 0.862933,
-        "drawdownControlScore": 0.874801,
-        "growthSpurtScore": 0.824934
+        "trendSlope63d": 0.728814,
+        "trendFitR2_63d": 0.153072,
+        "excessReturnVsSpy63d": 0.999468,
+        "drawdownControlScore": 0.871292,
+        "growthSpurtScore": 0.762182
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14280,6 +14282,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 33.95000076293945
+      },
+      {
+        "ticker": "CFNB",
+        "date": "2026-07-31",
+        "open": 1440.0,
+        "high": 1440.0,
+        "low": 1440.0,
+        "close": 1440.0,
+        "volume": 1,
+        "source": "yahoo-chart",
+        "adjusted_close": 1440.0
       }
     ],
     "dataStatus": {
@@ -14319,13 +14332,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2017-09-27",
-      "latestScoringDate": "2026-07-30",
+      "latestScoringDate": "2026-07-31",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.09,
-      "growthSpurtBenchmarkPercentile": 0.824934,
-      "growthSpurtMarketDataAsOf": "2026-07-30",
-      "lastPipelineRun": "2026-07-31T06:30:56.250642+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.762182,
+      "growthSpurtMarketDataAsOf": "2026-07-31",
+      "lastPipelineRun": "2026-08-01T00:17:47.146172+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

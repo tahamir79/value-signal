@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T10:25:08.298014+00:00",
+  "generatedAt": "2026-08-01T00:42:17.827289+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 60,
-  "expectedUnavailable": 5842,
-  "dataQualityWarnings": 5506,
-  "warnings": 5506,
+  "nonCriticalFailures": 58,
+  "expectedUnavailable": 5843,
+  "dataQualityWarnings": 5507,
+  "warnings": 5507,
   "stages": [
     {
       "name": "core_artifacts",
@@ -33,8 +33,8 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1940,
-      "failed": 60,
+      "succeeded": 1942,
+      "failed": 58,
       "skipped": 0,
       "failedTickers": [
         "AAC",
@@ -69,7 +69,6 @@
         "CAPI",
         "CATL",
         "CBAT",
-        "CCCT",
         "CCIL",
         "CCLV",
         "CET",
@@ -86,7 +85,6 @@
         "CUVL",
         "DAVI",
         "DTSS",
-        "EAI",
         "EFGH",
         "EMI",
         "ENJ",
@@ -101,7 +99,7 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 48
+          "count": 46
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -135,19 +133,19 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 5841,
-      "succeeded": 5502,
+      "attempted": 5842,
+      "succeeded": 5460,
       "failed": 0,
-      "skipped": 339,
+      "skipped": 382,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 339
+          "count": 382
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 312
+          "count": 293
         }
       ],
       "artifactPaths": [
@@ -159,8 +157,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 599,
-      "succeeded": 599,
+      "attempted": 634,
+      "succeeded": 634,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -173,15 +171,15 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 5841,
-      "succeeded": 4560,
+      "attempted": 5842,
+      "succeeded": 4561,
       "failed": 0,
       "skipped": 1281,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4225
+          "count": 4226
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
@@ -196,8 +194,8 @@
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 5841,
-      "succeeded": 5686,
+      "attempted": 5842,
+      "succeeded": 5687,
       "failed": 0,
       "skipped": 155,
       "failedTickers": [],
@@ -216,15 +214,15 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 5841,
+      "attempted": 5842,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 5841,
+      "skipped": 5842,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 5841
+          "count": 5842
         }
       ],
       "artifactPaths": [
@@ -326,8 +324,8 @@
     {
       "ticker": "BCCQ",
       "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
+      "reason": "PRICE_HISTORY_UNAVAILABLE",
+      "retryable": true
     },
     {
       "ticker": "BDDD",
@@ -426,12 +424,6 @@
       "retryable": false
     },
     {
-      "ticker": "CCCT",
-      "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
-    },
-    {
       "ticker": "CCIL",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -523,12 +515,6 @@
     },
     {
       "ticker": "DTSS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "EAI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false

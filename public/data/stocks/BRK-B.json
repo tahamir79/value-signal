@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T10:19:15.251697+00:00",
+  "generatedAt": "2026-08-01T00:36:48.761579+00:00",
   "record": {
     "security": {
       "ticker": "BRK-B",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 509.68,
-      "dailyChangePercent": 0.1021,
-      "marketCapBillions": 0.4799,
+      "latestPrice": 511.54,
+      "dailyChangePercent": 0.3649,
+      "marketCapBillions": 0.4816,
       "liabilitiesToAssets": 0.417498,
       "latestRevenueBillions": 247.244,
       "grossMarginPercent": null,
@@ -217,7 +217,7 @@
       "shortTermDebtShare": null,
       "bookValue": 727181000000.0,
       "bookValuePerShare": 772379.899329,
-      "priceToBook": 0.00066,
+      "priceToBook": 0.000662,
       "retainedEarnings": 773292000000.0
     },
     "balanceSheetScoringShadow": {
@@ -442,49 +442,51 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BRK-B",
-      "generatedAt": "2026-07-31T10:05:52.226288+00:00",
-      "marketDataAsOf": "2026-07-30",
-      "status": "emerging",
-      "growthSpurtScore": 64.52,
+      "generatedAt": "2026-08-01T00:17:47.146172+00:00",
+      "marketDataAsOf": "2026-07-31",
+      "status": "detected",
+      "growthSpurtScore": 70.51,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.01856547,
-        "return63d": 0.07215278,
-        "trendSlope21d": -0.00054729,
-        "trendSlope63d": 0.00094273,
-        "trendAnnualizedReturn63d": 0.26816123,
-        "trendFitR2_63d": 0.63743698,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.01317103,
+        "return21d": 0.02361232,
+        "return63d": 0.0801098,
+        "trendSlope21d": 0.00017367,
+        "trendSlope63d": 0.00097987,
+        "trendAnnualizedReturn63d": 0.28008592,
+        "trendFitR2_63d": 0.6438714,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.01333148,
         "maxDrawdown63d": -0.03826459,
-        "downsideVolatility63d": 0.00445987,
-        "excessReturnVsSpy21d": 0.02536813,
-        "excessReturnVsSpy63d": 0.02715326,
-        "trendAcceleration": -0.00170135,
-        "largestOneDayContribution63d": 0.06979047,
+        "downsideVolatility63d": 0.00445168,
+        "excessReturnVsSpy21d": 0.02190933,
+        "excessReturnVsSpy63d": 0.03795554,
+        "trendAcceleration": -0.00101228,
+        "largestOneDayContribution63d": 0.06940937,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 67.8994,
-        "consistencyScore": 56.6565,
-        "relativeStrengthScore": 72.1296,
+        "directionScore": 75.118,
+        "consistencyScore": 64.1914,
+        "relativeStrengthScore": 75.0048,
         "drawdownControlScore": 87.2451,
-        "confirmationScore": 24.754
+        "confirmationScore": 38.4299
       },
-      "benchmarkPercentile": 0.82786,
+      "benchmarkPercentile": 0.869703,
       "metricPercentiles": {
-        "trendSlope63d": 0.620763,
-        "trendFitR2_63d": 0.661017,
-        "excessReturnVsSpy63d": 0.640043,
+        "trendSlope63d": 0.625,
+        "trendFitR2_63d": 0.672669,
+        "excessReturnVsSpy63d": 0.684771,
         "drawdownControlScore": 0.931144,
-        "growthSpurtScore": 0.82786
+        "growthSpurtScore": 0.869703
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
+        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED"
       ],
       "warnings": []
     },
@@ -14282,6 +14284,17 @@
         "volume": 4055100,
         "source": "yahoo-chart",
         "adjusted_close": 509.67999267578125
+      },
+      {
+        "ticker": "BRK-B",
+        "date": "2026-07-31",
+        "open": 508.989990234375,
+        "high": 513.030029296875,
+        "low": 506.7099914550781,
+        "close": 511.5400085449219,
+        "volume": 2521127,
+        "source": "yahoo-chart",
+        "adjusted_close": 511.5400085449219
       }
     ],
     "dataStatus": {
@@ -14321,13 +14334,13 @@
       "officialSignal": "potentially-undervalued",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-04",
-      "latestScoringDate": "2026-07-30",
+      "latestScoringDate": "2026-07-31",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 64.52,
-      "growthSpurtBenchmarkPercentile": 0.82786,
-      "growthSpurtMarketDataAsOf": "2026-07-30",
-      "lastPipelineRun": "2026-07-31T10:05:52.226288+00:00",
+      "growthSpurtStatus": "detected",
+      "growthSpurtScore": 70.51,
+      "growthSpurtBenchmarkPercentile": 0.869703,
+      "growthSpurtMarketDataAsOf": "2026-07-31",
+      "lastPipelineRun": "2026-08-01T00:17:47.146172+00:00",
       "balanceSheetExperimentalSignal": "potentially-undervalued",
       "balanceSheetWouldChangeSignal": false
     }
