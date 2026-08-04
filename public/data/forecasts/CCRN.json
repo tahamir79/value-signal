@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CCRN",
   "companyName": "CROSS COUNTRY HEALTHCARE INC",
-  "generatedAt": "2026-08-04T01:19:53.035013+00:00",
+  "generatedAt": "2026-08-04T06:24:55.330189+00:00",
   "marketDataAsOf": "2026-07-28",
   "currentPrice": 13.25,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-04T01:19:53.035013+00:00",
+    "collectedAt": "2026-08-04T06:24:55.330189+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,46 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-04T01:19:53.035013+00:00",
+    "generatedAt": "2026-08-04T06:24:55.330189+00:00",
     "marketDataAsOf": "2026-07-28",
     "currentPrice": 13.25,
     "horizon30Day": {
-      "returnEstimate": -0.0108447,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.04971006,
-      "estimatedPrice": 13.1063,
-      "lowerEstimatedPrice": 12.19,
-      "upperEstimatedPrice": 13.9087,
-      "sampleCount": 105,
-      "status": "available",
-      "usableObservationCount": 105,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.03798366,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.15,
-      "estimatedPrice": 12.7467,
-      "lowerEstimatedPrice": 11.2625,
-      "upperEstimatedPrice": 15.2375,
-      "sampleCount": 97,
-      "status": "available",
-      "usableObservationCount": 97,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
