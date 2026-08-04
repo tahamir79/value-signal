@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T04:08:54.074826+00:00",
+  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
   "record": {
     "security": {
       "ticker": "GPCR",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 49.47,
-      "dailyChangePercent": 4.4773,
-      "marketCapBillions": 10.5482,
+      "latestPrice": 48.36,
+      "dailyChangePercent": 0.6661,
+      "marketCapBillions": 10.3115,
       "liabilitiesToAssets": 0.040467,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -236,7 +236,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1447094000.0,
       "bookValuePerShare": 6.786746,
-      "priceToBook": 7.289208,
+      "priceToBook": 7.125654,
       "retainedEarnings": -546268000.0
     },
     "balanceSheetScoringShadow": {
@@ -455,50 +455,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GPCR",
-      "generatedAt": "2026-07-31T03:33:18.467067+00:00",
-      "marketDataAsOf": "2026-07-30",
+      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
+      "marketDataAsOf": "2026-08-03",
       "status": "not_detected",
-      "growthSpurtScore": 50.89,
+      "growthSpurtScore": 52.94,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.07825595,
-        "return63d": 0.19593858,
-        "trendSlope21d": -0.00696734,
+        "return21d": -0.09522919,
+        "return63d": 0.14570011,
+        "trendSlope21d": -0.00707426,
         "trendSlope63d": 0.00553083,
         "trendAnnualizedReturn63d": 3.03001311,
-        "trendFitR2_63d": 0.60727071,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.0785085,
+        "trendFitR2_63d": 0.63371099,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.07730259,
         "maxDrawdown63d": -0.18717998,
-        "downsideVolatility63d": 0.01827052,
-        "excessReturnVsSpy21d": -0.0714533,
-        "excessReturnVsSpy63d": 0.15093906,
-        "trendAcceleration": -0.01221762,
-        "largestOneDayContribution63d": 0.05704584,
-        "percentAboveTrendLine63d": 0.52380952
+        "downsideVolatility63d": 0.01797267,
+        "excessReturnVsSpy21d": -0.11253625,
+        "excessReturnVsSpy63d": 0.09162128,
+        "trendAcceleration": -0.01403147,
+        "largestOneDayContribution63d": 0.05713185,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 32.9851,
+        "consistencyScore": 41.1852,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 37.6067,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.696574,
+      "benchmarkPercentile": 0.734043,
       "metricPercentiles": {
-        "trendSlope63d": 0.933946,
-        "trendFitR2_63d": 0.634052,
-        "excessReturnVsSpy63d": 0.816891,
-        "drawdownControlScore": 0.537266,
-        "growthSpurtScore": 0.696574
+        "trendSlope63d": 0.941489,
+        "trendFitR2_63d": 0.66117,
+        "excessReturnVsSpy63d": 0.76244,
+        "drawdownControlScore": 0.542553,
+        "growthSpurtScore": 0.734043
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -10111,9 +10114,31 @@
         "high": 49.619998931884766,
         "low": 46.400001525878906,
         "close": 49.470001220703125,
-        "volume": 379436,
+        "volume": 384000,
         "source": "yahoo-chart",
         "adjusted_close": 49.470001220703125
+      },
+      {
+        "ticker": "GPCR",
+        "date": "2026-07-31",
+        "open": 49.5,
+        "high": 49.5,
+        "low": 46.810001373291016,
+        "close": 48.040000915527344,
+        "volume": 407600,
+        "source": "yahoo-chart",
+        "adjusted_close": 48.040000915527344
+      },
+      {
+        "ticker": "GPCR",
+        "date": "2026-08-03",
+        "open": 48.0,
+        "high": 48.70750045776367,
+        "low": 46.58000183105469,
+        "close": 48.36000061035156,
+        "volume": 303183,
+        "source": "yahoo-chart",
+        "adjusted_close": 48.36000061035156
       }
     ],
     "dataStatus": {
@@ -10151,13 +10176,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-07",
-      "latestScoringDate": "2026-07-30",
+      "latestScoringDate": "2026-08-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 50.89,
-      "growthSpurtBenchmarkPercentile": 0.696574,
-      "growthSpurtMarketDataAsOf": "2026-07-30",
-      "lastPipelineRun": "2026-07-31T03:33:18.467067+00:00",
+      "growthSpurtScore": 52.94,
+      "growthSpurtBenchmarkPercentile": 0.734043,
+      "growthSpurtMarketDataAsOf": "2026-08-03",
+      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

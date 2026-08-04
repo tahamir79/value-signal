@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T04:08:54.074826+00:00",
+  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
   "record": {
     "security": {
       "ticker": "IHS",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.2,
-      "dailyChangePercent": -0.8464,
+      "latestPrice": 8.26,
+      "dailyChangePercent": 0.7317,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "IHS",
-      "generatedAt": "2026-07-31T03:33:18.467067+00:00",
-      "marketDataAsOf": "2026-07-30",
+      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
+      "marketDataAsOf": "2026-08-03",
       "status": "not_detected",
-      "growthSpurtScore": 29.14,
+      "growthSpurtScore": 28.88,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00485436,
-        "return63d": 0.00367194,
-        "trendSlope21d": 0.00031558,
-        "trendSlope63d": -9.78e-05,
-        "trendAnnualizedReturn63d": -0.02434428,
-        "trendFitR2_63d": 0.08684911,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00703764,
+        "return21d": 0.00486618,
+        "return63d": 0.00731712,
+        "trendSlope21d": 0.00042049,
+        "trendSlope63d": -0.0001184,
+        "trendAnnualizedReturn63d": -0.02939592,
+        "trendFitR2_63d": 0.11843294,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00691046,
         "maxDrawdown63d": -0.03456495,
-        "downsideVolatility63d": 0.00336083,
-        "excessReturnVsSpy21d": 0.00194829,
-        "excessReturnVsSpy63d": -0.04132758,
-        "trendAcceleration": 0.00031558,
-        "largestOneDayContribution63d": 0.07014312,
+        "downsideVolatility63d": 0.00334994,
+        "excessReturnVsSpy21d": -0.01244089,
+        "excessReturnVsSpy63d": -0.0467617,
+        "trendAcceleration": 0.00045096,
+        "largestOneDayContribution63d": 0.06878107,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 1.071,
-        "consistencyScore": 24.6234,
-        "relativeStrengthScore": 34.063,
+        "directionScore": 5.3783,
+        "consistencyScore": 20.3839,
+        "relativeStrengthScore": 25.5602,
         "drawdownControlScore": 88.4783,
-        "confirmationScore": 25.779
+        "confirmationScore": 37.8174
       },
-      "benchmarkPercentile": 0.437125,
+      "benchmarkPercentile": 0.472074,
       "metricPercentiles": {
-        "trendSlope63d": 0.450724,
-        "trendFitR2_63d": 0.205581,
-        "excessReturnVsSpy63d": 0.478353,
-        "drawdownControlScore": 0.933592,
-        "growthSpurtScore": 0.437125
+        "trendSlope63d": 0.451596,
+        "trendFitR2_63d": 0.232447,
+        "excessReturnVsSpy63d": 0.509363,
+        "drawdownControlScore": 0.935638,
+        "growthSpurtScore": 0.472074
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13599,9 +13603,31 @@
         "high": 8.265000343322754,
         "low": 8.199999809265137,
         "close": 8.199999809265137,
-        "volume": 308176,
+        "volume": 329500,
         "source": "yahoo-chart",
         "adjusted_close": 8.199999809265137
+      },
+      {
+        "ticker": "IHS",
+        "date": "2026-07-31",
+        "open": 8.199999809265137,
+        "high": 8.225000381469727,
+        "low": 8.180000305175781,
+        "close": 8.199999809265137,
+        "volume": 14277300,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.199999809265137
+      },
+      {
+        "ticker": "IHS",
+        "date": "2026-08-03",
+        "open": 8.220000267028809,
+        "high": 8.260000228881836,
+        "low": 8.21500015258789,
+        "close": 8.260000228881836,
+        "volume": 225393,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.260000228881836
       }
     ],
     "dataStatus": {
@@ -13641,13 +13667,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-07-30",
+      "latestScoringDate": "2026-08-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 29.14,
-      "growthSpurtBenchmarkPercentile": 0.437125,
-      "growthSpurtMarketDataAsOf": "2026-07-30",
-      "lastPipelineRun": "2026-07-31T03:33:18.467067+00:00",
+      "growthSpurtScore": 28.88,
+      "growthSpurtBenchmarkPercentile": 0.472074,
+      "growthSpurtMarketDataAsOf": "2026-08-03",
+      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

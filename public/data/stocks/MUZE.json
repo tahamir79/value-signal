@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T04:08:54.074826+00:00",
+  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
   "record": {
     "security": {
       "ticker": "MUZE",
@@ -425,49 +425,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MUZE",
-      "generatedAt": "2026-07-31T03:33:18.467067+00:00",
-      "marketDataAsOf": "2026-07-30",
+      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
+      "marketDataAsOf": "2026-07-31",
       "status": "not_detected",
-      "growthSpurtScore": 40.14,
+      "growthSpurtScore": 38.76,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00201405,
-        "return63d": 0.00708499,
-        "trendSlope21d": -0.00023135,
-        "trendSlope63d": 0.00016784,
-        "trendAnnualizedReturn63d": 0.04320222,
-        "trendFitR2_63d": 0.73950382,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00184318,
+        "return21d": 0.00100606,
+        "return63d": 0.0091278,
+        "trendSlope21d": -0.00025062,
+        "trendSlope63d": 0.00015021,
+        "trendAnnualizedReturn63d": 0.03857924,
+        "trendFitR2_63d": 0.70505164,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00188701,
         "maxDrawdown63d": -0.004004,
         "downsideVolatility63d": 0.00075552,
-        "excessReturnVsSpy21d": 0.0088167,
-        "excessReturnVsSpy63d": -0.03791453,
-        "trendAcceleration": -0.00043275,
-        "largestOneDayContribution63d": 0.18481045,
+        "excessReturnVsSpy21d": -0.00069693,
+        "excessReturnVsSpy63d": -0.03302646,
+        "trendAcceleration": -0.00043391,
+        "largestOneDayContribution63d": 0.19969263,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 8.9637,
-        "consistencyScore": 56.4918,
-        "relativeStrengthScore": 38.4545,
+        "directionScore": 8.2932,
+        "consistencyScore": 54.0643,
+        "relativeStrengthScore": 36.2781,
         "drawdownControlScore": 98.6653,
-        "confirmationScore": 8.3579
+        "confirmationScore": 7.0023
       },
-      "benchmarkPercentile": 0.575062,
+      "benchmarkPercentile": 0.581915,
       "metricPercentiles": {
-        "trendSlope63d": 0.512893,
-        "trendFitR2_63d": 0.776051,
-        "excessReturnVsSpy63d": 0.4945,
-        "drawdownControlScore": 0.981279,
-        "growthSpurtScore": 0.575062
+        "trendSlope63d": 0.507979,
+        "trendFitR2_63d": 0.740426,
+        "excessReturnVsSpy63d": 0.561263,
+        "drawdownControlScore": 0.982979,
+        "growthSpurtScore": 0.581915
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1459,6 +1462,17 @@
         "volume": 200,
         "source": "yahoo-chart",
         "adjusted_close": 9.949999809265137
+      },
+      {
+        "ticker": "MUZE",
+        "date": "2026-07-31",
+        "open": 9.949999809265137,
+        "high": 9.949999809265137,
+        "low": 9.949999809265137,
+        "close": 9.949999809265137,
+        "volume": 8900,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.949999809265137
       }
     ],
     "dataStatus": {
@@ -1493,19 +1507,19 @@
       "triggeredBalanceSheetGates": [
         "Negative Equity Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-12",
-      "latestScoringDate": "2026-07-30",
+      "latestScoringDate": "2026-07-31",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 40.14,
-      "growthSpurtBenchmarkPercentile": 0.575062,
-      "growthSpurtMarketDataAsOf": "2026-07-30",
-      "lastPipelineRun": "2026-07-31T03:33:18.467067+00:00",
-      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "growthSpurtScore": 38.76,
+      "growthSpurtBenchmarkPercentile": 0.581915,
+      "growthSpurtMarketDataAsOf": "2026-07-31",
+      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "GREE",
   "companyName": "Vulcan Infrastructure & Power Inc.",
-  "generatedAt": "2026-08-01T09:54:19.656837+00:00",
+  "generatedAt": "2026-08-04T01:19:53.035013+00:00",
   "marketDataAsOf": "2026-07-30",
   "currentPrice": 2.14,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-01T09:54:19.656837+00:00",
+    "collectedAt": "2026-08-04T01:19:53.035013+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,47 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-01T09:54:19.656837+00:00",
+    "generatedAt": "2026-08-04T01:19:53.035013+00:00",
     "marketDataAsOf": "2026-07-30",
     "currentPrice": 2.14,
     "horizon30Day": {
-      "returnEstimate": -0.01881972,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.08,
-      "estimatedPrice": 2.0997,
-      "lowerEstimatedPrice": 1.9688,
-      "upperEstimatedPrice": 2.3112,
-      "sampleCount": 105,
-      "status": "available",
-      "usableObservationCount": 105,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.04609172,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.15,
-      "estimatedPrice": 2.0414,
-      "lowerEstimatedPrice": 1.819,
-      "upperEstimatedPrice": 2.461,
-      "sampleCount": 97,
-      "status": "available",
-      "usableObservationCount": 97,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
