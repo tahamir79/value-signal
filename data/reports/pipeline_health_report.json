@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T06:26:36.014229+00:00",
+  "generatedAt": "2026-08-04T10:30:05.788003+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 56,
+  "nonCriticalFailures": 57,
   "expectedUnavailable": 5847,
   "dataQualityWarnings": 5511,
   "warnings": 5511,
@@ -33,8 +33,8 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1944,
-      "failed": 56,
+      "succeeded": 1943,
+      "failed": 57,
       "skipped": 0,
       "failedTickers": [
         "AAC",
@@ -53,6 +53,7 @@
         "AYA",
         "AYR",
         "BDDD",
+        "BIOT",
         "BLDC",
         "BLSM",
         "BLTG",
@@ -97,7 +98,7 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 44
+          "count": 45
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -132,14 +133,14 @@
       "name": "forecast_artifacts",
       "status": "success",
       "attempted": 5846,
-      "succeeded": 3876,
+      "succeeded": 3877,
       "failed": 0,
-      "skipped": 1970,
+      "skipped": 1969,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 1970
+          "count": 1969
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
@@ -155,8 +156,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 766,
-      "succeeded": 766,
+      "attempted": 810,
+      "succeeded": 810,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -170,18 +171,18 @@
       "name": "balance_sheet_context",
       "status": "partial_success",
       "attempted": 5846,
-      "succeeded": 4562,
+      "succeeded": 4561,
       "failed": 0,
-      "skipped": 1284,
+      "skipped": 1285,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4227
+          "count": 4226
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1284
+          "count": 1285
         }
       ],
       "artifactPaths": [
@@ -324,6 +325,12 @@
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
+    },
+    {
+      "ticker": "BIOT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
     },
     {
       "ticker": "BLDC",
