@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "UCFI",
   "companyName": "CN Healthy Food Tech Group Corp.",
-  "generatedAt": "2026-08-05T06:31:42.347968+00:00",
-  "marketDataAsOf": "2026-07-21",
+  "generatedAt": "2026-08-05T10:33:22.138098+00:00",
+  "marketDataAsOf": "2026-08-04",
   "currentPrice": 5.51,
   "analystTarget": {
     "ticker": "UCFI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-05T06:31:42.347968+00:00",
+    "collectedAt": "2026-08-05T10:33:22.138098+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,43 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-05T06:31:42.347968+00:00",
-    "marketDataAsOf": "2026-07-21",
+    "generatedAt": "2026-08-05T10:33:22.138098+00:00",
+    "marketDataAsOf": "2026-08-04",
     "currentPrice": 5.51,
     "horizon30Day": {
       "returnEstimate": 0.0,
       "lowerReturn": 0.0,
-      "upperReturn": 0.0,
+      "upperReturn": 0.00409151,
       "estimatedPrice": 5.51,
       "lowerEstimatedPrice": 5.51,
-      "upperEstimatedPrice": 5.51,
-      "sampleCount": 46,
+      "upperEstimatedPrice": 5.5325,
+      "sampleCount": 104,
       "status": "available",
-      "usableObservationCount": 46,
+      "usableObservationCount": 104,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
       "returnEstimate": 0.0,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.0,
+      "lowerReturn": 0.0,
+      "upperReturn": 0.01349574,
       "estimatedPrice": 5.51,
-      "lowerEstimatedPrice": 4.6835,
-      "upperEstimatedPrice": 5.51,
-      "sampleCount": 38,
+      "lowerEstimatedPrice": 5.51,
+      "upperEstimatedPrice": 5.5844,
+      "sampleCount": 96,
       "status": "available",
-      "usableObservationCount": 38,
+      "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "stale",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-07-21 is older than 10 days.",
-      "90-day scenario: lower return clipped to +/-15%"
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
