@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
+  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
   "record": {
     "security": {
       "ticker": "FPH",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.13,
-      "dailyChangePercent": -1.1561,
+      "latestPrice": 5.28,
+      "dailyChangePercent": 2.924,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.253054,
       "latestRevenueBillions": 0.1082,
@@ -441,48 +441,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FPH",
-      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
-      "marketDataAsOf": "2026-08-03",
+      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 49.47,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.01724132,
-        "return63d": 0.0198807,
-        "trendSlope21d": 0.00169698,
-        "trendSlope63d": 0.001387,
-        "trendAnnualizedReturn63d": 0.41839397,
-        "trendFitR2_63d": 0.59952221,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.0212882,
+        "return21d": 0.03937014,
+        "return63d": 0.08641977,
+        "trendSlope21d": 0.00170993,
+        "trendSlope63d": 0.00137066,
+        "trendAnnualizedReturn63d": 0.41256352,
+        "trendFitR2_63d": 0.59655838,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.02130573,
         "maxDrawdown63d": -0.08409499,
         "downsideVolatility63d": 0.0086892,
-        "excessReturnVsSpy21d": -0.03454838,
-        "excessReturnVsSpy63d": -0.03419813,
-        "trendAcceleration": -0.00031122,
-        "largestOneDayContribution63d": 0.06875985,
+        "excessReturnVsSpy21d": 0.01268237,
+        "excessReturnVsSpy63d": 0.00939137,
+        "trendAcceleration": -0.00026639,
+        "largestOneDayContribution63d": 0.06754019,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 50.7985,
-        "consistencyScore": 58.1936,
-        "relativeStrengthScore": 20.9921,
+        "directionScore": 90.2058,
+        "consistencyScore": 43.6941,
+        "relativeStrengthScore": 59.3638,
         "drawdownControlScore": 71.9683,
-        "confirmationScore": 46.8878
+        "confirmationScore": 87.3361
       },
-      "benchmarkPercentile": 0.710372,
+      "benchmarkPercentile": 0.757037,
       "metricPercentiles": {
-        "trendSlope63d": 0.665957,
-        "trendFitR2_63d": 0.629787,
-        "excessReturnVsSpy63d": 0.555377,
-        "drawdownControlScore": 0.816489,
-        "growthSpurtScore": 0.710372
+        "trendSlope63d": 0.663834,
+        "trendFitR2_63d": 0.62666,
+        "excessReturnVsSpy63d": 0.653846,
+        "drawdownControlScore": 0.81572,
+        "growthSpurtScore": 0.757037
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
         "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
@@ -490,17 +491,6 @@
       ]
     },
     "priceHistory": [
-      {
-        "ticker": "FPH",
-        "date": "2021-08-04",
-        "open": 8.210000038146973,
-        "high": 8.430000305175781,
-        "low": 8.050000190734863,
-        "close": 8.100000381469727,
-        "volume": 65300,
-        "source": "yahoo-chart",
-        "adjusted_close": 8.100000381469727
-      },
       {
         "ticker": "FPH",
         "date": "2021-08-05",
@@ -14280,9 +14270,20 @@
         "high": 5.264999866485596,
         "low": 5.119999885559082,
         "close": 5.130000114440918,
-        "volume": 318888,
+        "volume": 328100,
         "source": "yahoo-chart",
         "adjusted_close": 5.130000114440918
+      },
+      {
+        "ticker": "FPH",
+        "date": "2026-08-04",
+        "open": 5.199999809265137,
+        "high": 5.329999923706055,
+        "low": 5.130000114440918,
+        "close": 5.28000020980835,
+        "volume": 143200,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.28000020980835
       }
     ],
     "dataStatus": {
@@ -14322,13 +14323,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-24",
-      "latestScoringDate": "2026-08-03",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 49.47,
-      "growthSpurtBenchmarkPercentile": 0.710372,
-      "growthSpurtMarketDataAsOf": "2026-08-03",
-      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.757037,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
+  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
   "record": {
     "security": {
       "ticker": "NBRG",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.0,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0144,
+      "latestPrice": 9.97,
+      "dailyChangePercent": -0.3,
+      "marketCapBillions": 0.0143,
       "liabilitiesToAssets": 0.039349,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 5142285.0,
       "bookValuePerShare": 3.577242,
-      "priceToBook": 2.79545,
+      "priceToBook": 2.787064,
       "retainedEarnings": -524140.0
     },
     "balanceSheetScoringShadow": {
@@ -435,51 +435,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NBRG",
-      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
-      "marketDataAsOf": "2026-07-31",
+      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 37.5,
+      "growthSpurtScore": 30.47,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.003009,
-        "return63d": 0.01010105,
-        "trendSlope21d": 7.711e-05,
-        "trendSlope63d": 8.354e-05,
-        "trendAnnualizedReturn63d": 0.02127425,
-        "trendFitR2_63d": 0.57318399,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00175018,
+        "return21d": 0.0,
+        "return63d": 0.00707077,
+        "trendSlope21d": 8.354e-05,
+        "trendSlope63d": 7.711e-05,
+        "trendAnnualizedReturn63d": 0.01962182,
+        "trendFitR2_63d": 0.54646345,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00171396,
         "maxDrawdown63d": -0.00301202,
-        "downsideVolatility63d": 0.00079173,
-        "excessReturnVsSpy21d": 0.00130601,
-        "excessReturnVsSpy63d": -0.03205321,
-        "trendAcceleration": -0.00010088,
-        "largestOneDayContribution63d": 0.20101967,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.00091959,
+        "excessReturnVsSpy21d": -0.02668777,
+        "excessReturnVsSpy63d": -0.06995762,
+        "trendAcceleration": -2.797e-05,
+        "largestOneDayContribution63d": 0.18282774,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 7.6874,
-        "consistencyScore": 44.8833,
-        "relativeStrengthScore": 37.5498,
+        "directionScore": 4.5851,
+        "consistencyScore": 43.8197,
+        "relativeStrengthScore": 9.9038,
         "drawdownControlScore": 98.996,
-        "confirmationScore": 16.0876
+        "confirmationScore": 13.0619
       },
-      "benchmarkPercentile": 0.564362,
+      "benchmarkPercentile": 0.497079,
       "metricPercentiles": {
-        "trendSlope63d": 0.488298,
-        "trendFitR2_63d": 0.605851,
-        "excessReturnVsSpy63d": 0.565008,
-        "drawdownControlScore": 0.988298,
-        "growthSpurtScore": 0.564362
+        "trendSlope63d": 0.485927,
+        "trendFitR2_63d": 0.58683,
+        "excessReturnVsSpy63d": 0.494658,
+        "drawdownControlScore": 0.988317,
+        "growthSpurtScore": 0.497079
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1482,6 +1485,28 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.0
+      },
+      {
+        "ticker": "NBRG",
+        "date": "2026-08-03",
+        "open": 10.0,
+        "high": 10.0,
+        "low": 10.0,
+        "close": 10.0,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.0
+      },
+      {
+        "ticker": "NBRG",
+        "date": "2026-08-04",
+        "open": 9.970000267028809,
+        "high": 10.0,
+        "low": 9.970000267028809,
+        "close": 9.970000267028809,
+        "volume": 8900,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.970000267028809
       }
     ],
     "dataStatus": {
@@ -1521,13 +1546,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-11",
-      "latestScoringDate": "2026-07-31",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 37.5,
-      "growthSpurtBenchmarkPercentile": 0.564362,
-      "growthSpurtMarketDataAsOf": "2026-07-31",
-      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
+      "growthSpurtScore": 30.47,
+      "growthSpurtBenchmarkPercentile": 0.497079,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

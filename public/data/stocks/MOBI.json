@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
+  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
   "record": {
     "security": {
       "ticker": "MOBI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.35,
-      "dailyChangePercent": 1.5206,
-      "marketCapBillions": 0.3774,
+      "latestPrice": 11.84,
+      "dailyChangePercent": 4.3172,
+      "marketCapBillions": 0.3937,
       "liabilitiesToAssets": 0.836608,
       "latestRevenueBillions": 0.0121,
       "grossMarginPercent": 82.3339,
@@ -493,49 +493,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MOBI",
-      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
-      "marketDataAsOf": "2026-08-03",
+      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 1.47,
+      "growthSpurtScore": 1.37,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.16849812,
+        "return21d": -0.10641508,
         "return63d": null,
-        "trendSlope21d": -0.00921908,
-        "trendSlope63d": -0.00172869,
-        "trendAnnualizedReturn63d": -0.35314216,
-        "trendFitR2_63d": 0.14291315,
+        "trendSlope21d": -0.00736055,
+        "trendSlope63d": -0.00171128,
+        "trendAnnualizedReturn63d": -0.35029804,
+        "trendFitR2_63d": 0.15213529,
         "positiveWeekRatio63d": 0.45454545,
-        "trendResidualVolatility63d": 0.07561588,
+        "trendResidualVolatility63d": 0.0749817,
         "maxDrawdown63d": -0.28708132,
         "downsideVolatility63d": 0.03097881,
-        "excessReturnVsSpy21d": -0.18580518,
+        "excessReturnVsSpy21d": -0.13310285,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": -0.01297341,
-        "largestOneDayContribution63d": 0.10586505,
-        "percentAboveTrendLine63d": 0.50847458
+        "trendAcceleration": -0.01072655,
+        "largestOneDayContribution63d": 0.10352892,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
         "directionScore": 0.0,
-        "consistencyScore": 3.3133,
+        "consistencyScore": 2.8896,
         "relativeStrengthScore": 0.0,
         "drawdownControlScore": 4.3062,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.030851,
+      "benchmarkPercentile": 0.03505,
       "metricPercentiles": {
-        "trendSlope63d": 0.335106,
-        "trendFitR2_63d": 0.260638,
+        "trendSlope63d": 0.335104,
+        "trendFitR2_63d": 0.265003,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": 0.367021,
-        "growthSpurtScore": 0.030851
+        "drawdownControlScore": 0.365374,
+        "growthSpurtScore": 0.03505
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1180,12 +1183,23 @@
         "ticker": "MOBI",
         "date": "2026-08-03",
         "open": 11.229999542236328,
-        "high": 11.65999984741211,
+        "high": 11.670000076293945,
         "low": 11.109999656677246,
         "close": 11.350000381469727,
-        "volume": 62448,
+        "volume": 62500,
         "source": "yahoo-chart",
         "adjusted_close": 11.350000381469727
+      },
+      {
+        "ticker": "MOBI",
+        "date": "2026-08-04",
+        "open": 11.390000343322754,
+        "high": 12.289999961853027,
+        "low": 11.300000190734863,
+        "close": 11.84000015258789,
+        "volume": 102300,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.84000015258789
       }
     ],
     "dataStatus": {
@@ -1225,13 +1239,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-06-04",
-      "latestScoringDate": "2026-08-03",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 1.47,
-      "growthSpurtBenchmarkPercentile": 0.030851,
-      "growthSpurtMarketDataAsOf": "2026-08-03",
-      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
+      "growthSpurtScore": 1.37,
+      "growthSpurtBenchmarkPercentile": 0.03505,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

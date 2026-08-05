@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T01:16:21.147949+00:00",
+  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
   "record": {
     "security": {
       "ticker": "LSH",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.314,
-      "dailyChangePercent": 12.5448,
-      "marketCapBillions": 0.0108,
+      "latestPrice": 0.693,
+      "dailyChangePercent": 120.7006,
+      "marketCapBillions": 0.0239,
       "liabilitiesToAssets": 0.234451,
       "latestRevenueBillions": 0.0183,
       "grossMarginPercent": 15.7163,
@@ -286,7 +286,7 @@
       "shortTermDebtShare": null,
       "bookValue": 13611963.0,
       "bookValuePerShare": 0.39538,
-      "priceToBook": 0.794173,
+      "priceToBook": 1.752745,
       "retainedEarnings": -8139106.0
     },
     "balanceSheetScoringShadow": {
@@ -501,49 +501,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LSH",
-      "generatedAt": "2026-08-04T01:00:49.086825+00:00",
-      "marketDataAsOf": "2026-08-03",
+      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 9.47,
+      "growthSpurtScore": 48.76,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.32181423,
-        "return63d": -0.41959334,
-        "trendSlope21d": -0.02436742,
-        "trendSlope63d": -0.01327157,
-        "trendAnnualizedReturn63d": -0.96471991,
-        "trendFitR2_63d": 0.81661551,
+        "return21d": 0.50325385,
+        "return63d": 0.17857146,
+        "trendSlope21d": -0.02199337,
+        "trendSlope63d": -0.01326316,
+        "trendAnnualizedReturn63d": -0.964645,
+        "trendFitR2_63d": 0.68042388,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.10993064,
+        "trendResidualVolatility63d": 0.14604173,
         "maxDrawdown63d": -0.63994374,
         "downsideVolatility63d": 0.03829241,
-        "excessReturnVsSpy21d": -0.33912129,
-        "excessReturnVsSpy63d": -0.47367216,
-        "trendAcceleration": -0.01707259,
-        "largestOneDayContribution63d": 0.04860363,
+        "excessReturnVsSpy21d": 0.47656608,
+        "excessReturnVsSpy63d": 0.10154307,
+        "trendAcceleration": -0.01423277,
+        "largestOneDayContribution63d": 0.28742266,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 37.8968,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 55.0,
+        "consistencyScore": 33.0265,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.168085,
+      "benchmarkPercentile": 0.688794,
       "metricPercentiles": {
-        "trendSlope63d": 0.050532,
-        "trendFitR2_63d": 0.872872,
-        "excessReturnVsSpy63d": 0.081862,
-        "drawdownControlScore": 0.175266,
-        "growthSpurtScore": 0.168085
+        "trendSlope63d": 0.048327,
+        "trendFitR2_63d": 0.71163,
+        "excessReturnVsSpy63d": 0.773504,
+        "drawdownControlScore": 0.174721,
+        "growthSpurtScore": 0.688794
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6313,13 +6316,24 @@
       {
         "ticker": "LSH",
         "date": "2026-08-03",
-        "open": 0.27630001306533813,
-        "high": 0.3188000023365021,
-        "low": 0.2597000002861023,
+        "open": 0.27799999713897705,
+        "high": 0.3190000057220459,
+        "low": 0.25999999046325684,
         "close": 0.3140000104904175,
-        "volume": 94257,
+        "volume": 94400,
         "source": "yahoo-chart",
         "adjusted_close": 0.3140000104904175
+      },
+      {
+        "ticker": "LSH",
+        "date": "2026-08-04",
+        "open": 1.1200000047683716,
+        "high": 1.2000000476837158,
+        "low": 0.625,
+        "close": 0.6930000185966492,
+        "volume": 121535500,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.6930000185966492
       }
     ],
     "dataStatus": {
@@ -6354,17 +6368,17 @@
       ],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-19",
-      "latestScoringDate": "2026-08-03",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 9.47,
-      "growthSpurtBenchmarkPercentile": 0.168085,
-      "growthSpurtMarketDataAsOf": "2026-08-03",
-      "lastPipelineRun": "2026-08-04T01:00:49.086825+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 48.76,
+      "growthSpurtBenchmarkPercentile": 0.688794,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
