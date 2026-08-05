@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T10:23:54.440364+00:00",
+  "generatedAt": "2026-08-05T01:12:21.996305+00:00",
   "record": {
     "security": {
       "ticker": "BBOT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.09,
-      "dailyChangePercent": -4.8235,
-      "marketCapBillions": 0.6481,
+      "latestPrice": 8.87,
+      "dailyChangePercent": 7.5152,
+      "marketCapBillions": 0.7106,
       "liabilitiesToAssets": 0.108623,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -236,7 +236,7 @@
       "shortTermDebtShare": null,
       "bookValue": 372280000.0,
       "bookValuePerShare": 4.647278,
-      "priceToBook": 1.740804,
+      "priceToBook": 1.908644,
       "retainedEarnings": -398673000.0
     },
     "balanceSheetScoringShadow": {
@@ -455,50 +455,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BBOT",
-      "generatedAt": "2026-08-04T10:09:24.670800+00:00",
-      "marketDataAsOf": "2026-07-31",
+      "generatedAt": "2026-08-05T00:54:13.655574+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 28.64,
+      "growthSpurtScore": 40.09,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03717948,
-        "return63d": -0.0380499,
-        "trendSlope21d": 0.00037018,
-        "trendSlope63d": 0.00036849,
-        "trendAnnualizedReturn63d": 0.09730868,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.06069802,
+        "return21d": 0.0546968,
+        "return63d": 0.04846334,
+        "trendSlope21d": -0.00083626,
+        "trendSlope63d": 0.00057906,
+        "trendAnnualizedReturn63d": 0.15710657,
+        "trendFitR2_63d": 0.01287283,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.06079511,
         "maxDrawdown63d": -0.21844126,
-        "downsideVolatility63d": 0.02249912,
-        "excessReturnVsSpy21d": 0.03547649,
-        "excessReturnVsSpy63d": -0.08020417,
-        "trendAcceleration": 0.00339462,
-        "largestOneDayContribution63d": 0.05011666,
+        "downsideVolatility63d": 0.0228531,
+        "excessReturnVsSpy21d": 0.02800903,
+        "excessReturnVsSpy63d": -0.02856506,
+        "trendAcceleration": 0.00174772,
+        "largestOneDayContribution63d": 0.04835197,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 32.5111,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 33.021,
+        "directionScore": 54.3346,
+        "consistencyScore": 14.3254,
+        "relativeStrengthScore": 50.6494,
         "drawdownControlScore": 27.1862,
-        "confirmationScore": 74.8072
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.446741,
+      "benchmarkPercentile": 0.587691,
       "metricPercentiles": {
-        "trendSlope63d": 0.555909,
-        "trendFitR2_63d": 0.053789,
-        "excessReturnVsSpy63d": 0.404369,
-        "drawdownControlScore": 0.474828,
-        "growthSpurtScore": 0.446741
+        "trendSlope63d": 0.577919,
+        "trendFitR2_63d": 0.136292,
+        "excessReturnVsSpy63d": 0.577046,
+        "drawdownControlScore": 0.472795,
+        "growthSpurtScore": 0.587691
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7320,6 +7322,28 @@
         "volume": 368200,
         "source": "yahoo-chart",
         "adjusted_close": 8.09000015258789
+      },
+      {
+        "ticker": "BBOT",
+        "date": "2026-08-03",
+        "open": 8.140000343322754,
+        "high": 8.470000267028809,
+        "low": 8.0,
+        "close": 8.25,
+        "volume": 210100,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.25
+      },
+      {
+        "ticker": "BBOT",
+        "date": "2026-08-04",
+        "open": 8.270000457763672,
+        "high": 8.869999885559082,
+        "low": 8.225000381469727,
+        "close": 8.869999885559082,
+        "volume": 500123,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.869999885559082
       }
     ],
     "dataStatus": {
@@ -7357,13 +7381,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-12",
-      "latestScoringDate": "2026-07-31",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 28.64,
-      "growthSpurtBenchmarkPercentile": 0.446741,
-      "growthSpurtMarketDataAsOf": "2026-07-31",
-      "lastPipelineRun": "2026-08-04T10:09:24.670800+00:00",
+      "growthSpurtScore": 40.09,
+      "growthSpurtBenchmarkPercentile": 0.587691,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T00:54:13.655574+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

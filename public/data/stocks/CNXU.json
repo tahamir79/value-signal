@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T10:23:54.440364+00:00",
+  "generatedAt": "2026-08-05T01:12:21.996305+00:00",
   "record": {
     "security": {
       "ticker": "CNXU",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.31,
-      "dailyChangePercent": -5.889,
-      "marketCapBillions": 0.2224,
+      "latestPrice": 9.08,
+      "dailyChangePercent": 17.0103,
+      "marketCapBillions": 0.243,
       "liabilitiesToAssets": 0.122358,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 7196383.0,
       "bookValuePerShare": 0.26894,
-      "priceToBook": 30.899097,
+      "priceToBook": 33.762188,
       "retainedEarnings": -8544626.0
     },
     "balanceSheetScoringShadow": {
@@ -438,50 +438,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CNXU",
-      "generatedAt": "2026-08-04T10:09:24.670800+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-05T00:54:13.655574+00:00",
+      "marketDataAsOf": "2026-08-04",
+      "status": "not_detected",
+      "growthSpurtScore": 10.67,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.15925928,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": -0.01334444,
+        "trendSlope63d": -0.01205107,
+        "trendAnnualizedReturn63d": -0.95201509,
+        "trendFitR2_63d": 0.76784142,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.0991274,
+        "maxDrawdown63d": -0.54421367,
+        "downsideVolatility63d": 0.03902532,
+        "excessReturnVsSpy21d": -0.18594705,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.0008981,
+        "largestOneDayContribution63d": 0.07476891,
+        "percentAboveTrendLine63d": 0.50980392
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 42.2759,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 1.019
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.208663,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.055996,
+        "trendFitR2_63d": 0.802958,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.165874,
+        "growthSpurtScore": 0.208663
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1022,6 +1021,28 @@
         "volume": 165800,
         "source": "yahoo-chart",
         "adjusted_close": 8.3100004196167
+      },
+      {
+        "ticker": "CNXU",
+        "date": "2026-08-03",
+        "open": 8.770000457763672,
+        "high": 9.0,
+        "low": 7.599999904632568,
+        "close": 7.760000228881836,
+        "volume": 131900,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.760000228881836
+      },
+      {
+        "ticker": "CNXU",
+        "date": "2026-08-04",
+        "open": 7.619999885559082,
+        "high": 9.553999900817871,
+        "low": 7.400000095367432,
+        "close": 9.079999923706055,
+        "volume": 156401,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.079999923706055
       }
     ],
     "dataStatus": {
@@ -1061,13 +1082,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-06-15",
-      "latestScoringDate": "2026-07-31",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-04T10:09:24.670800+00:00",
+      "latestScoringDate": "2026-08-04",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 10.67,
+      "growthSpurtBenchmarkPercentile": 0.208663,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T00:54:13.655574+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

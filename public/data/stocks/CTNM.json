@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T10:23:54.440364+00:00",
+  "generatedAt": "2026-08-05T01:12:21.996305+00:00",
   "record": {
     "security": {
       "ticker": "CTNM",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 15.49,
-      "dailyChangePercent": -1.6508,
-      "marketCapBillions": 0.3578,
+      "latestPrice": 15.9,
+      "dailyChangePercent": -0.1883,
+      "marketCapBillions": 0.3673,
       "liabilitiesToAssets": 0.042765,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -249,7 +249,7 @@
       "shortTermDebtShare": null,
       "bookValue": 239660000.0,
       "bookValuePerShare": 10.375263,
-      "priceToBook": 1.492974,
+      "priceToBook": 1.532491,
       "retainedEarnings": -206990000.0
     },
     "balanceSheetScoringShadow": {
@@ -468,50 +468,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CTNM",
-      "generatedAt": "2026-08-04T10:09:24.670800+00:00",
-      "marketDataAsOf": "2026-07-31",
+      "generatedAt": "2026-08-05T00:54:13.655574+00:00",
+      "marketDataAsOf": "2026-08-04",
       "status": "not_detected",
-      "growthSpurtScore": 52.27,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0164042,
-        "return63d": 0.20826834,
-        "trendSlope21d": -0.0035294,
-        "trendSlope63d": 0.0011885,
-        "trendAnnualizedReturn63d": 0.3491881,
-        "trendFitR2_63d": 0.0556612,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.08786542,
+        "return21d": 0.02382485,
+        "return63d": 0.12367491,
+        "trendSlope21d": 0.00049592,
+        "trendSlope63d": 0.00160549,
+        "trendAnnualizedReturn63d": 0.49867796,
+        "trendFitR2_63d": 0.13154752,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.08884508,
         "maxDrawdown63d": -0.2436412,
-        "downsideVolatility63d": 0.0207915,
-        "excessReturnVsSpy21d": 0.01470121,
-        "excessReturnVsSpy63d": 0.16611408,
-        "trendAcceleration": 0.0005096,
-        "largestOneDayContribution63d": 0.04628139,
+        "downsideVolatility63d": 0.02097942,
+        "excessReturnVsSpy21d": -0.00286292,
+        "excessReturnVsSpy63d": 0.04664652,
+        "trendAcceleration": 0.00381539,
+        "largestOneDayContribution63d": 0.04763849,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 90.8317,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 88.9318,
+        "directionScore": 95.8832,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 67.6976,
         "drawdownControlScore": 18.7863,
-        "confirmationScore": 36.9683
+        "confirmationScore": 71.6033
       },
-      "benchmarkPercentile": 0.713302,
+      "benchmarkPercentile": 0.744057,
       "metricPercentiles": {
-        "trendSlope63d": 0.645469,
-        "trendFitR2_63d": 0.18018,
-        "excessReturnVsSpy63d": 0.84017,
-        "drawdownControlScore": 0.436142,
-        "growthSpurtScore": 0.713302
+        "trendSlope63d": 0.679873,
+        "trendFitR2_63d": 0.248811,
+        "excessReturnVsSpy63d": 0.698725,
+        "drawdownControlScore": 0.43159,
+        "growthSpurtScore": 0.744057
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6915,6 +6919,28 @@
         "volume": 449600,
         "source": "yahoo-chart",
         "adjusted_close": 15.489999771118164
+      },
+      {
+        "ticker": "CTNM",
+        "date": "2026-08-03",
+        "open": 15.220000267028809,
+        "high": 16.3700008392334,
+        "low": 15.1899995803833,
+        "close": 15.930000305175781,
+        "volume": 315000,
+        "source": "yahoo-chart",
+        "adjusted_close": 15.930000305175781
+      },
+      {
+        "ticker": "CTNM",
+        "date": "2026-08-04",
+        "open": 15.829999923706055,
+        "high": 16.700000762939453,
+        "low": 15.3100004196167,
+        "close": 15.899999618530273,
+        "volume": 427662,
+        "source": "yahoo-chart",
+        "adjusted_close": 15.899999618530273
       }
     ],
     "dataStatus": {
@@ -6952,13 +6978,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-30",
-      "latestScoringDate": "2026-07-31",
+      "latestScoringDate": "2026-08-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 52.27,
-      "growthSpurtBenchmarkPercentile": 0.713302,
-      "growthSpurtMarketDataAsOf": "2026-07-31",
-      "lastPipelineRun": "2026-08-04T10:09:24.670800+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.744057,
+      "growthSpurtMarketDataAsOf": "2026-08-04",
+      "lastPipelineRun": "2026-08-05T00:54:13.655574+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

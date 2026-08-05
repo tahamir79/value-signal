@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "AAME",
   "companyName": "ATLANTIC AMERICAN CORP",
-  "generatedAt": "2026-08-04T10:28:26.563186+00:00",
-  "marketDataAsOf": "2026-07-31",
+  "generatedAt": "2026-08-05T01:16:07.316512+00:00",
+  "marketDataAsOf": "2026-08-04",
   "currentPrice": 1.54,
   "analystTarget": {
     "ticker": "AAME",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-04T10:28:26.563186+00:00",
+    "collectedAt": "2026-08-05T01:16:07.316512+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-04T10:28:26.563186+00:00",
-    "marketDataAsOf": "2026-07-31",
+    "generatedAt": "2026-08-05T01:16:07.316512+00:00",
+    "marketDataAsOf": "2026-08-04",
     "currentPrice": 1.54,
     "horizon30Day": {
-      "returnEstimate": -0.02082802,
+      "returnEstimate": -0.00646896,
       "lowerReturn": -0.08,
-      "upperReturn": 0.07748716,
-      "estimatedPrice": 1.5079,
+      "upperReturn": 0.07985899,
+      "estimatedPrice": 1.53,
       "lowerEstimatedPrice": 1.4168,
-      "upperEstimatedPrice": 1.6593,
+      "upperEstimatedPrice": 1.663,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.02584524,
-      "lowerReturn": -0.10261634,
-      "upperReturn": 0.13188559,
-      "estimatedPrice": 1.5002,
-      "lowerEstimatedPrice": 1.382,
-      "upperEstimatedPrice": 1.7431,
+      "returnEstimate": 0.00249142,
+      "lowerReturn": -0.10134738,
+      "upperReturn": 0.15,
+      "estimatedPrice": 1.5438,
+      "lowerEstimatedPrice": 1.3839,
+      "upperEstimatedPrice": 1.771,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -77,7 +77,8 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%"
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T10:30:05.788003+00:00",
+  "generatedAt": "2026-08-05T01:17:46.986303+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 57,
-  "expectedUnavailable": 5847,
-  "dataQualityWarnings": 5511,
-  "warnings": 5511,
+  "nonCriticalFailures": 58,
+  "expectedUnavailable": 5855,
+  "dataQualityWarnings": 5519,
+  "warnings": 5519,
   "stages": [
     {
       "name": "core_artifacts",
@@ -33,13 +33,14 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1943,
-      "failed": 57,
+      "succeeded": 1942,
+      "failed": 58,
       "skipped": 0,
       "failedTickers": [
         "AAC",
         "ADBT",
         "ADIG",
+        "ADIG-WI",
         "AIBZ",
         "ALPS",
         "AMAC",
@@ -83,6 +84,7 @@
         "CSCM",
         "CUVL",
         "DAVI",
+        "DHGR",
         "DTSS",
         "EFGH",
         "EMI",
@@ -92,13 +94,12 @@
         "EVON",
         "EWAV",
         "FBDT",
-        "FBYDP",
-        "FDMM"
+        "FBYDP"
       ],
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 45
+          "count": 46
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -132,8 +133,8 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 5846,
-      "succeeded": 3877,
+      "attempted": 5854,
+      "succeeded": 3885,
       "failed": 0,
       "skipped": 1969,
       "failedTickers": [],
@@ -144,7 +145,7 @@
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 232
+          "count": 236
         }
       ],
       "artifactPaths": [
@@ -156,8 +157,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 810,
-      "succeeded": 810,
+      "attempted": 847,
+      "succeeded": 847,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -170,19 +171,19 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 5846,
-      "succeeded": 4561,
+      "attempted": 5854,
+      "succeeded": 4568,
       "failed": 0,
-      "skipped": 1285,
+      "skipped": 1286,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "BALANCE_SHEET_PARTIAL",
-          "count": 4226
+          "count": 4233
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1285
+          "count": 1286
         }
       ],
       "artifactPaths": [
@@ -193,15 +194,15 @@
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 5846,
-      "succeeded": 5686,
+      "attempted": 5854,
+      "succeeded": 5695,
       "failed": 0,
-      "skipped": 160,
+      "skipped": 159,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 160
+          "count": 159
         }
       ],
       "artifactPaths": [
@@ -213,15 +214,15 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 5846,
+      "attempted": 5854,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 5846,
+      "skipped": 5854,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 5846
+          "count": 5854
         }
       ],
       "artifactPaths": [
@@ -244,6 +245,12 @@
     },
     {
       "ticker": "ADIG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ADIG-WI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -299,8 +306,8 @@
     {
       "ticker": "ATTO",
       "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
+      "reason": "PRICE_HISTORY_UNAVAILABLE",
+      "retryable": true
     },
     {
       "ticker": "AVAC",
@@ -507,6 +514,12 @@
       "retryable": false
     },
     {
+      "ticker": "DHGR",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
       "ticker": "DTSS",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -562,12 +575,6 @@
     },
     {
       "ticker": "FBYDP",
-      "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
-    },
-    {
-      "ticker": "FDMM",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true

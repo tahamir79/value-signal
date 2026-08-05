@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "CLRCF",
+  "companyName": "ClimateRock",
+  "generatedAt": "2026-08-05T01:16:07.316512+00:00",
+  "marketDataAsOf": "2026-08-03",
+  "currentPrice": 12.75,
+  "analystTarget": {
+    "ticker": "CLRCF",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 12.75,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-08-05T01:16:07.316512+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 12.75,
+    "lowerEstimatedPrice": 12.1282,
+    "upperEstimatedPrice": 13.4037
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 12.75,
+    "lowerEstimatedPrice": 12.1282,
+    "upperEstimatedPrice": 13.4037
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-08-05T01:16:07.316512+00:00",
+    "marketDataAsOf": "2026-08-03",
+    "currentPrice": 12.75,
+    "horizon30Day": {
+      "returnEstimate": 0.0,
+      "lowerReturn": 0.0,
+      "upperReturn": 0.00365177,
+      "estimatedPrice": 12.75,
+      "lowerEstimatedPrice": 12.75,
+      "upperEstimatedPrice": 12.7966,
+      "sampleCount": 104,
+      "status": "available",
+      "usableObservationCount": 104,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.00475501,
+      "lowerReturn": 0.0,
+      "upperReturn": 0.017316,
+      "estimatedPrice": 12.8106,
+      "lowerEstimatedPrice": 12.75,
+      "upperEstimatedPrice": 12.9708,
+      "sampleCount": 96,
+      "status": "available",
+      "usableObservationCount": 96,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}
