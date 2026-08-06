@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "RSSS",
   "companyName": "Research Solutions, Inc.",
-  "generatedAt": "2026-08-06T06:38:29.453626+00:00",
-  "marketDataAsOf": "2026-08-04",
+  "generatedAt": "2026-08-06T10:25:53.074838+00:00",
+  "marketDataAsOf": "2026-08-05",
   "currentPrice": 2.21,
   "analystTarget": {
     "ticker": "RSSS",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-06T06:38:29.453626+00:00",
+    "collectedAt": "2026-08-06T10:25:53.074838+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-06T06:38:29.453626+00:00",
-    "marketDataAsOf": "2026-08-04",
+    "generatedAt": "2026-08-06T10:25:53.074838+00:00",
+    "marketDataAsOf": "2026-08-05",
     "currentPrice": 2.21,
     "horizon30Day": {
-      "returnEstimate": -0.01399382,
-      "lowerReturn": -0.07833154,
-      "upperReturn": 0.05469587,
-      "estimatedPrice": 2.1791,
-      "lowerEstimatedPrice": 2.0369,
-      "upperEstimatedPrice": 2.3309,
+      "returnEstimate": -0.01564122,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.06160406,
+      "estimatedPrice": 2.1754,
+      "lowerEstimatedPrice": 2.0332,
+      "upperEstimatedPrice": 2.3461,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.02537106,
-      "lowerReturn": -0.14610632,
-      "upperReturn": 0.13216406,
-      "estimatedPrice": 2.1539,
-      "lowerEstimatedPrice": 1.8871,
-      "upperEstimatedPrice": 2.5021,
+      "returnEstimate": -0.03411143,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.10060761,
+      "estimatedPrice": 2.1346,
+      "lowerEstimatedPrice": 1.8785,
+      "upperEstimatedPrice": 2.4323,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
