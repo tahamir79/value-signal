@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-05T01:12:21.996305+00:00",
+  "generatedAt": "2026-08-06T00:33:56.382072+00:00",
   "record": {
     "security": {
       "ticker": "CCL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 29.59,
-      "dailyChangePercent": 2.9576,
-      "marketCapBillions": 40.5279,
+      "latestPrice": 29.67,
+      "dailyChangePercent": 0.2704,
+      "marketCapBillions": 40.6375,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 26.622,
       "grossMarginPercent": null,
@@ -295,7 +295,7 @@
       "shortTermDebtShare": 0.054399,
       "bookValue": 12968000000.0,
       "bookValuePerShare": 9.468118,
-      "priceToBook": 3.125225,
+      "priceToBook": 3.133674,
       "retainedEarnings": 4996000000.0
     },
     "balanceSheetScoringShadow": {
@@ -507,65 +507,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CCL",
-      "generatedAt": "2026-08-05T00:54:13.655574+00:00",
-      "marketDataAsOf": "2026-08-04",
-      "status": "emerging",
-      "growthSpurtScore": 62.03,
+      "generatedAt": "2026-08-06T00:18:24.535086+00:00",
+      "marketDataAsOf": "2026-08-05",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.07560887,
-        "return63d": 0.15976775,
-        "trendSlope21d": 0.00369366,
-        "trendSlope63d": 0.00092531,
-        "trendAnnualizedReturn63d": 0.26260689,
-        "trendFitR2_63d": 0.0877566,
-        "positiveWeekRatio63d": 0.25,
-        "trendResidualVolatility63d": 0.05489535,
+        "return21d": 0.11206896,
+        "return63d": 0.15839066,
+        "trendSlope21d": 0.0044811,
+        "trendSlope63d": 0.00099232,
+        "trendAnnualizedReturn63d": 0.28410858,
+        "trendFitR2_63d": 0.09609342,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.0551729,
         "maxDrawdown63d": -0.18220062,
         "downsideVolatility63d": 0.01473258,
-        "excessReturnVsSpy21d": 0.0489211,
-        "excessReturnVsSpy63d": 0.08273935,
-        "trendAcceleration": -0.00022019,
-        "largestOneDayContribution63d": 0.06148431,
+        "excessReturnVsSpy21d": 0.08253885,
+        "excessReturnVsSpy63d": 0.09206695,
+        "trendAcceleration": 0.00088873,
+        "largestOneDayContribution63d": 0.064365,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 88.7637,
-        "consistencyScore": 2.9349,
+        "directionScore": 91.5282,
+        "consistencyScore": 7.1825,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 39.2665,
-        "confirmationScore": 87.7981
+        "confirmationScore": 98.8873
       },
-      "benchmarkPercentile": 0.805071,
+      "benchmarkPercentile": 0.744989,
       "metricPercentiles": {
-        "trendSlope63d": 0.608558,
-        "trendFitR2_63d": 0.210777,
-        "excessReturnVsSpy63d": 0.749734,
-        "drawdownControlScore": 0.551506,
-        "growthSpurtScore": 0.805071
+        "trendSlope63d": 0.618671,
+        "trendFitR2_63d": 0.223101,
+        "excessReturnVsSpy63d": 0.762865,
+        "drawdownControlScore": 0.551688,
+        "growthSpurtScore": 0.744989
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "CCL",
-        "date": "2021-08-05",
-        "open": 21.15999984741211,
-        "high": 22.649999618530273,
-        "low": 21.139999389648438,
-        "close": 22.549999237060547,
-        "volume": 32938000,
-        "source": "yahoo-chart",
-        "adjusted_close": 22.309595108032227
-      },
       {
         "ticker": "CCL",
         "date": "2021-08-06",
@@ -14343,11 +14334,22 @@
         "date": "2026-08-04",
         "open": 29.31999969482422,
         "high": 29.90999984741211,
-        "low": 29.30500030517578,
+        "low": 29.290000915527344,
         "close": 29.59000015258789,
-        "volume": 21547912,
+        "volume": 22467200,
         "source": "yahoo-chart",
         "adjusted_close": 29.59000015258789
+      },
+      {
+        "ticker": "CCL",
+        "date": "2026-08-05",
+        "open": 29.7549991607666,
+        "high": 30.219999313354492,
+        "low": 29.6299991607666,
+        "close": 29.670000076293945,
+        "volume": 14255155,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.670000076293945
       }
     ],
     "dataStatus": {
@@ -14385,13 +14387,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-06-26",
-      "latestScoringDate": "2026-08-04",
+      "latestScoringDate": "2026-08-05",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 62.03,
-      "growthSpurtBenchmarkPercentile": 0.805071,
-      "growthSpurtMarketDataAsOf": "2026-08-04",
-      "lastPipelineRun": "2026-08-05T00:54:13.655574+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.744989,
+      "growthSpurtMarketDataAsOf": "2026-08-05",
+      "lastPipelineRun": "2026-08-06T00:18:24.535086+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": true
     }
