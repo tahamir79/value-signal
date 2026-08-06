@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
+  "generatedAt": "2026-08-06T06:33:47.135691+00:00",
   "record": {
     "security": {
       "ticker": "LIND",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 34.09,
-      "dailyChangePercent": 2.9287,
-      "marketCapBillions": 2.237,
+      "latestPrice": 34.11,
+      "dailyChangePercent": 0.0587,
+      "marketCapBillions": 2.2383,
       "liabilitiesToAssets": 1.157121,
       "latestRevenueBillions": 0.2391,
       "grossMarginPercent": 65.2341,
@@ -534,64 +534,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LIND",
-      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
-      "marketDataAsOf": "2026-08-04",
-      "status": "emerging",
-      "growthSpurtScore": 79.03,
+      "generatedAt": "2026-08-06T06:12:02.771734+00:00",
+      "marketDataAsOf": "2026-08-05",
+      "status": "detected",
+      "growthSpurtScore": 83.44,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.33791212,
-        "return63d": 0.91087443,
-        "trendSlope21d": 0.00947706,
-        "trendSlope63d": 0.00767025,
-        "trendAnnualizedReturn63d": 5.90954181,
-        "trendFitR2_63d": 0.83699895,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05957161,
+        "return21d": 0.32878849,
+        "return63d": 0.66634107,
+        "trendSlope21d": 0.01055285,
+        "trendSlope63d": 0.00789347,
+        "trendAnnualizedReturn63d": 6.30935434,
+        "trendFitR2_63d": 0.84551245,
+        "positiveWeekRatio63d": 0.75,
+        "trendResidualVolatility63d": 0.0600472,
         "maxDrawdown63d": -0.14930883,
         "downsideVolatility63d": 0.01883256,
-        "excessReturnVsSpy21d": 0.31122435,
-        "excessReturnVsSpy63d": 0.83384604,
-        "trendAcceleration": -3.928e-05,
-        "largestOneDayContribution63d": 0.07222863,
-        "percentAboveTrendLine63d": 0.52380952
+        "excessReturnVsSpy21d": 0.31546787,
+        "excessReturnVsSpy63d": 0.61680615,
+        "trendAcceleration": 0.00104889,
+        "largestOneDayContribution63d": 0.07491907,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 50.119,
+        "consistencyScore": 63.6111,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 50.2304,
-        "confirmationScore": 89.6072
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.922995,
+      "benchmarkPercentile": 0.94471,
       "metricPercentiles": {
-        "trendSlope63d": 0.97504,
-        "trendFitR2_63d": 0.902284,
-        "excessReturnVsSpy63d": 0.992521,
-        "drawdownControlScore": 0.633563,
-        "growthSpurtScore": 0.922995
+        "trendSlope63d": 0.978735,
+        "trendFitR2_63d": 0.909623,
+        "excessReturnVsSpy63d": 0.975401,
+        "drawdownControlScore": 0.634237,
+        "growthSpurtScore": 0.94471
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
+        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED"
       ],
       "warnings": []
     },
     "priceHistory": [
-      {
-        "ticker": "LIND",
-        "date": "2021-08-05",
-        "open": 13.220000267028809,
-        "high": 14.529999732971191,
-        "low": 13.220000267028809,
-        "close": 14.489999771118164,
-        "volume": 233700,
-        "source": "yahoo-chart",
-        "adjusted_close": 14.489999771118164
-      },
       {
         "ticker": "LIND",
         "date": "2021-08-06",
@@ -14374,6 +14364,17 @@
         "volume": 1563200,
         "source": "yahoo-chart",
         "adjusted_close": 34.09000015258789
+      },
+      {
+        "ticker": "LIND",
+        "date": "2026-08-05",
+        "open": 34.2400016784668,
+        "high": 34.95000076293945,
+        "low": 33.810001373291016,
+        "close": 34.11000061035156,
+        "volume": 949500,
+        "source": "yahoo-chart",
+        "adjusted_close": 34.11000061035156
       }
     ],
     "dataStatus": {
@@ -14413,13 +14414,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-03",
-      "latestScoringDate": "2026-08-04",
+      "latestScoringDate": "2026-08-05",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 79.03,
-      "growthSpurtBenchmarkPercentile": 0.922995,
-      "growthSpurtMarketDataAsOf": "2026-08-04",
-      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
+      "growthSpurtStatus": "detected",
+      "growthSpurtScore": 83.44,
+      "growthSpurtBenchmarkPercentile": 0.94471,
+      "growthSpurtMarketDataAsOf": "2026-08-05",
+      "lastPipelineRun": "2026-08-06T06:12:02.771734+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

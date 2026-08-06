@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-05T06:27:10.313983+00:00",
+  "generatedAt": "2026-08-06T06:33:47.135691+00:00",
   "record": {
     "security": {
       "ticker": "KPET",
@@ -415,49 +415,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "KPET",
-      "generatedAt": "2026-08-05T06:07:36.971112+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-06T06:12:02.771734+00:00",
+      "marketDataAsOf": "2026-08-05",
+      "status": "not_detected",
+      "growthSpurtScore": 32.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.00701409,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00011138,
+        "trendSlope63d": -0.0001253,
+        "trendAnnualizedReturn63d": -0.03108332,
+        "trendFitR2_63d": 0.11755177,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00481424,
+        "maxDrawdown63d": -0.01679843,
+        "downsideVolatility63d": 0.00272278,
+        "excessReturnVsSpy21d": -0.00630653,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.00067429,
+        "largestOneDayContribution63d": 0.19069825,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 7.1939,
+        "consistencyScore": 20.7494,
+        "relativeStrengthScore": 42.1168,
+        "drawdownControlScore": 94.4005,
+        "confirmationScore": 30.5502
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.514088,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.452951,
+        "trendFitR2_63d": 0.239234,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.95428,
+        "growthSpurtScore": 0.514088
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -999,6 +1003,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.050000190734863
+      },
+      {
+        "ticker": "KPET",
+        "date": "2026-08-05",
+        "open": 10.050000190734863,
+        "high": 10.050000190734863,
+        "low": 10.050000190734863,
+        "close": 10.050000190734863,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.050000190734863
       }
     ],
     "dataStatus": {
@@ -1039,13 +1054,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-13",
-      "latestScoringDate": "2026-08-04",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-05T06:07:36.971112+00:00",
+      "latestScoringDate": "2026-08-05",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 32.98,
+      "growthSpurtBenchmarkPercentile": 0.514088,
+      "growthSpurtMarketDataAsOf": "2026-08-05",
+      "lastPipelineRun": "2026-08-06T06:12:02.771734+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
