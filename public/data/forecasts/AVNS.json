@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AVNS",
   "companyName": "AVANOS MEDICAL, INC.",
-  "generatedAt": "2026-08-06T10:25:53.074838+00:00",
+  "generatedAt": "2026-08-07T02:04:51.413484+00:00",
   "marketDataAsOf": "2026-07-24",
   "currentPrice": 24.99,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-06T10:25:53.074838+00:00",
+    "collectedAt": "2026-08-07T02:04:51.413484+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,42 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-06T10:25:53.074838+00:00",
+    "generatedAt": "2026-08-07T02:04:51.413484+00:00",
     "marketDataAsOf": "2026-07-24",
     "currentPrice": 24.99,
     "horizon30Day": {
-      "returnEstimate": -0.00260465,
-      "lowerReturn": -0.0629599,
-      "upperReturn": 0.04576349,
-      "estimatedPrice": 24.9249,
-      "lowerEstimatedPrice": 23.4166,
-      "upperEstimatedPrice": 26.1336,
-      "sampleCount": 105,
-      "status": "available",
-      "usableObservationCount": 105,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.01401349,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.15,
-      "estimatedPrice": 24.6398,
-      "lowerEstimatedPrice": 21.2415,
-      "upperEstimatedPrice": 28.7385,
-      "sampleCount": 97,
-      "status": "available",
-      "usableObservationCount": 97,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "Market data as of 2026-07-24 is older than 10 days.",
-      "90-day scenario: lower return clipped to +/-15%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",

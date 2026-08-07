@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-06T00:33:56.382072+00:00",
+  "generatedAt": "2026-08-07T02:00:42.435676+00:00",
   "record": {
     "security": {
       "ticker": "CAI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 16.45,
-      "dailyChangePercent": 2.1739,
-      "marketCapBillions": 4.6487,
+      "latestPrice": 20.0,
+      "dailyChangePercent": 21.5805,
+      "marketCapBillions": 5.6519,
       "liabilitiesToAssets": 0.518767,
       "latestRevenueBillions": 0.812,
       "grossMarginPercent": null,
@@ -295,7 +295,7 @@
       "shortTermDebtShare": 0.000453,
       "bookValue": 591734000.0,
       "bookValuePerShare": 2.093928,
-      "priceToBook": 7.856049,
+      "priceToBook": 9.551426,
       "retainedEarnings": -2549883000.0
     },
     "balanceSheetScoringShadow": {
@@ -507,49 +507,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CAI",
-      "generatedAt": "2026-08-06T00:18:24.535086+00:00",
-      "marketDataAsOf": "2026-08-05",
+      "generatedAt": "2026-08-07T01:46:32.738217+00:00",
+      "marketDataAsOf": "2026-08-06",
       "status": "not_detected",
-      "growthSpurtScore": 8.75,
+      "growthSpurtScore": 35.87,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.05838572,
-        "return63d": -0.13192612,
-        "trendSlope21d": -0.00449151,
-        "trendSlope63d": 0.0001722,
-        "trendAnnualizedReturn63d": 0.04434993,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.07174775,
+        "return21d": 0.15473443,
+        "return63d": 0.04547835,
+        "trendSlope21d": -0.00226839,
+        "trendSlope63d": 0.00060663,
+        "trendAnnualizedReturn63d": 0.1651732,
+        "trendFitR2_63d": 0.0151261,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.07263196,
         "maxDrawdown63d": -0.26663306,
         "downsideVolatility63d": 0.04152275,
-        "excessReturnVsSpy21d": -0.08791583,
-        "excessReturnVsSpy63d": -0.19824982,
-        "trendAcceleration": -0.00942256,
-        "largestOneDayContribution63d": 0.09635063,
+        "excessReturnVsSpy21d": 0.1236639,
+        "excessReturnVsSpy63d": -0.00454685,
+        "trendAcceleration": -0.00719944,
+        "largestOneDayContribution63d": 0.10232523,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 5.7021,
-        "consistencyScore": 21.4683,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 54.5011,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 65.6528,
         "drawdownControlScore": 11.1223,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.133439,
+      "benchmarkPercentile": 0.54248,
       "metricPercentiles": {
-        "trendSlope63d": 0.511076,
-        "trendFitR2_63d": 0.056435,
-        "excessReturnVsSpy63d": 0.257825,
-        "drawdownControlScore": 0.392405,
-        "growthSpurtScore": 0.133439
+        "trendSlope63d": 0.584169,
+        "trendFitR2_63d": 0.131398,
+        "excessReturnVsSpy63d": 0.615385,
+        "drawdownControlScore": 0.39314,
+        "growthSpurtScore": 0.54248
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3670,11 +3673,22 @@
         "date": "2026-08-05",
         "open": 16.030000686645508,
         "high": 16.540000915527344,
-        "low": 15.961600303649902,
+        "low": 15.961999893188477,
         "close": 16.450000762939453,
-        "volume": 6678079,
+        "volume": 6766300,
         "source": "yahoo-chart",
         "adjusted_close": 16.450000762939453
+      },
+      {
+        "ticker": "CAI",
+        "date": "2026-08-06",
+        "open": 19.0,
+        "high": 20.110000610351562,
+        "low": 17.94499969482422,
+        "close": 20.0,
+        "volume": 11266725,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.0
       }
     ],
     "dataStatus": {
@@ -3704,17 +3718,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-05",
+      "latestScoringDate": "2026-08-06",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 8.75,
-      "growthSpurtBenchmarkPercentile": 0.133439,
-      "growthSpurtMarketDataAsOf": "2026-08-05",
-      "lastPipelineRun": "2026-08-06T00:18:24.535086+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 35.87,
+      "growthSpurtBenchmarkPercentile": 0.54248,
+      "growthSpurtMarketDataAsOf": "2026-08-06",
+      "lastPipelineRun": "2026-08-07T01:46:32.738217+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
