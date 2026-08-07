@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "MRT",
   "companyName": "Marti Technologies, Inc.",
-  "generatedAt": "2026-08-07T02:04:51.413484+00:00",
-  "marketDataAsOf": "2026-08-05",
+  "generatedAt": "2026-08-07T05:30:19.297062+00:00",
+  "marketDataAsOf": "2026-08-06",
   "currentPrice": 1.79,
   "analystTarget": {
     "ticker": "MRT",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-07T02:04:51.413484+00:00",
+    "collectedAt": "2026-08-07T05:30:19.297062+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-07T02:04:51.413484+00:00",
-    "marketDataAsOf": "2026-08-05",
+    "generatedAt": "2026-08-07T05:30:19.297062+00:00",
+    "marketDataAsOf": "2026-08-06",
     "currentPrice": 1.79,
     "horizon30Day": {
-      "returnEstimate": -0.00736303,
-      "lowerReturn": -0.07541621,
-      "upperReturn": 0.0551059,
-      "estimatedPrice": 1.7768,
-      "lowerEstimatedPrice": 1.655,
-      "upperEstimatedPrice": 1.8886,
+      "returnEstimate": -0.01464943,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.05790099,
+      "estimatedPrice": 1.7638,
+      "lowerEstimatedPrice": 1.6468,
+      "upperEstimatedPrice": 1.8936,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.03615221,
-      "lowerReturn": -0.14773074,
-      "upperReturn": 0.04804165,
-      "estimatedPrice": 1.7253,
-      "lowerEstimatedPrice": 1.5256,
-      "upperEstimatedPrice": 1.876,
+      "returnEstimate": -0.04780884,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.06810206,
+      "estimatedPrice": 1.7044,
+      "lowerEstimatedPrice": 1.5215,
+      "upperEstimatedPrice": 1.9119,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
