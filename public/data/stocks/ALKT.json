@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-07T02:00:42.435676+00:00",
+  "generatedAt": "2026-08-08T00:09:27.549274+00:00",
   "record": {
     "security": {
       "ticker": "ALKT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 19.69,
-      "dailyChangePercent": 4.6784,
-      "marketCapBillions": 2.1057,
+      "latestPrice": 19.73,
+      "dailyChangePercent": 0.2031,
+      "marketCapBillions": 2.11,
       "liabilitiesToAssets": 0.563608,
       "latestRevenueBillions": 0.4436,
       "grossMarginPercent": 57.8396,
@@ -309,7 +309,7 @@
       "shortTermDebtShare": null,
       "bookValue": 362677000.0,
       "bookValuePerShare": 3.391344,
-      "priceToBook": 5.805959,
+      "priceToBook": 5.817753,
       "retainedEarnings": -542716000.0
     },
     "balanceSheetScoringShadow": {
@@ -523,52 +523,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ALKT",
-      "generatedAt": "2026-08-07T01:46:32.738217+00:00",
-      "marketDataAsOf": "2026-08-06",
-      "status": "emerging",
-      "growthSpurtScore": 67.08,
+      "generatedAt": "2026-08-07T23:53:53.996098+00:00",
+      "marketDataAsOf": "2026-08-07",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.11305822,
-        "return63d": 0.17552242,
-        "trendSlope21d": 0.00431537,
-        "trendSlope63d": 0.00154656,
-        "trendAnnualizedReturn63d": 0.47658714,
-        "trendFitR2_63d": 0.09950346,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.06781283,
+        "return21d": 0.11405988,
+        "return63d": 0.13195635,
+        "trendSlope21d": 0.00537268,
+        "trendSlope63d": 0.00172734,
+        "trendAnnualizedReturn63d": 0.54541054,
+        "trendFitR2_63d": 0.12791673,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06819195,
         "maxDrawdown63d": -0.23007918,
         "downsideVolatility63d": 0.01816447,
-        "excessReturnVsSpy21d": 0.08198769,
-        "excessReturnVsSpy63d": 0.12549722,
-        "trendAcceleration": 0.0057765,
-        "largestOneDayContribution63d": 0.04405744,
+        "excessReturnVsSpy21d": 0.08539193,
+        "excessReturnVsSpy63d": 0.07226077,
+        "trendAcceleration": 0.00596723,
+        "largestOneDayContribution63d": 0.0449272,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 100.0,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 96.8559,
         "drawdownControlScore": 23.3069,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.82533,
+      "benchmarkPercentile": 0.74407,
       "metricPercentiles": {
-        "trendSlope63d": 0.678628,
-        "trendFitR2_63d": 0.229024,
-        "excessReturnVsSpy63d": 0.804775,
-        "drawdownControlScore": 0.45277,
-        "growthSpurtScore": 0.82533
+        "trendSlope63d": 0.691618,
+        "trendFitR2_63d": 0.249868,
+        "excessReturnVsSpy63d": 0.727707,
+        "drawdownControlScore": 0.446494,
+        "growthSpurtScore": 0.74407
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14361,9 +14363,20 @@
         "high": 19.780000686645508,
         "low": 18.149999618530273,
         "close": 19.690000534057617,
-        "volume": 3472810,
+        "volume": 3479300,
         "source": "yahoo-chart",
         "adjusted_close": 19.690000534057617
+      },
+      {
+        "ticker": "ALKT",
+        "date": "2026-08-07",
+        "open": 19.979999542236328,
+        "high": 20.20509910583496,
+        "low": 19.395000457763672,
+        "close": 19.729999542236328,
+        "volume": 1470771,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.729999542236328
       }
     ],
     "dataStatus": {
@@ -14400,13 +14413,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-30",
-      "latestScoringDate": "2026-08-06",
+      "latestScoringDate": "2026-08-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 67.08,
-      "growthSpurtBenchmarkPercentile": 0.82533,
-      "growthSpurtMarketDataAsOf": "2026-08-06",
-      "lastPipelineRun": "2026-08-07T01:46:32.738217+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.74407,
+      "growthSpurtMarketDataAsOf": "2026-08-07",
+      "lastPipelineRun": "2026-08-07T23:53:53.996098+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

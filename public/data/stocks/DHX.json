@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-07T02:00:42.435676+00:00",
+  "generatedAt": "2026-08-08T00:09:27.549274+00:00",
   "record": {
     "security": {
       "ticker": "DHX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.13,
-      "dailyChangePercent": -1.1962,
-      "marketCapBillions": 0.1793,
+      "latestPrice": 3.98,
+      "dailyChangePercent": -3.632,
+      "marketCapBillions": 0.1728,
       "liabilitiesToAssets": 0.50137,
       "latestRevenueBillions": 0.1278,
       "grossMarginPercent": null,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 94079000.0,
       "bookValuePerShare": 2.166511,
-      "priceToBook": 1.906291,
+      "priceToBook": 1.837055,
       "retainedEarnings": 23100000.0
     },
     "balanceSheetScoringShadow": {
@@ -497,52 +497,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "DHX",
-      "generatedAt": "2026-08-07T01:46:32.738217+00:00",
-      "marketDataAsOf": "2026-08-06",
-      "status": "detected",
-      "growthSpurtScore": 80.73,
+      "generatedAt": "2026-08-07T23:53:53.996098+00:00",
+      "marketDataAsOf": "2026-08-07",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05897436,
-        "return63d": 0.47500007,
-        "trendSlope21d": 0.00230287,
-        "trendSlope63d": 0.0024641,
-        "trendAnnualizedReturn63d": 0.86070175,
-        "trendFitR2_63d": 0.52291314,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.04051892,
+        "return21d": 0.0050505,
+        "return63d": 0.23987538,
+        "trendSlope21d": 0.00190931,
+        "trendSlope63d": 0.00234586,
+        "trendAnnualizedReturn63d": 0.80607779,
+        "trendFitR2_63d": 0.50704482,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.0389776,
         "maxDrawdown63d": -0.12919897,
-        "downsideVolatility63d": 0.02544229,
-        "excessReturnVsSpy21d": 0.02790383,
-        "excessReturnVsSpy63d": 0.42497487,
-        "trendAcceleration": 0.00122469,
-        "largestOneDayContribution63d": 0.04798298,
+        "downsideVolatility63d": 0.02499014,
+        "excessReturnVsSpy21d": -0.02361745,
+        "excessReturnVsSpy63d": 0.1801798,
+        "trendAcceleration": 0.00089162,
+        "largestOneDayContribution63d": 0.04671503,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 52.9809,
-        "relativeStrengthScore": 94.7079,
+        "directionScore": 83.367,
+        "consistencyScore": 45.2877,
+        "relativeStrengthScore": 72.1674,
         "drawdownControlScore": 56.9337,
-        "confirmationScore": 100.0
+        "confirmationScore": 65.6502
       },
-      "benchmarkPercentile": 0.91504,
+      "benchmarkPercentile": 0.74407,
       "metricPercentiles": {
-        "trendSlope63d": 0.763061,
-        "trendFitR2_63d": 0.555673,
-        "excessReturnVsSpy63d": 0.94748,
-        "drawdownControlScore": 0.683905,
-        "growthSpurtScore": 0.91504
+        "trendSlope63d": 0.74486,
+        "trendFitR2_63d": 0.544544,
+        "excessReturnVsSpy63d": 0.846072,
+        "drawdownControlScore": 0.67844,
+        "growthSpurtScore": 0.74407
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14332,12 +14334,23 @@
         "ticker": "DHX",
         "date": "2026-08-06",
         "open": 3.869999885559082,
-        "high": 4.159999847412109,
-        "low": 3.4072999954223633,
+        "high": 4.170000076293945,
+        "low": 3.4100000858306885,
         "close": 4.130000114440918,
-        "volume": 397715,
+        "volume": 463900,
         "source": "yahoo-chart",
         "adjusted_close": 4.130000114440918
+      },
+      {
+        "ticker": "DHX",
+        "date": "2026-08-07",
+        "open": 4.179999828338623,
+        "high": 4.449999809265137,
+        "low": 3.884999990463257,
+        "close": 3.9800000190734863,
+        "volume": 171909,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9800000190734863
       }
     ],
     "dataStatus": {
@@ -14375,13 +14388,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-06",
+      "latestScoringDate": "2026-08-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 80.73,
-      "growthSpurtBenchmarkPercentile": 0.91504,
-      "growthSpurtMarketDataAsOf": "2026-08-06",
-      "lastPipelineRun": "2026-08-07T01:46:32.738217+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.74407,
+      "growthSpurtMarketDataAsOf": "2026-08-07",
+      "lastPipelineRun": "2026-08-07T23:53:53.996098+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-07T02:00:42.435676+00:00",
+  "generatedAt": "2026-08-08T00:09:27.549274+00:00",
   "record": {
     "security": {
       "ticker": "CYRX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 14.71,
-      "dailyChangePercent": -3.541,
-      "marketCapBillions": 0.745,
+      "latestPrice": 15.12,
+      "dailyChangePercent": 2.7872,
+      "marketCapBillions": 0.7658,
       "liabilitiesToAssets": 0.351102,
       "latestRevenueBillions": 0.1762,
       "grossMarginPercent": 47.1424,
@@ -308,7 +308,7 @@
       "shortTermDebtShare": null,
       "bookValue": 490699000.0,
       "bookValuePerShare": 9.688208,
-      "priceToBook": 1.518341,
+      "priceToBook": 1.56066,
       "retainedEarnings": -707683000.0
     },
     "balanceSheetScoringShadow": {
@@ -521,51 +521,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CYRX",
-      "generatedAt": "2026-08-07T01:46:32.738217+00:00",
-      "marketDataAsOf": "2026-08-06",
-      "status": "emerging",
-      "growthSpurtScore": 55.83,
+      "generatedAt": "2026-08-07T23:53:53.996098+00:00",
+      "marketDataAsOf": "2026-08-07",
+      "status": "not_detected",
+      "growthSpurtScore": 48.65,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.03604195,
-        "return63d": 0.1591805,
-        "trendSlope21d": -0.0047092,
-        "trendSlope63d": 0.00247857,
-        "trendAnnualizedReturn63d": 0.86749592,
-        "trendFitR2_63d": 0.41465297,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.05256793,
+        "return21d": -0.03816796,
+        "return63d": 0.18495295,
+        "trendSlope21d": -0.00504417,
+        "trendSlope63d": 0.00212597,
+        "trendAnnualizedReturn63d": 0.70871925,
+        "trendFitR2_63d": 0.36879998,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.0520299,
         "maxDrawdown63d": -0.12848484,
         "downsideVolatility63d": 0.01181269,
-        "excessReturnVsSpy21d": -0.06711248,
-        "excessReturnVsSpy63d": 0.1091553,
-        "trendAcceleration": -0.00899801,
-        "largestOneDayContribution63d": 0.06354316,
+        "excessReturnVsSpy21d": -0.06683592,
+        "excessReturnVsSpy63d": 0.12525736,
+        "trendAcceleration": -0.00906533,
+        "largestOneDayContribution63d": 0.06533954,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 41.0212,
+        "consistencyScore": 12.2929,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 57.1717,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.781003,
+      "benchmarkPercentile": 0.669478,
       "metricPercentiles": {
-        "trendSlope63d": 0.764644,
-        "trendFitR2_63d": 0.469657,
-        "excessReturnVsSpy63d": 0.784615,
-        "drawdownControlScore": 0.686016,
-        "growthSpurtScore": 0.781003
+        "trendSlope63d": 0.721666,
+        "trendFitR2_63d": 0.437533,
+        "excessReturnVsSpy63d": 0.789809,
+        "drawdownControlScore": 0.681075,
+        "growthSpurtScore": 0.669478
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14355,12 +14357,23 @@
         "ticker": "CYRX",
         "date": "2026-08-06",
         "open": 15.3100004196167,
-        "high": 15.324999809265137,
+        "high": 15.329999923706055,
         "low": 14.670000076293945,
         "close": 14.710000038146973,
-        "volume": 633429,
+        "volume": 634900,
         "source": "yahoo-chart",
         "adjusted_close": 14.710000038146973
+      },
+      {
+        "ticker": "CYRX",
+        "date": "2026-08-07",
+        "open": 15.324999809265137,
+        "high": 15.420000076293945,
+        "low": 14.319999694824219,
+        "close": 15.119999885559082,
+        "volume": 1057294,
+        "source": "yahoo-chart",
+        "adjusted_close": 15.119999885559082
       }
     ],
     "dataStatus": {
@@ -14369,10 +14382,10 @@
       "companyFactsAvailable": true,
       "recent10KAvailable": true,
       "recent10QAvailable": true,
-      "filingsDownloaded": false,
-      "filingsCleaned": false,
-      "filingsChunked": false,
-      "bm25Indexed": false,
+      "filingsDownloaded": true,
+      "filingsCleaned": true,
+      "filingsChunked": true,
+      "bm25Indexed": true,
       "balanceSheetAvailable": false,
       "balanceSheetPartial": true,
       "balanceSheetSource": "sec_companyfacts",
@@ -14394,13 +14407,13 @@
       "officialSignal": "quality-watchlist",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-06",
+      "latestScoringDate": "2026-08-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 55.83,
-      "growthSpurtBenchmarkPercentile": 0.781003,
-      "growthSpurtMarketDataAsOf": "2026-08-06",
-      "lastPipelineRun": "2026-08-07T01:46:32.738217+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 48.65,
+      "growthSpurtBenchmarkPercentile": 0.669478,
+      "growthSpurtMarketDataAsOf": "2026-08-07",
+      "lastPipelineRun": "2026-08-07T23:53:53.996098+00:00",
       "balanceSheetExperimentalSignal": "quality-watchlist",
       "balanceSheetWouldChangeSignal": false
     }

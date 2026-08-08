@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-07T02:00:42.435676+00:00",
+  "generatedAt": "2026-08-08T00:09:27.549274+00:00",
   "record": {
     "security": {
       "ticker": "CARS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.74,
-      "dailyChangePercent": -0.8446,
-      "marketCapBillions": 0.6285,
+      "latestPrice": 12.32,
+      "dailyChangePercent": 4.9404,
+      "marketCapBillions": 0.6595,
       "liabilitiesToAssets": 0.561845,
       "latestRevenueBillions": 0.7232,
       "grossMarginPercent": null,
@@ -295,7 +295,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 443605000.0,
       "bookValuePerShare": 8.286615,
-      "priceToBook": 1.416742,
+      "priceToBook": 1.486735,
       "retainedEarnings": -922253000.0
     },
     "balanceSheetScoringShadow": {
@@ -507,52 +507,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CARS",
-      "generatedAt": "2026-08-07T01:46:32.738217+00:00",
-      "marketDataAsOf": "2026-08-06",
-      "status": "emerging",
-      "growthSpurtScore": 58.41,
+      "generatedAt": "2026-08-07T23:53:53.996098+00:00",
+      "marketDataAsOf": "2026-08-07",
+      "status": "not_detected",
+      "growthSpurtScore": 49.8,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.087037,
-        "return63d": 0.04915105,
-        "trendSlope21d": 0.00321061,
-        "trendSlope63d": 0.00407021,
-        "trendAnnualizedReturn63d": 1.78902866,
-        "trendFitR2_63d": 0.44369472,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.0689069,
-        "maxDrawdown63d": -0.25547442,
-        "downsideVolatility63d": 0.01960046,
-        "excessReturnVsSpy21d": 0.05596647,
-        "excessReturnVsSpy63d": -0.00087415,
-        "trendAcceleration": 0.00197466,
-        "largestOneDayContribution63d": 0.05610637,
-        "percentAboveTrendLine63d": 0.52380952
+        "return21d": 0.11695376,
+        "return63d": -0.00081105,
+        "trendSlope21d": 0.00288528,
+        "trendSlope63d": 0.00426637,
+        "trendAnnualizedReturn63d": 1.93035655,
+        "trendFitR2_63d": 0.58038518,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06003464,
+        "maxDrawdown63d": -0.21404109,
+        "downsideVolatility63d": 0.01904832,
+        "excessReturnVsSpy21d": 0.08828581,
+        "excessReturnVsSpy63d": -0.06050663,
+        "trendAcceleration": 0.00084235,
+        "largestOneDayContribution63d": 0.0562374,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 79.3357,
-        "consistencyScore": 35.8205,
-        "relativeStrengthScore": 67.1449,
-        "drawdownControlScore": 14.8419,
-        "confirmationScore": 100.0
+        "directionScore": 65.0,
+        "consistencyScore": 30.3095,
+        "relativeStrengthScore": 42.9192,
+        "drawdownControlScore": 28.653,
+        "confirmationScore": 98.4235
       },
-      "benchmarkPercentile": 0.792348,
+      "benchmarkPercentile": 0.675804,
       "metricPercentiles": {
-        "trendSlope63d": 0.873351,
-        "trendFitR2_63d": 0.488654,
-        "excessReturnVsSpy63d": 0.623873,
-        "drawdownControlScore": 0.41372,
-        "growthSpurtScore": 0.792348
+        "trendSlope63d": 0.884555,
+        "trendFitR2_63d": 0.607802,
+        "excessReturnVsSpy63d": 0.458068,
+        "drawdownControlScore": 0.477596,
+        "growthSpurtScore": 0.675804
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14345,9 +14347,20 @@
         "high": 11.920000076293945,
         "low": 10.59000015258789,
         "close": 11.739999771118164,
-        "volume": 1341458,
+        "volume": 1524300,
         "source": "yahoo-chart",
         "adjusted_close": 11.739999771118164
+      },
+      {
+        "ticker": "CARS",
+        "date": "2026-08-07",
+        "open": 11.880000114440918,
+        "high": 13.34000015258789,
+        "low": 11.880000114440918,
+        "close": 12.319999694824219,
+        "volume": 1062843,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.319999694824219
       }
     ],
     "dataStatus": {
@@ -14382,13 +14395,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-06",
+      "latestScoringDate": "2026-08-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 58.41,
-      "growthSpurtBenchmarkPercentile": 0.792348,
-      "growthSpurtMarketDataAsOf": "2026-08-06",
-      "lastPipelineRun": "2026-08-07T01:46:32.738217+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 49.8,
+      "growthSpurtBenchmarkPercentile": 0.675804,
+      "growthSpurtMarketDataAsOf": "2026-08-07",
+      "lastPipelineRun": "2026-08-07T23:53:53.996098+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
