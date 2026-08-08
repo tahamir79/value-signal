@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-07T08:59:03.958991+00:00",
+  "generatedAt": "2026-08-08T08:24:15.265377+00:00",
   "record": {
     "security": {
       "ticker": "PYXS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.75,
-      "dailyChangePercent": 19.8083,
-      "marketCapBillions": 0.2376,
+      "latestPrice": 3.73,
+      "dailyChangePercent": -0.5333,
+      "marketCapBillions": 0.2363,
       "liabilitiesToAssets": 0.513717,
       "latestRevenueBillions": 0.0139,
       "grossMarginPercent": null,
@@ -274,7 +274,7 @@
       "shortTermDebtShare": null,
       "bookValue": 31268000.0,
       "bookValuePerShare": 0.493533,
-      "priceToBook": 7.598281,
+      "priceToBook": 7.557757,
       "retainedEarnings": -466449000.0
     },
     "balanceSheetScoringShadow": {
@@ -493,52 +493,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PYXS",
-      "generatedAt": "2026-08-07T08:35:47.937500+00:00",
-      "marketDataAsOf": "2026-08-06",
-      "status": "emerging",
-      "growthSpurtScore": 61.96,
+      "generatedAt": "2026-08-08T08:08:59.401494+00:00",
+      "marketDataAsOf": "2026-08-07",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.39405201,
-        "return63d": 0.63043482,
-        "trendSlope21d": 0.01739755,
-        "trendSlope63d": 0.00812705,
-        "trendAnnualizedReturn63d": 6.75250339,
-        "trendFitR2_63d": 0.32055274,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.17153366,
+        "return21d": 0.41287874,
+        "return63d": 0.65044249,
+        "trendSlope21d": 0.02151889,
+        "trendSlope63d": 0.00887258,
+        "trendAnnualizedReturn63d": 8.35479566,
+        "trendFitR2_63d": 0.36588562,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.17249001,
         "maxDrawdown63d": -0.40727273,
-        "downsideVolatility63d": 0.04887149,
-        "excessReturnVsSpy21d": 0.36298149,
-        "excessReturnVsSpy63d": 0.58040962,
-        "trendAcceleration": 0.01439874,
-        "largestOneDayContribution63d": 0.06749865,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.04896007,
+        "excessReturnVsSpy21d": 0.38421079,
+        "excessReturnVsSpy63d": 0.59074691,
+        "trendAcceleration": 0.01705612,
+        "largestOneDayContribution63d": 0.07153026,
+        "percentAboveTrendLine63d": 0.49206349
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 7.8355,
+        "consistencyScore": 14.5009,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.822598,
+      "benchmarkPercentile": 0.752504,
       "metricPercentiles": {
-        "trendSlope63d": 0.968321,
-        "trendFitR2_63d": 0.404435,
-        "excessReturnVsSpy63d": 0.965994,
-        "drawdownControlScore": 0.168427,
-        "growthSpurtScore": 0.822598
+        "trendSlope63d": 0.975224,
+        "trendFitR2_63d": 0.439642,
+        "excessReturnVsSpy63d": 0.966614,
+        "drawdownControlScore": 0.166579,
+        "growthSpurtScore": 0.752504
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13858,9 +13860,20 @@
         "high": 3.7699999809265137,
         "low": 3.130000114440918,
         "close": 3.75,
-        "volume": 1392900,
+        "volume": 1395500,
         "source": "yahoo-chart",
         "adjusted_close": 3.75
+      },
+      {
+        "ticker": "PYXS",
+        "date": "2026-08-07",
+        "open": 3.7799999713897705,
+        "high": 3.9000000953674316,
+        "low": 3.619999885559082,
+        "close": 3.7300000190734863,
+        "volume": 1237700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.7300000190734863
       }
     ],
     "dataStatus": {
@@ -13898,13 +13911,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-14",
-      "latestScoringDate": "2026-08-06",
+      "latestScoringDate": "2026-08-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 61.96,
-      "growthSpurtBenchmarkPercentile": 0.822598,
-      "growthSpurtMarketDataAsOf": "2026-08-06",
-      "lastPipelineRun": "2026-08-07T08:35:47.937500+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.752504,
+      "growthSpurtMarketDataAsOf": "2026-08-07",
+      "lastPipelineRun": "2026-08-08T08:08:59.401494+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
