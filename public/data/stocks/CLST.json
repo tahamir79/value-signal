@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-08T00:09:27.549274+00:00",
+  "generatedAt": "2026-08-11T00:14:21.684616+00:00",
   "record": {
     "security": {
       "ticker": "CLST",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 17.3413,
-      "dailyChangePercent": 2.3085,
-      "marketCapBillions": 0.0703,
+      "latestPrice": 17.0,
+      "dailyChangePercent": -1.9664,
+      "marketCapBillions": 0.0689,
       "liabilitiesToAssets": 0.715055,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -203,7 +203,7 @@
       "shortTermDebtShare": null,
       "bookValue": 82209000.0,
       "bookValuePerShare": 20.28902,
-      "priceToBook": 0.854713,
+      "priceToBook": 0.837892,
       "retainedEarnings": 52470000.0
     },
     "balanceSheetScoringShadow": {
@@ -425,53 +425,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CLST",
-      "generatedAt": "2026-08-07T23:53:53.996098+00:00",
-      "marketDataAsOf": "2026-08-07",
-      "status": "detected",
-      "growthSpurtScore": 76.09,
+      "generatedAt": "2026-08-11T00:00:00.904256+00:00",
+      "marketDataAsOf": "2026-08-10",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.04465655,
-        "return63d": 0.07243655,
-        "trendSlope21d": 0.0002248,
-        "trendSlope63d": 0.00128546,
-        "trendAnnualizedReturn63d": 0.38255733,
-        "trendFitR2_63d": 0.81598778,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.01158941,
+        "return21d": 0.01796403,
+        "return63d": 0.05985031,
+        "trendSlope21d": 0.00015434,
+        "trendSlope63d": 0.00130279,
+        "trendAnnualizedReturn63d": 0.38860966,
+        "trendFitR2_63d": 0.82537876,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.01135431,
         "maxDrawdown63d": -0.0423529,
-        "downsideVolatility63d": 0.00825141,
-        "excessReturnVsSpy21d": 0.01598859,
-        "excessReturnVsSpy63d": 0.01274096,
-        "trendAcceleration": -0.00081463,
-        "largestOneDayContribution63d": 0.09693294,
+        "downsideVolatility63d": 0.00840578,
+        "excessReturnVsSpy21d": -0.0059846,
+        "excessReturnVsSpy63d": 0.00914463,
+        "trendAcceleration": -0.00101258,
+        "largestOneDayContribution63d": 0.09322796,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 86.1273,
-        "consistencyScore": 79.3968,
-        "relativeStrengthScore": 62.171,
+        "directionScore": 74.4324,
+        "consistencyScore": 72.3394,
+        "relativeStrengthScore": 51.0967,
         "drawdownControlScore": 85.8824,
-        "confirmationScore": 50.8457
+        "confirmationScore": 30.1256
       },
-      "benchmarkPercentile": 0.874539,
+      "benchmarkPercentile": 0.729694,
       "metricPercentiles": {
-        "trendSlope63d": 0.644702,
-        "trendFitR2_63d": 0.860833,
-        "excessReturnVsSpy63d": 0.641189,
-        "drawdownControlScore": 0.923036,
-        "growthSpurtScore": 0.874539
+        "trendSlope63d": 0.640295,
+        "trendFitR2_63d": 0.866561,
+        "excessReturnVsSpy63d": 0.621679,
+        "drawdownControlScore": 0.919304,
+        "growthSpurtScore": 0.729694
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13766,12 +13768,23 @@
         "ticker": "CLST",
         "date": "2026-08-07",
         "open": 16.889999389648438,
-        "high": 17.499900817871094,
+        "high": 17.5,
         "low": 16.524999618530273,
-        "close": 17.341299057006836,
-        "volume": 4180,
+        "close": 17.340999603271484,
+        "volume": 4200,
         "source": "yahoo-chart",
-        "adjusted_close": 17.341299057006836
+        "adjusted_close": 17.340999603271484
+      },
+      {
+        "ticker": "CLST",
+        "date": "2026-08-10",
+        "open": 16.760000228881836,
+        "high": 17.0,
+        "low": 16.760000228881836,
+        "close": 17.0,
+        "volume": 1322,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.0
       }
     ],
     "dataStatus": {
@@ -13811,13 +13824,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-15",
-      "latestScoringDate": "2026-08-07",
+      "latestScoringDate": "2026-08-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 76.09,
-      "growthSpurtBenchmarkPercentile": 0.874539,
-      "growthSpurtMarketDataAsOf": "2026-08-07",
-      "lastPipelineRun": "2026-08-07T23:53:53.996098+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.729694,
+      "growthSpurtMarketDataAsOf": "2026-08-10",
+      "lastPipelineRun": "2026-08-11T00:00:00.904256+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
