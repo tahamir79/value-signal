@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-11T05:01:40.207544+00:00",
+  "generatedAt": "2026-08-12T05:33:30.941135+00:00",
   "record": {
     "security": {
       "ticker": "FND",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 59.17,
-      "dailyChangePercent": -5.6149,
-      "marketCapBillions": 6.301,
+      "latestPrice": 60.5,
+      "dailyChangePercent": 2.2478,
+      "marketCapBillions": 6.4426,
       "liabilitiesToAssets": 0.562972,
       "latestRevenueBillions": 4.6841,
       "grossMarginPercent": 43.6351,
@@ -319,7 +319,7 @@
       "shortTermDebtShare": 0.007621,
       "bookValue": 2495874000.0,
       "bookValuePerShare": 23.437645,
-      "priceToBook": 2.524571,
+      "priceToBook": 2.581317,
       "retainedEarnings": 1900421000.0
     },
     "balanceSheetScoringShadow": {
@@ -530,65 +530,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FND",
-      "generatedAt": "2026-08-11T04:49:09.975435+00:00",
-      "marketDataAsOf": "2026-08-10",
-      "status": "detected",
-      "growthSpurtScore": 79.31,
+      "generatedAt": "2026-08-12T05:11:16.627258+00:00",
+      "marketDataAsOf": "2026-08-11",
+      "status": "emerging",
+      "growthSpurtScore": 78.95,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03570798,
-        "return63d": 0.14382367,
-        "trendSlope21d": 0.00567478,
-        "trendSlope63d": 0.00407867,
-        "trendAnnualizedReturn63d": 1.79497931,
-        "trendFitR2_63d": 0.70202293,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.04958284,
+        "return21d": 0.10100089,
+        "return63d": 0.24077117,
+        "trendSlope21d": 0.006244,
+        "trendSlope63d": 0.00415495,
+        "trendAnnualizedReturn63d": 1.84922427,
+        "trendFitR2_63d": 0.71050313,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.04925599,
         "maxDrawdown63d": -0.1102164,
-        "downsideVolatility63d": 0.01764827,
-        "excessReturnVsSpy21d": 0.01175935,
-        "excessReturnVsSpy63d": 0.09311799,
-        "trendAcceleration": -0.00047737,
-        "largestOneDayContribution63d": 0.0605195,
+        "downsideVolatility63d": 0.01792187,
+        "excessReturnVsSpy21d": 0.07244928,
+        "excessReturnVsSpy63d": 0.19580274,
+        "trendAcceleration": 8.893e-05,
+        "largestOneDayContribution63d": 0.06052937,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 55.0797,
-        "relativeStrengthScore": 87.6447,
+        "consistencyScore": 41.5065,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 63.2612,
-        "confirmationScore": 85.2263
+        "confirmationScore": 90.8893
       },
-      "benchmarkPercentile": 0.90938,
+      "benchmarkPercentile": 0.897191,
       "metricPercentiles": {
-        "trendSlope63d": 0.893482,
-        "trendFitR2_63d": 0.746158,
-        "excessReturnVsSpy63d": 0.77689,
-        "drawdownControlScore": 0.721781,
-        "growthSpurtScore": 0.90938
+        "trendSlope63d": 0.898251,
+        "trendFitR2_63d": 0.758877,
+        "excessReturnVsSpy63d": 0.857067,
+        "drawdownControlScore": 0.72443,
+        "growthSpurtScore": 0.897191
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
+        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
       ],
       "warnings": []
     },
     "priceHistory": [
-      {
-        "ticker": "FND",
-        "date": "2021-08-11",
-        "open": 120.94999694824219,
-        "high": 122.33000183105469,
-        "low": 119.70500183105469,
-        "close": 121.18000030517578,
-        "volume": 749000,
-        "source": "yahoo-chart",
-        "adjusted_close": 121.18000030517578
-      },
       {
         "ticker": "FND",
         "date": "2021-08-12",
@@ -14371,6 +14360,17 @@
         "volume": 2217900,
         "source": "yahoo-chart",
         "adjusted_close": 59.16999816894531
+      },
+      {
+        "ticker": "FND",
+        "date": "2026-08-11",
+        "open": 59.0,
+        "high": 61.150001525878906,
+        "low": 58.5099983215332,
+        "close": 60.5,
+        "volume": 2100400,
+        "source": "yahoo-chart",
+        "adjusted_close": 60.5
       }
     ],
     "dataStatus": {
@@ -14404,13 +14404,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-30",
-      "latestScoringDate": "2026-08-10",
+      "latestScoringDate": "2026-08-11",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 79.31,
-      "growthSpurtBenchmarkPercentile": 0.90938,
-      "growthSpurtMarketDataAsOf": "2026-08-10",
-      "lastPipelineRun": "2026-08-11T04:49:09.975435+00:00",
+      "growthSpurtStatus": "emerging",
+      "growthSpurtScore": 78.95,
+      "growthSpurtBenchmarkPercentile": 0.897191,
+      "growthSpurtMarketDataAsOf": "2026-08-11",
+      "lastPipelineRun": "2026-08-12T05:11:16.627258+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
