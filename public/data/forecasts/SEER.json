@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "SEER",
   "companyName": "Seer, Inc.",
-  "generatedAt": "2026-08-12T05:36:47.249374+00:00",
-  "marketDataAsOf": "2026-08-10",
+  "generatedAt": "2026-08-12T09:06:06.013607+00:00",
+  "marketDataAsOf": "2026-08-11",
   "currentPrice": 2.16,
   "analystTarget": {
     "ticker": "SEER",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-12T05:36:47.249374+00:00",
+    "collectedAt": "2026-08-12T09:06:06.013607+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-12T05:36:47.249374+00:00",
-    "marketDataAsOf": "2026-08-10",
+    "generatedAt": "2026-08-12T09:06:06.013607+00:00",
+    "marketDataAsOf": "2026-08-11",
     "currentPrice": 2.16,
     "horizon30Day": {
-      "returnEstimate": 0.0,
-      "lowerReturn": -0.06467646,
-      "upperReturn": 0.07942795,
-      "estimatedPrice": 2.16,
-      "lowerEstimatedPrice": 2.0203,
-      "upperEstimatedPrice": 2.3316,
+      "returnEstimate": 0.00212696,
+      "lowerReturn": -0.06186793,
+      "upperReturn": 0.08,
+      "estimatedPrice": 2.1646,
+      "lowerEstimatedPrice": 2.0264,
+      "upperEstimatedPrice": 2.3328,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01758982,
-      "lowerReturn": -0.10564636,
-      "upperReturn": 0.08722483,
-      "estimatedPrice": 2.198,
-      "lowerEstimatedPrice": 1.9318,
-      "upperEstimatedPrice": 2.3484,
+      "returnEstimate": 0.00604969,
+      "lowerReturn": -0.08082283,
+      "upperReturn": 0.09304347,
+      "estimatedPrice": 2.1731,
+      "lowerEstimatedPrice": 1.9854,
+      "upperEstimatedPrice": 2.361,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
