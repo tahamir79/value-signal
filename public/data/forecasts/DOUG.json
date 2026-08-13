@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "DOUG",
   "companyName": "Douglas Elliman Inc.",
-  "generatedAt": "2026-08-12T09:06:06.013607+00:00",
-  "marketDataAsOf": "2026-08-11",
+  "generatedAt": "2026-08-13T00:34:30.842605+00:00",
+  "marketDataAsOf": "2026-08-12",
   "currentPrice": 2.02,
   "analystTarget": {
     "ticker": "DOUG",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-12T09:06:06.013607+00:00",
+    "collectedAt": "2026-08-13T00:34:30.842605+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,32 +44,32 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-12T09:06:06.013607+00:00",
-    "marketDataAsOf": "2026-08-11",
+    "generatedAt": "2026-08-13T00:34:30.842605+00:00",
+    "marketDataAsOf": "2026-08-12",
     "currentPrice": 2.02,
     "horizon30Day": {
-      "returnEstimate": -0.01460702,
+      "returnEstimate": -0.00992625,
       "lowerReturn": -0.08,
       "upperReturn": 0.08,
-      "estimatedPrice": 1.9905,
+      "estimatedPrice": 1.9999,
       "lowerEstimatedPrice": 1.8584,
       "upperEstimatedPrice": 2.1816,
-      "sampleCount": 104,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00823038,
-      "lowerReturn": -0.12603007,
-      "upperReturn": 0.13214215,
-      "estimatedPrice": 2.0366,
-      "lowerEstimatedPrice": 1.7654,
-      "upperEstimatedPrice": 2.2869,
-      "sampleCount": 96,
+      "returnEstimate": 0.00421739,
+      "lowerReturn": -0.12154692,
+      "upperReturn": 0.15,
+      "estimatedPrice": 2.0285,
+      "lowerEstimatedPrice": 1.7745,
+      "upperEstimatedPrice": 2.323,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
@@ -78,7 +78,8 @@
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

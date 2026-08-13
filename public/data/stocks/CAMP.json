@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-12T00:24:29.986386+00:00",
+  "generatedAt": "2026-08-13T00:28:56.790025+00:00",
   "record": {
     "security": {
       "ticker": "CAMP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.17,
-      "dailyChangePercent": -1.1848,
-      "marketCapBillions": 0.2165,
+      "latestPrice": 4.53,
+      "dailyChangePercent": 8.6331,
+      "marketCapBillions": 0.2352,
       "liabilitiesToAssets": 0.706971,
       "latestRevenueBillions": 0.0035,
       "grossMarginPercent": null,
@@ -252,7 +252,7 @@
       "shortTermDebtShare": null,
       "bookValue": 30902000.0,
       "bookValuePerShare": 0.595118,
-      "priceToBook": 7.007009,
+      "priceToBook": 7.611931,
       "retainedEarnings": -310487000.0
     },
     "balanceSheetScoringShadow": {
@@ -473,49 +473,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CAMP",
-      "generatedAt": "2026-08-12T00:06:16.776192+00:00",
-      "marketDataAsOf": "2026-08-11",
+      "generatedAt": "2026-08-13T00:06:32.652081+00:00",
+      "marketDataAsOf": "2026-08-12",
       "status": "not_detected",
-      "growthSpurtScore": 6.72,
+      "growthSpurtScore": 20.09,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.07333332,
-        "return63d": -0.05227273,
-        "trendSlope21d": 0.00761585,
-        "trendSlope63d": -0.00161049,
-        "trendAnnualizedReturn63d": -0.3335861,
-        "trendFitR2_63d": 0.12919135,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.09409264,
+        "return21d": 0.01797762,
+        "return63d": 0.00666671,
+        "trendSlope21d": 0.0145343,
+        "trendSlope63d": -0.00132225,
+        "trendAnnualizedReturn63d": -0.28337798,
+        "trendFitR2_63d": 0.08981381,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.09700456,
         "maxDrawdown63d": -0.33991227,
         "downsideVolatility63d": 0.02929682,
-        "excessReturnVsSpy21d": -0.10188493,
-        "excessReturnVsSpy63d": -0.09724116,
-        "trendAcceleration": 0.0080401,
-        "largestOneDayContribution63d": 0.08459733,
+        "excessReturnVsSpy21d": -0.00950196,
+        "excessReturnVsSpy63d": -0.04250846,
+        "trendAcceleration": 0.01460157,
+        "largestOneDayContribution63d": 0.08188263,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 13.9295,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 28.5738,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 60.0
+        "confirmationScore": 83.9702
       },
-      "benchmarkPercentile": 0.076396,
+      "benchmarkPercentile": 0.296316,
       "metricPercentiles": {
-        "trendSlope63d": 0.304531,
-        "trendFitR2_63d": 0.256059,
-        "excessReturnVsSpy63d": 0.353316,
-        "drawdownControlScore": 0.166754,
-        "growthSpurtScore": 0.076396
+        "trendSlope63d": 0.322105,
+        "trendFitR2_63d": 0.23,
+        "excessReturnVsSpy63d": 0.511135,
+        "drawdownControlScore": 0.168947,
+        "growthSpurtScore": 0.296316
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5549,12 +5553,23 @@
         "ticker": "CAMP",
         "date": "2026-08-11",
         "open": 4.230000019073486,
-        "high": 4.300000190734863,
-        "low": 4.139999866485596,
+        "high": 4.329999923706055,
+        "low": 4.135000228881836,
         "close": 4.170000076293945,
-        "volume": 61946,
+        "volume": 62400,
         "source": "yahoo-chart",
         "adjusted_close": 4.170000076293945
+      },
+      {
+        "ticker": "CAMP",
+        "date": "2026-08-12",
+        "open": 4.199999809265137,
+        "high": 4.630000114440918,
+        "low": 4.130000114440918,
+        "close": 4.53000020980835,
+        "volume": 492377,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.53000020980835
       }
     ],
     "dataStatus": {
@@ -5589,17 +5604,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-07",
-      "latestScoringDate": "2026-08-11",
+      "latestScoringDate": "2026-08-12",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 6.72,
-      "growthSpurtBenchmarkPercentile": 0.076396,
-      "growthSpurtMarketDataAsOf": "2026-08-11",
-      "lastPipelineRun": "2026-08-12T00:06:16.776192+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 20.09,
+      "growthSpurtBenchmarkPercentile": 0.296316,
+      "growthSpurtMarketDataAsOf": "2026-08-12",
+      "lastPipelineRun": "2026-08-13T00:06:32.652081+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

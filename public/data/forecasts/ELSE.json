@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ELSE",
   "companyName": "ELECTRO SENSORS INC",
-  "generatedAt": "2026-08-12T09:06:06.013607+00:00",
+  "generatedAt": "2026-08-13T00:34:30.842605+00:00",
   "marketDataAsOf": "2026-08-07",
   "currentPrice": 7.7401,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-12T09:06:06.013607+00:00",
+    "collectedAt": "2026-08-13T00:34:30.842605+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-12T09:06:06.013607+00:00",
+    "generatedAt": "2026-08-13T00:34:30.842605+00:00",
     "marketDataAsOf": "2026-08-07",
     "currentPrice": 7.7401,
     "horizon30Day": {
-      "returnEstimate": 0.0,
-      "lowerReturn": -0.03534919,
-      "upperReturn": 0.04052165,
-      "estimatedPrice": 7.7401,
-      "lowerEstimatedPrice": 7.4665,
-      "upperEstimatedPrice": 8.0537,
-      "sampleCount": 106,
-      "status": "available",
-      "usableObservationCount": 106,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.01500235,
-      "lowerReturn": -0.05203937,
-      "upperReturn": 0.15,
-      "estimatedPrice": 7.8562,
-      "lowerEstimatedPrice": 7.3373,
-      "upperEstimatedPrice": 8.9011,
-      "sampleCount": 98,
-      "status": "available",
-      "usableObservationCount": 98,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
