@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-12T05:33:30.941135+00:00",
+  "generatedAt": "2026-08-13T05:30:42.991518+00:00",
   "record": {
     "security": {
       "ticker": "FGII",
@@ -435,50 +435,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FGII",
-      "generatedAt": "2026-08-12T05:11:16.627258+00:00",
-      "marketDataAsOf": "2026-08-11",
+      "generatedAt": "2026-08-13T05:17:05.248914+00:00",
+      "marketDataAsOf": "2026-08-12",
       "status": "not_detected",
-      "growthSpurtScore": 40.17,
+      "growthSpurtScore": 38.17,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.0020101,
         "return63d": 0.00707077,
-        "trendSlope21d": 0.00010038,
-        "trendSlope63d": 8.363e-05,
-        "trendAnnualizedReturn63d": 0.02129787,
-        "trendFitR2_63d": 0.75608355,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.00091175,
+        "trendSlope21d": 0.00011156,
+        "trendSlope63d": 8.056e-05,
+        "trendAnnualizedReturn63d": 0.0205091,
+        "trendFitR2_63d": 0.75334063,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00090096,
         "maxDrawdown63d": -0.00402414,
         "downsideVolatility63d": 0.00133455,
-        "excessReturnVsSpy21d": -0.02654152,
-        "excessReturnVsSpy63d": -0.03789765,
-        "trendAcceleration": 1.29e-05,
-        "largestOneDayContribution63d": 0.10843635,
+        "excessReturnVsSpy21d": -0.02546948,
+        "excessReturnVsSpy63d": -0.0421044,
+        "trendAcceleration": 2.773e-05,
+        "largestOneDayContribution63d": 0.12113548,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.1407,
-        "consistencyScore": 68.9939,
-        "relativeStrengthScore": 22.9922,
+        "directionScore": 6.0393,
+        "consistencyScore": 61.8549,
+        "relativeStrengthScore": 21.7522,
         "drawdownControlScore": 98.6586,
-        "confirmationScore": 16.8243
+        "confirmationScore": 17.4198
       },
-      "benchmarkPercentile": 0.582406,
+      "benchmarkPercentile": 0.539257,
       "metricPercentiles": {
-        "trendSlope63d": 0.490726,
-        "trendFitR2_63d": 0.808691,
-        "excessReturnVsSpy63d": 0.500267,
-        "drawdownControlScore": 0.981982,
-        "growthSpurtScore": 0.582406
+        "trendSlope63d": 0.487533,
+        "trendFitR2_63d": 0.809019,
+        "excessReturnVsSpy63d": 0.473319,
+        "drawdownControlScore": 0.981432,
+        "growthSpurtScore": 0.539257
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1657,6 +1660,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.970000267028809
+      },
+      {
+        "ticker": "FGII",
+        "date": "2026-08-12",
+        "open": 9.970000267028809,
+        "high": 9.970000267028809,
+        "low": 9.970000267028809,
+        "close": 9.970000267028809,
+        "volume": 200,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.970000267028809
       }
     ],
     "dataStatus": {
@@ -1665,10 +1679,10 @@
       "companyFactsAvailable": true,
       "recent10KAvailable": true,
       "recent10QAvailable": true,
-      "filingsDownloaded": false,
-      "filingsCleaned": false,
-      "filingsChunked": false,
-      "bm25Indexed": false,
+      "filingsDownloaded": true,
+      "filingsCleaned": true,
+      "filingsChunked": true,
+      "bm25Indexed": true,
       "balanceSheetAvailable": false,
       "balanceSheetPartial": true,
       "balanceSheetSource": "sec_companyfacts",
@@ -1694,13 +1708,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-24",
-      "latestScoringDate": "2026-08-11",
+      "latestScoringDate": "2026-08-12",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 40.17,
-      "growthSpurtBenchmarkPercentile": 0.582406,
-      "growthSpurtMarketDataAsOf": "2026-08-11",
-      "lastPipelineRun": "2026-08-12T05:11:16.627258+00:00",
+      "growthSpurtScore": 38.17,
+      "growthSpurtBenchmarkPercentile": 0.539257,
+      "growthSpurtMarketDataAsOf": "2026-08-12",
+      "lastPipelineRun": "2026-08-13T05:17:05.248914+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
