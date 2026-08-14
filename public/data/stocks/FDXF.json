@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-13T05:30:42.991518+00:00",
+  "generatedAt": "2026-08-14T05:30:50.665049+00:00",
   "record": {
     "security": {
       "ticker": "FDXF",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 141.24,
-      "dailyChangePercent": 1.2401,
-      "marketCapBillions": 21.1179,
+      "latestPrice": 151.99,
+      "dailyChangePercent": 7.6112,
+      "marketCapBillions": 22.7253,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 8.795,
       "grossMarginPercent": null,
@@ -452,49 +452,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FDXF",
-      "generatedAt": "2026-08-13T05:17:05.248914+00:00",
-      "marketDataAsOf": "2026-08-12",
+      "generatedAt": "2026-08-14T05:14:48.509854+00:00",
+      "marketDataAsOf": "2026-08-13",
       "status": "not_detected",
-      "growthSpurtScore": 10.17,
+      "growthSpurtScore": 36.62,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02424867,
+        "return21d": 0.05001731,
         "return63d": null,
-        "trendSlope21d": -0.00419663,
-        "trendSlope63d": -0.00359258,
-        "trendAnnualizedReturn63d": -0.59559212,
-        "trendFitR2_63d": 0.51712948,
+        "trendSlope21d": -0.00295648,
+        "trendSlope63d": -0.00336749,
+        "trendAnnualizedReturn63d": -0.57198975,
+        "trendFitR2_63d": 0.48645852,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.0516569,
+        "trendResidualVolatility63d": 0.05259457,
         "maxDrawdown63d": -0.27013691,
-        "downsideVolatility63d": 0.02820678,
-        "excessReturnVsSpy21d": -0.05172825,
+        "downsideVolatility63d": 0.02856006,
+        "excessReturnVsSpy21d": 0.01536854,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": 0.00152292,
-        "largestOneDayContribution63d": 0.12579213,
+        "trendAcceleration": 0.00276306,
+        "largestOneDayContribution63d": 0.12227602,
         "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 26.7005,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 30.7692,
+        "consistencyScore": 24.2125,
+        "relativeStrengthScore": 69.2107,
         "drawdownControlScore": 9.9544,
-        "confirmationScore": 20.0
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.154907,
+      "benchmarkPercentile": 0.521969,
       "metricPercentiles": {
-        "trendSlope63d": 0.223873,
-        "trendFitR2_63d": 0.560743,
+        "trendSlope63d": 0.229222,
+        "trendFitR2_63d": 0.536792,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": 0.373475,
-        "growthSpurtScore": 0.154907
+        "drawdownControlScore": 0.369508,
+        "growthSpurtScore": 0.521969
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1071,25 +1074,25 @@
       },
       {
         "ticker": "FDXF",
-        "date": "2026-08-11",
-        "open": 140.69000244140625,
-        "high": 143.8300018310547,
-        "low": 138.10000610351562,
-        "close": 139.50999450683594,
-        "volume": 975600,
-        "source": "yahoo-chart",
-        "adjusted_close": 139.50999450683594
-      },
-      {
-        "ticker": "FDXF",
         "date": "2026-08-12",
         "open": 139.57000732421875,
         "high": 142.13999938964844,
         "low": 138.8000030517578,
         "close": 141.24000549316406,
-        "volume": 890800,
+        "volume": 892300,
         "source": "yahoo-chart",
         "adjusted_close": 141.24000549316406
+      },
+      {
+        "ticker": "FDXF",
+        "date": "2026-08-13",
+        "open": 142.02000427246094,
+        "high": 152.02000427246094,
+        "low": 140.6999969482422,
+        "close": 151.99000549316406,
+        "volume": 3146700,
+        "source": "yahoo-chart",
+        "adjusted_close": 151.99000549316406
       }
     ],
     "dataStatus": {
@@ -1131,14 +1134,14 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-12",
+      "latestScoringDate": "2026-08-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 10.17,
-      "growthSpurtBenchmarkPercentile": 0.154907,
-      "growthSpurtMarketDataAsOf": "2026-08-12",
-      "lastPipelineRun": "2026-08-13T05:17:05.248914+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 36.62,
+      "growthSpurtBenchmarkPercentile": 0.521969,
+      "growthSpurtMarketDataAsOf": "2026-08-13",
+      "lastPipelineRun": "2026-08-14T05:14:48.509854+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
