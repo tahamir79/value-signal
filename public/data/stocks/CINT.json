@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-13T00:28:56.790025+00:00",
+  "generatedAt": "2026-08-14T00:26:13.334606+00:00",
   "record": {
     "security": {
       "ticker": "CINT",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.62,
-      "dailyChangePercent": -0.5495,
+      "latestPrice": 3.69,
+      "dailyChangePercent": 1.9337,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,27 +335,27 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CINT",
-      "generatedAt": "2026-08-13T00:06:32.652081+00:00",
-      "marketDataAsOf": "2026-08-12",
+      "generatedAt": "2026-08-14T00:07:53.488635+00:00",
+      "marketDataAsOf": "2026-08-13",
       "status": "not_detected",
       "growthSpurtScore": 25.53,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09365557,
-        "return63d": -0.09273186,
-        "trendSlope21d": 0.00672677,
-        "trendSlope63d": -0.00228665,
-        "trendAnnualizedReturn63d": -0.43798966,
-        "trendFitR2_63d": 0.1502033,
+        "return21d": 0.09495554,
+        "return63d": -0.03403138,
+        "trendSlope21d": 0.00804484,
+        "trendSlope63d": -0.00217345,
+        "trendAnnualizedReturn63d": -0.42172686,
+        "trendFitR2_63d": 0.12029063,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07008038,
+        "trendResidualVolatility63d": 0.07060652,
         "maxDrawdown63d": -0.26392255,
-        "downsideVolatility63d": 0.02372496,
-        "excessReturnVsSpy21d": 0.06252778,
-        "excessReturnVsSpy63d": -0.14031758,
-        "trendAcceleration": 0.00917806,
-        "largestOneDayContribution63d": 0.09455746,
+        "downsideVolatility63d": 0.02355403,
+        "excessReturnVsSpy21d": 0.06030677,
+        "excessReturnVsSpy63d": -0.09052712,
+        "trendAcceleration": 0.01044735,
+        "largestOneDayContribution63d": 0.09701035,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
@@ -365,20 +365,23 @@
         "drawdownControlScore": 12.0258,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.371579,
+      "benchmarkPercentile": 0.354024,
       "metricPercentiles": {
-        "trendSlope63d": 0.265789,
-        "trendFitR2_63d": 0.277895,
-        "excessReturnVsSpy63d": 0.305938,
-        "drawdownControlScore": 0.394211,
-        "growthSpurtScore": 0.371579
+        "trendSlope63d": 0.268806,
+        "trendFitR2_63d": 0.267228,
+        "excessReturnVsSpy63d": 0.36142,
+        "drawdownControlScore": 0.385587,
+        "growthSpurtScore": 0.354024
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13396,6 +13399,17 @@
       },
       {
         "ticker": "CINT",
+        "date": "2026-07-31",
+        "open": 3.319999933242798,
+        "high": 3.434999942779541,
+        "low": 3.194999933242798,
+        "close": 3.3499999046325684,
+        "volume": 116200,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.3499999046325684
+      },
+      {
+        "ticker": "CINT",
         "date": "2026-08-03",
         "open": 3.3299999237060547,
         "high": 3.5,
@@ -13462,25 +13476,25 @@
       },
       {
         "ticker": "CINT",
-        "date": "2026-08-11",
-        "open": 3.6600000858306885,
-        "high": 3.7200000286102295,
-        "low": 3.5299999713897705,
-        "close": 3.640000104904175,
-        "volume": 77500,
-        "source": "yahoo-chart",
-        "adjusted_close": 3.640000104904175
-      },
-      {
-        "ticker": "CINT",
         "date": "2026-08-12",
         "open": 3.4100000858306885,
         "high": 3.619999885559082,
         "low": 3.25,
         "close": 3.619999885559082,
-        "volume": 162310,
+        "volume": 163800,
         "source": "yahoo-chart",
         "adjusted_close": 3.619999885559082
+      },
+      {
+        "ticker": "CINT",
+        "date": "2026-08-13",
+        "open": 3.5399999618530273,
+        "high": 3.7177000045776367,
+        "low": 3.5,
+        "close": 3.690000057220459,
+        "volume": 84055,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.690000057220459
       }
     ],
     "dataStatus": {
@@ -13520,13 +13534,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-12",
+      "latestScoringDate": "2026-08-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
       "growthSpurtScore": 25.53,
-      "growthSpurtBenchmarkPercentile": 0.371579,
-      "growthSpurtMarketDataAsOf": "2026-08-12",
-      "lastPipelineRun": "2026-08-13T00:06:32.652081+00:00",
+      "growthSpurtBenchmarkPercentile": 0.354024,
+      "growthSpurtMarketDataAsOf": "2026-08-13",
+      "lastPipelineRun": "2026-08-14T00:07:53.488635+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
