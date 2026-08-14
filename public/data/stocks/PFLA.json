@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-13T09:09:31.970316+00:00",
+  "generatedAt": "2026-08-14T09:00:15.054767+00:00",
   "record": {
     "security": {
       "ticker": "PFLA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.42,
-      "dailyChangePercent": 0.4743,
-      "marketCapBillions": 2.5221,
+      "latestPrice": 25.39,
+      "dailyChangePercent": -0.118,
+      "marketCapBillions": 2.5191,
       "liabilitiesToAssets": 0.61378,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -181,7 +181,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1017629000.0,
       "bookValuePerShare": 10.256507,
-      "priceToBook": 2.478427,
+      "priceToBook": 2.475502,
       "retainedEarnings": -201972000.0
     },
     "balanceSheetScoringShadow": {
@@ -408,50 +408,51 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PFLA",
-      "generatedAt": "2026-08-13T08:53:58.104458+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-14T08:47:10.172861+00:00",
+      "marketDataAsOf": "2026-08-13",
+      "status": "not_detected",
+      "growthSpurtScore": 36.24,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.00833992,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00020559,
+        "trendSlope63d": 0.0001979,
+        "trendAnnualizedReturn63d": 0.05113568,
+        "trendFitR2_63d": 0.21605756,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.00466241,
+        "maxDrawdown63d": -0.0233191,
+        "downsideVolatility63d": 0.00443317,
+        "excessReturnVsSpy21d": -0.02222408,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.00041765,
+        "largestOneDayContribution63d": 0.13094365,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 18.6685,
+        "consistencyScore": 39.376,
+        "relativeStrengthScore": 22.2199,
+        "drawdownControlScore": 92.227,
+        "confirmationScore": 25.167
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.532173,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.522152,
+        "trendFitR2_63d": 0.353376,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.940928,
+        "growthSpurtScore": 0.532173
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -973,6 +974,17 @@
       },
       {
         "ticker": "PFLA",
+        "date": "2026-08-11",
+        "open": 25.18000030517578,
+        "high": 25.350000381469727,
+        "low": 25.149999618530273,
+        "close": 25.299999237060547,
+        "volume": 14100,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.299999237060547
+      },
+      {
+        "ticker": "PFLA",
         "date": "2026-08-12",
         "open": 25.260000228881836,
         "high": 25.420000076293945,
@@ -981,6 +993,17 @@
         "volume": 3800,
         "source": "yahoo-chart",
         "adjusted_close": 25.420000076293945
+      },
+      {
+        "ticker": "PFLA",
+        "date": "2026-08-13",
+        "open": 25.18000030517578,
+        "high": 25.389999389648438,
+        "low": 25.170000076293945,
+        "close": 25.389999389648438,
+        "volume": 2600,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.389999389648438
       }
     ],
     "dataStatus": {
@@ -1020,13 +1043,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-08-12",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-13T08:53:58.104458+00:00",
+      "latestScoringDate": "2026-08-13",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 36.24,
+      "growthSpurtBenchmarkPercentile": 0.532173,
+      "growthSpurtMarketDataAsOf": "2026-08-13",
+      "lastPipelineRun": "2026-08-14T08:47:10.172861+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
