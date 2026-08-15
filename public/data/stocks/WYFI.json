@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T09:00:15.054767+00:00",
+  "generatedAt": "2026-08-15T08:12:22.155056+00:00",
   "record": {
     "security": {
       "ticker": "WYFI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 28.22,
-      "dailyChangePercent": -1.2596,
-      "marketCapBillions": 1.0963,
+      "latestPrice": 29.52,
+      "dailyChangePercent": 4.6067,
+      "marketCapBillions": 1.1468,
       "liabilitiesToAssets": 0.616995,
       "latestRevenueBillions": 0.0792,
       "grossMarginPercent": 60.1667,
@@ -296,7 +296,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 337386000.0,
       "bookValuePerShare": 8.684745,
-      "priceToBook": 3.249376,
+      "priceToBook": 3.399064,
       "retainedEarnings": -51556000.0
     },
     "balanceSheetScoringShadow": {
@@ -508,49 +508,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "WYFI",
-      "generatedAt": "2026-08-14T08:47:10.172861+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-15T07:54:35.148571+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 10.54,
+      "growthSpurtScore": 24.75,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.03289928,
-        "return63d": 0.04402511,
-        "trendSlope21d": -0.00040467,
-        "trendSlope63d": -0.00210345,
-        "trendAnnualizedReturn63d": -0.41143584,
-        "trendFitR2_63d": 0.00929525,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.18469185,
+        "return21d": 0.1441861,
+        "return63d": -0.01567187,
+        "trendSlope21d": 0.00215167,
+        "trendSlope63d": -0.00181611,
+        "trendAnnualizedReturn63d": -0.36723716,
+        "trendFitR2_63d": 0.01757484,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.18477886,
         "maxDrawdown63d": -0.54031718,
-        "downsideVolatility63d": 0.05421379,
-        "excessReturnVsSpy21d": -0.06346327,
-        "excessReturnVsSpy63d": -0.0065926,
-        "trendAcceleration": -0.00853441,
-        "largestOneDayContribution63d": 0.06091044,
+        "downsideVolatility63d": 0.04825487,
+        "excessReturnVsSpy21d": 0.11005878,
+        "excessReturnVsSpy63d": -0.055997,
+        "trendAcceleration": -0.00578549,
+        "largestOneDayContribution63d": 0.06295643,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 12.8407,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 29.8218,
+        "directionScore": 20.0,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 44.7512,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 0.0
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.150844,
+      "benchmarkPercentile": 0.317272,
       "metricPercentiles": {
-        "trendSlope63d": 0.277426,
-        "trendFitR2_63d": 0.138713,
-        "excessReturnVsSpy63d": 0.577107,
-        "drawdownControlScore": 0.163766,
-        "growthSpurtScore": 0.150844
+        "trendSlope63d": 0.292786,
+        "trendFitR2_63d": 0.160084,
+        "excessReturnVsSpy63d": 0.410053,
+        "drawdownControlScore": 0.161401,
+        "growthSpurtScore": 0.317272
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3365,9 +3369,20 @@
         "high": 32.36000061035156,
         "low": 28.0,
         "close": 28.219999313354492,
-        "volume": 2473800,
+        "volume": 2482400,
         "source": "yahoo-chart",
         "adjusted_close": 28.219999313354492
+      },
+      {
+        "ticker": "WYFI",
+        "date": "2026-08-14",
+        "open": 28.0,
+        "high": 30.201000213623047,
+        "low": 27.78499984741211,
+        "close": 29.520000457763672,
+        "volume": 1340900,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.520000457763672
       }
     ],
     "dataStatus": {
@@ -3402,13 +3417,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 10.54,
-      "growthSpurtBenchmarkPercentile": 0.150844,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T08:47:10.172861+00:00",
+      "growthSpurtScore": 24.75,
+      "growthSpurtBenchmarkPercentile": 0.317272,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-15T07:54:35.148571+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

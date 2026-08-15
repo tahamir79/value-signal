@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "PRHIZ",
   "companyName": "Presurance Holdings, Inc.",
-  "generatedAt": "2026-08-15T04:20:51.534771+00:00",
-  "marketDataAsOf": "2026-08-13",
-  "currentPrice": 17.8,
+  "generatedAt": "2026-08-15T08:15:23.068639+00:00",
+  "marketDataAsOf": "2026-08-14",
+  "currentPrice": 18.4999,
   "analystTarget": {
     "ticker": "PRHIZ",
     "targetLow": null,
@@ -12,7 +12,7 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 17.79999924,
+    "currentPriceAtCollection": 18.49990082,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-15T04:20:51.534771+00:00",
+    "collectedAt": "2026-08-15T08:15:23.068639+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -30,59 +30,57 @@
     "returnEstimate": 0.0,
     "lowerReturn": -0.04877058,
     "upperReturn": 0.0512711,
-    "estimatedPrice": 17.8,
-    "lowerEstimatedPrice": 16.9319,
-    "upperEstimatedPrice": 18.7126
+    "estimatedPrice": 18.4999,
+    "lowerEstimatedPrice": 17.5977,
+    "upperEstimatedPrice": 19.4484
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
     "lowerReturn": -0.04877058,
     "upperReturn": 0.0512711,
-    "estimatedPrice": 17.8,
-    "lowerEstimatedPrice": 16.9319,
-    "upperEstimatedPrice": 18.7126
+    "estimatedPrice": 18.4999,
+    "lowerEstimatedPrice": 17.5977,
+    "upperEstimatedPrice": 19.4484
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-15T04:20:51.534771+00:00",
-    "marketDataAsOf": "2026-08-13",
-    "currentPrice": 17.8,
+    "generatedAt": "2026-08-15T08:15:23.068639+00:00",
+    "marketDataAsOf": "2026-08-14",
+    "currentPrice": 18.4999,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 0,
-      "status": "insufficient_data",
-      "usableObservationCount": 0,
+      "returnEstimate": 0.01130153,
+      "lowerReturn": -0.03187899,
+      "upperReturn": 0.04923483,
+      "estimatedPrice": 18.709,
+      "lowerEstimatedPrice": 17.9101,
+      "upperEstimatedPrice": 19.4107,
+      "sampleCount": 42,
+      "status": "available",
+      "usableObservationCount": 42,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 0,
-      "status": "insufficient_data",
-      "usableObservationCount": 0,
+      "returnEstimate": -0.00157244,
+      "lowerReturn": -0.06696287,
+      "upperReturn": 0.06373966,
+      "estimatedPrice": 18.4708,
+      "lowerEstimatedPrice": 17.2611,
+      "upperEstimatedPrice": 19.6791,
+      "sampleCount": 40,
+      "status": "available",
+      "usableObservationCount": 40,
       "requiredObservationCount": 12,
-      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
+      "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 0 of 24 required observations.",
-      "Not enough 90-day history: 0 of 12 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
