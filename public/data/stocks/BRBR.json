@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T00:26:13.334606+00:00",
+  "generatedAt": "2026-08-14T23:59:55.747161+00:00",
   "record": {
     "security": {
       "ticker": "BRBR",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.99,
-      "dailyChangePercent": 1.2903,
-      "marketCapBillions": 1.2779,
+      "latestPrice": 10.75,
+      "dailyChangePercent": -2.1838,
+      "marketCapBillions": 1.25,
       "liabilitiesToAssets": 1.444064,
       "latestRevenueBillions": 2.3166,
       "grossMarginPercent": 33.2556,
@@ -535,50 +535,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BRBR",
-      "generatedAt": "2026-08-14T00:07:53.488635+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-14T23:47:19.896059+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 49.13,
+      "growthSpurtScore": 49.73,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.09173558,
-        "return63d": 0.15928273,
-        "trendSlope21d": -0.00345894,
-        "trendSlope63d": 0.0070517,
-        "trendAnnualizedReturn63d": 4.9122564,
-        "trendFitR2_63d": 0.61661345,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.10839114,
-        "maxDrawdown63d": -0.22166422,
-        "downsideVolatility63d": 0.02497027,
-        "excessReturnVsSpy21d": -0.12638436,
-        "excessReturnVsSpy63d": 0.10278699,
-        "trendAcceleration": -0.01384119,
-        "largestOneDayContribution63d": 0.05503535,
+        "return21d": -0.1034195,
+        "return63d": 0.17486344,
+        "trendSlope21d": -0.00900528,
+        "trendSlope63d": 0.0065647,
+        "trendAnnualizedReturn63d": 4.22944742,
+        "trendFitR2_63d": 0.56973143,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.1141711,
+        "maxDrawdown63d": -0.22883785,
+        "downsideVolatility63d": 0.02523769,
+        "excessReturnVsSpy21d": -0.13754681,
+        "excessReturnVsSpy63d": 0.1345383,
+        "trendAcceleration": -0.02027449,
+        "largestOneDayContribution63d": 0.05557311,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 32.8455,
+        "consistencyScore": 36.7066,
         "relativeStrengthScore": 65.0,
-        "drawdownControlScore": 26.1119,
+        "drawdownControlScore": 23.7207,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.640189,
+      "benchmarkPercentile": 0.637487,
       "metricPercentiles": {
-        "trendSlope63d": 0.958443,
-        "trendFitR2_63d": 0.651762,
-        "excessReturnVsSpy63d": 0.72655,
-        "drawdownControlScore": 0.450815,
-        "growthSpurtScore": 0.640189
+        "trendSlope63d": 0.946372,
+        "trendFitR2_63d": 0.607781,
+        "excessReturnVsSpy63d": 0.761502,
+        "drawdownControlScore": 0.437434,
+        "growthSpurtScore": 0.637487
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14344,6 +14347,17 @@
       },
       {
         "ticker": "BRBR",
+        "date": "2026-08-11",
+        "open": 11.270000457763672,
+        "high": 11.585000038146973,
+        "low": 11.25,
+        "close": 11.550000190734863,
+        "volume": 3521300,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.550000190734863
+      },
+      {
+        "ticker": "BRBR",
         "date": "2026-08-12",
         "open": 11.279999732971191,
         "high": 11.59000015258789,
@@ -14357,12 +14371,23 @@
         "ticker": "BRBR",
         "date": "2026-08-13",
         "open": 10.9399995803833,
-        "high": 11.1899995803833,
+        "high": 11.199999809265137,
         "low": 10.739999771118164,
         "close": 10.989999771118164,
-        "volume": 2778162,
+        "volume": 2778200,
         "source": "yahoo-chart",
         "adjusted_close": 10.989999771118164
+      },
+      {
+        "ticker": "BRBR",
+        "date": "2026-08-14",
+        "open": 11.0,
+        "high": 11.15999984741211,
+        "low": 10.670000076293945,
+        "close": 10.75,
+        "volume": 1861063,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.75
       }
     ],
     "dataStatus": {
@@ -14403,13 +14428,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 49.13,
-      "growthSpurtBenchmarkPercentile": 0.640189,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T00:07:53.488635+00:00",
+      "growthSpurtScore": 49.73,
+      "growthSpurtBenchmarkPercentile": 0.637487,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-14T23:47:19.896059+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }

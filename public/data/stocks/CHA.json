@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T00:26:13.334606+00:00",
+  "generatedAt": "2026-08-14T23:59:55.747161+00:00",
   "record": {
     "security": {
       "ticker": "CHA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.23,
-      "dailyChangePercent": 2.1978,
+      "latestPrice": 10.27,
+      "dailyChangePercent": 0.391,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,49 +335,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CHA",
-      "generatedAt": "2026-08-14T00:07:53.488635+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-14T23:47:19.896059+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 3.94,
+      "growthSpurtScore": 10.76,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.09308513,
-        "return63d": -0.02011495,
-        "trendSlope21d": -0.00612224,
-        "trendSlope63d": -0.00046221,
-        "trendAnnualizedReturn63d": -0.10994834,
+        "return21d": -0.10070049,
+        "return63d": 0.02290842,
+        "trendSlope21d": -0.00723109,
+        "trendSlope63d": -0.00092874,
+        "trendAnnualizedReturn63d": -0.20867272,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07120513,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.07102165,
         "maxDrawdown63d": -0.24109169,
-        "downsideVolatility63d": 0.02160897,
-        "excessReturnVsSpy21d": -0.1277339,
-        "excessReturnVsSpy63d": -0.07661069,
-        "trendAcceleration": -0.00885885,
-        "largestOneDayContribution63d": 0.147984,
+        "downsideVolatility63d": 0.0220565,
+        "excessReturnVsSpy21d": -0.13482781,
+        "excessReturnVsSpy63d": -0.01741672,
+        "trendAcceleration": -0.00909523,
+        "largestOneDayContribution63d": 0.15242218,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
+        "directionScore": 6.6816,
         "consistencyScore": 2.8968,
-        "relativeStrengthScore": 1.3769,
+        "relativeStrengthScore": 25.4245,
         "drawdownControlScore": 19.6361,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.041557,
+      "benchmarkPercentile": 0.139327,
       "metricPercentiles": {
-        "trendSlope63d": 0.396633,
-        "trendFitR2_63d": 0.062336,
-        "excessReturnVsSpy63d": 0.389507,
-        "drawdownControlScore": 0.419253,
-        "growthSpurtScore": 0.041557
+        "trendSlope63d": 0.342271,
+        "trendFitR2_63d": 0.066246,
+        "excessReturnVsSpy63d": 0.517187,
+        "drawdownControlScore": 0.414301,
+        "growthSpurtScore": 0.139327
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4001,6 +4004,17 @@
       },
       {
         "ticker": "CHA",
+        "date": "2026-08-11",
+        "open": 10.140000343322754,
+        "high": 10.359999656677246,
+        "low": 10.140000343322754,
+        "close": 10.239999771118164,
+        "volume": 355600,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.239999771118164
+      },
+      {
+        "ticker": "CHA",
         "date": "2026-08-12",
         "open": 10.1899995803833,
         "high": 10.289999961853027,
@@ -4017,9 +4031,20 @@
         "high": 10.234999656677246,
         "low": 10.039999961853027,
         "close": 10.229999542236328,
-        "volume": 458335,
+        "volume": 480800,
         "source": "yahoo-chart",
         "adjusted_close": 10.229999542236328
+      },
+      {
+        "ticker": "CHA",
+        "date": "2026-08-14",
+        "open": 10.199999809265137,
+        "high": 10.329999923706055,
+        "low": 10.079999923706055,
+        "close": 10.270000457763672,
+        "volume": 318176,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.270000457763672
       }
     ],
     "dataStatus": {
@@ -4059,13 +4084,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 3.94,
-      "growthSpurtBenchmarkPercentile": 0.041557,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T00:07:53.488635+00:00",
+      "growthSpurtScore": 10.76,
+      "growthSpurtBenchmarkPercentile": 0.139327,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-14T23:47:19.896059+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

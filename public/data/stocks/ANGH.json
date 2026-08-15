@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T00:26:13.334606+00:00",
+  "generatedAt": "2026-08-14T23:59:55.747161+00:00",
   "record": {
     "security": {
       "ticker": "ANGH",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.5801,
-      "dailyChangePercent": -6.2801,
+      "latestPrice": 3.52,
+      "dailyChangePercent": -1.676,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ANGH",
-      "generatedAt": "2026-08-14T00:07:53.488635+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-14T23:47:19.896059+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 44.05,
+      "growthSpurtScore": 24.38,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.08487882,
-        "return63d": 0.08160125,
-        "trendSlope21d": 0.00325507,
-        "trendSlope63d": -0.00031327,
-        "trendAnnualizedReturn63d": -0.07590797,
+        "return21d": 0.03529408,
+        "return63d": -0.02493072,
+        "trendSlope21d": 0.00364234,
+        "trendSlope63d": -0.00010022,
+        "trendAnnualizedReturn63d": -0.02494012,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.17368408,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.17429842,
         "maxDrawdown63d": -0.45084746,
-        "downsideVolatility63d": 0.08098459,
-        "excessReturnVsSpy21d": 0.05023005,
-        "excessReturnVsSpy63d": 0.0251055,
-        "trendAcceleration": 0.00316277,
-        "largestOneDayContribution63d": 0.13555804,
+        "downsideVolatility63d": 0.08114552,
+        "excessReturnVsSpy21d": 0.00116677,
+        "excessReturnVsSpy63d": -0.06525586,
+        "trendAcceleration": 0.00364234,
+        "largestOneDayContribution63d": 0.13646334,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 43.8004,
-        "consistencyScore": 21.4683,
-        "relativeStrengthScore": 77.6991,
+        "directionScore": 20.0,
+        "consistencyScore": 14.3254,
+        "relativeStrengthScore": 24.0003,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.590742,
+      "benchmarkPercentile": 0.312303,
       "metricPercentiles": {
-        "trendSlope63d": 0.409784,
-        "trendFitR2_63d": 0.062336,
-        "excessReturnVsSpy63d": 0.612613,
-        "drawdownControlScore": 0.165439,
-        "growthSpurtScore": 0.590742
+        "trendSlope63d": 0.43428,
+        "trendFitR2_63d": 0.066246,
+        "excessReturnVsSpy63d": 0.383395,
+        "drawdownControlScore": 0.16062,
+        "growthSpurtScore": 0.312303
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14144,6 +14147,17 @@
       },
       {
         "ticker": "ANGH",
+        "date": "2026-08-11",
+        "open": 3.6500000953674316,
+        "high": 3.9070000648498535,
+        "low": 3.3980000019073486,
+        "close": 3.759999990463257,
+        "volume": 81400,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.759999990463257
+      },
+      {
+        "ticker": "ANGH",
         "date": "2026-08-12",
         "open": 3.759999990463257,
         "high": 3.9800000190734863,
@@ -14158,11 +14172,22 @@
         "date": "2026-08-13",
         "open": 3.7100000381469727,
         "high": 3.7699999809265137,
-        "low": 3.5801000595092773,
-        "close": 3.5801000595092773,
-        "volume": 92657,
+        "low": 3.5799999237060547,
+        "close": 3.5799999237060547,
+        "volume": 92800,
         "source": "yahoo-chart",
-        "adjusted_close": 3.5801000595092773
+        "adjusted_close": 3.5799999237060547
+      },
+      {
+        "ticker": "ANGH",
+        "date": "2026-08-14",
+        "open": 3.5652999877929688,
+        "high": 3.6600000858306885,
+        "low": 3.4800000190734863,
+        "close": 3.5199999809265137,
+        "volume": 26724,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.5199999809265137
       }
     ],
     "dataStatus": {
@@ -14202,13 +14227,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 44.05,
-      "growthSpurtBenchmarkPercentile": 0.590742,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T00:07:53.488635+00:00",
+      "growthSpurtScore": 24.38,
+      "growthSpurtBenchmarkPercentile": 0.312303,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-14T23:47:19.896059+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
