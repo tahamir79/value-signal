@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T05:30:50.665049+00:00",
+  "generatedAt": "2026-08-15T04:16:54.231435+00:00",
   "record": {
     "security": {
       "ticker": "GLIBK",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 26.69,
-      "dailyChangePercent": 3.8118,
+      "latestPrice": 26.7,
+      "dailyChangePercent": 0.0375,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.501847,
       "latestRevenueBillions": 1.046,
@@ -476,51 +476,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GLIBK",
-      "generatedAt": "2026-08-14T05:14:48.509854+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-15T04:03:11.213203+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 38.12,
+      "growthSpurtScore": 50.41,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.23909004,
-        "return63d": -0.0495014,
-        "trendSlope21d": 0.00757369,
-        "trendSlope63d": 0.00106994,
-        "trendAnnualizedReturn63d": 0.30947238,
+        "return21d": 0.18772248,
+        "return63d": 0.02142316,
+        "trendSlope21d": 0.00906422,
+        "trendSlope63d": 0.0018675,
+        "trendAnnualizedReturn63d": 0.6009708,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.07862247,
-        "maxDrawdown63d": -0.2722609,
-        "downsideVolatility63d": 0.01377711,
-        "excessReturnVsSpy21d": 0.20444126,
-        "excessReturnVsSpy63d": -0.10599715,
-        "trendAcceleration": 0.01145277,
-        "largestOneDayContribution63d": 0.04511869,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.07412046,
+        "maxDrawdown63d": -0.23023251,
+        "downsideVolatility63d": 0.01353028,
+        "excessReturnVsSpy21d": 0.15359516,
+        "excessReturnVsSpy63d": -0.01890197,
+        "trendAcceleration": 0.01141109,
+        "largestOneDayContribution63d": 0.04668946,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 59.7893,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 35.0,
-        "drawdownControlScore": 9.2464,
+        "directionScore": 71.2484,
+        "consistencyScore": 14.3254,
+        "relativeStrengthScore": 59.8211,
+        "drawdownControlScore": 23.2558,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.536792,
+      "benchmarkPercentile": 0.653622,
       "metricPercentiles": {
-        "trendSlope63d": 0.626787,
-        "trendFitR2_63d": 0.056644,
-        "excessReturnVsSpy63d": 0.341139,
-        "drawdownControlScore": 0.365802,
-        "growthSpurtScore": 0.536792
+        "trendSlope63d": 0.702803,
+        "trendFitR2_63d": 0.062136,
+        "excessReturnVsSpy63d": 0.498936,
+        "drawdownControlScore": 0.431518,
+        "growthSpurtScore": 0.653622
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3517,6 +3520,17 @@
       },
       {
         "ticker": "GLIBK",
+        "date": "2026-08-11",
+        "open": 25.40999984741211,
+        "high": 25.540000915527344,
+        "low": 24.84000015258789,
+        "close": 24.93000030517578,
+        "volume": 500700,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.93000030517578
+      },
+      {
+        "ticker": "GLIBK",
         "date": "2026-08-12",
         "open": 24.93000030517578,
         "high": 25.739999771118164,
@@ -3536,6 +3550,17 @@
         "volume": 585300,
         "source": "yahoo-chart",
         "adjusted_close": 26.690000534057617
+      },
+      {
+        "ticker": "GLIBK",
+        "date": "2026-08-14",
+        "open": 26.729999542236328,
+        "high": 26.96500015258789,
+        "low": 26.350000381469727,
+        "close": 26.700000762939453,
+        "volume": 386300,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.700000762939453
       }
     ],
     "dataStatus": {
@@ -3544,10 +3569,10 @@
       "companyFactsAvailable": true,
       "recent10KAvailable": true,
       "recent10QAvailable": true,
-      "filingsDownloaded": false,
-      "filingsCleaned": false,
-      "filingsChunked": false,
-      "bm25Indexed": false,
+      "filingsDownloaded": true,
+      "filingsCleaned": true,
+      "filingsChunked": true,
+      "bm25Indexed": true,
       "balanceSheetAvailable": false,
       "balanceSheetPartial": true,
       "balanceSheetSource": "sec_companyfacts",
@@ -3572,13 +3597,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 38.12,
-      "growthSpurtBenchmarkPercentile": 0.536792,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T05:14:48.509854+00:00",
+      "growthSpurtScore": 50.41,
+      "growthSpurtBenchmarkPercentile": 0.653622,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-15T04:03:11.213203+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

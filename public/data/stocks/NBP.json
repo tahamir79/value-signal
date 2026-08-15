@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T05:30:50.665049+00:00",
+  "generatedAt": "2026-08-15T04:16:54.231435+00:00",
   "record": {
     "security": {
       "ticker": "NBP",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.9,
-      "dailyChangePercent": 1.6043,
+      "latestPrice": 1.96,
+      "dailyChangePercent": 3.1579,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,49 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NBP",
-      "generatedAt": "2026-08-14T05:14:48.509854+00:00",
-      "marketDataAsOf": "2026-08-13",
+      "generatedAt": "2026-08-15T04:03:11.213203+00:00",
+      "marketDataAsOf": "2026-08-14",
       "status": "not_detected",
-      "growthSpurtScore": 16.91,
+      "growthSpurtScore": 38.19,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05555557,
-        "return63d": -0.07766989,
-        "trendSlope21d": -0.00200144,
-        "trendSlope63d": -0.00012387,
-        "trendAnnualizedReturn63d": -0.03073305,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.08886667,
-        "maxDrawdown63d": -0.2829268,
-        "downsideVolatility63d": 0.02464298,
-        "excessReturnVsSpy21d": 0.0209068,
-        "excessReturnVsSpy63d": -0.13416563,
-        "trendAcceleration": -0.00255025,
-        "largestOneDayContribution63d": 0.10569095,
+        "return21d": 0.09497211,
+        "return63d": 0.02083338,
+        "trendSlope21d": 0.00265611,
+        "trendSlope63d": 0.00053051,
+        "trendAnnualizedReturn63d": 0.14303808,
+        "trendFitR2_63d": 0.01574618,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.08587853,
+        "maxDrawdown63d": -0.25233647,
+        "downsideVolatility63d": 0.02473411,
+        "excessReturnVsSpy21d": 0.0608448,
+        "excessReturnVsSpy63d": -0.01949176,
+        "trendAcceleration": 0.00082421,
+        "largestOneDayContribution63d": 0.11045266,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
+        "directionScore": 44.467,
         "consistencyScore": 2.8968,
-        "relativeStrengthScore": 26.6467,
-        "drawdownControlScore": 5.6911,
-        "confirmationScore": 40.0
+        "relativeStrengthScore": 59.5815,
+        "drawdownControlScore": 15.8878,
+        "confirmationScore": 98.2421
       },
-      "benchmarkPercentile": 0.25622,
+      "benchmarkPercentile": 0.527499,
       "metricPercentiles": {
-        "trendSlope63d": 0.443092,
-        "trendFitR2_63d": 0.056644,
-        "excessReturnVsSpy63d": 0.300692,
-        "drawdownControlScore": 0.345686,
-        "growthSpurtScore": 0.25622
+        "trendSlope63d": 0.561608,
+        "trendFitR2_63d": 0.146483,
+        "excessReturnVsSpy63d": 0.497872,
+        "drawdownControlScore": 0.390799,
+        "growthSpurtScore": 0.527499
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14143,6 +14147,17 @@
       },
       {
         "ticker": "NBP",
+        "date": "2026-08-11",
+        "open": 1.7799999713897705,
+        "high": 1.850000023841858,
+        "low": 1.7610000371932983,
+        "close": 1.840000033378601,
+        "volume": 318700,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.840000033378601
+      },
+      {
+        "ticker": "NBP",
         "date": "2026-08-12",
         "open": 1.850000023841858,
         "high": 1.8799999952316284,
@@ -14162,6 +14177,17 @@
         "volume": 242500,
         "source": "yahoo-chart",
         "adjusted_close": 1.899999976158142
+      },
+      {
+        "ticker": "NBP",
+        "date": "2026-08-14",
+        "open": 1.9199999570846558,
+        "high": 1.9700000286102295,
+        "low": 1.8300000429153442,
+        "close": 1.9600000381469727,
+        "volume": 331100,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.9600000381469727
       }
     ],
     "dataStatus": {
@@ -14201,13 +14227,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-13",
+      "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 16.91,
-      "growthSpurtBenchmarkPercentile": 0.25622,
-      "growthSpurtMarketDataAsOf": "2026-08-13",
-      "lastPipelineRun": "2026-08-14T05:14:48.509854+00:00",
+      "growthSpurtScore": 38.19,
+      "growthSpurtBenchmarkPercentile": 0.527499,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-15T04:03:11.213203+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

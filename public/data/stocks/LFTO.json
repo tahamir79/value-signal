@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T05:30:50.665049+00:00",
+  "generatedAt": "2026-08-15T04:16:54.231435+00:00",
   "record": {
     "security": {
       "ticker": "LFTO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 20.06,
-      "dailyChangePercent": -20.5859,
-      "marketCapBillions": 3.3968,
+      "latestPrice": 21.61,
+      "dailyChangePercent": 7.7268,
+      "marketCapBillions": 3.6593,
       "liabilitiesToAssets": 1.002679,
       "latestRevenueBillions": 0.4251,
       "grossMarginPercent": null,
@@ -507,50 +507,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LFTO",
-      "generatedAt": "2026-08-14T05:14:48.509854+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-15T04:03:11.213203+00:00",
+      "marketDataAsOf": "2026-08-14",
+      "status": "not_detected",
+      "growthSpurtScore": 8.02,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.04633712,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.0012514,
+        "trendSlope63d": -0.00382521,
+        "trendAnnualizedReturn63d": -0.6186175,
+        "trendFitR2_63d": 0.31533301,
+        "positiveWeekRatio63d": 0.44444444,
+        "trendResidualVolatility63d": 0.05838901,
+        "maxDrawdown63d": -0.29490338,
+        "downsideVolatility63d": 0.04452202,
+        "excessReturnVsSpy21d": -0.08046444,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.00607324,
+        "largestOneDayContribution63d": 0.10117009,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 7.0733,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 1.6989,
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.090164,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.207827,
+        "trendFitR2_63d": 0.42147,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.319937,
+        "growthSpurtScore": 0.090164
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1061,6 +1060,17 @@
       },
       {
         "ticker": "LFTO",
+        "date": "2026-08-11",
+        "open": 25.389999389648438,
+        "high": 25.790000915527344,
+        "low": 23.850000381469727,
+        "close": 24.15999984741211,
+        "volume": 544200,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.15999984741211
+      },
+      {
+        "ticker": "LFTO",
         "date": "2026-08-12",
         "open": 24.350000381469727,
         "high": 25.450000762939453,
@@ -1077,9 +1087,20 @@
         "high": 23.860000610351562,
         "low": 19.809999465942383,
         "close": 20.059999465942383,
-        "volume": 3224100,
+        "volume": 3233100,
         "source": "yahoo-chart",
         "adjusted_close": 20.059999465942383
+      },
+      {
+        "ticker": "LFTO",
+        "date": "2026-08-14",
+        "open": 20.56999969482422,
+        "high": 22.399999618530273,
+        "low": 20.219999313354492,
+        "close": 21.610000610351562,
+        "volume": 2381300,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.610000610351562
       }
     ],
     "dataStatus": {
@@ -1118,13 +1139,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-08-13",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-14T05:14:48.509854+00:00",
+      "latestScoringDate": "2026-08-14",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 8.02,
+      "growthSpurtBenchmarkPercentile": 0.090164,
+      "growthSpurtMarketDataAsOf": "2026-08-14",
+      "lastPipelineRun": "2026-08-15T04:03:11.213203+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
