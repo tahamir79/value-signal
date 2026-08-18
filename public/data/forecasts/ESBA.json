@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ESBA",
   "companyName": "Empire State Realty OP, L.P.",
-  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
+  "generatedAt": "2026-08-18T08:31:07.731088+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 4.6,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
+    "collectedAt": "2026-08-18T08:31:07.731088+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,41 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
+    "generatedAt": "2026-08-18T08:31:07.731088+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 4.6,
     "horizon30Day": {
-      "returnEstimate": -0.01679591,
-      "lowerReturn": -0.07117121,
-      "upperReturn": 0.02941189,
-      "estimatedPrice": 4.5227,
-      "lowerEstimatedPrice": 4.2726,
-      "upperEstimatedPrice": 4.7353,
-      "sampleCount": 105,
+      "returnEstimate": -0.01386788,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.0442144,
+      "estimatedPrice": 4.5362,
+      "lowerEstimatedPrice": 4.232,
+      "upperEstimatedPrice": 4.8034,
+      "sampleCount": 104,
       "status": "available",
-      "usableObservationCount": 105,
+      "usableObservationCount": 104,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.06605554,
-      "lowerReturn": -0.13190189,
-      "upperReturn": 0.02032007,
-      "estimatedPrice": 4.2961,
-      "lowerEstimatedPrice": 3.9933,
-      "upperEstimatedPrice": 4.6935,
-      "sampleCount": 97,
+      "returnEstimate": -0.07136019,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.01860906,
+      "estimatedPrice": 4.2717,
+      "lowerEstimatedPrice": 3.91,
+      "upperEstimatedPrice": 4.6856,
+      "sampleCount": 96,
       "status": "available",
-      "usableObservationCount": 97,
+      "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
