@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "KBH",
   "companyName": "KB HOME",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 56.06,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,40 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 56.06,
     "horizon30Day": {
-      "returnEstimate": -0.00096366,
-      "lowerReturn": -0.06210475,
-      "upperReturn": 0.04479964,
-      "estimatedPrice": 56.006,
-      "lowerEstimatedPrice": 52.5784,
-      "upperEstimatedPrice": 58.5715,
-      "sampleCount": 104,
+      "returnEstimate": -0.00113059,
+      "lowerReturn": -0.05685154,
+      "upperReturn": 0.0570349,
+      "estimatedPrice": 55.9966,
+      "lowerEstimatedPrice": 52.8729,
+      "upperEstimatedPrice": 59.2574,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.04237901,
-      "lowerReturn": -0.14993041,
-      "upperReturn": 0.05528201,
-      "estimatedPrice": 53.6842,
-      "lowerEstimatedPrice": 47.6549,
-      "upperEstimatedPrice": 59.1591,
-      "sampleCount": 96,
+      "returnEstimate": -0.02872938,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.07042086,
+      "estimatedPrice": 54.4494,
+      "lowerEstimatedPrice": 47.651,
+      "upperEstimatedPrice": 60.0078,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

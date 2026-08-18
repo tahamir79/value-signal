@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-15T04:16:54.231435+00:00",
+  "generatedAt": "2026-08-18T04:25:08.600135+00:00",
   "record": {
     "security": {
       "ticker": "INSP",
@@ -501,76 +501,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "INSP",
-      "generatedAt": "2026-08-15T04:03:11.213203+00:00",
+      "generatedAt": "2026-08-18T04:07:27.998318+00:00",
       "marketDataAsOf": "2026-08-14",
-      "status": "detected",
-      "growthSpurtScore": 83.64,
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.10787733,
-        "return63d": 0.33849036,
-        "trendSlope21d": 0.00778282,
-        "trendSlope63d": 0.00618881,
-        "trendAnnualizedReturn63d": 3.75682778,
-        "trendFitR2_63d": 0.80499082,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.05491022,
+        "return21d": 0.11176008,
+        "return63d": 0.31718571,
+        "trendSlope21d": 0.00944308,
+        "trendSlope63d": 0.0061586,
+        "trendAnnualizedReturn63d": 3.72075009,
+        "trendFitR2_63d": 0.77029244,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06027667,
         "maxDrawdown63d": -0.10975992,
-        "downsideVolatility63d": 0.01519575,
-        "excessReturnVsSpy21d": 0.07375001,
-        "excessReturnVsSpy63d": 0.29816523,
-        "trendAcceleration": 0.00290235,
-        "largestOneDayContribution63d": 0.14467647,
+        "downsideVolatility63d": 0.01773006,
+        "excessReturnVsSpy21d": 0.07549322,
+        "excessReturnVsSpy63d": 0.2643789,
+        "trendAcceleration": 0.00611013,
+        "largestOneDayContribution63d": 0.13515573,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 56.5009,
+        "consistencyScore": 42.1825,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 63.4134,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.937599,
+      "benchmarkPercentile": 0.703812,
       "metricPercentiles": {
-        "trendSlope63d": 0.949762,
-        "trendFitR2_63d": 0.873083,
-        "excessReturnVsSpy63d": 0.894149,
-        "drawdownControlScore": 0.713908,
-        "growthSpurtScore": 0.937599
+        "trendSlope63d": 0.945474,
+        "trendFitR2_63d": 0.825304,
+        "excessReturnVsSpy63d": 0.882854,
+        "drawdownControlScore": 0.717311,
+        "growthSpurtScore": 0.703812
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "INSP",
-        "date": "2021-08-16",
-        "open": 189.0,
-        "high": 198.3699951171875,
-        "low": 187.61000061035156,
-        "close": 197.1199951171875,
-        "volume": 213400,
-        "source": "yahoo-chart",
-        "adjusted_close": 197.1199951171875
-      },
-      {
-        "ticker": "INSP",
-        "date": "2021-08-17",
-        "open": 195.1699981689453,
-        "high": 205.4499969482422,
-        "low": 195.1699981689453,
-        "close": 204.47999572753906,
-        "volume": 224400,
-        "source": "yahoo-chart",
-        "adjusted_close": 204.47999572753906
-      },
       {
         "ticker": "INSP",
         "date": "2021-08-18",
@@ -14147,28 +14127,6 @@
       },
       {
         "ticker": "INSP",
-        "date": "2026-07-21",
-        "open": 52.290000915527344,
-        "high": 53.5,
-        "low": 51.84000015258789,
-        "close": 52.4900016784668,
-        "volume": 638800,
-        "source": "yahoo-chart",
-        "adjusted_close": 52.4900016784668
-      },
-      {
-        "ticker": "INSP",
-        "date": "2026-07-22",
-        "open": 52.0099983215332,
-        "high": 52.52000045776367,
-        "low": 50.1150016784668,
-        "close": 50.400001525878906,
-        "volume": 755900,
-        "source": "yahoo-chart",
-        "adjusted_close": 50.400001525878906
-      },
-      {
-        "ticker": "INSP",
         "date": "2026-07-23",
         "open": 50.29999923706055,
         "high": 50.869998931884766,
@@ -14232,17 +14190,6 @@
         "volume": 676400,
         "source": "yahoo-chart",
         "adjusted_close": 50.02000045776367
-      },
-      {
-        "ticker": "INSP",
-        "date": "2026-07-31",
-        "open": 49.91999816894531,
-        "high": 50.38999938964844,
-        "low": 49.02000045776367,
-        "close": 50.209999084472656,
-        "volume": 672200,
-        "source": "yahoo-chart",
-        "adjusted_close": 50.209999084472656
       },
       {
         "ticker": "INSP",
@@ -14390,11 +14337,11 @@
       "latestFilingDate": "2026-08-03",
       "latestScoringDate": "2026-08-14",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 83.64,
-      "growthSpurtBenchmarkPercentile": 0.937599,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.703812,
       "growthSpurtMarketDataAsOf": "2026-08-14",
-      "lastPipelineRun": "2026-08-15T04:03:11.213203+00:00",
+      "lastPipelineRun": "2026-08-18T04:07:27.998318+00:00",
       "balanceSheetExperimentalSignal": "quality-watchlist",
       "balanceSheetWouldChangeSignal": false
     }

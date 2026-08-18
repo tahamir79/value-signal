@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "FIBK",
   "companyName": "FIRST INTERSTATE BANCSYSTEM INC",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 39.17,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,40 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 39.17,
     "horizon30Day": {
-      "returnEstimate": 0.01761783,
-      "lowerReturn": -0.0326093,
-      "upperReturn": 0.06965538,
-      "estimatedPrice": 39.8601,
-      "lowerEstimatedPrice": 37.8927,
-      "upperEstimatedPrice": 41.8984,
-      "sampleCount": 104,
+      "returnEstimate": 0.02268152,
+      "lowerReturn": -0.02528184,
+      "upperReturn": 0.06703647,
+      "estimatedPrice": 40.0584,
+      "lowerEstimatedPrice": 38.1797,
+      "upperEstimatedPrice": 41.7958,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.05973857,
-      "lowerReturn": -0.03737438,
-      "upperReturn": 0.14403322,
-      "estimatedPrice": 41.51,
-      "lowerEstimatedPrice": 37.706,
-      "upperEstimatedPrice": 44.8118,
-      "sampleCount": 96,
+      "returnEstimate": 0.06909045,
+      "lowerReturn": -0.04038953,
+      "upperReturn": 0.15,
+      "estimatedPrice": 41.8763,
+      "lowerEstimatedPrice": 37.5879,
+      "upperEstimatedPrice": 45.0455,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

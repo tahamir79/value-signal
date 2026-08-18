@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "GFR",
   "companyName": "Greenfire Resources Ltd.",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 6.94,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,40 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 6.94,
     "horizon30Day": {
-      "returnEstimate": 0.00258756,
-      "lowerReturn": -0.07165191,
-      "upperReturn": 0.07256587,
-      "estimatedPrice": 6.958,
-      "lowerEstimatedPrice": 6.4427,
-      "upperEstimatedPrice": 7.4436,
-      "sampleCount": 104,
+      "returnEstimate": -0.00701683,
+      "lowerReturn": -0.07752959,
+      "upperReturn": 0.08,
+      "estimatedPrice": 6.8913,
+      "lowerEstimatedPrice": 6.4019,
+      "upperEstimatedPrice": 7.4952,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00590052,
-      "lowerReturn": -0.10687073,
-      "upperReturn": 0.09196776,
-      "estimatedPrice": 6.9809,
-      "lowerEstimatedPrice": 6.1983,
-      "upperEstimatedPrice": 7.5783,
-      "sampleCount": 96,
+      "returnEstimate": -0.00352922,
+      "lowerReturn": -0.08786612,
+      "upperReturn": 0.08749999,
+      "estimatedPrice": 6.9155,
+      "lowerEstimatedPrice": 6.3302,
+      "upperEstimatedPrice": 7.5472,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

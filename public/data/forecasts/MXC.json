@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "MXC",
   "companyName": "MEXCO ENERGY CORP",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 9.31,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 9.31,
     "horizon30Day": {
-      "returnEstimate": 0.00232112,
-      "lowerReturn": -0.07958342,
-      "upperReturn": 0.06897524,
-      "estimatedPrice": 9.3316,
-      "lowerEstimatedPrice": 8.5691,
-      "upperEstimatedPrice": 9.9522,
-      "sampleCount": 104,
+      "returnEstimate": -0.00116142,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.08,
+      "estimatedPrice": 9.2992,
+      "lowerEstimatedPrice": 8.5652,
+      "upperEstimatedPrice": 10.0548,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.02888732,
-      "lowerReturn": -0.10653967,
-      "upperReturn": 0.13810545,
-      "estimatedPrice": 9.5789,
-      "lowerEstimatedPrice": 8.3181,
-      "upperEstimatedPrice": 10.5958,
-      "sampleCount": 96,
+      "returnEstimate": 0.01613615,
+      "lowerReturn": -0.12395556,
+      "upperReturn": 0.15,
+      "estimatedPrice": 9.4602,
+      "lowerEstimatedPrice": 8.156,
+      "upperEstimatedPrice": 10.7065,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

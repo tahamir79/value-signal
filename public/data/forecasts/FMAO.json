@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "FMAO",
   "companyName": "FARMERS & MERCHANTS BANCORP INC",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 35.11,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,40 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 35.11,
     "horizon30Day": {
-      "returnEstimate": 0.02085979,
-      "lowerReturn": -0.05161559,
-      "upperReturn": 0.07575143,
-      "estimatedPrice": 35.8424,
-      "lowerEstimatedPrice": 33.2978,
-      "upperEstimatedPrice": 37.7696,
-      "sampleCount": 104,
+      "returnEstimate": 0.01510432,
+      "lowerReturn": -0.05455724,
+      "upperReturn": 0.08,
+      "estimatedPrice": 35.6403,
+      "lowerEstimatedPrice": 33.1945,
+      "upperEstimatedPrice": 37.9188,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.02518631,
-      "lowerReturn": -0.03635231,
-      "upperReturn": 0.14095495,
-      "estimatedPrice": 35.9943,
-      "lowerEstimatedPrice": 33.8337,
-      "upperEstimatedPrice": 40.0589,
-      "sampleCount": 96,
+      "returnEstimate": 0.02108489,
+      "lowerReturn": -0.03972,
+      "upperReturn": 0.14825263,
+      "estimatedPrice": 35.8503,
+      "lowerEstimatedPrice": 33.7154,
+      "upperEstimatedPrice": 40.3152,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

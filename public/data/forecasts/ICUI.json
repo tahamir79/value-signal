@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ICUI",
   "companyName": "ICU MEDICAL INC/DE",
-  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+  "generatedAt": "2026-08-18T04:29:11.946683+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 182.98,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
+    "collectedAt": "2026-08-18T04:29:11.946683+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,39 +44,41 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
+    "generatedAt": "2026-08-18T04:29:11.946683+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 182.98,
     "horizon30Day": {
-      "returnEstimate": 0.00104197,
-      "lowerReturn": -0.04850049,
-      "upperReturn": 0.06656296,
-      "estimatedPrice": 183.1707,
-      "lowerEstimatedPrice": 174.1054,
-      "upperEstimatedPrice": 195.1597,
-      "sampleCount": 104,
+      "returnEstimate": 0.00341312,
+      "lowerReturn": -0.0529394,
+      "upperReturn": 0.08,
+      "estimatedPrice": 183.6045,
+      "lowerEstimatedPrice": 173.2931,
+      "upperEstimatedPrice": 197.6184,
+      "sampleCount": 105,
       "status": "available",
-      "usableObservationCount": 104,
+      "usableObservationCount": 105,
       "requiredObservationCount": 24,
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.03441894,
-      "lowerReturn": -0.10480988,
-      "upperReturn": 0.1427619,
-      "estimatedPrice": 176.682,
-      "lowerEstimatedPrice": 163.8019,
-      "upperEstimatedPrice": 209.1026,
-      "sampleCount": 96,
+      "returnEstimate": -0.03415101,
+      "lowerReturn": -0.10979962,
+      "upperReturn": 0.15,
+      "estimatedPrice": 176.731,
+      "lowerEstimatedPrice": 162.8889,
+      "upperEstimatedPrice": 210.427,
+      "sampleCount": 97,
       "status": "available",
-      "usableObservationCount": 96,
+      "usableObservationCount": 97,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
