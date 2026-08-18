@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-14T23:59:55.747161+00:00",
+  "generatedAt": "2026-08-18T00:06:47.275569+00:00",
   "record": {
     "security": {
       "ticker": "ASBP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.85,
-      "dailyChangePercent": 10.4079,
-      "marketCapBillions": 0.011,
+      "latestPrice": 7.74,
+      "dailyChangePercent": -1.4013,
+      "marketCapBillions": 0.0109,
       "liabilitiesToAssets": 0.131658,
       "latestRevenueBillions": 0.0,
       "grossMarginPercent": -1.8704,
@@ -251,7 +251,7 @@
       "shortTermDebtShare": null,
       "bookValue": 11757821.0,
       "bookValuePerShare": 8.383132,
-      "priceToBook": 0.936404,
+      "priceToBook": 0.923283,
       "retainedEarnings": -31749115.0
     },
     "balanceSheetScoringShadow": {
@@ -471,52 +471,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ASBP",
-      "generatedAt": "2026-08-14T23:47:19.896059+00:00",
-      "marketDataAsOf": "2026-08-14",
-      "status": "emerging",
-      "growthSpurtScore": 68.47,
+      "generatedAt": "2026-08-17T23:47:23.602152+00:00",
+      "marketDataAsOf": "2026-08-17",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.24999994,
-        "return63d": 0.33730836,
-        "trendSlope21d": 0.00455579,
-        "trendSlope63d": 0.00482845,
-        "trendAnnualizedReturn63d": 2.37626602,
-        "trendFitR2_63d": 0.52921403,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.08102558,
+        "return21d": 0.24038462,
+        "return63d": 0.37967907,
+        "trendSlope21d": 0.00350227,
+        "trendSlope63d": 0.00498761,
+        "trendAnnualizedReturn63d": 2.5144279,
+        "trendFitR2_63d": 0.54548377,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.08122744,
         "maxDrawdown63d": -0.30089817,
-        "downsideVolatility63d": 0.05866839,
-        "excessReturnVsSpy21d": 0.21587263,
-        "excessReturnVsSpy63d": 0.29698322,
-        "trendAcceleration": 0.00281173,
-        "largestOneDayContribution63d": 0.05957314,
+        "downsideVolatility63d": 0.05833372,
+        "excessReturnVsSpy21d": 0.20085765,
+        "excessReturnVsSpy63d": 0.33166502,
+        "trendAcceleration": 0.00180319,
+        "largestOneDayContribution63d": 0.06224431,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 33.8704,
+        "consistencyScore": 42.1521,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.809674,
+      "benchmarkPercentile": 0.702161,
       "metricPercentiles": {
-        "trendSlope63d": 0.903785,
-        "trendFitR2_63d": 0.586225,
-        "excessReturnVsSpy63d": 0.889476,
-        "drawdownControlScore": 0.16062,
-        "growthSpurtScore": 0.809674
+        "trendSlope63d": 0.910912,
+        "trendFitR2_63d": 0.595677,
+        "excessReturnVsSpy63d": 0.902969,
+        "drawdownControlScore": 0.161307,
+        "growthSpurtScore": 0.702161
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12505,9 +12508,20 @@
         "high": 7.900000095367432,
         "low": 7.139999866485596,
         "close": 7.849999904632568,
-        "volume": 32035,
+        "volume": 34700,
         "source": "yahoo-chart",
         "adjusted_close": 7.849999904632568
+      },
+      {
+        "ticker": "ASBP",
+        "date": "2026-08-17",
+        "open": 7.650000095367432,
+        "high": 8.0,
+        "low": 7.53000020980835,
+        "close": 7.739999771118164,
+        "volume": 21248,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.739999771118164
       }
     ],
     "dataStatus": {
@@ -12545,13 +12559,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-08-14",
+      "latestScoringDate": "2026-08-17",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 68.47,
-      "growthSpurtBenchmarkPercentile": 0.809674,
-      "growthSpurtMarketDataAsOf": "2026-08-14",
-      "lastPipelineRun": "2026-08-14T23:47:19.896059+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.702161,
+      "growthSpurtMarketDataAsOf": "2026-08-17",
+      "lastPipelineRun": "2026-08-17T23:47:23.602152+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

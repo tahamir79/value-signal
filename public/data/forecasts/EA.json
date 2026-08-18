@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "EA",
   "companyName": "ELECTRONIC ARTS INC.",
-  "generatedAt": "2026-08-15T08:15:23.068639+00:00",
+  "generatedAt": "2026-08-18T00:11:02.246170+00:00",
   "marketDataAsOf": "2026-08-10",
   "currentPrice": 209.7,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-15T08:15:23.068639+00:00",
+    "collectedAt": "2026-08-18T00:11:02.246170+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,43 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-15T08:15:23.068639+00:00",
+    "generatedAt": "2026-08-18T00:11:02.246170+00:00",
     "marketDataAsOf": "2026-08-10",
     "currentPrice": 209.7,
     "horizon30Day": {
-      "returnEstimate": 0.00833414,
-      "lowerReturn": -0.00821807,
-      "upperReturn": 0.0395965,
-      "estimatedPrice": 211.4477,
-      "lowerEstimatedPrice": 207.9767,
-      "upperEstimatedPrice": 218.0034,
-      "sampleCount": 106,
-      "status": "available",
-      "usableObservationCount": 106,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.01919578,
-      "lowerReturn": -0.00327988,
-      "upperReturn": 0.13142092,
-      "estimatedPrice": 213.7254,
-      "lowerEstimatedPrice": 209.0122,
-      "upperEstimatedPrice": 237.259,
-      "sampleCount": 98,
-      "status": "available",
-      "usableObservationCount": 98,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
