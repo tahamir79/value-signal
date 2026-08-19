@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-18T08:26:43.745507+00:00",
+  "generatedAt": "2026-08-19T00:09:43.805692+00:00",
   "record": {
     "security": {
       "ticker": "AURA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.69,
-      "dailyChangePercent": 0.5229,
-      "marketCapBillions": 0.7975,
+      "latestPrice": 8.16,
+      "dailyChangePercent": 6.25,
+      "marketCapBillions": 0.8462,
       "liabilitiesToAssets": 0.094396,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -225,7 +225,7 @@
       "shortTermDebtShare": null,
       "bookValue": 315267000.0,
       "bookValuePerShare": 3.040042,
-      "priceToBook": 2.52957,
+      "priceToBook": 2.684173,
       "retainedEarnings": -559740000.0
     },
     "balanceSheetScoringShadow": {
@@ -445,50 +445,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AURA",
-      "generatedAt": "2026-08-18T08:05:34.095155+00:00",
-      "marketDataAsOf": "2026-08-14",
+      "generatedAt": "2026-08-18T23:48:28.511078+00:00",
+      "marketDataAsOf": "2026-08-18",
       "status": "not_detected",
-      "growthSpurtScore": 33.94,
+      "growthSpurtScore": 53.41,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09700425,
-        "return63d": -0.04114718,
-        "trendSlope21d": 0.00549188,
-        "trendSlope63d": 0.0005554,
-        "trendAnnualizedReturn63d": 0.15022886,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.06339258,
-        "maxDrawdown63d": -0.23308272,
-        "downsideVolatility63d": 0.01730515,
-        "excessReturnVsSpy21d": 0.06848048,
-        "excessReturnVsSpy63d": -0.08968497,
-        "trendAcceleration": 0.00774058,
-        "largestOneDayContribution63d": 0.10384283,
+        "return21d": 0.16738199,
+        "return63d": 0.05426358,
+        "trendSlope21d": 0.00654319,
+        "trendSlope63d": 0.00110703,
+        "trendAnnualizedReturn63d": 0.32176949,
+        "trendFitR2_63d": 0.05680843,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.06140421,
+        "maxDrawdown63d": -0.20104439,
+        "downsideVolatility63d": 0.01785872,
+        "excessReturnVsSpy21d": 0.13487781,
+        "excessReturnVsSpy63d": 0.01332965,
+        "trendAcceleration": 0.0079324,
+        "largestOneDayContribution63d": 0.10392614,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 39.3151,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 35.0,
-        "drawdownControlScore": 22.3058,
+        "directionScore": 77.1972,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 72.9152,
+        "drawdownControlScore": 32.9852,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.478112,
+      "benchmarkPercentile": 0.663249,
       "metricPercentiles": {
-        "trendSlope63d": 0.556435,
-        "trendFitR2_63d": 0.068829,
-        "excessReturnVsSpy63d": 0.333156,
-        "drawdownControlScore": 0.420095,
-        "growthSpurtScore": 0.478112
+        "trendSlope63d": 0.620925,
+        "trendFitR2_63d": 0.222397,
+        "excessReturnVsSpy63d": 0.566437,
+        "drawdownControlScore": 0.492114,
+        "growthSpurtScore": 0.663249
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13701,6 +13705,28 @@
         "volume": 685000,
         "source": "yahoo-chart",
         "adjusted_close": 7.690000057220459
+      },
+      {
+        "ticker": "AURA",
+        "date": "2026-08-17",
+        "open": 7.710000038146973,
+        "high": 7.820000171661377,
+        "low": 7.550000190734863,
+        "close": 7.679999828338623,
+        "volume": 3819500,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.679999828338623
+      },
+      {
+        "ticker": "AURA",
+        "date": "2026-08-18",
+        "open": 7.650000095367432,
+        "high": 8.239999771118164,
+        "low": 7.550000190734863,
+        "close": 8.15999984741211,
+        "volume": 673770,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.15999984741211
       }
     ],
     "dataStatus": {
@@ -13738,13 +13764,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-08-14",
+      "latestScoringDate": "2026-08-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 33.94,
-      "growthSpurtBenchmarkPercentile": 0.478112,
-      "growthSpurtMarketDataAsOf": "2026-08-14",
-      "lastPipelineRun": "2026-08-18T08:05:34.095155+00:00",
+      "growthSpurtScore": 53.41,
+      "growthSpurtBenchmarkPercentile": 0.663249,
+      "growthSpurtMarketDataAsOf": "2026-08-18",
+      "lastPipelineRun": "2026-08-18T23:48:28.511078+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

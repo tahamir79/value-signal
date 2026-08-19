@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-18T08:26:43.745507+00:00",
+  "generatedAt": "2026-08-19T00:09:43.805692+00:00",
   "record": {
     "security": {
       "ticker": "DJT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.27,
-      "dailyChangePercent": -0.3614,
-      "marketCapBillions": 2.2986,
+      "latestPrice": 8.06,
+      "dailyChangePercent": -0.4938,
+      "marketCapBillions": 2.2402,
       "liabilitiesToAssets": 0.493397,
       "latestRevenueBillions": 0.0037,
       "grossMarginPercent": 58.1605,
@@ -319,7 +319,7 @@
       "shortTermDebtShare": 0.499881,
       "bookValue": 1022869900.0,
       "bookValuePerShare": 3.680166,
-      "priceToBook": 2.247182,
+      "priceToBook": 2.190119,
       "retainedEarnings": -4301096600.0
     },
     "balanceSheetScoringShadow": {
@@ -530,50 +530,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "DJT",
-      "generatedAt": "2026-08-18T08:05:34.095155+00:00",
-      "marketDataAsOf": "2026-08-14",
+      "generatedAt": "2026-08-18T23:48:28.511078+00:00",
+      "marketDataAsOf": "2026-08-18",
       "status": "not_detected",
-      "growthSpurtScore": 17.92,
+      "growthSpurtScore": 20.41,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.1412253,
-        "return63d": -0.07597758,
-        "trendSlope21d": -0.00236871,
-        "trendSlope63d": 0.00264584,
-        "trendAnnualizedReturn63d": 0.94789777,
-        "trendFitR2_63d": 0.27017552,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.07852781,
+        "return21d": -0.17248454,
+        "return63d": -0.02539299,
+        "trendSlope21d": -0.00656042,
+        "trendSlope63d": 0.00237857,
+        "trendAnnualizedReturn63d": 0.8210259,
+        "trendFitR2_63d": 0.20775911,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.08230867,
         "maxDrawdown63d": -0.25448788,
-        "downsideVolatility63d": 0.02325782,
-        "excessReturnVsSpy21d": -0.17535261,
-        "excessReturnVsSpy63d": -0.11630272,
-        "trendAcceleration": -0.00264766,
-        "largestOneDayContribution63d": 0.05381372,
+        "downsideVolatility63d": 0.02416486,
+        "excessReturnVsSpy21d": -0.20665827,
+        "excessReturnVsSpy63d": -0.06705974,
+        "trendAcceleration": -0.00803372,
+        "largestOneDayContribution63d": 0.05516796,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 45.0,
-        "consistencyScore": 8.5948,
-        "relativeStrengthScore": 0.0,
+        "consistencyScore": 14.3254,
+        "relativeStrengthScore": 5.257,
         "drawdownControlScore": 15.1707,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.236287,
+      "benchmarkPercentile": 0.268665,
       "metricPercentiles": {
-        "trendSlope63d": 0.765295,
-        "trendFitR2_63d": 0.382911,
-        "excessReturnVsSpy63d": 0.29915,
-        "drawdownControlScore": 0.388186,
-        "growthSpurtScore": 0.236287
+        "trendSlope63d": 0.757098,
+        "trendFitR2_63d": 0.34122,
+        "excessReturnVsSpy63d": 0.357332,
+        "drawdownControlScore": 0.38959,
+        "growthSpurtScore": 0.268665
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14028,6 +14031,28 @@
         "volume": 3874300,
         "source": "yahoo-chart",
         "adjusted_close": 8.270000457763672
+      },
+      {
+        "ticker": "DJT",
+        "date": "2026-08-17",
+        "open": 8.1899995803833,
+        "high": 8.229999542236328,
+        "low": 7.900000095367432,
+        "close": 8.100000381469727,
+        "volume": 4146800,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.100000381469727
+      },
+      {
+        "ticker": "DJT",
+        "date": "2026-08-18",
+        "open": 8.0,
+        "high": 8.15999984741211,
+        "low": 8.0,
+        "close": 8.0600004196167,
+        "volume": 2482966,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.0600004196167
       }
     ],
     "dataStatus": {
@@ -14061,17 +14086,17 @@
       ],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-08-14",
+      "latestScoringDate": "2026-08-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 17.92,
-      "growthSpurtBenchmarkPercentile": 0.236287,
-      "growthSpurtMarketDataAsOf": "2026-08-14",
-      "lastPipelineRun": "2026-08-18T08:05:34.095155+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 20.41,
+      "growthSpurtBenchmarkPercentile": 0.268665,
+      "growthSpurtMarketDataAsOf": "2026-08-18",
+      "lastPipelineRun": "2026-08-18T23:48:28.511078+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

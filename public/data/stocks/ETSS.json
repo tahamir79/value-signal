@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-18T08:26:43.745507+00:00",
+  "generatedAt": "2026-08-19T00:09:43.805692+00:00",
   "record": {
     "security": {
       "ticker": "ETSS",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.87,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 9.88,
+      "dailyChangePercent": 0.1013,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.04079,
       "latestRevenueBillions": null,
@@ -415,49 +415,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ETSS",
-      "generatedAt": "2026-08-18T08:05:34.095155+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-18T23:48:28.511078+00:00",
+      "marketDataAsOf": "2026-08-18",
+      "status": "not_detected",
+      "growthSpurtScore": 25.92,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.0,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.0,
+        "trendSlope63d": 0.0,
+        "trendAnnualizedReturn63d": 0.0,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.4,
+        "trendResidualVolatility63d": 0.00191665,
+        "maxDrawdown63d": -0.00804019,
+        "downsideVolatility63d": 0.00242032,
+        "excessReturnVsSpy21d": -0.03250418,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.00012665,
+        "largestOneDayContribution63d": 0.25794209,
+        "percentAboveTrendLine63d": 0.8627451
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 34.303,
+        "relativeStrengthScore": 9.3698,
+        "drawdownControlScore": 97.3199,
+        "confirmationScore": 8.7335
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.342534,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.448475,
+        "trendFitR2_63d": 0.069664,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.970032,
+        "growthSpurtScore": 0.342534
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -999,6 +1002,28 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.869999885559082
+      },
+      {
+        "ticker": "ETSS",
+        "date": "2026-08-17",
+        "open": 9.869999885559082,
+        "high": 9.869999885559082,
+        "low": 9.869999885559082,
+        "close": 9.869999885559082,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.869999885559082
+      },
+      {
+        "ticker": "ETSS",
+        "date": "2026-08-18",
+        "open": 9.880000114440918,
+        "high": 9.880000114440918,
+        "low": 9.880000114440918,
+        "close": 9.880000114440918,
+        "volume": 107,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.880000114440918
       }
     ],
     "dataStatus": {
@@ -1038,13 +1063,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-07",
-      "latestScoringDate": "2026-08-14",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-18T08:05:34.095155+00:00",
+      "latestScoringDate": "2026-08-18",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 25.92,
+      "growthSpurtBenchmarkPercentile": 0.342534,
+      "growthSpurtMarketDataAsOf": "2026-08-18",
+      "lastPipelineRun": "2026-08-18T23:48:28.511078+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
