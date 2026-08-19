@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-18T04:25:08.600135+00:00",
+  "generatedAt": "2026-08-19T04:28:47.051455+00:00",
   "record": {
     "security": {
       "ticker": "KVYO",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 18.49,
-      "dailyChangePercent": -3.7981,
+      "latestPrice": 17.81,
+      "dailyChangePercent": 1.5393,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.301369,
       "latestRevenueBillions": 1.234,
@@ -471,52 +471,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "KVYO",
-      "generatedAt": "2026-08-18T04:07:27.998318+00:00",
-      "marketDataAsOf": "2026-08-14",
-      "status": "emerging",
-      "growthSpurtScore": 60.63,
+      "generatedAt": "2026-08-19T04:08:44.324726+00:00",
+      "marketDataAsOf": "2026-08-18",
+      "status": "not_detected",
+      "growthSpurtScore": 48.72,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03759821,
-        "return63d": 0.28940025,
-        "trendSlope21d": 0.00296228,
-        "trendSlope63d": 0.00439059,
-        "trendAnnualizedReturn63d": 2.02354347,
-        "trendFitR2_63d": 0.47884682,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.07625909,
+        "return21d": -0.01873279,
+        "return63d": 0.21902806,
+        "trendSlope21d": 0.00302759,
+        "trendSlope63d": 0.00429493,
+        "trendAnnualizedReturn63d": 1.95152417,
+        "trendFitR2_63d": 0.48506833,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.07651337,
         "maxDrawdown63d": -0.29956431,
-        "downsideVolatility63d": 0.03030617,
-        "excessReturnVsSpy21d": 0.0034709,
-        "excessReturnVsSpy63d": 0.24907512,
-        "trendAcceleration": -0.00103937,
-        "largestOneDayContribution63d": 0.07247146,
+        "downsideVolatility63d": 0.03002522,
+        "excessReturnVsSpy21d": -0.05290652,
+        "excessReturnVsSpy63d": 0.17736131,
+        "trendAcceleration": -0.00142788,
+        "largestOneDayContribution63d": 0.07102783,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 23.2018,
-        "relativeStrengthScore": 84.0185,
+        "directionScore": 80.0,
+        "consistencyScore": 30.7802,
+        "relativeStrengthScore": 65.0,
         "drawdownControlScore": 0.1452,
-        "confirmationScore": 80.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.761779,
+      "benchmarkPercentile": 0.635643,
       "metricPercentiles": {
-        "trendSlope63d": 0.896241,
-        "trendFitR2_63d": 0.527792,
-        "excessReturnVsSpy63d": 0.873269,
-        "drawdownControlScore": 0.320805,
-        "growthSpurtScore": 0.761779
+        "trendSlope63d": 0.903226,
+        "trendFitR2_63d": 0.559492,
+        "excessReturnVsSpy63d": 0.818182,
+        "drawdownControlScore": 0.310418,
+        "growthSpurtScore": 0.635643
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8526,6 +8527,28 @@
         "volume": 5012500,
         "source": "yahoo-chart",
         "adjusted_close": 18.489999771118164
+      },
+      {
+        "ticker": "KVYO",
+        "date": "2026-08-17",
+        "open": 18.485000610351562,
+        "high": 18.485000610351562,
+        "low": 17.40999984741211,
+        "close": 17.540000915527344,
+        "volume": 4387400,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.540000915527344
+      },
+      {
+        "ticker": "KVYO",
+        "date": "2026-08-18",
+        "open": 17.780000686645508,
+        "high": 18.3700008392334,
+        "low": 17.774999618530273,
+        "close": 17.809999465942383,
+        "volume": 5157300,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.809999465942383
       }
     ],
     "dataStatus": {
@@ -8563,13 +8586,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-14",
+      "latestScoringDate": "2026-08-18",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 60.63,
-      "growthSpurtBenchmarkPercentile": 0.761779,
-      "growthSpurtMarketDataAsOf": "2026-08-14",
-      "lastPipelineRun": "2026-08-18T04:07:27.998318+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 48.72,
+      "growthSpurtBenchmarkPercentile": 0.635643,
+      "growthSpurtMarketDataAsOf": "2026-08-18",
+      "lastPipelineRun": "2026-08-19T04:08:44.324726+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
