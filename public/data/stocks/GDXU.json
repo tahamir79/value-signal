@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-19T04:28:47.051455+00:00",
+  "generatedAt": "2026-08-20T04:21:18.732164+00:00",
   "record": {
     "security": {
       "ticker": "GDXU",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 124.17,
-      "dailyChangePercent": -10.2104,
+      "latestPrice": 158.63,
+      "dailyChangePercent": 27.7523,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,63 +335,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GDXU",
-      "generatedAt": "2026-08-19T04:08:44.324726+00:00",
-      "marketDataAsOf": "2026-08-18",
+      "generatedAt": "2026-08-20T04:08:36.155610+00:00",
+      "marketDataAsOf": "2026-08-19",
       "status": "not_detected",
-      "growthSpurtScore": 23.72,
+      "growthSpurtScore": 48.3,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.83846604,
-        "return63d": -0.19890324,
-        "trendSlope21d": 0.03215801,
-        "trendSlope63d": -0.00741959,
-        "trendAnnualizedReturn63d": -0.84583567,
-        "trendFitR2_63d": 0.0443526,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.23695218,
+        "return21d": 1.03528355,
+        "return63d": 0.16169902,
+        "trendSlope21d": 0.0349543,
+        "trendSlope63d": -0.00642024,
+        "trendAnnualizedReturn63d": -0.80168524,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.24822912,
         "maxDrawdown63d": -0.586532,
         "downsideVolatility63d": 0.0631292,
-        "excessReturnVsSpy21d": 0.80429231,
-        "excessReturnVsSpy63d": -0.24056999,
-        "trendAcceleration": 0.05175587,
-        "largestOneDayContribution63d": 0.05479737,
+        "excessReturnVsSpy21d": 1.00751324,
+        "excessReturnVsSpy63d": 0.11084753,
+        "trendAcceleration": 0.05455216,
+        "largestOneDayContribution63d": 0.05469769,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 35.0,
+        "directionScore": 55.0,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.314384,
+      "benchmarkPercentile": 0.620507,
       "metricPercentiles": {
-        "trendSlope63d": 0.114754,
-        "trendFitR2_63d": 0.198308,
-        "excessReturnVsSpy63d": 0.17597,
-        "drawdownControlScore": 0.154416,
-        "growthSpurtScore": 0.314384
+        "trendSlope63d": 0.13055,
+        "trendFitR2_63d": 0.061047,
+        "excessReturnVsSpy63d": 0.720213,
+        "drawdownControlScore": 0.154334,
+        "growthSpurtScore": 0.620507
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "GDXU",
-        "date": "2021-08-19",
-        "open": 115.30000305175781,
-        "high": 115.30000305175781,
-        "low": 107.91000366210938,
-        "close": 109.80000305175781,
-        "volume": 40330,
-        "source": "yahoo-chart",
-        "adjusted_close": 109.80000305175781
-      },
       {
         "ticker": "GDXU",
         "date": "2021-08-20",
@@ -14171,9 +14163,20 @@
         "high": 134.66000366210938,
         "low": 123.1989974975586,
         "close": 124.16999816894531,
-        "volume": 1220000,
+        "volume": 1250400,
         "source": "yahoo-chart",
         "adjusted_close": 124.16999816894531
+      },
+      {
+        "ticker": "GDXU",
+        "date": "2026-08-19",
+        "open": 144.6300048828125,
+        "high": 159.27499389648438,
+        "low": 144.5,
+        "close": 158.6300048828125,
+        "volume": 2833000,
+        "source": "yahoo-chart",
+        "adjusted_close": 158.6300048828125
       }
     ],
     "dataStatus": {
@@ -14213,13 +14216,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-18",
+      "latestScoringDate": "2026-08-19",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 23.72,
-      "growthSpurtBenchmarkPercentile": 0.314384,
-      "growthSpurtMarketDataAsOf": "2026-08-18",
-      "lastPipelineRun": "2026-08-19T04:08:44.324726+00:00",
+      "growthSpurtScore": 48.3,
+      "growthSpurtBenchmarkPercentile": 0.620507,
+      "growthSpurtMarketDataAsOf": "2026-08-19",
+      "lastPipelineRun": "2026-08-20T04:08:36.155610+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
