@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-19T08:18:13.988023+00:00",
+  "generatedAt": "2026-08-20T08:19:57.203642+00:00",
   "record": {
     "security": {
       "ticker": "RMXI",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 6.51,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 7.6,
+      "dailyChangePercent": -5.0,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.145111,
       "latestRevenueBillions": 0.0,
@@ -496,49 +496,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RMXI",
-      "generatedAt": "2026-08-19T08:05:32.580588+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-20T08:08:34.984767+00:00",
+      "marketDataAsOf": "2026-08-19",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.11846944,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": -0.00559027,
+        "trendSlope63d": 0.00139884,
+        "trendAnnualizedReturn63d": 0.42262989,
+        "trendFitR2_63d": 0.05433429,
+        "positiveWeekRatio63d": 0.44444444,
+        "trendResidualVolatility63d": 0.11793936,
+        "maxDrawdown63d": -0.36254979,
+        "downsideVolatility63d": 0.05819735,
+        "excessReturnVsSpy21d": 0.08991562,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.0076666,
+        "largestOneDayContribution63d": 0.07597562,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 100.0,
+        "consistencyScore": 2.5,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.721609,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.667718,
+        "trendFitR2_63d": 0.21346,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.162986,
+        "growthSpurtScore": 0.721609
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -1069,6 +1072,28 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 6.510000228881836
+      },
+      {
+        "ticker": "RMXI",
+        "date": "2026-08-18",
+        "open": 8.199999809265137,
+        "high": 8.199999809265137,
+        "low": 8.0,
+        "close": 8.0,
+        "volume": 3659,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.0
+      },
+      {
+        "ticker": "RMXI",
+        "date": "2026-08-19",
+        "open": 7.75,
+        "high": 8.260299682617188,
+        "low": 7.599999904632568,
+        "close": 7.599999904632568,
+        "volume": 2917,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.599999904632568
       }
     ],
     "dataStatus": {
@@ -1108,13 +1133,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-08-03",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-19T08:05:32.580588+00:00",
+      "latestScoringDate": "2026-08-19",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.721609,
+      "growthSpurtMarketDataAsOf": "2026-08-19",
+      "lastPipelineRun": "2026-08-20T08:08:34.984767+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
