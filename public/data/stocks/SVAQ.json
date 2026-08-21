@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-20T08:19:57.203642+00:00",
+  "generatedAt": "2026-08-21T08:20:14.381692+00:00",
   "record": {
     "security": {
       "ticker": "SVAQ",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.04,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 10.05,
+      "dailyChangePercent": 0.0996,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.043014,
       "latestRevenueBillions": null,
@@ -415,49 +415,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SVAQ",
-      "generatedAt": "2026-08-20T08:08:34.984767+00:00",
-      "marketDataAsOf": "2026-08-19",
+      "generatedAt": "2026-08-21T08:08:58.736706+00:00",
+      "marketDataAsOf": "2026-08-20",
       "status": "not_detected",
-      "growthSpurtScore": 35.56,
+      "growthSpurtScore": 34.57,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00198812,
-        "return63d": 0.00904524,
-        "trendSlope21d": 0.00014257,
-        "trendSlope63d": 0.00012506,
-        "trendAnnualizedReturn63d": 0.03201783,
-        "trendFitR2_63d": 0.14908491,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.00411835,
+        "return21d": 0.00199406,
+        "return63d": 0.01005029,
+        "trendSlope21d": 0.00016629,
+        "trendSlope63d": 3.332e-05,
+        "trendAnnualizedReturn63d": 0.00843134,
+        "trendFitR2_63d": 0.00278869,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.00388576,
         "maxDrawdown63d": -0.00989114,
-        "downsideVolatility63d": 0.00102026,
-        "excessReturnVsSpy21d": -0.02641803,
-        "excessReturnVsSpy63d": -0.02152438,
-        "trendAcceleration": -0.00026308,
-        "largestOneDayContribution63d": 0.1112008,
+        "downsideVolatility63d": 0.00079468,
+        "excessReturnVsSpy21d": -0.01832946,
+        "excessReturnVsSpy63d": -0.02140281,
+        "trendAcceleration": -0.00013912,
+        "largestOneDayContribution63d": 0.11682824,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.7548,
-        "consistencyScore": 47.1135,
-        "relativeStrengthScore": 29.6978,
+        "directionScore": 5.3447,
+        "consistencyScore": 40.0553,
+        "relativeStrengthScore": 33.286,
         "drawdownControlScore": 96.703,
-        "confirmationScore": 13.072
+        "confirmationScore": 17.9191
       },
-      "benchmarkPercentile": 0.512093,
+      "benchmarkPercentile": 0.508403,
       "metricPercentiles": {
-        "trendSlope63d": 0.494217,
-        "trendFitR2_63d": 0.305994,
-        "excessReturnVsSpy63d": 0.484929,
-        "drawdownControlScore": 0.962145,
-        "growthSpurtScore": 0.512093
+        "trendSlope63d": 0.47584,
+        "trendFitR2_63d": 0.156513,
+        "excessReturnVsSpy63d": 0.493411,
+        "drawdownControlScore": 0.960084,
+        "growthSpurtScore": 0.508403
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1650,6 +1655,28 @@
       },
       {
         "ticker": "SVAQ",
+        "date": "2026-07-21",
+        "open": 10.050000190734863,
+        "high": 10.050000190734863,
+        "low": 10.039999961853027,
+        "close": 10.050000190734863,
+        "volume": 3300,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.050000190734863
+      },
+      {
+        "ticker": "SVAQ",
+        "date": "2026-07-22",
+        "open": 10.039999961853027,
+        "high": 10.039999961853027,
+        "low": 10.029999732971191,
+        "close": 10.029999732971191,
+        "volume": 125100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.029999732971191
+      },
+      {
+        "ticker": "SVAQ",
         "date": "2026-07-23",
         "open": 10.029999732971191,
         "high": 10.029999732971191,
@@ -1711,6 +1738,17 @@
         "low": 10.020000457763672,
         "close": 10.020000457763672,
         "volume": 52000,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.020000457763672
+      },
+      {
+        "ticker": "SVAQ",
+        "date": "2026-07-31",
+        "open": 10.029999732971191,
+        "high": 10.039999961853027,
+        "low": 10.020000457763672,
+        "close": 10.020000457763672,
+        "volume": 50800,
         "source": "yahoo-chart",
         "adjusted_close": 10.020000457763672
       },
@@ -1856,6 +1894,17 @@
         "volume": 30900,
         "source": "yahoo-chart",
         "adjusted_close": 10.039999961853027
+      },
+      {
+        "ticker": "SVAQ",
+        "date": "2026-08-20",
+        "open": 10.050000190734863,
+        "high": 10.050000190734863,
+        "low": 10.039999961853027,
+        "close": 10.050000190734863,
+        "volume": 27100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.050000190734863
       }
     ],
     "dataStatus": {
@@ -1895,13 +1944,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-08-19",
+      "latestScoringDate": "2026-08-20",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 35.56,
-      "growthSpurtBenchmarkPercentile": 0.512093,
-      "growthSpurtMarketDataAsOf": "2026-08-19",
-      "lastPipelineRun": "2026-08-20T08:08:34.984767+00:00",
+      "growthSpurtScore": 34.57,
+      "growthSpurtBenchmarkPercentile": 0.508403,
+      "growthSpurtMarketDataAsOf": "2026-08-20",
+      "lastPipelineRun": "2026-08-21T08:08:58.736706+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

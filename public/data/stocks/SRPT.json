@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-20T08:19:57.203642+00:00",
+  "generatedAt": "2026-08-21T08:20:14.381692+00:00",
   "record": {
     "security": {
       "ticker": "SRPT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 19.73,
-      "dailyChangePercent": 9.4895,
-      "marketCapBillions": 2.084,
+      "latestPrice": 19.22,
+      "dailyChangePercent": -2.5849,
+      "marketCapBillions": 2.0302,
       "liabilitiesToAssets": 0.520843,
       "latestRevenueBillions": 1.8643,
       "grossMarginPercent": -1.561,
@@ -319,7 +319,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 1527798000.0,
       "bookValuePerShare": 14.464083,
-      "priceToBook": 1.364068,
+      "priceToBook": 1.328809,
       "retainedEarnings": -4550915000.0
     },
     "balanceSheetScoringShadow": {
@@ -530,64 +530,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SRPT",
-      "generatedAt": "2026-08-20T08:08:34.984767+00:00",
-      "marketDataAsOf": "2026-08-19",
-      "status": "emerging",
-      "growthSpurtScore": 55.82,
+      "generatedAt": "2026-08-21T08:08:58.736706+00:00",
+      "marketDataAsOf": "2026-08-20",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.21714995,
-        "return63d": 0.18569713,
-        "trendSlope21d": 0.0113402,
-        "trendSlope63d": 0.00069496,
-        "trendAnnualizedReturn63d": 0.19140012,
-        "trendFitR2_63d": 0.03085897,
+        "return21d": 0.21491781,
+        "return63d": 0.12266346,
+        "trendSlope21d": 0.01207057,
+        "trendSlope63d": 0.00089864,
+        "trendAnnualizedReturn63d": 0.25414877,
+        "trendFitR2_63d": 0.04477969,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07583866,
+        "trendResidualVolatility63d": 0.07667894,
         "maxDrawdown63d": -0.27582849,
-        "downsideVolatility63d": 0.02142728,
-        "excessReturnVsSpy21d": 0.18937964,
-        "excessReturnVsSpy63d": 0.13484564,
-        "trendAcceleration": 0.00889309,
-        "largestOneDayContribution63d": 0.05731441,
+        "downsideVolatility63d": 0.02118793,
+        "excessReturnVsSpy21d": 0.19459428,
+        "excessReturnVsSpy63d": 0.09121036,
+        "trendAcceleration": 0.00984572,
+        "largestOneDayContribution63d": 0.05674877,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 79.6086,
+        "directionScore": 87.6763,
         "consistencyScore": 2.8968,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 8.0572,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.756572,
+      "benchmarkPercentile": 0.739758,
       "metricPercentiles": {
-        "trendSlope63d": 0.596215,
-        "trendFitR2_63d": 0.186646,
-        "excessReturnVsSpy63d": 0.770492,
-        "drawdownControlScore": 0.363302,
-        "growthSpurtScore": 0.756572
+        "trendSlope63d": 0.625525,
+        "trendFitR2_63d": 0.213235,
+        "excessReturnVsSpy63d": 0.725883,
+        "drawdownControlScore": 0.357668,
+        "growthSpurtScore": 0.739758
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
+        "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "SRPT",
-        "date": "2021-08-20",
-        "open": 73.7699966430664,
-        "high": 76.5,
-        "low": 73.7699966430664,
-        "close": 75.30999755859375,
-        "volume": 389100,
-        "source": "yahoo-chart",
-        "adjusted_close": 75.30999755859375
-      },
       {
         "ticker": "SRPT",
         "date": "2021-08-23",
@@ -14367,9 +14359,20 @@
         "high": 20.190000534057617,
         "low": 18.739999771118164,
         "close": 19.729999542236328,
-        "volume": 4941900,
+        "volume": 4943300,
         "source": "yahoo-chart",
         "adjusted_close": 19.729999542236328
+      },
+      {
+        "ticker": "SRPT",
+        "date": "2026-08-20",
+        "open": 19.420000076293945,
+        "high": 19.950000762939453,
+        "low": 18.59000015258789,
+        "close": 19.219999313354492,
+        "volume": 2910200,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.219999313354492
       }
     ],
     "dataStatus": {
@@ -14398,17 +14401,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "neutral",
+      "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-19",
+      "latestScoringDate": "2026-08-20",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 55.82,
-      "growthSpurtBenchmarkPercentile": 0.756572,
-      "growthSpurtMarketDataAsOf": "2026-08-19",
-      "lastPipelineRun": "2026-08-20T08:08:34.984767+00:00",
-      "balanceSheetExperimentalSignal": "neutral",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.739758,
+      "growthSpurtMarketDataAsOf": "2026-08-20",
+      "lastPipelineRun": "2026-08-21T08:08:58.736706+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }
   }
