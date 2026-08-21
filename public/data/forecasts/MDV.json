@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "MDV",
   "companyName": "MODIV INDUSTRIAL, INC.",
-  "generatedAt": "2026-08-21T00:20:36.142242+00:00",
+  "generatedAt": "2026-08-21T04:36:30.589416+00:00",
   "marketDataAsOf": "2026-07-17",
   "currentPrice": 18.46,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-21T00:20:36.142242+00:00",
+    "collectedAt": "2026-08-21T04:36:30.589416+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,40 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-21T00:20:36.142242+00:00",
+    "generatedAt": "2026-08-21T04:36:30.589416+00:00",
     "marketDataAsOf": "2026-07-17",
     "currentPrice": 18.46,
     "horizon30Day": {
-      "returnEstimate": 0.00761422,
-      "lowerReturn": -0.01747638,
-      "upperReturn": 0.04442486,
-      "estimatedPrice": 18.6006,
-      "lowerEstimatedPrice": 18.1374,
-      "upperEstimatedPrice": 19.2801,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.03073487,
-      "lowerReturn": -0.01539464,
-      "upperReturn": 0.09982833,
-      "estimatedPrice": 19.0274,
-      "lowerEstimatedPrice": 18.1758,
-      "upperEstimatedPrice": 20.3028,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-07-17 is older than 10 days."
+      "Market data as of 2026-07-17 is older than 10 days.",
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",

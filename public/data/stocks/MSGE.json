@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-20T04:21:18.732164+00:00",
+  "generatedAt": "2026-08-21T04:32:51.764639+00:00",
   "record": {
     "security": {
       "ticker": "MSGE",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 82.43,
-      "dailyChangePercent": 0.6471,
+      "latestPrice": 79.83,
+      "dailyChangePercent": -3.1542,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.976344,
       "latestRevenueBillions": 1.0608,
@@ -506,52 +506,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MSGE",
-      "generatedAt": "2026-08-20T04:08:36.155610+00:00",
-      "marketDataAsOf": "2026-08-19",
-      "status": "detected",
-      "growthSpurtScore": 86.83,
+      "generatedAt": "2026-08-21T04:11:02.259169+00:00",
+      "marketDataAsOf": "2026-08-20",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.113618,
-        "return63d": 0.20370906,
-        "trendSlope21d": 0.00466785,
-        "trendSlope63d": 0.00245585,
-        "trendAnnualizedReturn63d": 0.85683571,
-        "trendFitR2_63d": 0.65405222,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.03168074,
-        "maxDrawdown63d": -0.09017907,
-        "downsideVolatility63d": 0.01207721,
-        "excessReturnVsSpy21d": 0.08918808,
-        "excessReturnVsSpy63d": 0.17313944,
-        "trendAcceleration": 0.00166908,
-        "largestOneDayContribution63d": 0.13132441,
+        "return21d": 0.02110516,
+        "return63d": 0.14731244,
+        "trendSlope21d": 0.00398376,
+        "trendSlope63d": 0.00213933,
+        "trendAnnualizedReturn63d": 0.71448121,
+        "trendFitR2_63d": 0.59937624,
+        "positiveWeekRatio63d": 0.83333333,
+        "trendResidualVolatility63d": 0.03182108,
+        "maxDrawdown63d": -0.09714993,
+        "downsideVolatility63d": 0.01242223,
+        "excessReturnVsSpy21d": 0.00078164,
+        "excessReturnVsSpy63d": 0.11585934,
+        "trendAcceleration": 0.00164399,
+        "largestOneDayContribution63d": 0.12442292,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 65.3745,
-        "relativeStrengthScore": 100.0,
-        "drawdownControlScore": 69.9403,
-        "confirmationScore": 100.0
+        "directionScore": 94.0701,
+        "consistencyScore": 65.7819,
+        "relativeStrengthScore": 82.842,
+        "drawdownControlScore": 67.6167,
+        "confirmationScore": 88.1402
       },
-      "benchmarkPercentile": 0.976216,
+      "benchmarkPercentile": 0.716931,
       "metricPercentiles": {
-        "trendSlope63d": 0.766913,
-        "trendFitR2_63d": 0.706131,
-        "excessReturnVsSpy63d": 0.797872,
-        "drawdownControlScore": 0.783298,
-        "growthSpurtScore": 0.976216
+        "trendSlope63d": 0.748148,
+        "trendFitR2_63d": 0.657143,
+        "excessReturnVsSpy63d": 0.737766,
+        "drawdownControlScore": 0.757143,
+        "growthSpurtScore": 0.716931
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -9543,6 +9545,28 @@
       },
       {
         "ticker": "MSGE",
+        "date": "2026-07-21",
+        "open": 77.0,
+        "high": 77.33999633789062,
+        "low": 75.41000366210938,
+        "close": 76.45999908447266,
+        "volume": 538100,
+        "source": "yahoo-chart",
+        "adjusted_close": 76.45999908447266
+      },
+      {
+        "ticker": "MSGE",
+        "date": "2026-07-22",
+        "open": 75.91000366210938,
+        "high": 78.19000244140625,
+        "low": 75.6449966430664,
+        "close": 78.18000030517578,
+        "volume": 438200,
+        "source": "yahoo-chart",
+        "adjusted_close": 78.18000030517578
+      },
+      {
+        "ticker": "MSGE",
         "date": "2026-07-23",
         "open": 77.62999725341797,
         "high": 78.19999694824219,
@@ -9606,6 +9630,17 @@
         "volume": 310000,
         "source": "yahoo-chart",
         "adjusted_close": 78.86000061035156
+      },
+      {
+        "ticker": "MSGE",
+        "date": "2026-07-31",
+        "open": 78.93000030517578,
+        "high": 78.93000030517578,
+        "low": 75.7699966430664,
+        "close": 77.26000213623047,
+        "volume": 278900,
+        "source": "yahoo-chart",
+        "adjusted_close": 77.26000213623047
       },
       {
         "ticker": "MSGE",
@@ -9749,6 +9784,17 @@
         "volume": 219500,
         "source": "yahoo-chart",
         "adjusted_close": 82.43000030517578
+      },
+      {
+        "ticker": "MSGE",
+        "date": "2026-08-20",
+        "open": 81.45999908447266,
+        "high": 83.19000244140625,
+        "low": 79.56999969482422,
+        "close": 79.83000183105469,
+        "volume": 202400,
+        "source": "yahoo-chart",
+        "adjusted_close": 79.83000183105469
       }
     ],
     "dataStatus": {
@@ -9786,13 +9832,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-08-19",
+      "latestScoringDate": "2026-08-20",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 86.83,
-      "growthSpurtBenchmarkPercentile": 0.976216,
-      "growthSpurtMarketDataAsOf": "2026-08-19",
-      "lastPipelineRun": "2026-08-20T04:08:36.155610+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.716931,
+      "growthSpurtMarketDataAsOf": "2026-08-20",
+      "lastPipelineRun": "2026-08-21T04:11:02.259169+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
