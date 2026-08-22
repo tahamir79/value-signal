@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-21T00:16:09.671330+00:00",
+  "generatedAt": "2026-08-22T00:01:57.027629+00:00",
   "record": {
     "security": {
       "ticker": "ELOX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 18.04,
-      "dailyChangePercent": -0.6608,
-      "marketCapBillions": 0.0728,
+      "latestPrice": 20.975,
+      "dailyChangePercent": 16.2694,
+      "marketCapBillions": 0.0847,
       "liabilitiesToAssets": 0.270982,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -299,7 +299,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 46420000.0,
       "bookValuePerShare": 11.500179,
-      "priceToBook": 1.568671,
+      "priceToBook": 1.823885,
       "retainedEarnings": -308836000.0
     },
     "balanceSheetScoringShadow": {
@@ -516,50 +516,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ELOX",
-      "generatedAt": "2026-08-20T23:50:31.285143+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-08-21T23:46:09.186573+00:00",
+      "marketDataAsOf": "2026-08-21",
+      "status": "not_detected",
+      "growthSpurtScore": 70.33,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.7479167,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.01706661,
+        "trendSlope63d": 0.00771107,
+        "trendAnnualizedReturn63d": 5.98097417,
+        "trendFitR2_63d": 0.49262681,
+        "positiveWeekRatio63d": 0.6,
+        "trendResidualVolatility63d": 0.13735449,
+        "maxDrawdown63d": -0.25510204,
+        "downsideVolatility63d": 0.03898226,
+        "excessReturnVsSpy21d": 0.71060875,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.01940451,
+        "largestOneDayContribution63d": 0.1108335,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 100.0,
+        "consistencyScore": 32.341,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 14.966,
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.817991,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.964229,
+        "trendFitR2_63d": 0.556023,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.385587,
+        "growthSpurtScore": 0.817991
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -883,6 +885,17 @@
       },
       {
         "ticker": "ELOX",
+        "date": "2026-07-22",
+        "open": 12.010000228881836,
+        "high": 12.729999542236328,
+        "low": 11.420000076293945,
+        "close": 12.470000267028809,
+        "volume": 265200,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.470000267028809
+      },
+      {
+        "ticker": "ELOX",
         "date": "2026-07-23",
         "open": 12.890000343322754,
         "high": 14.199999809265137,
@@ -946,6 +959,17 @@
         "volume": 18900,
         "source": "yahoo-chart",
         "adjusted_close": 13.300000190734863
+      },
+      {
+        "ticker": "ELOX",
+        "date": "2026-07-31",
+        "open": 13.899999618530273,
+        "high": 18.420000076293945,
+        "low": 13.789999961853027,
+        "close": 17.43000030517578,
+        "volume": 53000,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.43000030517578
       },
       {
         "ticker": "ELOX",
@@ -1094,12 +1118,23 @@
         "ticker": "ELOX",
         "date": "2026-08-20",
         "open": 19.0,
-        "high": 19.0,
+        "high": 19.18000030517578,
         "low": 17.75,
         "close": 18.040000915527344,
-        "volume": 40273,
+        "volume": 40300,
         "source": "yahoo-chart",
         "adjusted_close": 18.040000915527344
+      },
+      {
+        "ticker": "ELOX",
+        "date": "2026-08-21",
+        "open": 19.0,
+        "high": 23.399900436401367,
+        "low": 18.040000915527344,
+        "close": 20.975000381469727,
+        "volume": 93056,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.975000381469727
       }
     ],
     "dataStatus": {
@@ -1137,13 +1172,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-08-20",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-20T23:50:31.285143+00:00",
+      "latestScoringDate": "2026-08-21",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 70.33,
+      "growthSpurtBenchmarkPercentile": 0.817991,
+      "growthSpurtMarketDataAsOf": "2026-08-21",
+      "lastPipelineRun": "2026-08-21T23:46:09.186573+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
