@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-21T04:32:51.764639+00:00",
+  "generatedAt": "2026-08-22T04:20:34.796310+00:00",
   "record": {
     "security": {
       "ticker": "IXHL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.62,
-      "dailyChangePercent": 5.2326,
-      "marketCapBillions": 0.0433,
+      "latestPrice": 3.57,
+      "dailyChangePercent": -1.3812,
+      "marketCapBillions": 0.0427,
       "liabilitiesToAssets": 0.06289,
       "latestRevenueBillions": 0.0,
       "grossMarginPercent": null,
@@ -251,7 +251,7 @@
       "shortTermDebtShare": 0.369381,
       "bookValue": 75234000.0,
       "bookValuePerShare": 6.288074,
-      "priceToBook": 0.575693,
+      "priceToBook": 0.567741,
       "retainedEarnings": -174367000.0
     },
     "balanceSheetScoringShadow": {
@@ -468,50 +468,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "IXHL",
-      "generatedAt": "2026-08-21T04:11:02.259169+00:00",
-      "marketDataAsOf": "2026-08-20",
+      "generatedAt": "2026-08-22T04:02:20.961904+00:00",
+      "marketDataAsOf": "2026-08-21",
       "status": "not_detected",
-      "growthSpurtScore": 30.02,
+      "growthSpurtScore": 28.47,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.16025642,
-        "return63d": -0.0242588,
-        "trendSlope21d": 0.00899045,
-        "trendSlope63d": -0.00180013,
-        "trendAnnualizedReturn63d": -0.36468359,
-        "trendFitR2_63d": 0.12444718,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.0784939,
+        "return21d": 0.12974678,
+        "return63d": -0.01923082,
+        "trendSlope21d": 0.01026441,
+        "trendSlope63d": -0.00143823,
+        "trendAnnualizedReturn63d": -0.30401912,
+        "trendFitR2_63d": 0.08046966,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.0799042,
         "maxDrawdown63d": -0.27067667,
-        "downsideVolatility63d": 0.02591113,
-        "excessReturnVsSpy21d": 0.13993289,
-        "excessReturnVsSpy63d": -0.0557119,
-        "trendAcceleration": 0.01016717,
-        "largestOneDayContribution63d": 0.08365377,
+        "downsideVolatility63d": 0.02617463,
+        "excessReturnVsSpy21d": 0.09243884,
+        "excessReturnVsSpy63d": -0.05285409,
+        "trendAcceleration": 0.01149874,
+        "largestOneDayContribution63d": 0.08447724,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 20.0,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 44.867,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 46.028,
         "drawdownControlScore": 9.7744,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.415873,
+      "benchmarkPercentile": 0.393386,
       "metricPercentiles": {
-        "trendSlope63d": 0.3,
-        "trendFitR2_63d": 0.278307,
-        "excessReturnVsSpy63d": 0.37234,
-        "drawdownControlScore": 0.364021,
-        "growthSpurtScore": 0.415873
+        "trendSlope63d": 0.32963,
+        "trendFitR2_63d": 0.242857,
+        "excessReturnVsSpy63d": 0.395003,
+        "drawdownControlScore": 0.361376,
+        "growthSpurtScore": 0.393386
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12852,9 +12855,20 @@
         "high": 3.619999885559082,
         "low": 3.3499999046325684,
         "close": 3.619999885559082,
-        "volume": 76400,
+        "volume": 76900,
         "source": "yahoo-chart",
         "adjusted_close": 3.619999885559082
+      },
+      {
+        "ticker": "IXHL",
+        "date": "2026-08-21",
+        "open": 3.619999885559082,
+        "high": 3.6500000953674316,
+        "low": 3.5139999389648438,
+        "close": 3.569999933242798,
+        "volume": 70200,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.569999933242798
       }
     ],
     "dataStatus": {
@@ -12892,13 +12906,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-15",
-      "latestScoringDate": "2026-08-20",
+      "latestScoringDate": "2026-08-21",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 30.02,
-      "growthSpurtBenchmarkPercentile": 0.415873,
-      "growthSpurtMarketDataAsOf": "2026-08-20",
-      "lastPipelineRun": "2026-08-21T04:11:02.259169+00:00",
+      "growthSpurtScore": 28.47,
+      "growthSpurtBenchmarkPercentile": 0.393386,
+      "growthSpurtMarketDataAsOf": "2026-08-21",
+      "lastPipelineRun": "2026-08-22T04:02:20.961904+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
