@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-22T04:20:34.796310+00:00",
+  "generatedAt": "2026-08-25T04:30:33.689484+00:00",
   "record": {
     "security": {
       "ticker": "MTAL",
@@ -415,51 +415,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MTAL",
-      "generatedAt": "2026-08-22T04:02:20.961904+00:00",
-      "marketDataAsOf": "2026-08-21",
+      "generatedAt": "2026-08-25T04:09:39.952942+00:00",
+      "marketDataAsOf": "2026-08-24",
       "status": "not_detected",
-      "growthSpurtScore": 33.41,
+      "growthSpurtScore": 34.92,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00888452,
+        "return21d": 0.00097945,
         "return63d": 0.01388892,
-        "trendSlope21d": 0.00024601,
-        "trendSlope63d": 5.294e-05,
-        "trendAnnualizedReturn63d": 0.01343116,
-        "trendFitR2_63d": 0.01748699,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00358714,
+        "trendSlope21d": 0.00031459,
+        "trendSlope63d": 4.89e-05,
+        "trendAnnualizedReturn63d": 0.01239807,
+        "trendFitR2_63d": 0.03710385,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.00341664,
         "maxDrawdown63d": -0.01650486,
         "downsideVolatility63d": 0.00345247,
-        "excessReturnVsSpy21d": -0.02842343,
-        "excessReturnVsSpy63d": -0.01973435,
-        "trendAcceleration": 0.00018036,
-        "largestOneDayContribution63d": 0.07538577,
+        "excessReturnVsSpy21d": -0.0322307,
+        "excessReturnVsSpy63d": -0.01266121,
+        "trendAcceleration": 0.00025834,
+        "largestOneDayContribution63d": 0.07801495,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 11.7008,
-        "consistencyScore": 25.8781,
-        "relativeStrengthScore": 29.5477,
+        "directionScore": 6.2979,
+        "consistencyScore": 40.2258,
+        "relativeStrengthScore": 30.7555,
         "drawdownControlScore": 94.4984,
-        "confirmationScore": 33.49
+        "confirmationScore": 26.4729
       },
-      "benchmarkPercentile": 0.468783,
+      "benchmarkPercentile": 0.483837,
       "metricPercentiles": {
-        "trendSlope63d": 0.464021,
-        "trendFitR2_63d": 0.165079,
-        "excessReturnVsSpy63d": 0.500797,
-        "drawdownControlScore": 0.95291,
-        "growthSpurtScore": 0.468783
+        "trendSlope63d": 0.460519,
+        "trendFitR2_63d": 0.201908,
+        "excessReturnVsSpy63d": 0.503727,
+        "drawdownControlScore": 0.953365,
+        "growthSpurtScore": 0.483837
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1451,6 +1454,17 @@
         "volume": 100,
         "source": "yahoo-chart",
         "adjusted_close": 10.220000267028809
+      },
+      {
+        "ticker": "MTAL",
+        "date": "2026-08-24",
+        "open": 10.220000267028809,
+        "high": 10.220000267028809,
+        "low": 10.220000267028809,
+        "close": 10.220000267028809,
+        "volume": 100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.220000267028809
       }
     ],
     "dataStatus": {
@@ -1485,19 +1499,19 @@
       "triggeredBalanceSheetGates": [
         "Negative Equity Gate"
       ],
-      "scoringInputsAvailable": false,
+      "scoringInputsAvailable": true,
       "scoringAvailable": false,
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-08-21",
+      "latestScoringDate": "2026-08-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 33.41,
-      "growthSpurtBenchmarkPercentile": 0.468783,
-      "growthSpurtMarketDataAsOf": "2026-08-21",
-      "lastPipelineRun": "2026-08-22T04:02:20.961904+00:00",
-      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "growthSpurtScore": 34.92,
+      "growthSpurtBenchmarkPercentile": 0.483837,
+      "growthSpurtMarketDataAsOf": "2026-08-24",
+      "lastPipelineRun": "2026-08-25T04:09:39.952942+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

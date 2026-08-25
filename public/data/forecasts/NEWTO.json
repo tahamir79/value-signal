@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "NEWTO",
   "companyName": "NewtekOne, Inc.",
-  "generatedAt": "2026-08-25T00:09:47.902361+00:00",
-  "marketDataAsOf": "2026-08-21",
+  "generatedAt": "2026-08-25T04:34:56.898516+00:00",
+  "marketDataAsOf": "2026-08-24",
   "currentPrice": 25.52,
   "analystTarget": {
     "ticker": "NEWTO",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-25T00:09:47.902361+00:00",
+    "collectedAt": "2026-08-25T04:34:56.898516+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,43 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-25T00:09:47.902361+00:00",
-    "marketDataAsOf": "2026-08-21",
+    "generatedAt": "2026-08-25T04:34:56.898516+00:00",
+    "marketDataAsOf": "2026-08-24",
     "currentPrice": 25.52,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 23,
-      "status": "insufficient_data",
-      "usableObservationCount": 23,
+      "returnEstimate": -0.00087262,
+      "lowerReturn": -0.01160714,
+      "upperReturn": 0.02013035,
+      "estimatedPrice": 25.4977,
+      "lowerEstimatedPrice": 25.2238,
+      "upperEstimatedPrice": 26.0337,
+      "sampleCount": 24,
+      "status": "available",
+      "usableObservationCount": 24,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 23 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00502857,
-      "lowerReturn": 0.00116735,
-      "upperReturn": 0.02385432,
-      "estimatedPrice": 25.6483,
-      "lowerEstimatedPrice": 25.5498,
-      "upperEstimatedPrice": 26.1288,
-      "sampleCount": 15,
+      "returnEstimate": 0.00490983,
+      "lowerReturn": -0.0007794,
+      "upperReturn": 0.02034204,
+      "estimatedPrice": 25.6453,
+      "lowerEstimatedPrice": 25.5001,
+      "upperEstimatedPrice": 26.0391,
+      "sampleCount": 16,
       "status": "available",
-      "usableObservationCount": 15,
+      "usableObservationCount": 16,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 23 of 24 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-22T04:20:34.796310+00:00",
+  "generatedAt": "2026-08-25T04:30:33.689484+00:00",
   "record": {
     "security": {
       "ticker": "NAKA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.06,
-      "dailyChangePercent": 12.0635,
-      "marketCapBillions": 0.1263,
+      "latestPrice": 7.2,
+      "dailyChangePercent": 1.983,
+      "marketCapBillions": 0.1288,
       "liabilitiesToAssets": 0.440464,
       "latestRevenueBillions": 0.0018,
       "grossMarginPercent": null,
@@ -287,7 +287,7 @@
       "shortTermDebtShare": null,
       "bookValue": 236412000.0,
       "bookValuePerShare": 13.211107,
-      "priceToBook": 0.534399,
+      "priceToBook": 0.544996,
       "retainedEarnings": -431778000.0
     },
     "balanceSheetScoringShadow": {
@@ -504,51 +504,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NAKA",
-      "generatedAt": "2026-08-22T04:02:20.961904+00:00",
-      "marketDataAsOf": "2026-08-21",
+      "generatedAt": "2026-08-25T04:09:39.952942+00:00",
+      "marketDataAsOf": "2026-08-24",
       "status": "not_detected",
-      "growthSpurtScore": 52.74,
+      "growthSpurtScore": 41.23,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.42052319,
-        "return63d": 0.06325302,
-        "trendSlope21d": 0.00690314,
-        "trendSlope63d": 0.00217397,
-        "trendAnnualizedReturn63d": 0.72951215,
-        "trendFitR2_63d": 0.01327057,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.15072367,
-        "maxDrawdown63d": -0.5338866,
-        "downsideVolatility63d": 0.05392783,
-        "excessReturnVsSpy21d": 0.38321524,
-        "excessReturnVsSpy63d": 0.02962975,
-        "trendAcceleration": 0.01458183,
-        "largestOneDayContribution63d": 0.07073657,
+        "return21d": 0.47843942,
+        "return63d": -0.00414941,
+        "trendSlope21d": 0.0117633,
+        "trendSlope63d": 0.00283184,
+        "trendAnnualizedReturn63d": 1.04137584,
+        "trendFitR2_63d": 0.10240252,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.14361067,
+        "maxDrawdown63d": -0.46166138,
+        "downsideVolatility63d": 0.03700003,
+        "excessReturnVsSpy21d": 0.44522927,
+        "excessReturnVsSpy63d": -0.03069954,
+        "trendAcceleration": 0.01799613,
+        "largestOneDayContribution63d": 0.06587644,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 83.4488,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 79.5371,
+        "directionScore": 65.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 55.0283,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.671429,
+      "benchmarkPercentile": 0.553259,
       "metricPercentiles": {
-        "trendSlope63d": 0.757672,
-        "trendFitR2_63d": 0.159788,
-        "excessReturnVsSpy63d": 0.602339,
-        "drawdownControlScore": 0.155026,
-        "growthSpurtScore": 0.671429
+        "trendSlope63d": 0.812401,
+        "trendFitR2_63d": 0.264971,
+        "excessReturnVsSpy63d": 0.43344,
+        "drawdownControlScore": 0.153948,
+        "growthSpurtScore": 0.553259
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6688,6 +6691,17 @@
         "volume": 451600,
         "source": "yahoo-chart",
         "adjusted_close": 7.059999942779541
+      },
+      {
+        "ticker": "NAKA",
+        "date": "2026-08-24",
+        "open": 7.25,
+        "high": 7.460000038146973,
+        "low": 6.769999980926514,
+        "close": 7.199999809265137,
+        "volume": 271200,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.199999809265137
       }
     ],
     "dataStatus": {
@@ -6728,13 +6742,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-08-21",
+      "latestScoringDate": "2026-08-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 52.74,
-      "growthSpurtBenchmarkPercentile": 0.671429,
-      "growthSpurtMarketDataAsOf": "2026-08-21",
-      "lastPipelineRun": "2026-08-22T04:02:20.961904+00:00",
+      "growthSpurtScore": 41.23,
+      "growthSpurtBenchmarkPercentile": 0.553259,
+      "growthSpurtMarketDataAsOf": "2026-08-24",
+      "lastPipelineRun": "2026-08-25T04:09:39.952942+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
