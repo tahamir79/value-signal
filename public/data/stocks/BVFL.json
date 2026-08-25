@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-22T00:01:57.027629+00:00",
+  "generatedAt": "2026-08-25T00:05:26.567848+00:00",
   "record": {
     "security": {
       "ticker": "BVFL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 21.42,
-      "dailyChangePercent": -0.9709,
-      "marketCapBillions": 0.1814,
+      "latestPrice": 21.26,
+      "dailyChangePercent": -0.747,
+      "marketCapBillions": 0.1801,
       "liabilitiesToAssets": 0.791332,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -226,7 +226,7 @@
       "shortTermDebtShare": null,
       "bookValue": 183201000.0,
       "bookValuePerShare": 21.627856,
-      "priceToBook": 0.990389,
+      "priceToBook": 0.982992,
       "retainedEarnings": 127543000.0
     },
     "balanceSheetScoringShadow": {
@@ -447,77 +447,57 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BVFL",
-      "generatedAt": "2026-08-21T23:46:09.186573+00:00",
-      "marketDataAsOf": "2026-08-21",
-      "status": "detected",
-      "growthSpurtScore": 76.28,
+      "generatedAt": "2026-08-24T23:45:53.794711+00:00",
+      "marketDataAsOf": "2026-08-24",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03578335,
-        "return63d": 0.08786183,
-        "trendSlope21d": 0.00156282,
-        "trendSlope63d": 0.00139367,
-        "trendAnnualizedReturn63d": 0.42077659,
-        "trendFitR2_63d": 0.51841236,
+        "return21d": 0.03808597,
+        "return63d": 0.0742799,
+        "trendSlope21d": 0.00093067,
+        "trendSlope63d": 0.00135509,
+        "trendAnnualizedReturn63d": 0.40703283,
+        "trendFitR2_63d": 0.50331675,
         "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.02352402,
+        "trendResidualVolatility63d": 0.02368174,
         "maxDrawdown63d": -0.06184152,
-        "downsideVolatility63d": 0.01005543,
-        "excessReturnVsSpy21d": -0.00152459,
-        "excessReturnVsSpy63d": 0.05423856,
-        "trendAcceleration": -0.00080124,
-        "largestOneDayContribution63d": 0.05424907,
+        "downsideVolatility63d": 0.01000215,
+        "excessReturnVsSpy21d": 0.00487582,
+        "excessReturnVsSpy63d": 0.04772977,
+        "trendAcceleration": -0.00126044,
+        "largestOneDayContribution63d": 0.05401926,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 90.6264,
-        "consistencyScore": 58.8458,
-        "relativeStrengthScore": 71.3674,
+        "directionScore": 86.665,
+        "consistencyScore": 57.7317,
+        "relativeStrengthScore": 71.5234,
         "drawdownControlScore": 79.3862,
-        "confirmationScore": 81.9876
+        "confirmationScore": 77.2268
       },
-      "benchmarkPercentile": 0.866912,
+      "benchmarkPercentile": 0.687697,
       "metricPercentiles": {
-        "trendSlope63d": 0.654392,
-        "trendFitR2_63d": 0.574961,
-        "excessReturnVsSpy63d": 0.617055,
-        "drawdownControlScore": 0.86323,
-        "growthSpurtScore": 0.866912
+        "trendSlope63d": 0.652471,
+        "trendFitR2_63d": 0.566246,
+        "excessReturnVsSpy63d": 0.597884,
+        "drawdownControlScore": 0.867508,
+        "growthSpurtScore": 0.687697
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "BVFL",
-        "date": "2021-08-23",
-        "open": 12.084395408630371,
-        "high": 12.247696876525879,
-        "low": 12.084395408630371,
-        "close": 12.247696876525879,
-        "volume": 612,
-        "source": "yahoo-chart",
-        "adjusted_close": 12.247696876525879
-      },
-      {
-        "ticker": "BVFL",
-        "date": "2021-08-24",
-        "open": 12.842119216918945,
-        "high": 12.842119216918945,
-        "low": 12.842119216918945,
-        "close": 12.842119216918945,
-        "volume": 153,
-        "source": "yahoo-chart",
-        "adjusted_close": 12.842119216918945
-      },
       {
         "ticker": "BVFL",
         "date": "2021-08-25",
@@ -14297,9 +14277,20 @@
         "high": 21.739999771118164,
         "low": 21.309999465942383,
         "close": 21.420000076293945,
-        "volume": 17504,
+        "volume": 17800,
         "source": "yahoo-chart",
         "adjusted_close": 21.420000076293945
+      },
+      {
+        "ticker": "BVFL",
+        "date": "2026-08-24",
+        "open": 21.260000228881836,
+        "high": 21.260000228881836,
+        "low": 21.260000228881836,
+        "close": 21.260000228881836,
+        "volume": 2919,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.260000228881836
       }
     ],
     "dataStatus": {
@@ -14339,13 +14330,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-08-21",
+      "latestScoringDate": "2026-08-24",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 76.28,
-      "growthSpurtBenchmarkPercentile": 0.866912,
-      "growthSpurtMarketDataAsOf": "2026-08-21",
-      "lastPipelineRun": "2026-08-21T23:46:09.186573+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.687697,
+      "growthSpurtMarketDataAsOf": "2026-08-24",
+      "lastPipelineRun": "2026-08-24T23:45:53.794711+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
