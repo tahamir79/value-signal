@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-25T00:05:26.567848+00:00",
+  "generatedAt": "2026-08-26T00:14:13.736449+00:00",
   "record": {
     "security": {
       "ticker": "EMIS",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 10.22,
-      "dailyChangePercent": -0.1953,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.00104,
       "latestRevenueBillions": null,
@@ -414,50 +414,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "EMIS",
-      "generatedAt": "2026-08-24T23:45:53.794711+00:00",
-      "marketDataAsOf": "2026-08-21",
+      "generatedAt": "2026-08-25T23:49:45.814736+00:00",
+      "marketDataAsOf": "2026-08-24",
       "status": "not_detected",
-      "growthSpurtScore": 40.12,
+      "growthSpurtScore": 40.58,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.00392927,
         "return63d": 0.01188118,
-        "trendSlope21d": 0.00012246,
-        "trendSlope63d": 0.00016397,
-        "trendAnnualizedReturn63d": 0.04218474,
-        "trendFitR2_63d": 0.83332901,
+        "trendSlope21d": 6.763e-05,
+        "trendSlope63d": 0.00016316,
+        "trendAnnualizedReturn63d": 0.04197396,
+        "trendFitR2_63d": 0.83132032,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00137851,
+        "trendResidualVolatility63d": 0.00135409,
         "maxDrawdown63d": -0.00394088,
         "downsideVolatility63d": 0.00124631,
-        "excessReturnVsSpy21d": -0.03337868,
-        "excessReturnVsSpy63d": -0.0217421,
-        "trendAcceleration": -1.169e-05,
-        "largestOneDayContribution63d": 0.23428589,
-        "percentAboveTrendLine63d": 0.52380952
+        "excessReturnVsSpy21d": -0.02928088,
+        "excessReturnVsSpy63d": -0.01466896,
+        "trendAcceleration": -5.564e-05,
+        "largestOneDayContribution63d": 0.28142741,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 11.5086,
-        "consistencyScore": 58.1892,
-        "relativeStrengthScore": 26.5641,
+        "directionScore": 11.4815,
+        "consistencyScore": 57.4044,
+        "relativeStrengthScore": 31.2304,
         "drawdownControlScore": 98.6864,
-        "confirmationScore": 20.0205
+        "confirmationScore": 17.3878
       },
-      "benchmarkPercentile": 0.516562,
+      "benchmarkPercentile": 0.529164,
       "metricPercentiles": {
-        "trendSlope63d": 0.493165,
-        "trendFitR2_63d": 0.902734,
-        "excessReturnVsSpy63d": 0.438624,
-        "drawdownControlScore": 0.988696,
-        "growthSpurtScore": 0.516562
+        "trendSlope63d": 0.490804,
+        "trendFitR2_63d": 0.898581,
+        "excessReturnVsSpy63d": 0.458201,
+        "drawdownControlScore": 0.989753,
+        "growthSpurtScore": 0.529164
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2758,6 +2761,17 @@
         "volume": 100,
         "source": "yahoo-chart",
         "adjusted_close": 10.220000267028809
+      },
+      {
+        "ticker": "EMIS",
+        "date": "2026-08-24",
+        "open": 10.220000267028809,
+        "high": 10.220000267028809,
+        "low": 10.220000267028809,
+        "close": 10.220000267028809,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.220000267028809
       }
     ],
     "dataStatus": {
@@ -2795,13 +2809,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-21",
+      "latestScoringDate": "2026-08-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 40.12,
-      "growthSpurtBenchmarkPercentile": 0.516562,
-      "growthSpurtMarketDataAsOf": "2026-08-21",
-      "lastPipelineRun": "2026-08-24T23:45:53.794711+00:00",
+      "growthSpurtScore": 40.58,
+      "growthSpurtBenchmarkPercentile": 0.529164,
+      "growthSpurtMarketDataAsOf": "2026-08-24",
+      "lastPipelineRun": "2026-08-25T23:49:45.814736+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

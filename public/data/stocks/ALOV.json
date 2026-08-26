@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-25T00:05:26.567848+00:00",
+  "generatedAt": "2026-08-26T00:14:13.736449+00:00",
   "record": {
     "security": {
       "ticker": "ALOV",
@@ -425,51 +425,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ALOV",
-      "generatedAt": "2026-08-24T23:45:53.794711+00:00",
-      "marketDataAsOf": "2026-08-21",
+      "generatedAt": "2026-08-25T23:49:45.814736+00:00",
+      "marketDataAsOf": "2026-08-25",
       "status": "not_detected",
-      "growthSpurtScore": 31.89,
+      "growthSpurtScore": 35.2,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.00603626,
-        "return63d": 0.00704931,
-        "trendSlope21d": 0.00020106,
-        "trendSlope63d": 7.541e-05,
-        "trendAnnualizedReturn63d": 0.0191861,
-        "trendFitR2_63d": 0.31931368,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00190735,
+        "return63d": 0.00502514,
+        "trendSlope21d": 0.00018274,
+        "trendSlope63d": 8.388e-05,
+        "trendAnnualizedReturn63d": 0.02136219,
+        "trendFitR2_63d": 0.41325941,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00190182,
         "maxDrawdown63d": -0.00600004,
         "downsideVolatility63d": 0.00138194,
-        "excessReturnVsSpy21d": -0.03127168,
-        "excessReturnVsSpy63d": -0.02657396,
-        "trendAcceleration": 0.00014352,
-        "largestOneDayContribution63d": 0.11068561,
+        "excessReturnVsSpy21d": -0.03025153,
+        "excessReturnVsSpy63d": -0.01801419,
+        "trendAcceleration": 0.00012682,
+        "largestOneDayContribution63d": 0.11585083,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 8.547,
-        "consistencyScore": 27.0552,
-        "relativeStrengthScore": 25.523,
+        "directionScore": 8.2364,
+        "consistencyScore": 37.9191,
+        "relativeStrengthScore": 29.4467,
         "drawdownControlScore": 98.0,
-        "confirmationScore": 27.5259
+        "confirmationScore": 26.6261
       },
-      "benchmarkPercentile": 0.43612,
+      "benchmarkPercentile": 0.476616,
       "metricPercentiles": {
-        "trendSlope63d": 0.4653,
-        "trendFitR2_63d": 0.425868,
-        "excessReturnVsSpy63d": 0.42328,
-        "drawdownControlScore": 0.978444,
-        "growthSpurtScore": 0.43612
+        "trendSlope63d": 0.462428,
+        "trendFitR2_63d": 0.486075,
+        "excessReturnVsSpy63d": 0.44709,
+        "drawdownControlScore": 0.979506,
+        "growthSpurtScore": 0.476616
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1692,6 +1695,28 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.0
+      },
+      {
+        "ticker": "ALOV",
+        "date": "2026-08-24",
+        "open": 10.0,
+        "high": 10.0,
+        "low": 10.0,
+        "close": 10.0,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.0
+      },
+      {
+        "ticker": "ALOV",
+        "date": "2026-08-25",
+        "open": 10.0,
+        "high": 10.0,
+        "low": 9.979999542236328,
+        "close": 10.0,
+        "volume": 111710,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.0
       }
     ],
     "dataStatus": {
@@ -1731,13 +1756,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-08-21",
+      "latestScoringDate": "2026-08-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 31.89,
-      "growthSpurtBenchmarkPercentile": 0.43612,
-      "growthSpurtMarketDataAsOf": "2026-08-21",
-      "lastPipelineRun": "2026-08-24T23:45:53.794711+00:00",
+      "growthSpurtScore": 35.2,
+      "growthSpurtBenchmarkPercentile": 0.476616,
+      "growthSpurtMarketDataAsOf": "2026-08-25",
+      "lastPipelineRun": "2026-08-25T23:49:45.814736+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

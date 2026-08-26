@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "AVB",
   "companyName": "AVALONBAY COMMUNITIES INC",
-  "generatedAt": "2026-08-25T08:28:15.284696+00:00",
+  "generatedAt": "2026-08-26T00:18:23.333587+00:00",
   "marketDataAsOf": "2026-08-24",
   "currentPrice": 68.14,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-25T08:28:15.284696+00:00",
+    "collectedAt": "2026-08-26T00:18:23.333587+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,43 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-25T08:28:15.284696+00:00",
+    "generatedAt": "2026-08-26T00:18:23.333587+00:00",
     "marketDataAsOf": "2026-08-24",
     "currentPrice": 68.14,
     "horizon30Day": {
-      "returnEstimate": -0.00026944,
-      "lowerReturn": -0.03357963,
-      "upperReturn": 0.0258123,
-      "estimatedPrice": 68.1216,
-      "lowerEstimatedPrice": 65.8519,
-      "upperEstimatedPrice": 69.8988,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 2,
+      "status": "insufficient_data",
+      "usableObservationCount": 2,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 2 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.0160645,
-      "lowerReturn": -0.04960366,
-      "upperReturn": 0.01651466,
-      "estimatedPrice": 67.0454,
-      "lowerEstimatedPrice": 64.76,
-      "upperEstimatedPrice": 69.2653,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "Not enough 30-day history: 2 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
