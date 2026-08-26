@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-25T08:23:50.381804+00:00",
+  "generatedAt": "2026-08-26T08:27:11.227050+00:00",
   "record": {
     "security": {
       "ticker": "RDIB",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.71,
-      "dailyChangePercent": -3.2222,
+      "latestPrice": 9.5,
+      "dailyChangePercent": 9.07,
       "marketCapBillions": null,
       "liabilitiesToAssets": 1.05389,
       "latestRevenueBillions": 0.203,
@@ -499,62 +499,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RDIB",
-      "generatedAt": "2026-08-25T08:11:38.045636+00:00",
-      "marketDataAsOf": "2026-08-24",
+      "generatedAt": "2026-08-26T08:08:38.990136+00:00",
+      "marketDataAsOf": "2026-08-25",
       "status": "not_detected",
-      "growthSpurtScore": 10.76,
+      "growthSpurtScore": 37.99,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.04704598,
-        "return63d": -0.06142238,
-        "trendSlope21d": 0.0006124,
-        "trendSlope63d": 0.0,
-        "trendAnnualizedReturn63d": 0.0,
+        "return21d": 0.03938727,
+        "return63d": 0.03938727,
+        "trendSlope21d": 0.00368623,
+        "trendSlope63d": 7.349e-05,
+        "trendAnnualizedReturn63d": 0.01869148,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.04060472,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.0414081,
         "maxDrawdown63d": -0.21470585,
-        "downsideVolatility63d": 0.02596938,
-        "excessReturnVsSpy21d": -0.08025614,
-        "excessReturnVsSpy63d": -0.08797252,
-        "trendAcceleration": 0.0006124,
-        "largestOneDayContribution63d": 0.17547452,
-        "percentAboveTrendLine63d": 0.53968254
+        "downsideVolatility63d": 0.02623803,
+        "excessReturnVsSpy21d": 0.00309948,
+        "excessReturnVsSpy63d": 0.01634794,
+        "trendAcceleration": 0.00368623,
+        "largestOneDayContribution63d": 0.1656327,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 9.7188,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 33.8911,
+        "consistencyScore": 7.8393,
+        "relativeStrengthScore": 57.9974,
         "drawdownControlScore": 28.4314,
-        "confirmationScore": 40.62
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.144585,
+      "benchmarkPercentile": 0.533649,
       "metricPercentiles": {
-        "trendSlope63d": 0.461882,
-        "trendFitR2_63d": 0.068349,
-        "excessReturnVsSpy63d": 0.323996,
-        "drawdownControlScore": 0.464774,
-        "growthSpurtScore": 0.144585
+        "trendSlope63d": 0.480021,
+        "trendFitR2_63d": 0.067298,
+        "excessReturnVsSpy63d": 0.578447,
+        "drawdownControlScore": 0.4653,
+        "growthSpurtScore": 0.533649
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "RDIB",
-        "date": "2021-08-25",
-        "open": 23.759899139404297,
-        "high": 25.350000381469727,
-        "low": 23.759899139404297,
-        "close": 24.0,
-        "volume": 5389,
-        "source": "yahoo-chart",
-        "adjusted_close": 24.0
-      },
       {
         "ticker": "RDIB",
         "date": "2021-08-26",
@@ -14334,9 +14327,20 @@
         "high": 9.100000381469727,
         "low": 8.710000038146973,
         "close": 8.710000038146973,
-        "volume": 3683,
+        "volume": 3694,
         "source": "yahoo-chart",
         "adjusted_close": 8.710000038146973
+      },
+      {
+        "ticker": "RDIB",
+        "date": "2026-08-25",
+        "open": 9.5,
+        "high": 9.600000381469727,
+        "low": 9.5,
+        "close": 9.5,
+        "volume": 1138,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.5
       }
     ],
     "dataStatus": {
@@ -14378,13 +14382,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-08-24",
+      "latestScoringDate": "2026-08-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 10.76,
-      "growthSpurtBenchmarkPercentile": 0.144585,
-      "growthSpurtMarketDataAsOf": "2026-08-24",
-      "lastPipelineRun": "2026-08-25T08:11:38.045636+00:00",
+      "growthSpurtScore": 37.99,
+      "growthSpurtBenchmarkPercentile": 0.533649,
+      "growthSpurtMarketDataAsOf": "2026-08-25",
+      "lastPipelineRun": "2026-08-26T08:08:38.990136+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

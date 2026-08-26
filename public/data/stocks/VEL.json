@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-25T08:23:50.381804+00:00",
+  "generatedAt": "2026-08-26T08:27:11.227050+00:00",
   "record": {
     "security": {
       "ticker": "VEL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 18.44,
-      "dailyChangePercent": 0.5453,
-      "marketCapBillions": 0.728,
+      "latestPrice": 18.13,
+      "dailyChangePercent": -1.6811,
+      "marketCapBillions": 0.7158,
       "liabilitiesToAssets": 0.908935,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -203,7 +203,7 @@
       "shortTermDebtShare": null,
       "bookValue": 721537000.0,
       "bookValuePerShare": 18.275339,
-      "priceToBook": 1.00901,
+      "priceToBook": 0.992047,
       "retainedEarnings": 349905000.0
     },
     "balanceSheetScoringShadow": {
@@ -428,65 +428,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "VEL",
-      "generatedAt": "2026-08-25T08:11:38.045636+00:00",
-      "marketDataAsOf": "2026-08-24",
-      "status": "emerging",
-      "growthSpurtScore": 63.56,
+      "generatedAt": "2026-08-26T08:08:38.990136+00:00",
+      "marketDataAsOf": "2026-08-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05916144,
-        "return63d": 0.07396625,
-        "trendSlope21d": 0.00219421,
-        "trendSlope63d": 0.00068178,
-        "trendAnnualizedReturn63d": 0.18745197,
-        "trendFitR2_63d": 0.23253517,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.02035072,
+        "return21d": 0.02777777,
+        "return63d": 0.0407577,
+        "trendSlope21d": 0.00195937,
+        "trendSlope63d": 0.00069187,
+        "trendAnnualizedReturn63d": 0.19047232,
+        "trendFitR2_63d": 0.23690996,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.02035449,
         "maxDrawdown63d": -0.07993561,
-        "downsideVolatility63d": 0.00779169,
-        "excessReturnVsSpy21d": 0.02595129,
-        "excessReturnVsSpy63d": 0.04741611,
-        "trendAcceleration": 0.00211922,
-        "largestOneDayContribution63d": 0.06538543,
+        "downsideVolatility63d": 0.00777066,
+        "excessReturnVsSpy21d": -0.00851003,
+        "excessReturnVsSpy63d": 0.01771836,
+        "trendAcceleration": 0.00187636,
+        "largestOneDayContribution63d": 0.06365573,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 65.6745,
-        "consistencyScore": 26.9251,
-        "relativeStrengthScore": 80.6165,
+        "directionScore": 54.8955,
+        "consistencyScore": 34.0666,
+        "relativeStrengthScore": 53.4749,
         "drawdownControlScore": 73.3548,
-        "confirmationScore": 100.0
+        "confirmationScore": 97.037
       },
-      "benchmarkPercentile": 0.803891,
+      "benchmarkPercentile": 0.732387,
       "metricPercentiles": {
-        "trendSlope63d": 0.600421,
-        "trendFitR2_63d": 0.378023,
-        "excessReturnVsSpy63d": 0.64852,
+        "trendSlope63d": 0.59674,
+        "trendFitR2_63d": 0.381703,
+        "excessReturnVsSpy63d": 0.582145,
         "drawdownControlScore": 0.814406,
-        "growthSpurtScore": 0.803891
+        "growthSpurtScore": 0.732387
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "VEL",
-        "date": "2021-08-25",
-        "open": 12.4399995803833,
-        "high": 13.3100004196167,
-        "low": 12.359999656677246,
-        "close": 12.880000114440918,
-        "volume": 10300,
-        "source": "yahoo-chart",
-        "adjusted_close": 12.880000114440918
-      },
       {
         "ticker": "VEL",
         "date": "2021-08-26",
@@ -14269,6 +14260,17 @@
         "volume": 87300,
         "source": "yahoo-chart",
         "adjusted_close": 18.440000534057617
+      },
+      {
+        "ticker": "VEL",
+        "date": "2026-08-25",
+        "open": 18.5,
+        "high": 18.5,
+        "low": 18.030000686645508,
+        "close": 18.1299991607666,
+        "volume": 119400,
+        "source": "yahoo-chart",
+        "adjusted_close": 18.1299991607666
       }
     ],
     "dataStatus": {
@@ -14308,13 +14310,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-24",
+      "latestScoringDate": "2026-08-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.56,
-      "growthSpurtBenchmarkPercentile": 0.803891,
-      "growthSpurtMarketDataAsOf": "2026-08-24",
-      "lastPipelineRun": "2026-08-25T08:11:38.045636+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.732387,
+      "growthSpurtMarketDataAsOf": "2026-08-25",
+      "lastPipelineRun": "2026-08-26T08:08:38.990136+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
