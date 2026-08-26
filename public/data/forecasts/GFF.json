@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "GFF",
   "companyName": "GRIFFON CORP",
-  "generatedAt": "2026-08-26T00:18:23.333587+00:00",
-  "marketDataAsOf": "2026-08-24",
+  "generatedAt": "2026-08-26T04:26:44.740641+00:00",
+  "marketDataAsOf": "2026-08-25",
   "currentPrice": 101.38,
   "analystTarget": {
     "ticker": "GFF",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-26T00:18:23.333587+00:00",
+    "collectedAt": "2026-08-26T04:26:44.740641+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-26T00:18:23.333587+00:00",
-    "marketDataAsOf": "2026-08-24",
+    "generatedAt": "2026-08-26T04:26:44.740641+00:00",
+    "marketDataAsOf": "2026-08-25",
     "currentPrice": 101.38,
     "horizon30Day": {
-      "returnEstimate": 0.00538512,
-      "lowerReturn": -0.05985865,
-      "upperReturn": 0.07720005,
-      "estimatedPrice": 101.9259,
-      "lowerEstimatedPrice": 95.3115,
-      "upperEstimatedPrice": 109.2065,
+      "returnEstimate": 0.01345204,
+      "lowerReturn": -0.06784192,
+      "upperReturn": 0.08,
+      "estimatedPrice": 102.7438,
+      "lowerEstimatedPrice": 94.5022,
+      "upperEstimatedPrice": 109.4904,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.02702824,
-      "lowerReturn": -0.04109745,
-      "upperReturn": 0.13872965,
-      "estimatedPrice": 104.1201,
-      "lowerEstimatedPrice": 97.2135,
-      "upperEstimatedPrice": 115.4444,
+      "returnEstimate": 0.02369372,
+      "lowerReturn": -0.04984825,
+      "upperReturn": 0.13326192,
+      "estimatedPrice": 103.7821,
+      "lowerEstimatedPrice": 96.3264,
+      "upperEstimatedPrice": 114.8901,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

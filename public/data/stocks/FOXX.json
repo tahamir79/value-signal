@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-25T04:30:33.689484+00:00",
+  "generatedAt": "2026-08-26T04:22:27.500483+00:00",
   "record": {
     "security": {
       "ticker": "FOXX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.1,
-      "dailyChangePercent": 4.3771,
-      "marketCapBillions": 0.0218,
+      "latestPrice": 2.875,
+      "dailyChangePercent": -7.2581,
+      "marketCapBillions": 0.0202,
       "liabilitiesToAssets": 2.700014,
       "latestRevenueBillions": 0.0659,
       "grossMarginPercent": 7.2431,
@@ -511,27 +511,27 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FOXX",
-      "generatedAt": "2026-08-25T04:09:39.952942+00:00",
-      "marketDataAsOf": "2026-08-24",
+      "generatedAt": "2026-08-26T04:09:52.386055+00:00",
+      "marketDataAsOf": "2026-08-25",
       "status": "not_detected",
       "growthSpurtScore": 23.72,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.21568626,
-        "return63d": -0.06626507,
-        "trendSlope21d": 0.00657049,
-        "trendSlope63d": -0.00474731,
-        "trendAnnualizedReturn63d": -0.69769595,
-        "trendFitR2_63d": 0.24949197,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.15242473,
+        "return21d": 0.16869917,
+        "return63d": -0.10156251,
+        "trendSlope21d": 0.00722134,
+        "trendSlope63d": -0.00469631,
+        "trendAnnualizedReturn63d": -0.69378587,
+        "trendFitR2_63d": 0.23827737,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.15297895,
         "maxDrawdown63d": -0.55619049,
-        "downsideVolatility63d": 0.05054436,
-        "excessReturnVsSpy21d": 0.18247611,
-        "excessReturnVsSpy63d": -0.0928152,
-        "trendAcceleration": 0.01123319,
-        "largestOneDayContribution63d": 0.22802515,
+        "downsideVolatility63d": 0.0489889,
+        "excessReturnVsSpy21d": 0.13241138,
+        "excessReturnVsSpy63d": -0.12460185,
+        "trendAcceleration": 0.01277726,
+        "largestOneDayContribution63d": 0.23093449,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
@@ -541,20 +541,23 @@
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.304981,
+      "benchmarkPercentile": 0.313689,
       "metricPercentiles": {
-        "trendSlope63d": 0.165872,
-        "trendFitR2_63d": 0.383678,
-        "excessReturnVsSpy63d": 0.321086,
-        "drawdownControlScore": 0.153948,
-        "growthSpurtScore": 0.304981
+        "trendSlope63d": 0.16649,
+        "trendFitR2_63d": 0.371564,
+        "excessReturnVsSpy63d": 0.284652,
+        "drawdownControlScore": 0.15407,
+        "growthSpurtScore": 0.313689
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -11721,6 +11724,17 @@
         "volume": 5400,
         "source": "yahoo-chart",
         "adjusted_close": 3.0999999046325684
+      },
+      {
+        "ticker": "FOXX",
+        "date": "2026-08-25",
+        "open": 2.9600000381469727,
+        "high": 2.990000009536743,
+        "low": 2.75,
+        "close": 2.875,
+        "volume": 5300,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.875
       }
     ],
     "dataStatus": {
@@ -11760,14 +11774,14 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-20",
-      "latestScoringDate": "2026-08-24",
+      "latestScoringDate": "2026-08-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
       "growthSpurtScore": 23.72,
-      "growthSpurtBenchmarkPercentile": 0.304981,
-      "growthSpurtMarketDataAsOf": "2026-08-24",
-      "lastPipelineRun": "2026-08-25T04:09:39.952942+00:00",
-      "balanceSheetExperimentalSignal": "neutral",
+      "growthSpurtBenchmarkPercentile": 0.313689,
+      "growthSpurtMarketDataAsOf": "2026-08-25",
+      "lastPipelineRun": "2026-08-26T04:09:52.386055+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }
   }

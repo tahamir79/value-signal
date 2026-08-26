@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "IPCX",
   "companyName": "Inflection Point Acquisition Corp. III",
-  "generatedAt": "2026-08-26T00:18:23.333587+00:00",
+  "generatedAt": "2026-08-26T04:26:44.740641+00:00",
   "marketDataAsOf": "2026-08-14",
   "currentPrice": 3.76,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-26T00:18:23.333587+00:00",
+    "collectedAt": "2026-08-26T04:26:44.740641+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,40 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-26T00:18:23.333587+00:00",
+    "generatedAt": "2026-08-26T04:26:44.740641+00:00",
     "marketDataAsOf": "2026-08-14",
     "currentPrice": 3.76,
     "horizon30Day": {
-      "returnEstimate": 0.00068654,
-      "lowerReturn": -0.0027209,
-      "upperReturn": 0.00467007,
-      "estimatedPrice": 3.7626,
-      "lowerEstimatedPrice": 3.7498,
-      "upperEstimatedPrice": 3.7776,
-      "sampleCount": 55,
-      "status": "available",
-      "usableObservationCount": 55,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.00356541,
-      "lowerReturn": -0.00293828,
-      "upperReturn": 0.01076845,
-      "estimatedPrice": 3.7734,
-      "lowerEstimatedPrice": 3.749,
-      "upperEstimatedPrice": 3.8005,
-      "sampleCount": 47,
-      "status": "available",
-      "usableObservationCount": 47,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-08-14 is older than 10 days."
+      "Market data as of 2026-08-14 is older than 10 days.",
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",
