@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T04:22:27.500483+00:00",
+  "generatedAt": "2026-08-27T14:50:36.345059+00:00",
   "record": {
     "security": {
       "ticker": "MBC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.05,
-      "dailyChangePercent": -2.897,
-      "marketCapBillions": 1.8416,
+      "latestPrice": 8.86,
+      "dailyChangePercent": 0.2262,
+      "marketCapBillions": 1.8029,
       "liabilitiesToAssets": 0.560519,
       "latestRevenueBillions": 2.7347,
       "grossMarginPercent": 30.2629,
@@ -318,7 +318,7 @@
       "shortTermDebtShare": 0.013522,
       "bookValue": 1968700000.0,
       "bookValuePerShare": 9.674654,
-      "priceToBook": 0.935434,
+      "priceToBook": 0.915795,
       "retainedEarnings": 1284100000.0
     },
     "balanceSheetScoringShadow": {
@@ -528,50 +528,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MBC",
-      "generatedAt": "2026-08-26T04:09:52.386055+00:00",
-      "marketDataAsOf": "2026-08-25",
+      "generatedAt": "2026-08-27T14:24:34.672179+00:00",
+      "marketDataAsOf": "2026-08-27",
       "status": "not_detected",
-      "growthSpurtScore": 51.38,
+      "growthSpurtScore": 28.77,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03428574,
-        "return63d": 0.09564164,
-        "trendSlope21d": 0.00203685,
-        "trendSlope63d": 0.00053273,
-        "trendAnnualizedReturn63d": 0.14367675,
-        "trendFitR2_63d": 0.00451966,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.0503671,
+        "return21d": 0.04481134,
+        "return63d": -0.0242291,
+        "trendSlope21d": 6.667e-05,
+        "trendSlope63d": 0.00060331,
+        "trendAnnualizedReturn63d": 0.16419972,
+        "trendFitR2_63d": 0.0046286,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.05010172,
         "maxDrawdown63d": -0.20796894,
-        "downsideVolatility63d": 0.01555308,
-        "excessReturnVsSpy21d": -0.00200206,
-        "excessReturnVsSpy63d": 0.07260231,
-        "trendAcceleration": 0.00216291,
-        "largestOneDayContribution63d": 0.06707327,
+        "downsideVolatility63d": 0.01548713,
+        "excessReturnVsSpy21d": -0.00968103,
+        "excessReturnVsSpy63d": -0.04621652,
+        "trendAcceleration": 1.08e-06,
+        "largestOneDayContribution63d": 0.06877687,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 66.3682,
-        "consistencyScore": 4.5815,
-        "relativeStrengthScore": 78.6188,
+        "directionScore": 41.1114,
+        "consistencyScore": 4.678,
+        "relativeStrengthScore": 26.9891,
         "drawdownControlScore": 30.677,
-        "confirmationScore": 100.0
+        "confirmationScore": 52.6776
       },
-      "benchmarkPercentile": 0.671247,
+      "benchmarkPercentile": 0.418562,
       "metricPercentiles": {
-        "trendSlope63d": 0.565011,
-        "trendFitR2_63d": 0.150634,
-        "excessReturnVsSpy63d": 0.671269,
-        "drawdownControlScore": 0.472516,
-        "growthSpurtScore": 0.671247
+        "trendSlope63d": 0.566367,
+        "trendFitR2_63d": 0.147012,
+        "excessReturnVsSpy63d": 0.408608,
+        "drawdownControlScore": 0.466949,
+        "growthSpurtScore": 0.418562
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -10792,6 +10795,28 @@
         "volume": 1381500,
         "source": "yahoo-chart",
         "adjusted_close": 9.050000190734863
+      },
+      {
+        "ticker": "MBC",
+        "date": "2026-08-26",
+        "open": 9.100000381469727,
+        "high": 9.119999885559082,
+        "low": 8.800000190734863,
+        "close": 8.84000015258789,
+        "volume": 1416500,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.84000015258789
+      },
+      {
+        "ticker": "MBC",
+        "date": "2026-08-27",
+        "open": 8.770000457763672,
+        "high": 8.890000343322754,
+        "low": 8.6899995803833,
+        "close": 8.859999656677246,
+        "volume": 190812,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.859999656677246
       }
     ],
     "dataStatus": {
@@ -10822,13 +10847,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-27",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 51.38,
-      "growthSpurtBenchmarkPercentile": 0.671247,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T04:09:52.386055+00:00",
+      "growthSpurtScore": 28.77,
+      "growthSpurtBenchmarkPercentile": 0.418562,
+      "growthSpurtMarketDataAsOf": "2026-08-27",
+      "lastPipelineRun": "2026-08-27T14:24:34.672179+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

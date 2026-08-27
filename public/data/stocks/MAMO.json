@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T04:22:27.500483+00:00",
+  "generatedAt": "2026-08-27T14:50:36.345059+00:00",
   "record": {
     "security": {
       "ticker": "MAMO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.0,
-      "dailyChangePercent": 4.8218,
-      "marketCapBillions": 0.0416,
+      "latestPrice": 1.015,
+      "dailyChangePercent": 1.5,
+      "marketCapBillions": 0.0423,
       "liabilitiesToAssets": 0.505891,
       "latestRevenueBillions": 0.0718,
       "grossMarginPercent": 37.5188,
@@ -309,7 +309,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 24074818.0,
       "bookValuePerShare": 0.578152,
-      "priceToBook": 1.729648,
+      "priceToBook": 1.755592,
       "retainedEarnings": 17002027.0
     },
     "balanceSheetScoringShadow": {
@@ -522,50 +522,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MAMO",
-      "generatedAt": "2026-08-26T04:09:52.386055+00:00",
-      "marketDataAsOf": "2026-08-25",
+      "generatedAt": "2026-08-27T14:24:34.672179+00:00",
+      "marketDataAsOf": "2026-08-27",
       "status": "not_detected",
-      "growthSpurtScore": 31.72,
+      "growthSpurtScore": 30.89,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.0384615,
-        "return63d": 0.00100099,
-        "trendSlope21d": 0.0,
-        "trendSlope63d": 0.00124428,
-        "trendAnnualizedReturn63d": 0.36828666,
-        "trendFitR2_63d": 0.23447557,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.03544131,
+        "return21d": 0.00495049,
+        "return63d": -0.01456309,
+        "trendSlope21d": -0.00190935,
+        "trendSlope63d": 0.00129045,
+        "trendAnnualizedReturn63d": 0.38429939,
+        "trendFitR2_63d": 0.30016127,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.03374617,
         "maxDrawdown63d": -0.12641505,
-        "downsideVolatility63d": 0.02055782,
-        "excessReturnVsSpy21d": -0.0747493,
-        "excessReturnVsSpy63d": -0.02203834,
-        "trendAcceleration": 0.00036914,
-        "largestOneDayContribution63d": 0.08567756,
-        "percentAboveTrendLine63d": 0.49206349
+        "downsideVolatility63d": 0.01976514,
+        "excessReturnVsSpy21d": -0.04954187,
+        "excessReturnVsSpy63d": -0.03655051,
+        "trendAcceleration": -0.00207212,
+        "largestOneDayContribution63d": 0.08943953,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 45.292,
-        "consistencyScore": 13.5011,
-        "relativeStrengthScore": 23.5469,
+        "directionScore": 48.3003,
+        "consistencyScore": 14.1368,
+        "relativeStrengthScore": 17.6514,
         "drawdownControlScore": 57.8617,
-        "confirmationScore": 13.6914
+        "confirmationScore": 6.6007
       },
-      "benchmarkPercentile": 0.44926,
+      "benchmarkPercentile": 0.453728,
       "metricPercentiles": {
-        "trendSlope63d": 0.649049,
-        "trendFitR2_63d": 0.36945,
-        "excessReturnVsSpy63d": 0.456718,
-        "drawdownControlScore": 0.671776,
-        "growthSpurtScore": 0.44926
+        "trendSlope63d": 0.653094,
+        "trendFitR2_63d": 0.416711,
+        "excessReturnVsSpy63d": 0.430393,
+        "drawdownControlScore": 0.666314,
+        "growthSpurtScore": 0.453728
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7189,6 +7192,28 @@
         "volume": 23000,
         "source": "yahoo-chart",
         "adjusted_close": 1.0
+      },
+      {
+        "ticker": "MAMO",
+        "date": "2026-08-26",
+        "open": 0.9900000095367432,
+        "high": 1.0199999809265137,
+        "low": 0.9800000190734863,
+        "close": 1.0,
+        "volume": 7700,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.0
+      },
+      {
+        "ticker": "MAMO",
+        "date": "2026-08-27",
+        "open": 1.0074000358581543,
+        "high": 1.0149999856948853,
+        "low": 1.0074000358581543,
+        "close": 1.0149999856948853,
+        "volume": 514,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.0149999856948853
       }
     ],
     "dataStatus": {
@@ -7224,13 +7249,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-27",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 31.72,
-      "growthSpurtBenchmarkPercentile": 0.44926,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T04:09:52.386055+00:00",
+      "growthSpurtScore": 30.89,
+      "growthSpurtBenchmarkPercentile": 0.453728,
+      "growthSpurtMarketDataAsOf": "2026-08-27",
+      "lastPipelineRun": "2026-08-27T14:24:34.672179+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "LPCV",
   "companyName": "Launchpad Cadenza Acquisition Corp I",
-  "generatedAt": "2026-08-27T05:05:26.854153+00:00",
-  "marketDataAsOf": "2026-08-25",
+  "generatedAt": "2026-08-27T14:53:57.830533+00:00",
+  "marketDataAsOf": "2026-08-26",
   "currentPrice": 10.02,
   "analystTarget": {
     "ticker": "LPCV",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-27T05:05:26.854153+00:00",
+    "collectedAt": "2026-08-27T14:53:57.830533+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,43 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-27T05:05:26.854153+00:00",
-    "marketDataAsOf": "2026-08-25",
+    "generatedAt": "2026-08-27T14:53:57.830533+00:00",
+    "marketDataAsOf": "2026-08-26",
     "currentPrice": 10.02,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 23,
-      "status": "insufficient_data",
-      "usableObservationCount": 23,
+      "returnEstimate": 0.00100298,
+      "lowerReturn": 0.00075152,
+      "upperReturn": 0.00452563,
+      "estimatedPrice": 10.0301,
+      "lowerEstimatedPrice": 10.0275,
+      "upperEstimatedPrice": 10.0653,
+      "sampleCount": 24,
+      "status": "available",
+      "usableObservationCount": 24,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 23 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00321399,
-      "lowerReturn": 0.00321399,
+      "returnEstimate": 0.00332073,
+      "lowerReturn": 0.00332073,
       "upperReturn": 0.00909092,
-      "estimatedPrice": 10.0522,
-      "lowerEstimatedPrice": 10.0522,
+      "estimatedPrice": 10.0533,
+      "lowerEstimatedPrice": 10.0533,
       "upperEstimatedPrice": 10.1111,
-      "sampleCount": 15,
+      "sampleCount": 16,
       "status": "available",
-      "usableObservationCount": 15,
+      "usableObservationCount": 16,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 23 of 24 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

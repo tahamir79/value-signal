@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T04:22:27.500483+00:00",
+  "generatedAt": "2026-08-27T14:50:36.345059+00:00",
   "record": {
     "security": {
       "ticker": "LLYVK",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 107.97,
-      "dailyChangePercent": 1.7337,
+      "latestPrice": 105.365,
+      "dailyChangePercent": -0.3546,
       "marketCapBillions": null,
       "liabilitiesToAssets": 1.299977,
       "latestRevenueBillions": 0.382,
@@ -476,52 +476,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LLYVK",
-      "generatedAt": "2026-08-26T04:09:52.386055+00:00",
-      "marketDataAsOf": "2026-08-25",
-      "status": "emerging",
-      "growthSpurtScore": 71.61,
+      "generatedAt": "2026-08-27T14:24:34.672179+00:00",
+      "marketDataAsOf": "2026-08-27",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05583805,
-        "return63d": 0.09826064,
-        "trendSlope21d": 0.00198195,
-        "trendSlope63d": 0.00136358,
-        "trendAnnualizedReturn63d": 0.41004513,
-        "trendFitR2_63d": 0.41738734,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.03036478,
+        "return21d": 0.01605594,
+        "return63d": 0.07515304,
+        "trendSlope21d": 0.00164253,
+        "trendSlope63d": 0.00130795,
+        "trendAnnualizedReturn63d": 0.39041664,
+        "trendFitR2_63d": 0.40222411,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.03045415,
         "maxDrawdown63d": -0.09304399,
-        "downsideVolatility63d": 0.01481239,
-        "excessReturnVsSpy21d": 0.01955026,
-        "excessReturnVsSpy63d": 0.07522131,
-        "trendAcceleration": 0.00044711,
-        "largestOneDayContribution63d": 0.06884738,
+        "downsideVolatility63d": 0.01449603,
+        "excessReturnVsSpy21d": -0.03843642,
+        "excessReturnVsSpy63d": 0.05316562,
+        "trendAcceleration": 0.00019123,
+        "largestOneDayContribution63d": 0.06830162,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 93.6594,
-        "consistencyScore": 23.5722,
-        "relativeStrengthScore": 89.1119,
+        "directionScore": 77.6236,
+        "consistencyScore": 33.9068,
+        "relativeStrengthScore": 54.7826,
         "drawdownControlScore": 68.9853,
-        "confirmationScore": 94.4711
+        "confirmationScore": 73.3202
       },
-      "benchmarkPercentile": 0.859408,
+      "benchmarkPercentile": 0.734003,
       "metricPercentiles": {
-        "trendSlope63d": 0.667019,
-        "trendFitR2_63d": 0.503171,
-        "excessReturnVsSpy63d": 0.675518,
-        "drawdownControlScore": 0.768499,
-        "growthSpurtScore": 0.859408
+        "trendSlope63d": 0.65468,
+        "trendFitR2_63d": 0.489688,
+        "excessReturnVsSpy63d": 0.660999,
+        "drawdownControlScore": 0.768377,
+        "growthSpurtScore": 0.734003
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8960,6 +8962,28 @@
         "volume": 230900,
         "source": "yahoo-chart",
         "adjusted_close": 107.97000122070312
+      },
+      {
+        "ticker": "LLYVK",
+        "date": "2026-08-26",
+        "open": 108.11000061035156,
+        "high": 108.11000061035156,
+        "low": 105.55999755859375,
+        "close": 105.73999786376953,
+        "volume": 201100,
+        "source": "yahoo-chart",
+        "adjusted_close": 105.73999786376953
+      },
+      {
+        "ticker": "LLYVK",
+        "date": "2026-08-27",
+        "open": 105.4000015258789,
+        "high": 105.79000091552734,
+        "low": 104.61000061035156,
+        "close": 105.36499786376953,
+        "volume": 15604,
+        "source": "yahoo-chart",
+        "adjusted_close": 105.36499786376953
       }
     ],
     "dataStatus": {
@@ -9004,13 +9028,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-27",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 71.61,
-      "growthSpurtBenchmarkPercentile": 0.859408,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T04:09:52.386055+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.734003,
+      "growthSpurtMarketDataAsOf": "2026-08-27",
+      "lastPipelineRun": "2026-08-27T14:24:34.672179+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
