@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-27T05:00:26.218903+00:00",
+  "generatedAt": "2026-08-27T18:43:51.156924+00:00",
   "record": {
     "security": {
       "ticker": "ENTX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.19,
-      "dailyChangePercent": -8.0692,
-      "marketCapBillions": 0.5523,
+      "latestPrice": 3.125,
+      "dailyChangePercent": -2.0376,
+      "marketCapBillions": 0.5411,
       "liabilitiesToAssets": 0.627002,
       "latestRevenueBillions": 0.0,
       "grossMarginPercent": 0.0,
@@ -264,7 +264,7 @@
       "shortTermDebtShare": null,
       "bookValue": 7266000.0,
       "bookValuePerShare": 0.041966,
-      "priceToBook": 76.014651,
+      "priceToBook": 74.465761,
       "retainedEarnings": -136183000.0
     },
     "balanceSheetScoringShadow": {
@@ -484,49 +484,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ENTX",
-      "generatedAt": "2026-08-27T04:37:37.478467+00:00",
-      "marketDataAsOf": "2026-08-26",
+      "generatedAt": "2026-08-27T18:27:41.747181+00:00",
+      "marketDataAsOf": "2026-08-27",
       "status": "not_detected",
-      "growthSpurtScore": 54.05,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02147237,
-        "return63d": 1.68067219,
-        "trendSlope21d": 0.00511345,
-        "trendSlope63d": 0.01903633,
-        "trendAnnualizedReturn63d": 120.16519825,
-        "trendFitR2_63d": 0.89017879,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.12243527,
+        "return21d": 0.04166667,
+        "return63d": 1.56147535,
+        "trendSlope21d": 0.00575286,
+        "trendSlope63d": 0.01901899,
+        "trendAnnualizedReturn63d": 119.63685545,
+        "trendFitR2_63d": 0.89105716,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.12270049,
         "maxDrawdown63d": -0.28571431,
-        "downsideVolatility63d": 0.03652451,
-        "excessReturnVsSpy21d": -0.05551394,
-        "excessReturnVsSpy63d": 1.65722842,
-        "trendAcceleration": -0.01110353,
-        "largestOneDayContribution63d": 0.27797764,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.03598559,
+        "excessReturnVsSpy21d": -0.01346311,
+        "excessReturnVsSpy63d": 1.53887017,
+        "trendAcceleration": -0.0113123,
+        "largestOneDayContribution63d": 0.2854749,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 49.3254,
-        "relativeStrengthScore": 65.0,
+        "directionScore": 100.0,
+        "consistencyScore": 57.2619,
+        "relativeStrengthScore": 76.6099,
         "drawdownControlScore": 4.7619,
-        "confirmationScore": 40.0
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.743442,
+      "benchmarkPercentile": 0.699423,
       "metricPercentiles": {
-        "trendSlope63d": 0.995278,
-        "trendFitR2_63d": 0.962749,
-        "excessReturnVsSpy63d": 0.991548,
-        "drawdownControlScore": 0.334995,
-        "growthSpurtScore": 0.743442
+        "trendSlope63d": 0.995283,
+        "trendFitR2_63d": 0.962264,
+        "excessReturnVsSpy63d": 0.99102,
+        "drawdownControlScore": 0.330975,
+        "growthSpurtScore": 0.699423
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "TREND_CONSISTENCY_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14322,6 +14327,17 @@
         "volume": 523100,
         "source": "yahoo-chart",
         "adjusted_close": 3.190000057220459
+      },
+      {
+        "ticker": "ENTX",
+        "date": "2026-08-27",
+        "open": 3.200000047683716,
+        "high": 3.4100000858306885,
+        "low": 3.109999895095825,
+        "close": 3.125,
+        "volume": 141806,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.125
       }
     ],
     "dataStatus": {
@@ -14359,13 +14375,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-07",
-      "latestScoringDate": "2026-08-26",
+      "latestScoringDate": "2026-08-27",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 54.05,
-      "growthSpurtBenchmarkPercentile": 0.743442,
-      "growthSpurtMarketDataAsOf": "2026-08-26",
-      "lastPipelineRun": "2026-08-27T04:37:37.478467+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.699423,
+      "growthSpurtMarketDataAsOf": "2026-08-27",
+      "lastPipelineRun": "2026-08-27T18:27:41.747181+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
