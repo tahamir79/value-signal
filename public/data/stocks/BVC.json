@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T00:14:13.736449+00:00",
+  "generatedAt": "2026-08-27T05:00:26.218903+00:00",
   "record": {
     "security": {
       "ticker": "BVC",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 14.66,
-      "dailyChangePercent": 2.9494,
+      "latestPrice": 12.13,
+      "dailyChangePercent": -17.2578,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,65 +335,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BVC",
-      "generatedAt": "2026-08-25T23:49:45.814736+00:00",
-      "marketDataAsOf": "2026-08-25",
-      "status": "emerging",
-      "growthSpurtScore": 67.39,
+      "generatedAt": "2026-08-27T04:37:37.478467+00:00",
+      "marketDataAsOf": "2026-08-26",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.33272726,
-        "return63d": 0.544784,
-        "trendSlope21d": 0.02037912,
-        "trendSlope63d": 0.00511696,
-        "trendAnnualizedReturn63d": 2.63087649,
-        "trendFitR2_63d": 0.36530954,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.12172133,
+        "return21d": 0.14003757,
+        "return63d": 0.27818761,
+        "trendSlope21d": 0.01877917,
+        "trendSlope63d": 0.0049951,
+        "trendAnnualizedReturn63d": 2.52107237,
+        "trendFitR2_63d": 0.3483308,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.12215534,
         "maxDrawdown63d": -0.3797376,
-        "downsideVolatility63d": 0.04532972,
-        "excessReturnVsSpy21d": 0.29643947,
-        "excessReturnVsSpy63d": 0.52174467,
-        "trendAcceleration": 0.01846722,
-        "largestOneDayContribution63d": 0.06911935,
+        "downsideVolatility63d": 0.0505784,
+        "excessReturnVsSpy21d": 0.10599601,
+        "excessReturnVsSpy63d": 0.25474384,
+        "trendAcceleration": 0.01724172,
+        "largestOneDayContribution63d": 0.06617844,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 29.5399,
+        "consistencyScore": 14.0657,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.818707,
+      "benchmarkPercentile": 0.697272,
       "metricPercentiles": {
-        "trendSlope63d": 0.915397,
-        "trendFitR2_63d": 0.453494,
-        "excessReturnVsSpy63d": 0.94709,
-        "drawdownControlScore": 0.156595,
-        "growthSpurtScore": 0.818707
+        "trendSlope63d": 0.908185,
+        "trendFitR2_63d": 0.441763,
+        "excessReturnVsSpy63d": 0.862652,
+        "drawdownControlScore": 0.158185,
+        "growthSpurtScore": 0.697272
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "BVC",
-        "date": "2021-08-26",
-        "open": 6.949999809265137,
-        "high": 7.050000190734863,
-        "low": 6.453999996185303,
-        "close": 7.050000190734863,
-        "volume": 17300,
-        "source": "yahoo-chart",
-        "adjusted_close": 7.050000190734863
-      },
       {
         "ticker": "BVC",
         "date": "2021-08-27",
@@ -14173,9 +14164,20 @@
         "high": 15.010000228881836,
         "low": 14.0,
         "close": 14.65999984741211,
-        "volume": 17467,
+        "volume": 17500,
         "source": "yahoo-chart",
         "adjusted_close": 14.65999984741211
+      },
+      {
+        "ticker": "BVC",
+        "date": "2026-08-26",
+        "open": 14.539999961853027,
+        "high": 14.539999961853027,
+        "low": 11.989999771118164,
+        "close": 12.130000114440918,
+        "volume": 16100,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.130000114440918
       }
     ],
     "dataStatus": {
@@ -14215,13 +14217,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-26",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 67.39,
-      "growthSpurtBenchmarkPercentile": 0.818707,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-25T23:49:45.814736+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.697272,
+      "growthSpurtMarketDataAsOf": "2026-08-26",
+      "lastPipelineRun": "2026-08-27T04:37:37.478467+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
