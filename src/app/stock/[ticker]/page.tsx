@@ -8,6 +8,7 @@ import { FilingEvidencePanel } from "@/components/FilingEvidencePanel";
 import { FundamentalsSnapshot } from "@/components/FundamentalsSnapshot";
 import { GrowthSpurtBadge } from "@/components/GrowthSpurtBadge";
 import { PriceChart } from "@/components/PriceChart";
+import { RagTeaser } from "@/components/RagTeaser";
 import { ScoreBreakdown } from "@/components/ScoreBreakdown";
 import { SignalBadge } from "@/components/signals/SignalBadge";
 import { StockSaveActions } from "@/components/StockSaveActions";
@@ -137,6 +138,7 @@ export default async function StockPage({ params }: { params: Promise<{ ticker: 
       </section>
       <AnalystBrief brief={brief} />
       <FilingEvidencePanel ticker={stock.ticker} initialResults={filingEvidence} />
+      <RagTeaser ticker={stock.ticker} companyName={stock.companyName} />
       <section className="next-step">
         <p className="eyebrow">RESEARCH NEXT</p>
         <h2>Validate the source observations, read recent filings, and compare this company with sector peers before forming a view.</h2>

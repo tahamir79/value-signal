@@ -800,3 +800,15 @@ Preferred workflow:
 - Frontend pipeline health copy intentionally translates a strict artifact `partial_success` into `Data pipeline succeeded` when more than 25% of requested tickers populated. Keep success/failure counts visible beside that friendlier label.
 - Next billing follow-up: validate a complete live subscription/webhook unlock, then add a manage-subscription portal.
 - Stripe live/test cutovers require mode-aware billing rows. Checkout verifies any saved customer ID against the active Stripe key before reuse, and entitlement only treats a subscription as Pro when its `stripeLivemode` matches the current key mode.
+
+---
+
+## 18. Production presentation rules
+
+- The production navigation should not expose the experimental RAG tab. Keep `/rag` recoverable for local testing and future launch work, but do not present it as a finished product surface.
+- Stock detail pages may show a non-interactive “Ask about this stock” RAG teaser. It is promotional copy only and must not call Ollama, local scripts, or `/api/rag` in production.
+- The dashboard data-status panel has two intended audiences:
+  - production: compact freshness and coverage copy;
+  - local/dev: full ETL rotation, checkpoint, failure-count, and stale-artifact diagnostics.
+- Presentation changes should not alter scoring, ETL, subscriptions, forecasts, access policy, or generated data artifacts unless the financial/product instruction explicitly asks for that mechanics change.
+- `package.json` includes exact reviewed install-script approvals for `esbuild` and `sharp` to keep Vercel/npm build output clean without broadening dependency-install permissions.

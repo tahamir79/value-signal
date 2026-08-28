@@ -1752,3 +1752,17 @@ Results:
 - pipeline health reported zero critical failures;
 - existing frontend brief/dashboard/saved-position tests passed 32 tests;
 - TypeScript type-check and production build passed.
+
+## 2026-08-28 production presentation checkpoint
+
+The online product presentation is intentionally cleaner than the local/debugging view:
+
+- `src/components/layout/SiteShell.tsx` no longer exposes the experimental RAG route in the primary navigation.
+- `src/app/rag/page.tsx` remains available as a local/coming-soon route, but it should not be treated as a finished production feature.
+- `src/app/stock/[ticker]/page.tsx` now places a non-interactive RAG teaser before the `Research Next` section. The teaser says users will soon be able to ask about the stock, but it does not call the local Ollama/RAG pipeline in production.
+- `src/features/dashboard/DataStatus.tsx` has two modes:
+  - production users see compact data freshness copy;
+  - local/dev users still see batch size, rotation checkpoint, failed ticker counts, and stale-artifact diagnostics.
+- `package.json` now records reviewed install-script approvals for the exact `esbuild` and `sharp` versions used by the project, addressing the npm `allow-scripts` warning seen in Vercel build logs.
+
+No scoring, ETL, subscription, forecast, or access-policy mechanics were changed in this presentation pass.

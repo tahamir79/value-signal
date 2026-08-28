@@ -13,6 +13,11 @@ export default async function HomePage() {
         <p className="eyebrow">PUBLIC-COMPANY RESEARCH / EXPLAINED</p>
         <h1>Find the signal.<br/><em>Keep the evidence.</em></h1>
         <p className="lede">ValueSignal helps you identify companies that may deserve deeper research, understand the quantitative case, and see which risks weaken it.</p>
+        <div className="hero-proof" aria-label="ValueSignal platform highlights">
+          <article><strong>6,000+ Stocks</strong><span>Wide universe coverage across listed companies.</span></article>
+          <article><strong>Data-Driven Scores</strong><span>Valuation, quality, momentum, confidence, and risk.</span></article>
+          <article><strong>Research First</strong><span>Transparent methodology. Not financial advice.</span></article>
+        </div>
         <div className="actions"><Link className="button" href="/dashboard">Explore the research dashboard</Link><Link className="text-link" href="/methodology">Read the methodology →</Link></div>
       </div>
       <aside className="research-card" aria-label="Example research signal">
