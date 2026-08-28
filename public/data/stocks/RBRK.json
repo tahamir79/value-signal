@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T08:27:11.227050+00:00",
+  "generatedAt": "2026-08-28T15:50:23.198647+00:00",
   "record": {
     "security": {
       "ticker": "RBRK",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 92.65,
-      "dailyChangePercent": -5.4978,
+      "latestPrice": 96.3,
+      "dailyChangePercent": -10.0168,
       "marketCapBillions": null,
       "liabilitiesToAssets": 1.173874,
       "latestRevenueBillions": 1.3162,
@@ -502,52 +502,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RBRK",
-      "generatedAt": "2026-08-26T08:08:38.990136+00:00",
-      "marketDataAsOf": "2026-08-25",
-      "status": "emerging",
-      "growthSpurtScore": 70.5,
+      "generatedAt": "2026-08-28T15:34:44.531452+00:00",
+      "marketDataAsOf": "2026-08-28",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.23830529,
-        "return63d": 0.35631686,
-        "trendSlope21d": 0.01908101,
-        "trendSlope63d": 0.00453902,
-        "trendAnnualizedReturn63d": 2.13877756,
-        "trendFitR2_63d": 0.45704943,
+        "return21d": 0.34534787,
+        "return63d": 0.22472347,
+        "trendSlope21d": 0.01075255,
+        "trendSlope63d": 0.00501578,
+        "trendAnnualizedReturn63d": 2.5394719,
+        "trendFitR2_63d": 0.49826746,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.09187387,
+        "trendResidualVolatility63d": 0.09182609,
         "maxDrawdown63d": -0.1984248,
-        "downsideVolatility63d": 0.02059421,
-        "excessReturnVsSpy21d": 0.2020175,
-        "excessReturnVsSpy63d": 0.33327753,
-        "trendAcceleration": 0.01677323,
-        "largestOneDayContribution63d": 0.06142491,
+        "downsideVolatility63d": 0.02470515,
+        "excessReturnVsSpy21d": 0.30096277,
+        "excessReturnVsSpy63d": 0.19811924,
+        "trendAcceleration": 0.01006746,
+        "largestOneDayContribution63d": 0.05942668,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 21.676,
+        "consistencyScore": 24.5613,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 33.8584,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.853838,
+      "benchmarkPercentile": 0.732124,
       "metricPercentiles": {
-        "trendSlope63d": 0.895373,
-        "trendFitR2_63d": 0.550999,
-        "excessReturnVsSpy63d": 0.894876,
-        "drawdownControlScore": 0.493165,
-        "growthSpurtScore": 0.853838
+        "trendSlope63d": 0.907466,
+        "trendFitR2_63d": 0.579916,
+        "excessReturnVsSpy63d": 0.837824,
+        "drawdownControlScore": 0.492639,
+        "growthSpurtScore": 0.732124
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6984,6 +6986,39 @@
         "volume": 3738300,
         "source": "yahoo-chart",
         "adjusted_close": 92.6500015258789
+      },
+      {
+        "ticker": "RBRK",
+        "date": "2026-08-26",
+        "open": 90.5,
+        "high": 96.98999786376953,
+        "low": 90.5,
+        "close": 96.12999725341797,
+        "volume": 2185700,
+        "source": "yahoo-chart",
+        "adjusted_close": 96.12999725341797
+      },
+      {
+        "ticker": "RBRK",
+        "date": "2026-08-27",
+        "open": 101.98999786376953,
+        "high": 107.91000366210938,
+        "low": 101.5,
+        "close": 107.0199966430664,
+        "volume": 8325200,
+        "source": "yahoo-chart",
+        "adjusted_close": 107.0199966430664
+      },
+      {
+        "ticker": "RBRK",
+        "date": "2026-08-28",
+        "open": 98.94999694824219,
+        "high": 107.37000274658203,
+        "low": 94.56999969482422,
+        "close": 96.30000305175781,
+        "volume": 5418649,
+        "source": "yahoo-chart",
+        "adjusted_close": 96.30000305175781
       }
     ],
     "dataStatus": {
@@ -7024,13 +7059,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-06-05",
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-28",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 70.5,
-      "growthSpurtBenchmarkPercentile": 0.853838,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T08:08:38.990136+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.732124,
+      "growthSpurtMarketDataAsOf": "2026-08-28",
+      "lastPipelineRun": "2026-08-28T15:34:44.531452+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

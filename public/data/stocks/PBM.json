@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T08:27:11.227050+00:00",
+  "generatedAt": "2026-08-28T15:50:23.198647+00:00",
   "record": {
     "security": {
       "ticker": "PBM",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.27,
-      "dailyChangePercent": 1.1848,
+      "latestPrice": 4.24,
+      "dailyChangePercent": -1.6241,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PBM",
-      "generatedAt": "2026-08-26T08:08:38.990136+00:00",
-      "marketDataAsOf": "2026-08-25",
+      "generatedAt": "2026-08-28T15:34:44.531452+00:00",
+      "marketDataAsOf": "2026-08-28",
       "status": "not_detected",
-      "growthSpurtScore": 32.5,
+      "growthSpurtScore": 48.08,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.40460527,
-        "return63d": -0.04899773,
-        "trendSlope21d": 0.01664708,
-        "trendSlope63d": 0.00066668,
-        "trendAnnualizedReturn63d": 0.18294161,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.13166222,
-        "maxDrawdown63d": -0.37986268,
-        "downsideVolatility63d": 0.02301529,
-        "excessReturnVsSpy21d": 0.36831748,
-        "excessReturnVsSpy63d": -0.07203706,
-        "trendAcceleration": 0.02407958,
-        "largestOneDayContribution63d": 0.0988622,
+        "return21d": 0.26190473,
+        "return63d": 0.02168667,
+        "trendSlope21d": 0.01740175,
+        "trendSlope63d": 0.00297153,
+        "trendAnnualizedReturn63d": 1.11451567,
+        "trendFitR2_63d": 0.07519364,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.12237858,
+        "maxDrawdown63d": -0.35322196,
+        "downsideVolatility63d": 0.02367907,
+        "excessReturnVsSpy21d": 0.21751964,
+        "excessReturnVsSpy63d": -0.00491756,
+        "trendAcceleration": 0.0221052,
+        "largestOneDayContribution63d": 0.10058573,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 43.5211,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 38.2349,
+        "directionScore": 71.3253,
+        "consistencyScore": 14.3254,
+        "relativeStrengthScore": 65.5022,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.476341,
+      "benchmarkPercentile": 0.634595,
       "metricPercentiles": {
-        "trendSlope63d": 0.594111,
-        "trendFitR2_63d": 0.067298,
-        "excessReturnVsSpy63d": 0.351294,
-        "drawdownControlScore": 0.157466,
-        "growthSpurtScore": 0.476341
+        "trendSlope63d": 0.816509,
+        "trendFitR2_63d": 0.23449,
+        "excessReturnVsSpy63d": 0.563127,
+        "drawdownControlScore": 0.156151,
+        "growthSpurtScore": 0.634595
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13360,6 +13364,39 @@
         "volume": 43300,
         "source": "yahoo-chart",
         "adjusted_close": 4.269999980926514
+      },
+      {
+        "ticker": "PBM",
+        "date": "2026-08-26",
+        "open": 4.28000020980835,
+        "high": 4.494999885559082,
+        "low": 4.28000020980835,
+        "close": 4.320000171661377,
+        "volume": 42600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.320000171661377
+      },
+      {
+        "ticker": "PBM",
+        "date": "2026-08-27",
+        "open": 4.360000133514404,
+        "high": 4.48199987411499,
+        "low": 4.25,
+        "close": 4.309999942779541,
+        "volume": 20200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.309999942779541
+      },
+      {
+        "ticker": "PBM",
+        "date": "2026-08-28",
+        "open": 4.369999885559082,
+        "high": 4.369999885559082,
+        "low": 4.200500011444092,
+        "close": 4.239999771118164,
+        "volume": 5481,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.239999771118164
       }
     ],
     "dataStatus": {
@@ -13399,13 +13436,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 32.5,
-      "growthSpurtBenchmarkPercentile": 0.476341,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T08:08:38.990136+00:00",
+      "growthSpurtScore": 48.08,
+      "growthSpurtBenchmarkPercentile": 0.634595,
+      "growthSpurtMarketDataAsOf": "2026-08-28",
+      "lastPipelineRun": "2026-08-28T15:34:44.531452+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

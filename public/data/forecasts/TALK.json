@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "TALK",
   "companyName": "Talkspace, Inc.",
-  "generatedAt": "2026-08-28T07:20:47.063746+00:00",
+  "generatedAt": "2026-08-28T15:53:26.806252+00:00",
   "marketDataAsOf": "2026-08-18",
   "currentPrice": 5.25,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-28T07:20:47.063746+00:00",
+    "collectedAt": "2026-08-28T15:53:26.806252+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-28T07:20:47.063746+00:00",
+    "generatedAt": "2026-08-28T15:53:26.806252+00:00",
     "marketDataAsOf": "2026-08-18",
     "currentPrice": 5.25,
     "horizon30Day": {
-      "returnEstimate": 0.00722213,
-      "lowerReturn": -0.02508088,
-      "upperReturn": 0.08,
-      "estimatedPrice": 5.2879,
-      "lowerEstimatedPrice": 5.1183,
-      "upperEstimatedPrice": 5.67,
-      "sampleCount": 106,
-      "status": "available",
-      "usableObservationCount": 106,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 1,
+      "status": "insufficient_data",
+      "usableObservationCount": 1,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 1 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.06626837,
-      "lowerReturn": -0.0340161,
-      "upperReturn": 0.15,
-      "estimatedPrice": 5.5979,
-      "lowerEstimatedPrice": 5.0714,
-      "upperEstimatedPrice": 6.0375,
-      "sampleCount": 98,
-      "status": "available",
-      "usableObservationCount": 98,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 1 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

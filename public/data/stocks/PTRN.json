@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-26T08:27:11.227050+00:00",
+  "generatedAt": "2026-08-28T15:50:23.198647+00:00",
   "record": {
     "security": {
       "ticker": "PTRN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 21.4,
-      "dailyChangePercent": -0.3724,
+      "latestPrice": 21.8,
+      "dailyChangePercent": -0.3656,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.398067,
       "latestRevenueBillions": 2.5013,
@@ -488,50 +488,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PTRN",
-      "generatedAt": "2026-08-26T08:08:38.990136+00:00",
-      "marketDataAsOf": "2026-08-25",
+      "generatedAt": "2026-08-28T15:34:44.531452+00:00",
+      "marketDataAsOf": "2026-08-28",
       "status": "not_detected",
-      "growthSpurtScore": 38.8,
+      "growthSpurtScore": 35.47,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.08115076,
-        "return63d": 0.12809702,
-        "trendSlope21d": -0.00709727,
-        "trendSlope63d": 0.00184951,
-        "trendAnnualizedReturn63d": 0.59372814,
+        "return21d": -0.08977042,
+        "return63d": 0.16019149,
+        "trendSlope21d": -0.00524861,
+        "trendSlope63d": 0.00078085,
+        "trendAnnualizedReturn63d": 0.21747012,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.12711669,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.1238387,
         "maxDrawdown63d": -0.31836731,
-        "downsideVolatility63d": 0.02261031,
-        "excessReturnVsSpy21d": -0.11743855,
-        "excessReturnVsSpy63d": 0.10505768,
-        "trendAcceleration": -0.01815687,
-        "largestOneDayContribution63d": 0.04079482,
+        "downsideVolatility63d": 0.0222575,
+        "excessReturnVsSpy21d": -0.13415551,
+        "excessReturnVsSpy63d": 0.13358726,
+        "trendAcceleration": -0.01337774,
+        "largestOneDayContribution63d": 0.04068274,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 7.1825,
+        "directionScore": 62.9604,
+        "consistencyScore": 14.3254,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.547844,
+      "benchmarkPercentile": 0.529968,
       "metricPercentiles": {
-        "trendSlope63d": 0.727655,
-        "trendFitR2_63d": 0.067298,
-        "excessReturnVsSpy63d": 0.737454,
-        "drawdownControlScore": 0.157466,
-        "growthSpurtScore": 0.547844
+        "trendSlope63d": 0.600421,
+        "trendFitR2_63d": 0.060726,
+        "excessReturnVsSpy63d": 0.779715,
+        "drawdownControlScore": 0.156151,
+        "growthSpurtScore": 0.529968
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3107,6 +3110,39 @@
         "volume": 1039000,
         "source": "yahoo-chart",
         "adjusted_close": 21.399999618530273
+      },
+      {
+        "ticker": "PTRN",
+        "date": "2026-08-26",
+        "open": 21.399999618530273,
+        "high": 21.545000076293945,
+        "low": 21.079999923706055,
+        "close": 21.100000381469727,
+        "volume": 1325400,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.100000381469727
+      },
+      {
+        "ticker": "PTRN",
+        "date": "2026-08-27",
+        "open": 21.149999618530273,
+        "high": 22.489999771118164,
+        "low": 21.149999618530273,
+        "close": 21.8799991607666,
+        "volume": 2001900,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.8799991607666
+      },
+      {
+        "ticker": "PTRN",
+        "date": "2026-08-28",
+        "open": 21.81999969482422,
+        "high": 21.979999542236328,
+        "low": 21.579999923706055,
+        "close": 21.799999237060547,
+        "volume": 190445,
+        "source": "yahoo-chart",
+        "adjusted_close": 21.799999237060547
       }
     ],
     "dataStatus": {
@@ -3144,13 +3180,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-08-25",
+      "latestScoringDate": "2026-08-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 38.8,
-      "growthSpurtBenchmarkPercentile": 0.547844,
-      "growthSpurtMarketDataAsOf": "2026-08-25",
-      "lastPipelineRun": "2026-08-26T08:08:38.990136+00:00",
+      "growthSpurtScore": 35.47,
+      "growthSpurtBenchmarkPercentile": 0.529968,
+      "growthSpurtMarketDataAsOf": "2026-08-28",
+      "lastPipelineRun": "2026-08-28T15:34:44.531452+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
