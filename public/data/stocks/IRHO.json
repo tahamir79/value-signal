@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-27T14:50:36.345059+00:00",
+  "generatedAt": "2026-08-28T07:16:52.432193+00:00",
   "record": {
     "security": {
       "ticker": "IRHO",
@@ -427,50 +427,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "IRHO",
-      "generatedAt": "2026-08-27T14:24:34.672179+00:00",
-      "marketDataAsOf": "2026-08-26",
+      "generatedAt": "2026-08-28T07:01:19.199913+00:00",
+      "marketDataAsOf": "2026-08-27",
       "status": "not_detected",
-      "growthSpurtScore": 34.53,
+      "growthSpurtScore": 33.23,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.003996,
-        "return63d": -0.00099406,
-        "trendSlope21d": 0.00014249,
-        "trendSlope63d": -9.467e-05,
-        "trendAnnualizedReturn63d": -0.02357396,
-        "trendFitR2_63d": 0.57339261,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.001408,
+        "return63d": 0.0,
+        "trendSlope21d": 0.00016616,
+        "trendSlope63d": -9.265e-05,
+        "trendAnnualizedReturn63d": -0.02307801,
+        "trendFitR2_63d": 0.5309237,
+        "positiveWeekRatio63d": 0.25,
+        "trendResidualVolatility63d": 0.0014828,
         "maxDrawdown63d": -0.00595824,
-        "downsideVolatility63d": 0.00057619,
-        "excessReturnVsSpy21d": -0.03004556,
-        "excessReturnVsSpy63d": -0.02443783,
-        "trendAcceleration": 0.00028449,
-        "largestOneDayContribution63d": 0.0882165,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.00059628,
+        "excessReturnVsSpy21d": -0.05308726,
+        "excessReturnVsSpy63d": -0.02449845,
+        "trendAcceleration": 0.00031549,
+        "largestOneDayContribution63d": 0.09088649,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
         "directionScore": 2.664,
-        "consistencyScore": 45.0223,
-        "relativeStrengthScore": 26.9272,
+        "consistencyScore": 42.8159,
+        "relativeStrengthScore": 22.5475,
         "drawdownControlScore": 98.0139,
-        "confirmationScore": 23.8725
+        "confirmationScore": 25.1293
       },
-      "benchmarkPercentile": 0.49762,
+      "benchmarkPercentile": 0.491274,
       "metricPercentiles": {
-        "trendSlope63d": 0.418297,
-        "trendFitR2_63d": 0.645161,
-        "excessReturnVsSpy63d": 0.453241,
+        "trendSlope63d": 0.423057,
+        "trendFitR2_63d": 0.604442,
+        "excessReturnVsSpy63d": 0.46068,
         "drawdownControlScore": 0.975674,
-        "growthSpurtScore": 0.49762
+        "growthSpurtScore": 0.491274
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2001,6 +2005,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.050000190734863
+      },
+      {
+        "ticker": "IRHO",
+        "date": "2026-08-27",
+        "open": 10.050000190734863,
+        "high": 10.050000190734863,
+        "low": 10.050000190734863,
+        "close": 10.050000190734863,
+        "volume": 300,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.050000190734863
       }
     ],
     "dataStatus": {
@@ -2041,13 +2056,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-13",
-      "latestScoringDate": "2026-08-26",
+      "latestScoringDate": "2026-08-27",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 34.53,
-      "growthSpurtBenchmarkPercentile": 0.49762,
-      "growthSpurtMarketDataAsOf": "2026-08-26",
-      "lastPipelineRun": "2026-08-27T14:24:34.672179+00:00",
+      "growthSpurtScore": 33.23,
+      "growthSpurtBenchmarkPercentile": 0.491274,
+      "growthSpurtMarketDataAsOf": "2026-08-27",
+      "lastPipelineRun": "2026-08-28T07:01:19.199913+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
