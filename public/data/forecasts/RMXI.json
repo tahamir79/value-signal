@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "RMXI",
   "companyName": "RMX INDUSTRIES, INC.",
-  "generatedAt": "2026-08-29T04:43:28.236824+00:00",
+  "generatedAt": "2026-08-29T10:35:59.692986+00:00",
   "marketDataAsOf": "2026-08-27",
   "currentPrice": 6.0,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-08-29T04:43:28.236824+00:00",
+    "collectedAt": "2026-08-29T10:35:59.692986+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,47 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-08-29T04:43:28.236824+00:00",
+    "generatedAt": "2026-08-29T10:35:59.692986+00:00",
     "marketDataAsOf": "2026-08-27",
     "currentPrice": 6.0,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 1,
-      "status": "insufficient_data",
-      "usableObservationCount": 1,
+      "returnEstimate": -0.01119572,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.08,
+      "estimatedPrice": 5.9328,
+      "lowerEstimatedPrice": 5.52,
+      "upperEstimatedPrice": 6.48,
+      "sampleCount": 75,
+      "status": "available",
+      "usableObservationCount": 75,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 1 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 0,
-      "status": "insufficient_data",
-      "usableObservationCount": 0,
+      "returnEstimate": -0.01480253,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.15,
+      "estimatedPrice": 5.9112,
+      "lowerEstimatedPrice": 5.1,
+      "upperEstimatedPrice": 6.9,
+      "sampleCount": 67,
+      "status": "available",
+      "usableObservationCount": 67,
       "requiredObservationCount": 12,
-      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
+      "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 1 of 24 required observations.",
-      "Not enough 90-day history: 0 of 12 required observations."
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
