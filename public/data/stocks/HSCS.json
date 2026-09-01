@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-29T04:38:44.972279+00:00",
+  "generatedAt": "2026-09-01T09:07:54.483156+00:00",
   "record": {
     "security": {
       "ticker": "HSCS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.12,
-      "dailyChangePercent": 4.3478,
-      "marketCapBillions": 0.0122,
+      "latestPrice": 3.15,
+      "dailyChangePercent": 3.9604,
+      "marketCapBillions": 0.0123,
       "liabilitiesToAssets": 0.957045,
       "latestRevenueBillions": 0.0,
       "grossMarginPercent": 59.0646,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": null,
       "bookValue": 226060.0,
       "bookValuePerShare": 0.057972,
-      "priceToBook": 53.819391,
+      "priceToBook": 54.336889,
       "retainedEarnings": -85269510.0
     },
     "balanceSheetScoringShadow": {
@@ -502,52 +502,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "HSCS",
-      "generatedAt": "2026-08-29T04:16:57.969943+00:00",
-      "marketDataAsOf": "2026-08-27",
-      "status": "emerging",
-      "growthSpurtScore": 60.72,
+      "generatedAt": "2026-09-01T08:52:12.127282+00:00",
+      "marketDataAsOf": "2026-08-31",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.44444433,
-        "return63d": 0.73816154,
-        "trendSlope21d": 0.01882852,
-        "trendSlope63d": 0.00212638,
-        "trendAnnualizedReturn63d": 0.70889477,
-        "trendFitR2_63d": 0.04963979,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.15867633,
+        "return21d": 0.44495413,
+        "return63d": 0.55172421,
+        "trendSlope21d": 0.02544116,
+        "trendSlope63d": 0.00240299,
+        "trendAnnualizedReturn63d": 0.83226443,
+        "trendFitR2_63d": 0.12652642,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.15873698,
         "maxDrawdown63d": -0.33110368,
-        "downsideVolatility63d": 0.02795632,
-        "excessReturnVsSpy21d": 0.38736108,
-        "excessReturnVsSpy63d": 0.71366309,
-        "trendAcceleration": 0.01259231,
-        "largestOneDayContribution63d": 0.16231224,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.02758804,
+        "excessReturnVsSpy21d": 0.41815473,
+        "excessReturnVsSpy63d": 0.53790013,
+        "trendAcceleration": 0.02224812,
+        "largestOneDayContribution63d": 0.17065831,
+        "percentAboveTrendLine63d": 0.49206349
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 2.8968,
+        "consistencyScore": 13.5317,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.808466,
+      "benchmarkPercentile": 0.738397,
       "metricPercentiles": {
-        "trendSlope63d": 0.737037,
-        "trendFitR2_63d": 0.210053,
-        "excessReturnVsSpy63d": 0.97395,
-        "drawdownControlScore": 0.151323,
-        "growthSpurtScore": 0.808466
+        "trendSlope63d": 0.751055,
+        "trendFitR2_63d": 0.274262,
+        "excessReturnVsSpy63d": 0.957979,
+        "drawdownControlScore": 0.148998,
+        "growthSpurtScore": 0.738397
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12132,6 +12134,28 @@
         "volume": 155900,
         "source": "yahoo-chart",
         "adjusted_close": 3.119999885559082
+      },
+      {
+        "ticker": "HSCS",
+        "date": "2026-08-28",
+        "open": 3.0899999141693115,
+        "high": 3.140000104904175,
+        "low": 2.9000000953674316,
+        "close": 3.0299999713897705,
+        "volume": 45700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.0299999713897705
+      },
+      {
+        "ticker": "HSCS",
+        "date": "2026-08-31",
+        "open": 3.009999990463257,
+        "high": 3.200000047683716,
+        "low": 2.950000047683716,
+        "close": 3.1500000953674316,
+        "volume": 56000,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.1500000953674316
       }
     ],
     "dataStatus": {
@@ -12172,13 +12196,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-23",
-      "latestScoringDate": "2026-08-27",
+      "latestScoringDate": "2026-08-31",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 60.72,
-      "growthSpurtBenchmarkPercentile": 0.808466,
-      "growthSpurtMarketDataAsOf": "2026-08-27",
-      "lastPipelineRun": "2026-08-29T04:16:57.969943+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.738397,
+      "growthSpurtMarketDataAsOf": "2026-08-31",
+      "lastPipelineRun": "2026-09-01T08:52:12.127282+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

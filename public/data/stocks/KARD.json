@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-29T04:38:44.972279+00:00",
+  "generatedAt": "2026-09-01T09:07:54.483156+00:00",
   "record": {
     "security": {
       "ticker": "KARD",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 20.8,
-      "dailyChangePercent": -1.7942,
-      "marketCapBillions": 1.9449,
+      "latestPrice": 20.16,
+      "dailyChangePercent": 0.6993,
+      "marketCapBillions": 1.885,
       "liabilitiesToAssets": 0.147224,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -249,7 +249,7 @@
       "shortTermDebtShare": null,
       "bookValue": 615522000.0,
       "bookValuePerShare": 6.582863,
-      "priceToBook": 3.15972,
+      "priceToBook": 3.062497,
       "retainedEarnings": -453396000.0
     },
     "balanceSheetScoringShadow": {
@@ -468,50 +468,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "KARD",
-      "generatedAt": "2026-08-29T04:16:57.969943+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-09-01T08:52:12.127282+00:00",
+      "marketDataAsOf": "2026-08-31",
+      "status": "not_detected",
+      "growthSpurtScore": 12.28,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.03170028,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00043973,
+        "trendSlope63d": -0.00291444,
+        "trendAnnualizedReturn63d": -0.52022526,
+        "trendFitR2_63d": 0.47306846,
+        "positiveWeekRatio63d": 0.4,
+        "trendResidualVolatility63d": 0.04641398,
+        "maxDrawdown63d": -0.23822394,
+        "downsideVolatility63d": 0.02561486,
+        "excessReturnVsSpy21d": -0.05849968,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.00468975,
+        "largestOneDayContribution63d": 0.06305611,
+        "percentAboveTrendLine63d": 0.50980392
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 21.7272,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 20.592,
+        "confirmationScore": 37.5892
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.202268,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.217827,
+        "trendFitR2_63d": 0.547996,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.401371,
+        "growthSpurtScore": 0.202268
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1052,6 +1051,28 @@
         "volume": 546600,
         "source": "yahoo-chart",
         "adjusted_close": 20.799999237060547
+      },
+      {
+        "ticker": "KARD",
+        "date": "2026-08-28",
+        "open": 20.610000610351562,
+        "high": 20.93000030517578,
+        "low": 19.989999771118164,
+        "close": 20.020000457763672,
+        "volume": 196600,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.020000457763672
+      },
+      {
+        "ticker": "KARD",
+        "date": "2026-08-31",
+        "open": 20.020000457763672,
+        "high": 20.719999313354492,
+        "low": 20.0,
+        "close": 20.15999984741211,
+        "volume": 184900,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.15999984741211
       }
     ],
     "dataStatus": {
@@ -1089,13 +1110,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-08-27",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-08-29T04:16:57.969943+00:00",
+      "latestScoringDate": "2026-08-31",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 12.28,
+      "growthSpurtBenchmarkPercentile": 0.202268,
+      "growthSpurtMarketDataAsOf": "2026-08-31",
+      "lastPipelineRun": "2026-09-01T08:52:12.127282+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
