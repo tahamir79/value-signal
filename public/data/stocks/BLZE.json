@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-29T13:42:45.560600+00:00",
+  "generatedAt": "2026-09-01T02:16:24.553606+00:00",
   "record": {
     "security": {
       "ticker": "BLZE",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 15.24,
-      "dailyChangePercent": 1.7356,
-      "marketCapBillions": 0.9434,
+      "latestPrice": 14.13,
+      "dailyChangePercent": -1.3957,
+      "marketCapBillions": 0.8746,
       "liabilitiesToAssets": 0.604459,
       "latestRevenueBillions": 0.1458,
       "grossMarginPercent": 60.8859,
@@ -299,7 +299,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 88538000.0,
       "bookValuePerShare": 1.430339,
-      "priceToBook": 10.654815,
+      "priceToBook": 9.878775,
       "retainedEarnings": -232833000.0
     },
     "balanceSheetScoringShadow": {
@@ -514,51 +514,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BLZE",
-      "generatedAt": "2026-08-29T13:21:22.432015+00:00",
-      "marketDataAsOf": "2026-08-27",
-      "status": "emerging",
-      "growthSpurtScore": 63.83,
+      "generatedAt": "2026-09-01T01:58:39.962933+00:00",
+      "marketDataAsOf": "2026-08-31",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.33919153,
-        "return63d": 0.99215681,
-        "trendSlope21d": -0.0080786,
-        "trendSlope63d": 0.01292327,
-        "trendAnnualizedReturn63d": 24.96281282,
-        "trendFitR2_63d": 0.60692755,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.19929438,
+        "return21d": 0.02988337,
+        "return63d": 0.55104288,
+        "trendSlope21d": -0.01728133,
+        "trendSlope63d": 0.01162314,
+        "trendAnnualizedReturn63d": 17.70949887,
+        "trendFitR2_63d": 0.54303208,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.20847147,
         "maxDrawdown63d": -0.36174985,
-        "downsideVolatility63d": 0.03496417,
-        "excessReturnVsSpy21d": 0.28210827,
-        "excessReturnVsSpy63d": 0.96765836,
-        "trendAcceleration": -0.02341276,
-        "largestOneDayContribution63d": 0.12737447,
+        "downsideVolatility63d": 0.03477782,
+        "excessReturnVsSpy21d": 0.00308397,
+        "excessReturnVsSpy63d": 0.53721881,
+        "trendAcceleration": -0.0319969,
+        "largestOneDayContribution63d": 0.12924844,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 39.3103,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 99.9222,
+        "consistencyScore": 27.6948,
+        "relativeStrengthScore": 83.8492,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 40.0
+        "confirmationScore": 39.8445
       },
-      "benchmarkPercentile": 0.801985,
+      "benchmarkPercentile": 0.705236,
       "metricPercentiles": {
-        "trendSlope63d": 0.991118,
-        "trendFitR2_63d": 0.665622,
-        "excessReturnVsSpy63d": 0.982632,
-        "drawdownControlScore": 0.156217,
-        "growthSpurtScore": 0.801985
+        "trendSlope63d": 0.985864,
+        "trendFitR2_63d": 0.604712,
+        "excessReturnVsSpy63d": 0.956728,
+        "drawdownControlScore": 0.149215,
+        "growthSpurtScore": 0.705236
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13782,6 +13784,28 @@
         "volume": 1727600,
         "source": "yahoo-chart",
         "adjusted_close": 15.239999771118164
+      },
+      {
+        "ticker": "BLZE",
+        "date": "2026-08-28",
+        "open": 15.039999961853027,
+        "high": 15.295000076293945,
+        "low": 14.241000175476074,
+        "close": 14.329999923706055,
+        "volume": 1521300,
+        "source": "yahoo-chart",
+        "adjusted_close": 14.329999923706055
+      },
+      {
+        "ticker": "BLZE",
+        "date": "2026-08-31",
+        "open": 14.329999923706055,
+        "high": 14.529899597167969,
+        "low": 14.0,
+        "close": 14.130000114440918,
+        "volume": 1254627,
+        "source": "yahoo-chart",
+        "adjusted_close": 14.130000114440918
       }
     ],
     "dataStatus": {
@@ -13819,13 +13843,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-03",
-      "latestScoringDate": "2026-08-27",
+      "latestScoringDate": "2026-08-31",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.83,
-      "growthSpurtBenchmarkPercentile": 0.801985,
-      "growthSpurtMarketDataAsOf": "2026-08-27",
-      "lastPipelineRun": "2026-08-29T13:21:22.432015+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.705236,
+      "growthSpurtMarketDataAsOf": "2026-08-31",
+      "lastPipelineRun": "2026-09-01T01:58:39.962933+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
