@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-01T02:16:24.553606+00:00",
+  "generatedAt": "2026-09-02T01:36:39.542247+00:00",
   "record": {
     "security": {
       "ticker": "CLH",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 315.25,
-      "dailyChangePercent": 1.4612,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 16.6597,
       "liabilitiesToAssets": 0.35883,
       "latestRevenueBillions": 6.0308,
@@ -541,66 +541,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CLH",
-      "generatedAt": "2026-09-01T01:58:39.962933+00:00",
-      "marketDataAsOf": "2026-08-31",
-      "status": "detected",
-      "growthSpurtScore": 73.54,
+      "generatedAt": "2026-09-02T01:12:02.172763+00:00",
+      "marketDataAsOf": "2026-09-01",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00757477,
-        "return63d": 0.12188612,
-        "trendSlope21d": 0.00065124,
-        "trendSlope63d": 0.00202641,
-        "trendAnnualizedReturn63d": 0.6663819,
-        "trendFitR2_63d": 0.80238813,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.01820873,
+        "return21d": 0.01373075,
+        "return63d": 0.14225157,
+        "trendSlope21d": 0.00075985,
+        "trendSlope63d": 0.00191928,
+        "trendAnnualizedReturn63d": 0.62199913,
+        "trendFitR2_63d": 0.79371374,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.01798587,
         "maxDrawdown63d": -0.05730214,
         "downsideVolatility63d": 0.00746867,
-        "excessReturnVsSpy21d": -0.01922463,
-        "excessReturnVsSpy63d": 0.10806205,
-        "trendAcceleration": -0.001952,
-        "largestOneDayContribution63d": 0.10696179,
+        "excessReturnVsSpy21d": 0.00830616,
+        "excessReturnVsSpy63d": 0.1367583,
+        "trendAcceleration": -0.00168644,
+        "largestOneDayContribution63d": 0.11321544,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 85.0498,
-        "consistencyScore": 69.8469,
-        "relativeStrengthScore": 74.0892,
+        "directionScore": 89.1538,
+        "consistencyScore": 55.6422,
+        "relativeStrengthScore": 86.1339,
         "drawdownControlScore": 80.8993,
-        "confirmationScore": 36.1493
+        "confirmationScore": 48.7017
       },
-      "benchmarkPercentile": 0.883246,
+      "benchmarkPercentile": 0.714286,
       "metricPercentiles": {
-        "trendSlope63d": 0.715707,
-        "trendFitR2_63d": 0.87644,
-        "excessReturnVsSpy63d": 0.727177,
-        "drawdownControlScore": 0.880628,
-        "growthSpurtScore": 0.883246
+        "trendSlope63d": 0.703297,
+        "trendFitR2_63d": 0.864469,
+        "excessReturnVsSpy63d": 0.777134,
+        "drawdownControlScore": 0.89011,
+        "growthSpurtScore": 0.714286
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "CLH",
-        "date": "2021-09-01",
-        "open": 103.2300033569336,
-        "high": 103.81999969482422,
-        "low": 102.06999969482422,
-        "close": 103.63999938964844,
-        "volume": 142900,
-        "source": "yahoo-chart",
-        "adjusted_close": 103.63999938964844
-      },
       {
         "ticker": "CLH",
         "date": "2021-09-02",
@@ -14377,10 +14367,21 @@
         "ticker": "CLH",
         "date": "2026-08-31",
         "open": 310.9700012207031,
-        "high": 315.63250732421875,
-        "low": 310.1199951171875,
+        "high": 315.6300048828125,
+        "low": 310.0,
         "close": 315.25,
-        "volume": 549388,
+        "volume": 549600,
+        "source": "yahoo-chart",
+        "adjusted_close": 315.25
+      },
+      {
+        "ticker": "CLH",
+        "date": "2026-09-01",
+        "open": 316.2699890136719,
+        "high": 318.7200012207031,
+        "low": 313.82000732421875,
+        "close": 315.25,
+        "volume": 362709,
         "source": "yahoo-chart",
         "adjusted_close": 315.25
       }
@@ -14414,13 +14415,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-05-06",
-      "latestScoringDate": "2026-08-31",
+      "latestScoringDate": "2026-09-01",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 73.54,
-      "growthSpurtBenchmarkPercentile": 0.883246,
-      "growthSpurtMarketDataAsOf": "2026-08-31",
-      "lastPipelineRun": "2026-09-01T01:58:39.962933+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.714286,
+      "growthSpurtMarketDataAsOf": "2026-09-01",
+      "lastPipelineRun": "2026-09-02T01:12:02.172763+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
