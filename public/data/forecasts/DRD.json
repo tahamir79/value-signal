@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "DRD",
   "companyName": "DRDGOLD LTD",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 27.71,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,15 +44,15 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 27.71,
     "horizon30Day": {
-      "returnEstimate": 0.02744855,
-      "lowerReturn": -0.07918402,
+      "returnEstimate": 0.00542059,
+      "lowerReturn": -0.08,
       "upperReturn": 0.08,
-      "estimatedPrice": 28.4706,
-      "lowerEstimatedPrice": 25.5158,
+      "estimatedPrice": 27.8602,
+      "lowerEstimatedPrice": 25.4932,
       "upperEstimatedPrice": 29.9268,
       "sampleCount": 104,
       "status": "available",
@@ -61,11 +61,11 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.08772249,
-      "lowerReturn": -0.11894254,
+      "returnEstimate": 0.08951764,
+      "lowerReturn": -0.11035834,
       "upperReturn": 0.15,
-      "estimatedPrice": 30.1408,
-      "lowerEstimatedPrice": 24.4141,
+      "estimatedPrice": 30.1905,
+      "lowerEstimatedPrice": 24.652,
       "upperEstimatedPrice": 31.8665,
       "sampleCount": 96,
       "status": "available",
@@ -77,6 +77,7 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
       "30-day scenario: upper return clipped to +/-8%",
       "90-day scenario: upper return clipped to +/-15%"
     ]

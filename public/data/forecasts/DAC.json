@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "DAC",
   "companyName": "Danaos Corp",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 151.09,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 151.09,
     "horizon30Day": {
-      "returnEstimate": 0.01435419,
-      "lowerReturn": -0.02502014,
-      "upperReturn": 0.06742832,
-      "estimatedPrice": 153.2588,
-      "lowerEstimatedPrice": 147.3097,
-      "upperEstimatedPrice": 161.2777,
+      "returnEstimate": 0.01278579,
+      "lowerReturn": -0.01855831,
+      "upperReturn": 0.07639472,
+      "estimatedPrice": 153.0218,
+      "lowerEstimatedPrice": 148.286,
+      "upperEstimatedPrice": 162.6325,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.05400115,
-      "lowerReturn": -0.0020458,
-      "upperReturn": 0.14213284,
-      "estimatedPrice": 159.249,
-      "lowerEstimatedPrice": 150.7809,
-      "upperEstimatedPrice": 172.5648,
+      "returnEstimate": 0.06655783,
+      "lowerReturn": 0.00111143,
+      "upperReturn": 0.15,
+      "estimatedPrice": 161.1462,
+      "lowerEstimatedPrice": 151.2579,
+      "upperEstimatedPrice": 173.7535,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

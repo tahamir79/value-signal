@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CAC",
   "companyName": "CAMDEN NATIONAL CORP",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 56.17,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,15 +44,15 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 56.17,
     "horizon30Day": {
-      "returnEstimate": 0.02698865,
-      "lowerReturn": -0.04292965,
+      "returnEstimate": 0.02393878,
+      "lowerReturn": -0.04244043,
       "upperReturn": 0.08,
-      "estimatedPrice": 57.686,
-      "lowerEstimatedPrice": 53.7586,
+      "estimatedPrice": 57.5146,
+      "lowerEstimatedPrice": 53.7861,
       "upperEstimatedPrice": 60.6636,
       "sampleCount": 104,
       "status": "available",
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0522443,
-      "lowerReturn": -0.02235399,
-      "upperReturn": 0.14789463,
-      "estimatedPrice": 59.1046,
-      "lowerEstimatedPrice": 54.9144,
-      "upperEstimatedPrice": 64.4772,
+      "returnEstimate": 0.04636111,
+      "lowerReturn": -0.02641668,
+      "upperReturn": 0.15,
+      "estimatedPrice": 58.7741,
+      "lowerEstimatedPrice": 54.6862,
+      "upperEstimatedPrice": 64.5955,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -77,7 +77,8 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: upper return clipped to +/-8%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

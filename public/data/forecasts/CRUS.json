@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CRUS",
   "companyName": "CIRRUS LOGIC, INC.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 109.07,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 109.07,
     "horizon30Day": {
-      "returnEstimate": 0.00102487,
-      "lowerReturn": -0.07023893,
-      "upperReturn": 0.06003752,
-      "estimatedPrice": 109.1818,
-      "lowerEstimatedPrice": 101.409,
-      "upperEstimatedPrice": 115.6183,
+      "returnEstimate": -0.00226942,
+      "lowerReturn": -0.06640391,
+      "upperReturn": 0.06745538,
+      "estimatedPrice": 108.8225,
+      "lowerEstimatedPrice": 101.8273,
+      "upperEstimatedPrice": 116.4274,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0086713,
-      "lowerReturn": -0.09606262,
-      "upperReturn": 0.14882867,
-      "estimatedPrice": 110.0158,
-      "lowerEstimatedPrice": 98.5924,
-      "upperEstimatedPrice": 125.3027,
+      "returnEstimate": 0.01361265,
+      "lowerReturn": -0.10195663,
+      "upperReturn": 0.15,
+      "estimatedPrice": 110.5547,
+      "lowerEstimatedPrice": 97.9496,
+      "upperEstimatedPrice": 125.4305,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

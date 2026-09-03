@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "EYE",
   "companyName": "National Vision Holdings, Inc.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 16.69,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,15 +44,15 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 16.69,
     "horizon30Day": {
-      "returnEstimate": -0.0002394,
-      "lowerReturn": -0.07394734,
+      "returnEstimate": 0.00447995,
+      "lowerReturn": -0.08,
       "upperReturn": 0.08,
-      "estimatedPrice": 16.686,
-      "lowerEstimatedPrice": 15.4558,
+      "estimatedPrice": 16.7648,
+      "lowerEstimatedPrice": 15.3548,
       "upperEstimatedPrice": 18.0252,
       "sampleCount": 104,
       "status": "available",
@@ -61,11 +61,11 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.04842239,
-      "lowerReturn": -0.06222165,
+      "returnEstimate": 0.04965835,
+      "lowerReturn": -0.06626202,
       "upperReturn": 0.15,
-      "estimatedPrice": 17.4982,
-      "lowerEstimatedPrice": 15.6515,
+      "estimatedPrice": 17.5188,
+      "lowerEstimatedPrice": 15.5841,
       "upperEstimatedPrice": 19.1935,
       "sampleCount": 96,
       "status": "available",
@@ -77,6 +77,7 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
       "30-day scenario: upper return clipped to +/-8%",
       "90-day scenario: upper return clipped to +/-15%"
     ]

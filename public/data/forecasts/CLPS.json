@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CLPS",
   "companyName": "CLPS Inc",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 1.09,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 1.09,
     "horizon30Day": {
-      "returnEstimate": -0.01000915,
-      "lowerReturn": -0.07630102,
-      "upperReturn": 0.07848425,
-      "estimatedPrice": 1.0791,
-      "lowerEstimatedPrice": 1.0068,
-      "upperEstimatedPrice": 1.1755,
+      "returnEstimate": -0.00562243,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.05785474,
+      "estimatedPrice": 1.0839,
+      "lowerEstimatedPrice": 1.0028,
+      "upperEstimatedPrice": 1.1531,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.03681446,
-      "lowerReturn": -0.13011422,
-      "upperReturn": 0.09319572,
-      "estimatedPrice": 1.0499,
-      "lowerEstimatedPrice": 0.9482,
-      "upperEstimatedPrice": 1.1916,
+      "returnEstimate": -0.04252425,
+      "lowerReturn": -0.13393079,
+      "upperReturn": 0.10738417,
+      "estimatedPrice": 1.0436,
+      "lowerEstimatedPrice": 0.944,
+      "upperEstimatedPrice": 1.207,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

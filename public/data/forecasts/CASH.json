@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CASH",
   "companyName": "PATHWARD FINANCIAL, INC.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 80.34,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 80.34,
     "horizon30Day": {
-      "returnEstimate": 0.00048797,
-      "lowerReturn": -0.05249408,
-      "upperReturn": 0.07228801,
-      "estimatedPrice": 80.3792,
-      "lowerEstimatedPrice": 76.1226,
-      "upperEstimatedPrice": 86.1476,
+      "returnEstimate": -0.00392215,
+      "lowerReturn": -0.05368849,
+      "upperReturn": 0.07288634,
+      "estimatedPrice": 80.0249,
+      "lowerEstimatedPrice": 76.0267,
+      "upperEstimatedPrice": 86.1957,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01077421,
-      "lowerReturn": -0.05332712,
-      "upperReturn": 0.14249102,
-      "estimatedPrice": 81.2056,
-      "lowerEstimatedPrice": 76.0557,
-      "upperEstimatedPrice": 91.7877,
+      "returnEstimate": 0.01162435,
+      "lowerReturn": -0.05658344,
+      "upperReturn": 0.15,
+      "estimatedPrice": 81.2739,
+      "lowerEstimatedPrice": 75.7941,
+      "upperEstimatedPrice": 92.391,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

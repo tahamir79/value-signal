@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CNOB",
   "companyName": "ConnectOne Bancorp, Inc.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 30.84,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 30.84,
     "horizon30Day": {
-      "returnEstimate": 0.01837851,
-      "lowerReturn": -0.03032976,
-      "upperReturn": 0.06899299,
-      "estimatedPrice": 31.4068,
-      "lowerEstimatedPrice": 29.9046,
-      "upperEstimatedPrice": 32.9677,
+      "returnEstimate": 0.02087321,
+      "lowerReturn": -0.0332073,
+      "upperReturn": 0.08,
+      "estimatedPrice": 31.4837,
+      "lowerEstimatedPrice": 29.8159,
+      "upperEstimatedPrice": 33.3072,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.05731237,
-      "lowerReturn": -0.0253777,
-      "upperReturn": 0.12268961,
-      "estimatedPrice": 32.6075,
-      "lowerEstimatedPrice": 30.0574,
-      "upperEstimatedPrice": 34.6237,
+      "returnEstimate": 0.05544319,
+      "lowerReturn": -0.03057546,
+      "upperReturn": 0.12992867,
+      "estimatedPrice": 32.5499,
+      "lowerEstimatedPrice": 29.8971,
+      "upperEstimatedPrice": 34.847,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "DOO",
   "companyName": "BRP Inc.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 61.74,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 61.74,
     "horizon30Day": {
-      "returnEstimate": 0.00771371,
-      "lowerReturn": -0.06828575,
-      "upperReturn": 0.07931733,
-      "estimatedPrice": 62.2162,
-      "lowerEstimatedPrice": 57.524,
-      "upperEstimatedPrice": 66.6371,
+      "returnEstimate": 0.0061497,
+      "lowerReturn": -0.06653675,
+      "upperReturn": 0.08,
+      "estimatedPrice": 62.1197,
+      "lowerEstimatedPrice": 57.632,
+      "upperEstimatedPrice": 66.6792,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,10 +61,10 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01925289,
+      "returnEstimate": -0.00479674,
       "lowerReturn": -0.15,
       "upperReturn": 0.15,
-      "estimatedPrice": 62.9287,
+      "estimatedPrice": 61.4439,
       "lowerEstimatedPrice": 52.479,
       "upperEstimatedPrice": 71.001,
       "sampleCount": 96,
@@ -77,6 +77,7 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
       "90-day scenario: lower return clipped to +/-15%",
       "90-day scenario: upper return clipped to +/-15%"
     ]

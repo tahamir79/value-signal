@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CCNE",
   "companyName": "CNB FINANCIAL CORP/PA",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 33.42,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 33.42,
     "horizon30Day": {
-      "returnEstimate": 0.01829762,
-      "lowerReturn": -0.03869038,
-      "upperReturn": 0.07804208,
-      "estimatedPrice": 34.0315,
-      "lowerEstimatedPrice": 32.127,
-      "upperEstimatedPrice": 36.0282,
+      "returnEstimate": 0.0227349,
+      "lowerReturn": -0.03989896,
+      "upperReturn": 0.08,
+      "estimatedPrice": 34.1798,
+      "lowerEstimatedPrice": 32.0866,
+      "upperEstimatedPrice": 36.0936,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.06086014,
-      "lowerReturn": -0.00724838,
-      "upperReturn": 0.14744991,
-      "estimatedPrice": 35.4539,
-      "lowerEstimatedPrice": 33.1778,
-      "upperEstimatedPrice": 38.3478,
+      "returnEstimate": 0.05900354,
+      "lowerReturn": -0.01610823,
+      "upperReturn": 0.15,
+      "estimatedPrice": 35.3919,
+      "lowerEstimatedPrice": 32.8817,
+      "upperEstimatedPrice": 38.433,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

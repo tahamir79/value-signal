@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "BMRC",
   "companyName": "Bank of Marin Bancorp",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 26.47,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 26.47,
     "horizon30Day": {
-      "returnEstimate": 0.01581113,
-      "lowerReturn": -0.05689944,
-      "upperReturn": 0.07714271,
-      "estimatedPrice": 26.8885,
-      "lowerEstimatedPrice": 24.9639,
-      "upperEstimatedPrice": 28.512,
+      "returnEstimate": 0.01442298,
+      "lowerReturn": -0.04630504,
+      "upperReturn": 0.08,
+      "estimatedPrice": 26.8518,
+      "lowerEstimatedPrice": 25.2443,
+      "upperEstimatedPrice": 28.5876,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.06954527,
-      "lowerReturn": -0.03562363,
-      "upperReturn": 0.12370524,
-      "estimatedPrice": 28.3109,
-      "lowerEstimatedPrice": 25.527,
-      "upperEstimatedPrice": 29.7445,
+      "returnEstimate": 0.05921562,
+      "lowerReturn": -0.02477837,
+      "upperReturn": 0.12764092,
+      "estimatedPrice": 28.0374,
+      "lowerEstimatedPrice": 25.8141,
+      "upperEstimatedPrice": 29.8487,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

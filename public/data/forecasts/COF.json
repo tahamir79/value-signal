@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "COF",
   "companyName": "CAPITAL ONE FINANCIAL CORP",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 211.34,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 211.34,
     "horizon30Day": {
-      "returnEstimate": 0.02168916,
-      "lowerReturn": -0.04707679,
-      "upperReturn": 0.07835156,
-      "estimatedPrice": 215.9238,
-      "lowerEstimatedPrice": 201.3908,
-      "upperEstimatedPrice": 227.8988,
+      "returnEstimate": 0.02051637,
+      "lowerReturn": -0.04415208,
+      "upperReturn": 0.08,
+      "estimatedPrice": 215.6759,
+      "lowerEstimatedPrice": 202.0089,
+      "upperEstimatedPrice": 228.2472,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,11 +61,11 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.05183644,
-      "lowerReturn": -0.03049309,
+      "returnEstimate": 0.04449141,
+      "lowerReturn": -0.01964267,
       "upperReturn": 0.15,
-      "estimatedPrice": 222.2951,
-      "lowerEstimatedPrice": 204.8956,
+      "estimatedPrice": 220.7428,
+      "lowerEstimatedPrice": 207.1887,
       "upperEstimatedPrice": 243.041,
       "sampleCount": 96,
       "status": "available",
@@ -77,6 +77,7 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
       "90-day scenario: upper return clipped to +/-15%"
     ]
   },

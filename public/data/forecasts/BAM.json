@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "BAM",
   "companyName": "Brookfield Asset Management Ltd.",
-  "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
   "marketDataAsOf": "2026-09-01",
   "currentPrice": 49.66,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-02T12:34:06.417885+00:00",
+    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-02T12:34:06.417885+00:00",
+    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
     "marketDataAsOf": "2026-09-01",
     "currentPrice": 49.66,
     "horizon30Day": {
-      "returnEstimate": -0.00290084,
-      "lowerReturn": -0.04377134,
-      "upperReturn": 0.07922112,
-      "estimatedPrice": 49.5159,
-      "lowerEstimatedPrice": 47.4863,
-      "upperEstimatedPrice": 53.5941,
+      "returnEstimate": 0.01040663,
+      "lowerReturn": -0.04921626,
+      "upperReturn": 0.08,
+      "estimatedPrice": 50.1768,
+      "lowerEstimatedPrice": 47.2159,
+      "upperEstimatedPrice": 53.6328,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0205298,
-      "lowerReturn": -0.07886165,
-      "upperReturn": 0.1144837,
-      "estimatedPrice": 50.6795,
-      "lowerEstimatedPrice": 45.7437,
-      "upperEstimatedPrice": 55.3453,
+      "returnEstimate": 0.01423575,
+      "lowerReturn": -0.07019509,
+      "upperReturn": 0.11944644,
+      "estimatedPrice": 50.3669,
+      "lowerEstimatedPrice": 46.1741,
+      "upperEstimatedPrice": 55.5917,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
