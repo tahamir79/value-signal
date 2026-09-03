@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "JCI",
   "companyName": "Johnson Controls International plc",
-  "generatedAt": "2026-09-03T01:42:25.356219+00:00",
-  "marketDataAsOf": "2026-09-01",
+  "generatedAt": "2026-09-03T08:36:50.277158+00:00",
+  "marketDataAsOf": "2026-09-02",
   "currentPrice": 139.25,
   "analystTarget": {
     "ticker": "JCI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-03T01:42:25.356219+00:00",
+    "collectedAt": "2026-09-03T08:36:50.277158+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-03T01:42:25.356219+00:00",
-    "marketDataAsOf": "2026-09-01",
+    "generatedAt": "2026-09-03T08:36:50.277158+00:00",
+    "marketDataAsOf": "2026-09-02",
     "currentPrice": 139.25,
     "horizon30Day": {
-      "returnEstimate": 0.02151833,
-      "lowerReturn": -0.02290135,
-      "upperReturn": 0.07628657,
-      "estimatedPrice": 142.2464,
-      "lowerEstimatedPrice": 136.061,
-      "upperEstimatedPrice": 149.8729,
+      "returnEstimate": 0.01734396,
+      "lowerReturn": -0.01579671,
+      "upperReturn": 0.07074643,
+      "estimatedPrice": 141.6651,
+      "lowerEstimatedPrice": 137.0503,
+      "upperEstimatedPrice": 149.1014,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.06353218,
-      "lowerReturn": 0.03543827,
-      "upperReturn": 0.148979,
-      "estimatedPrice": 148.0969,
-      "lowerEstimatedPrice": 144.1848,
-      "upperEstimatedPrice": 159.9953,
+      "returnEstimate": 0.06925447,
+      "lowerReturn": 0.04017045,
+      "upperReturn": 0.15,
+      "estimatedPrice": 148.8937,
+      "lowerEstimatedPrice": 144.8437,
+      "upperEstimatedPrice": 160.1375,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

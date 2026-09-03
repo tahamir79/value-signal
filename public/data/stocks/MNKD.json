@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-02T08:20:08.012446+00:00",
+  "generatedAt": "2026-09-03T08:32:45.120993+00:00",
   "record": {
     "security": {
       "ticker": "MNKD",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.98,
-      "dailyChangePercent": -0.7481,
-      "marketCapBillions": 1.2797,
+      "latestPrice": 4.04,
+      "dailyChangePercent": 1.5075,
+      "marketCapBillions": 1.299,
       "liabilitiesToAssets": 1.091761,
       "latestRevenueBillions": 0.349,
       "grossMarginPercent": null,
@@ -529,65 +529,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MNKD",
-      "generatedAt": "2026-09-02T08:03:57.716179+00:00",
-      "marketDataAsOf": "2026-09-01",
-      "status": "emerging",
-      "growthSpurtScore": 64.94,
+      "generatedAt": "2026-09-03T08:15:24.115179+00:00",
+      "marketDataAsOf": "2026-09-02",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.04736844,
-        "return63d": 0.16034984,
+        "return21d": 0.020202,
+        "return63d": 0.20238098,
         "trendSlope21d": 0.0012107,
-        "trendSlope63d": 0.00094604,
-        "trendAnnualizedReturn63d": 0.26922044,
-        "trendFitR2_63d": 0.15263491,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05331013,
+        "trendSlope63d": 0.00079498,
+        "trendAnnualizedReturn63d": 0.22181332,
+        "trendFitR2_63d": 0.12220731,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.05072745,
         "maxDrawdown63d": -0.17477875,
         "downsideVolatility63d": 0.01590315,
-        "excessReturnVsSpy21d": 0.04194385,
-        "excessReturnVsSpy63d": 0.15485656,
-        "trendAcceleration": -0.00093881,
-        "largestOneDayContribution63d": 0.06097681,
+        "excessReturnVsSpy21d": 0.02820123,
+        "excessReturnVsSpy63d": 0.18528931,
+        "trendAcceleration": -0.00049871,
+        "largestOneDayContribution63d": 0.06203764,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 89.6141,
-        "consistencyScore": 14.9399,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 76.9869,
+        "consistencyScore": 8.7362,
+        "relativeStrengthScore": 94.838,
         "drawdownControlScore": 41.7404,
-        "confirmationScore": 80.6119
+        "confirmationScore": 71.9489
       },
-      "benchmarkPercentile": 0.830079,
+      "benchmarkPercentile": 0.73944,
       "metricPercentiles": {
-        "trendSlope63d": 0.611609,
-        "trendFitR2_63d": 0.300264,
-        "excessReturnVsSpy63d": 0.808307,
-        "drawdownControlScore": 0.5219,
-        "growthSpurtScore": 0.830079
+        "trendSlope63d": 0.599261,
+        "trendFitR2_63d": 0.270855,
+        "excessReturnVsSpy63d": 0.816489,
+        "drawdownControlScore": 0.518479,
+        "growthSpurtScore": 0.73944
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "MNKD",
-        "date": "2021-09-02",
-        "open": 4.849999904632568,
-        "high": 4.889999866485596,
-        "low": 4.730000019073486,
-        "close": 4.809999942779541,
-        "volume": 1512800,
-        "source": "yahoo-chart",
-        "adjusted_close": 4.809999942779541
-      },
       {
         "ticker": "MNKD",
         "date": "2021-09-03",
@@ -14370,6 +14361,17 @@
         "volume": 2234800,
         "source": "yahoo-chart",
         "adjusted_close": 3.9800000190734863
+      },
+      {
+        "ticker": "MNKD",
+        "date": "2026-09-02",
+        "open": 3.9700000286102295,
+        "high": 4.090000152587891,
+        "low": 3.9700000286102295,
+        "close": 4.039999961853027,
+        "volume": 2590500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.039999961853027
       }
     ],
     "dataStatus": {
@@ -14406,13 +14408,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 64.94,
-      "growthSpurtBenchmarkPercentile": 0.830079,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-02T08:03:57.716179+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.73944,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-03T08:15:24.115179+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
