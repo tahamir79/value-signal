@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-02T12:30:57.535664+00:00",
+  "generatedAt": "2026-09-03T12:36:18.831544+00:00",
   "record": {
     "security": {
       "ticker": "OMSE",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.73,
-      "dailyChangePercent": -1.8672,
+      "latestPrice": 4.76,
+      "dailyChangePercent": 0.6343,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,51 +335,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OMSE",
-      "generatedAt": "2026-09-02T12:16:13.645832+00:00",
-      "marketDataAsOf": "2026-09-01",
+      "generatedAt": "2026-09-03T12:14:14.704747+00:00",
+      "marketDataAsOf": "2026-09-02",
       "status": "not_detected",
-      "growthSpurtScore": 48.5,
+      "growthSpurtScore": 52.33,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.12085314,
-        "return63d": -0.00210965,
-        "trendSlope21d": 0.00335648,
-        "trendSlope63d": 0.00125926,
-        "trendAnnualizedReturn63d": 0.37345961,
-        "trendFitR2_63d": 0.03092016,
+        "return21d": 0.11240955,
+        "return63d": 0.0170941,
+        "trendSlope21d": 0.00408469,
+        "trendSlope63d": 0.00171374,
+        "trendAnnualizedReturn63d": 0.54012178,
+        "trendFitR2_63d": 0.15627739,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.05268465,
-        "maxDrawdown63d": -0.1941545,
-        "downsideVolatility63d": 0.0180637,
-        "excessReturnVsSpy21d": 0.10110829,
-        "excessReturnVsSpy63d": -0.00896833,
-        "trendAcceleration": 0.00512909,
-        "largestOneDayContribution63d": 0.06180429,
+        "trendResidualVolatility63d": 0.04836105,
+        "maxDrawdown63d": -0.16989251,
+        "downsideVolatility63d": 0.01853981,
+        "excessReturnVsSpy21d": 0.12040877,
+        "excessReturnVsSpy63d": 2.44e-06,
+        "trendAcceleration": 0.00466406,
+        "largestOneDayContribution63d": 0.06310074,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 65.0,
-        "consistencyScore": 3.7388,
-        "relativeStrengthScore": 63.8566,
-        "drawdownControlScore": 35.2818,
+        "directionScore": 69.9858,
+        "consistencyScore": 5.311,
+        "relativeStrengthScore": 67.501,
+        "drawdownControlScore": 43.3692,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.642294,
+      "benchmarkPercentile": 0.677708,
       "metricPercentiles": {
-        "trendSlope63d": 0.661757,
-        "trendFitR2_63d": 0.179905,
-        "excessReturnVsSpy63d": 0.492072,
-        "drawdownControlScore": 0.509206,
-        "growthSpurtScore": 0.642294
+        "trendSlope63d": 0.708728,
+        "trendFitR2_63d": 0.294953,
+        "excessReturnVsSpy63d": 0.532522,
+        "drawdownControlScore": 0.562566,
+        "growthSpurtScore": 0.677708
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3959,6 +3962,17 @@
       },
       {
         "ticker": "OMSE",
+        "date": "2026-08-28",
+        "open": 4.519999980926514,
+        "high": 4.630000114440918,
+        "low": 4.46999979019165,
+        "close": 4.630000114440918,
+        "volume": 26000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.630000114440918
+      },
+      {
+        "ticker": "OMSE",
         "date": "2026-08-31",
         "open": 4.650000095367432,
         "high": 4.960000038146973,
@@ -3978,6 +3992,17 @@
         "volume": 62300,
         "source": "yahoo-chart",
         "adjusted_close": 4.730000019073486
+      },
+      {
+        "ticker": "OMSE",
+        "date": "2026-09-02",
+        "open": 4.730000019073486,
+        "high": 4.940000057220459,
+        "low": 4.650000095367432,
+        "close": 4.760000228881836,
+        "volume": 45900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.760000228881836
       }
     ],
     "dataStatus": {
@@ -4017,13 +4042,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 48.5,
-      "growthSpurtBenchmarkPercentile": 0.642294,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-02T12:16:13.645832+00:00",
+      "growthSpurtScore": 52.33,
+      "growthSpurtBenchmarkPercentile": 0.677708,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-03T12:14:14.704747+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

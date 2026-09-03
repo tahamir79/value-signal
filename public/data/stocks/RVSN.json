@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-02T12:30:57.535664+00:00",
+  "generatedAt": "2026-09-03T12:36:18.831544+00:00",
   "record": {
     "security": {
       "ticker": "RVSN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.69,
-      "dailyChangePercent": 2.8509,
+      "latestPrice": 4.89,
+      "dailyChangePercent": 4.2644,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,51 +335,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RVSN",
-      "generatedAt": "2026-09-02T12:16:13.645832+00:00",
-      "marketDataAsOf": "2026-09-01",
+      "generatedAt": "2026-09-03T12:14:14.704747+00:00",
+      "marketDataAsOf": "2026-09-02",
       "status": "not_detected",
-      "growthSpurtScore": 44.25,
+      "growthSpurtScore": 53.16,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.16957601,
-        "return63d": -0.04285715,
-        "trendSlope21d": 0.00869817,
-        "trendSlope63d": 0.00103432,
-        "trendAnnualizedReturn63d": 0.29777087,
-        "trendFitR2_63d": 0.05356238,
+        "return21d": 0.14519904,
+        "return63d": 0.02515721,
+        "trendSlope21d": 0.00357045,
+        "trendSlope63d": 0.0013638,
+        "trendAnnualizedReturn63d": 0.41012482,
+        "trendFitR2_63d": 0.08002539,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.07658593,
+        "trendResidualVolatility63d": 0.07523294,
         "maxDrawdown63d": -0.2256,
-        "downsideVolatility63d": 0.02964285,
-        "excessReturnVsSpy21d": 0.14983115,
-        "excessReturnVsSpy63d": -0.04971582,
-        "trendAcceleration": 0.01155026,
-        "largestOneDayContribution63d": 0.06082328,
+        "downsideVolatility63d": 0.03028224,
+        "excessReturnVsSpy21d": 0.15319826,
+        "excessReturnVsSpy63d": 0.00806554,
+        "trendAcceleration": 0.00606733,
+        "largestOneDayContribution63d": 0.05876114,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 58.2848,
+        "directionScore": 72.3375,
         "consistencyScore": 14.3254,
-        "relativeStrengthScore": 47.3029,
+        "relativeStrengthScore": 70.7766,
         "drawdownControlScore": 24.8,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.610205,
+      "benchmarkPercentile": 0.683491,
       "metricPercentiles": {
-        "trendSlope63d": 0.633877,
-        "trendFitR2_63d": 0.208837,
-        "excessReturnVsSpy63d": 0.42019,
-        "drawdownControlScore": 0.434508,
-        "growthSpurtScore": 0.610205
+        "trendSlope63d": 0.674027,
+        "trendFitR2_63d": 0.227655,
+        "excessReturnVsSpy63d": 0.555262,
+        "drawdownControlScore": 0.422713,
+        "growthSpurtScore": 0.683491
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12550,6 +12553,17 @@
       },
       {
         "ticker": "RVSN",
+        "date": "2026-08-28",
+        "open": 4.590000152587891,
+        "high": 4.630000114440918,
+        "low": 4.39900016784668,
+        "close": 4.409999847412109,
+        "volume": 13600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.409999847412109
+      },
+      {
+        "ticker": "RVSN",
         "date": "2026-08-31",
         "open": 4.400000095367432,
         "high": 4.590000152587891,
@@ -12569,6 +12583,17 @@
         "volume": 5100,
         "source": "yahoo-chart",
         "adjusted_close": 4.690000057220459
+      },
+      {
+        "ticker": "RVSN",
+        "date": "2026-09-02",
+        "open": 4.559999942779541,
+        "high": 4.889999866485596,
+        "low": 4.559999942779541,
+        "close": 4.889999866485596,
+        "volume": 5200,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.889999866485596
       }
     ],
     "dataStatus": {
@@ -12608,13 +12633,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 44.25,
-      "growthSpurtBenchmarkPercentile": 0.610205,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-02T12:16:13.645832+00:00",
+      "growthSpurtScore": 53.16,
+      "growthSpurtBenchmarkPercentile": 0.683491,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-03T12:14:14.704747+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

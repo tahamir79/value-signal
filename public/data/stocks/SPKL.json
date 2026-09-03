@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-02T12:30:57.535664+00:00",
+  "generatedAt": "2026-09-03T12:36:18.831544+00:00",
   "record": {
     "security": {
       "ticker": "SPKL",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.56,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 11.57,
+      "dailyChangePercent": 0.0865,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.381964,
       "latestRevenueBillions": null,
@@ -427,49 +427,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SPKL",
-      "generatedAt": "2026-09-02T12:16:13.645832+00:00",
-      "marketDataAsOf": "2026-09-01",
+      "generatedAt": "2026-09-03T12:14:14.704747+00:00",
+      "marketDataAsOf": "2026-09-02",
       "status": "not_detected",
-      "growthSpurtScore": 17.74,
+      "growthSpurtScore": 24.47,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00430657,
-        "return63d": -0.01784197,
-        "trendSlope21d": -0.00080437,
-        "trendSlope63d": -0.00153703,
-        "trendAnnualizedReturn63d": -0.32113405,
-        "trendFitR2_63d": 0.27344239,
-        "positiveWeekRatio63d": 0.25,
-        "trendResidualVolatility63d": 0.03540806,
+        "return21d": -0.01195562,
+        "return63d": 0.01048034,
+        "trendSlope21d": -0.00058685,
+        "trendSlope63d": -0.00158632,
+        "trendAnnualizedReturn63d": -0.32951462,
+        "trendFitR2_63d": 0.39268329,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.03241465,
         "maxDrawdown63d": -0.15674099,
-        "downsideVolatility63d": 0.01366407,
-        "excessReturnVsSpy21d": -0.02405142,
-        "excessReturnVsSpy63d": -0.02470065,
-        "trendAcceleration": 0.00076964,
-        "largestOneDayContribution63d": 0.14118931,
+        "downsideVolatility63d": 0.01360412,
+        "excessReturnVsSpy21d": -0.0039564,
+        "excessReturnVsSpy63d": -0.00661133,
+        "trendAcceleration": 0.00161499,
+        "largestOneDayContribution63d": 0.14744084,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 11.6621,
-        "relativeStrengthScore": 29.4429,
+        "directionScore": 3.0568,
+        "consistencyScore": 21.0975,
+        "relativeStrengthScore": 45.5832,
         "drawdownControlScore": 47.753,
-        "confirmationScore": 17.6964
+        "confirmationScore": 20.0
       },
-      "benchmarkPercentile": 0.293004,
+      "benchmarkPercentile": 0.395899,
       "metricPercentiles": {
-        "trendSlope63d": 0.311941,
-        "trendFitR2_63d": 0.400316,
-        "excessReturnVsSpy63d": 0.461945,
-        "drawdownControlScore": 0.604419,
-        "growthSpurtScore": 0.293004
+        "trendSlope63d": 0.306519,
+        "trendFitR2_63d": 0.484227,
+        "excessReturnVsSpy63d": 0.503437,
+        "drawdownControlScore": 0.599895,
+        "growthSpurtScore": 0.395899
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8064,6 +8067,17 @@
       },
       {
         "ticker": "SPKL",
+        "date": "2026-08-28",
+        "open": 11.550000190734863,
+        "high": 11.5600004196167,
+        "low": 11.539999961853027,
+        "close": 11.5600004196167,
+        "volume": 8200,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.5600004196167
+      },
+      {
+        "ticker": "SPKL",
         "date": "2026-08-31",
         "open": 11.609999656677246,
         "high": 11.609999656677246,
@@ -8083,6 +8097,17 @@
         "volume": 11900,
         "source": "yahoo-chart",
         "adjusted_close": 11.5600004196167
+      },
+      {
+        "ticker": "SPKL",
+        "date": "2026-09-02",
+        "open": 11.609999656677246,
+        "high": 11.609999656677246,
+        "low": 11.5600004196167,
+        "close": 11.569999694824219,
+        "volume": 13100,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.569999694824219
       }
     ],
     "dataStatus": {
@@ -8124,13 +8149,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 17.74,
-      "growthSpurtBenchmarkPercentile": 0.293004,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-02T12:16:13.645832+00:00",
+      "growthSpurtScore": 24.47,
+      "growthSpurtBenchmarkPercentile": 0.395899,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-03T12:14:14.704747+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

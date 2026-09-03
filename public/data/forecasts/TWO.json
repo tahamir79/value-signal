@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "TWO",
   "companyName": "TWO HARBORS INVESTMENT CORP.",
-  "generatedAt": "2026-09-03T08:36:50.277158+00:00",
+  "generatedAt": "2026-09-03T12:40:33.702242+00:00",
   "marketDataAsOf": "2026-08-24",
   "currentPrice": 12.18,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-03T08:36:50.277158+00:00",
+    "collectedAt": "2026-09-03T12:40:33.702242+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,43 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-03T08:36:50.277158+00:00",
+    "generatedAt": "2026-09-03T12:40:33.702242+00:00",
     "marketDataAsOf": "2026-08-24",
     "currentPrice": 12.18,
     "horizon30Day": {
-      "returnEstimate": 0.0018166,
-      "lowerReturn": -0.04007966,
-      "upperReturn": 0.05304774,
-      "estimatedPrice": 12.2021,
-      "lowerEstimatedPrice": 11.6918,
-      "upperEstimatedPrice": 12.8261,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 2,
+      "status": "insufficient_data",
+      "usableObservationCount": 2,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 2 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.00088947,
-      "lowerReturn": -0.06890515,
-      "upperReturn": 0.12433825,
-      "estimatedPrice": 12.1692,
-      "lowerEstimatedPrice": 11.3407,
-      "upperEstimatedPrice": 13.6944,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "Not enough 30-day history: 2 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
