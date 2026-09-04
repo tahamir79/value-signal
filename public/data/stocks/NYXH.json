@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T08:32:45.120993+00:00",
+  "generatedAt": "2026-09-04T08:36:12.843881+00:00",
   "record": {
     "security": {
       "ticker": "NYXH",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.51,
-      "dailyChangePercent": 1.3423,
+      "latestPrice": 1.76,
+      "dailyChangePercent": 16.5563,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,63 +335,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NYXH",
-      "generatedAt": "2026-09-03T08:15:24.115179+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-04T08:12:59.193932+00:00",
+      "marketDataAsOf": "2026-09-03",
       "status": "not_detected",
-      "growthSpurtScore": 26.98,
+      "growthSpurtScore": 30.31,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.04137927,
-        "return63d": -0.47386758,
-        "trendSlope21d": 0.00172608,
-        "trendSlope63d": 0.0,
-        "trendAnnualizedReturn63d": 0.0,
+        "return21d": 0.24822697,
+        "return63d": -0.38888892,
+        "trendSlope21d": 0.00176376,
+        "trendSlope63d": 0.00019374,
+        "trendAnnualizedReturn63d": 0.05003467,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.10595571,
-        "maxDrawdown63d": -0.54513893,
-        "downsideVolatility63d": 0.11972843,
-        "excessReturnVsSpy21d": 0.0493785,
-        "excessReturnVsSpy63d": -0.49095925,
-        "trendAcceleration": 0.00371024,
-        "largestOneDayContribution63d": 0.22501602,
-        "percentAboveTrendLine63d": 0.53968254
+        "trendResidualVolatility63d": 0.07323273,
+        "maxDrawdown63d": -0.26404496,
+        "downsideVolatility63d": 0.01878945,
+        "excessReturnVsSpy21d": 0.25424161,
+        "excessReturnVsSpy63d": -0.40215178,
+        "trendAcceleration": 0.00335106,
+        "largestOneDayContribution63d": 0.08826876,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
-        "consistencyScore": 15.9127,
+        "directionScore": 26.433,
+        "consistencyScore": 14.3254,
         "relativeStrengthScore": 35.0,
-        "drawdownControlScore": 0.0,
+        "drawdownControlScore": 11.985,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.408659,
+      "benchmarkPercentile": 0.454786,
       "metricPercentiles": {
-        "trendSlope63d": 0.445618,
-        "trendFitR2_63d": 0.062302,
-        "excessReturnVsSpy63d": 0.069681,
-        "drawdownControlScore": 0.147307,
-        "growthSpurtScore": 0.408659
+        "trendSlope63d": 0.507668,
+        "trendFitR2_63d": 0.058964,
+        "excessReturnVsSpy63d": 0.100639,
+        "drawdownControlScore": 0.339503,
+        "growthSpurtScore": 0.454786
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "NYXH",
-        "date": "2021-09-03",
-        "open": 31.09000015258789,
-        "high": 34.20000076293945,
-        "low": 30.709999084472656,
-        "close": 30.940000534057617,
-        "volume": 3800,
-        "source": "yahoo-chart",
-        "adjusted_close": 30.940000534057617
-      },
       {
         "ticker": "NYXH",
         "date": "2021-09-07",
@@ -14171,9 +14163,20 @@
         "high": 1.534999966621399,
         "low": 1.4950000047683716,
         "close": 1.5099999904632568,
-        "volume": 1213400,
+        "volume": 3029000,
         "source": "yahoo-chart",
         "adjusted_close": 1.5099999904632568
+      },
+      {
+        "ticker": "NYXH",
+        "date": "2026-09-03",
+        "open": 1.8200000524520874,
+        "high": 1.8300000429153442,
+        "low": 1.649999976158142,
+        "close": 1.7599999904632568,
+        "volume": 4541400,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7599999904632568
       }
     ],
     "dataStatus": {
@@ -14213,13 +14216,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 26.98,
-      "growthSpurtBenchmarkPercentile": 0.408659,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-03T08:15:24.115179+00:00",
+      "growthSpurtScore": 30.31,
+      "growthSpurtBenchmarkPercentile": 0.454786,
+      "growthSpurtMarketDataAsOf": "2026-09-03",
+      "lastPipelineRun": "2026-09-04T08:12:59.193932+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

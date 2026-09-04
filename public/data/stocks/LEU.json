@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T08:32:45.120993+00:00",
+  "generatedAt": "2026-09-04T08:36:12.843881+00:00",
   "record": {
     "security": {
       "ticker": "LEU",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 171.49,
-      "dailyChangePercent": 1.8894,
-      "marketCapBillions": 2.3449,
+      "latestPrice": 170.46,
+      "dailyChangePercent": -0.6006,
+      "marketCapBillions": 2.3309,
       "liabilitiesToAssets": 0.665982,
       "latestRevenueBillions": 0.4487,
       "grossMarginPercent": 26.1868,
@@ -321,7 +321,7 @@
       "shortTermDebtShare": 0.005154,
       "bookValue": 845400000.0,
       "bookValuePerShare": 61.825665,
-      "priceToBook": 2.773767,
+      "priceToBook": 2.757108,
       "retainedEarnings": 28300000.0
     },
     "balanceSheetScoringShadow": {
@@ -534,63 +534,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LEU",
-      "generatedAt": "2026-09-03T08:15:24.115179+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-04T08:12:59.193932+00:00",
+      "marketDataAsOf": "2026-09-03",
       "status": "not_detected",
-      "growthSpurtScore": 19.28,
+      "growthSpurtScore": 19.06,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.09379623,
-        "return63d": -0.05603563,
-        "trendSlope21d": -0.00429214,
-        "trendSlope63d": 0.00207584,
-        "trendAnnualizedReturn63d": 0.68726827,
-        "trendFitR2_63d": 0.24588367,
+        "return21d": -0.09150987,
+        "return63d": -0.08693554,
+        "trendSlope21d": -0.00513146,
+        "trendSlope63d": 0.00212338,
+        "trendAnnualizedReturn63d": 0.70760423,
+        "trendFitR2_63d": 0.26963234,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.06046491,
+        "trendResidualVolatility63d": 0.05851006,
         "maxDrawdown63d": -0.23156901,
-        "downsideVolatility63d": 0.02946371,
-        "excessReturnVsSpy21d": -0.08579701,
-        "excessReturnVsSpy63d": -0.0731273,
-        "trendAcceleration": -0.00533501,
-        "largestOneDayContribution63d": 0.04985522,
+        "downsideVolatility63d": 0.02383076,
+        "excessReturnVsSpy21d": -0.08549524,
+        "excessReturnVsSpy63d": -0.1001984,
+        "trendAcceleration": -0.00667141,
+        "largestOneDayContribution63d": 0.04855948,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 45.0,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 2.792,
+        "consistencyScore": 8.5568,
+        "relativeStrengthScore": 0.0,
         "drawdownControlScore": 22.8103,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.305702,
+      "benchmarkPercentile": 0.308831,
       "metricPercentiles": {
-        "trendSlope63d": 0.725977,
-        "trendFitR2_63d": 0.371172,
-        "excessReturnVsSpy63d": 0.339362,
-        "drawdownControlScore": 0.407075,
-        "growthSpurtScore": 0.305702
+        "trendSlope63d": 0.728186,
+        "trendFitR2_63d": 0.391327,
+        "excessReturnVsSpy63d": 0.302982,
+        "drawdownControlScore": 0.39926,
+        "growthSpurtScore": 0.308831
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "LEU",
-        "date": "2021-09-03",
-        "open": 31.649999618530273,
-        "high": 32.650001525878906,
-        "low": 30.110000610351562,
-        "close": 31.6200008392334,
-        "volume": 99800,
-        "source": "yahoo-chart",
-        "adjusted_close": 31.6200008392334
-      },
       {
         "ticker": "LEU",
         "date": "2021-09-07",
@@ -14373,6 +14365,17 @@
         "volume": 608300,
         "source": "yahoo-chart",
         "adjusted_close": 171.49000549316406
+      },
+      {
+        "ticker": "LEU",
+        "date": "2026-09-03",
+        "open": 170.5,
+        "high": 175.60000610351562,
+        "low": 168.80999755859375,
+        "close": 170.4600067138672,
+        "volume": 431100,
+        "source": "yahoo-chart",
+        "adjusted_close": 170.4600067138672
       }
     ],
     "dataStatus": {
@@ -14403,17 +14406,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "neutral",
+      "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 19.28,
-      "growthSpurtBenchmarkPercentile": 0.305702,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-03T08:15:24.115179+00:00",
-      "balanceSheetExperimentalSignal": "neutral",
+      "growthSpurtScore": 19.06,
+      "growthSpurtBenchmarkPercentile": 0.308831,
+      "growthSpurtMarketDataAsOf": "2026-09-03",
+      "lastPipelineRun": "2026-09-04T08:12:59.193932+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }
   }

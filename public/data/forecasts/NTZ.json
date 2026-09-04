@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "NTZ",
   "companyName": "NATUZZI S P A",
-  "generatedAt": "2026-09-04T01:28:06.401935+00:00",
+  "generatedAt": "2026-09-04T08:41:14.449894+00:00",
   "marketDataAsOf": "2026-09-02",
   "currentPrice": 1.0,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-04T01:28:06.401935+00:00",
+    "collectedAt": "2026-09-04T08:41:14.449894+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-04T01:28:06.401935+00:00",
+    "generatedAt": "2026-09-04T08:41:14.449894+00:00",
     "marketDataAsOf": "2026-09-02",
     "currentPrice": 1.0,
     "horizon30Day": {
-      "returnEstimate": -0.03441175,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.05541557,
-      "estimatedPrice": 0.9656,
-      "lowerEstimatedPrice": 0.92,
-      "upperEstimatedPrice": 1.0554,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 3,
+      "status": "insufficient_data",
+      "usableObservationCount": 3,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 3 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.05032673,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.06527258,
-      "estimatedPrice": 0.9497,
-      "lowerEstimatedPrice": 0.85,
-      "upperEstimatedPrice": 1.0653,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "Not enough 30-day history: 3 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

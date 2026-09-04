@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T08:32:45.120993+00:00",
+  "generatedAt": "2026-09-04T08:36:12.843881+00:00",
   "record": {
     "security": {
       "ticker": "MSTR",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 123.19,
-      "dailyChangePercent": -1.3533,
+      "latestPrice": 144.82,
+      "dailyChangePercent": 17.5582,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.137657,
       "latestRevenueBillions": 0.4772,
@@ -489,63 +489,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MSTR",
-      "generatedAt": "2026-09-03T08:15:24.115179+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-04T08:12:59.193932+00:00",
+      "marketDataAsOf": "2026-09-03",
       "status": "not_detected",
-      "growthSpurtScore": 33.31,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.26154634,
-        "return63d": -0.02655077,
-        "trendSlope21d": 0.01813173,
-        "trendSlope63d": 0.0003701,
-        "trendAnnualizedReturn63d": 0.09775316,
+        "return21d": 0.47219684,
+        "return63d": 0.119425,
+        "trendSlope21d": 0.02078053,
+        "trendSlope63d": 0.00097015,
+        "trendAnnualizedReturn63d": 0.27695453,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.12898935,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.13127201,
         "maxDrawdown63d": -0.37235018,
-        "downsideVolatility63d": 0.02531474,
-        "excessReturnVsSpy21d": 0.26954557,
-        "excessReturnVsSpy63d": -0.04364244,
-        "trendAcceleration": 0.02433407,
-        "largestOneDayContribution63d": 0.04627671,
+        "downsideVolatility63d": 0.02515454,
+        "excessReturnVsSpy21d": 0.47821148,
+        "excessReturnVsSpy63d": 0.10616214,
+        "trendAcceleration": 0.02602458,
+        "largestOneDayContribution63d": 0.06168933,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 32.5683,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 49.7703,
+        "directionScore": 90.4407,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.480993,
+      "benchmarkPercentile": 0.730037,
       "metricPercentiles": {
-        "trendSlope63d": 0.551214,
-        "trendFitR2_63d": 0.062302,
-        "excessReturnVsSpy63d": 0.386702,
-        "drawdownControlScore": 0.147307,
-        "growthSpurtScore": 0.480993
+        "trendSlope63d": 0.620836,
+        "trendFitR2_63d": 0.058964,
+        "excessReturnVsSpy63d": 0.725772,
+        "drawdownControlScore": 0.141988,
+        "growthSpurtScore": 0.730037
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "MSTR",
-        "date": "2021-09-03",
-        "open": 71.61000061035156,
-        "high": 72.80000305175781,
-        "low": 70.3499984741211,
-        "close": 71.22599792480469,
-        "volume": 7329000,
-        "source": "yahoo-chart",
-        "adjusted_close": 71.22599792480469
-      },
       {
         "ticker": "MSTR",
         "date": "2021-09-07",
@@ -14325,9 +14318,20 @@
         "high": 124.66000366210938,
         "low": 121.37999725341797,
         "close": 123.19000244140625,
-        "volume": 14760500,
+        "volume": 14852200,
         "source": "yahoo-chart",
         "adjusted_close": 123.19000244140625
+      },
+      {
+        "ticker": "MSTR",
+        "date": "2026-09-03",
+        "open": 127.98999786376953,
+        "high": 144.9199981689453,
+        "low": 127.58000183105469,
+        "close": 144.82000732421875,
+        "volume": 44838900,
+        "source": "yahoo-chart",
+        "adjusted_close": 144.82000732421875
       }
     ],
     "dataStatus": {
@@ -14364,13 +14368,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-03",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 33.31,
-      "growthSpurtBenchmarkPercentile": 0.480993,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-03T08:15:24.115179+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.730037,
+      "growthSpurtMarketDataAsOf": "2026-09-03",
+      "lastPipelineRun": "2026-09-04T08:12:59.193932+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
