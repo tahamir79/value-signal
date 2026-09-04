@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T01:36:52.106139+00:00",
+  "generatedAt": "2026-09-04T01:22:49.780023+00:00",
   "record": {
     "security": {
       "ticker": "DTSQ",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 11.36,
-      "dailyChangePercent": 0.0881,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 0.0415,
       "liabilitiesToAssets": 0.092923,
       "latestRevenueBillions": null,
@@ -427,50 +427,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "DTSQ",
-      "generatedAt": "2026-09-03T01:18:36.665115+00:00",
-      "marketDataAsOf": "2026-09-01",
+      "generatedAt": "2026-09-04T01:08:19.627360+00:00",
+      "marketDataAsOf": "2026-09-02",
       "status": "not_detected",
-      "growthSpurtScore": 41.0,
+      "growthSpurtScore": 36.61,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00353357,
+        "return21d": 0.00264781,
         "return63d": 0.00709219,
-        "trendSlope21d": 0.00055224,
+        "trendSlope21d": 0.00058736,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.00333345,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00331251,
         "maxDrawdown63d": -0.01403507,
         "downsideVolatility63d": 0.0015108,
-        "excessReturnVsSpy21d": -0.00189102,
-        "excessReturnVsSpy63d": 0.00159892,
-        "trendAcceleration": 0.00047208,
-        "largestOneDayContribution63d": 0.10518269,
-        "percentAboveTrendLine63d": 0.6031746
+        "excessReturnVsSpy21d": 0.01064704,
+        "excessReturnVsSpy63d": -0.00999948,
+        "trendAcceleration": 0.0005244,
+        "largestOneDayContribution63d": 0.1153372,
+        "percentAboveTrendLine63d": 0.61904762
       },
       "scoreBreakdown": {
-        "directionScore": 4.4243,
-        "consistencyScore": 45.018,
-        "relativeStrengthScore": 49.8222,
+        "directionScore": 3.8338,
+        "consistencyScore": 27.2478,
+        "relativeStrengthScore": 50.5958,
         "drawdownControlScore": 95.3216,
-        "confirmationScore": 41.5218
+        "confirmationScore": 42.2688
       },
-      "benchmarkPercentile": 0.542081,
+      "benchmarkPercentile": 0.490289,
       "metricPercentiles": {
-        "trendSlope63d": 0.428907,
-        "trendFitR2_63d": 0.05907,
-        "excessReturnVsSpy63d": 0.503945,
-        "drawdownControlScore": 0.958181,
-        "growthSpurtScore": 0.542081
+        "trendSlope63d": 0.433596,
+        "trendFitR2_63d": 0.058268,
+        "excessReturnVsSpy63d": 0.452482,
+        "drawdownControlScore": 0.95748,
+        "growthSpurtScore": 0.490289
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5884,6 +5888,17 @@
         "volume": 800,
         "source": "yahoo-chart",
         "adjusted_close": 11.359999656677246
+      },
+      {
+        "ticker": "DTSQ",
+        "date": "2026-09-02",
+        "open": 11.359999656677246,
+        "high": 11.359999656677246,
+        "low": 11.359999656677246,
+        "close": 11.359999656677246,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.359999656677246
       }
     ],
     "dataStatus": {
@@ -5925,13 +5940,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-03",
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 41.0,
-      "growthSpurtBenchmarkPercentile": 0.542081,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-03T01:18:36.665115+00:00",
+      "growthSpurtScore": 36.61,
+      "growthSpurtBenchmarkPercentile": 0.490289,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-04T01:08:19.627360+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": true
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T01:36:52.106139+00:00",
+  "generatedAt": "2026-09-04T01:22:49.780023+00:00",
   "record": {
     "security": {
       "ticker": "ELLA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.42,
-      "dailyChangePercent": 0.0394,
-      "marketCapBillions": 0.9548,
+      "latestPrice": 25.26,
+      "dailyChangePercent": -0.6294,
+      "marketCapBillions": 0.9487,
       "liabilitiesToAssets": 0.70838,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -181,7 +181,7 @@
       "shortTermDebtShare": null,
       "bookValue": 228501000.0,
       "bookValuePerShare": 6.083757,
-      "priceToBook": 4.178339,
+      "priceToBook": 4.15204,
       "retainedEarnings": -171744000.0
     },
     "balanceSheetScoringShadow": {
@@ -408,50 +408,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ELLA",
-      "generatedAt": "2026-09-03T01:18:36.665115+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-04T01:08:19.627360+00:00",
+      "marketDataAsOf": "2026-09-03",
       "status": "not_detected",
-      "growthSpurtScore": 49.92,
+      "growthSpurtScore": 40.4,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.01396092,
-        "return63d": 0.01593538,
-        "trendSlope21d": 0.00069088,
-        "trendSlope63d": 8.309e-05,
-        "trendAnnualizedReturn63d": 0.02115841,
-        "trendFitR2_63d": 0.07327878,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.00468421,
+        "return21d": 0.0059737,
+        "return63d": 0.00560499,
+        "trendSlope21d": 0.00062943,
+        "trendSlope63d": 9.024e-05,
+        "trendAnnualizedReturn63d": 0.02300101,
+        "trendFitR2_63d": 0.07516337,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00468935,
         "maxDrawdown63d": -0.01616719,
-        "downsideVolatility63d": 0.0022805,
-        "excessReturnVsSpy21d": 0.02634212,
-        "excessReturnVsSpy63d": 0.00333652,
-        "trendAcceleration": 0.00079443,
-        "largestOneDayContribution63d": 0.05208517,
+        "downsideVolatility63d": 0.00235115,
+        "excessReturnVsSpy21d": 0.01198833,
+        "excessReturnVsSpy63d": -0.00765788,
+        "trendAcceleration": 0.00073937,
+        "largestOneDayContribution63d": 0.05070544,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 16.6755,
-        "consistencyScore": 46.9078,
-        "relativeStrengthScore": 62.8801,
+        "directionScore": 8.5745,
+        "consistencyScore": 32.6202,
+        "relativeStrengthScore": 52.1339,
         "drawdownControlScore": 94.6109,
-        "confirmationScore": 64.1941
+        "confirmationScore": 50.5358
       },
-      "benchmarkPercentile": 0.632514,
+      "benchmarkPercentile": 0.521785,
       "metricPercentiles": {
-        "trendSlope63d": 0.450601,
-        "trendFitR2_63d": 0.213278,
-        "excessReturnVsSpy63d": 0.514992,
-        "drawdownControlScore": 0.953999,
-        "growthSpurtScore": 0.632514
+        "trendSlope63d": 0.456168,
+        "trendFitR2_63d": 0.212073,
+        "excessReturnVsSpy63d": 0.467793,
+        "drawdownControlScore": 0.953281,
+        "growthSpurtScore": 0.521785
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1594,9 +1598,20 @@
         "high": 25.420000076293945,
         "low": 25.25,
         "close": 25.420000076293945,
-        "volume": 5759,
+        "volume": 5800,
         "source": "yahoo-chart",
         "adjusted_close": 25.420000076293945
+      },
+      {
+        "ticker": "ELLA",
+        "date": "2026-09-03",
+        "open": 25.479999542236328,
+        "high": 25.309999465942383,
+        "low": 25.194799423217773,
+        "close": 25.260000228881836,
+        "volume": 58242,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.260000228881836
       }
     ],
     "dataStatus": {
@@ -1636,13 +1651,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2025-06-23",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 49.92,
-      "growthSpurtBenchmarkPercentile": 0.632514,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-03T01:18:36.665115+00:00",
+      "growthSpurtScore": 40.4,
+      "growthSpurtBenchmarkPercentile": 0.521785,
+      "growthSpurtMarketDataAsOf": "2026-09-03",
+      "lastPipelineRun": "2026-09-04T01:08:19.627360+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-03T01:36:52.106139+00:00",
+  "generatedAt": "2026-09-04T01:22:49.780023+00:00",
   "record": {
     "security": {
       "ticker": "CRSP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 56.82,
-      "dailyChangePercent": -0.2808,
-      "marketCapBillions": 5.4941,
+      "latestPrice": 56.92,
+      "dailyChangePercent": 0.176,
+      "marketCapBillions": 5.5037,
       "liabilitiesToAssets": 0.341116,
       "latestRevenueBillions": 0.0035,
       "grossMarginPercent": null,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1746551000.0,
       "bookValuePerShare": 18.062913,
-      "priceToBook": 3.145672,
+      "priceToBook": 3.151208,
       "retainedEarnings": -2161636000.0
     },
     "balanceSheetScoringShadow": {
@@ -500,67 +500,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CRSP",
-      "generatedAt": "2026-09-03T01:18:36.665115+00:00",
-      "marketDataAsOf": "2026-09-01",
-      "status": "not_detected",
-      "growthSpurtScore": 54.0,
+      "generatedAt": "2026-09-04T01:08:19.627360+00:00",
+      "marketDataAsOf": "2026-09-02",
+      "status": "emerging",
+      "growthSpurtScore": 63.47,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.14625782,
-        "return63d": 0.09227219,
-        "trendSlope21d": 0.00559952,
-        "trendSlope63d": 0.00127798,
-        "trendAnnualizedReturn63d": 0.37995357,
-        "trendFitR2_63d": 0.03463591,
+        "return21d": 0.07254567,
+        "return63d": 0.09293387,
+        "trendSlope21d": 0.0050743,
+        "trendSlope63d": 0.00138707,
+        "trendAnnualizedReturn63d": 0.41841667,
+        "trendFitR2_63d": 0.03309655,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.074748,
+        "trendResidualVolatility63d": 0.07496153,
         "maxDrawdown63d": -0.24802066,
         "downsideVolatility63d": 0.02070005,
-        "excessReturnVsSpy21d": 0.14083323,
-        "excessReturnVsSpy63d": 0.08677891,
-        "trendAcceleration": 0.0082606,
-        "largestOneDayContribution63d": 0.08033236,
+        "excessReturnVsSpy21d": 0.08054489,
+        "excessReturnVsSpy63d": 0.07584221,
+        "trendAcceleration": 0.00758218,
+        "largestOneDayContribution63d": 0.08519515,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 91.9127,
+        "directionScore": 92.1057,
         "consistencyScore": 14.3254,
-        "relativeStrengthScore": 100.0,
+        "relativeStrengthScore": 98.3109,
         "drawdownControlScore": 17.3264,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.714846,
+      "benchmarkPercentile": 0.800525,
       "metricPercentiles": {
-        "trendSlope63d": 0.622582,
-        "trendFitR2_63d": 0.168322,
-        "excessReturnVsSpy63d": 0.688059,
-        "drawdownControlScore": 0.377418,
-        "growthSpurtScore": 0.714846
+        "trendSlope63d": 0.635696,
+        "trendFitR2_63d": 0.164304,
+        "excessReturnVsSpy63d": 0.647307,
+        "drawdownControlScore": 0.375328,
+        "growthSpurtScore": 0.800525
       },
       "reasonCodes": [
+        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE",
-        "ONE_DAY_SPIKE_DOMINATED"
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "ONE_DAY_SPIKE_DOMINATED"
-      ]
+      "warnings": []
     },
     "priceHistory": [
-      {
-        "ticker": "CRSP",
-        "date": "2021-09-03",
-        "open": 127.83000183105469,
-        "high": 127.83000183105469,
-        "low": 121.1500015258789,
-        "close": 121.95999908447266,
-        "volume": 1001400,
-        "source": "yahoo-chart",
-        "adjusted_close": 121.95999908447266
-      },
       {
         "ticker": "CRSP",
         "date": "2021-09-07",
@@ -14332,6 +14319,17 @@
         "volume": 890500,
         "source": "yahoo-chart",
         "adjusted_close": 56.81999969482422
+      },
+      {
+        "ticker": "CRSP",
+        "date": "2026-09-02",
+        "open": 57.130001068115234,
+        "high": 58.9630012512207,
+        "low": 55.59199905395508,
+        "close": 56.91999816894531,
+        "volume": 910700,
+        "source": "yahoo-chart",
+        "adjusted_close": 56.91999816894531
       }
     ],
     "dataStatus": {
@@ -14367,13 +14365,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-03",
-      "latestScoringDate": "2026-09-01",
+      "latestScoringDate": "2026-09-02",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 54.0,
-      "growthSpurtBenchmarkPercentile": 0.714846,
-      "growthSpurtMarketDataAsOf": "2026-09-01",
-      "lastPipelineRun": "2026-09-03T01:18:36.665115+00:00",
+      "growthSpurtStatus": "emerging",
+      "growthSpurtScore": 63.47,
+      "growthSpurtBenchmarkPercentile": 0.800525,
+      "growthSpurtMarketDataAsOf": "2026-09-02",
+      "lastPipelineRun": "2026-09-04T01:08:19.627360+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
