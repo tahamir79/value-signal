@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T01:22:49.780023+00:00",
+  "generatedAt": "2026-09-05T01:36:22.947997+00:00",
   "record": {
     "security": {
       "ticker": "FACT",
@@ -415,51 +415,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FACT",
-      "generatedAt": "2026-09-04T01:08:19.627360+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-05T01:11:59.984868+00:00",
+      "marketDataAsOf": "2026-09-03",
       "status": "not_detected",
-      "growthSpurtScore": 37.56,
+      "growthSpurtScore": 36.06,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00365815,
-        "return63d": 0.00469485,
-        "trendSlope21d": 0.00018736,
-        "trendSlope63d": 8.512e-05,
-        "trendAnnualizedReturn63d": 0.02168164,
-        "trendFitR2_63d": 0.22758484,
+        "return21d": 0.00375234,
+        "return63d": 0.00375234,
+        "trendSlope21d": 0.00018726,
+        "trendSlope63d": 9.393e-05,
+        "trendAnnualizedReturn63d": 0.02395376,
+        "trendFitR2_63d": 0.25933826,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.00170538,
+        "trendResidualVolatility63d": 0.0017186,
         "maxDrawdown63d": -0.00561802,
         "downsideVolatility63d": 0.00101938,
-        "excessReturnVsSpy21d": 0.01165738,
-        "excessReturnVsSpy63d": -0.01239681,
-        "trendAcceleration": 0.00018736,
-        "largestOneDayContribution63d": 0.08490938,
+        "excessReturnVsSpy21d": -0.00063847,
+        "excessReturnVsSpy63d": -0.02011778,
+        "trendAcceleration": 0.00018726,
+        "largestOneDayContribution63d": 0.0892415,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.5957,
-        "consistencyScore": 33.7053,
-        "relativeStrengthScore": 50.0639,
+        "directionScore": 6.6758,
+        "consistencyScore": 34.3541,
+        "relativeStrengthScore": 41.5478,
         "drawdownControlScore": 98.1273,
-        "confirmationScore": 24.2455
+        "confirmationScore": 24.3661
       },
-      "benchmarkPercentile": 0.501575,
+      "benchmarkPercentile": 0.501571,
       "metricPercentiles": {
-        "trendSlope63d": 0.455118,
-        "trendFitR2_63d": 0.331759,
-        "excessReturnVsSpy63d": 0.444562,
-        "drawdownControlScore": 0.980052,
-        "growthSpurtScore": 0.501575
+        "trendSlope63d": 0.462304,
+        "trendFitR2_63d": 0.348168,
+        "excessReturnVsSpy63d": 0.472076,
+        "drawdownControlScore": 0.978534,
+        "growthSpurtScore": 0.501571
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5136,6 +5139,17 @@
         "volume": 3400,
         "source": "yahoo-chart",
         "adjusted_close": 10.699999809265137
+      },
+      {
+        "ticker": "FACT",
+        "date": "2026-09-03",
+        "open": 10.699999809265137,
+        "high": 10.699999809265137,
+        "low": 10.699999809265137,
+        "close": 10.699999809265137,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.699999809265137
       }
     ],
     "dataStatus": {
@@ -5175,13 +5189,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 37.56,
-      "growthSpurtBenchmarkPercentile": 0.501575,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-04T01:08:19.627360+00:00",
+      "growthSpurtScore": 36.06,
+      "growthSpurtBenchmarkPercentile": 0.501571,
+      "growthSpurtMarketDataAsOf": "2026-09-03",
+      "lastPipelineRun": "2026-09-05T01:11:59.984868+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
