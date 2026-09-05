@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "LEG",
   "companyName": "LEGGETT & PLATT INC",
-  "generatedAt": "2026-09-05T01:41:31.239868+00:00",
+  "generatedAt": "2026-09-05T08:09:52.733545+00:00",
   "marketDataAsOf": "2026-08-27",
   "currentPrice": 9.2,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-05T01:41:31.239868+00:00",
+    "collectedAt": "2026-09-05T08:09:52.733545+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-05T01:41:31.239868+00:00",
+    "generatedAt": "2026-09-05T08:09:52.733545+00:00",
     "marketDataAsOf": "2026-08-27",
     "currentPrice": 9.2,
     "horizon30Day": {
-      "returnEstimate": -0.00551305,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.08,
-      "estimatedPrice": 9.1493,
-      "lowerEstimatedPrice": 8.464,
-      "upperEstimatedPrice": 9.936,
-      "sampleCount": 108,
-      "status": "available",
-      "usableObservationCount": 108,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 1,
+      "status": "insufficient_data",
+      "usableObservationCount": 1,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 1 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.02638079,
-      "lowerReturn": -0.11019774,
-      "upperReturn": 0.08850478,
-      "estimatedPrice": 8.9573,
-      "lowerEstimatedPrice": 8.1862,
-      "upperEstimatedPrice": 10.0142,
-      "sampleCount": 101,
-      "status": "available",
-      "usableObservationCount": 101,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%"
+      "Not enough 30-day history: 1 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

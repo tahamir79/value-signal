@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T08:36:12.843881+00:00",
+  "generatedAt": "2026-09-05T08:05:53.050875+00:00",
   "record": {
     "security": {
       "ticker": "GANX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.79,
-      "dailyChangePercent": 1.1299,
-      "marketCapBillions": 0.0781,
+      "latestPrice": 1.8,
+      "dailyChangePercent": -1.0989,
+      "marketCapBillions": 0.0786,
       "liabilitiesToAssets": 0.267794,
       "latestRevenueBillions": 0.0001,
       "grossMarginPercent": null,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": 0.26455,
       "bookValue": 11292031.0,
       "bookValuePerShare": 0.258733,
-      "priceToBook": 6.918337,
+      "priceToBook": 6.956987,
       "retainedEarnings": -111640310.0
     },
     "balanceSheetScoringShadow": {
@@ -499,50 +499,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GANX",
-      "generatedAt": "2026-09-04T08:12:59.193932+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-05T07:50:33.464534+00:00",
+      "marketDataAsOf": "2026-09-04",
       "status": "not_detected",
-      "growthSpurtScore": 35.86,
+      "growthSpurtScore": 41.1,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.01704544,
-        "return63d": 0.0,
-        "trendSlope21d": -0.00788911,
-        "trendSlope63d": 0.00132914,
-        "trendAnnualizedReturn63d": 0.39786252,
-        "trendFitR2_63d": 0.10766114,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.06423034,
+        "return21d": 0.01123594,
+        "return63d": 0.05882347,
+        "trendSlope21d": -0.01056707,
+        "trendSlope63d": 0.00123469,
+        "trendAnnualizedReturn63d": 0.36498277,
+        "trendFitR2_63d": 0.10539428,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06431408,
         "maxDrawdown63d": -0.19704433,
-        "downsideVolatility63d": 0.02107539,
-        "excessReturnVsSpy21d": 0.02504467,
-        "excessReturnVsSpy63d": -0.01709167,
-        "trendAcceleration": -0.00788911,
-        "largestOneDayContribution63d": 0.08319954,
+        "downsideVolatility63d": 0.0182748,
+        "excessReturnVsSpy21d": 0.00911509,
+        "excessReturnVsSpy63d": 0.0118786,
+        "trendAcceleration": -0.01075087,
+        "largestOneDayContribution63d": 0.0860013,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 56.3636,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 54.0136,
+        "directionScore": 69.6475,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 58.8135,
         "drawdownControlScore": 34.3186,
-        "confirmationScore": 22.7273
+        "confirmationScore": 14.9813
       },
-      "benchmarkPercentile": 0.507139,
+      "benchmarkPercentile": 0.565838,
       "metricPercentiles": {
-        "trendSlope63d": 0.655738,
-        "trendFitR2_63d": 0.252776,
-        "excessReturnVsSpy63d": 0.443823,
-        "drawdownControlScore": 0.465891,
-        "growthSpurtScore": 0.507139
+        "trendSlope63d": 0.653622,
+        "trendFitR2_63d": 0.239027,
+        "excessReturnVsSpy63d": 0.590618,
+        "drawdownControlScore": 0.461132,
+        "growthSpurtScore": 0.565838
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14327,6 +14330,28 @@
         "volume": 365100,
         "source": "yahoo-chart",
         "adjusted_close": 1.7899999618530273
+      },
+      {
+        "ticker": "GANX",
+        "date": "2026-09-03",
+        "open": 1.7999999523162842,
+        "high": 1.8250000476837158,
+        "low": 1.7699999809265137,
+        "close": 1.8200000524520874,
+        "volume": 390200,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.8200000524520874
+      },
+      {
+        "ticker": "GANX",
+        "date": "2026-09-04",
+        "open": 1.809999942779541,
+        "high": 1.8300000429153442,
+        "low": 1.784999966621399,
+        "close": 1.7999999523162842,
+        "volume": 203800,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7999999523162842
       }
     ],
     "dataStatus": {
@@ -14361,13 +14386,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 35.86,
-      "growthSpurtBenchmarkPercentile": 0.507139,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-04T08:12:59.193932+00:00",
+      "growthSpurtScore": 41.1,
+      "growthSpurtBenchmarkPercentile": 0.565838,
+      "growthSpurtMarketDataAsOf": "2026-09-04",
+      "lastPipelineRun": "2026-09-05T07:50:33.464534+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

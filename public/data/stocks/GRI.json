@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T08:36:12.843881+00:00",
+  "generatedAt": "2026-09-05T08:05:53.050875+00:00",
   "record": {
     "security": {
       "ticker": "GRI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 2.0,
-      "dailyChangePercent": 4.712,
-      "marketCapBillions": 0.0044,
+      "latestPrice": 2.88,
+      "dailyChangePercent": 25.7642,
+      "marketCapBillions": 0.0063,
       "liabilitiesToAssets": 0.096661,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -238,7 +238,7 @@
       "shortTermDebtShare": null,
       "bookValue": 10280000.0,
       "bookValuePerShare": 4.702406,
-      "priceToBook": 0.425314,
+      "priceToBook": 0.612452,
       "retainedEarnings": -55337000.0
     },
     "balanceSheetScoringShadow": {
@@ -458,50 +458,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GRI",
-      "generatedAt": "2026-09-04T08:12:59.193932+00:00",
-      "marketDataAsOf": "2026-09-02",
+      "generatedAt": "2026-09-05T07:50:33.464534+00:00",
+      "marketDataAsOf": "2026-09-04",
       "status": "not_detected",
-      "growthSpurtScore": 29.5,
+      "growthSpurtScore": 47.42,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.25786161,
-        "return63d": -0.00497512,
-        "trendSlope21d": 0.01191581,
-        "trendSlope63d": -0.00357609,
-        "trendAnnualizedReturn63d": -0.59390768,
-        "trendFitR2_63d": 0.13429429,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.13497108,
+        "return21d": 0.85806465,
+        "return63d": 0.44000006,
+        "trendSlope21d": 0.01323794,
+        "trendSlope63d": -0.00243949,
+        "trendAnnualizedReturn63d": -0.45922491,
+        "trendFitR2_63d": 0.00011796,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.15749623,
         "maxDrawdown63d": -0.4051724,
-        "downsideVolatility63d": 0.03998715,
-        "excessReturnVsSpy21d": 0.26586084,
-        "excessReturnVsSpy63d": -0.02206679,
-        "trendAcceleration": 0.0242909,
-        "largestOneDayContribution63d": 0.10130688,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.04048854,
+        "excessReturnVsSpy21d": 0.85594379,
+        "excessReturnVsSpy63d": 0.39305519,
+        "trendAcceleration": 0.02561908,
+        "largestOneDayContribution63d": 0.09307981,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 58.5354,
+        "directionScore": 55.0,
+        "consistencyScore": 3.6905,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.442623,
+      "benchmarkPercentile": 0.636171,
       "metricPercentiles": {
-        "trendSlope63d": 0.193548,
-        "trendFitR2_63d": 0.281333,
-        "excessReturnVsSpy63d": 0.430777,
-        "drawdownControlScore": 0.141988,
-        "growthSpurtScore": 0.442623
+        "trendSlope63d": 0.243258,
+        "trendFitR2_63d": 0.113168,
+        "excessReturnVsSpy63d": 0.9371,
+        "drawdownControlScore": 0.140137,
+        "growthSpurtScore": 0.636171
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14286,6 +14289,28 @@
         "volume": 85800,
         "source": "yahoo-chart",
         "adjusted_close": 2.0
+      },
+      {
+        "ticker": "GRI",
+        "date": "2026-09-03",
+        "open": 2.0799999237060547,
+        "high": 2.5,
+        "low": 2.009999990463257,
+        "close": 2.2899999618530273,
+        "volume": 1599900,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.2899999618530273
+      },
+      {
+        "ticker": "GRI",
+        "date": "2026-09-04",
+        "open": 2.3399999141693115,
+        "high": 3.359999895095825,
+        "low": 2.3299999237060547,
+        "close": 2.880000114440918,
+        "volume": 7418900,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.880000114440918
       }
     ],
     "dataStatus": {
@@ -14323,13 +14348,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-02",
+      "latestScoringDate": "2026-09-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 29.5,
-      "growthSpurtBenchmarkPercentile": 0.442623,
-      "growthSpurtMarketDataAsOf": "2026-09-02",
-      "lastPipelineRun": "2026-09-04T08:12:59.193932+00:00",
+      "growthSpurtScore": 47.42,
+      "growthSpurtBenchmarkPercentile": 0.636171,
+      "growthSpurtMarketDataAsOf": "2026-09-04",
+      "lastPipelineRun": "2026-09-05T07:50:33.464534+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
