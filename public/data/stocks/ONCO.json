@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T12:38:00.270042+00:00",
+  "generatedAt": "2026-09-05T11:34:12.306101+00:00",
   "record": {
     "security": {
       "ticker": "ONCO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.739,
-      "dailyChangePercent": 9.6439,
-      "marketCapBillions": 0.0029,
+      "latestPrice": 1.02,
+      "dailyChangePercent": 38.0244,
+      "marketCapBillions": 0.004,
       "liabilitiesToAssets": 0.179961,
       "latestRevenueBillions": 0.0008,
       "grossMarginPercent": 77.6227,
@@ -297,7 +297,7 @@
       "shortTermDebtShare": null,
       "bookValue": 13468509.0,
       "bookValuePerShare": 3.41052,
-      "priceToBook": 0.216682,
+      "priceToBook": 0.299075,
       "retainedEarnings": -138296736.0
     },
     "balanceSheetScoringShadow": {
@@ -514,49 +514,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ONCO",
-      "generatedAt": "2026-09-04T12:16:03.838151+00:00",
-      "marketDataAsOf": "2026-09-03",
+      "generatedAt": "2026-09-05T11:22:09.432670+00:00",
+      "marketDataAsOf": "2026-09-04",
       "status": "not_detected",
-      "growthSpurtScore": 9.61,
+      "growthSpurtScore": 25.71,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.26467659,
-        "return63d": -0.28942303,
-        "trendSlope21d": -0.02292424,
-        "trendSlope63d": -0.00810874,
-        "trendAnnualizedReturn63d": -0.87041299,
-        "trendFitR2_63d": 0.6966183,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.09407104,
+        "return21d": 0.12831858,
+        "return63d": -0.00970873,
+        "trendSlope21d": -0.01942104,
+        "trendSlope63d": -0.00792012,
+        "trendAnnualizedReturn63d": -0.86410464,
+        "trendFitR2_63d": 0.59782238,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.10741959,
         "maxDrawdown63d": -0.45840709,
-        "downsideVolatility63d": 0.03707942,
-        "excessReturnVsSpy21d": -0.26906741,
-        "excessReturnVsSpy63d": -0.31329315,
-        "trendAcceleration": -0.01582436,
-        "largestOneDayContribution63d": 0.0875434,
+        "downsideVolatility63d": 0.03723548,
+        "excessReturnVsSpy21d": 0.12619773,
+        "excessReturnVsSpy63d": -0.0566536,
+        "trendAcceleration": -0.01249917,
+        "largestOneDayContribution63d": 0.09582605,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 38.4458,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 20.0,
+        "consistencyScore": 27.2444,
+        "relativeStrengthScore": 44.4845,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.163857,
+      "benchmarkPercentile": 0.406102,
       "metricPercentiles": {
-        "trendSlope63d": 0.08746,
-        "trendFitR2_63d": 0.757113,
-        "excessReturnVsSpy63d": 0.154334,
-        "drawdownControlScore": 0.150158,
-        "growthSpurtScore": 0.163857
+        "trendSlope63d": 0.091005,
+        "trendFitR2_63d": 0.657023,
+        "excessReturnVsSpy63d": 0.406762,
+        "drawdownControlScore": 0.147291,
+        "growthSpurtScore": 0.406102
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13087,6 +13090,17 @@
         "volume": 288300,
         "source": "yahoo-chart",
         "adjusted_close": 0.7390000224113464
+      },
+      {
+        "ticker": "ONCO",
+        "date": "2026-09-04",
+        "open": 0.7390000224113464,
+        "high": 1.0499999523162842,
+        "low": 0.7110000252723694,
+        "close": 1.0199999809265137,
+        "volume": 6392100,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.0199999809265137
       }
     ],
     "dataStatus": {
@@ -13123,17 +13137,17 @@
       ],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-03",
+      "latestScoringDate": "2026-09-04",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 9.61,
-      "growthSpurtBenchmarkPercentile": 0.163857,
-      "growthSpurtMarketDataAsOf": "2026-09-03",
-      "lastPipelineRun": "2026-09-04T12:16:03.838151+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 25.71,
+      "growthSpurtBenchmarkPercentile": 0.406102,
+      "growthSpurtMarketDataAsOf": "2026-09-04",
+      "lastPipelineRun": "2026-09-05T11:22:09.432670+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

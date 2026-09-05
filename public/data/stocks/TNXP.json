@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T12:38:00.270042+00:00",
+  "generatedAt": "2026-09-05T11:34:12.306101+00:00",
   "record": {
     "security": {
       "ticker": "TNXP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 13.37,
-      "dailyChangePercent": -0.0747,
-      "marketCapBillions": 0.2293,
+      "latestPrice": 13.14,
+      "dailyChangePercent": -1.7203,
+      "marketCapBillions": 0.2254,
       "liabilitiesToAssets": 0.125181,
       "latestRevenueBillions": 0.0131,
       "grossMarginPercent": null,
@@ -320,7 +320,7 @@
       "shortTermDebtShare": 0.245859,
       "bookValue": 222281000.0,
       "bookValuePerShare": 12.960217,
-      "priceToBook": 1.031618,
+      "priceToBook": 1.013872,
       "retainedEarnings": -935461000.0
     },
     "balanceSheetScoringShadow": {
@@ -534,52 +534,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TNXP",
-      "generatedAt": "2026-09-04T12:16:03.838151+00:00",
-      "marketDataAsOf": "2026-09-03",
-      "status": "emerging",
-      "growthSpurtScore": 68.12,
+      "generatedAt": "2026-09-05T11:22:09.432670+00:00",
+      "marketDataAsOf": "2026-09-04",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.18738895,
-        "return63d": 0.12542085,
-        "trendSlope21d": 0.00735367,
-        "trendSlope63d": 0.00207528,
-        "trendAnnualizedReturn63d": 0.68703249,
-        "trendFitR2_63d": 0.06912822,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.08622487,
+        "return21d": 0.12789706,
+        "return63d": 0.18699193,
+        "trendSlope21d": 0.00595107,
+        "trendSlope63d": 0.00205003,
+        "trendAnnualizedReturn63d": 0.67633081,
+        "trendFitR2_63d": 0.06489386,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.08625056,
         "maxDrawdown63d": -0.2806354,
-        "downsideVolatility63d": 0.02893023,
-        "excessReturnVsSpy21d": 0.18299814,
-        "excessReturnVsSpy63d": 0.10155074,
-        "trendAcceleration": 0.00994151,
-        "largestOneDayContribution63d": 0.05838313,
+        "downsideVolatility63d": 0.02854296,
+        "excessReturnVsSpy21d": 0.12577621,
+        "excessReturnVsSpy63d": 0.14004706,
+        "trendAcceleration": 0.0085755,
+        "largestOneDayContribution63d": 0.05959441,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 28.6111,
+        "consistencyScore": 14.3254,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 6.4549,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.837724,
+      "benchmarkPercentile": 0.72909,
       "metricPercentiles": {
-        "trendSlope63d": 0.736038,
-        "trendFitR2_63d": 0.208114,
-        "excessReturnVsSpy63d": 0.741543,
-        "drawdownControlScore": 0.322445,
-        "growthSpurtScore": 0.837724
+        "trendSlope63d": 0.740137,
+        "trendFitR2_63d": 0.198317,
+        "excessReturnVsSpy63d": 0.806656,
+        "drawdownControlScore": 0.319832,
+        "growthSpurtScore": 0.72909
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14375,6 +14377,17 @@
         "volume": 263900,
         "source": "yahoo-chart",
         "adjusted_close": 13.369999885559082
+      },
+      {
+        "ticker": "TNXP",
+        "date": "2026-09-04",
+        "open": 13.300000190734863,
+        "high": 13.329999923706055,
+        "low": 12.989999771118164,
+        "close": 13.140000343322754,
+        "volume": 252200,
+        "source": "yahoo-chart",
+        "adjusted_close": 13.140000343322754
       }
     ],
     "dataStatus": {
@@ -14409,13 +14422,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-09-03",
+      "latestScoringDate": "2026-09-04",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 68.12,
-      "growthSpurtBenchmarkPercentile": 0.837724,
-      "growthSpurtMarketDataAsOf": "2026-09-03",
-      "lastPipelineRun": "2026-09-04T12:16:03.838151+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.72909,
+      "growthSpurtMarketDataAsOf": "2026-09-04",
+      "lastPipelineRun": "2026-09-05T11:22:09.432670+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
