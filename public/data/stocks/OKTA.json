@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-08T08:29:41.225780+00:00",
+  "generatedAt": "2026-09-09T12:55:44.107513+00:00",
   "record": {
     "security": {
       "ticker": "OKTA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 170.6,
-      "dailyChangePercent": 0.1056,
+      "latestPrice": 167.595,
+      "dailyChangePercent": -1.7614,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.236923,
       "latestRevenueBillions": 2.919,
@@ -501,76 +501,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OKTA",
-      "generatedAt": "2026-09-08T08:16:05.783476+00:00",
-      "marketDataAsOf": "2026-09-04",
-      "status": "emerging",
-      "growthSpurtScore": 79.05,
+      "generatedAt": "2026-09-09T12:31:23.486043+00:00",
+      "marketDataAsOf": "2026-09-08",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.18876742,
-        "return63d": 0.43699465,
-        "trendSlope21d": 0.00628382,
-        "trendSlope63d": 0.00493963,
-        "trendAnnualizedReturn63d": 2.47219189,
-        "trendFitR2_63d": 0.55862746,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.0737261,
+        "return21d": 0.12995545,
+        "return63d": 0.43427474,
+        "trendSlope21d": 0.00644583,
+        "trendSlope63d": 0.00494004,
+        "trendAnnualizedReturn63d": 2.47255269,
+        "trendFitR2_63d": 0.55853347,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.07375779,
         "maxDrawdown63d": -0.15708291,
-        "downsideVolatility63d": 0.01772263,
-        "excessReturnVsSpy21d": 0.18664657,
-        "excessReturnVsSpy63d": 0.39004978,
-        "trendAcceleration": 0.00034788,
-        "largestOneDayContribution63d": 0.15947182,
+        "downsideVolatility63d": 0.01744954,
+        "excessReturnVsSpy21d": 0.13939599,
+        "excessReturnVsSpy63d": 0.39543194,
+        "trendAcceleration": 0.00045683,
+        "largestOneDayContribution63d": 0.16027526,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 50.215,
+        "consistencyScore": 35.9227,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 47.639,
-        "confirmationScore": 93.4788
+        "confirmationScore": 94.5683
       },
-      "benchmarkPercentile": 0.92324,
+      "benchmarkPercentile": 0.748029,
       "metricPercentiles": {
-        "trendSlope63d": 0.910535,
-        "trendFitR2_63d": 0.601906,
-        "excessReturnVsSpy63d": 0.936,
-        "drawdownControlScore": 0.57226,
-        "growthSpurtScore": 0.92324
+        "trendSlope63d": 0.904887,
+        "trendFitR2_63d": 0.613242,
+        "excessReturnVsSpy63d": 0.936642,
+        "drawdownControlScore": 0.592223,
+        "growthSpurtScore": 0.748029
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "OKTA",
-        "date": "2021-09-07",
-        "open": 268.82000732421875,
-        "high": 269.8800048828125,
-        "low": 263.3900146484375,
-        "close": 264.94000244140625,
-        "volume": 2120000,
-        "source": "yahoo-chart",
-        "adjusted_close": 264.94000244140625
-      },
-      {
-        "ticker": "OKTA",
-        "date": "2021-09-08",
-        "open": 263.3500061035156,
-        "high": 265.8900146484375,
-        "low": 259.30999755859375,
-        "close": 263.4599914550781,
-        "volume": 1327100,
-        "source": "yahoo-chart",
-        "adjusted_close": 263.4599914550781
-      },
       {
         "ticker": "OKTA",
         "date": "2021-09-09",
@@ -14353,6 +14333,17 @@
         "volume": 2339800,
         "source": "yahoo-chart",
         "adjusted_close": 170.60000610351562
+      },
+      {
+        "ticker": "OKTA",
+        "date": "2026-09-08",
+        "open": 168.86000061035156,
+        "high": 169.8800048828125,
+        "low": 165.74000549316406,
+        "close": 167.59500122070312,
+        "volume": 2561900,
+        "source": "yahoo-chart",
+        "adjusted_close": 167.59500122070312
       }
     ],
     "dataStatus": {
@@ -14389,16 +14380,16 @@
       ],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "quality-watchlist",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-27",
-      "latestScoringDate": "2026-09-04",
+      "latestScoringDate": "2026-09-08",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 79.05,
-      "growthSpurtBenchmarkPercentile": 0.92324,
-      "growthSpurtMarketDataAsOf": "2026-09-04",
-      "lastPipelineRun": "2026-09-08T08:16:05.783476+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.748029,
+      "growthSpurtMarketDataAsOf": "2026-09-08",
+      "lastPipelineRun": "2026-09-09T12:31:23.486043+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
