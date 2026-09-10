@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-09T01:39:20.431323+00:00",
+  "generatedAt": "2026-09-10T01:28:23.144626+00:00",
   "record": {
     "security": {
       "ticker": "ANNA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.0,
-      "dailyChangePercent": -3.537,
-      "marketCapBillions": 0.0138,
+      "latestPrice": 3.16,
+      "dailyChangePercent": 5.3333,
+      "marketCapBillions": 0.0145,
       "liabilitiesToAssets": 0.385873,
       "latestRevenueBillions": 0.025,
       "grossMarginPercent": null,
@@ -240,7 +240,7 @@
       "shortTermDebtShare": null,
       "bookValue": 65894329.0,
       "bookValuePerShare": 14.356335,
-      "priceToBook": 0.208967,
+      "priceToBook": 0.220112,
       "retainedEarnings": -184817385.0
     },
     "balanceSheetScoringShadow": {
@@ -461,50 +461,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ANNA",
-      "generatedAt": "2026-09-09T01:24:03.109041+00:00",
-      "marketDataAsOf": "2026-09-04",
+      "generatedAt": "2026-09-10T01:14:45.112722+00:00",
+      "marketDataAsOf": "2026-09-08",
       "status": "not_detected",
-      "growthSpurtScore": 26.41,
+      "growthSpurtScore": 34.23,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.18110238,
-        "return63d": -0.01315788,
-        "trendSlope21d": 0.01005095,
-        "trendSlope63d": -0.00163804,
-        "trendAnnualizedReturn63d": -0.33819689,
-        "trendFitR2_63d": 0.04705683,
+        "return21d": 0.22957205,
+        "return63d": 0.03606562,
+        "trendSlope21d": 0.01027721,
+        "trendSlope63d": -0.001442,
+        "trendAnnualizedReturn63d": -0.30468052,
+        "trendFitR2_63d": 0.00655639,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.09800257,
+        "trendResidualVolatility63d": 0.09938518,
         "maxDrawdown63d": -0.34054053,
         "downsideVolatility63d": 0.03113604,
-        "excessReturnVsSpy21d": 0.17898152,
-        "excessReturnVsSpy63d": -0.06010275,
-        "trendAcceleration": 0.01208917,
-        "largestOneDayContribution63d": 0.06592228,
+        "excessReturnVsSpy21d": 0.23901258,
+        "excessReturnVsSpy63d": -0.00277718,
+        "trendAcceleration": 0.01286293,
+        "largestOneDayContribution63d": 0.0649479,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
+        "directionScore": 30.5191,
         "consistencyScore": 7.1825,
-        "relativeStrengthScore": 43.0833,
+        "relativeStrengthScore": 66.3718,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.397799,
+      "benchmarkPercentile": 0.49109,
       "metricPercentiles": {
-        "trendSlope63d": 0.306604,
-        "trendFitR2_63d": 0.179245,
-        "excessReturnVsSpy63d": 0.386807,
-        "drawdownControlScore": 0.143082,
-        "growthSpurtScore": 0.397799
+        "trendSlope63d": 0.31499,
+        "trendFitR2_63d": 0.12631,
+        "excessReturnVsSpy63d": 0.548574,
+        "drawdownControlScore": 0.140985,
+        "growthSpurtScore": 0.49109
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13035,6 +13038,17 @@
         "volume": 184900,
         "source": "yahoo-chart",
         "adjusted_close": 3.0
+      },
+      {
+        "ticker": "ANNA",
+        "date": "2026-09-08",
+        "open": 3.0299999713897705,
+        "high": 3.244999885559082,
+        "low": 3.0299999713897705,
+        "close": 3.1600000858306885,
+        "volume": 313800,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.1600000858306885
       }
     ],
     "dataStatus": {
@@ -13069,17 +13083,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-04",
+      "latestScoringDate": "2026-09-08",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 26.41,
-      "growthSpurtBenchmarkPercentile": 0.397799,
-      "growthSpurtMarketDataAsOf": "2026-09-04",
-      "lastPipelineRun": "2026-09-09T01:24:03.109041+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 34.23,
+      "growthSpurtBenchmarkPercentile": 0.49109,
+      "growthSpurtMarketDataAsOf": "2026-09-08",
+      "lastPipelineRun": "2026-09-10T01:14:45.112722+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-09T01:39:20.431323+00:00",
+  "generatedAt": "2026-09-10T01:28:23.144626+00:00",
   "record": {
     "security": {
       "ticker": "ACHC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 28.13,
-      "dailyChangePercent": -0.8809,
-      "marketCapBillions": 2.5939,
+      "latestPrice": 27.5,
+      "dailyChangePercent": -2.2396,
+      "marketCapBillions": 2.5358,
       "liabilitiesToAssets": 0.609073,
       "latestRevenueBillions": 3.3128,
       "grossMarginPercent": null,
@@ -305,7 +305,7 @@
       "shortTermDebtShare": 0.012699,
       "bookValue": 1958277000.0,
       "bookValuePerShare": 21.236734,
-      "priceToBook": 1.324592,
+      "priceToBook": 1.294926,
       "retainedEarnings": -761736000.0
     },
     "balanceSheetScoringShadow": {
@@ -515,63 +515,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ACHC",
-      "generatedAt": "2026-09-09T01:24:03.109041+00:00",
-      "marketDataAsOf": "2026-09-04",
+      "generatedAt": "2026-09-10T01:14:45.112722+00:00",
+      "marketDataAsOf": "2026-09-08",
       "status": "not_detected",
-      "growthSpurtScore": 41.66,
+      "growthSpurtScore": 35.84,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.0843099,
-        "return63d": 0.14910129,
-        "trendSlope21d": -0.00580984,
-        "trendSlope63d": 0.00181078,
-        "trendAnnualizedReturn63d": 0.57825011,
-        "trendFitR2_63d": 0.12371989,
+        "return21d": -0.1278148,
+        "return63d": 0.08609796,
+        "trendSlope21d": -0.00571777,
+        "trendSlope63d": 0.00139222,
+        "trendAnnualizedReturn63d": 0.42025911,
+        "trendFitR2_63d": 0.08734415,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.1002415,
+        "trendResidualVolatility63d": 0.10098396,
         "maxDrawdown63d": -0.24262851,
-        "downsideVolatility63d": 0.03688279,
-        "excessReturnVsSpy21d": -0.08643076,
-        "excessReturnVsSpy63d": 0.10215643,
-        "trendAcceleration": -0.01451695,
-        "largestOneDayContribution63d": 0.08427597,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.03624593,
+        "excessReturnVsSpy21d": -0.11837426,
+        "excessReturnVsSpy63d": 0.04725516,
+        "trendAcceleration": -0.01385264,
+        "largestOneDayContribution63d": 0.0836165,
+        "percentAboveTrendLine63d": 0.49206349
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 65.0,
+        "directionScore": 70.1119,
+        "consistencyScore": 6.3889,
+        "relativeStrengthScore": 51.6974,
         "drawdownControlScore": 19.1238,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.560797,
+      "benchmarkPercentile": 0.509172,
       "metricPercentiles": {
-        "trendSlope63d": 0.697589,
-        "trendFitR2_63d": 0.250524,
-        "excessReturnVsSpy63d": 0.733509,
-        "drawdownControlScore": 0.378931,
-        "growthSpurtScore": 0.560797
+        "trendSlope63d": 0.655136,
+        "trendFitR2_63d": 0.215409,
+        "excessReturnVsSpy63d": 0.642027,
+        "drawdownControlScore": 0.375262,
+        "growthSpurtScore": 0.509172
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "ACHC",
-        "date": "2021-09-09",
-        "open": 66.05999755859375,
-        "high": 67.43000030517578,
-        "low": 65.5999984741211,
-        "close": 65.69999694824219,
-        "volume": 252500,
-        "source": "yahoo-chart",
-        "adjusted_close": 65.69999694824219
-      },
       {
         "ticker": "ACHC",
         "date": "2021-09-10",
@@ -14343,6 +14335,17 @@
         "volume": 835000,
         "source": "yahoo-chart",
         "adjusted_close": 28.1299991607666
+      },
+      {
+        "ticker": "ACHC",
+        "date": "2026-09-08",
+        "open": 27.709999084472656,
+        "high": 28.450000762939453,
+        "low": 27.450000762939453,
+        "close": 27.5,
+        "volume": 1316300,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.5
       }
     ],
     "dataStatus": {
@@ -14370,17 +14373,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "neutral",
+      "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-04-30",
-      "latestScoringDate": "2026-09-04",
+      "latestScoringDate": "2026-09-08",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 41.66,
-      "growthSpurtBenchmarkPercentile": 0.560797,
-      "growthSpurtMarketDataAsOf": "2026-09-04",
-      "lastPipelineRun": "2026-09-09T01:24:03.109041+00:00",
-      "balanceSheetExperimentalSignal": "neutral",
+      "growthSpurtScore": 35.84,
+      "growthSpurtBenchmarkPercentile": 0.509172,
+      "growthSpurtMarketDataAsOf": "2026-09-08",
+      "lastPipelineRun": "2026-09-10T01:14:45.112722+00:00",
+      "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }
   }

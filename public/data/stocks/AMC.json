@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-09T01:39:20.431323+00:00",
+  "generatedAt": "2026-09-10T01:28:23.144626+00:00",
   "record": {
     "security": {
       "ticker": "AMC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 2.65,
-      "dailyChangePercent": 4.3307,
-      "marketCapBillions": 2.3654,
+      "latestPrice": 2.56,
+      "dailyChangePercent": -3.3962,
+      "marketCapBillions": 2.2851,
       "liabilitiesToAssets": 1.180603,
       "latestRevenueBillions": 4.8489,
       "grossMarginPercent": null,
@@ -500,65 +500,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AMC",
-      "generatedAt": "2026-09-09T01:24:03.109041+00:00",
-      "marketDataAsOf": "2026-09-04",
-      "status": "emerging",
-      "growthSpurtScore": 61.97,
+      "generatedAt": "2026-09-10T01:14:45.112722+00:00",
+      "marketDataAsOf": "2026-09-08",
+      "status": "not_detected",
+      "growthSpurtScore": 47.46,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03112847,
-        "return63d": 0.48044701,
-        "trendSlope21d": 0.00343586,
-        "trendSlope63d": 0.00511265,
-        "trendAnnualizedReturn63d": 2.62693485,
-        "trendFitR2_63d": 0.32719096,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.11682423,
+        "return21d": -0.011583,
+        "return63d": 0.42222223,
+        "trendSlope21d": 0.00363057,
+        "trendSlope63d": 0.00466574,
+        "trendAnnualizedReturn63d": 2.24062944,
+        "trendFitR2_63d": 0.3158489,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.11584762,
         "maxDrawdown63d": -0.39222612,
-        "downsideVolatility63d": 0.05262881,
-        "excessReturnVsSpy21d": 0.02900761,
-        "excessReturnVsSpy63d": 0.43350214,
-        "trendAcceleration": -0.00281594,
-        "largestOneDayContribution63d": 0.08916374,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.05176838,
+        "excessReturnVsSpy21d": -0.00214247,
+        "excessReturnVsSpy63d": 0.38337943,
+        "trendAcceleration": -0.00257649,
+        "largestOneDayContribution63d": 0.09048254,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 19.7288,
-        "relativeStrengthScore": 95.1908,
+        "directionScore": 80.0,
+        "consistencyScore": 12.5856,
+        "relativeStrengthScore": 81.5627,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 80.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.785639,
+      "benchmarkPercentile": 0.624214,
       "metricPercentiles": {
-        "trendSlope63d": 0.90304,
-        "trendFitR2_63d": 0.404612,
-        "excessReturnVsSpy63d": 0.935092,
-        "drawdownControlScore": 0.143082,
-        "growthSpurtScore": 0.785639
+        "trendSlope63d": 0.893606,
+        "trendFitR2_63d": 0.388889,
+        "excessReturnVsSpy63d": 0.931362,
+        "drawdownControlScore": 0.140985,
+        "growthSpurtScore": 0.624214
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "AMC",
-        "date": "2021-09-09",
-        "open": 462.29998779296875,
-        "high": 490.0,
-        "low": 453.6000061035156,
-        "close": 485.20001220703125,
-        "volume": 8596090,
-        "source": "yahoo-chart",
-        "adjusted_close": 485.20001220703125
-      },
       {
         "ticker": "AMC",
         "date": "2021-09-10",
@@ -14327,9 +14317,20 @@
         "high": 2.799999952316284,
         "low": 2.5899999141693115,
         "close": 2.6500000953674316,
-        "volume": 57065800,
+        "volume": 57213400,
         "source": "yahoo-chart",
         "adjusted_close": 2.6500000953674316
+      },
+      {
+        "ticker": "AMC",
+        "date": "2026-09-08",
+        "open": 2.619999885559082,
+        "high": 2.630000114440918,
+        "low": 2.4800000190734863,
+        "close": 2.559999942779541,
+        "volume": 28086100,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.559999942779541
       }
     ],
     "dataStatus": {
@@ -14370,13 +14371,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-23",
-      "latestScoringDate": "2026-09-04",
+      "latestScoringDate": "2026-09-08",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 61.97,
-      "growthSpurtBenchmarkPercentile": 0.785639,
-      "growthSpurtMarketDataAsOf": "2026-09-04",
-      "lastPipelineRun": "2026-09-09T01:24:03.109041+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 47.46,
+      "growthSpurtBenchmarkPercentile": 0.624214,
+      "growthSpurtMarketDataAsOf": "2026-09-08",
+      "lastPipelineRun": "2026-09-10T01:14:45.112722+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
