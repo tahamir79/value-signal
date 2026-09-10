@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "IRAB",
   "companyName": "Iris Acquisition Corp II",
-  "generatedAt": "2026-09-10T01:31:36.239910+00:00",
-  "marketDataAsOf": "2026-09-08",
+  "generatedAt": "2026-09-10T08:46:33.782944+00:00",
+  "marketDataAsOf": "2026-09-09",
   "currentPrice": 10.0,
   "analystTarget": {
     "ticker": "IRAB",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-10T01:31:36.239910+00:00",
+    "collectedAt": "2026-09-10T08:46:33.782944+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,43 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-10T01:31:36.239910+00:00",
-    "marketDataAsOf": "2026-09-08",
+    "generatedAt": "2026-09-10T08:46:33.782944+00:00",
+    "marketDataAsOf": "2026-09-09",
     "currentPrice": 10.0,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 23,
-      "status": "insufficient_data",
-      "usableObservationCount": 23,
+      "returnEstimate": 0.00100908,
+      "lowerReturn": -0.00025149,
+      "upperReturn": 0.00812185,
+      "estimatedPrice": 10.0101,
+      "lowerEstimatedPrice": 9.9975,
+      "upperEstimatedPrice": 10.0812,
+      "sampleCount": 24,
+      "status": "available",
+      "usableObservationCount": 24,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 23 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00369549,
-      "lowerReturn": 0.00369549,
-      "upperReturn": 0.01118451,
-      "estimatedPrice": 10.037,
-      "lowerEstimatedPrice": 10.037,
+      "returnEstimate": 0.00381049,
+      "lowerReturn": 0.00381049,
+      "upperReturn": 0.01118167,
+      "estimatedPrice": 10.0381,
+      "lowerEstimatedPrice": 10.0381,
       "upperEstimatedPrice": 10.1118,
-      "sampleCount": 15,
+      "sampleCount": 16,
       "status": "available",
-      "usableObservationCount": 15,
+      "usableObservationCount": 16,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 23 of 24 required observations."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
