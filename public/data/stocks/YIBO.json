@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-08T12:34:29.757307+00:00",
+  "generatedAt": "2026-09-10T12:40:02.473286+00:00",
   "record": {
     "security": {
       "ticker": "YIBO",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.16,
-      "dailyChangePercent": -6.4516,
+      "latestPrice": 1.18,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "YIBO",
-      "generatedAt": "2026-09-08T12:18:06.843785+00:00",
-      "marketDataAsOf": "2026-09-04",
-      "status": "emerging",
-      "growthSpurtScore": 58.73,
+      "generatedAt": "2026-09-10T12:22:06.193591+00:00",
+      "marketDataAsOf": "2026-09-09",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00939371,
-        "return63d": 0.20833333,
-        "trendSlope21d": -0.0001424,
-        "trendSlope63d": 0.0053665,
-        "trendAnnualizedReturn63d": 2.86653309,
-        "trendFitR2_63d": 0.73032743,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.06216886,
+        "return21d": 0.0,
+        "return63d": 0.17999995,
+        "trendSlope21d": -0.0038422,
+        "trendSlope63d": 0.00503485,
+        "trendAnnualizedReturn63d": 2.55652096,
+        "trendFitR2_63d": 0.67757247,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06546257,
         "maxDrawdown63d": -0.15100002,
         "downsideVolatility63d": 0.03146355,
-        "excessReturnVsSpy21d": -0.01151457,
-        "excessReturnVsSpy63d": 0.16138846,
-        "trendAcceleration": -0.00707245,
-        "largestOneDayContribution63d": 0.07361118,
-        "percentAboveTrendLine63d": 0.49206349
+        "excessReturnVsSpy21d": 0.01375109,
+        "excessReturnVsSpy63d": 0.14294121,
+        "trendAcceleration": -0.01042006,
+        "largestOneDayContribution63d": 0.07678266,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 47.1547,
-        "relativeStrengthScore": 77.4624,
+        "consistencyScore": 37.1126,
+        "relativeStrengthScore": 88.5161,
         "drawdownControlScore": 49.6667,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.787256,
+      "benchmarkPercentile": 0.764399,
       "metricPercentiles": {
-        "trendSlope63d": 0.912586,
-        "trendFitR2_63d": 0.781464,
-        "excessReturnVsSpy63d": 0.826547,
-        "drawdownControlScore": 0.607688,
-        "growthSpurtScore": 0.787256
+        "trendSlope63d": 0.904553,
+        "trendFitR2_63d": 0.730664,
+        "excessReturnVsSpy63d": 0.826997,
+        "drawdownControlScore": 0.614372,
+        "growthSpurtScore": 0.764399
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7596,6 +7599,28 @@
         "volume": 9900,
         "source": "yahoo-chart",
         "adjusted_close": 1.159999966621399
+      },
+      {
+        "ticker": "YIBO",
+        "date": "2026-09-08",
+        "open": 1.1799999475479126,
+        "high": 1.1799999475479126,
+        "low": 1.1799999475479126,
+        "close": 1.1799999475479126,
+        "volume": 1100,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.1799999475479126
+      },
+      {
+        "ticker": "YIBO",
+        "date": "2026-09-09",
+        "open": 1.1799999475479126,
+        "high": 1.1799999475479126,
+        "low": 1.1799999475479126,
+        "close": 1.1799999475479126,
+        "volume": 2300,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.1799999475479126
       }
     ],
     "dataStatus": {
@@ -7635,13 +7660,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-04",
+      "latestScoringDate": "2026-09-09",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 58.73,
-      "growthSpurtBenchmarkPercentile": 0.787256,
-      "growthSpurtMarketDataAsOf": "2026-09-04",
-      "lastPipelineRun": "2026-09-08T12:18:06.843785+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.764399,
+      "growthSpurtMarketDataAsOf": "2026-09-09",
+      "lastPipelineRun": "2026-09-10T12:22:06.193591+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
