@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-09T12:55:44.107513+00:00",
+  "generatedAt": "2026-09-11T12:37:55.051827+00:00",
   "record": {
     "security": {
       "ticker": "SSMR",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 17.66,
-      "dailyChangePercent": 1.2034,
-      "marketCapBillions": 2.5382,
+      "latestPrice": 16.83,
+      "dailyChangePercent": -5.8725,
+      "marketCapBillions": 2.4189,
       "liabilitiesToAssets": 0.040838,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -260,7 +260,7 @@
       "shortTermDebtShare": null,
       "bookValue": 322603907.0,
       "bookValuePerShare": 2.244566,
-      "priceToBook": 7.867889,
+      "priceToBook": 7.498107,
       "retainedEarnings": -234549672.0
     },
     "balanceSheetScoringShadow": {
@@ -478,52 +478,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SSMR",
-      "generatedAt": "2026-09-09T12:31:23.486043+00:00",
-      "marketDataAsOf": "2026-09-08",
-      "status": "emerging",
-      "growthSpurtScore": 78.75,
+      "generatedAt": "2026-09-11T12:20:05.212278+00:00",
+      "marketDataAsOf": "2026-09-10",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09894214,
-        "return63d": 0.19405003,
-        "trendSlope21d": 0.00318666,
-        "trendSlope63d": 0.00553387,
-        "trendAnnualizedReturn63d": 3.03309748,
-        "trendFitR2_63d": 0.63292291,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.0720157,
+        "return21d": -0.01,
+        "return63d": 0.20558738,
+        "trendSlope21d": 0.0019652,
+        "trendSlope63d": 0.00577973,
+        "trendAnnualizedReturn63d": 3.29088358,
+        "trendFitR2_63d": 0.67365976,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06962247,
         "maxDrawdown63d": -0.166334,
-        "downsideVolatility63d": 0.02204424,
-        "excessReturnVsSpy21d": 0.10838267,
-        "excessReturnVsSpy63d": 0.15520723,
-        "trendAcceleration": 0.00167151,
-        "largestOneDayContribution63d": 0.05248246,
+        "downsideVolatility63d": 0.02271964,
+        "excessReturnVsSpy21d": 0.00652042,
+        "excessReturnVsSpy63d": 0.15823289,
+        "trendAcceleration": -0.00094084,
+        "largestOneDayContribution63d": 0.05286818,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 48.2729,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 80.0,
+        "consistencyScore": 36.8387,
+        "relativeStrengthScore": 85.3527,
         "drawdownControlScore": 44.5553,
-        "confirmationScore": 100.0
+        "confirmationScore": 40.5916
       },
-      "benchmarkPercentile": 0.935891,
+      "benchmarkPercentile": 0.789806,
       "metricPercentiles": {
-        "trendSlope63d": 0.920126,
-        "trendFitR2_63d": 0.682606,
-        "excessReturnVsSpy63d": 0.824182,
-        "drawdownControlScore": 0.565423,
-        "growthSpurtScore": 0.935891
+        "trendSlope63d": 0.922754,
+        "trendFitR2_63d": 0.717288,
+        "excessReturnVsSpy63d": 0.847574,
+        "drawdownControlScore": 0.579086,
+        "growthSpurtScore": 0.789806
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1251,6 +1252,28 @@
         "volume": 296600,
         "source": "yahoo-chart",
         "adjusted_close": 17.65999984741211
+      },
+      {
+        "ticker": "SSMR",
+        "date": "2026-09-09",
+        "open": 18.030000686645508,
+        "high": 18.360000610351562,
+        "low": 17.649999618530273,
+        "close": 17.8799991607666,
+        "volume": 313100,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.8799991607666
+      },
+      {
+        "ticker": "SSMR",
+        "date": "2026-09-10",
+        "open": 17.399999618530273,
+        "high": 17.700000762939453,
+        "low": 16.600000381469727,
+        "close": 16.829999923706055,
+        "volume": 338400,
+        "source": "yahoo-chart",
+        "adjusted_close": 16.829999923706055
       }
     ],
     "dataStatus": {
@@ -1288,13 +1311,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-09-08",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 78.75,
-      "growthSpurtBenchmarkPercentile": 0.935891,
-      "growthSpurtMarketDataAsOf": "2026-09-08",
-      "lastPipelineRun": "2026-09-09T12:31:23.486043+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.789806,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-11T12:20:05.212278+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

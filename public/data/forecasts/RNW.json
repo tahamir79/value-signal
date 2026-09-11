@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "RNW",
   "companyName": "ReNew Energy Global plc",
-  "generatedAt": "2026-09-11T08:34:27.158381+00:00",
-  "marketDataAsOf": "2026-09-09",
+  "generatedAt": "2026-09-11T12:41:14.388908+00:00",
+  "marketDataAsOf": "2026-09-10",
   "currentPrice": 6.85,
   "analystTarget": {
     "ticker": "RNW",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-11T08:34:27.158381+00:00",
+    "collectedAt": "2026-09-11T12:41:14.388908+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-11T08:34:27.158381+00:00",
-    "marketDataAsOf": "2026-09-09",
+    "generatedAt": "2026-09-11T12:41:14.388908+00:00",
+    "marketDataAsOf": "2026-09-10",
     "currentPrice": 6.85,
     "horizon30Day": {
-      "returnEstimate": -0.00246948,
-      "lowerReturn": -0.04211929,
-      "upperReturn": 0.0740224,
-      "estimatedPrice": 6.8331,
-      "lowerEstimatedPrice": 6.5615,
-      "upperEstimatedPrice": 7.3571,
+      "returnEstimate": 0.00236992,
+      "lowerReturn": -0.03368406,
+      "upperReturn": 0.08,
+      "estimatedPrice": 6.8662,
+      "lowerEstimatedPrice": 6.6193,
+      "upperEstimatedPrice": 7.398,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.03651691,
-      "lowerReturn": -0.05316107,
-      "upperReturn": 0.13963382,
-      "estimatedPrice": 7.1001,
-      "lowerEstimatedPrice": 6.4858,
-      "upperEstimatedPrice": 7.8065,
+      "returnEstimate": 0.04737605,
+      "lowerReturn": -0.05052632,
+      "upperReturn": 0.13933998,
+      "estimatedPrice": 7.1745,
+      "lowerEstimatedPrice": 6.5039,
+      "upperEstimatedPrice": 7.8045,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
