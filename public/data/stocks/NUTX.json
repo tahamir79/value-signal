@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-10T08:41:37.886468+00:00",
+  "generatedAt": "2026-09-11T08:29:54.935439+00:00",
   "record": {
     "security": {
       "ticker": "NUTX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 197.68,
-      "dailyChangePercent": 3.6819,
-      "marketCapBillions": 1.3537,
+      "latestPrice": 195.2,
+      "dailyChangePercent": -1.2546,
+      "marketCapBillions": 1.3367,
       "liabilitiesToAssets": 0.474086,
       "latestRevenueBillions": 0.8753,
       "grossMarginPercent": 50.7601,
@@ -320,7 +320,7 @@
       "shortTermDebtShare": 0.21454,
       "bookValue": 394316000.0,
       "bookValuePerShare": 57.581419,
-      "priceToBook": 3.433052,
+      "priceToBook": 3.389982,
       "retainedEarnings": -173538000.0
     },
     "balanceSheetScoringShadow": {
@@ -532,52 +532,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NUTX",
-      "generatedAt": "2026-09-10T08:17:12.173760+00:00",
-      "marketDataAsOf": "2026-09-09",
-      "status": "emerging",
-      "growthSpurtScore": 56.42,
+      "generatedAt": "2026-09-11T08:16:11.024708+00:00",
+      "marketDataAsOf": "2026-09-10",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00086071,
-        "return63d": 0.45997047,
-        "trendSlope21d": 0.00318044,
-        "trendSlope63d": 0.00407616,
-        "trendAnnualizedReturn63d": 1.79321442,
-        "trendFitR2_63d": 0.37822437,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.09009687,
+        "return21d": 0.17272455,
+        "return63d": 0.46096846,
+        "trendSlope21d": 0.00237627,
+        "trendSlope63d": 0.00372505,
+        "trendAnnualizedReturn63d": 1.55668694,
+        "trendFitR2_63d": 0.35722856,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.08871137,
         "maxDrawdown63d": -0.28514727,
-        "downsideVolatility63d": 0.03308229,
-        "excessReturnVsSpy21d": 0.0146118,
-        "excessReturnVsSpy63d": 0.42291173,
-        "trendAcceleration": 0.00220623,
-        "largestOneDayContribution63d": 0.10717426,
+        "downsideVolatility63d": 0.03262911,
+        "excessReturnVsSpy21d": 0.18924497,
+        "excessReturnVsSpy63d": 0.41361397,
+        "trendAcceleration": 0.00185583,
+        "largestOneDayContribution63d": 0.11199052,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 80.5738,
-        "consistencyScore": 30.444,
-        "relativeStrengthScore": 88.8927,
+        "directionScore": 100.0,
+        "consistencyScore": 21.8314,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 4.9509,
-        "confirmationScore": 61.1476
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.805291,
+      "benchmarkPercentile": 0.778424,
       "metricPercentiles": {
-        "trendSlope63d": 0.871429,
-        "trendFitR2_63d": 0.444444,
-        "excessReturnVsSpy63d": 0.951544,
-        "drawdownControlScore": 0.302116,
-        "growthSpurtScore": 0.805291
+        "trendSlope63d": 0.857747,
+        "trendFitR2_63d": 0.423057,
+        "excessReturnVsSpy63d": 0.953092,
+        "drawdownControlScore": 0.30936,
+        "growthSpurtScore": 0.778424
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12811,6 +12813,17 @@
         "volume": 184200,
         "source": "yahoo-chart",
         "adjusted_close": 197.67999267578125
+      },
+      {
+        "ticker": "NUTX",
+        "date": "2026-09-10",
+        "open": 197.2100067138672,
+        "high": 198.50999450683594,
+        "low": 190.0,
+        "close": 195.1999969482422,
+        "volume": 90500,
+        "source": "yahoo-chart",
+        "adjusted_close": 195.1999969482422
       }
     ],
     "dataStatus": {
@@ -12843,13 +12856,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-09",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 56.42,
-      "growthSpurtBenchmarkPercentile": 0.805291,
-      "growthSpurtMarketDataAsOf": "2026-09-09",
-      "lastPipelineRun": "2026-09-10T08:17:12.173760+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.778424,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-11T08:16:11.024708+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
