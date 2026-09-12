@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "DBRG",
   "companyName": "DigitalBridge Group, Inc.",
-  "generatedAt": "2026-09-11T12:41:14.388908+00:00",
-  "marketDataAsOf": "2026-09-09",
+  "generatedAt": "2026-09-12T01:45:51.734851+00:00",
+  "marketDataAsOf": "2026-09-10",
   "currentPrice": 15.92,
   "analystTarget": {
     "ticker": "DBRG",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-11T12:41:14.388908+00:00",
+    "collectedAt": "2026-09-12T01:45:51.734851+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-11T12:41:14.388908+00:00",
-    "marketDataAsOf": "2026-09-09",
+    "generatedAt": "2026-09-12T01:45:51.734851+00:00",
+    "marketDataAsOf": "2026-09-10",
     "currentPrice": 15.92,
     "horizon30Day": {
-      "returnEstimate": 0.00520602,
-      "lowerReturn": -0.05430249,
-      "upperReturn": 0.06241925,
-      "estimatedPrice": 16.0029,
-      "lowerEstimatedPrice": 15.0555,
-      "upperEstimatedPrice": 16.9137,
+      "returnEstimate": 0.00435151,
+      "lowerReturn": -0.05722286,
+      "upperReturn": 0.06445815,
+      "estimatedPrice": 15.9893,
+      "lowerEstimatedPrice": 15.009,
+      "upperEstimatedPrice": 16.9462,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01561844,
-      "lowerReturn": -0.10603609,
-      "upperReturn": 0.13917179,
-      "estimatedPrice": 16.1686,
-      "lowerEstimatedPrice": 14.2319,
-      "upperEstimatedPrice": 18.1356,
+      "returnEstimate": 0.01585858,
+      "lowerReturn": -0.09126674,
+      "upperReturn": 0.15,
+      "estimatedPrice": 16.1725,
+      "lowerEstimatedPrice": 14.467,
+      "upperEstimatedPrice": 18.308,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

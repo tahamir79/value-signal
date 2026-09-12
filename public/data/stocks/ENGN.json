@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T01:41:16.319503+00:00",
+  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
   "record": {
     "security": {
       "ticker": "ENGN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.85,
-      "dailyChangePercent": -3.6458,
-      "marketCapBillions": 0.124,
+      "latestPrice": 1.77,
+      "dailyChangePercent": -4.3243,
+      "marketCapBillions": 0.1186,
       "liabilitiesToAssets": 0.201275,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -236,7 +236,7 @@
       "shortTermDebtShare": null,
       "bookValue": 230290000.0,
       "bookValuePerShare": 3.436327,
-      "priceToBook": 0.538365,
+      "priceToBook": 0.515085,
       "retainedEarnings": -464512000.0
     },
     "balanceSheetScoringShadow": {
@@ -455,52 +455,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ENGN",
-      "generatedAt": "2026-09-11T01:17:47.612035+00:00",
-      "marketDataAsOf": "2026-09-09",
-      "status": "emerging",
-      "growthSpurtScore": 68.24,
+      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
+      "marketDataAsOf": "2026-09-10",
+      "status": "not_detected",
+      "growthSpurtScore": 52.85,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05714287,
-        "return63d": 0.10778447,
-        "trendSlope21d": 0.00529533,
-        "trendSlope63d": 0.00089891,
-        "trendAnnualizedReturn63d": 0.25423544,
-        "trendFitR2_63d": 0.10911678,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.04188197,
+        "return21d": -0.02747257,
+        "return63d": 0.10624997,
+        "trendSlope21d": 0.00527412,
+        "trendSlope63d": 0.00077005,
+        "trendAnnualizedReturn63d": 0.2141608,
+        "trendFitR2_63d": 0.0676352,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.04055456,
         "maxDrawdown63d": -0.12435228,
-        "downsideVolatility63d": 0.0166348,
-        "excessReturnVsSpy21d": 0.07089396,
-        "excessReturnVsSpy63d": 0.07072573,
-        "trendAcceleration": 0.00391769,
-        "largestOneDayContribution63d": 0.06430541,
-        "percentAboveTrendLine63d": 0.52380952
+        "downsideVolatility63d": 0.01669414,
+        "excessReturnVsSpy21d": -0.01095214,
+        "excessReturnVsSpy63d": 0.05889548,
+        "trendAcceleration": 0.0042468,
+        "largestOneDayContribution63d": 0.06350086,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 84.1246,
-        "consistencyScore": 19.8892,
-        "relativeStrengthScore": 96.2323,
+        "directionScore": 58.5245,
+        "consistencyScore": 26.7211,
+        "relativeStrengthScore": 69.1347,
         "drawdownControlScore": 58.5492,
-        "confirmationScore": 100.0
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.866492,
+      "benchmarkPercentile": 0.725603,
       "metricPercentiles": {
-        "trendSlope63d": 0.613089,
-        "trendFitR2_63d": 0.227749,
-        "excessReturnVsSpy63d": 0.719178,
-        "drawdownControlScore": 0.66911,
-        "growthSpurtScore": 0.866492
+        "trendSlope63d": 0.610178,
+        "trendFitR2_63d": 0.193075,
+        "excessReturnVsSpy63d": 0.723573,
+        "drawdownControlScore": 0.673137,
+        "growthSpurtScore": 0.725603
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13207,6 +13208,17 @@
         "volume": 486400,
         "source": "yahoo-chart",
         "adjusted_close": 1.850000023841858
+      },
+      {
+        "ticker": "ENGN",
+        "date": "2026-09-10",
+        "open": 1.850000023841858,
+        "high": 1.850000023841858,
+        "low": 1.7599999904632568,
+        "close": 1.7699999809265137,
+        "volume": 565300,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7699999809265137
       }
     ],
     "dataStatus": {
@@ -13244,13 +13256,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-09-08",
-      "latestScoringDate": "2026-09-09",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 68.24,
-      "growthSpurtBenchmarkPercentile": 0.866492,
-      "growthSpurtMarketDataAsOf": "2026-09-09",
-      "lastPipelineRun": "2026-09-11T01:17:47.612035+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 52.85,
+      "growthSpurtBenchmarkPercentile": 0.725603,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
       "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }

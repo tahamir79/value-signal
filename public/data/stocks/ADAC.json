@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T01:41:16.319503+00:00",
+  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
   "record": {
     "security": {
       "ticker": "ADAC",
@@ -415,49 +415,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ADAC",
-      "generatedAt": "2026-09-11T01:17:47.612035+00:00",
-      "marketDataAsOf": "2026-09-10",
+      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
+      "marketDataAsOf": "2026-09-11",
       "status": "not_detected",
-      "growthSpurtScore": 35.89,
+      "growthSpurtScore": 37.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": -0.00099012,
         "return63d": 0.00900002,
         "trendSlope21d": 0.0,
-        "trendSlope63d": 0.00011929,
-        "trendAnnualizedReturn63d": 0.0305163,
-        "trendFitR2_63d": 0.58143757,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00210493,
+        "trendSlope63d": 0.00010844,
+        "trendAnnualizedReturn63d": 0.02770403,
+        "trendFitR2_63d": 0.55434146,
+        "positiveWeekRatio63d": 0.25,
+        "trendResidualVolatility63d": 0.0021083,
         "maxDrawdown63d": -0.00792078,
         "downsideVolatility63d": 0.00198949,
-        "excessReturnVsSpy21d": 0.00959954,
-        "excessReturnVsSpy63d": -0.04467043,
-        "trendAcceleration": -0.00022156,
-        "largestOneDayContribution63d": 0.1550638,
+        "excessReturnVsSpy21d": 0.01798744,
+        "excessReturnVsSpy63d": -0.02085027,
+        "trendAcceleration": -0.00021734,
+        "largestOneDayContribution63d": 0.16620872,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.5485,
-        "consistencyScore": 45.332,
-        "relativeStrengthScore": 36.0524,
+        "directionScore": 6.187,
+        "consistencyScore": 43.4341,
+        "relativeStrengthScore": 49.3991,
         "drawdownControlScore": 97.3597,
-        "confirmationScore": 7.7844
+        "confirmationScore": 7.8266
       },
-      "benchmarkPercentile": 0.532461,
+      "benchmarkPercentile": 0.569517,
       "metricPercentiles": {
-        "trendSlope63d": 0.489005,
-        "trendFitR2_63d": 0.627749,
-        "excessReturnVsSpy63d": 0.455743,
-        "drawdownControlScore": 0.96911,
-        "growthSpurtScore": 0.532461
+        "trendSlope63d": 0.495803,
+        "trendFitR2_63d": 0.60021,
+        "excessReturnVsSpy63d": 0.54704,
+        "drawdownControlScore": 0.96957,
+        "growthSpurtScore": 0.569517
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2084,7 +2088,18 @@
         "high": 10.09000015258789,
         "low": 10.0600004196167,
         "close": 10.09000015258789,
-        "volume": 3936,
+        "volume": 3900,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.09000015258789
+      },
+      {
+        "ticker": "ADAC",
+        "date": "2026-09-11",
+        "open": 10.09000015258789,
+        "high": 10.09000015258789,
+        "low": 10.09000015258789,
+        "close": 10.09000015258789,
+        "volume": 248,
         "source": "yahoo-chart",
         "adjusted_close": 10.09000015258789
       }
@@ -2127,13 +2142,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-11",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 35.89,
-      "growthSpurtBenchmarkPercentile": 0.532461,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-11T01:17:47.612035+00:00",
+      "growthSpurtScore": 37.98,
+      "growthSpurtBenchmarkPercentile": 0.569517,
+      "growthSpurtMarketDataAsOf": "2026-09-11",
+      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

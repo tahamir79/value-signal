@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T01:41:16.319503+00:00",
+  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
   "record": {
     "security": {
       "ticker": "CTMX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.54,
-      "dailyChangePercent": -3.0137,
-      "marketCapBillions": 0.7714,
+      "latestPrice": 3.35,
+      "dailyChangePercent": -5.3672,
+      "marketCapBillions": 0.73,
       "liabilitiesToAssets": 0.207641,
       "latestRevenueBillions": 0.0762,
       "grossMarginPercent": null,
@@ -309,7 +309,7 @@
       "shortTermDebtShare": 0.475059,
       "bookValue": 302068000.0,
       "bookValuePerShare": 1.386273,
-      "priceToBook": 2.553609,
+      "priceToBook": 2.416551,
       "retainedEarnings": -750863000.0
     },
     "balanceSheetScoringShadow": {
@@ -523,52 +523,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CTMX",
-      "generatedAt": "2026-09-11T01:17:47.612035+00:00",
-      "marketDataAsOf": "2026-09-09",
-      "status": "emerging",
-      "growthSpurtScore": 64.61,
+      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
+      "marketDataAsOf": "2026-09-10",
+      "status": "not_detected",
+      "growthSpurtScore": 47.71,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.02906974,
-        "return63d": 0.18791944,
-        "trendSlope21d": 0.00325936,
-        "trendSlope63d": 0.00131885,
-        "trendAnnualizedReturn63d": 0.39424044,
-        "trendFitR2_63d": 0.01800797,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07410423,
+        "return21d": -0.02898555,
+        "return63d": 0.15120268,
+        "trendSlope21d": 0.00302588,
+        "trendSlope63d": 0.00089956,
+        "trendAnnualizedReturn63d": 0.25443839,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.07252672,
         "maxDrawdown63d": -0.21618206,
-        "downsideVolatility63d": 0.02024867,
-        "excessReturnVsSpy21d": 0.04282083,
-        "excessReturnVsSpy63d": 0.1508607,
-        "trendAcceleration": 0.00144687,
-        "largestOneDayContribution63d": 0.06456321,
+        "downsideVolatility63d": 0.02070759,
+        "excessReturnVsSpy21d": -0.01246512,
+        "excessReturnVsSpy63d": 0.10384819,
+        "trendAcceleration": 0.00183184,
+        "largestOneDayContribution63d": 0.0633518,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 99.3798,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 67.7135,
+        "consistencyScore": 7.1825,
+        "relativeStrengthScore": 77.0465,
         "drawdownControlScore": 27.9393,
-        "confirmationScore": 98.7597
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.839791,
+      "benchmarkPercentile": 0.6734,
       "metricPercentiles": {
-        "trendSlope63d": 0.65288,
-        "trendFitR2_63d": 0.141361,
-        "excessReturnVsSpy63d": 0.820864,
-        "drawdownControlScore": 0.434031,
-        "growthSpurtScore": 0.839791
+        "trendSlope63d": 0.619098,
+        "trendFitR2_63d": 0.059811,
+        "excessReturnVsSpy63d": 0.789112,
+        "drawdownControlScore": 0.440189,
+        "growthSpurtScore": 0.6734
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14353,6 +14354,17 @@
         "volume": 2053100,
         "source": "yahoo-chart",
         "adjusted_close": 3.5399999618530273
+      },
+      {
+        "ticker": "CTMX",
+        "date": "2026-09-10",
+        "open": 3.5,
+        "high": 3.5199999809265137,
+        "low": 3.3350000381469727,
+        "close": 3.3499999046325684,
+        "volume": 2058000,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.3499999046325684
       }
     ],
     "dataStatus": {
@@ -14387,13 +14399,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-09",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 64.61,
-      "growthSpurtBenchmarkPercentile": 0.839791,
-      "growthSpurtMarketDataAsOf": "2026-09-09",
-      "lastPipelineRun": "2026-09-11T01:17:47.612035+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 47.71,
+      "growthSpurtBenchmarkPercentile": 0.6734,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

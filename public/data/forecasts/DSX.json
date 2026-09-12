@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "DSX",
   "companyName": "DIANA SHIPPING INC.",
-  "generatedAt": "2026-09-11T12:41:14.388908+00:00",
-  "marketDataAsOf": "2026-09-09",
+  "generatedAt": "2026-09-12T01:45:51.734851+00:00",
+  "marketDataAsOf": "2026-09-10",
   "currentPrice": 2.92,
   "analystTarget": {
     "ticker": "DSX",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-11T12:41:14.388908+00:00",
+    "collectedAt": "2026-09-12T01:45:51.734851+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-11T12:41:14.388908+00:00",
-    "marketDataAsOf": "2026-09-09",
+    "generatedAt": "2026-09-12T01:45:51.734851+00:00",
+    "marketDataAsOf": "2026-09-10",
     "currentPrice": 2.92,
     "horizon30Day": {
-      "returnEstimate": 0.00551228,
-      "lowerReturn": -0.06858284,
-      "upperReturn": 0.07902762,
-      "estimatedPrice": 2.9361,
-      "lowerEstimatedPrice": 2.7197,
-      "upperEstimatedPrice": 3.1508,
+      "returnEstimate": -0.00010049,
+      "lowerReturn": -0.07605878,
+      "upperReturn": 0.08,
+      "estimatedPrice": 2.9197,
+      "lowerEstimatedPrice": 2.6979,
+      "upperEstimatedPrice": 3.1536,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.01644018,
-      "lowerReturn": -0.12983108,
-      "upperReturn": 0.13828271,
-      "estimatedPrice": 2.872,
-      "lowerEstimatedPrice": 2.5409,
-      "upperEstimatedPrice": 3.3238,
+      "returnEstimate": -0.00383231,
+      "lowerReturn": -0.13144225,
+      "upperReturn": 0.13329048,
+      "estimatedPrice": 2.9088,
+      "lowerEstimatedPrice": 2.5362,
+      "upperEstimatedPrice": 3.3092,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

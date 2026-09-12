@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T01:41:16.319503+00:00",
+  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
   "record": {
     "security": {
       "ticker": "CEPV",
@@ -407,50 +407,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CEPV",
-      "generatedAt": "2026-09-11T01:17:47.612035+00:00",
-      "marketDataAsOf": "2026-09-09",
+      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
+      "marketDataAsOf": "2026-09-10",
       "status": "not_detected",
-      "growthSpurtScore": 31.99,
+      "growthSpurtScore": 30.96,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00096147,
-        "return63d": 0.00775945,
-        "trendSlope21d": 5.369e-05,
-        "trendSlope63d": 5.85e-05,
-        "trendAnnualizedReturn63d": 0.01485085,
-        "trendFitR2_63d": 0.06597602,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00415516,
+        "return21d": 0.00096341,
+        "return63d": 0.00971821,
+        "trendSlope21d": 6.885e-05,
+        "trendSlope63d": 2.751e-05,
+        "trendAnnualizedReturn63d": 0.00695733,
+        "trendFitR2_63d": 0.0603566,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00414398,
         "maxDrawdown63d": -0.0076555,
         "downsideVolatility63d": 0.00145267,
-        "excessReturnVsSpy21d": 0.01278962,
-        "excessReturnVsSpy63d": -0.02929929,
-        "trendAcceleration": -0.00025142,
-        "largestOneDayContribution63d": 0.07461372,
+        "excessReturnVsSpy21d": 0.01748384,
+        "excessReturnVsSpy63d": -0.03763629,
+        "trendAcceleration": -0.00018947,
+        "largestOneDayContribution63d": 0.07750515,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 4.1726,
-        "consistencyScore": 25.6716,
-        "relativeStrengthScore": 43.6926,
+        "directionScore": 4.3713,
+        "consistencyScore": 21.3899,
+        "relativeStrengthScore": 42.3594,
         "drawdownControlScore": 97.4482,
-        "confirmationScore": 9.6334
+        "confirmationScore": 12.1438
       },
-      "benchmarkPercentile": 0.487435,
+      "benchmarkPercentile": 0.496327,
       "metricPercentiles": {
-        "trendSlope63d": 0.475393,
-        "trendFitR2_63d": 0.190052,
-        "excessReturnVsSpy63d": 0.50843,
-        "drawdownControlScore": 0.970681,
-        "growthSpurtScore": 0.487435
+        "trendSlope63d": 0.482686,
+        "trendFitR2_63d": 0.187303,
+        "excessReturnVsSpy63d": 0.498943,
+        "drawdownControlScore": 0.971144,
+        "growthSpurtScore": 0.496327
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2784,6 +2788,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.390000343322754
+      },
+      {
+        "ticker": "CEPV",
+        "date": "2026-09-10",
+        "open": 10.390000343322754,
+        "high": 10.390000343322754,
+        "low": 10.390000343322754,
+        "close": 10.390000343322754,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.390000343322754
       }
     ],
     "dataStatus": {
@@ -2823,13 +2838,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-09",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 31.99,
-      "growthSpurtBenchmarkPercentile": 0.487435,
-      "growthSpurtMarketDataAsOf": "2026-09-09",
-      "lastPipelineRun": "2026-09-11T01:17:47.612035+00:00",
+      "growthSpurtScore": 30.96,
+      "growthSpurtBenchmarkPercentile": 0.496327,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

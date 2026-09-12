@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T01:41:16.319503+00:00",
+  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
   "record": {
     "security": {
       "ticker": "EIKN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.73,
-      "dailyChangePercent": 0.1867,
-      "marketCapBillions": 0.5812,
+      "latestPrice": 9.21,
+      "dailyChangePercent": -14.1659,
+      "marketCapBillions": 0.4989,
       "liabilitiesToAssets": 0.401593,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -236,7 +236,7 @@
       "shortTermDebtShare": null,
       "bookValue": 466500000.0,
       "bookValuePerShare": 8.612568,
-      "priceToBook": 1.245854,
+      "priceToBook": 1.069367,
       "retainedEarnings": -1091876000.0
     },
     "balanceSheetScoringShadow": {
@@ -455,52 +455,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "EIKN",
-      "generatedAt": "2026-09-11T01:17:47.612035+00:00",
-      "marketDataAsOf": "2026-09-09",
-      "status": "emerging",
-      "growthSpurtScore": 63.58,
+      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
+      "marketDataAsOf": "2026-09-10",
+      "status": "not_detected",
+      "growthSpurtScore": 38.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.10277493,
-        "return63d": 0.22348905,
-        "trendSlope21d": 0.00151798,
-        "trendSlope63d": 0.00226448,
-        "trendAnnualizedReturn63d": 0.76941641,
-        "trendFitR2_63d": 0.0628096,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.09999044,
+        "return21d": -0.0997067,
+        "return63d": 0.10167469,
+        "trendSlope21d": -0.00216476,
+        "trendSlope63d": 0.00187399,
+        "trendAnnualizedReturn63d": 0.60358985,
+        "trendFitR2_63d": 0.01441027,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.10027568,
         "maxDrawdown63d": -0.3180077,
-        "downsideVolatility63d": 0.02450033,
-        "excessReturnVsSpy21d": 0.11652602,
-        "excessReturnVsSpy63d": 0.18643031,
-        "trendAcceleration": 0.00276152,
-        "largestOneDayContribution63d": 0.06262413,
+        "downsideVolatility63d": 0.03151291,
+        "excessReturnVsSpy21d": -0.08318627,
+        "excessReturnVsSpy63d": 0.0543202,
+        "trendAcceleration": -0.00069875,
+        "largestOneDayContribution63d": 0.05979949,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 74.6551,
+        "consistencyScore": 21.4683,
+        "relativeStrengthScore": 54.5676,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 100.0
+        "confirmationScore": 3.0125
       },
-      "benchmarkPercentile": 0.835864,
+      "benchmarkPercentile": 0.580273,
       "metricPercentiles": {
-        "trendSlope63d": 0.748168,
-        "trendFitR2_63d": 0.18534,
-        "excessReturnVsSpy63d": 0.849842,
-        "drawdownControlScore": 0.143455,
-        "growthSpurtScore": 0.835864
+        "trendSlope63d": 0.720881,
+        "trendFitR2_63d": 0.139035,
+        "excessReturnVsSpy63d": 0.714588,
+        "drawdownControlScore": 0.143757,
+        "growthSpurtScore": 0.580273
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2141,6 +2142,17 @@
         "volume": 752400,
         "source": "yahoo-chart",
         "adjusted_close": 10.729999542236328
+      },
+      {
+        "ticker": "EIKN",
+        "date": "2026-09-10",
+        "open": 10.649999618530273,
+        "high": 10.680000305175781,
+        "low": 9.170000076293945,
+        "close": 9.210000038146973,
+        "volume": 665100,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.210000038146973
       }
     ],
     "dataStatus": {
@@ -2178,13 +2190,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-09",
+      "latestScoringDate": "2026-09-10",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.58,
-      "growthSpurtBenchmarkPercentile": 0.835864,
-      "growthSpurtMarketDataAsOf": "2026-09-09",
-      "lastPipelineRun": "2026-09-11T01:17:47.612035+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 38.98,
+      "growthSpurtBenchmarkPercentile": 0.580273,
+      "growthSpurtMarketDataAsOf": "2026-09-10",
+      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
