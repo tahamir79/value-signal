@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T12:37:55.051827+00:00",
+  "generatedAt": "2026-09-12T12:01:12.894705+00:00",
   "record": {
     "security": {
       "ticker": "SAFX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.415,
-      "dailyChangePercent": -2.1226,
-      "marketCapBillions": 0.1705,
+      "latestPrice": 0.41,
+      "dailyChangePercent": -1.2048,
+      "marketCapBillions": 0.1684,
       "liabilitiesToAssets": 0.911478,
       "latestRevenueBillions": 0.0208,
       "grossMarginPercent": -18.1117,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": null,
       "bookValue": 37270343.0,
       "bookValuePerShare": 0.090723,
-      "priceToBook": 4.574388,
+      "priceToBook": 4.519275,
       "retainedEarnings": -48671118.0
     },
     "balanceSheetScoringShadow": {
@@ -500,49 +500,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SAFX",
-      "generatedAt": "2026-09-11T12:20:05.212278+00:00",
-      "marketDataAsOf": "2026-09-10",
+      "generatedAt": "2026-09-12T11:45:23.870674+00:00",
+      "marketDataAsOf": "2026-09-11",
       "status": "not_detected",
-      "growthSpurtScore": 21.41,
+      "growthSpurtScore": 8.72,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.06950677,
-        "return63d": 0.09498676,
-        "trendSlope21d": -0.00118147,
-        "trendSlope63d": -0.00257529,
-        "trendAnnualizedReturn63d": -0.47741803,
-        "trendFitR2_63d": 0.1159204,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.11399419,
+        "return21d": -0.15637861,
+        "return63d": -0.01678657,
+        "trendSlope21d": 0.00535503,
+        "trendSlope63d": -0.0025967,
+        "trendAnnualizedReturn63d": -0.48022994,
+        "trendFitR2_63d": 0.11832783,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.1141433,
         "maxDrawdown63d": -0.41335744,
-        "downsideVolatility63d": 0.07539317,
-        "excessReturnVsSpy21d": -0.05298634,
-        "excessReturnVsSpy63d": 0.04763227,
-        "trendAcceleration": 0.0013706,
-        "largestOneDayContribution63d": 0.08222815,
+        "downsideVolatility63d": 0.07107056,
+        "excessReturnVsSpy21d": -0.14576357,
+        "excessReturnVsSpy63d": -0.0554156,
+        "trendAcceleration": 0.00743326,
+        "largestOneDayContribution63d": 0.08612637,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 27.7045,
+        "directionScore": 0.0,
         "consistencyScore": 2.8968,
-        "relativeStrengthScore": 51.8506,
+        "relativeStrengthScore": 9.9874,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 20.0
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.38886,
+      "benchmarkPercentile": 0.156151,
       "metricPercentiles": {
-        "trendSlope63d": 0.260641,
-        "trendFitR2_63d": 0.23752,
-        "excessReturnVsSpy63d": 0.721519,
-        "drawdownControlScore": 0.150552,
-        "growthSpurtScore": 0.38886
+        "trendSlope63d": 0.260252,
+        "trendFitR2_63d": 0.245005,
+        "excessReturnVsSpy63d": 0.471768,
+        "drawdownControlScore": 0.152734,
+        "growthSpurtScore": 0.156151
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5194,9 +5197,20 @@
         "high": 0.42899999022483826,
         "low": 0.4099999964237213,
         "close": 0.41499999165534973,
-        "volume": 1097300,
+        "volume": 1230800,
         "source": "yahoo-chart",
         "adjusted_close": 0.41499999165534973
+      },
+      {
+        "ticker": "SAFX",
+        "date": "2026-09-11",
+        "open": 0.41499999165534973,
+        "high": 0.41999998688697815,
+        "low": 0.4050000011920929,
+        "close": 0.4099999964237213,
+        "volume": 1565700,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.4099999964237213
       }
     ],
     "dataStatus": {
@@ -5237,13 +5251,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-17",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-11",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 21.41,
-      "growthSpurtBenchmarkPercentile": 0.38886,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-11T12:20:05.212278+00:00",
+      "growthSpurtScore": 8.72,
+      "growthSpurtBenchmarkPercentile": 0.156151,
+      "growthSpurtMarketDataAsOf": "2026-09-11",
+      "lastPipelineRun": "2026-09-12T11:45:23.870674+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }

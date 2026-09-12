@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T12:37:55.051827+00:00",
+  "generatedAt": "2026-09-12T12:01:12.894705+00:00",
   "record": {
     "security": {
       "ticker": "TGTX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 55.39,
-      "dailyChangePercent": 1.3541,
-      "marketCapBillions": 8.4785,
+      "latestPrice": 53.89,
+      "dailyChangePercent": -2.7081,
+      "marketCapBillions": 8.2489,
       "liabilitiesToAssets": 0.631573,
       "latestRevenueBillions": 0.6163,
       "grossMarginPercent": null,
@@ -297,7 +297,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 604083000.0,
       "bookValuePerShare": 3.946474,
-      "priceToBook": 14.035314,
+      "priceToBook": 13.655228,
       "retainedEarnings": -1054457000.0
     },
     "balanceSheetScoringShadow": {
@@ -511,51 +511,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TGTX",
-      "generatedAt": "2026-09-11T12:20:05.212278+00:00",
-      "marketDataAsOf": "2026-09-10",
-      "status": "emerging",
-      "growthSpurtScore": 56.56,
+      "generatedAt": "2026-09-12T11:45:23.870674+00:00",
+      "marketDataAsOf": "2026-09-11",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.11001999,
-        "return63d": 0.1881167,
-        "trendSlope21d": 0.00725978,
-        "trendSlope63d": 0.00023869,
-        "trendAnnualizedReturn63d": 0.06199595,
+        "return21d": 0.08868686,
+        "return63d": 0.12154007,
+        "trendSlope21d": 0.00631096,
+        "trendSlope63d": 0.00011208,
+        "trendAnnualizedReturn63d": 0.02864701,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05544512,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.05387409,
         "maxDrawdown63d": -0.21825267,
-        "downsideVolatility63d": 0.02147125,
-        "excessReturnVsSpy21d": 0.12654042,
-        "excessReturnVsSpy63d": 0.14076221,
-        "trendAcceleration": 0.0080284,
-        "largestOneDayContribution63d": 0.08599293,
+        "downsideVolatility63d": 0.02119404,
+        "excessReturnVsSpy21d": 0.0993019,
+        "excessReturnVsSpy63d": 0.08291104,
+        "trendAcceleration": 0.00756109,
+        "largestOneDayContribution63d": 0.08622417,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 62.9709,
-        "consistencyScore": 14.3254,
+        "directionScore": 58.6832,
+        "consistencyScore": 21.8777,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 27.2491,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.833946,
+      "benchmarkPercentile": 0.796004,
       "metricPercentiles": {
-        "trendSlope63d": 0.551235,
-        "trendFitR2_63d": 0.056227,
-        "excessReturnVsSpy63d": 0.832278,
-        "drawdownControlScore": 0.437204,
-        "growthSpurtScore": 0.833946
+        "trendSlope63d": 0.504206,
+        "trendFitR2_63d": 0.054154,
+        "excessReturnVsSpy63d": 0.772032,
+        "drawdownControlScore": 0.442692,
+        "growthSpurtScore": 0.796004
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14351,6 +14353,17 @@
         "volume": 1367400,
         "source": "yahoo-chart",
         "adjusted_close": 55.38999938964844
+      },
+      {
+        "ticker": "TGTX",
+        "date": "2026-09-11",
+        "open": 55.709999084472656,
+        "high": 56.2599983215332,
+        "low": 53.470001220703125,
+        "close": 53.88999938964844,
+        "volume": 1367500,
+        "source": "yahoo-chart",
+        "adjusted_close": 53.88999938964844
       }
     ],
     "dataStatus": {
@@ -14359,10 +14372,10 @@
       "companyFactsAvailable": true,
       "recent10KAvailable": true,
       "recent10QAvailable": true,
-      "filingsDownloaded": false,
-      "filingsCleaned": false,
-      "filingsChunked": false,
-      "bm25Indexed": false,
+      "filingsDownloaded": true,
+      "filingsCleaned": true,
+      "filingsChunked": true,
+      "bm25Indexed": true,
       "balanceSheetAvailable": false,
       "balanceSheetPartial": true,
       "balanceSheetSource": "sec_companyfacts",
@@ -14385,13 +14398,13 @@
       "officialSignal": "quality-watchlist",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-11",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 56.56,
-      "growthSpurtBenchmarkPercentile": 0.833946,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-11T12:20:05.212278+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.796004,
+      "growthSpurtMarketDataAsOf": "2026-09-11",
+      "lastPipelineRun": "2026-09-12T11:45:23.870674+00:00",
       "balanceSheetExperimentalSignal": "quality-watchlist",
       "balanceSheetWouldChangeSignal": false
     }
