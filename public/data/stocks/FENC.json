@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-11T08:29:54.935439+00:00",
+  "generatedAt": "2026-09-12T08:28:45.785271+00:00",
   "record": {
     "security": {
       "ticker": "FENC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.3,
-      "dailyChangePercent": -3.0043,
-      "marketCapBillions": 0.3963,
+      "latestPrice": 10.96,
+      "dailyChangePercent": -3.0089,
+      "marketCapBillions": 0.3843,
       "liabilitiesToAssets": 0.439732,
       "latestRevenueBillions": 0.0446,
       "grossMarginPercent": 44.7852,
@@ -265,7 +265,7 @@
       "shortTermDebtShare": 0.049075,
       "bookValue": 42442000.0,
       "bookValuePerShare": 1.210306,
-      "priceToBook": 9.33648,
+      "priceToBook": 9.05556,
       "retainedEarnings": -227248000.0
     },
     "balanceSheetScoringShadow": {
@@ -482,51 +482,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FENC",
-      "generatedAt": "2026-09-11T08:16:11.024708+00:00",
-      "marketDataAsOf": "2026-09-10",
-      "status": "emerging",
-      "growthSpurtScore": 62.22,
+      "generatedAt": "2026-09-12T08:04:43.934428+00:00",
+      "marketDataAsOf": "2026-09-11",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.11580591,
-        "return63d": 0.29885063,
-        "trendSlope21d": 0.0024913,
-        "trendSlope63d": 0.00396212,
-        "trendAnnualizedReturn63d": 1.71408269,
-        "trendFitR2_63d": 0.61441161,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.05913639,
+        "return21d": -0.07354183,
+        "return63d": 0.23841803,
+        "trendSlope21d": 0.00190931,
+        "trendSlope63d": 0.00370219,
+        "trendAnnualizedReturn63d": 1.54200313,
+        "trendFitR2_63d": 0.57089149,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.06003452,
         "maxDrawdown63d": -0.14247313,
-        "downsideVolatility63d": 0.01936455,
-        "excessReturnVsSpy21d": -0.09928549,
-        "excessReturnVsSpy63d": 0.25149613,
-        "trendAcceleration": 0.00059625,
-        "largestOneDayContribution63d": 0.09345224,
+        "downsideVolatility63d": 0.01897339,
+        "excessReturnVsSpy21d": -0.06292679,
+        "excessReturnVsSpy63d": 0.199789,
+        "trendAcceleration": 2.039e-05,
+        "largestOneDayContribution63d": 0.09277492,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 46.9771,
+        "consistencyScore": 29.6449,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 52.509,
-        "confirmationScore": 55.9625
+        "confirmationScore": 50.2039
       },
-      "benchmarkPercentile": 0.854839,
+      "benchmarkPercentile": 0.793697,
       "metricPercentiles": {
-        "trendSlope63d": 0.869381,
-        "trendFitR2_63d": 0.665256,
-        "excessReturnVsSpy63d": 0.902452,
-        "drawdownControlScore": 0.62771,
-        "growthSpurtScore": 0.854839
+        "trendSlope63d": 0.85964,
+        "trendFitR2_63d": 0.615996,
+        "excessReturnVsSpy63d": 0.881537,
+        "drawdownControlScore": 0.632945,
+        "growthSpurtScore": 0.793697
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14322,6 +14324,17 @@
         "volume": 171700,
         "source": "yahoo-chart",
         "adjusted_close": 11.300000190734863
+      },
+      {
+        "ticker": "FENC",
+        "date": "2026-09-11",
+        "open": 11.300000190734863,
+        "high": 11.510000228881836,
+        "low": 10.850000381469727,
+        "close": 10.960000038146973,
+        "volume": 249900,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.960000038146973
       }
     ],
     "dataStatus": {
@@ -14359,13 +14372,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-11",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 62.22,
-      "growthSpurtBenchmarkPercentile": 0.854839,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-11T08:16:11.024708+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.793697,
+      "growthSpurtMarketDataAsOf": "2026-09-11",
+      "lastPipelineRun": "2026-09-12T08:04:43.934428+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
