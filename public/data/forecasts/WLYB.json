@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "WLYB",
   "companyName": "JOHN WILEY & SONS, INC.",
-  "generatedAt": "2026-09-15T09:10:59.149186+00:00",
-  "marketDataAsOf": "2026-09-11",
+  "generatedAt": "2026-09-15T13:13:03.744600+00:00",
+  "marketDataAsOf": "2026-09-14",
   "currentPrice": 48.0,
   "analystTarget": {
     "ticker": "WLYB",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-15T09:10:59.149186+00:00",
+    "collectedAt": "2026-09-15T13:13:03.744600+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-15T09:10:59.149186+00:00",
-    "marketDataAsOf": "2026-09-11",
+    "generatedAt": "2026-09-15T13:13:03.744600+00:00",
+    "marketDataAsOf": "2026-09-14",
     "currentPrice": 48.0,
     "horizon30Day": {
-      "returnEstimate": 0.0081407,
-      "lowerReturn": -0.05840997,
-      "upperReturn": 0.07051909,
-      "estimatedPrice": 48.3908,
-      "lowerEstimatedPrice": 45.1963,
-      "upperEstimatedPrice": 51.3849,
+      "returnEstimate": 0.00461643,
+      "lowerReturn": -0.06065603,
+      "upperReturn": 0.06314533,
+      "estimatedPrice": 48.2216,
+      "lowerEstimatedPrice": 45.0885,
+      "upperEstimatedPrice": 51.031,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00981076,
-      "lowerReturn": -0.1035424,
-      "upperReturn": 0.14423949,
-      "estimatedPrice": 48.4709,
-      "lowerEstimatedPrice": 43.03,
-      "upperEstimatedPrice": 54.9235,
+      "returnEstimate": 0.00567421,
+      "lowerReturn": -0.11335257,
+      "upperReturn": 0.15,
+      "estimatedPrice": 48.2724,
+      "lowerEstimatedPrice": 42.5591,
+      "upperEstimatedPrice": 55.2,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
