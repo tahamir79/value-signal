@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
+  "generatedAt": "2026-09-15T01:55:52.896540+00:00",
   "record": {
     "security": {
       "ticker": "AIRJ",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.26,
-      "dailyChangePercent": -3.6199,
-      "marketCapBillions": 0.3125,
+      "latestPrice": 4.15,
+      "dailyChangePercent": -3.0374,
+      "marketCapBillions": 0.3044,
       "liabilitiesToAssets": 0.189683,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -249,7 +249,7 @@
       "shortTermDebtShare": null,
       "bookValue": 248637802.0,
       "bookValuePerShare": 3.389866,
-      "priceToBook": 1.256687,
+      "priceToBook": 1.224237,
       "retainedEarnings": 131128157.0
     },
     "balanceSheetScoringShadow": {
@@ -469,50 +469,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AIRJ",
-      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
-      "marketDataAsOf": "2026-09-10",
+      "generatedAt": "2026-09-15T01:41:08.013295+00:00",
+      "marketDataAsOf": "2026-09-14",
       "status": "not_detected",
-      "growthSpurtScore": 21.73,
+      "growthSpurtScore": 6.81,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.33437497,
-        "return63d": 0.03272733,
-        "trendSlope21d": -0.01771895,
-        "trendSlope63d": 0.0010562,
-        "trendAnnualizedReturn63d": 0.30494642,
-        "trendFitR2_63d": 0.0223038,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.13482296,
+        "return21d": -0.34335443,
+        "return63d": -0.00954653,
+        "trendSlope21d": -0.01419576,
+        "trendSlope63d": 0.00026556,
+        "trendAnnualizedReturn63d": 0.06921117,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.1377177,
         "maxDrawdown63d": -0.35740073,
-        "downsideVolatility63d": 0.02638401,
-        "excessReturnVsSpy21d": -0.31785455,
-        "excessReturnVsSpy63d": -0.01462717,
-        "trendAcceleration": -0.01996883,
-        "largestOneDayContribution63d": 0.08050553,
+        "downsideVolatility63d": 0.02631605,
+        "excessReturnVsSpy21d": -0.32150016,
+        "excessReturnVsSpy63d": -0.03797957,
+        "trendAcceleration": -0.01879848,
+        "largestOneDayContribution63d": 0.08044354,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 48.7529,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 26.5577,
+        "directionScore": 8.8986,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 17.0708,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.370409,
+      "benchmarkPercentile": 0.091195,
       "metricPercentiles": {
-        "trendSlope63d": 0.635362,
-        "trendFitR2_63d": 0.147429,
-        "excessReturnVsSpy63d": 0.562896,
-        "drawdownControlScore": 0.143757,
-        "growthSpurtScore": 0.370409
+        "trendSlope63d": 0.555556,
+        "trendFitR2_63d": 0.057128,
+        "excessReturnVsSpy63d": 0.480211,
+        "drawdownControlScore": 0.143868,
+        "growthSpurtScore": 0.091195
       },
       "reasonCodes": [
-        "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13230,6 +13232,28 @@
         "volume": 856400,
         "source": "yahoo-chart",
         "adjusted_close": 4.260000228881836
+      },
+      {
+        "ticker": "AIRJ",
+        "date": "2026-09-11",
+        "open": 4.349999904632568,
+        "high": 4.349999904632568,
+        "low": 4.239999771118164,
+        "close": 4.28000020980835,
+        "volume": 772600,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.28000020980835
+      },
+      {
+        "ticker": "AIRJ",
+        "date": "2026-09-14",
+        "open": 4.159999847412109,
+        "high": 4.23799991607666,
+        "low": 4.065000057220459,
+        "close": 4.150000095367432,
+        "volume": 908900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.150000095367432
       }
     ],
     "dataStatus": {
@@ -13269,13 +13293,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 21.73,
-      "growthSpurtBenchmarkPercentile": 0.370409,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
+      "growthSpurtScore": 6.81,
+      "growthSpurtBenchmarkPercentile": 0.091195,
+      "growthSpurtMarketDataAsOf": "2026-09-14",
+      "lastPipelineRun": "2026-09-15T01:41:08.013295+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

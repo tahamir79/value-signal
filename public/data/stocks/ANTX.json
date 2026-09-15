@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
+  "generatedAt": "2026-09-15T01:55:52.896540+00:00",
   "record": {
     "security": {
       "ticker": "ANTX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.69,
-      "dailyChangePercent": -0.6981,
-      "marketCapBillions": 0.2147,
+      "latestPrice": 5.46,
+      "dailyChangePercent": 0.9242,
+      "marketCapBillions": 0.206,
       "liabilitiesToAssets": 0.070461,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 75921000.0,
       "bookValuePerShare": 2.011886,
-      "priceToBook": 2.828192,
+      "priceToBook": 2.713872,
       "retainedEarnings": -259163000.0
     },
     "balanceSheetScoringShadow": {
@@ -435,52 +435,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ANTX",
-      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
-      "marketDataAsOf": "2026-09-10",
-      "status": "emerging",
-      "growthSpurtScore": 55.19,
+      "generatedAt": "2026-09-15T01:41:08.013295+00:00",
+      "marketDataAsOf": "2026-09-14",
+      "status": "not_detected",
+      "growthSpurtScore": 50.21,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.03066437,
-        "return63d": 0.35476198,
-        "trendSlope21d": -0.00266787,
-        "trendSlope63d": 0.00442894,
-        "trendAnnualizedReturn63d": 2.05290552,
-        "trendFitR2_63d": 0.57809934,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.06856212,
+        "return21d": -0.08695652,
+        "return63d": 0.1518988,
+        "trendSlope21d": -0.00267288,
+        "trendSlope63d": 0.00400249,
+        "trendAnnualizedReturn63d": 1.74183578,
+        "trendFitR2_63d": 0.52513971,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.07068929,
         "maxDrawdown63d": -0.20370368,
-        "downsideVolatility63d": 0.01870053,
-        "excessReturnVsSpy21d": -0.01414394,
-        "excessReturnVsSpy63d": 0.30740748,
-        "trendAcceleration": -0.00754608,
-        "largestOneDayContribution63d": 0.04781175,
+        "downsideVolatility63d": 0.01888927,
+        "excessReturnVsSpy21d": -0.06510225,
+        "excessReturnVsSpy63d": 0.12346576,
+        "trendAcceleration": -0.00827392,
+        "largestOneDayContribution63d": 0.04897431,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 44.4352,
-        "relativeStrengthScore": 76.312,
+        "consistencyScore": 33.5852,
+        "relativeStrengthScore": 65.0,
         "drawdownControlScore": 32.0988,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.806925,
+      "benchmarkPercentile": 0.706499,
       "metricPercentiles": {
-        "trendSlope63d": 0.886674,
-        "trendFitR2_63d": 0.629066,
-        "excessReturnVsSpy63d": 0.924419,
-        "drawdownControlScore": 0.466946,
-        "growthSpurtScore": 0.806925
+        "trendSlope63d": 0.871593,
+        "trendFitR2_63d": 0.577568,
+        "excessReturnVsSpy63d": 0.804222,
+        "drawdownControlScore": 0.470126,
+        "growthSpurtScore": 0.706499
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12791,6 +12792,28 @@
         "volume": 222300,
         "source": "yahoo-chart",
         "adjusted_close": 5.690000057220459
+      },
+      {
+        "ticker": "ANTX",
+        "date": "2026-09-11",
+        "open": 5.699999809265137,
+        "high": 5.78000020980835,
+        "low": 5.400000095367432,
+        "close": 5.409999847412109,
+        "volume": 103500,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.409999847412109
+      },
+      {
+        "ticker": "ANTX",
+        "date": "2026-09-14",
+        "open": 5.429999828338623,
+        "high": 5.644999980926514,
+        "low": 5.340000152587891,
+        "close": 5.460000038146973,
+        "volume": 221500,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.460000038146973
       }
     ],
     "dataStatus": {
@@ -12828,13 +12851,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-14",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 55.19,
-      "growthSpurtBenchmarkPercentile": 0.806925,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 50.21,
+      "growthSpurtBenchmarkPercentile": 0.706499,
+      "growthSpurtMarketDataAsOf": "2026-09-14",
+      "lastPipelineRun": "2026-09-15T01:41:08.013295+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-12T01:42:01.372914+00:00",
+  "generatedAt": "2026-09-15T01:55:52.896540+00:00",
   "record": {
     "security": {
       "ticker": "AGNCZ",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.3,
-      "dailyChangePercent": -0.6284,
-      "marketCapBillions": 29.9927,
+      "latestPrice": 25.306,
+      "dailyChangePercent": 0.0237,
+      "marketCapBillions": 29.9998,
       "liabilitiesToAssets": 0.896986,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -205,7 +205,7 @@
       "shortTermDebtShare": null,
       "bookValue": 12543000000.0,
       "bookValuePerShare": 10.580511,
-      "priceToBook": 2.391189,
+      "priceToBook": 2.391756,
       "retainedEarnings": -8929000000.0
     },
     "balanceSheetScoringShadow": {
@@ -432,50 +432,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AGNCZ",
-      "generatedAt": "2026-09-12T01:18:13.087434+00:00",
-      "marketDataAsOf": "2026-09-10",
+      "generatedAt": "2026-09-15T01:41:08.013295+00:00",
+      "marketDataAsOf": "2026-09-14",
       "status": "not_detected",
-      "growthSpurtScore": 51.09,
+      "growthSpurtScore": 47.61,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00354471,
-        "return63d": 0.01923372,
-        "trendSlope21d": 8.4e-06,
-        "trendSlope63d": 0.00050871,
-        "trendAnnualizedReturn63d": 0.1367738,
-        "trendFitR2_63d": 0.82735556,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.00395624,
+        "return21d": -0.00916214,
+        "return63d": 0.01787062,
+        "trendSlope21d": -0.0002231,
+        "trendSlope63d": 0.00047166,
+        "trendAnnualizedReturn63d": 0.12620979,
+        "trendFitR2_63d": 0.72294304,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00468588,
         "maxDrawdown63d": -0.01402964,
         "downsideVolatility63d": 0.00191773,
-        "excessReturnVsSpy21d": 0.01297572,
-        "excessReturnVsSpy63d": -0.02812078,
-        "trendAcceleration": -0.0005985,
-        "largestOneDayContribution63d": 0.09518761,
+        "excessReturnVsSpy21d": 0.01269213,
+        "excessReturnVsSpy63d": -0.01056242,
+        "trendAcceleration": -0.0008071,
+        "largestOneDayContribution63d": 0.09828801,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 23.195,
-        "consistencyScore": 82.1725,
-        "relativeStrengthScore": 44.2528,
+        "directionScore": 21.4392,
+        "consistencyScore": 65.7275,
+        "relativeStrengthScore": 51.2618,
         "drawdownControlScore": 95.3235,
-        "confirmationScore": 4.351
+        "confirmationScore": 1.929
       },
-      "benchmarkPercentile": 0.710388,
+      "benchmarkPercentile": 0.681866,
       "metricPercentiles": {
-        "trendSlope63d": 0.572403,
-        "trendFitR2_63d": 0.896118,
-        "excessReturnVsSpy63d": 0.530127,
-        "drawdownControlScore": 0.955929,
-        "growthSpurtScore": 0.710388
+        "trendSlope63d": 0.584382,
+        "trendFitR2_63d": 0.767296,
+        "excessReturnVsSpy63d": 0.573087,
+        "drawdownControlScore": 0.956499,
+        "growthSpurtScore": 0.681866
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3293,6 +3295,28 @@
         "volume": 32500,
         "source": "yahoo-chart",
         "adjusted_close": 25.299999237060547
+      },
+      {
+        "ticker": "AGNCZ",
+        "date": "2026-09-11",
+        "open": 25.34000015258789,
+        "high": 25.420000076293945,
+        "low": 25.229999542236328,
+        "close": 25.299999237060547,
+        "volume": 48300,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.299999237060547
+      },
+      {
+        "ticker": "AGNCZ",
+        "date": "2026-09-14",
+        "open": 25.18000030517578,
+        "high": 25.3700008392334,
+        "low": 25.18000030517578,
+        "close": 25.305999755859375,
+        "volume": 34800,
+        "source": "yahoo-chart",
+        "adjusted_close": 25.305999755859375
       }
     ],
     "dataStatus": {
@@ -3332,13 +3356,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-31",
-      "latestScoringDate": "2026-09-10",
+      "latestScoringDate": "2026-09-14",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 51.09,
-      "growthSpurtBenchmarkPercentile": 0.710388,
-      "growthSpurtMarketDataAsOf": "2026-09-10",
-      "lastPipelineRun": "2026-09-12T01:18:13.087434+00:00",
+      "growthSpurtScore": 47.61,
+      "growthSpurtBenchmarkPercentile": 0.681866,
+      "growthSpurtMarketDataAsOf": "2026-09-14",
+      "lastPipelineRun": "2026-09-15T01:41:08.013295+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
