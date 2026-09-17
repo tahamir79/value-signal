@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-16T13:53:16.952212+00:00",
+  "generatedAt": "2026-09-17T13:13:32.630590+00:00",
   "record": {
     "security": {
       "ticker": "ROIV",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 39.5,
-      "dailyChangePercent": -3.7055,
-      "marketCapBillions": 28.5318,
+      "latestPrice": 39.57,
+      "dailyChangePercent": 0.1772,
+      "marketCapBillions": 28.5823,
       "liabilitiesToAssets": 0.072482,
       "latestRevenueBillions": 0.0083,
       "grossMarginPercent": null,
@@ -310,7 +310,7 @@
       "shortTermDebtShare": 0.03707,
       "bookValue": 4231273000.0,
       "bookValuePerShare": 5.857868,
-      "priceToBook": 6.743067,
+      "priceToBook": 6.755017,
       "retainedEarnings": -900354000.0
     },
     "balanceSheetScoringShadow": {
@@ -525,65 +525,57 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ROIV",
-      "generatedAt": "2026-09-16T12:45:52.586552+00:00",
-      "marketDataAsOf": "2026-09-15",
-      "status": "detected",
-      "growthSpurtScore": 81.13,
+      "generatedAt": "2026-09-17T12:46:33.466154+00:00",
+      "marketDataAsOf": "2026-09-16",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0911602,
-        "return63d": 0.31535129,
-        "trendSlope21d": 0.00395665,
-        "trendSlope63d": 0.00205703,
-        "trendAnnualizedReturn63d": 0.67928916,
-        "trendFitR2_63d": 0.45737509,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.04729269,
+        "return21d": 0.09188736,
+        "return63d": 0.3012167,
+        "trendSlope21d": 0.00397453,
+        "trendSlope63d": 0.00202582,
+        "trendAnnualizedReturn63d": 0.66613308,
+        "trendFitR2_63d": 0.45453205,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.04634206,
         "maxDrawdown63d": -0.10703619,
         "downsideVolatility63d": 0.01676644,
-        "excessReturnVsSpy21d": 0.11556962,
-        "excessReturnVsSpy63d": 0.30937481,
-        "trendAcceleration": 0.00242609,
-        "largestOneDayContribution63d": 0.15923845,
+        "excessReturnVsSpy21d": 0.11598561,
+        "excessReturnVsSpy63d": 0.29366994,
+        "trendAcceleration": 0.00259457,
+        "largestOneDayContribution63d": 0.1625804,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 45.93,
+        "consistencyScore": 38.9338,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 64.3213,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.953256,
+      "benchmarkPercentile": 0.789543,
       "metricPercentiles": {
-        "trendSlope63d": 0.767332,
-        "trendFitR2_63d": 0.51208,
-        "excessReturnVsSpy63d": 0.91403,
-        "drawdownControlScore": 0.744223,
-        "growthSpurtScore": 0.953256
+        "trendSlope63d": 0.76721,
+        "trendFitR2_63d": 0.506569,
+        "excessReturnVsSpy63d": 0.911346,
+        "drawdownControlScore": 0.747241,
+        "growthSpurtScore": 0.789543
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "ROIV",
-        "date": "2021-09-16",
-        "open": 9.960000038146973,
-        "high": 9.979999542236328,
-        "low": 9.960000038146973,
-        "close": 9.970000267028809,
-        "volume": 840100,
-        "source": "yahoo-chart",
-        "adjusted_close": 9.970000267028809
-      },
       {
         "ticker": "ROIV",
         "date": "2021-09-17",
@@ -14366,6 +14358,17 @@
         "volume": 8104600,
         "source": "yahoo-chart",
         "adjusted_close": 39.5
+      },
+      {
+        "ticker": "ROIV",
+        "date": "2026-09-16",
+        "open": 39.77000045776367,
+        "high": 40.44499969482422,
+        "low": 39.165000915527344,
+        "close": 39.56999969482422,
+        "volume": 6181200,
+        "source": "yahoo-chart",
+        "adjusted_close": 39.56999969482422
       }
     ],
     "dataStatus": {
@@ -14401,13 +14404,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-15",
+      "latestScoringDate": "2026-09-16",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 81.13,
-      "growthSpurtBenchmarkPercentile": 0.953256,
-      "growthSpurtMarketDataAsOf": "2026-09-15",
-      "lastPipelineRun": "2026-09-16T12:45:52.586552+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.789543,
+      "growthSpurtMarketDataAsOf": "2026-09-16",
+      "lastPipelineRun": "2026-09-17T12:46:33.466154+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
