@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-16T01:59:55.182259+00:00",
+  "generatedAt": "2026-09-17T01:56:20.898955+00:00",
   "record": {
     "security": {
       "ticker": "BKV",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 23.82,
-      "dailyChangePercent": -1.6921,
-      "marketCapBillions": 2.6068,
+      "latestPrice": 24.35,
+      "dailyChangePercent": 2.225,
+      "marketCapBillions": 2.6648,
       "liabilitiesToAssets": 0.432546,
       "latestRevenueBillions": 0.8938,
       "grossMarginPercent": null,
@@ -272,7 +272,7 @@
       "shortTermDebtShare": 0.129169,
       "bookValue": 2297103000.0,
       "bookValuePerShare": 20.990027,
-      "priceToBook": 1.134825,
+      "priceToBook": 1.160075,
       "retainedEarnings": 426391000.0
     },
     "balanceSheetScoringShadow": {
@@ -485,49 +485,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BKV",
-      "generatedAt": "2026-09-16T01:33:37.266514+00:00",
-      "marketDataAsOf": "2026-09-14",
+      "generatedAt": "2026-09-17T01:37:27.048957+00:00",
+      "marketDataAsOf": "2026-09-15",
       "status": "not_detected",
-      "growthSpurtScore": 10.33,
+      "growthSpurtScore": 18.12,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.08101853,
-        "return63d": -0.04948124,
-        "trendSlope21d": -0.00163354,
-        "trendSlope63d": -0.00058248,
-        "trendAnnualizedReturn63d": -0.13652074,
-        "trendFitR2_63d": 0.04491151,
+        "return21d": -0.0890385,
+        "return63d": 0.00828161,
+        "trendSlope21d": -0.00108345,
+        "trendSlope63d": -0.00070668,
+        "trendAnnualizedReturn63d": -0.16312727,
+        "trendFitR2_63d": 0.08347346,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.04326406,
+        "trendResidualVolatility63d": 0.04244846,
         "maxDrawdown63d": -0.15935674,
         "downsideVolatility63d": 0.02288894,
-        "excessReturnVsSpy21d": -0.05916426,
-        "excessReturnVsSpy63d": -0.07791427,
-        "trendAcceleration": -0.00073247,
-        "largestOneDayContribution63d": 0.0794842,
+        "excessReturnVsSpy21d": -0.06462908,
+        "excessReturnVsSpy63d": 0.00230513,
+        "trendAcceleration": -0.00025763,
+        "largestOneDayContribution63d": 0.07832408,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 11.4502,
-        "relativeStrengthScore": 0.8473,
+        "directionScore": 2.4155,
+        "consistencyScore": 11.7467,
+        "relativeStrengthScore": 33.4365,
         "drawdownControlScore": 46.8811,
-        "confirmationScore": 2.6753
+        "confirmationScore": 7.4237
       },
-      "benchmarkPercentile": 0.183866,
+      "benchmarkPercentile": 0.352541,
       "metricPercentiles": {
-        "trendSlope63d": 0.411734,
-        "trendFitR2_63d": 0.173913,
-        "excessReturnVsSpy63d": 0.393253,
-        "drawdownControlScore": 0.579361,
-        "growthSpurtScore": 0.183866
+        "trendSlope63d": 0.403353,
+        "trendFitR2_63d": 0.217391,
+        "excessReturnVsSpy63d": 0.566456,
+        "drawdownControlScore": 0.58198,
+        "growthSpurtScore": 0.352541
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5941,6 +5944,17 @@
         "volume": 1277400,
         "source": "yahoo-chart",
         "adjusted_close": 23.81999969482422
+      },
+      {
+        "ticker": "BKV",
+        "date": "2026-09-15",
+        "open": 24.25,
+        "high": 24.44499969482422,
+        "low": 23.90999984741211,
+        "close": 24.350000381469727,
+        "volume": 1134800,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.350000381469727
       }
     ],
     "dataStatus": {
@@ -5973,17 +5987,17 @@
       ],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "quality-watchlist",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-14",
+      "latestScoringDate": "2026-09-15",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 10.33,
-      "growthSpurtBenchmarkPercentile": 0.183866,
-      "growthSpurtMarketDataAsOf": "2026-09-14",
-      "lastPipelineRun": "2026-09-16T01:33:37.266514+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 18.12,
+      "growthSpurtBenchmarkPercentile": 0.352541,
+      "growthSpurtMarketDataAsOf": "2026-09-15",
+      "lastPipelineRun": "2026-09-17T01:37:27.048957+00:00",
+      "balanceSheetExperimentalSignal": "quality-watchlist",
       "balanceSheetWouldChangeSignal": false
     }
   }
