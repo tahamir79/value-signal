@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-16T09:07:59.279993+00:00",
+  "generatedAt": "2026-09-17T09:08:01.061885+00:00",
   "record": {
     "security": {
       "ticker": "FTEK",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.91,
-      "dailyChangePercent": 9.1429,
-      "marketCapBillions": 0.0596,
+      "latestPrice": 1.75,
+      "dailyChangePercent": -8.377,
+      "marketCapBillions": 0.0546,
       "liabilitiesToAssets": 0.134903,
       "latestRevenueBillions": 0.0267,
       "grossMarginPercent": 46.4183,
@@ -330,7 +330,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 37367000.0,
       "bookValuePerShare": 1.197016,
-      "priceToBook": 1.595634,
+      "priceToBook": 1.461969,
       "retainedEarnings": -124381000.0
     },
     "balanceSheetScoringShadow": {
@@ -541,27 +541,27 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FTEK",
-      "generatedAt": "2026-09-16T08:45:21.627961+00:00",
-      "marketDataAsOf": "2026-09-15",
+      "generatedAt": "2026-09-17T08:51:59.460207+00:00",
+      "marketDataAsOf": "2026-09-16",
       "status": "not_detected",
       "growthSpurtScore": 48.1,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.31724131,
-        "return63d": 0.45801531,
-        "trendSlope21d": 0.01241543,
-        "trendSlope63d": -0.00363171,
-        "trendAnnualizedReturn63d": -0.59955937,
-        "trendFitR2_63d": 0.10634743,
+        "return21d": 0.21527773,
+        "return63d": 0.33587792,
+        "trendSlope21d": 0.01395067,
+        "trendSlope63d": -0.00366269,
+        "trendAnnualizedReturn63d": -0.60267361,
+        "trendFitR2_63d": 0.09141181,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.11723183,
+        "trendResidualVolatility63d": 0.11424478,
         "maxDrawdown63d": -0.38461539,
-        "downsideVolatility63d": 0.0223896,
-        "excessReturnVsSpy21d": 0.34165074,
-        "excessReturnVsSpy63d": 0.45203883,
-        "trendAcceleration": 0.02153682,
-        "largestOneDayContribution63d": 0.12104385,
+        "downsideVolatility63d": 0.02412792,
+        "excessReturnVsSpy21d": 0.23937598,
+        "excessReturnVsSpy63d": 0.32833116,
+        "trendAcceleration": 0.02316181,
+        "largestOneDayContribution63d": 0.12260477,
         "percentAboveTrendLine63d": 0.49206349
       },
       "scoreBreakdown": {
@@ -571,33 +571,25 @@
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.684921,
+      "benchmarkPercentile": 0.699947,
       "metricPercentiles": {
-        "trendSlope63d": 0.208466,
-        "trendFitR2_63d": 0.231217,
-        "excessReturnVsSpy63d": 0.956754,
-        "drawdownControlScore": 0.143122,
-        "growthSpurtScore": 0.684921
+        "trendSlope63d": 0.211305,
+        "trendFitR2_63d": 0.213418,
+        "excessReturnVsSpy63d": 0.928038,
+        "drawdownControlScore": 0.1458,
+        "growthSpurtScore": 0.699947
       },
       "reasonCodes": [
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "FTEK",
-        "date": "2021-09-16",
-        "open": 1.7799999713897705,
-        "high": 1.8200000524520874,
-        "low": 1.7400000095367432,
-        "close": 1.7899999618530273,
-        "volume": 253200,
-        "source": "yahoo-chart",
-        "adjusted_close": 1.7899999618530273
-      },
       {
         "ticker": "FTEK",
         "date": "2021-09-17",
@@ -14380,6 +14372,17 @@
         "volume": 378900,
         "source": "yahoo-chart",
         "adjusted_close": 1.909999966621399
+      },
+      {
+        "ticker": "FTEK",
+        "date": "2026-09-16",
+        "open": 1.9299999475479126,
+        "high": 1.9299999475479126,
+        "low": 1.7100000381469727,
+        "close": 1.75,
+        "volume": 408300,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.75
       }
     ],
     "dataStatus": {
@@ -14411,13 +14414,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-09-15",
+      "latestScoringDate": "2026-09-16",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
       "growthSpurtScore": 48.1,
-      "growthSpurtBenchmarkPercentile": 0.684921,
-      "growthSpurtMarketDataAsOf": "2026-09-15",
-      "lastPipelineRun": "2026-09-16T08:45:21.627961+00:00",
+      "growthSpurtBenchmarkPercentile": 0.699947,
+      "growthSpurtMarketDataAsOf": "2026-09-16",
+      "lastPipelineRun": "2026-09-17T08:51:59.460207+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
