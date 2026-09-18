@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-17T13:13:32.630590+00:00",
+  "generatedAt": "2026-09-18T12:47:47.633885+00:00",
   "record": {
     "security": {
       "ticker": "TAOX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.7,
-      "dailyChangePercent": 0.955,
-      "marketCapBillions": 0.0277,
+      "latestPrice": 4.08,
+      "dailyChangePercent": 10.2703,
+      "marketCapBillions": 0.0305,
       "liabilitiesToAssets": 0.18052,
       "latestRevenueBillions": 0.0003,
       "grossMarginPercent": null,
@@ -238,7 +238,7 @@
       "shortTermDebtShare": null,
       "bookValue": 12749316.0,
       "bookValuePerShare": 1.703716,
-      "priceToBook": 2.171724,
+      "priceToBook": 2.394766,
       "retainedEarnings": -81645998.0
     },
     "balanceSheetScoringShadow": {
@@ -458,64 +458,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TAOX",
-      "generatedAt": "2026-09-17T12:46:33.466154+00:00",
-      "marketDataAsOf": "2026-09-16",
+      "generatedAt": "2026-09-18T12:22:25.951381+00:00",
+      "marketDataAsOf": "2026-09-17",
       "status": "not_detected",
-      "growthSpurtScore": 45.41,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09467453,
-        "return63d": -0.06091371,
-        "trendSlope21d": 0.00086706,
-        "trendSlope63d": 0.00104403,
-        "trendAnnualizedReturn63d": 0.30094996,
-        "trendFitR2_63d": 0.08001512,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05817299,
+        "return21d": 0.26708071,
+        "return63d": 0.0625,
+        "trendSlope21d": 0.00075355,
+        "trendSlope63d": 0.00135399,
+        "trendAnnualizedReturn63d": 0.40664084,
+        "trendFitR2_63d": 0.10230855,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.05770519,
         "maxDrawdown63d": -0.16363634,
-        "downsideVolatility63d": 0.02579916,
-        "excessReturnVsSpy21d": 0.11877278,
-        "excessReturnVsSpy63d": -0.06846047,
-        "trendAcceleration": 0.00256446,
-        "largestOneDayContribution63d": 0.05272018,
+        "downsideVolatility63d": 0.02632111,
+        "excessReturnVsSpy21d": 0.27340039,
+        "excessReturnVsSpy63d": 0.03064322,
+        "trendAcceleration": 0.00248729,
+        "largestOneDayContribution63d": 0.05131458,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 58.6936,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 39.6879,
+        "directionScore": 83.2292,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 79.9488,
         "drawdownControlScore": 45.4546,
-        "confirmationScore": 94.6824
+        "confirmationScore": 90.142
       },
-      "benchmarkPercentile": 0.671046,
+      "benchmarkPercentile": 0.794521,
       "metricPercentiles": {
-        "trendSlope63d": 0.672622,
-        "trendFitR2_63d": 0.20494,
-        "excessReturnVsSpy63d": 0.423747,
-        "drawdownControlScore": 0.57856,
-        "growthSpurtScore": 0.671046
+        "trendSlope63d": 0.705479,
+        "trendFitR2_63d": 0.226554,
+        "excessReturnVsSpy63d": 0.691005,
+        "drawdownControlScore": 0.576923,
+        "growthSpurtScore": 0.794521
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "TAOX",
-        "date": "2021-09-17",
-        "open": 169.25,
-        "high": 198.0,
-        "low": 169.25,
-        "close": 181.5,
-        "volume": 16436,
-        "source": "yahoo-chart",
-        "adjusted_close": 181.5
-      },
       {
         "ticker": "TAOX",
         "date": "2021-09-20",
@@ -14298,6 +14290,17 @@
         "volume": 51800,
         "source": "yahoo-chart",
         "adjusted_close": 3.700000047683716
+      },
+      {
+        "ticker": "TAOX",
+        "date": "2026-09-17",
+        "open": 3.819999933242798,
+        "high": 4.170000076293945,
+        "low": 3.700000047683716,
+        "close": 4.079999923706055,
+        "volume": 183400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.079999923706055
       }
     ],
     "dataStatus": {
@@ -14332,17 +14335,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-16",
+      "latestScoringDate": "2026-09-17",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 45.41,
-      "growthSpurtBenchmarkPercentile": 0.671046,
-      "growthSpurtMarketDataAsOf": "2026-09-16",
-      "lastPipelineRun": "2026-09-17T12:46:33.466154+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.794521,
+      "growthSpurtMarketDataAsOf": "2026-09-17",
+      "lastPipelineRun": "2026-09-18T12:22:25.951381+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
