@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-17T13:13:32.630590+00:00",
+  "generatedAt": "2026-09-19T12:25:04.951493+00:00",
   "record": {
     "security": {
       "ticker": "WSBK",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 12.9,
-      "dailyChangePercent": -0.1548,
-      "marketCapBillions": 0.1199,
+      "latestPrice": 13.02,
+      "dailyChangePercent": 0.6571,
+      "marketCapBillions": 0.121,
       "liabilitiesToAssets": 0.890036,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -203,7 +203,7 @@
       "shortTermDebtShare": null,
       "bookValue": 120513000.0,
       "bookValuePerShare": 12.964833,
-      "priceToBook": 0.994999,
+      "priceToBook": 1.004255,
       "retainedEarnings": 85141000.0
     },
     "balanceSheetScoringShadow": {
@@ -428,50 +428,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "WSBK",
-      "generatedAt": "2026-09-17T12:46:33.466154+00:00",
-      "marketDataAsOf": "2026-09-16",
+      "generatedAt": "2026-09-19T12:05:42.960415+00:00",
+      "marketDataAsOf": "2026-09-18",
       "status": "not_detected",
-      "growthSpurtScore": 32.69,
+      "growthSpurtScore": 29.14,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00616332,
-        "return63d": 0.01018004,
-        "trendSlope21d": -0.00023121,
-        "trendSlope63d": -0.00015427,
-        "trendAnnualizedReturn63d": -0.03812886,
-        "trendFitR2_63d": 0.14744473,
+        "return21d": 0.00308173,
+        "return63d": -0.01363631,
+        "trendSlope21d": -0.00026222,
+        "trendSlope63d": -0.00015373,
+        "trendAnnualizedReturn63d": -0.03799874,
+        "trendFitR2_63d": 0.16370912,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00470213,
-        "maxDrawdown63d": -0.02499999,
-        "downsideVolatility63d": 0.00441183,
-        "excessReturnVsSpy21d": 0.01793493,
-        "excessReturnVsSpy63d": 0.00263328,
-        "trendAcceleration": -3.131e-05,
-        "largestOneDayContribution63d": 0.1086914,
+        "trendResidualVolatility63d": 0.0043365,
+        "maxDrawdown63d": -0.02198635,
+        "downsideVolatility63d": 0.00241015,
+        "excessReturnVsSpy21d": 0.01020541,
+        "excessReturnVsSpy63d": -0.03618963,
+        "trendAcceleration": -7.006e-05,
+        "largestOneDayContribution63d": 0.1205799,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 2.9692,
-        "consistencyScore": 21.187,
-        "relativeStrengthScore": 58.9163,
-        "drawdownControlScore": 91.6667,
-        "confirmationScore": 9.6869
+        "directionScore": 2.0545,
+        "consistencyScore": 21.3199,
+        "relativeStrengthScore": 39.7628,
+        "drawdownControlScore": 92.6712,
+        "confirmationScore": 13.4084
       },
-      "benchmarkPercentile": 0.547031,
+      "benchmarkPercentile": 0.533947,
       "metricPercentiles": {
-        "trendSlope63d": 0.466894,
-        "trendFitR2_63d": 0.273778,
-        "excessReturnVsSpy63d": 0.596834,
-        "drawdownControlScore": 0.930636,
-        "growthSpurtScore": 0.547031
+        "trendSlope63d": 0.474737,
+        "trendFitR2_63d": 0.283684,
+        "excessReturnVsSpy63d": 0.508457,
+        "drawdownControlScore": 0.936842,
+        "growthSpurtScore": 0.533947
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4268,6 +4271,28 @@
         "volume": 2900,
         "source": "yahoo-chart",
         "adjusted_close": 12.899999618530273
+      },
+      {
+        "ticker": "WSBK",
+        "date": "2026-09-17",
+        "open": 12.998000144958496,
+        "high": 12.998000144958496,
+        "low": 12.890000343322754,
+        "close": 12.9350004196167,
+        "volume": 3000,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.9350004196167
+      },
+      {
+        "ticker": "WSBK",
+        "date": "2026-09-18",
+        "open": 12.899999618530273,
+        "high": 13.020000457763672,
+        "low": 12.899999618530273,
+        "close": 13.020000457763672,
+        "volume": 14500,
+        "source": "yahoo-chart",
+        "adjusted_close": 13.020000457763672
       }
     ],
     "dataStatus": {
@@ -4307,13 +4332,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-09-16",
-      "latestScoringDate": "2026-09-16",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 32.69,
-      "growthSpurtBenchmarkPercentile": 0.547031,
-      "growthSpurtMarketDataAsOf": "2026-09-16",
-      "lastPipelineRun": "2026-09-17T12:46:33.466154+00:00",
+      "growthSpurtScore": 29.14,
+      "growthSpurtBenchmarkPercentile": 0.533947,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T12:05:42.960415+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

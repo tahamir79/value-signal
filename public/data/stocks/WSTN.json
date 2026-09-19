@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-17T13:13:32.630590+00:00",
+  "generatedAt": "2026-09-19T12:25:04.951493+00:00",
   "record": {
     "security": {
       "ticker": "WSTN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.145,
-      "dailyChangePercent": -0.1476,
+      "latestPrice": 10.14,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 0.0817,
       "liabilitiesToAssets": 0.047876,
       "latestRevenueBillions": null,
@@ -203,7 +203,7 @@
       "shortTermDebtShare": null,
       "bookValue": 4167262.0,
       "bookValuePerShare": 0.517351,
-      "priceToBook": 19.609513,
+      "priceToBook": 19.599848,
       "retainedEarnings": 495905.0
     },
     "balanceSheetScoringShadow": {
@@ -425,50 +425,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "WSTN",
-      "generatedAt": "2026-09-17T12:46:33.466154+00:00",
-      "marketDataAsOf": "2026-09-16",
+      "generatedAt": "2026-09-19T12:05:42.960415+00:00",
+      "marketDataAsOf": "2026-09-18",
       "status": "not_detected",
-      "growthSpurtScore": 48.61,
+      "growthSpurtScore": 40.79,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0,
-        "return63d": 0.00644847,
-        "trendSlope21d": 0.0,
-        "trendSlope63d": 0.000148,
-        "trendAnnualizedReturn63d": 0.03800042,
-        "trendFitR2_63d": 0.77548387,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.00152528,
-        "maxDrawdown63d": -0.00539209,
-        "downsideVolatility63d": 0.00111178,
-        "excessReturnVsSpy21d": 0.02409825,
-        "excessReturnVsSpy63d": -0.00109829,
-        "trendAcceleration": -0.00015188,
-        "largestOneDayContribution63d": 0.11965602,
+        "return21d": -0.00098515,
+        "return63d": 0.00595242,
+        "trendSlope21d": -0.00014103,
+        "trendSlope63d": 0.00013556,
+        "trendAnnualizedReturn63d": 0.0347514,
+        "trendFitR2_63d": 0.68805847,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00170239,
+        "maxDrawdown63d": -0.0058823,
+        "downsideVolatility63d": 0.0011106,
+        "excessReturnVsSpy21d": 0.00613853,
+        "excessReturnVsSpy63d": -0.01660089,
+        "trendAcceleration": -0.00027557,
+        "largestOneDayContribution63d": 0.12531346,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.7666,
-        "consistencyScore": 75.9136,
-        "relativeStrengthScore": 60.0968,
-        "drawdownControlScore": 98.2026,
-        "confirmationScore": 8.4812
+        "directionScore": 6.2042,
+        "consistencyScore": 57.2276,
+        "relativeStrengthScore": 45.9415,
+        "drawdownControlScore": 98.0392,
+        "confirmationScore": 7.2443
       },
-      "benchmarkPercentile": 0.706779,
+      "benchmarkPercentile": 0.644737,
       "metricPercentiles": {
-        "trendSlope63d": 0.538098,
-        "trendFitR2_63d": 0.828166,
-        "excessReturnVsSpy63d": 0.569921,
-        "drawdownControlScore": 0.974777,
-        "growthSpurtScore": 0.706779
+        "trendSlope63d": 0.541579,
+        "trendFitR2_63d": 0.72,
+        "excessReturnVsSpy63d": 0.557611,
+        "drawdownControlScore": 0.973158,
+        "growthSpurtScore": 0.644737
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
-        "LOW_TREND_DRAWDOWN"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2428,6 +2430,28 @@
         "volume": 2400,
         "source": "yahoo-chart",
         "adjusted_close": 10.145000457763672
+      },
+      {
+        "ticker": "WSTN",
+        "date": "2026-09-17",
+        "open": 10.140000343322754,
+        "high": 10.140000343322754,
+        "low": 10.140000343322754,
+        "close": 10.140000343322754,
+        "volume": 200,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.140000343322754
+      },
+      {
+        "ticker": "WSTN",
+        "date": "2026-09-18",
+        "open": 10.140000343322754,
+        "high": 10.140000343322754,
+        "low": 10.140000343322754,
+        "close": 10.140000343322754,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.140000343322754
       }
     ],
     "dataStatus": {
@@ -2467,13 +2491,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-15",
-      "latestScoringDate": "2026-09-16",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 48.61,
-      "growthSpurtBenchmarkPercentile": 0.706779,
-      "growthSpurtMarketDataAsOf": "2026-09-16",
-      "lastPipelineRun": "2026-09-17T12:46:33.466154+00:00",
+      "growthSpurtScore": 40.79,
+      "growthSpurtBenchmarkPercentile": 0.644737,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T12:05:42.960415+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-18T12:47:47.633885+00:00",
+  "generatedAt": "2026-09-19T12:25:04.951493+00:00",
   "record": {
     "security": {
       "ticker": "URBN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 75.84,
-      "dailyChangePercent": -1.6087,
-      "marketCapBillions": 6.4965,
+      "latestPrice": 75.01,
+      "dailyChangePercent": -1.0944,
+      "marketCapBillions": 6.4254,
       "liabilitiesToAssets": 0.442861,
       "latestRevenueBillions": 6.1654,
       "grossMarginPercent": 35.9711,
@@ -322,7 +322,7 @@
       "shortTermDebtShare": 0.647059,
       "bookValue": 2854216000.0,
       "bookValuePerShare": 33.320219,
-      "priceToBook": 2.276095,
+      "priceToBook": 2.251186,
       "retainedEarnings": 2877697000.0
     },
     "balanceSheetScoringShadow": {
@@ -536,50 +536,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "URBN",
-      "generatedAt": "2026-09-18T12:22:25.951381+00:00",
-      "marketDataAsOf": "2026-09-17",
+      "generatedAt": "2026-09-19T12:05:42.960415+00:00",
+      "marketDataAsOf": "2026-09-18",
       "status": "not_detected",
-      "growthSpurtScore": 53.25,
+      "growthSpurtScore": 45.16,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.01675828,
-        "return63d": 0.04650193,
-        "trendSlope21d": -3.669e-05,
+        "return21d": 0.00847008,
+        "return63d": -0.01845062,
+        "trendSlope21d": -0.00163257,
         "trendSlope63d": 0.00196427,
         "trendAnnualizedReturn63d": 0.64049185,
-        "trendFitR2_63d": 0.52079543,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.03388396,
-        "maxDrawdown63d": -0.10991889,
-        "downsideVolatility63d": 0.01379389,
-        "excessReturnVsSpy21d": 0.02307796,
-        "excessReturnVsSpy63d": 0.01464515,
-        "trendAcceleration": -0.00261525,
-        "largestOneDayContribution63d": 0.07427919,
+        "trendFitR2_63d": 0.53720114,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.03314553,
+        "maxDrawdown63d": -0.09572025,
+        "downsideVolatility63d": 0.01273299,
+        "excessReturnVsSpy21d": 0.01559376,
+        "excessReturnVsSpy63d": -0.04100393,
+        "trendAcceleration": -0.0042375,
+        "largestOneDayContribution63d": 0.07650629,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 69.7352,
-        "consistencyScore": 29.5311,
-        "relativeStrengthScore": 66.0462,
-        "drawdownControlScore": 63.3604,
-        "confirmationScore": 22.3444
+        "directionScore": 50.6467,
+        "consistencyScore": 42.3766,
+        "relativeStrengthScore": 40.1644,
+        "drawdownControlScore": 68.0932,
+        "confirmationScore": 11.2934
       },
-      "benchmarkPercentile": 0.761855,
+      "benchmarkPercentile": 0.69,
       "metricPercentiles": {
-        "trendSlope63d": 0.760274,
-        "trendFitR2_63d": 0.55216,
-        "excessReturnVsSpy63d": 0.658201,
-        "drawdownControlScore": 0.737619,
-        "growthSpurtScore": 0.761855
+        "trendSlope63d": 0.763158,
+        "trendFitR2_63d": 0.564211,
+        "excessReturnVsSpy63d": 0.500529,
+        "drawdownControlScore": 0.785789,
+        "growthSpurtScore": 0.69
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14375,6 +14378,17 @@
         "volume": 835800,
         "source": "yahoo-chart",
         "adjusted_close": 75.83999633789062
+      },
+      {
+        "ticker": "URBN",
+        "date": "2026-09-18",
+        "open": 75.5199966430664,
+        "high": 76.33999633789062,
+        "low": 74.94000244140625,
+        "close": 75.01000213623047,
+        "volume": 2171800,
+        "source": "yahoo-chart",
+        "adjusted_close": 75.01000213623047
       }
     ],
     "dataStatus": {
@@ -14409,13 +14423,13 @@
       "officialSignal": "potentially-undervalued",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-09-09",
-      "latestScoringDate": "2026-09-17",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 53.25,
-      "growthSpurtBenchmarkPercentile": 0.761855,
-      "growthSpurtMarketDataAsOf": "2026-09-17",
-      "lastPipelineRun": "2026-09-18T12:22:25.951381+00:00",
+      "growthSpurtScore": 45.16,
+      "growthSpurtBenchmarkPercentile": 0.69,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T12:05:42.960415+00:00",
       "balanceSheetExperimentalSignal": "potentially-undervalued",
       "balanceSheetWouldChangeSignal": false
     }
