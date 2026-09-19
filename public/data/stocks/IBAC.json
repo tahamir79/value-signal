@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-18T08:40:32.563002+00:00",
+  "generatedAt": "2026-09-19T08:34:11.981909+00:00",
   "record": {
     "security": {
       "ticker": "IBAC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.93,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0547,
+      "latestPrice": 11.64,
+      "dailyChangePercent": 6.4959,
+      "marketCapBillions": 0.0583,
       "liabilitiesToAssets": 0.287322,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -429,50 +429,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "IBAC",
-      "generatedAt": "2026-09-18T08:26:02.574390+00:00",
-      "marketDataAsOf": "2026-09-17",
+      "generatedAt": "2026-09-19T08:14:40.112899+00:00",
+      "marketDataAsOf": "2026-09-18",
       "status": "not_detected",
-      "growthSpurtScore": 46.68,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00459561,
-        "return63d": 0.01203705,
-        "trendSlope21d": 0.00024287,
-        "trendSlope63d": 0.00024933,
-        "trendAnnualizedReturn63d": 0.06484691,
-        "trendFitR2_63d": 0.8322981,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00211285,
+        "return21d": 0.06985296,
+        "return63d": 0.07877668,
+        "trendSlope21d": 0.00026971,
+        "trendSlope63d": 0.00026212,
+        "trendAnnualizedReturn63d": 0.06828379,
+        "trendFitR2_63d": 0.3716875,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00827259,
         "maxDrawdown63d": -0.00834107,
-        "downsideVolatility63d": 0.00342101,
-        "excessReturnVsSpy21d": 0.01091528,
-        "excessReturnVsSpy63d": -0.01981973,
-        "trendAcceleration": 0.00014371,
-        "largestOneDayContribution63d": 0.1550336,
-        "percentAboveTrendLine63d": 0.52380952
+        "downsideVolatility63d": 0.00266418,
+        "excessReturnVsSpy21d": 0.07697664,
+        "excessReturnVsSpy63d": 0.05622337,
+        "trendAcceleration": 0.00015855,
+        "largestOneDayContribution63d": 0.58829152,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 14.912,
-        "consistencyScore": 62.2079,
-        "relativeStrengthScore": 46.7237,
+        "directionScore": 51.7559,
+        "consistencyScore": 39.8353,
+        "relativeStrengthScore": 90.3407,
         "drawdownControlScore": 97.2196,
-        "confirmationScore": 27.2794
+        "confirmationScore": 62.3739
       },
-      "benchmarkPercentile": 0.700422,
+      "benchmarkPercentile": 0.806409,
       "metricPercentiles": {
-        "trendSlope63d": 0.589662,
-        "trendFitR2_63d": 0.890823,
-        "excessReturnVsSpy63d": 0.57637,
-        "drawdownControlScore": 0.959916,
-        "growthSpurtScore": 0.700422
+        "trendSlope63d": 0.597458,
+        "trendFitR2_63d": 0.429555,
+        "excessReturnVsSpy63d": 0.719467,
+        "drawdownControlScore": 0.959746,
+        "growthSpurtScore": 0.806409
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7041,6 +7045,17 @@
         "volume": 5100,
         "source": "yahoo-chart",
         "adjusted_close": 10.930000305175781
+      },
+      {
+        "ticker": "IBAC",
+        "date": "2026-09-18",
+        "open": 10.9399995803833,
+        "high": 11.640000343322754,
+        "low": 10.9399995803833,
+        "close": 11.640000343322754,
+        "volume": 10400,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.640000343322754
       }
     ],
     "dataStatus": {
@@ -7082,13 +7097,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-17",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 46.68,
-      "growthSpurtBenchmarkPercentile": 0.700422,
-      "growthSpurtMarketDataAsOf": "2026-09-17",
-      "lastPipelineRun": "2026-09-18T08:26:02.574390+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.806409,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T08:14:40.112899+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": true
     }
