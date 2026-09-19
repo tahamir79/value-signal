@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-18T01:43:31.608359+00:00",
+  "generatedAt": "2026-09-19T01:39:00.837654+00:00",
   "record": {
     "security": {
       "ticker": "BRK-B",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 519.8,
-      "dailyChangePercent": 0.5883,
-      "marketCapBillions": 0.4894,
+      "latestPrice": 509.77,
+      "dailyChangePercent": 0.1119,
+      "marketCapBillions": 0.4799,
       "liabilitiesToAssets": 0.406069,
       "latestRevenueBillions": 247.244,
       "grossMarginPercent": null,
@@ -217,7 +217,7 @@
       "shortTermDebtShare": null,
       "bookValue": 747910000000.0,
       "bookValuePerShare": 794397.337811,
-      "priceToBook": 0.000654,
+      "priceToBook": 0.000642,
       "retainedEarnings": 798959000000.0
     },
     "balanceSheetScoringShadow": {
@@ -442,52 +442,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BRK-B",
-      "generatedAt": "2026-09-18T01:26:08.777662+00:00",
-      "marketDataAsOf": "2026-09-16",
-      "status": "emerging",
-      "growthSpurtScore": 61.96,
+      "generatedAt": "2026-09-19T01:22:26.718135+00:00",
+      "marketDataAsOf": "2026-09-18",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.04329321,
-        "return63d": 0.05020704,
-        "trendSlope21d": 0.00146648,
-        "trendSlope63d": 0.00060373,
-        "trendAnnualizedReturn63d": 0.16432355,
-        "trendFitR2_63d": 0.23589,
+        "return21d": 0.02031543,
+        "return63d": 0.0414947,
+        "trendSlope21d": 0.00121204,
+        "trendSlope63d": 0.00058716,
+        "trendAnnualizedReturn63d": 0.15947018,
+        "trendFitR2_63d": 0.19031923,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.01632904,
+        "trendResidualVolatility63d": 0.01630796,
         "maxDrawdown63d": -0.06346564,
-        "downsideVolatility63d": 0.00560573,
-        "excessReturnVsSpy21d": 0.06739146,
-        "excessReturnVsSpy63d": 0.04266028,
-        "trendAcceleration": 0.00033569,
-        "largestOneDayContribution63d": 0.07324439,
+        "downsideVolatility63d": 0.00621467,
+        "excessReturnVsSpy21d": 0.02871526,
+        "excessReturnVsSpy63d": 0.02025568,
+        "trendAcceleration": 0.00026612,
+        "largestOneDayContribution63d": 0.07050062,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 55.771,
-        "consistencyScore": 28.3876,
-        "relativeStrengthScore": 84.8307,
+        "directionScore": 46.1495,
+        "consistencyScore": 28.3952,
+        "relativeStrengthScore": 70.7918,
         "drawdownControlScore": 78.8448,
-        "confirmationScore": 93.3569
+        "confirmationScore": 79.7484
       },
-      "benchmarkPercentile": 0.850551,
+      "benchmarkPercentile": 0.796277,
       "metricPercentiles": {
-        "trendSlope63d": 0.618773,
-        "trendFitR2_63d": 0.351337,
-        "excessReturnVsSpy63d": 0.679325,
-        "drawdownControlScore": 0.879392,
-        "growthSpurtScore": 0.850551
+        "trendSlope63d": 0.623492,
+        "trendFitR2_63d": 0.311484,
+        "excessReturnVsSpy63d": 0.656827,
+        "drawdownControlScore": 0.873099,
+        "growthSpurtScore": 0.796277
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14272,6 +14274,28 @@
         "volume": 5254600,
         "source": "yahoo-chart",
         "adjusted_close": 519.7999877929688
+      },
+      {
+        "ticker": "BRK-B",
+        "date": "2026-09-17",
+        "open": 518.9500122070312,
+        "high": 520.0,
+        "low": 508.7799987792969,
+        "close": 509.20001220703125,
+        "volume": 5993400,
+        "source": "yahoo-chart",
+        "adjusted_close": 509.20001220703125
+      },
+      {
+        "ticker": "BRK-B",
+        "date": "2026-09-18",
+        "open": 507.1600036621094,
+        "high": 512.0700073242188,
+        "low": 506.1300048828125,
+        "close": 509.7699890136719,
+        "volume": 12481100,
+        "source": "yahoo-chart",
+        "adjusted_close": 509.7699890136719
       }
     ],
     "dataStatus": {
@@ -14311,13 +14335,13 @@
       "officialSignal": "potentially-undervalued",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-09-16",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 61.96,
-      "growthSpurtBenchmarkPercentile": 0.850551,
-      "growthSpurtMarketDataAsOf": "2026-09-16",
-      "lastPipelineRun": "2026-09-18T01:26:08.777662+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.796277,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T01:22:26.718135+00:00",
       "balanceSheetExperimentalSignal": "potentially-undervalued",
       "balanceSheetWouldChangeSignal": false
     }

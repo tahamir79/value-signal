@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-18T01:43:31.608359+00:00",
+  "generatedAt": "2026-09-19T01:39:00.837654+00:00",
   "record": {
     "security": {
       "ticker": "CACC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 601.54,
-      "dailyChangePercent": 0.2383,
-      "marketCapBillions": 6.2443,
+      "latestPrice": 578.29,
+      "dailyChangePercent": -2.0528,
+      "marketCapBillions": 6.003,
       "liabilitiesToAssets": 0.815728,
       "latestRevenueBillions": 2.3172,
       "grossMarginPercent": null,
@@ -218,7 +218,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1588900000.0,
       "bookValuePerShare": 153.064665,
-      "priceToBook": 3.929973,
+      "priceToBook": 3.778076,
       "retainedEarnings": 1081100000.0
     },
     "balanceSheetScoringShadow": {
@@ -441,50 +441,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CACC",
-      "generatedAt": "2026-09-18T01:26:08.777662+00:00",
-      "marketDataAsOf": "2026-09-16",
+      "generatedAt": "2026-09-19T01:22:26.718135+00:00",
+      "marketDataAsOf": "2026-09-18",
       "status": "not_detected",
-      "growthSpurtScore": 50.67,
+      "growthSpurtScore": 22.29,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.04964307,
-        "return63d": 0.04779656,
-        "trendSlope21d": 0.00107756,
-        "trendSlope63d": -0.00058457,
-        "trendAnnualizedReturn63d": -0.13697515,
-        "trendFitR2_63d": 0.02738976,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.04072925,
+        "return21d": -0.00816398,
+        "return63d": -0.00248392,
+        "trendSlope21d": 1.336e-05,
+        "trendSlope63d": -0.0008244,
+        "trendAnnualizedReturn63d": -0.18758917,
+        "trendFitR2_63d": 0.08662944,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.03843481,
         "maxDrawdown63d": -0.15896231,
-        "downsideVolatility63d": 0.01115371,
-        "excessReturnVsSpy21d": 0.07374133,
-        "excessReturnVsSpy63d": 0.0402498,
-        "trendAcceleration": 0.00371741,
-        "largestOneDayContribution63d": 0.04658875,
+        "downsideVolatility63d": 0.01086614,
+        "excessReturnVsSpy21d": 0.00023585,
+        "excessReturnVsSpy63d": -0.02372294,
+        "trendAcceleration": 0.00298723,
+        "largestOneDayContribution63d": 0.04624163,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 33.9407,
-        "consistencyScore": 26.6576,
-        "relativeStrengthScore": 83.8515,
+        "directionScore": 0.0,
+        "consistencyScore": 20.3491,
+        "relativeStrengthScore": 40.4657,
         "drawdownControlScore": 47.0126,
-        "confirmationScore": 100.0
+        "confirmationScore": 20.5344
       },
-      "benchmarkPercentile": 0.730991,
+      "benchmarkPercentile": 0.414788,
       "metricPercentiles": {
-        "trendSlope63d": 0.420556,
-        "trendFitR2_63d": 0.166754,
-        "excessReturnVsSpy63d": 0.67616,
-        "drawdownControlScore": 0.588883,
-        "growthSpurtScore": 0.730991
+        "trendSlope63d": 0.402727,
+        "trendFitR2_63d": 0.222339,
+        "excessReturnVsSpy63d": 0.529784,
+        "drawdownControlScore": 0.584688,
+        "growthSpurtScore": 0.414788
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14269,6 +14271,28 @@
         "volume": 109400,
         "source": "yahoo-chart",
         "adjusted_close": 601.5399780273438
+      },
+      {
+        "ticker": "CACC",
+        "date": "2026-09-17",
+        "open": 609.0,
+        "high": 609.0,
+        "low": 580.75,
+        "close": 590.4099731445312,
+        "volume": 176300,
+        "source": "yahoo-chart",
+        "adjusted_close": 590.4099731445312
+      },
+      {
+        "ticker": "CACC",
+        "date": "2026-09-18",
+        "open": 592.5399780273438,
+        "high": 595.0,
+        "low": 565.1500244140625,
+        "close": 578.2899780273438,
+        "volume": 279700,
+        "source": "yahoo-chart",
+        "adjusted_close": 578.2899780273438
       }
     ],
     "dataStatus": {
@@ -14308,13 +14332,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-09-16",
+      "latestScoringDate": "2026-09-18",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 50.67,
-      "growthSpurtBenchmarkPercentile": 0.730991,
-      "growthSpurtMarketDataAsOf": "2026-09-16",
-      "lastPipelineRun": "2026-09-18T01:26:08.777662+00:00",
+      "growthSpurtScore": 22.29,
+      "growthSpurtBenchmarkPercentile": 0.414788,
+      "growthSpurtMarketDataAsOf": "2026-09-18",
+      "lastPipelineRun": "2026-09-19T01:22:26.718135+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
