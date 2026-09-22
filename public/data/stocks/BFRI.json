@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-19T01:39:00.837654+00:00",
+  "generatedAt": "2026-09-22T02:10:38.955372+00:00",
   "record": {
     "security": {
       "ticker": "BFRI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.24,
-      "dailyChangePercent": 2.4793,
-      "marketCapBillions": 0.0184,
+      "latestPrice": 1.16,
+      "dailyChangePercent": -12.1212,
+      "marketCapBillions": 0.0172,
       "liabilitiesToAssets": 0.752493,
       "latestRevenueBillions": 0.0417,
       "grossMarginPercent": null,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 5956000.0,
       "bookValuePerShare": 0.401014,
-      "priceToBook": 3.092163,
+      "priceToBook": 2.892669,
       "retainedEarnings": -133301000.0
     },
     "balanceSheetScoringShadow": {
@@ -499,49 +499,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BFRI",
-      "generatedAt": "2026-09-19T01:22:26.718135+00:00",
-      "marketDataAsOf": "2026-09-17",
+      "generatedAt": "2026-09-22T01:44:36.457429+00:00",
+      "marketDataAsOf": "2026-09-21",
       "status": "not_detected",
-      "growthSpurtScore": 50.96,
+      "growthSpurtScore": 38.7,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.13888892,
-        "return63d": 0.26401631,
-        "trendSlope21d": -0.00117903,
-        "trendSlope63d": 0.00811094,
-        "trendAnnualizedReturn63d": 6.72109137,
-        "trendFitR2_63d": 0.73150047,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.08006724,
-        "maxDrawdown63d": -0.26086954,
-        "downsideVolatility63d": 0.03323529,
-        "excessReturnVsSpy21d": -0.13256925,
-        "excessReturnVsSpy63d": 0.23215949,
-        "trendAcceleration": -0.00815397,
-        "largestOneDayContribution63d": 0.06846654,
+        "return21d": -0.21621625,
+        "return63d": 0.074074,
+        "trendSlope21d": -0.00838364,
+        "trendSlope63d": 0.00797886,
+        "trendAnnualizedReturn63d": 6.46833215,
+        "trendFitR2_63d": 0.63682742,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.09061215,
+        "maxDrawdown63d": -0.27950313,
+        "downsideVolatility63d": 0.03788123,
+        "excessReturnVsSpy21d": -0.23302815,
+        "excessReturnVsSpy63d": 0.03238789,
+        "trendAcceleration": -0.01630254,
+        "largestOneDayContribution63d": 0.06706878,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 48.0304,
-        "relativeStrengthScore": 65.0,
-        "drawdownControlScore": 13.0435,
+        "directionScore": 66.6049,
+        "consistencyScore": 34.2605,
+        "relativeStrengthScore": 45.6576,
+        "drawdownControlScore": 6.8323,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.741479,
+      "benchmarkPercentile": 0.642408,
       "metricPercentiles": {
-        "trendSlope63d": 0.969586,
-        "trendFitR2_63d": 0.779234,
-        "excessReturnVsSpy63d": 0.896679,
-        "drawdownControlScore": 0.361825,
-        "growthSpurtScore": 0.741479
+        "trendSlope63d": 0.968063,
+        "trendFitR2_63d": 0.668063,
+        "excessReturnVsSpy63d": 0.702575,
+        "drawdownControlScore": 0.328272,
+        "growthSpurtScore": 0.642408
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14018,6 +14022,28 @@
         "volume": 573400,
         "source": "yahoo-chart",
         "adjusted_close": 1.2400000095367432
+      },
+      {
+        "ticker": "BFRI",
+        "date": "2026-09-18",
+        "open": 1.2899999618530273,
+        "high": 1.3300000429153442,
+        "low": 1.2699999809265137,
+        "close": 1.3200000524520874,
+        "volume": 376200,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.3200000524520874
+      },
+      {
+        "ticker": "BFRI",
+        "date": "2026-09-21",
+        "open": 1.3200000524520874,
+        "high": 1.3200000524520874,
+        "low": 1.1399999856948853,
+        "close": 1.159999966621399,
+        "volume": 918800,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.159999966621399
       }
     ],
     "dataStatus": {
@@ -14052,13 +14078,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-17",
+      "latestScoringDate": "2026-09-21",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 50.96,
-      "growthSpurtBenchmarkPercentile": 0.741479,
-      "growthSpurtMarketDataAsOf": "2026-09-17",
-      "lastPipelineRun": "2026-09-19T01:22:26.718135+00:00",
+      "growthSpurtScore": 38.7,
+      "growthSpurtBenchmarkPercentile": 0.642408,
+      "growthSpurtMarketDataAsOf": "2026-09-21",
+      "lastPipelineRun": "2026-09-22T01:44:36.457429+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
