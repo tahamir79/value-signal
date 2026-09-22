@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-22T09:05:53.054828+00:00",
+  "generatedAt": "2026-09-22T13:08:27.182494+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 73,
-  "expectedUnavailable": 6038,
-  "dataQualityWarnings": 5690,
-  "warnings": 5690,
+  "nonCriticalFailures": 102,
+  "expectedUnavailable": 6040,
+  "dataQualityWarnings": 5692,
+  "warnings": 5692,
   "stages": [
     {
       "name": "core_artifacts",
@@ -33,92 +33,125 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1927,
-      "failed": 73,
+      "succeeded": 1898,
+      "failed": 102,
       "skipped": 0,
       "failedTickers": [
-        "FFGG",
-        "FJDI",
-        "FRTT",
-        "GAM",
-        "GDMT",
-        "GENN",
-        "GIVE",
-        "GIXI",
-        "GLG",
-        "GOSC",
-        "GOTV",
-        "GOW",
-        "GRVT",
-        "GVAC",
-        "HCAX",
-        "HCPC",
-        "HFE",
-        "HFG",
-        "HLNK",
-        "HNUC",
-        "HQH",
-        "HQL",
-        "HRIA",
-        "HYAC",
-        "IBL",
-        "IBN",
-        "IDIA",
-        "INHI",
-        "ININ",
-        "IPHX",
-        "ITIA",
-        "JBK",
-        "JRWP",
-        "KHG",
-        "KOEI",
-        "KPL",
-        "KTH",
-        "KTN",
-        "KVLT",
-        "LAGH",
-        "LARS",
-        "LBRJ",
-        "LCAC",
-        "LEO",
-        "LPNE",
-        "LSBA",
-        "MADL",
-        "MAKO",
-        "MARH",
-        "MCFN",
-        "MCI",
-        "MKAR",
-        "MOT",
-        "MPV",
-        "MSAV",
-        "MSGR",
-        "MTRL",
-        "MW",
-        "NAFS",
-        "NANO",
-        "NARA",
-        "NCL",
-        "NE-WTA",
-        "NEUC",
-        "NEUT",
-        "NIAA",
-        "NICM",
-        "NONE-",
-        "NORT",
-        "NTMJ",
-        "NUOX",
-        "NYB",
-        "OHII"
+        "OP",
+        "OURA",
+        "OZK",
+        "OZKAP",
+        "PCAI",
+        "PHAX",
+        "PNAQ",
+        "PNIG",
+        "POCH",
+        "PRLG",
+        "PTT",
+        "QSP",
+        "QTZM",
+        "RKAM",
+        "RML",
+        "ROZE",
+        "SAIQ",
+        "SBE",
+        "SCAT",
+        "SCQC",
+        "SCZM",
+        "SEAH",
+        "SEQC",
+        "SIAI",
+        "SINI",
+        "SKAI",
+        "SKG",
+        "SKUB",
+        "SOUD",
+        "SPGH",
+        "SPNV",
+        "STA",
+        "SUCH",
+        "SVA",
+        "SYTN",
+        "TARX",
+        "TBCV",
+        "TEAC",
+        "TGE",
+        "THH",
+        "TIWD",
+        "TKDG",
+        "TRBG",
+        "TRCX",
+        "TREO",
+        "TVCN",
+        "ULIT",
+        "UPX",
+        "USAM",
+        "VAT",
+        "VCCG",
+        "VEST",
+        "VRMK",
+        "VRNS",
+        "VRRM",
+        "VRSK",
+        "VRSN",
+        "VRT",
+        "VRTS",
+        "VRTX",
+        "VS",
+        "VSAT",
+        "VSEC",
+        "VSH",
+        "VSME",
+        "VSNT",
+        "VST",
+        "VSTM",
+        "VSTS",
+        "VSXY",
+        "VTAK",
+        "VTGN",
+        "VTIX",
+        "VTMX",
+        "VTOL",
+        "VTR",
+        "VTRS",
+        "VTS",
+        "VTSI",
+        "VTVT",
+        "VUZI",
+        "VVOS",
+        "VVV",
+        "VVX",
+        "VWAV",
+        "VYGR",
+        "VYLD",
+        "VYLR",
+        "VYX",
+        "VZ",
+        "VZLA",
+        "W",
+        "WAB",
+        "WABC",
+        "WAFD",
+        "WAFDP",
+        "WELA",
+        "WODO",
+        "WQEY",
+        "XDT",
+        "YLUZ",
+        "YLY"
       ],
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 66
+          "count": 53
+        },
+        {
+          "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+          "count": 44
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
-          "count": 7
+          "count": 5
         }
       ],
       "artifactPaths": [
@@ -148,19 +181,19 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 6037,
-      "succeeded": 5580,
+      "attempted": 6039,
+      "succeeded": 5584,
       "failed": 0,
-      "skipped": 457,
+      "skipped": 455,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 457
+          "count": 455
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 283
+          "count": 282
         }
       ],
       "artifactPaths": [
@@ -186,10 +219,10 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 6037,
+      "attempted": 6039,
       "succeeded": 4743,
       "failed": 0,
-      "skipped": 1294,
+      "skipped": 1296,
       "failedTickers": [],
       "commonReasons": [
         {
@@ -198,7 +231,7 @@
         },
         {
           "reason": "BALANCE_SHEET_UNAVAILABLE",
-          "count": 1294
+          "count": 1296
         }
       ],
       "artifactPaths": [
@@ -209,15 +242,15 @@
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 6037,
-      "succeeded": 5831,
+      "attempted": 6039,
+      "succeeded": 5836,
       "failed": 0,
-      "skipped": 206,
+      "skipped": 203,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 206
+          "count": 203
         }
       ],
       "artifactPaths": [
@@ -229,15 +262,15 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 6037,
+      "attempted": 6039,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 6037,
+      "skipped": 6039,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 6037
+          "count": 6039
         }
       ],
       "artifactPaths": [
@@ -247,442 +280,616 @@
   ],
   "failedTickers": [
     {
-      "ticker": "FFGG",
+      "ticker": "OP",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "FJDI",
+      "ticker": "OURA",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "FRTT",
+      "ticker": "OZK",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GAM",
+      "ticker": "OZKAP",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GDMT",
+      "ticker": "PCAI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GENN",
+      "ticker": "PHAX",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GIVE",
+      "ticker": "PNAQ",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GIXI",
+      "ticker": "PNIG",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GLG",
+      "ticker": "POCH",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GOSC",
+      "ticker": "PRLG",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GOTV",
+      "ticker": "PTT",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "GOW",
-      "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
-    },
-    {
-      "ticker": "GRVT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "GVAC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HCAX",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HCPC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HFE",
+      "ticker": "QSP",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
     },
     {
-      "ticker": "HFG",
+      "ticker": "QTZM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "RKAM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "RML",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ROZE",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SAIQ",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SBE",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SCAT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SCQC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SCZM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SEAH",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SEQC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SIAI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SINI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SKAI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SKG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SKUB",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SOUD",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SPGH",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SPNV",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "STA",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SUCH",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SVA",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "SYTN",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TARX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TBCV",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TEAC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TGE",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "THH",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TIWD",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TKDG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TRBG",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TRCX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TREO",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "TVCN",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "ULIT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "UPX",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
     },
     {
-      "ticker": "HLNK",
+      "ticker": "USAM",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "HNUC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HQH",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HQL",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HRIA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "HYAC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "IBL",
+      "ticker": "VAT",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
     },
     {
-      "ticker": "IBN",
+      "ticker": "VCCG",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "IDIA",
+      "ticker": "VEST",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "INHI",
+      "ticker": "VRMK",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRNS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRRM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRSK",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRSN",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRTS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VRTX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSAT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSEC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSH",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSME",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSNT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VST",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSTM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSTS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VSXY",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTAK",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTGN",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTIX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTMX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTOL",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTR",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTRS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTSI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VTVT",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VUZI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VVOS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VVV",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VVX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VWAV",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VYGR",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VYLD",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VYLR",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VYX",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VZ",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "VZLA",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "W",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "WAB",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "WABC",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "WAFD",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "WAFDP",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_RETRYABLE_HTTP_ERROR",
+      "retryable": true
+    },
+    {
+      "ticker": "WELA",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "ININ",
+      "ticker": "WODO",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "IPHX",
+      "ticker": "WQEY",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "ITIA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "JBK",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "JRWP",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "KHG",
+      "ticker": "XDT",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
     },
     {
-      "ticker": "KOEI",
+      "ticker": "YLUZ",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "KPL",
+      "ticker": "YLY",
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
-    },
-    {
-      "ticker": "KTH",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "KTN",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "KVLT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LAGH",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LARS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LBRJ",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LCAC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LEO",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LPNE",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "LSBA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MADL",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MAKO",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MARH",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MCFN",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MCI",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MKAR",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MOT",
-      "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
-    },
-    {
-      "ticker": "MPV",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MSAV",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MSGR",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MTRL",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "MW",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NAFS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NANO",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NARA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NCL",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NE-WTA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NEUC",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NEUT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NIAA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NICM",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NONE-",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NORT",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NTMJ",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NUOX",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "NYB",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "OHII",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
     }
   ]
 }
