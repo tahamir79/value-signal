@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-19T08:34:11.981909+00:00",
+  "generatedAt": "2026-09-22T09:02:47.778503+00:00",
   "record": {
     "security": {
       "ticker": "KRAQ",
@@ -437,51 +437,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "KRAQ",
-      "generatedAt": "2026-09-19T08:14:40.112899+00:00",
-      "marketDataAsOf": "2026-09-18",
+      "generatedAt": "2026-09-22T08:45:02.070068+00:00",
+      "marketDataAsOf": "2026-09-21",
       "status": "not_detected",
-      "growthSpurtScore": 34.87,
+      "growthSpurtScore": 30.21,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00400811,
-        "return63d": 0.00400811,
-        "trendSlope21d": 0.00022201,
-        "trendSlope63d": 2.12e-05,
-        "trendAnnualizedReturn63d": 0.00535742,
-        "trendFitR2_63d": 0.07246949,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00166037,
+        "return21d": 0.00200005,
+        "return63d": 0.00501506,
+        "trendSlope21d": 0.00021407,
+        "trendSlope63d": 0.0,
+        "trendAnnualizedReturn63d": 0.0,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00171491,
         "maxDrawdown63d": -0.00498506,
         "downsideVolatility63d": 0.00115463,
-        "excessReturnVsSpy21d": 0.01113179,
-        "excessReturnVsSpy63d": -0.01854521,
-        "trendAcceleration": 0.00022201,
-        "largestOneDayContribution63d": 0.08873577,
-        "percentAboveTrendLine63d": 0.50793651
+        "excessReturnVsSpy21d": -0.01481186,
+        "excessReturnVsSpy63d": -0.03667104,
+        "trendAcceleration": 0.00021407,
+        "largestOneDayContribution63d": 0.09509613,
+        "percentAboveTrendLine63d": 0.58730159
       },
       "scoreBreakdown": {
-        "directionScore": 4.5299,
-        "consistencyScore": 26.5788,
-        "relativeStrengthScore": 47.3362,
+        "directionScore": 2.7961,
+        "consistencyScore": 26.2415,
+        "relativeStrengthScore": 28.6222,
         "drawdownControlScore": 98.3383,
-        "confirmationScore": 26.4446
+        "confirmationScore": 23.3702
       },
-      "benchmarkPercentile": 0.592161,
+      "benchmarkPercentile": 0.55859,
       "metricPercentiles": {
-        "trendSlope63d": 0.527542,
-        "trendFitR2_63d": 0.200212,
-        "excessReturnVsSpy63d": 0.5408,
-        "drawdownControlScore": 0.972987,
-        "growthSpurtScore": 0.592161
+        "trendSlope63d": 0.52386,
+        "trendFitR2_63d": 0.058059,
+        "excessReturnVsSpy63d": 0.538871,
+        "drawdownControlScore": 0.972428,
+        "growthSpurtScore": 0.55859
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1869,6 +1872,17 @@
         "volume": 445900,
         "source": "yahoo-chart",
         "adjusted_close": 10.020000457763672
+      },
+      {
+        "ticker": "KRAQ",
+        "date": "2026-09-21",
+        "open": 10.029999732971191,
+        "high": 10.029999732971191,
+        "low": 10.020000457763672,
+        "close": 10.020000457763672,
+        "volume": 1400,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.020000457763672
       }
     ],
     "dataStatus": {
@@ -1908,13 +1922,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-18",
+      "latestScoringDate": "2026-09-21",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 34.87,
-      "growthSpurtBenchmarkPercentile": 0.592161,
-      "growthSpurtMarketDataAsOf": "2026-09-18",
-      "lastPipelineRun": "2026-09-19T08:14:40.112899+00:00",
+      "growthSpurtScore": 30.21,
+      "growthSpurtBenchmarkPercentile": 0.55859,
+      "growthSpurtMarketDataAsOf": "2026-09-21",
+      "lastPipelineRun": "2026-09-22T08:45:02.070068+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

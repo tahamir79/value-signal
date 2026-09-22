@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "MLCI",
   "companyName": "Mount Logan Capital Inc.",
-  "generatedAt": "2026-09-22T02:12:43.287101+00:00",
-  "marketDataAsOf": "2026-09-18",
+  "generatedAt": "2026-09-22T09:04:25.306614+00:00",
+  "marketDataAsOf": "2026-09-21",
   "currentPrice": 3.15,
   "analystTarget": {
     "ticker": "MLCI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-22T02:12:43.287101+00:00",
+    "collectedAt": "2026-09-22T09:04:25.306614+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-22T02:12:43.287101+00:00",
-    "marketDataAsOf": "2026-09-18",
+    "generatedAt": "2026-09-22T09:04:25.306614+00:00",
+    "marketDataAsOf": "2026-09-21",
     "currentPrice": 3.15,
     "horizon30Day": {
-      "returnEstimate": 0.00320933,
-      "lowerReturn": -0.04117754,
-      "upperReturn": 0.07568802,
-      "estimatedPrice": 3.1601,
-      "lowerEstimatedPrice": 3.0203,
-      "upperEstimatedPrice": 3.3884,
+      "returnEstimate": 0.00563256,
+      "lowerReturn": -0.0377689,
+      "upperReturn": 0.08,
+      "estimatedPrice": 3.1677,
+      "lowerEstimatedPrice": 3.031,
+      "upperEstimatedPrice": 3.402,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.04381661,
-      "lowerReturn": -0.12212196,
-      "upperReturn": 0.12277913,
-      "estimatedPrice": 3.288,
-      "lowerEstimatedPrice": 2.7653,
-      "upperEstimatedPrice": 3.5368,
+      "returnEstimate": 0.0411733,
+      "lowerReturn": -0.10666122,
+      "upperReturn": 0.13185312,
+      "estimatedPrice": 3.2797,
+      "lowerEstimatedPrice": 2.814,
+      "upperEstimatedPrice": 3.5653,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
