@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CSAN",
   "companyName": "Cosan S.A.",
-  "generatedAt": "2026-09-22T13:06:32.037586+00:00",
+  "generatedAt": "2026-09-23T01:54:41.783544+00:00",
   "marketDataAsOf": "2026-09-21",
   "currentPrice": 2.97,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-22T13:06:32.037586+00:00",
+    "collectedAt": "2026-09-23T01:54:41.783544+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-22T13:06:32.037586+00:00",
+    "generatedAt": "2026-09-23T01:54:41.783544+00:00",
     "marketDataAsOf": "2026-09-21",
     "currentPrice": 2.97,
     "horizon30Day": {
-      "returnEstimate": -0.03410229,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.05727577,
-      "estimatedPrice": 2.8687,
-      "lowerEstimatedPrice": 2.7324,
-      "upperEstimatedPrice": 3.1401,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.09164216,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.00067535,
-      "estimatedPrice": 2.6978,
-      "lowerEstimatedPrice": 2.5245,
-      "upperEstimatedPrice": 2.972,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
