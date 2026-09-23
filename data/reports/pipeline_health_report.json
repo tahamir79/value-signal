@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T01:56:32.940449+00:00",
+  "generatedAt": "2026-09-23T09:02:30.763968+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 54,
+  "nonCriticalFailures": 55,
   "expectedUnavailable": 6040,
   "dataQualityWarnings": 5692,
   "warnings": 5692,
@@ -33,12 +33,12 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1946,
-      "failed": 54,
+      "succeeded": 1945,
+      "failed": 55,
       "skipped": 0,
       "failedTickers": [
-        "ZOAR",
         "ACCV",
+        "ADRX",
         "AFNX",
         "AGKO",
         "AIOK",
@@ -90,7 +90,8 @@
         "ENJ",
         "ENO",
         "ENT",
-        "EVON"
+        "EVON",
+        "FBYDP"
       ],
       "commonReasons": [
         {
@@ -99,7 +100,7 @@
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
-          "count": 5
+          "count": 6
         }
       ],
       "artifactPaths": [
@@ -191,14 +192,14 @@
       "name": "growth_spurt_detector",
       "status": "success",
       "attempted": 6039,
-      "succeeded": 5835,
+      "succeeded": 5834,
       "failed": 0,
-      "skipped": 204,
+      "skipped": 205,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 204
+          "count": 205
         }
       ],
       "artifactPaths": [
@@ -228,13 +229,13 @@
   ],
   "failedTickers": [
     {
-      "ticker": "ZOAR",
+      "ticker": "ACCV",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
     },
     {
-      "ticker": "ACCV",
+      "ticker": "ADRX",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -550,6 +551,12 @@
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
+    },
+    {
+      "ticker": "FBYDP",
+      "stage": "ticker_pipeline",
+      "reason": "PRICE_HISTORY_UNAVAILABLE",
+      "retryable": true
     }
   ]
 }
