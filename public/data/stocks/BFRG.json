@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T08:58:34.409029+00:00",
+  "generatedAt": "2026-09-24T08:58:18.672494+00:00",
   "record": {
     "security": {
       "ticker": "BFRG",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.493,
-      "dailyChangePercent": 6.25,
-      "marketCapBillions": 0.0091,
+      "latestPrice": 0.95,
+      "dailyChangePercent": 58.3333,
+      "marketCapBillions": 0.0176,
       "liabilitiesToAssets": 0.091838,
       "latestRevenueBillions": 0.0001,
       "grossMarginPercent": 18.764,
@@ -276,7 +276,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 6987262.0,
       "bookValuePerShare": 0.376841,
-      "priceToBook": 1.308243,
+      "priceToBook": 2.520954,
       "retainedEarnings": -26256315.0
     },
     "balanceSheetScoringShadow": {
@@ -492,49 +492,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BFRG",
-      "generatedAt": "2026-09-23T08:45:22.735812+00:00",
-      "marketDataAsOf": "2026-09-21",
+      "generatedAt": "2026-09-24T08:40:30.734293+00:00",
+      "marketDataAsOf": "2026-09-23",
       "status": "not_detected",
-      "growthSpurtScore": 9.74,
+      "growthSpurtScore": 44.96,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.10363638,
-        "return63d": -0.25303033,
-        "trendSlope21d": -0.01321573,
-        "trendSlope63d": -0.00689435,
-        "trendAnnualizedReturn63d": -0.82401842,
-        "trendFitR2_63d": 0.84011111,
+        "return21d": 0.69039151,
+        "return63d": 0.47515528,
+        "trendSlope21d": -0.00903749,
+        "trendSlope63d": -0.00686585,
+        "trendAnnualizedReturn63d": -0.82274986,
+        "trendFitR2_63d": 0.46323172,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.05204386,
+        "trendResidualVolatility63d": 0.10693757,
         "maxDrawdown63d": -0.41791045,
-        "downsideVolatility63d": 0.02350594,
-        "excessReturnVsSpy21d": -0.12044829,
-        "excessReturnVsSpy63d": -0.29471644,
-        "trendAcceleration": -0.00691354,
-        "largestOneDayContribution63d": 0.04563356,
+        "downsideVolatility63d": 0.02380523,
+        "excessReturnVsSpy21d": 0.68220956,
+        "excessReturnVsSpy63d": 0.42540806,
+        "trendAcceleration": -0.0026749,
+        "largestOneDayContribution63d": 0.21375434,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 38.9718,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 55.0,
+        "consistencyScore": 17.823,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.178815,
+      "benchmarkPercentile": 0.722368,
       "metricPercentiles": {
-        "trendSlope63d": 0.104877,
-        "trendFitR2_63d": 0.907708,
-        "excessReturnVsSpy63d": 0.161579,
-        "drawdownControlScore": 0.145779,
-        "growthSpurtScore": 0.178815
+        "trendSlope63d": 0.107386,
+        "trendFitR2_63d": 0.535883,
+        "excessReturnVsSpy63d": 0.94687,
+        "drawdownControlScore": 0.151388,
+        "growthSpurtScore": 0.722368
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -10480,6 +10483,28 @@
         "volume": 218200,
         "source": "yahoo-chart",
         "adjusted_close": 0.49300000071525574
+      },
+      {
+        "ticker": "BFRG",
+        "date": "2026-09-22",
+        "open": 0.5299999713897705,
+        "high": 0.8199999928474426,
+        "low": 0.4399999976158142,
+        "close": 0.6000000238418579,
+        "volume": 68647300,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.6000000238418579
+      },
+      {
+        "ticker": "BFRG",
+        "date": "2026-09-23",
+        "open": 0.7820000052452087,
+        "high": 1.0499999523162842,
+        "low": 0.7049999833106995,
+        "close": 0.949999988079071,
+        "volume": 191185100,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.949999988079071
       }
     ],
     "dataStatus": {
@@ -10513,17 +10538,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-21",
+      "latestScoringDate": "2026-09-23",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 9.74,
-      "growthSpurtBenchmarkPercentile": 0.178815,
-      "growthSpurtMarketDataAsOf": "2026-09-21",
-      "lastPipelineRun": "2026-09-23T08:45:22.735812+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 44.96,
+      "growthSpurtBenchmarkPercentile": 0.722368,
+      "growthSpurtMarketDataAsOf": "2026-09-23",
+      "lastPipelineRun": "2026-09-24T08:40:30.734293+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
