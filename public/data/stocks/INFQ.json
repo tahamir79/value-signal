@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T13:13:53.798895+00:00",
+  "generatedAt": "2026-09-24T13:15:31.060805+00:00",
   "record": {
     "security": {
       "ticker": "INFQ",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 13.96,
-      "dailyChangePercent": 5.5178,
-      "marketCapBillions": 3.146,
+      "latestPrice": 13.83,
+      "dailyChangePercent": -1.6358,
+      "marketCapBillions": 3.1167,
       "liabilitiesToAssets": 0.104561,
       "latestRevenueBillions": 0.0234,
       "grossMarginPercent": 20.0554,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": null,
       "bookValue": 574383000.0,
       "bookValuePerShare": 2.548769,
-      "priceToBook": 5.477155,
+      "priceToBook": 5.426149,
       "retainedEarnings": -287910000.0
     },
     "balanceSheetScoringShadow": {
@@ -501,50 +501,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "INFQ",
-      "generatedAt": "2026-09-23T12:53:53.765515+00:00",
-      "marketDataAsOf": "2026-09-21",
+      "generatedAt": "2026-09-24T12:54:27.522412+00:00",
+      "marketDataAsOf": "2026-09-23",
       "status": "not_detected",
-      "growthSpurtScore": 37.48,
+      "growthSpurtScore": 37.43,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.11235058,
-        "return63d": -0.01759324,
-        "trendSlope21d": -0.00097097,
-        "trendSlope63d": 0.00321672,
-        "trendAnnualizedReturn63d": 1.24928839,
-        "trendFitR2_63d": 0.1107435,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.1325813,
-        "maxDrawdown63d": -0.44674186,
-        "downsideVolatility63d": 0.03217348,
-        "excessReturnVsSpy21d": 0.09553868,
-        "excessReturnVsSpy63d": -0.05927935,
-        "trendAcceleration": 0.00071335,
-        "largestOneDayContribution63d": 0.04567744,
+        "return21d": 0.05977009,
+        "return63d": -0.01914897,
+        "trendSlope21d": 0.0011852,
+        "trendSlope63d": 0.00414871,
+        "trendAnnualizedReturn63d": 1.84475011,
+        "trendFitR2_63d": 0.25901825,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.11787064,
+        "maxDrawdown63d": -0.3610709,
+        "downsideVolatility63d": 0.02819881,
+        "excessReturnVsSpy21d": 0.05158814,
+        "excessReturnVsSpy63d": -0.06889618,
+        "trendAcceleration": -0.00092364,
+        "largestOneDayContribution63d": 0.0488638,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 65.0,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 43.4178,
+        "consistencyScore": 7.8138,
+        "relativeStrengthScore": 39.5109,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 57.1335
+        "confirmationScore": 80.7636
       },
-      "benchmarkPercentile": 0.626391,
+      "benchmarkPercentile": 0.649788,
       "metricPercentiles": {
-        "trendSlope63d": 0.853736,
-        "trendFitR2_63d": 0.232644,
-        "excessReturnVsSpy63d": 0.477382,
-        "drawdownControlScore": 0.143879,
-        "growthSpurtScore": 0.626391
+        "trendSlope63d": 0.897137,
+        "trendFitR2_63d": 0.344645,
+        "excessReturnVsSpy63d": 0.492545,
+        "drawdownControlScore": 0.145281,
+        "growthSpurtScore": 0.649788
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2196,6 +2200,28 @@
         "volume": 10331500,
         "source": "yahoo-chart",
         "adjusted_close": 13.960000038146973
+      },
+      {
+        "ticker": "INFQ",
+        "date": "2026-09-22",
+        "open": 13.989999771118164,
+        "high": 14.140000343322754,
+        "low": 13.670000076293945,
+        "close": 14.0600004196167,
+        "volume": 8244200,
+        "source": "yahoo-chart",
+        "adjusted_close": 14.0600004196167
+      },
+      {
+        "ticker": "INFQ",
+        "date": "2026-09-23",
+        "open": 14.9399995803833,
+        "high": 15.0600004196167,
+        "low": 13.6899995803833,
+        "close": 13.829999923706055,
+        "volume": 10585400,
+        "source": "yahoo-chart",
+        "adjusted_close": 13.829999923706055
       }
     ],
     "dataStatus": {
@@ -2233,13 +2259,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-18",
-      "latestScoringDate": "2026-09-21",
+      "latestScoringDate": "2026-09-23",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 37.48,
-      "growthSpurtBenchmarkPercentile": 0.626391,
-      "growthSpurtMarketDataAsOf": "2026-09-21",
-      "lastPipelineRun": "2026-09-23T12:53:53.765515+00:00",
+      "growthSpurtScore": 37.43,
+      "growthSpurtBenchmarkPercentile": 0.649788,
+      "growthSpurtMarketDataAsOf": "2026-09-23",
+      "lastPipelineRun": "2026-09-24T12:54:27.522412+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

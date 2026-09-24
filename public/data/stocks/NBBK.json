@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T13:13:53.798895+00:00",
+  "generatedAt": "2026-09-24T13:15:31.060805+00:00",
   "record": {
     "security": {
       "ticker": "NBBK",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 22.74,
-      "dailyChangePercent": -0.1756,
-      "marketCapBillions": 0.9964,
+      "latestPrice": 22.39,
+      "dailyChangePercent": -1.5391,
+      "marketCapBillions": 0.9811,
       "liabilitiesToAssets": 0.886932,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 842002000.0,
       "bookValuePerShare": 19.215678,
-      "priceToBook": 1.183409,
+      "priceToBook": 1.165194,
       "retainedEarnings": 474970000.0
     },
     "balanceSheetScoringShadow": {
@@ -438,52 +438,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NBBK",
-      "generatedAt": "2026-09-23T12:53:53.765515+00:00",
-      "marketDataAsOf": "2026-09-21",
-      "status": "emerging",
-      "growthSpurtScore": 80.24,
+      "generatedAt": "2026-09-24T12:54:27.522412+00:00",
+      "marketDataAsOf": "2026-09-23",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0345769,
-        "return63d": 0.12356967,
-        "trendSlope21d": 0.00120913,
-        "trendSlope63d": 0.00156117,
-        "trendAnnualizedReturn63d": 0.48203418,
-        "trendFitR2_63d": 0.57710393,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.02443598,
+        "return21d": 0.01865331,
+        "return63d": 0.08385184,
+        "trendSlope21d": 0.00065001,
+        "trendSlope63d": 0.0014524,
+        "trendAnnualizedReturn63d": 0.44196261,
+        "trendFitR2_63d": 0.54321964,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.02480474,
         "maxDrawdown63d": -0.05806453,
-        "downsideVolatility63d": 0.00816866,
-        "excessReturnVsSpy21d": 0.01776499,
-        "excessReturnVsSpy63d": 0.08188356,
-        "trendAcceleration": -0.00146869,
-        "largestOneDayContribution63d": 0.09374582,
+        "downsideVolatility63d": 0.00810971,
+        "excessReturnVsSpy21d": 0.01343384,
+        "excessReturnVsSpy63d": 0.03459118,
+        "trendAcceleration": -0.00181252,
+        "largestOneDayContribution63d": 0.09353082,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 48.3369,
-        "relativeStrengthScore": 90.2722,
+        "directionScore": 81.8923,
+        "consistencyScore": 52.9737,
+        "relativeStrengthScore": 69.93,
         "drawdownControlScore": 80.6452,
-        "confirmationScore": 80.0
+        "confirmationScore": 50.8715
       },
-      "benchmarkPercentile": 0.961844,
+      "benchmarkPercentile": 0.841463,
       "metricPercentiles": {
-        "trendSlope63d": 0.735559,
-        "trendFitR2_63d": 0.608373,
-        "excessReturnVsSpy63d": 0.782863,
-        "drawdownControlScore": 0.897191,
-        "growthSpurtScore": 0.961844
+        "trendSlope63d": 0.734889,
+        "trendFitR2_63d": 0.581654,
+        "excessReturnVsSpy63d": 0.749201,
+        "drawdownControlScore": 0.900848,
+        "growthSpurtScore": 0.841463
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8009,6 +8012,17 @@
         "volume": 290800,
         "source": "yahoo-chart",
         "adjusted_close": 22.739999771118164
+      },
+      {
+        "ticker": "NBBK",
+        "date": "2026-09-23",
+        "open": 22.75,
+        "high": 22.799999237060547,
+        "low": 22.325000762939453,
+        "close": 22.389999389648438,
+        "volume": 223800,
+        "source": "yahoo-chart",
+        "adjusted_close": 22.389999389648438
       }
     ],
     "dataStatus": {
@@ -8048,13 +8062,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-07",
-      "latestScoringDate": "2026-09-21",
+      "latestScoringDate": "2026-09-23",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 80.24,
-      "growthSpurtBenchmarkPercentile": 0.961844,
-      "growthSpurtMarketDataAsOf": "2026-09-21",
-      "lastPipelineRun": "2026-09-23T12:53:53.765515+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.841463,
+      "growthSpurtMarketDataAsOf": "2026-09-23",
+      "lastPipelineRun": "2026-09-24T12:54:27.522412+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
