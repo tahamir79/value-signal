@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T01:55:05.693259+00:00",
+  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
   "record": {
     "security": {
       "ticker": "OPTH",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.96,
-      "dailyChangePercent": 2.4793,
+      "latestPrice": 4.9,
+      "dailyChangePercent": -1.2097,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OPTH",
-      "generatedAt": "2026-09-24T01:34:53.916351+00:00",
-      "marketDataAsOf": "2026-09-23",
+      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
+      "marketDataAsOf": "2026-09-24",
       "status": "not_detected",
-      "growthSpurtScore": 43.29,
+      "growthSpurtScore": 44.09,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00799999,
-        "return63d": 0.18944843,
-        "trendSlope21d": -0.00019327,
-        "trendSlope63d": 0.0009017,
-        "trendAnnualizedReturn63d": 0.25511618,
-        "trendFitR2_63d": 0.11079302,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.05017029,
+        "return21d": 0.0,
+        "return63d": 0.20689659,
+        "trendSlope21d": 0.00063754,
+        "trendSlope63d": 0.00070475,
+        "trendAnnualizedReturn63d": 0.19434408,
+        "trendFitR2_63d": 0.07562148,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.04344302,
         "maxDrawdown63d": -0.19253438,
-        "downsideVolatility63d": 0.02741217,
-        "excessReturnVsSpy21d": -0.01321947,
-        "excessReturnVsSpy63d": 0.14018777,
-        "trendAcceleration": -0.0018955,
-        "largestOneDayContribution63d": 0.08367821,
+        "downsideVolatility63d": 0.02707783,
+        "excessReturnVsSpy21d": -0.00414553,
+        "excessReturnVsSpy63d": 0.15952484,
+        "trendAcceleration": -0.00074561,
+        "largestOneDayContribution63d": 0.08403425,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 67.8007,
-        "consistencyScore": 8.9388,
-        "relativeStrengthScore": 76.7165,
+        "directionScore": 59.9871,
+        "consistencyScore": 7.0994,
+        "relativeStrengthScore": 80.6863,
         "drawdownControlScore": 35.8219,
-        "confirmationScore": 0.0
+        "confirmationScore": 28.0455
       },
-      "benchmarkPercentile": 0.702575,
+      "benchmarkPercentile": 0.721903,
       "metricPercentiles": {
-        "trendSlope63d": 0.681555,
-        "trendFitR2_63d": 0.235418,
-        "excessReturnVsSpy63d": 0.856841,
-        "drawdownControlScore": 0.513925,
-        "growthSpurtScore": 0.702575
+        "trendSlope63d": 0.668583,
+        "trendFitR2_63d": 0.204391,
+        "excessReturnVsSpy63d": 0.854287,
+        "drawdownControlScore": 0.515944,
+        "growthSpurtScore": 0.721903
       },
       "reasonCodes": [
-        "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1318,6 +1321,17 @@
       },
       {
         "ticker": "OPTH",
+        "date": "2026-09-22",
+        "open": 4.849999904632568,
+        "high": 5.099999904632568,
+        "low": 4.849999904632568,
+        "close": 4.960000038146973,
+        "volume": 31000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.960000038146973
+      },
+      {
+        "ticker": "OPTH",
         "date": "2026-09-23",
         "open": 4.960000038146973,
         "high": 5.150000095367432,
@@ -1326,6 +1340,17 @@
         "volume": 52600,
         "source": "yahoo-chart",
         "adjusted_close": 4.960000038146973
+      },
+      {
+        "ticker": "OPTH",
+        "date": "2026-09-24",
+        "open": 4.929999828338623,
+        "high": 4.929999828338623,
+        "low": 4.760000228881836,
+        "close": 4.900000095367432,
+        "volume": 26800,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.900000095367432
       }
     ],
     "dataStatus": {
@@ -1365,13 +1390,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-23",
+      "latestScoringDate": "2026-09-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 43.29,
-      "growthSpurtBenchmarkPercentile": 0.702575,
-      "growthSpurtMarketDataAsOf": "2026-09-23",
-      "lastPipelineRun": "2026-09-24T01:34:53.916351+00:00",
+      "growthSpurtScore": 44.09,
+      "growthSpurtBenchmarkPercentile": 0.721903,
+      "growthSpurtMarketDataAsOf": "2026-09-24",
+      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

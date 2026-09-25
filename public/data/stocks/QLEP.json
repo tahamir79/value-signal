@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T01:55:05.693259+00:00",
+  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
   "record": {
     "security": {
       "ticker": "QLEP",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.05,
-      "dailyChangePercent": 0.3996,
+      "latestPrice": 10.04,
+      "dailyChangePercent": -0.0995,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.003302,
       "latestRevenueBillions": null,
@@ -414,51 +414,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "QLEP",
-      "generatedAt": "2026-09-24T01:34:53.916351+00:00",
-      "marketDataAsOf": "2026-09-23",
+      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
+      "marketDataAsOf": "2026-09-24",
       "status": "not_detected",
-      "growthSpurtScore": 46.08,
+      "growthSpurtScore": 42.36,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00500002,
-        "return63d": 0.01005029,
-        "trendSlope21d": 0.00014809,
-        "trendSlope63d": 0.0001511,
-        "trendAnnualizedReturn63d": 0.03881016,
-        "trendFitR2_63d": 0.7586085,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.00150402,
+        "return21d": 0.00199596,
+        "return63d": 0.0100604,
+        "trendSlope21d": 0.00010779,
+        "trendSlope63d": 0.00014524,
+        "trendAnnualizedReturn63d": 0.03727725,
+        "trendFitR2_63d": 0.71241768,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00159737,
         "maxDrawdown63d": -0.005982,
-        "downsideVolatility63d": 0.00108584,
-        "excessReturnVsSpy21d": -0.00021945,
-        "excessReturnVsSpy63d": -0.03921037,
-        "trendAcceleration": -2.918e-05,
-        "largestOneDayContribution63d": 0.07453867,
+        "downsideVolatility63d": 0.00105237,
+        "excessReturnVsSpy21d": -0.00214957,
+        "excessReturnVsSpy63d": -0.03731135,
+        "trendAcceleration": -5.955e-05,
+        "largestOneDayContribution63d": 0.07103595,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 11.2546,
-        "consistencyScore": 75.9213,
-        "relativeStrengthScore": 33.9748,
+        "directionScore": 9.0577,
+        "consistencyScore": 66.1138,
+        "relativeStrengthScore": 33.9018,
         "drawdownControlScore": 98.006,
-        "confirmationScore": 22.2985
+        "confirmationScore": 16.3774
       },
-      "benchmarkPercentile": 0.733579,
+      "benchmarkPercentile": 0.698902,
       "metricPercentiles": {
-        "trendSlope63d": 0.566999,
-        "trendFitR2_63d": 0.796637,
-        "excessReturnVsSpy63d": 0.586635,
-        "drawdownControlScore": 0.972675,
-        "growthSpurtScore": 0.733579
+        "trendSlope63d": 0.57449,
+        "trendFitR2_63d": 0.745949,
+        "excessReturnVsSpy63d": 0.595476,
+        "drawdownControlScore": 0.971249,
+        "growthSpurtScore": 0.698902
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1156,6 +1158,17 @@
       },
       {
         "ticker": "QLEP",
+        "date": "2026-09-22",
+        "open": 9.989999771118164,
+        "high": 9.989999771118164,
+        "low": 9.989999771118164,
+        "close": 9.989999771118164,
+        "volume": 100,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.989999771118164
+      },
+      {
+        "ticker": "QLEP",
         "date": "2026-09-23",
         "open": 10.050000190734863,
         "high": 10.050000190734863,
@@ -1164,6 +1177,17 @@
         "volume": 400,
         "source": "yahoo-chart",
         "adjusted_close": 10.050000190734863
+      },
+      {
+        "ticker": "QLEP",
+        "date": "2026-09-24",
+        "open": 10.020000457763672,
+        "high": 10.039999961853027,
+        "low": 10.020000457763672,
+        "close": 10.039999961853027,
+        "volume": 1200,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.039999961853027
       }
     ],
     "dataStatus": {
@@ -1201,13 +1225,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-23",
+      "latestScoringDate": "2026-09-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 46.08,
-      "growthSpurtBenchmarkPercentile": 0.733579,
-      "growthSpurtMarketDataAsOf": "2026-09-23",
-      "lastPipelineRun": "2026-09-24T01:34:53.916351+00:00",
+      "growthSpurtScore": 42.36,
+      "growthSpurtBenchmarkPercentile": 0.698902,
+      "growthSpurtMarketDataAsOf": "2026-09-24",
+      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

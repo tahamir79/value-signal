@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "TBPH",
   "companyName": "Theravance Biopharma, Inc.",
-  "generatedAt": "2026-09-25T09:17:34.705538+00:00",
-  "marketDataAsOf": "2026-09-23",
+  "generatedAt": "2026-09-25T13:11:56.233863+00:00",
+  "marketDataAsOf": "2026-09-24",
   "currentPrice": 17.03,
   "analystTarget": {
     "ticker": "TBPH",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-25T09:17:34.705538+00:00",
+    "collectedAt": "2026-09-25T13:11:56.233863+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-25T09:17:34.705538+00:00",
-    "marketDataAsOf": "2026-09-23",
+    "generatedAt": "2026-09-25T13:11:56.233863+00:00",
+    "marketDataAsOf": "2026-09-24",
     "currentPrice": 17.03,
     "horizon30Day": {
-      "returnEstimate": 0.0134726,
-      "lowerReturn": -0.01358816,
-      "upperReturn": 0.08,
-      "estimatedPrice": 17.2594,
-      "lowerEstimatedPrice": 16.7986,
-      "upperEstimatedPrice": 18.3924,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.0891863,
-      "lowerReturn": -0.01274092,
-      "upperReturn": 0.15,
-      "estimatedPrice": 18.5488,
-      "lowerEstimatedPrice": 16.813,
-      "upperEstimatedPrice": 19.5845,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

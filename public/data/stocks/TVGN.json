@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T01:55:05.693259+00:00",
+  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
   "record": {
     "security": {
       "ticker": "TVGN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.81,
-      "dailyChangePercent": 5.1144,
-      "marketCapBillions": 0.0509,
+      "latestPrice": 7.85,
+      "dailyChangePercent": 0.5122,
+      "marketCapBillions": 0.0511,
       "liabilitiesToAssets": 2.880128,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -457,51 +457,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TVGN",
-      "generatedAt": "2026-09-24T01:34:53.916351+00:00",
-      "marketDataAsOf": "2026-09-23",
+      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
+      "marketDataAsOf": "2026-09-24",
       "status": "not_detected",
-      "growthSpurtScore": 38.46,
+      "growthSpurtScore": 46.68,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.15703703,
-        "return63d": -0.17875923,
-        "trendSlope21d": 0.00762202,
-        "trendSlope63d": 0.00624027,
-        "trendAnnualizedReturn63d": 3.81891492,
-        "trendFitR2_63d": 0.25953105,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.16950781,
-        "maxDrawdown63d": -0.60386963,
-        "downsideVolatility63d": 0.06143718,
-        "excessReturnVsSpy21d": 0.15181755,
-        "excessReturnVsSpy63d": -0.22801988,
-        "trendAcceleration": 0.00363,
-        "largestOneDayContribution63d": 0.1069435,
+        "return21d": 0.1262554,
+        "return63d": -0.17714885,
+        "trendSlope21d": 0.00768868,
+        "trendSlope63d": 0.00664126,
+        "trendAnnualizedReturn63d": 4.33131199,
+        "trendFitR2_63d": 0.52476682,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.12537779,
+        "maxDrawdown63d": -0.4442857,
+        "downsideVolatility63d": 0.03445149,
+        "excessReturnVsSpy21d": 0.12210987,
+        "excessReturnVsSpy63d": -0.22452061,
+        "trendAcceleration": 0.00197939,
+        "largestOneDayContribution63d": 0.10933546,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 65.0,
-        "consistencyScore": 7.8497,
+        "consistencyScore": 40.7019,
         "relativeStrengthScore": 35.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.65896,
+      "benchmarkPercentile": 0.74804,
       "metricPercentiles": {
-        "trendSlope63d": 0.939569,
-        "trendFitR2_63d": 0.351025,
-        "excessReturnVsSpy63d": 0.237718,
-        "drawdownControlScore": 0.151077,
-        "growthSpurtScore": 0.65896
+        "trendSlope63d": 0.945112,
+        "trendFitR2_63d": 0.560899,
+        "excessReturnVsSpy63d": 0.248816,
+        "drawdownControlScore": 0.153685,
+        "growthSpurtScore": 0.74804
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13497,6 +13501,17 @@
       },
       {
         "ticker": "TVGN",
+        "date": "2026-09-22",
+        "open": 7.579999923706055,
+        "high": 7.809999942779541,
+        "low": 7.429999828338623,
+        "close": 7.809999942779541,
+        "volume": 2800,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.809999942779541
+      },
+      {
+        "ticker": "TVGN",
         "date": "2026-09-23",
         "open": 7.809999942779541,
         "high": 7.809999942779541,
@@ -13505,6 +13520,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 7.809999942779541
+      },
+      {
+        "ticker": "TVGN",
+        "date": "2026-09-24",
+        "open": 7.440000057220459,
+        "high": 7.849999904632568,
+        "low": 7.039999961853027,
+        "close": 7.849999904632568,
+        "volume": 2900,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.849999904632568
       }
     ],
     "dataStatus": {
@@ -13546,13 +13572,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-23",
+      "latestScoringDate": "2026-09-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 38.46,
-      "growthSpurtBenchmarkPercentile": 0.65896,
-      "growthSpurtMarketDataAsOf": "2026-09-23",
-      "lastPipelineRun": "2026-09-24T01:34:53.916351+00:00",
+      "growthSpurtScore": 46.68,
+      "growthSpurtBenchmarkPercentile": 0.74804,
+      "growthSpurtMarketDataAsOf": "2026-09-24",
+      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
