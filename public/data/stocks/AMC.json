@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T08:58:18.672494+00:00",
+  "generatedAt": "2026-09-25T01:54:25.081923+00:00",
   "record": {
     "security": {
       "ticker": "AMC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 2.87,
-      "dailyChangePercent": -3.367,
-      "marketCapBillions": 2.5618,
+      "latestPrice": 2.91,
+      "dailyChangePercent": 1.3937,
+      "marketCapBillions": 2.5975,
       "liabilitiesToAssets": 1.180603,
       "latestRevenueBillions": 4.8489,
       "grossMarginPercent": null,
@@ -500,65 +500,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AMC",
-      "generatedAt": "2026-09-24T08:40:30.734293+00:00",
-      "marketDataAsOf": "2026-09-23",
-      "status": "emerging",
-      "growthSpurtScore": 72.53,
+      "generatedAt": "2026-09-25T01:41:26.422723+00:00",
+      "marketDataAsOf": "2026-09-24",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.07490629,
-        "return63d": 0.43499994,
-        "trendSlope21d": 0.00225406,
-        "trendSlope63d": 0.00580076,
-        "trendAnnualizedReturn63d": 3.3136803,
-        "trendFitR2_63d": 0.60032486,
+        "return21d": 0.0981132,
+        "return63d": 0.5396826,
+        "trendSlope21d": 0.0045247,
+        "trendSlope63d": 0.00575577,
+        "trendAnnualizedReturn63d": 3.26504915,
+        "trendFitR2_63d": 0.59624037,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.08981398,
+        "trendResidualVolatility63d": 0.08957629,
         "maxDrawdown63d": -0.20370372,
         "downsideVolatility63d": 0.02712981,
-        "excessReturnVsSpy21d": 0.06672434,
-        "excessReturnVsSpy63d": 0.38525273,
-        "trendAcceleration": -0.0070804,
-        "largestOneDayContribution63d": 0.10683579,
+        "excessReturnVsSpy21d": 0.09396767,
+        "excessReturnVsSpy63d": 0.49231084,
+        "trendAcceleration": -0.00476678,
+        "largestOneDayContribution63d": 0.1126229,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 38.8481,
+        "consistencyScore": 38.5622,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 32.0988,
         "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.940807,
+      "benchmarkPercentile": 0.836815,
       "metricPercentiles": {
-        "trendSlope63d": 0.932949,
-        "trendFitR2_63d": 0.639078,
-        "excessReturnVsSpy63d": 0.94161,
-        "drawdownControlScore": 0.482975,
-        "growthSpurtScore": 0.940807
+        "trendSlope63d": 0.93577,
+        "trendFitR2_63d": 0.638642,
+        "excessReturnVsSpy63d": 0.960147,
+        "drawdownControlScore": 0.483029,
+        "growthSpurtScore": 0.836815
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "AMC",
-        "date": "2021-09-24",
-        "open": 398.1000061035156,
-        "high": 405.20001220703125,
-        "low": 392.5,
-        "close": 400.1000061035156,
-        "volume": 3255590,
-        "source": "yahoo-chart",
-        "adjusted_close": 400.1000061035156
-      },
       {
         "ticker": "AMC",
         "date": "2021-09-27",
@@ -14338,9 +14329,20 @@
         "high": 3.0,
         "low": 2.8499999046325684,
         "close": 2.869999885559082,
-        "volume": 21243500,
+        "volume": 21354800,
         "source": "yahoo-chart",
         "adjusted_close": 2.869999885559082
+      },
+      {
+        "ticker": "AMC",
+        "date": "2026-09-24",
+        "open": 2.8399999141693115,
+        "high": 2.9200000762939453,
+        "low": 2.700000047683716,
+        "close": 2.9100000858306885,
+        "volume": 22836400,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.9100000858306885
       }
     ],
     "dataStatus": {
@@ -14381,13 +14383,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-23",
-      "latestScoringDate": "2026-09-23",
+      "latestScoringDate": "2026-09-24",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 72.53,
-      "growthSpurtBenchmarkPercentile": 0.940807,
-      "growthSpurtMarketDataAsOf": "2026-09-23",
-      "lastPipelineRun": "2026-09-24T08:40:30.734293+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.836815,
+      "growthSpurtMarketDataAsOf": "2026-09-24",
+      "lastPipelineRun": "2026-09-25T01:41:26.422723+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
