@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T13:15:31.060805+00:00",
+  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
   "record": {
     "security": {
       "ticker": "HYFM",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.98,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0047,
+      "latestPrice": 0.96,
+      "dailyChangePercent": -2.0408,
+      "marketCapBillions": 0.0046,
       "liabilitiesToAssets": 1.876381,
       "latestRevenueBillions": 0.1343,
       "grossMarginPercent": 11.3287,
@@ -535,47 +535,48 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "HYFM",
-      "generatedAt": "2026-09-24T12:54:27.522412+00:00",
-      "marketDataAsOf": "2026-09-23",
+      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
+      "marketDataAsOf": "2026-09-24",
       "status": "not_detected",
-      "growthSpurtScore": 31.73,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.03921565,
-        "return63d": 0.06521739,
-        "trendSlope21d": 0.00335148,
-        "trendSlope63d": 0.00321722,
-        "trendAnnualizedReturn63d": 1.24957333,
-        "trendFitR2_63d": 0.04237859,
-        "positiveWeekRatio63d": 0.25,
-        "trendResidualVolatility63d": 0.31291773,
+        "return21d": 0.054945,
+        "return63d": 0.12808457,
+        "trendSlope21d": 0.00317299,
+        "trendSlope63d": 0.0032848,
+        "trendAnnualizedReturn63d": 1.28820883,
+        "trendFitR2_63d": 0.03983989,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.3129509,
         "maxDrawdown63d": -0.61069769,
-        "downsideVolatility63d": 0.05719331,
-        "excessReturnVsSpy21d": -0.04443512,
-        "excessReturnVsSpy63d": 0.01595674,
-        "trendAcceleration": -0.00346165,
-        "largestOneDayContribution63d": 0.46477438,
+        "downsideVolatility63d": 0.05700566,
+        "excessReturnVsSpy21d": 0.04759028,
+        "excessReturnVsSpy63d": 0.07919869,
+        "trendAcceleration": -0.00392342,
+        "largestOneDayContribution63d": 0.46423291,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 64.0217,
+        "directionScore": 100.0,
         "consistencyScore": 2.8968,
-        "relativeStrengthScore": 38.9824,
+        "relativeStrengthScore": 99.6745,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 40.0
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.599682,
+      "benchmarkPercentile": 0.843173,
       "metricPercentiles": {
-        "trendSlope63d": 0.858431,
-        "trendFitR2_63d": 0.172853,
-        "excessReturnVsSpy63d": 0.719915,
-        "drawdownControlScore": 0.145281,
-        "growthSpurtScore": 0.599682
+        "trendSlope63d": 0.865577,
+        "trendFitR2_63d": 0.167633,
+        "excessReturnVsSpy63d": 0.798306,
+        "drawdownControlScore": 0.14971,
+        "growthSpurtScore": 0.843173
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
         "TREND_TOO_VOLATILE",
         "ONE_DAY_SPIKE_DOMINATED"
       ],
@@ -584,17 +585,6 @@
       ]
     },
     "priceHistory": [
-      {
-        "ticker": "HYFM",
-        "date": "2021-09-24",
-        "open": 407.8999938964844,
-        "high": 409.20001220703125,
-        "low": 373.0899963378906,
-        "close": 379.70001220703125,
-        "volume": 178750,
-        "source": "yahoo-chart",
-        "adjusted_close": 379.70001220703125
-      },
       {
         "ticker": "HYFM",
         "date": "2021-09-27",
@@ -14366,6 +14356,17 @@
         "volume": 41200,
         "source": "yahoo-chart",
         "adjusted_close": 0.9800000190734863
+      },
+      {
+        "ticker": "HYFM",
+        "date": "2026-09-24",
+        "open": 0.9200000166893005,
+        "high": 0.9850000143051147,
+        "low": 0.9200000166893005,
+        "close": 0.9599999785423279,
+        "volume": 6100,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.9599999785423279
       }
     ],
     "dataStatus": {
@@ -14408,13 +14409,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-23",
+      "latestScoringDate": "2026-09-24",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 31.73,
-      "growthSpurtBenchmarkPercentile": 0.599682,
-      "growthSpurtMarketDataAsOf": "2026-09-23",
-      "lastPipelineRun": "2026-09-24T12:54:27.522412+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.843173,
+      "growthSpurtMarketDataAsOf": "2026-09-24",
+      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
       "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }
