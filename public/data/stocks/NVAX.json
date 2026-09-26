@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "NVAX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.6,
-      "dailyChangePercent": 0.4739,
-      "marketCapBillions": 1.7484,
+      "latestPrice": 10.63,
+      "dailyChangePercent": 0.283,
+      "marketCapBillions": 1.7534,
       "liabilitiesToAssets": 1.199573,
       "latestRevenueBillions": 1.1235,
       "grossMarginPercent": null,
@@ -533,52 +533,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NVAX",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 66.16,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.19638835,
-        "return63d": 0.19101133,
-        "trendSlope21d": 0.00366188,
-        "trendSlope63d": 0.00304229,
-        "trendAnnualizedReturn63d": 1.15255595,
-        "trendFitR2_63d": 0.17293775,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.09873529,
+        "return21d": 0.15418025,
+        "return63d": 0.19707207,
+        "trendSlope21d": 0.00524854,
+        "trendSlope63d": 0.00399166,
+        "trendAnnualizedReturn63d": 1.73436154,
+        "trendFitR2_63d": 0.22900976,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.10046017,
         "maxDrawdown63d": -0.24845992,
-        "downsideVolatility63d": 0.01720229,
-        "excessReturnVsSpy21d": 0.18903363,
-        "excessReturnVsSpy63d": 0.14212546,
-        "trendAcceleration": 0.00708365,
-        "largestOneDayContribution63d": 0.07399981,
+        "downsideVolatility63d": 0.01687406,
+        "excessReturnVsSpy21d": 0.14480081,
+        "excessReturnVsSpy63d": 0.13633683,
+        "trendAcceleration": 0.00737783,
+        "largestOneDayContribution63d": 0.0758557,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 14.3254,
+        "consistencyScore": 7.1825,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 17.18,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.921455,
+      "benchmarkPercentile": 0.871572,
       "metricPercentiles": {
-        "trendSlope63d": 0.85398,
-        "trendFitR2_63d": 0.283079,
-        "excessReturnVsSpy63d": 0.857067,
-        "drawdownControlScore": 0.386927,
-        "growthSpurtScore": 0.921455
+        "trendSlope63d": 0.898734,
+        "trendFitR2_63d": 0.339662,
+        "excessReturnVsSpy63d": 0.874537,
+        "drawdownControlScore": 0.385549,
+        "growthSpurtScore": 0.871572
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14344,6 +14346,17 @@
       },
       {
         "ticker": "NVAX",
+        "date": "2026-09-22",
+        "open": 10.390000343322754,
+        "high": 11.09000015258789,
+        "low": 10.149999618530273,
+        "close": 10.829999923706055,
+        "volume": 7578400,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.829999923706055
+      },
+      {
+        "ticker": "NVAX",
         "date": "2026-09-23",
         "open": 10.789999961853027,
         "high": 10.949999809265137,
@@ -14360,9 +14373,20 @@
         "high": 10.850000381469727,
         "low": 10.380000114440918,
         "close": 10.600000381469727,
-        "volume": 4342700,
+        "volume": 4353200,
         "source": "yahoo-chart",
         "adjusted_close": 10.600000381469727
+      },
+      {
+        "ticker": "NVAX",
+        "date": "2026-09-25",
+        "open": 10.619999885559082,
+        "high": 10.789999961853027,
+        "low": 10.34000015258789,
+        "close": 10.630000114440918,
+        "volume": 3909900,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.630000114440918
       }
     ],
     "dataStatus": {
@@ -14400,13 +14424,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 66.16,
-      "growthSpurtBenchmarkPercentile": 0.921455,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.871572,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }

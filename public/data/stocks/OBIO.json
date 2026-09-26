@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "OBIO",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 5.95,
-      "dailyChangePercent": 0.3373,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 0.3576,
       "liabilitiesToAssets": 0.745722,
       "latestRevenueBillions": 0.0335,
@@ -498,52 +498,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OBIO",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 76.76,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09374995,
-        "return63d": 0.49497482,
-        "trendSlope21d": 0.01014823,
-        "trendSlope63d": 0.00876706,
-        "trendAnnualizedReturn63d": 8.10933252,
-        "trendFitR2_63d": 0.71746623,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.09066503,
+        "return21d": 0.13117862,
+        "return63d": 0.40330192,
+        "trendSlope21d": 0.01154439,
+        "trendSlope63d": 0.00920886,
+        "trendAnnualizedReturn63d": 9.18211981,
+        "trendFitR2_63d": 0.73874077,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.08759311,
         "maxDrawdown63d": -0.23578945,
-        "downsideVolatility63d": 0.01862684,
-        "excessReturnVsSpy21d": 0.08639524,
-        "excessReturnVsSpy63d": 0.44608895,
-        "trendAcceleration": 0.00409427,
-        "largestOneDayContribution63d": 0.10369173,
+        "downsideVolatility63d": 0.01839621,
+        "excessReturnVsSpy21d": 0.12179918,
+        "excessReturnVsSpy63d": 0.34256668,
+        "trendAcceleration": 0.00351889,
+        "largestOneDayContribution63d": 0.11623355,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 54.1909,
+        "consistencyScore": 41.3944,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 21.4035,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.959146,
+      "benchmarkPercentile": 0.871572,
       "metricPercentiles": {
-        "trendSlope63d": 0.980496,
-        "trendFitR2_63d": 0.767001,
-        "excessReturnVsSpy63d": 0.959238,
-        "drawdownControlScore": 0.411703,
-        "growthSpurtScore": 0.959146
+        "trendSlope63d": 0.984177,
+        "trendFitR2_63d": 0.794304,
+        "excessReturnVsSpy63d": 0.946003,
+        "drawdownControlScore": 0.410865,
+        "growthSpurtScore": 0.871572
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14309,6 +14311,17 @@
       },
       {
         "ticker": "OBIO",
+        "date": "2026-09-22",
+        "open": 6.150000095367432,
+        "high": 6.480000019073486,
+        "low": 6.052999973297119,
+        "close": 6.21999979019165,
+        "volume": 342900,
+        "source": "yahoo-chart",
+        "adjusted_close": 6.21999979019165
+      },
+      {
+        "ticker": "OBIO",
         "date": "2026-09-23",
         "open": 6.099999904632568,
         "high": 6.199999809265137,
@@ -14326,6 +14339,17 @@
         "low": 5.75,
         "close": 5.949999809265137,
         "volume": 262900,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.949999809265137
+      },
+      {
+        "ticker": "OBIO",
+        "date": "2026-09-25",
+        "open": 5.989999771118164,
+        "high": 6.170000076293945,
+        "low": 5.860000133514404,
+        "close": 5.949999809265137,
+        "volume": 248800,
         "source": "yahoo-chart",
         "adjusted_close": 5.949999809265137
       }
@@ -14362,13 +14386,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 76.76,
-      "growthSpurtBenchmarkPercentile": 0.959146,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.871572,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

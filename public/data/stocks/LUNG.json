@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "LUNG",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.9,
-      "dailyChangePercent": -5.0,
-      "marketCapBillions": 0.0816,
+      "latestPrice": 1.91,
+      "dailyChangePercent": 0.5263,
+      "marketCapBillions": 0.082,
       "liabilitiesToAssets": 0.658369,
       "latestRevenueBillions": 0.0905,
       "grossMarginPercent": 74.1892,
@@ -319,7 +319,7 @@
       "shortTermDebtShare": 0.002737,
       "bookValue": 39196000.0,
       "bookValuePerShare": 0.912633,
-      "priceToBook": 2.081889,
+      "priceToBook": 2.092846,
       "retainedEarnings": -545292000.0
     },
     "balanceSheetScoringShadow": {
@@ -530,50 +530,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LUNG",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
       "status": "not_detected",
-      "growthSpurtScore": 47.42,
+      "growthSpurtScore": 43.1,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.16666667,
-        "return63d": 0.36690647,
-        "trendSlope21d": -0.014321,
-        "trendSlope63d": 0.00881062,
-        "trendAnnualizedReturn63d": 8.20987779,
-        "trendFitR2_63d": 0.52665403,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.16387242,
+        "return21d": -0.23600001,
+        "return63d": 0.52799997,
+        "trendSlope21d": -0.01096955,
+        "trendSlope63d": 0.00741571,
+        "trendAnnualizedReturn63d": 5.4802514,
+        "trendFitR2_63d": 0.44273754,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.16854749,
         "maxDrawdown63d": -0.25999999,
-        "downsideVolatility63d": 0.02052046,
-        "excessReturnVsSpy21d": -0.17402138,
-        "excessReturnVsSpy63d": 0.3180206,
-        "trendAcceleration": -0.02953177,
-        "largestOneDayContribution63d": 0.1096091,
+        "downsideVolatility63d": 0.02023161,
+        "excessReturnVsSpy21d": -0.24537945,
+        "excessReturnVsSpy63d": 0.46726473,
+        "trendAcceleration": -0.02634233,
+        "largestOneDayContribution63d": 0.10958752,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 33.6912,
+        "consistencyScore": 16.3885,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 13.3333,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.761465,
+      "benchmarkPercentile": 0.743143,
       "metricPercentiles": {
-        "trendSlope63d": 0.98155,
-        "trendFitR2_63d": 0.57301,
-        "excessReturnVsSpy63d": 0.929592,
-        "drawdownControlScore": 0.364787,
-        "growthSpurtScore": 0.761465
+        "trendSlope63d": 0.972046,
+        "trendFitR2_63d": 0.508966,
+        "excessReturnVsSpy63d": 0.964002,
+        "drawdownControlScore": 0.363924,
+        "growthSpurtScore": 0.743143
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14339,6 +14342,17 @@
       },
       {
         "ticker": "LUNG",
+        "date": "2026-09-22",
+        "open": 1.9900000095367432,
+        "high": 2.0889999866485596,
+        "low": 1.9800000190734863,
+        "close": 2.059999942779541,
+        "volume": 220400,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.059999942779541
+      },
+      {
+        "ticker": "LUNG",
         "date": "2026-09-23",
         "open": 2.059999942779541,
         "high": 2.059999942779541,
@@ -14358,6 +14372,17 @@
         "volume": 165700,
         "source": "yahoo-chart",
         "adjusted_close": 1.899999976158142
+      },
+      {
+        "ticker": "LUNG",
+        "date": "2026-09-25",
+        "open": 1.9800000190734863,
+        "high": 1.9900000095367432,
+        "low": 1.899999976158142,
+        "close": 1.909999966621399,
+        "volume": 304400,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.909999966621399
       }
     ],
     "dataStatus": {
@@ -14389,13 +14414,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 47.42,
-      "growthSpurtBenchmarkPercentile": 0.761465,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtScore": 43.1,
+      "growthSpurtBenchmarkPercentile": 0.743143,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

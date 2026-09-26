@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "HNGE",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 91.98,
-      "dailyChangePercent": -0.3251,
+      "latestPrice": 95.57,
+      "dailyChangePercent": 3.903,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.583842,
       "latestRevenueBillions": 0.5879,
@@ -503,52 +503,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "HNGE",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 63.73,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.02222716,
-        "return63d": 0.30357152,
-        "trendSlope21d": 0.00194883,
-        "trendSlope63d": 0.00208574,
-        "trendAnnualizedReturn63d": 0.69148238,
-        "trendFitR2_63d": 0.28322998,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.05848892,
+        "return21d": 0.0560221,
+        "return63d": 0.21020638,
+        "trendSlope21d": 0.00196811,
+        "trendSlope63d": 0.00198983,
+        "trendAnnualizedReturn63d": 0.65109184,
+        "trendFitR2_63d": 0.27038411,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.05785966,
         "maxDrawdown63d": -0.17711114,
-        "downsideVolatility63d": 0.0167992,
-        "excessReturnVsSpy21d": 0.01487244,
-        "excessReturnVsSpy63d": 0.25468565,
-        "trendAcceleration": 0.00106421,
-        "largestOneDayContribution63d": 0.08378795,
+        "downsideVolatility63d": 0.01688666,
+        "excessReturnVsSpy21d": 0.04664266,
+        "excessReturnVsSpy63d": 0.14947115,
+        "trendAcceleration": 0.00108348,
+        "largestOneDayContribution63d": 0.08652847,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 94.8181,
-        "consistencyScore": 9.5086,
-        "relativeStrengthScore": 89.0067,
+        "directionScore": 100.0,
+        "consistencyScore": 22.8951,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 40.963,
-        "confirmationScore": 89.6362
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.913548,
+      "benchmarkPercentile": 0.871572,
       "metricPercentiles": {
-        "trendSlope63d": 0.792831,
-        "trendFitR2_63d": 0.361624,
-        "excessReturnVsSpy63d": 0.916887,
-        "drawdownControlScore": 0.547707,
-        "growthSpurtScore": 0.913548
+        "trendSlope63d": 0.794304,
+        "trendFitR2_63d": 0.368143,
+        "excessReturnVsSpy63d": 0.880889,
+        "drawdownControlScore": 0.55116,
+        "growthSpurtScore": 0.871572
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4227,6 +4229,17 @@
       },
       {
         "ticker": "HNGE",
+        "date": "2026-09-22",
+        "open": 94.44999694824219,
+        "high": 94.5999984741211,
+        "low": 91.77999877929688,
+        "close": 94.1500015258789,
+        "volume": 1327900,
+        "source": "yahoo-chart",
+        "adjusted_close": 94.1500015258789
+      },
+      {
+        "ticker": "HNGE",
         "date": "2026-09-23",
         "open": 93.62999725341797,
         "high": 94.27999877929688,
@@ -4246,6 +4259,17 @@
         "volume": 2304700,
         "source": "yahoo-chart",
         "adjusted_close": 91.9800033569336
+      },
+      {
+        "ticker": "HNGE",
+        "date": "2026-09-25",
+        "open": 91.94000244140625,
+        "high": 96.44999694824219,
+        "low": 91.03299713134766,
+        "close": 95.56999969482422,
+        "volume": 1027100,
+        "source": "yahoo-chart",
+        "adjusted_close": 95.56999969482422
       }
     ],
     "dataStatus": {
@@ -4283,13 +4307,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.73,
-      "growthSpurtBenchmarkPercentile": 0.913548,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.871572,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

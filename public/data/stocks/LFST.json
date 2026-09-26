@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "LFST",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.8,
-      "dailyChangePercent": -2.3179,
-      "marketCapBillions": 4.5083,
+      "latestPrice": 11.84,
+      "dailyChangePercent": 0.339,
+      "marketCapBillions": 4.5235,
       "liabilitiesToAssets": 0.322874,
       "latestRevenueBillions": 1.4243,
       "grossMarginPercent": null,
@@ -294,7 +294,7 @@
       "shortTermDebtShare": 0.05,
       "bookValue": 1477148000.0,
       "bookValuePerShare": 3.866317,
-      "priceToBook": 3.052,
+      "priceToBook": 3.062346,
       "retainedEarnings": -770771000.0
     },
     "balanceSheetScoringShadow": {
@@ -505,50 +505,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LFST",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 62.52,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02960524,
-        "return63d": 0.222798,
-        "trendSlope21d": 0.00163058,
-        "trendSlope63d": 0.00363516,
-        "trendAnnualizedReturn63d": 1.49942513,
-        "trendFitR2_63d": 0.68573257,
+        "return21d": -0.02551436,
+        "return63d": 0.15175102,
+        "trendSlope21d": -0.00115566,
+        "trendSlope63d": 0.00328677,
+        "trendAnnualizedReturn63d": 1.28934721,
+        "trendFitR2_63d": 0.61622676,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.04454359,
+        "trendResidualVolatility63d": 0.04593508,
         "maxDrawdown63d": -0.11808669,
-        "downsideVolatility63d": 0.0120335,
-        "excessReturnVsSpy21d": -0.03695995,
-        "excessReturnVsSpy63d": 0.17391212,
-        "trendAcceleration": -0.00219961,
-        "largestOneDayContribution63d": 0.07520946,
+        "downsideVolatility63d": 0.01126049,
+        "excessReturnVsSpy21d": -0.0348938,
+        "excessReturnVsSpy63d": 0.09101578,
+        "trendAcceleration": -0.00465709,
+        "largestOneDayContribution63d": 0.07775578,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 48.629,
-        "relativeStrengthScore": 66.33,
+        "consistencyScore": 43.2576,
+        "relativeStrengthScore": 67.234,
         "drawdownControlScore": 60.6378,
-        "confirmationScore": 40.0
+        "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.907749,
+      "benchmarkPercentile": 0.871572,
       "metricPercentiles": {
-        "trendSlope63d": 0.881392,
-        "trendFitR2_63d": 0.727464,
-        "excessReturnVsSpy63d": 0.873478,
-        "drawdownControlScore": 0.733263,
-        "growthSpurtScore": 0.907749
+        "trendSlope63d": 0.876055,
+        "trendFitR2_63d": 0.660338,
+        "excessReturnVsSpy63d": 0.843303,
+        "drawdownControlScore": 0.73365,
+        "growthSpurtScore": 0.871572
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14314,6 +14317,17 @@
       },
       {
         "ticker": "LFST",
+        "date": "2026-09-22",
+        "open": 12.6899995803833,
+        "high": 12.90999984741211,
+        "low": 12.515000343322754,
+        "close": 12.550000190734863,
+        "volume": 4044600,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.550000190734863
+      },
+      {
+        "ticker": "LFST",
         "date": "2026-09-23",
         "open": 12.5,
         "high": 12.510000228881836,
@@ -14333,6 +14347,17 @@
         "volume": 4255700,
         "source": "yahoo-chart",
         "adjusted_close": 11.800000190734863
+      },
+      {
+        "ticker": "LFST",
+        "date": "2026-09-25",
+        "open": 11.770000457763672,
+        "high": 12.045000076293945,
+        "low": 11.760000228881836,
+        "close": 11.84000015258789,
+        "volume": 7827700,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.84000015258789
       }
     ],
     "dataStatus": {
@@ -14366,13 +14391,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 62.52,
-      "growthSpurtBenchmarkPercentile": 0.907749,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.871572,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "LILA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.6,
-      "dailyChangePercent": 0.939,
+      "latestPrice": 8.48,
+      "dailyChangePercent": -1.3954,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.918761,
       "latestRevenueBillions": null,
@@ -482,52 +482,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LILA",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "detected",
-      "growthSpurtScore": 77.13,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.02137771,
-        "return63d": 0.30303038,
-        "trendSlope21d": 0.00064701,
-        "trendSlope63d": 0.00297922,
-        "trendAnnualizedReturn63d": 1.11861558,
-        "trendFitR2_63d": 0.7107832,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.03725453,
+        "return21d": -0.02078526,
+        "return63d": 0.18934073,
+        "trendSlope21d": 0.00060613,
+        "trendSlope63d": 0.00260403,
+        "trendAnnualizedReturn63d": 0.92748357,
+        "trendFitR2_63d": 0.6600698,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.03743348,
         "maxDrawdown63d": -0.08712122,
-        "downsideVolatility63d": 0.01268806,
-        "excessReturnVsSpy21d": 0.01402299,
-        "excessReturnVsSpy63d": 0.25414451,
-        "trendAcceleration": -0.00365277,
-        "largestOneDayContribution63d": 0.07385135,
+        "downsideVolatility63d": 0.01254777,
+        "excessReturnVsSpy21d": -0.03016469,
+        "excessReturnVsSpy63d": 0.12860549,
+        "trendAcceleration": -0.00336473,
+        "largestOneDayContribution63d": 0.0626525,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 94.2518,
-        "consistencyScore": 60.176,
-        "relativeStrengthScore": 88.6351,
+        "directionScore": 80.0,
+        "consistencyScore": 42.2753,
+        "relativeStrengthScore": 69.3029,
         "drawdownControlScore": 70.9596,
-        "confirmationScore": 54.384
+        "confirmationScore": 24.2452
       },
-      "benchmarkPercentile": 0.960464,
+      "benchmarkPercentile": 0.871572,
       "metricPercentiles": {
-        "trendSlope63d": 0.848181,
-        "trendFitR2_63d": 0.760148,
-        "excessReturnVsSpy63d": 0.915828,
-        "drawdownControlScore": 0.827623,
-        "growthSpurtScore": 0.960464
+        "trendSlope63d": 0.837025,
+        "trendFitR2_63d": 0.699367,
+        "excessReturnVsSpy63d": 0.866067,
+        "drawdownControlScore": 0.828586,
+        "growthSpurtScore": 0.871572
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14293,6 +14294,17 @@
       },
       {
         "ticker": "LILA",
+        "date": "2026-09-22",
+        "open": 8.819999694824219,
+        "high": 8.984999656677246,
+        "low": 8.645000457763672,
+        "close": 8.789999961853027,
+        "volume": 443800,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.789999961853027
+      },
+      {
+        "ticker": "LILA",
         "date": "2026-09-23",
         "open": 8.789999961853027,
         "high": 8.800999641418457,
@@ -14312,6 +14324,17 @@
         "volume": 374600,
         "source": "yahoo-chart",
         "adjusted_close": 8.600000381469727
+      },
+      {
+        "ticker": "LILA",
+        "date": "2026-09-25",
+        "open": 8.600000381469727,
+        "high": 8.609999656677246,
+        "low": 8.40999984741211,
+        "close": 8.479999542236328,
+        "volume": 308800,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.479999542236328
       }
     ],
     "dataStatus": {
@@ -14350,13 +14373,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 77.13,
-      "growthSpurtBenchmarkPercentile": 0.960464,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.871572,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T09:15:44.826790+00:00",
+  "generatedAt": "2026-09-26T12:41:39.255479+00:00",
   "record": {
     "security": {
       "ticker": "GDRX",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 3.36,
-      "dailyChangePercent": 1.2048,
+      "latestPrice": 3.35,
+      "dailyChangePercent": -0.2976,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.723593,
       "latestRevenueBillions": 0.7969,
@@ -494,51 +494,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GDRX",
-      "generatedAt": "2026-09-25T09:02:09.879759+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 55.02,
+      "generatedAt": "2026-09-26T12:24:37.148765+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 51.21,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02325586,
-        "return63d": 0.21739127,
-        "trendSlope21d": -0.00263156,
-        "trendSlope63d": 0.00318477,
-        "trendAnnualizedReturn63d": 1.23125152,
-        "trendFitR2_63d": 0.53185205,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05860029,
+        "return21d": -0.08219183,
+        "return63d": 0.19642856,
+        "trendSlope21d": -0.00228661,
+        "trendSlope63d": 0.00283293,
+        "trendAnnualizedReturn63d": 1.04193394,
+        "trendFitR2_63d": 0.46304316,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.05799826,
         "maxDrawdown63d": -0.1263158,
-        "downsideVolatility63d": 0.01455546,
-        "excessReturnVsSpy21d": -0.03061058,
-        "excessReturnVsSpy63d": 0.1685054,
-        "trendAcceleration": -0.00898438,
-        "largestOneDayContribution63d": 0.0983295,
+        "downsideVolatility63d": 0.0149271,
+        "excessReturnVsSpy21d": -0.09157127,
+        "excessReturnVsSpy63d": 0.13569332,
+        "trendAcceleration": -0.00807432,
+        "largestOneDayContribution63d": 0.10024841,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 34.055,
-        "relativeStrengthScore": 69.1079,
+        "consistencyScore": 22.0956,
+        "relativeStrengthScore": 65.0,
         "drawdownControlScore": 57.8947,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.86874,
+      "benchmarkPercentile": 0.823312,
       "metricPercentiles": {
-        "trendSlope63d": 0.860833,
-        "trendFitR2_63d": 0.576173,
-        "excessReturnVsSpy63d": 0.871361,
-        "drawdownControlScore": 0.714813,
-        "growthSpurtScore": 0.86874
+        "trendSlope63d": 0.849684,
+        "trendFitR2_63d": 0.530063,
+        "excessReturnVsSpy63d": 0.874007,
+        "drawdownControlScore": 0.714662,
+        "growthSpurtScore": 0.823312
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14304,6 +14306,17 @@
       },
       {
         "ticker": "GDRX",
+        "date": "2026-09-22",
+        "open": 3.430000066757202,
+        "high": 3.4549999237060547,
+        "low": 3.380000114440918,
+        "close": 3.440000057220459,
+        "volume": 911700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.440000057220459
+      },
+      {
+        "ticker": "GDRX",
         "date": "2026-09-23",
         "open": 3.4200000762939453,
         "high": 3.424999952316284,
@@ -14323,6 +14336,17 @@
         "volume": 879500,
         "source": "yahoo-chart",
         "adjusted_close": 3.359999895095825
+      },
+      {
+        "ticker": "GDRX",
+        "date": "2026-09-25",
+        "open": 3.4000000953674316,
+        "high": 3.440000057220459,
+        "low": 3.3299999237060547,
+        "close": 3.3499999046325684,
+        "volume": 508900,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.3499999046325684
       }
     ],
     "dataStatus": {
@@ -14358,13 +14382,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 55.02,
-      "growthSpurtBenchmarkPercentile": 0.86874,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T09:02:09.879759+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 51.21,
+      "growthSpurtBenchmarkPercentile": 0.823312,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T12:24:37.148765+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
