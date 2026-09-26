@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T01:54:25.081923+00:00",
+  "generatedAt": "2026-09-26T02:07:58.951646+00:00",
   "record": {
     "security": {
       "ticker": "CADL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.55,
-      "dailyChangePercent": 2.3029,
-      "marketCapBillions": 0.8838,
+      "latestPrice": 11.02,
+      "dailyChangePercent": -4.5887,
+      "marketCapBillions": 0.8432,
       "liabilitiesToAssets": 0.39404,
       "latestRevenueBillions": 0.0001,
       "grossMarginPercent": null,
@@ -263,7 +263,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 126130000.0,
       "bookValuePerShare": 1.648358,
-      "priceToBook": 7.006972,
+      "priceToBook": 6.685441,
       "retainedEarnings": -278153000.0
     },
     "balanceSheetScoringShadow": {
@@ -479,50 +479,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CADL",
-      "generatedAt": "2026-09-25T01:41:26.422723+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-26T01:47:52.928751+00:00",
+      "marketDataAsOf": "2026-09-25",
       "status": "not_detected",
-      "growthSpurtScore": 47.03,
+      "growthSpurtScore": 45.13,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.10186621,
-        "return63d": 0.24595465,
-        "trendSlope21d": -0.01146223,
-        "trendSlope63d": 0.00372642,
-        "trendAnnualizedReturn63d": 1.55757058,
-        "trendFitR2_63d": 0.42754062,
+        "return21d": -0.17018067,
+        "return63d": 0.12563846,
+        "trendSlope21d": -0.01041662,
+        "trendSlope63d": 0.00352943,
+        "trendAnnualizedReturn63d": 1.43371015,
+        "trendFitR2_63d": 0.38904092,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.08378368,
+        "trendResidualVolatility63d": 0.08555662,
         "maxDrawdown63d": -0.2330909,
-        "downsideVolatility63d": 0.02208358,
-        "excessReturnVsSpy21d": -0.10922093,
-        "excessReturnVsSpy63d": 0.19706878,
-        "trendAcceleration": -0.01630605,
-        "largestOneDayContribution63d": 0.06320586,
+        "downsideVolatility63d": 0.02188977,
+        "excessReturnVsSpy21d": -0.17956011,
+        "excessReturnVsSpy63d": 0.06490322,
+        "trendAcceleration": -0.01674196,
+        "largestOneDayContribution63d": 0.06155412,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 26.7532,
-        "relativeStrengthScore": 65.0,
+        "consistencyScore": 24.0583,
+        "relativeStrengthScore": 58.8669,
         "drawdownControlScore": 22.303,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.748042,
+      "benchmarkPercentile": 0.758081,
       "metricPercentiles": {
-        "trendSlope63d": 0.873629,
-        "trendFitR2_63d": 0.503916,
-        "excessReturnVsSpy63d": 0.891977,
-        "drawdownControlScore": 0.427676,
-        "growthSpurtScore": 0.748042
+        "trendSlope63d": 0.867049,
+        "trendFitR2_63d": 0.468717,
+        "excessReturnVsSpy63d": 0.812991,
+        "drawdownControlScore": 0.425443,
+        "growthSpurtScore": 0.758081
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14288,6 +14291,17 @@
       },
       {
         "ticker": "CADL",
+        "date": "2026-09-22",
+        "open": 11.279999732971191,
+        "high": 11.960000038146973,
+        "low": 11.149999618530273,
+        "close": 11.850000381469727,
+        "volume": 880300,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.850000381469727
+      },
+      {
+        "ticker": "CADL",
         "date": "2026-09-23",
         "open": 11.930000305175781,
         "high": 12.005999565124512,
@@ -14307,6 +14321,17 @@
         "volume": 880500,
         "source": "yahoo-chart",
         "adjusted_close": 11.550000190734863
+      },
+      {
+        "ticker": "CADL",
+        "date": "2026-09-25",
+        "open": 11.5,
+        "high": 11.550000190734863,
+        "low": 11.010000228881836,
+        "close": 11.020000457763672,
+        "volume": 799700,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.020000457763672
       }
     ],
     "dataStatus": {
@@ -14343,13 +14368,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 47.03,
-      "growthSpurtBenchmarkPercentile": 0.748042,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T01:41:26.422723+00:00",
+      "growthSpurtScore": 45.13,
+      "growthSpurtBenchmarkPercentile": 0.758081,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T01:47:52.928751+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

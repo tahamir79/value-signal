@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T01:54:25.081923+00:00",
+  "generatedAt": "2026-09-26T02:07:58.951646+00:00",
   "record": {
     "security": {
       "ticker": "AFRI",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.1,
-      "dailyChangePercent": 0.5435,
+      "latestPrice": 10.97,
+      "dailyChangePercent": -1.1712,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,53 +335,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AFRI",
-      "generatedAt": "2026-09-25T01:41:26.422723+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "detected",
-      "growthSpurtScore": 82.77,
+      "generatedAt": "2026-09-26T01:47:52.928751+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.02730218,
-        "return63d": 0.09575521,
-        "trendSlope21d": 0.00119803,
-        "trendSlope63d": 0.00155636,
-        "trendAnnualizedReturn63d": 0.48023681,
-        "trendFitR2_63d": 0.74859422,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.01591833,
+        "return21d": 0.02236726,
+        "return63d": 0.07549024,
+        "trendSlope21d": 0.00043032,
+        "trendSlope63d": 0.00147098,
+        "trendAnnualizedReturn63d": 0.44872896,
+        "trendFitR2_63d": 0.71404175,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.01613954,
         "maxDrawdown63d": -0.06082292,
-        "downsideVolatility63d": 0.00984604,
-        "excessReturnVsSpy21d": 0.01994746,
-        "excessReturnVsSpy63d": 0.04686933,
-        "trendAcceleration": -0.00015577,
-        "largestOneDayContribution63d": 0.07429248,
+        "downsideVolatility63d": 0.00976991,
+        "excessReturnVsSpy21d": 0.01298782,
+        "excessReturnVsSpy63d": 0.014755,
+        "trendAcceleration": -0.00087133,
+        "largestOneDayContribution63d": 0.07589915,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 91.1301,
-        "consistencyScore": 77.7242,
-        "relativeStrengthScore": 77.7677,
+        "directionScore": 81.9295,
+        "consistencyScore": 60.9394,
+        "relativeStrengthScore": 61.6764,
         "drawdownControlScore": 79.7257,
-        "confirmationScore": 84.8452
+        "confirmationScore": 48.3225
       },
-      "benchmarkPercentile": 0.98329,
+      "benchmarkPercentile": 0.8561,
       "metricPercentiles": {
-        "trendSlope63d": 0.749869,
-        "trendFitR2_63d": 0.810444,
-        "excessReturnVsSpy63d": 0.764027,
-        "drawdownControlScore": 0.898172,
-        "growthSpurtScore": 0.98329
+        "trendSlope63d": 0.753389,
+        "trendFitR2_63d": 0.763816,
+        "excessReturnVsSpy63d": 0.759036,
+        "drawdownControlScore": 0.898853,
+        "growthSpurtScore": 0.8561
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14147,6 +14148,17 @@
       },
       {
         "ticker": "AFRI",
+        "date": "2026-09-22",
+        "open": 11.199999809265137,
+        "high": 11.300000190734863,
+        "low": 11.039999961853027,
+        "close": 11.069999694824219,
+        "volume": 29800,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.069999694824219
+      },
+      {
+        "ticker": "AFRI",
         "date": "2026-09-23",
         "open": 11.020000457763672,
         "high": 11.220000267028809,
@@ -14166,6 +14178,17 @@
         "volume": 10600,
         "source": "yahoo-chart",
         "adjusted_close": 11.100000381469727
+      },
+      {
+        "ticker": "AFRI",
+        "date": "2026-09-25",
+        "open": 11.0,
+        "high": 11.220000267028809,
+        "low": 10.949999809265137,
+        "close": 10.970000267028809,
+        "volume": 20500,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.970000267028809
       }
     ],
     "dataStatus": {
@@ -14205,13 +14228,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 82.77,
-      "growthSpurtBenchmarkPercentile": 0.98329,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T01:41:26.422723+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.8561,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T01:47:52.928751+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

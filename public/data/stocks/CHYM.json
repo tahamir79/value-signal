@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T01:54:25.081923+00:00",
+  "generatedAt": "2026-09-26T02:07:58.951646+00:00",
   "record": {
     "security": {
       "ticker": "CHYM",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 27.07,
-      "dailyChangePercent": 2.3054,
+      "latestPrice": 26.78,
+      "dailyChangePercent": -1.0713,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.29641,
       "latestRevenueBillions": 2.1868,
@@ -493,51 +493,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CHYM",
-      "generatedAt": "2026-09-25T01:41:26.422723+00:00",
-      "marketDataAsOf": "2026-09-24",
-      "status": "emerging",
-      "growthSpurtScore": 57.11,
+      "generatedAt": "2026-09-26T01:47:52.928751+00:00",
+      "marketDataAsOf": "2026-09-25",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.17217128,
-        "return63d": 0.55753746,
-        "trendSlope21d": -0.00562734,
-        "trendSlope63d": 0.00910338,
-        "trendAnnualizedReturn63d": 8.91503202,
-        "trendFitR2_63d": 0.74128751,
-        "positiveWeekRatio63d": 0.83333333,
-        "trendResidualVolatility63d": 0.10318214,
+        "return21d": -0.19215688,
+        "return63d": 0.31791344,
+        "trendSlope21d": -0.01072563,
+        "trendSlope63d": 0.00762689,
+        "trendAnnualizedReturn63d": 5.8344452,
+        "trendFitR2_63d": 0.6279799,
+        "positiveWeekRatio63d": 0.75,
+        "trendResidualVolatility63d": 0.11388115,
         "maxDrawdown63d": -0.23415341,
-        "downsideVolatility63d": 0.02832363,
-        "excessReturnVsSpy21d": -0.179526,
-        "excessReturnVsSpy63d": 0.50865158,
-        "trendAcceleration": -0.01848483,
-        "largestOneDayContribution63d": 0.11200695,
+        "downsideVolatility63d": 0.02296123,
+        "excessReturnVsSpy21d": -0.20153632,
+        "excessReturnVsSpy63d": 0.2571782,
+        "trendAcceleration": -0.02376889,
+        "largestOneDayContribution63d": 0.12066131,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 67.287,
+        "consistencyScore": 55.0697,
         "relativeStrengthScore": 65.0,
         "drawdownControlScore": 21.9489,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.874151,
+      "benchmarkPercentile": 0.8561,
       "metricPercentiles": {
-        "trendSlope63d": 0.979634,
-        "trendFitR2_63d": 0.800522,
-        "excessReturnVsSpy63d": 0.962769,
-        "drawdownControlScore": 0.423499,
-        "growthSpurtScore": 0.874151
+        "trendSlope63d": 0.964546,
+        "trendFitR2_63d": 0.673097,
+        "excessReturnVsSpy63d": 0.922472,
+        "drawdownControlScore": 0.421794,
+        "growthSpurtScore": 0.8561
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "MARKET_RELATIVE_STRENGTH",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4062,6 +4064,17 @@
       },
       {
         "ticker": "CHYM",
+        "date": "2026-09-22",
+        "open": 30.309999465942383,
+        "high": 30.309999465942383,
+        "low": 28.579999923706055,
+        "close": 28.6200008392334,
+        "volume": 7956100,
+        "source": "yahoo-chart",
+        "adjusted_close": 28.6200008392334
+      },
+      {
+        "ticker": "CHYM",
         "date": "2026-09-23",
         "open": 28.434999465942383,
         "high": 28.469999313354492,
@@ -4081,6 +4094,17 @@
         "volume": 5309300,
         "source": "yahoo-chart",
         "adjusted_close": 27.06999969482422
+      },
+      {
+        "ticker": "CHYM",
+        "date": "2026-09-25",
+        "open": 26.809999465942383,
+        "high": 27.1299991607666,
+        "low": 26.600000381469727,
+        "close": 26.780000686645508,
+        "volume": 3998100,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.780000686645508
       }
     ],
     "dataStatus": {
@@ -4118,13 +4142,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 57.11,
-      "growthSpurtBenchmarkPercentile": 0.874151,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T01:41:26.422723+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.8561,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T01:47:52.928751+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

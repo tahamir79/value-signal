@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "CIVB",
   "companyName": "CIVISTA BANCSHARES, INC.",
-  "generatedAt": "2026-09-25T13:11:56.233863+00:00",
-  "marketDataAsOf": "2026-09-24",
+  "generatedAt": "2026-09-26T02:09:58.324359+00:00",
+  "marketDataAsOf": "2026-09-25",
   "currentPrice": 27.06,
   "analystTarget": {
     "ticker": "CIVB",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-25T13:11:56.233863+00:00",
+    "collectedAt": "2026-09-26T02:09:58.324359+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-25T13:11:56.233863+00:00",
-    "marketDataAsOf": "2026-09-24",
+    "generatedAt": "2026-09-26T02:09:58.324359+00:00",
+    "marketDataAsOf": "2026-09-25",
     "currentPrice": 27.06,
     "horizon30Day": {
-      "returnEstimate": 0.02308647,
-      "lowerReturn": -0.02680522,
-      "upperReturn": 0.07490274,
-      "estimatedPrice": 27.6847,
-      "lowerEstimatedPrice": 26.3347,
-      "upperEstimatedPrice": 29.0869,
+      "returnEstimate": 0.0241879,
+      "lowerReturn": -0.02946088,
+      "upperReturn": 0.08,
+      "estimatedPrice": 27.7145,
+      "lowerEstimatedPrice": 26.2628,
+      "upperEstimatedPrice": 29.2248,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.07334865,
-      "lowerReturn": -0.00875912,
-      "upperReturn": 0.14932639,
-      "estimatedPrice": 29.0448,
-      "lowerEstimatedPrice": 26.823,
-      "upperEstimatedPrice": 31.1008,
+      "returnEstimate": 0.06555989,
+      "lowerReturn": -0.01650201,
+      "upperReturn": 0.15,
+      "estimatedPrice": 28.8341,
+      "lowerEstimatedPrice": 26.6135,
+      "upperEstimatedPrice": 31.119,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

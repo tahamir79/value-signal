@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T01:54:25.081923+00:00",
+  "generatedAt": "2026-09-26T02:07:58.951646+00:00",
   "record": {
     "security": {
       "ticker": "BOT",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 30.01,
-      "dailyChangePercent": 5.7062,
+      "latestPrice": 28.62,
+      "dailyChangePercent": -4.6318,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,53 +335,50 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BOT",
-      "generatedAt": "2026-09-25T01:41:26.422723+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-26T01:47:52.928751+00:00",
+      "marketDataAsOf": "2026-09-25",
       "status": "not_detected",
-      "growthSpurtScore": 48.31,
+      "growthSpurtScore": 18.92,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.12354928,
-        "return63d": 0.14280274,
-        "trendSlope21d": 0.00328234,
-        "trendSlope63d": -0.00288132,
-        "trendAnnualizedReturn63d": -0.51620414,
-        "trendFitR2_63d": 0.31220325,
+        "return21d": 0.02032091,
+        "return63d": -0.08708132,
+        "trendSlope21d": 0.00474803,
+        "trendSlope63d": -0.00282587,
+        "trendAnnualizedReturn63d": -0.50939671,
+        "trendFitR2_63d": 0.30508028,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.08571923,
+        "trendResidualVolatility63d": 0.08540879,
         "maxDrawdown63d": -0.36251572,
-        "downsideVolatility63d": 0.04005472,
-        "excessReturnVsSpy21d": 0.11619456,
-        "excessReturnVsSpy63d": 0.09391687,
-        "trendAcceleration": 0.00781137,
-        "largestOneDayContribution63d": 0.06419495,
+        "downsideVolatility63d": 0.03942015,
+        "excessReturnVsSpy21d": 0.01094147,
+        "excessReturnVsSpy63d": -0.14781656,
+        "trendAcceleration": 0.00979983,
+        "largestOneDayContribution63d": 0.06665156,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 55.0,
-        "consistencyScore": 7.2511,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 13.5473,
+        "consistencyScore": 6.7524,
+        "relativeStrengthScore": 22.2869,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 100.0
+        "confirmationScore": 87.0945
       },
-      "benchmarkPercentile": 0.762924,
+      "benchmarkPercentile": 0.441084,
       "metricPercentiles": {
-        "trendSlope63d": 0.24752,
-        "trendFitR2_63d": 0.413055,
-        "excessReturnVsSpy63d": 0.815941,
-        "drawdownControlScore": 0.149608,
-        "growthSpurtScore": 0.762924
+        "trendSlope63d": 0.250261,
+        "trendFitR2_63d": 0.407195,
+        "excessReturnVsSpy63d": 0.391828,
+        "drawdownControlScore": 0.151199,
+        "growthSpurtScore": 0.441084
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE",
-        "ONE_DAY_SPIKE_DOMINATED"
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "ONE_DAY_SPIKE_DOMINATED"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1398,6 +1395,17 @@
       },
       {
         "ticker": "BOT",
+        "date": "2026-09-22",
+        "open": 28.5,
+        "high": 29.440000534057617,
+        "low": 27.889999389648438,
+        "close": 28.280000686645508,
+        "volume": 231400,
+        "source": "yahoo-chart",
+        "adjusted_close": 28.280000686645508
+      },
+      {
+        "ticker": "BOT",
         "date": "2026-09-23",
         "open": 28.399999618530273,
         "high": 28.780000686645508,
@@ -1417,6 +1425,17 @@
         "volume": 316700,
         "source": "yahoo-chart",
         "adjusted_close": 30.010000228881836
+      },
+      {
+        "ticker": "BOT",
+        "date": "2026-09-25",
+        "open": 30.06999969482422,
+        "high": 30.3799991607666,
+        "low": 28.110000610351562,
+        "close": 28.6200008392334,
+        "volume": 294200,
+        "source": "yahoo-chart",
+        "adjusted_close": 28.6200008392334
       }
     ],
     "dataStatus": {
@@ -1456,13 +1475,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-25",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 48.31,
-      "growthSpurtBenchmarkPercentile": 0.762924,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T01:41:26.422723+00:00",
+      "growthSpurtScore": 18.92,
+      "growthSpurtBenchmarkPercentile": 0.441084,
+      "growthSpurtMarketDataAsOf": "2026-09-25",
+      "lastPipelineRun": "2026-09-26T01:47:52.928751+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
