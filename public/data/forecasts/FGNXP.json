@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "FGNXP",
   "companyName": "FG Nexus Inc.",
-  "generatedAt": "2026-09-29T10:18:29.514742+00:00",
-  "marketDataAsOf": "2026-09-25",
+  "generatedAt": "2026-09-29T14:36:19.420670+00:00",
+  "marketDataAsOf": "2026-09-28",
   "currentPrice": 25.99,
   "analystTarget": {
     "ticker": "FGNXP",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-29T10:18:29.514742+00:00",
+    "collectedAt": "2026-09-29T14:36:19.420670+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-29T10:18:29.514742+00:00",
-    "marketDataAsOf": "2026-09-25",
+    "generatedAt": "2026-09-29T14:36:19.420670+00:00",
+    "marketDataAsOf": "2026-09-28",
     "currentPrice": 25.99,
     "horizon30Day": {
-      "returnEstimate": 0.01584314,
-      "lowerReturn": -0.00808786,
-      "upperReturn": 0.06318866,
-      "estimatedPrice": 26.4018,
-      "lowerEstimatedPrice": 25.7798,
-      "upperEstimatedPrice": 27.6323,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.06402129,
-      "lowerReturn": 0.02200652,
-      "upperReturn": 0.15,
-      "estimatedPrice": 27.6539,
-      "lowerEstimatedPrice": 26.5619,
-      "upperEstimatedPrice": 29.8885,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 0,
+      "status": "insufficient_data",
+      "usableObservationCount": 0,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 0 of 24 required observations.",
+      "Not enough 90-day history: 0 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
