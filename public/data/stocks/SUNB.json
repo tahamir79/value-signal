@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
+  "generatedAt": "2026-09-29T03:00:07.378884+00:00",
   "record": {
     "security": {
       "ticker": "SUNB",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 72.74,
-      "dailyChangePercent": -1.4096,
-      "marketCapBillions": 29.8063,
+      "latestPrice": 74.89,
+      "dailyChangePercent": -0.2265,
+      "marketCapBillions": 30.6873,
       "liabilitiesToAssets": 0.684623,
       "latestRevenueBillions": 2.509,
       "grossMarginPercent": 170.9845,
@@ -307,7 +307,7 @@
       "shortTermDebtShare": 0.0604,
       "bookValue": 7447000000.0,
       "bookValuePerShare": 18.173836,
-      "priceToBook": 4.002457,
+      "priceToBook": 4.120759,
       "retainedEarnings": 7772000000.0
     },
     "balanceSheetScoringShadow": {
@@ -518,49 +518,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SUNB",
-      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-29T02:41:26.534847+00:00",
+      "marketDataAsOf": "2026-09-28",
       "status": "not_detected",
-      "growthSpurtScore": 12.44,
+      "growthSpurtScore": 36.62,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.03506132,
-        "return63d": -0.0184308,
-        "trendSlope21d": 0.00144829,
+        "return21d": 0.02083852,
+        "return63d": 0.04218843,
+        "trendSlope21d": 0.00434208,
         "trendSlope63d": 0.00012648,
         "trendAnnualizedReturn63d": 0.03238543,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.05206091,
+        "trendResidualVolatility63d": 0.05195611,
         "maxDrawdown63d": -0.22181609,
-        "downsideVolatility63d": 0.01601157,
-        "excessReturnVsSpy21d": -0.03920685,
-        "excessReturnVsSpy63d": -0.06580255,
-        "trendAcceleration": -0.00151989,
-        "largestOneDayContribution63d": 0.0595786,
+        "downsideVolatility63d": 0.01619398,
+        "excessReturnVsSpy21d": 0.02549271,
+        "excessReturnVsSpy63d": 0.00641088,
+        "trendAcceleration": 0.00168486,
+        "largestOneDayContribution63d": 0.05996703,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 4.1638,
-        "consistencyScore": 8.2513,
-        "relativeStrengthScore": 6.1147,
+        "directionScore": 30.3611,
+        "consistencyScore": 8.2894,
+        "relativeStrengthScore": 63.7575,
         "drawdownControlScore": 26.0613,
-        "confirmationScore": 40.0
+        "confirmationScore": 87.7847
       },
-      "benchmarkPercentile": 0.285677,
+      "benchmarkPercentile": 0.658996,
       "metricPercentiles": {
-        "trendSlope63d": 0.566127,
-        "trendFitR2_63d": 0.054365,
-        "excessReturnVsSpy63d": 0.500789,
-        "drawdownControlScore": 0.449556,
-        "growthSpurtScore": 0.285677
+        "trendSlope63d": 0.578452,
+        "trendFitR2_63d": 0.055178,
+        "excessReturnVsSpy63d": 0.725934,
+        "drawdownControlScore": 0.45136,
+        "growthSpurtScore": 0.658996
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2146,6 +2150,28 @@
         "volume": 4159900,
         "source": "yahoo-chart",
         "adjusted_close": 72.73999786376953
+      },
+      {
+        "ticker": "SUNB",
+        "date": "2026-09-25",
+        "open": 72.80999755859375,
+        "high": 75.19999694824219,
+        "low": 72.54000091552734,
+        "close": 75.05999755859375,
+        "volume": 6023600,
+        "source": "yahoo-chart",
+        "adjusted_close": 75.05999755859375
+      },
+      {
+        "ticker": "SUNB",
+        "date": "2026-09-28",
+        "open": 74.06999969482422,
+        "high": 75.12999725341797,
+        "low": 73.06999969482422,
+        "close": 74.88999938964844,
+        "volume": 4849600,
+        "source": "yahoo-chart",
+        "adjusted_close": 74.88999938964844
       }
     ],
     "dataStatus": {
@@ -2179,13 +2205,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-09-09",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 12.44,
-      "growthSpurtBenchmarkPercentile": 0.285677,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
+      "growthSpurtScore": 36.62,
+      "growthSpurtBenchmarkPercentile": 0.658996,
+      "growthSpurtMarketDataAsOf": "2026-09-28",
+      "lastPipelineRun": "2026-09-29T02:41:26.534847+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

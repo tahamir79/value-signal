@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
+  "generatedAt": "2026-09-29T03:00:07.378884+00:00",
   "record": {
     "security": {
       "ticker": "SHPH",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 4.0,
-      "dailyChangePercent": 11.4206,
-      "marketCapBillions": 0.0191,
+      "latestPrice": 4.11,
+      "dailyChangePercent": 2.4938,
+      "marketCapBillions": 0.0196,
       "liabilitiesToAssets": 0.159083,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -261,7 +261,7 @@
       "shortTermDebtShare": null,
       "bookValue": 19182179.0,
       "bookValuePerShare": 4.025898,
-      "priceToBook": 0.993567,
+      "priceToBook": 1.02089,
       "retainedEarnings": -51597780.0
     },
     "balanceSheetScoringShadow": {
@@ -478,50 +478,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SHPH",
-      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-29T02:41:26.534847+00:00",
+      "marketDataAsOf": "2026-09-28",
       "status": "not_detected",
-      "growthSpurtScore": 40.76,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.16279068,
-        "return63d": 0.05820107,
-        "trendSlope21d": -0.00052235,
-        "trendSlope63d": 0.00087329,
-        "trendAnnualizedReturn63d": 0.2461619,
-        "trendFitR2_63d": 0.02184584,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.11731606,
+        "return21d": 0.05927835,
+        "return63d": 0.26461543,
+        "trendSlope21d": 0.00267399,
+        "trendSlope63d": 0.00145382,
+        "trendAnnualizedReturn63d": 0.44247851,
+        "trendFitR2_63d": 0.024975,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.11601441,
         "maxDrawdown63d": -0.33173075,
-        "downsideVolatility63d": 0.04710893,
-        "excessReturnVsSpy21d": 0.15864515,
-        "excessReturnVsSpy63d": 0.01082931,
-        "trendAcceleration": -0.00447438,
-        "largestOneDayContribution63d": 0.09858571,
+        "downsideVolatility63d": 0.03915901,
+        "excessReturnVsSpy21d": 0.06393254,
+        "excessReturnVsSpy63d": 0.22883787,
+        "trendAcceleration": -0.00170099,
+        "largestOneDayContribution63d": 0.10268346,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 68.6247,
-        "consistencyScore": 7.1825,
-        "relativeStrengthScore": 71.8994,
+        "directionScore": 100.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 40.0
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.681652,
+      "benchmarkPercentile": 0.850941,
       "metricPercentiles": {
-        "trendSlope63d": 0.685834,
-        "trendFitR2_63d": 0.145844,
-        "excessReturnVsSpy63d": 0.70121,
-        "drawdownControlScore": 0.153685,
-        "growthSpurtScore": 0.681652
+        "trendSlope63d": 0.743724,
+        "trendFitR2_63d": 0.15272,
+        "excessReturnVsSpy63d": 0.905839,
+        "drawdownControlScore": 0.158211,
+        "growthSpurtScore": 0.850941
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -11743,6 +11747,28 @@
         "volume": 48400,
         "source": "yahoo-chart",
         "adjusted_close": 4.0
+      },
+      {
+        "ticker": "SHPH",
+        "date": "2026-09-25",
+        "open": 3.869999885559082,
+        "high": 4.2230000495910645,
+        "low": 3.869999885559082,
+        "close": 4.010000228881836,
+        "volume": 20900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "SHPH",
+        "date": "2026-09-28",
+        "open": 3.990000009536743,
+        "high": 4.119999885559082,
+        "low": 3.8399999141693115,
+        "close": 4.110000133514404,
+        "volume": 31300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.110000133514404
       }
     ],
     "dataStatus": {
@@ -11783,14 +11809,14 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-09-24",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 40.76,
-      "growthSpurtBenchmarkPercentile": 0.681652,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.850941,
+      "growthSpurtMarketDataAsOf": "2026-09-28",
+      "lastPipelineRun": "2026-09-29T02:41:26.534847+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }

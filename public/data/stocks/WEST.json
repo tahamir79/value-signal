@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-25T13:09:51.956096+00:00",
+  "generatedAt": "2026-09-29T03:00:07.378884+00:00",
   "record": {
     "security": {
       "ticker": "WEST",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.97,
-      "dailyChangePercent": -1.3614,
-      "marketCapBillions": 0.7781,
+      "latestPrice": 8.25,
+      "dailyChangePercent": 1.9777,
+      "marketCapBillions": 0.8054,
       "liabilitiesToAssets": 0.77708,
       "latestRevenueBillions": 1.189,
       "grossMarginPercent": 12.6804,
@@ -531,50 +531,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "WEST",
-      "generatedAt": "2026-09-25T12:57:51.808856+00:00",
-      "marketDataAsOf": "2026-09-24",
+      "generatedAt": "2026-09-29T02:41:26.534847+00:00",
+      "marketDataAsOf": "2026-09-28",
       "status": "not_detected",
-      "growthSpurtScore": 16.22,
+      "growthSpurtScore": 50.61,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.01968024,
-        "return63d": -0.18088385,
-        "trendSlope21d": 0.0,
-        "trendSlope63d": 0.00081124,
-        "trendAnnualizedReturn63d": 0.22682797,
-        "trendFitR2_63d": 0.03372016,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.05215856,
-        "maxDrawdown63d": -0.25559111,
-        "downsideVolatility63d": 0.02784266,
-        "excessReturnVsSpy21d": -0.02382576,
-        "excessReturnVsSpy63d": -0.2282556,
-        "trendAcceleration": -0.00405225,
-        "largestOneDayContribution63d": 0.09973839,
+        "return21d": 0.02357315,
+        "return63d": 0.00732606,
+        "trendSlope21d": 0.00186715,
+        "trendSlope63d": 0.00119258,
+        "trendAnnualizedReturn63d": 0.35057491,
+        "trendFitR2_63d": 0.19920453,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.04413332,
+        "maxDrawdown63d": -0.1381011,
+        "downsideVolatility63d": 0.01853398,
+        "excessReturnVsSpy21d": 0.02822734,
+        "excessReturnVsSpy63d": -0.02845149,
+        "trendAcceleration": -0.00224479,
+        "largestOneDayContribution63d": 0.05963419,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 29.1636,
-        "consistencyScore": 15.3586,
-        "relativeStrengthScore": 7.0762,
-        "drawdownControlScore": 14.803,
-        "confirmationScore": 0.0
+        "directionScore": 62.8522,
+        "consistencyScore": 25.4198,
+        "relativeStrengthScore": 50.791,
+        "drawdownControlScore": 53.9663,
+        "confirmationScore": 71.4309
       },
-      "benchmarkPercentile": 0.37219,
+      "benchmarkPercentile": 0.802301,
       "metricPercentiles": {
-        "trendSlope63d": 0.679561,
-        "trendFitR2_63d": 0.161004,
-        "excessReturnVsSpy63d": 0.244082,
-        "drawdownControlScore": 0.388395,
-        "growthSpurtScore": 0.37219
+        "trendSlope63d": 0.724895,
+        "trendFitR2_63d": 0.312762,
+        "excessReturnVsSpy63d": 0.621252,
+        "drawdownControlScore": 0.6841,
+        "growthSpurtScore": 0.802301
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14183,6 +14187,28 @@
         "volume": 369400,
         "source": "yahoo-chart",
         "adjusted_close": 7.96999979019165
+      },
+      {
+        "ticker": "WEST",
+        "date": "2026-09-25",
+        "open": 7.989999771118164,
+        "high": 8.15999984741211,
+        "low": 7.940000057220459,
+        "close": 8.09000015258789,
+        "volume": 329000,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.09000015258789
+      },
+      {
+        "ticker": "WEST",
+        "date": "2026-09-28",
+        "open": 8.079999923706055,
+        "high": 8.279999732971191,
+        "low": 8.050000190734863,
+        "close": 8.25,
+        "volume": 263500,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.25
       }
     ],
     "dataStatus": {
@@ -14219,13 +14245,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-09-24",
+      "latestScoringDate": "2026-09-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 16.22,
-      "growthSpurtBenchmarkPercentile": 0.37219,
-      "growthSpurtMarketDataAsOf": "2026-09-24",
-      "lastPipelineRun": "2026-09-25T12:57:51.808856+00:00",
+      "growthSpurtScore": 50.61,
+      "growthSpurtBenchmarkPercentile": 0.802301,
+      "growthSpurtMarketDataAsOf": "2026-09-28",
+      "lastPipelineRun": "2026-09-29T02:41:26.534847+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
