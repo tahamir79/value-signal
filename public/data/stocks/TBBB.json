@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-29T03:00:07.378884+00:00",
+  "generatedAt": "2026-09-30T14:25:13.167416+00:00",
   "record": {
     "security": {
       "ticker": "TBBB",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 53.54,
-      "dailyChangePercent": -0.0373,
+      "latestPrice": 52.14,
+      "dailyChangePercent": -0.4962,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,52 +335,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TBBB",
-      "generatedAt": "2026-09-29T02:41:26.534847+00:00",
-      "marketDataAsOf": "2026-09-28",
-      "status": "emerging",
-      "growthSpurtScore": 82.81,
+      "generatedAt": "2026-09-30T14:04:14.948021+00:00",
+      "marketDataAsOf": "2026-09-30",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.09938399,
-        "return63d": 0.2891886,
-        "trendSlope21d": 0.00378549,
-        "trendSlope63d": 0.00476577,
-        "trendAnnualizedReturn63d": 2.32335298,
-        "trendFitR2_63d": 0.7796301,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.04854193,
+        "return21d": 0.07350216,
+        "return63d": 0.25156024,
+        "trendSlope21d": 0.00321779,
+        "trendSlope63d": 0.00489942,
+        "trendAnnualizedReturn63d": 2.43719259,
+        "trendFitR2_63d": 0.80650403,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.04707652,
         "maxDrawdown63d": -0.07280418,
-        "downsideVolatility63d": 0.00945909,
-        "excessReturnVsSpy21d": 0.10403818,
-        "excessReturnVsSpy63d": 0.25341105,
-        "trendAcceleration": -0.0004639,
-        "largestOneDayContribution63d": 0.15587792,
+        "downsideVolatility63d": 0.00910643,
+        "excessReturnVsSpy21d": 0.06916313,
+        "excessReturnVsSpy63d": 0.21854931,
+        "trendAcceleration": -0.00172567,
+        "largestOneDayContribution63d": 0.15350553,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 51.6738,
+        "consistencyScore": 59.3495,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 75.7319,
-        "confirmationScore": 85.361
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.975941,
+      "benchmarkPercentile": 0.861184,
       "metricPercentiles": {
-        "trendSlope63d": 0.90795,
-        "trendFitR2_63d": 0.832636,
-        "excessReturnVsSpy63d": 0.915308,
-        "drawdownControlScore": 0.869247,
-        "growthSpurtScore": 0.975941
+        "trendSlope63d": 0.916186,
+        "trendFitR2_63d": 0.86066,
+        "excessReturnVsSpy63d": 0.902529,
+        "drawdownControlScore": 0.876899,
+        "growthSpurtScore": 0.861184
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7639,9 +7642,31 @@
         "high": 53.970001220703125,
         "low": 52.89400100708008,
         "close": 53.540000915527344,
-        "volume": 697600,
+        "volume": 740700,
         "source": "yahoo-chart",
         "adjusted_close": 53.540000915527344
+      },
+      {
+        "ticker": "TBBB",
+        "date": "2026-09-29",
+        "open": 53.25,
+        "high": 53.619998931884766,
+        "low": 51.650001525878906,
+        "close": 52.400001525878906,
+        "volume": 1386100,
+        "source": "yahoo-chart",
+        "adjusted_close": 52.400001525878906
+      },
+      {
+        "ticker": "TBBB",
+        "date": "2026-09-30",
+        "open": 52.91999816894531,
+        "high": 52.790000915527344,
+        "low": 51.7599983215332,
+        "close": 52.13999938964844,
+        "volume": 66053,
+        "source": "yahoo-chart",
+        "adjusted_close": 52.13999938964844
       }
     ],
     "dataStatus": {
@@ -7681,13 +7706,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-28",
+      "latestScoringDate": "2026-09-30",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 82.81,
-      "growthSpurtBenchmarkPercentile": 0.975941,
-      "growthSpurtMarketDataAsOf": "2026-09-28",
-      "lastPipelineRun": "2026-09-29T02:41:26.534847+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.861184,
+      "growthSpurtMarketDataAsOf": "2026-09-30",
+      "lastPipelineRun": "2026-09-30T14:04:14.948021+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
