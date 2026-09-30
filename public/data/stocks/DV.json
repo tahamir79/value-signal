@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-29T10:16:51.055494+00:00",
+  "generatedAt": "2026-09-30T02:35:47.666478+00:00",
   "record": {
     "security": {
       "ticker": "DV",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 13.4,
-      "dailyChangePercent": -0.0746,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 2.0768,
       "liabilitiesToAssets": 0.164603,
       "latestRevenueBillions": 0.7483,
@@ -510,65 +510,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "DV",
-      "generatedAt": "2026-09-29T10:02:16.603758+00:00",
-      "marketDataAsOf": "2026-09-28",
-      "status": "emerging",
-      "growthSpurtScore": 67.56,
+      "generatedAt": "2026-09-30T02:17:20.629227+00:00",
+      "marketDataAsOf": "2026-09-29",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00449771,
-        "return63d": 0.22710618,
-        "trendSlope21d": 0.0002061,
-        "trendSlope63d": 0.00312705,
-        "trendAnnualizedReturn63d": 1.19902817,
-        "trendFitR2_63d": 0.67524804,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.04653985,
+        "return21d": 0.00149473,
+        "return63d": 0.23616231,
+        "trendSlope21d": 0.00018681,
+        "trendSlope63d": 0.0029873,
+        "trendAnnualizedReturn63d": 1.12293687,
+        "trendFitR2_63d": 0.6564824,
+        "positiveWeekRatio63d": 0.83333333,
+        "trendResidualVolatility63d": 0.04699397,
         "maxDrawdown63d": -0.12846346,
         "downsideVolatility63d": 0.01498884,
-        "excessReturnVsSpy21d": 0.0091519,
-        "excessReturnVsSpy63d": 0.19132863,
-        "trendAcceleration": -0.00444628,
-        "largestOneDayContribution63d": 0.15462371,
+        "excessReturnVsSpy21d": 0.00572209,
+        "excessReturnVsSpy63d": 0.21028063,
+        "trendAcceleration": -0.00434747,
+        "largestOneDayContribution63d": 0.16145574,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 82.9985,
-        "consistencyScore": 61.4549,
-        "relativeStrengthScore": 86.504,
+        "directionScore": 80.9965,
+        "consistencyScore": 64.2619,
+        "relativeStrengthScore": 85.0034,
         "drawdownControlScore": 57.1788,
-        "confirmationScore": 14.2409
+        "confirmationScore": 9.4654
       },
-      "benchmarkPercentile": 0.935937,
+      "benchmarkPercentile": 0.857217,
       "metricPercentiles": {
-        "trendSlope63d": 0.857812,
-        "trendFitR2_63d": 0.730208,
-        "excessReturnVsSpy63d": 0.895288,
-        "drawdownControlScore": 0.695312,
-        "growthSpurtScore": 0.935937
+        "trendSlope63d": 0.856696,
+        "trendFitR2_63d": 0.704534,
+        "excessReturnVsSpy63d": 0.898953,
+        "drawdownControlScore": 0.699844,
+        "growthSpurtScore": 0.857217
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "DV",
-        "date": "2021-09-29",
-        "open": 34.84000015258789,
-        "high": 35.790000915527344,
-        "low": 34.63999938964844,
-        "close": 35.349998474121094,
-        "volume": 718500,
-        "source": "yahoo-chart",
-        "adjusted_close": 35.349998474121094
-      },
       {
         "ticker": "DV",
         "date": "2021-09-30",
@@ -14348,7 +14339,18 @@
         "high": 13.40999984741211,
         "low": 13.359999656677246,
         "close": 13.399999618530273,
-        "volume": 2236100,
+        "volume": 2442300,
+        "source": "yahoo-chart",
+        "adjusted_close": 13.399999618530273
+      },
+      {
+        "ticker": "DV",
+        "date": "2026-09-29",
+        "open": 13.390000343322754,
+        "high": 13.40999984741211,
+        "low": 13.369999885559082,
+        "close": 13.399999618530273,
+        "volume": 4755000,
         "source": "yahoo-chart",
         "adjusted_close": 13.399999618530273
       }
@@ -14385,13 +14387,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-07",
-      "latestScoringDate": "2026-09-28",
+      "latestScoringDate": "2026-09-29",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 67.56,
-      "growthSpurtBenchmarkPercentile": 0.935937,
-      "growthSpurtMarketDataAsOf": "2026-09-28",
-      "lastPipelineRun": "2026-09-29T10:02:16.603758+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.857217,
+      "growthSpurtMarketDataAsOf": "2026-09-29",
+      "lastPipelineRun": "2026-09-30T02:17:20.629227+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

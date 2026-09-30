@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-29T10:16:51.055494+00:00",
+  "generatedAt": "2026-09-30T02:35:47.666478+00:00",
   "record": {
     "security": {
       "ticker": "BBNX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 20.52,
-      "dailyChangePercent": -4.6025,
-      "marketCapBillions": 0.9232,
+      "latestPrice": 19.41,
+      "dailyChangePercent": -5.4094,
+      "marketCapBillions": 0.8732,
       "liabilitiesToAssets": 0.123196,
       "latestRevenueBillions": 0.1003,
       "grossMarginPercent": 55.398,
@@ -285,7 +285,7 @@
       "shortTermDebtShare": null,
       "bookValue": 256366000.0,
       "bookValuePerShare": 5.698328,
-      "priceToBook": 3.601056,
+      "priceToBook": 3.406262,
       "retainedEarnings": -415235000.0
     },
     "balanceSheetScoringShadow": {
@@ -502,52 +502,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "BBNX",
-      "generatedAt": "2026-09-29T10:02:16.603758+00:00",
-      "marketDataAsOf": "2026-09-28",
-      "status": "emerging",
-      "growthSpurtScore": 66.53,
+      "generatedAt": "2026-09-30T02:17:20.629227+00:00",
+      "marketDataAsOf": "2026-09-29",
+      "status": "not_detected",
+      "growthSpurtScore": 50.01,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.05015351,
-        "return63d": 0.20705885,
-        "trendSlope21d": 0.00704222,
-        "trendSlope63d": 0.00482188,
-        "trendAnnualizedReturn63d": 2.37068063,
-        "trendFitR2_63d": 0.3611596,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.09630981,
+        "return21d": -0.01572005,
+        "return63d": 0.23867261,
+        "trendSlope21d": 0.00691557,
+        "trendSlope63d": 0.00474722,
+        "trendAnnualizedReturn63d": 2.30785177,
+        "trendFitR2_63d": 0.34806132,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.0966073,
         "maxDrawdown63d": -0.28002244,
-        "downsideVolatility63d": 0.02785982,
-        "excessReturnVsSpy21d": 0.0548077,
-        "excessReturnVsSpy63d": 0.1712813,
-        "trendAcceleration": 0.00329963,
-        "largestOneDayContribution63d": 0.07128385,
+        "downsideVolatility63d": 0.02774603,
+        "excessReturnVsSpy21d": -0.0114927,
+        "excessReturnVsSpy63d": 0.21279093,
+        "trendAcceleration": 0.00303802,
+        "largestOneDayContribution63d": 0.07167141,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 22.1066,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 80.0,
+        "consistencyScore": 14.0468,
+        "relativeStrengthScore": 77.4719,
         "drawdownControlScore": 6.6592,
-        "confirmationScore": 100.0
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.930208,
+      "benchmarkPercentile": 0.799375,
       "metricPercentiles": {
-        "trendSlope63d": 0.914583,
-        "trendFitR2_63d": 0.460417,
-        "excessReturnVsSpy63d": 0.881152,
-        "drawdownControlScore": 0.339062,
-        "growthSpurtScore": 0.930208
+        "trendSlope63d": 0.916102,
+        "trendFitR2_63d": 0.453882,
+        "excessReturnVsSpy63d": 0.9,
+        "drawdownControlScore": 0.338718,
+        "growthSpurtScore": 0.799375
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5136,6 +5137,17 @@
         "volume": 1760500,
         "source": "yahoo-chart",
         "adjusted_close": 20.520000457763672
+      },
+      {
+        "ticker": "BBNX",
+        "date": "2026-09-29",
+        "open": 20.610000610351562,
+        "high": 20.725000381469727,
+        "low": 19.280000686645508,
+        "close": 19.40999984741211,
+        "volume": 842500,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.40999984741211
       }
     ],
     "dataStatus": {
@@ -5173,13 +5185,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-29",
-      "latestScoringDate": "2026-09-28",
+      "latestScoringDate": "2026-09-29",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 66.53,
-      "growthSpurtBenchmarkPercentile": 0.930208,
-      "growthSpurtMarketDataAsOf": "2026-09-28",
-      "lastPipelineRun": "2026-09-29T10:02:16.603758+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 50.01,
+      "growthSpurtBenchmarkPercentile": 0.799375,
+      "growthSpurtMarketDataAsOf": "2026-09-29",
+      "lastPipelineRun": "2026-09-30T02:17:20.629227+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

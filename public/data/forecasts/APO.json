@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "APO",
   "companyName": "Apollo Global Management, Inc.",
-  "generatedAt": "2026-09-29T14:36:19.420670+00:00",
-  "marketDataAsOf": "2026-09-28",
+  "generatedAt": "2026-09-30T02:38:08.206052+00:00",
+  "marketDataAsOf": "2026-09-29",
   "currentPrice": 119.0,
   "analystTarget": {
     "ticker": "APO",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-09-29T14:36:19.420670+00:00",
+    "collectedAt": "2026-09-30T02:38:08.206052+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-09-29T14:36:19.420670+00:00",
-    "marketDataAsOf": "2026-09-28",
+    "generatedAt": "2026-09-30T02:38:08.206052+00:00",
+    "marketDataAsOf": "2026-09-29",
     "currentPrice": 119.0,
     "horizon30Day": {
-      "returnEstimate": 0.00649169,
-      "lowerReturn": -0.07129023,
-      "upperReturn": 0.07992752,
-      "estimatedPrice": 119.7725,
-      "lowerEstimatedPrice": 110.5165,
-      "upperEstimatedPrice": 128.5114,
+      "returnEstimate": 0.0019961,
+      "lowerReturn": -0.07420002,
+      "upperReturn": 0.08,
+      "estimatedPrice": 119.2375,
+      "lowerEstimatedPrice": 110.1702,
+      "upperEstimatedPrice": 128.52,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01429526,
-      "lowerReturn": -0.10658297,
-      "upperReturn": 0.12187287,
-      "estimatedPrice": 120.7011,
-      "lowerEstimatedPrice": 106.3166,
-      "upperEstimatedPrice": 133.5029,
+      "returnEstimate": 0.00903446,
+      "lowerReturn": -0.09217669,
+      "upperReturn": 0.10998822,
+      "estimatedPrice": 120.0751,
+      "lowerEstimatedPrice": 108.031,
+      "upperEstimatedPrice": 132.0886,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
