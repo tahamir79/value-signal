@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-30T10:08:15.072037+00:00",
+  "generatedAt": "2026-10-01T10:35:53.941924+00:00",
   "record": {
     "security": {
       "ticker": "OCC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 16.0,
-      "dailyChangePercent": 7.0234,
-      "marketCapBillions": 0.1415,
+      "latestPrice": 16.57,
+      "dailyChangePercent": 3.5625,
+      "marketCapBillions": 0.1465,
       "liabilitiesToAssets": 0.458905,
       "latestRevenueBillions": 0.0878,
       "grossMarginPercent": 25.7307,
@@ -298,7 +298,7 @@
       "shortTermDebtShare": 0.022724,
       "bookValue": 14727493.0,
       "bookValuePerShare": 1.665625,
-      "priceToBook": 9.606006,
+      "priceToBook": 9.94822,
       "retainedEarnings": -1197509.0
     },
     "balanceSheetScoringShadow": {
@@ -512,63 +512,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OCC",
-      "generatedAt": "2026-09-30T09:55:07.162671+00:00",
-      "marketDataAsOf": "2026-09-29",
+      "generatedAt": "2026-10-01T10:20:27.151638+00:00",
+      "marketDataAsOf": "2026-09-30",
       "status": "not_detected",
-      "growthSpurtScore": 23.72,
+      "growthSpurtScore": 24.8,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.18081179,
-        "return63d": -0.23700522,
-        "trendSlope21d": 0.00640017,
-        "trendSlope63d": -0.00218503,
-        "trendAnnualizedReturn63d": -0.42341208,
-        "trendFitR2_63d": 0.22684902,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07566596,
-        "maxDrawdown63d": -0.31243005,
-        "downsideVolatility63d": 0.03616143,
-        "excessReturnVsSpy21d": 0.18503915,
-        "excessReturnVsSpy63d": -0.2628869,
-        "trendAcceleration": 0.00903298,
-        "largestOneDayContribution63d": 0.04513348,
+        "return21d": 0.23472426,
+        "return63d": -0.07222849,
+        "trendSlope21d": 0.00846904,
+        "trendSlope63d": -0.00176225,
+        "trendAnnualizedReturn63d": -0.35859022,
+        "trendFitR2_63d": 0.14995282,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.07732698,
+        "maxDrawdown63d": -0.31011234,
+        "downsideVolatility63d": 0.0347301,
+        "excessReturnVsSpy21d": 0.23801768,
+        "excessReturnVsSpy63d": -0.09738909,
+        "trendAcceleration": 0.01100697,
+        "largestOneDayContribution63d": 0.04626168,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 20.0,
-        "consistencyScore": 2.8968,
+        "consistencyScore": 7.1825,
         "relativeStrengthScore": 35.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.519831,
+      "benchmarkPercentile": 0.553383,
       "metricPercentiles": {
-        "trendSlope63d": 0.31835,
-        "trendFitR2_63d": 0.350608,
-        "excessReturnVsSpy63d": 0.216976,
-        "drawdownControlScore": 0.149392,
-        "growthSpurtScore": 0.519831
+        "trendSlope63d": 0.364165,
+        "trendFitR2_63d": 0.292283,
+        "excessReturnVsSpy63d": 0.470058,
+        "drawdownControlScore": 0.146934,
+        "growthSpurtScore": 0.553383
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "OCC",
-        "date": "2021-09-30",
-        "open": 3.700000047683716,
-        "high": 3.7799999713897705,
-        "low": 3.700000047683716,
-        "close": 3.740000009536743,
-        "volume": 15100,
-        "source": "yahoo-chart",
-        "adjusted_close": 3.740000009536743
-      },
       {
         "ticker": "OCC",
         "date": "2021-10-01",
@@ -14351,6 +14343,17 @@
         "volume": 130400,
         "source": "yahoo-chart",
         "adjusted_close": 16.0
+      },
+      {
+        "ticker": "OCC",
+        "date": "2026-09-30",
+        "open": 16.0,
+        "high": 16.59000015258789,
+        "low": 15.800000190734863,
+        "close": 16.56999969482422,
+        "volume": 120200,
+        "source": "yahoo-chart",
+        "adjusted_close": 16.56999969482422
       }
     ],
     "dataStatus": {
@@ -14387,13 +14390,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-09-09",
-      "latestScoringDate": "2026-09-29",
+      "latestScoringDate": "2026-09-30",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 23.72,
-      "growthSpurtBenchmarkPercentile": 0.519831,
-      "growthSpurtMarketDataAsOf": "2026-09-29",
-      "lastPipelineRun": "2026-09-30T09:55:07.162671+00:00",
+      "growthSpurtScore": 24.8,
+      "growthSpurtBenchmarkPercentile": 0.553383,
+      "growthSpurtMarketDataAsOf": "2026-09-30",
+      "lastPipelineRun": "2026-10-01T10:20:27.151638+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
