@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-10-01T10:37:15.888136+00:00",
-  "corpusHash": "f197a46ce8fba2174c56e0bfaba61b55d5d26a42861a8173aa0cb58e6d9ebaec",
+  "generatedAt": "2026-10-01T15:00:17.778822+00:00",
+  "corpusHash": "31539c7feda3862c2460f73ffb81a6b6f64b2c577f19b20cb43688cdad1a44ec",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1204368,
-  "termCount": 18874170,
-  "tickerCount": 4685,
+  "documentCount": 1204659,
+  "termCount": 18877800,
+  "tickerCount": 4686,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28117,6 +28117,12 @@
       "documentCount": 152,
       "termCount": 3231,
       "latestFilingDate": "2026-07-23"
+    },
+    "SBXDF": {
+      "path": "public/data/search/SBXDF.json",
+      "documentCount": 291,
+      "termCount": 3630,
+      "latestFilingDate": "2026-08-12"
     }
   },
   "errors": [
@@ -34087,22 +34093,45 @@
     {
       "ticker": "TFP",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "CSEA",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "OSAC",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "SRAV",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-10-01T10:37:02.612207+00:00",
+    "generatedAt": "2026-10-01T15:00:05.399900+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1421,
+    "selectedTickers": [
+      "CSEA",
+      "OSAC",
+      "SBXDF",
+      "SRAV"
+    ],
+    "indexedTickers": [
+      "SBXDF"
+    ],
+    "failedTickers": [
+      "CSEA",
+      "OSAC",
+      "SRAV"
+    ],
+    "requested": 4,
+    "indexed": 1,
+    "failed": 3,
+    "remainingUnindexed": 1423,
     "remainingUnattempted": 0,
     "finished": true
   }
