@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-01T10:35:53.941924+00:00",
+  "generatedAt": "2026-10-02T02:37:43.545134+00:00",
   "record": {
     "security": {
       "ticker": "MFG",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.05,
-      "dailyChangePercent": 0.4545,
+      "latestPrice": 10.76,
+      "dailyChangePercent": -2.6244,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,65 +335,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MFG",
-      "generatedAt": "2026-10-01T10:20:27.151638+00:00",
-      "marketDataAsOf": "2026-09-30",
-      "status": "emerging",
-      "growthSpurtScore": 75.35,
+      "generatedAt": "2026-10-02T02:25:37.629892+00:00",
+      "marketDataAsOf": "2026-10-01",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.03853382,
-        "return63d": 0.12755102,
-        "trendSlope21d": -0.00097574,
-        "trendSlope63d": 0.0013651,
-        "trendAnnualizedReturn63d": 0.41058767,
-        "trendFitR2_63d": 0.48638026,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.02618732,
+        "return21d": 0.00186224,
+        "return63d": 0.08249504,
+        "trendSlope21d": -0.00143904,
+        "trendSlope63d": 0.00128949,
+        "trendAnnualizedReturn63d": 0.38396387,
+        "trendFitR2_63d": 0.45334702,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.02628415,
         "maxDrawdown63d": -0.07973728,
-        "downsideVolatility63d": 0.01353024,
-        "excessReturnVsSpy21d": 0.04182724,
-        "excessReturnVsSpy63d": 0.10239042,
-        "trendAcceleration": -0.00170675,
-        "largestOneDayContribution63d": 0.05406812,
+        "downsideVolatility63d": 0.0134604,
+        "excessReturnVsSpy21d": -0.00352921,
+        "excessReturnVsSpy63d": 0.054155,
+        "trendAcceleration": -0.00212694,
+        "largestOneDayContribution63d": 0.05487682,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 41.3494,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 70.3025,
+        "consistencyScore": 46.1447,
+        "relativeStrengthScore": 70.4564,
         "drawdownControlScore": 73.4209,
-        "confirmationScore": 40.0
+        "confirmationScore": 2.483
       },
-      "benchmarkPercentile": 0.963002,
+      "benchmarkPercentile": 0.888214,
       "metricPercentiles": {
-        "trendSlope63d": 0.772199,
-        "trendFitR2_63d": 0.565539,
-        "excessReturnVsSpy63d": 0.856386,
-        "drawdownControlScore": 0.862051,
-        "growthSpurtScore": 0.963002
+        "trendSlope63d": 0.777484,
+        "trendFitR2_63d": 0.543869,
+        "excessReturnVsSpy63d": 0.801907,
+        "drawdownControlScore": 0.861522,
+        "growthSpurtScore": 0.888214
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "MFG",
-        "date": "2021-10-01",
-        "open": 2.8299999237060547,
-        "high": 2.8299999237060547,
-        "low": 2.7899999618530273,
-        "close": 2.799999952316284,
-        "volume": 308700,
-        "source": "yahoo-chart",
-        "adjusted_close": 2.642977237701416
-      },
       {
         "ticker": "MFG",
         "date": "2021-10-04",
@@ -14176,6 +14167,17 @@
         "volume": 3487600,
         "source": "yahoo-chart",
         "adjusted_close": 11.050000190734863
+      },
+      {
+        "ticker": "MFG",
+        "date": "2026-10-01",
+        "open": 10.84000015258789,
+        "high": 10.850000381469727,
+        "low": 10.489999771118164,
+        "close": 10.760000228881836,
+        "volume": 5591200,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.760000228881836
       }
     ],
     "dataStatus": {
@@ -14215,13 +14217,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-09-30",
+      "latestScoringDate": "2026-10-01",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 75.35,
-      "growthSpurtBenchmarkPercentile": 0.963002,
-      "growthSpurtMarketDataAsOf": "2026-09-30",
-      "lastPipelineRun": "2026-10-01T10:20:27.151638+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.888214,
+      "growthSpurtMarketDataAsOf": "2026-10-01",
+      "lastPipelineRun": "2026-10-02T02:25:37.629892+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

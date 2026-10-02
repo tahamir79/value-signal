@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "HGTY",
   "companyName": "Hagerty, Inc.",
-  "generatedAt": "2026-10-01T15:00:58.565040+00:00",
-  "marketDataAsOf": "2026-09-30",
+  "generatedAt": "2026-10-02T02:39:44.775006+00:00",
+  "marketDataAsOf": "2026-10-01",
   "currentPrice": 13.46,
   "analystTarget": {
     "ticker": "HGTY",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-01T15:00:58.565040+00:00",
+    "collectedAt": "2026-10-02T02:39:44.775006+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-01T15:00:58.565040+00:00",
-    "marketDataAsOf": "2026-09-30",
+    "generatedAt": "2026-10-02T02:39:44.775006+00:00",
+    "marketDataAsOf": "2026-10-01",
     "currentPrice": 13.46,
     "horizon30Day": {
-      "returnEstimate": 0.01354977,
-      "lowerReturn": -0.05729708,
-      "upperReturn": 0.0776008,
-      "estimatedPrice": 13.6424,
-      "lowerEstimatedPrice": 12.6888,
-      "upperEstimatedPrice": 14.5045,
+      "returnEstimate": 0.01418508,
+      "lowerReturn": -0.05852389,
+      "upperReturn": 0.07148179,
+      "estimatedPrice": 13.6509,
+      "lowerEstimatedPrice": 12.6723,
+      "upperEstimatedPrice": 14.4221,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.01902862,
-      "lowerReturn": -0.09567886,
-      "upperReturn": 0.136166,
-      "estimatedPrice": 13.7161,
-      "lowerEstimatedPrice": 12.1722,
-      "upperEstimatedPrice": 15.2928,
+      "returnEstimate": 0.02904109,
+      "lowerReturn": -0.10751871,
+      "upperReturn": 0.15,
+      "estimatedPrice": 13.8509,
+      "lowerEstimatedPrice": 12.0128,
+      "upperEstimatedPrice": 15.479,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

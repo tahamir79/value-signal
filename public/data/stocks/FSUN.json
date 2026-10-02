@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-01T10:35:53.941924+00:00",
+  "generatedAt": "2026-10-02T02:37:43.545134+00:00",
   "record": {
     "security": {
       "ticker": "FSUN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 38.61,
-      "dailyChangePercent": -0.0259,
-      "marketCapBillions": 1.0781,
+      "latestPrice": 38.8,
+      "dailyChangePercent": 0.4921,
+      "marketCapBillions": 1.0834,
       "liabilitiesToAssets": 0.883103,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1837392000.0,
       "bookValuePerShare": 65.801314,
-      "priceToBook": 0.586766,
+      "priceToBook": 0.589654,
       "retainedEarnings": 629819000.0
     },
     "balanceSheetScoringShadow": {
@@ -438,50 +438,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FSUN",
-      "generatedAt": "2026-10-01T10:20:27.151638+00:00",
-      "marketDataAsOf": "2026-09-30",
+      "generatedAt": "2026-10-02T02:25:37.629892+00:00",
+      "marketDataAsOf": "2026-10-01",
       "status": "not_detected",
-      "growthSpurtScore": 23.71,
+      "growthSpurtScore": 25.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.0349912,
-        "return63d": -0.03111664,
-        "trendSlope21d": -0.00235849,
-        "trendSlope63d": 0.00091472,
-        "trendAnnualizedReturn63d": 0.25924272,
-        "trendFitR2_63d": 0.12206563,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.04673529,
-        "maxDrawdown63d": -0.1298102,
-        "downsideVolatility63d": 0.01502759,
-        "excessReturnVsSpy21d": -0.03169778,
-        "excessReturnVsSpy63d": -0.05627723,
-        "trendAcceleration": -0.0047287,
-        "largestOneDayContribution63d": 0.16446223,
+        "return21d": -0.01472833,
+        "return63d": -0.00461776,
+        "trendSlope21d": -0.00250307,
+        "trendSlope63d": 0.00092815,
+        "trendAnnualizedReturn63d": 0.26351106,
+        "trendFitR2_63d": 0.1187706,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.04657455,
+        "maxDrawdown63d": -0.12464521,
+        "downsideVolatility63d": 0.01522674,
+        "excessReturnVsSpy21d": -0.02011978,
+        "excessReturnVsSpy63d": -0.0329578,
+        "trendAcceleration": -0.00521833,
+        "largestOneDayContribution63d": 0.16466606,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 33.3312,
-        "consistencyScore": 10.1879,
-        "relativeStrengthScore": 13.2696,
-        "drawdownControlScore": 56.7299,
+        "directionScore": 33.88,
+        "consistencyScore": 5.9606,
+        "relativeStrengthScore": 27.8085,
+        "drawdownControlScore": 58.4516,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.53277,
+      "benchmarkPercentile": 0.56871,
       "metricPercentiles": {
-        "trendSlope63d": 0.733087,
-        "trendFitR2_63d": 0.269027,
-        "excessReturnVsSpy63d": 0.554849,
-        "drawdownControlScore": 0.718288,
-        "growthSpurtScore": 0.53277
+        "trendSlope63d": 0.739958,
+        "trendFitR2_63d": 0.266913,
+        "excessReturnVsSpy63d": 0.618114,
+        "drawdownControlScore": 0.739958,
+        "growthSpurtScore": 0.56871
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -11967,6 +11970,17 @@
         "volume": 374500,
         "source": "yahoo-chart",
         "adjusted_close": 38.61000061035156
+      },
+      {
+        "ticker": "FSUN",
+        "date": "2026-10-01",
+        "open": 38.40999984741211,
+        "high": 39.02000045776367,
+        "low": 37.709999084472656,
+        "close": 38.79999923706055,
+        "volume": 414300,
+        "source": "yahoo-chart",
+        "adjusted_close": 38.79999923706055
       }
     ],
     "dataStatus": {
@@ -12006,13 +12020,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-09-30",
+      "latestScoringDate": "2026-10-01",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 23.71,
-      "growthSpurtBenchmarkPercentile": 0.53277,
-      "growthSpurtMarketDataAsOf": "2026-09-30",
-      "lastPipelineRun": "2026-10-01T10:20:27.151638+00:00",
+      "growthSpurtScore": 25.98,
+      "growthSpurtBenchmarkPercentile": 0.56871,
+      "growthSpurtMarketDataAsOf": "2026-10-01",
+      "lastPipelineRun": "2026-10-02T02:25:37.629892+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
