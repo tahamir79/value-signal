@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-01T14:58:50.981073+00:00",
+  "generatedAt": "2026-10-02T14:23:56.522749+00:00",
   "record": {
     "security": {
       "ticker": "CURX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.03,
-      "dailyChangePercent": 1.2073,
-      "marketCapBillions": 0.1578,
+      "latestPrice": 5.099,
+      "dailyChangePercent": 2.5956,
+      "marketCapBillions": 0.1599,
       "liabilitiesToAssets": 0.056417,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 4787678.0,
       "bookValuePerShare": 0.152645,
-      "priceToBook": 32.952302,
+      "priceToBook": 33.40433,
       "retainedEarnings": -11288753.0
     },
     "balanceSheetScoringShadow": {
@@ -435,51 +435,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CURX",
-      "generatedAt": "2026-10-01T14:42:45.268510+00:00",
-      "marketDataAsOf": "2026-09-30",
+      "generatedAt": "2026-10-02T14:06:30.574656+00:00",
+      "marketDataAsOf": "2026-10-02",
       "status": "not_detected",
-      "growthSpurtScore": 38.11,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.16976744,
-        "return63d": -0.08211675,
-        "trendSlope21d": 0.00315923,
-        "trendSlope63d": 0.00214999,
-        "trendAnnualizedReturn63d": 0.71909321,
-        "trendFitR2_63d": 0.2014023,
+        "return21d": 0.12189217,
+        "return63d": 0.10367968,
+        "trendSlope21d": 0.00617682,
+        "trendSlope63d": 0.00282487,
+        "trendAnnualizedReturn63d": 1.03779413,
+        "trendFitR2_63d": 0.35490701,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.07687291,
-        "maxDrawdown63d": -0.28235291,
-        "downsideVolatility63d": 0.03726326,
-        "excessReturnVsSpy21d": 0.17306086,
-        "excessReturnVsSpy63d": -0.10727735,
-        "trendAcceleration": 0.00155662,
-        "largestOneDayContribution63d": 0.08638416,
+        "trendResidualVolatility63d": 0.07005363,
+        "maxDrawdown63d": -0.22407408,
+        "downsideVolatility63d": 0.03623625,
+        "excessReturnVsSpy21d": 0.1111549,
+        "excessReturnVsSpy63d": 0.07426896,
+        "trendAcceleration": 0.00349827,
+        "largestOneDayContribution63d": 0.0889994,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 65.0,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 35.0,
-        "drawdownControlScore": 5.8824,
+        "directionScore": 95.2399,
+        "consistencyScore": 10.2403,
+        "relativeStrengthScore": 97.6718,
+        "drawdownControlScore": 25.3086,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.70073,
+      "benchmarkPercentile": 0.870699,
       "metricPercentiles": {
-        "trendSlope63d": 0.823775,
-        "trendFitR2_63d": 0.346194,
-        "excessReturnVsSpy63d": 0.463912,
-        "drawdownControlScore": 0.338895,
-        "growthSpurtScore": 0.70073
+        "trendSlope63d": 0.85975,
+        "trendFitR2_63d": 0.457769,
+        "excessReturnVsSpy63d": 0.818515,
+        "drawdownControlScore": 0.44682,
+        "growthSpurtScore": 0.870699
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3517,6 +3520,28 @@
         "volume": 1200,
         "source": "yahoo-chart",
         "adjusted_close": 5.03000020980835
+      },
+      {
+        "ticker": "CURX",
+        "date": "2026-10-01",
+        "open": 4.929999828338623,
+        "high": 5.050000190734863,
+        "low": 4.75,
+        "close": 4.96999979019165,
+        "volume": 8000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.96999979019165
+      },
+      {
+        "ticker": "CURX",
+        "date": "2026-10-02",
+        "open": 4.699999809265137,
+        "high": 5.098999977111816,
+        "low": 4.690000057220459,
+        "close": 5.098999977111816,
+        "volume": 539,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.098999977111816
       }
     ],
     "dataStatus": {
@@ -3554,13 +3579,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-09-30",
+      "latestScoringDate": "2026-10-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 38.11,
-      "growthSpurtBenchmarkPercentile": 0.70073,
-      "growthSpurtMarketDataAsOf": "2026-09-30",
-      "lastPipelineRun": "2026-10-01T14:42:45.268510+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.870699,
+      "growthSpurtMarketDataAsOf": "2026-10-02",
+      "lastPipelineRun": "2026-10-02T14:06:30.574656+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

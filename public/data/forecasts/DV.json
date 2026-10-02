@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "DV",
   "companyName": "DoubleVerify Holdings, Inc.",
-  "generatedAt": "2026-10-02T10:16:56.375893+00:00",
-  "marketDataAsOf": "2026-10-01",
+  "generatedAt": "2026-10-02T14:25:46.834545+00:00",
+  "marketDataAsOf": "2026-10-02",
   "currentPrice": 13.485,
   "analystTarget": {
     "ticker": "DV",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-02T10:16:56.375893+00:00",
+    "collectedAt": "2026-10-02T14:25:46.834545+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-02T10:16:56.375893+00:00",
-    "marketDataAsOf": "2026-10-01",
+    "generatedAt": "2026-10-02T14:25:46.834545+00:00",
+    "marketDataAsOf": "2026-10-02",
     "currentPrice": 13.485,
     "horizon30Day": {
-      "returnEstimate": 0.00439664,
-      "lowerReturn": -0.07210316,
-      "upperReturn": 0.07995741,
-      "estimatedPrice": 13.5443,
-      "lowerEstimatedPrice": 12.5127,
-      "upperEstimatedPrice": 14.5632,
+      "returnEstimate": 0.00958142,
+      "lowerReturn": -0.07111977,
+      "upperReturn": 0.08,
+      "estimatedPrice": 13.6142,
+      "lowerEstimatedPrice": 12.5259,
+      "upperEstimatedPrice": 14.5638,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.00648361,
-      "lowerReturn": -0.1221768,
-      "upperReturn": 0.14722622,
-      "estimatedPrice": 13.3976,
-      "lowerEstimatedPrice": 11.8374,
-      "upperEstimatedPrice": 15.4703,
+      "returnEstimate": -0.00039873,
+      "lowerReturn": -0.15,
+      "upperReturn": 0.13921342,
+      "estimatedPrice": 13.4796,
+      "lowerEstimatedPrice": 11.4622,
+      "upperEstimatedPrice": 15.3623,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
