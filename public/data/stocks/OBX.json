@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-03T02:32:36.988203+00:00",
+  "generatedAt": "2026-10-06T11:00:46.968520+00:00",
   "record": {
     "security": {
       "ticker": "OBX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 13.59,
-      "dailyChangePercent": 2.027,
-      "marketCapBillions": 0.8395,
+      "latestPrice": 13.84,
+      "dailyChangePercent": 1.8396,
+      "marketCapBillions": 0.8549,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -412,50 +412,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OBX",
-      "generatedAt": "2026-10-03T02:13:04.506642+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-10-06T10:35:21.731685+00:00",
+      "marketDataAsOf": "2026-10-05",
+      "status": "not_detected",
+      "growthSpurtScore": 2.21,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.19016969,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": -0.01776099,
+        "trendSlope63d": -0.0090435,
+        "trendAnnualizedReturn63d": -0.89760969,
+        "trendFitR2_63d": 0.34070801,
+        "positiveWeekRatio63d": 0.44444444,
+        "trendResidualVolatility63d": 0.19452629,
+        "maxDrawdown63d": -0.63257144,
+        "downsideVolatility63d": 0.07991128,
+        "excessReturnVsSpy21d": -0.19480524,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.01236732,
+        "largestOneDayContribution63d": 0.21772893,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 8.8496,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.044879,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.076558,
+        "trendFitR2_63d": 0.457761,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.146779,
+        "growthSpurtScore": 0.044879
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -996,6 +995,17 @@
         "volume": 229000,
         "source": "yahoo-chart",
         "adjusted_close": 13.59000015258789
+      },
+      {
+        "ticker": "OBX",
+        "date": "2026-10-05",
+        "open": 13.449999809265137,
+        "high": 14.260000228881836,
+        "low": 13.09000015258789,
+        "close": 13.84000015258789,
+        "volume": 199200,
+        "source": "yahoo-chart",
+        "adjusted_close": 13.84000015258789
       }
     ],
     "dataStatus": {
@@ -1036,13 +1046,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-02",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-10-03T02:13:04.506642+00:00",
+      "latestScoringDate": "2026-10-05",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 2.21,
+      "growthSpurtBenchmarkPercentile": 0.044879,
+      "growthSpurtMarketDataAsOf": "2026-10-05",
+      "lastPipelineRun": "2026-10-06T10:35:21.731685+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
