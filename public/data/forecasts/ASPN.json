@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "ASPN",
   "companyName": "ASPEN AEROGELS INC",
-  "generatedAt": "2026-10-03T13:05:30.055302+00:00",
-  "marketDataAsOf": "2026-10-02",
+  "generatedAt": "2026-10-06T03:28:54.764646+00:00",
+  "marketDataAsOf": "2026-10-05",
   "currentPrice": 5.69,
   "analystTarget": {
     "ticker": "ASPN",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-03T13:05:30.055302+00:00",
+    "collectedAt": "2026-10-06T03:28:54.764646+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-03T13:05:30.055302+00:00",
-    "marketDataAsOf": "2026-10-02",
+    "generatedAt": "2026-10-06T03:28:54.764646+00:00",
+    "marketDataAsOf": "2026-10-05",
     "currentPrice": 5.69,
     "horizon30Day": {
-      "returnEstimate": -0.03204324,
+      "returnEstimate": -0.0400411,
       "lowerReturn": -0.08,
-      "upperReturn": 0.07276911,
-      "estimatedPrice": 5.5077,
+      "upperReturn": 0.08,
+      "estimatedPrice": 5.4622,
       "lowerEstimatedPrice": 5.2348,
-      "upperEstimatedPrice": 6.1041,
+      "upperEstimatedPrice": 6.1452,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.10976927,
+      "returnEstimate": -0.08888074,
       "lowerReturn": -0.15,
-      "upperReturn": 0.1442285,
-      "estimatedPrice": 5.0654,
+      "upperReturn": 0.15,
+      "estimatedPrice": 5.1843,
       "lowerEstimatedPrice": 4.8365,
-      "upperEstimatedPrice": 6.5107,
+      "upperEstimatedPrice": 6.5435,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -78,7 +78,9 @@
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

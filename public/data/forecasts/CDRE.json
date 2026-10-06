@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "CDRE",
   "companyName": "Cadre Holdings, Inc.",
-  "generatedAt": "2026-10-03T13:05:30.055302+00:00",
-  "marketDataAsOf": "2026-10-02",
+  "generatedAt": "2026-10-06T03:28:54.764646+00:00",
+  "marketDataAsOf": "2026-10-05",
   "currentPrice": 25.0,
   "analystTarget": {
     "ticker": "CDRE",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-03T13:05:30.055302+00:00",
+    "collectedAt": "2026-10-06T03:28:54.764646+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-03T13:05:30.055302+00:00",
-    "marketDataAsOf": "2026-10-02",
+    "generatedAt": "2026-10-06T03:28:54.764646+00:00",
+    "marketDataAsOf": "2026-10-05",
     "currentPrice": 25.0,
     "horizon30Day": {
-      "returnEstimate": -0.01253311,
-      "lowerReturn": -0.06705374,
-      "upperReturn": 0.07580929,
-      "estimatedPrice": 24.6867,
-      "lowerEstimatedPrice": 23.3237,
-      "upperEstimatedPrice": 26.8952,
+      "returnEstimate": -0.01462698,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.05165885,
+      "estimatedPrice": 24.6343,
+      "lowerEstimatedPrice": 23.0,
+      "upperEstimatedPrice": 26.2915,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.00140556,
-      "lowerReturn": -0.12037414,
-      "upperReturn": 0.09211003,
-      "estimatedPrice": 24.9649,
-      "lowerEstimatedPrice": 21.9906,
-      "upperEstimatedPrice": 27.3028,
+      "returnEstimate": -0.01181472,
+      "lowerReturn": -0.11907879,
+      "upperReturn": 0.0757209,
+      "estimatedPrice": 24.7046,
+      "lowerEstimatedPrice": 22.023,
+      "upperEstimatedPrice": 26.893,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

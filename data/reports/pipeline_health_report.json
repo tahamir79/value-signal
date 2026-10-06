@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-03T13:07:24.189890+00:00",
+  "generatedAt": "2026-10-06T03:30:52.273195+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 45,
-  "expectedUnavailable": 6061,
+  "nonCriticalFailures": 47,
+  "expectedUnavailable": 6062,
   "dataQualityWarnings": 5712,
   "warnings": 5712,
   "stages": [
@@ -33,11 +33,10 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1955,
-      "failed": 45,
+      "succeeded": 1953,
+      "failed": 47,
       "skipped": 0,
       "failedTickers": [
-        "ZOAR",
         "AEIB",
         "AFNX",
         "AGKO",
@@ -50,6 +49,7 @@
         "AYA",
         "AYR",
         "BDI",
+        "BHAI",
         "BIAI",
         "BIOT",
         "BMB",
@@ -64,6 +64,7 @@
         "CAPI",
         "CCIL",
         "CET",
+        "CGL",
         "CLBZ",
         "CLYD",
         "CMBY",
@@ -76,6 +77,7 @@
         "DHGR",
         "DRIL",
         "ELEV",
+        "EMAC",
         "EMI",
         "ENJ",
         "ENO",
@@ -86,11 +88,11 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 39
+          "count": 40
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
-          "count": 6
+          "count": 7
         }
       ],
       "artifactPaths": [
@@ -120,19 +122,19 @@
     {
       "name": "forecast_artifacts",
       "status": "success",
-      "attempted": 6060,
-      "succeeded": 5569,
+      "attempted": 6061,
+      "succeeded": 5555,
       "failed": 0,
-      "skipped": 491,
+      "skipped": 506,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 491
+          "count": 506
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 293
+          "count": 294
         }
       ],
       "artifactPaths": [
@@ -144,8 +146,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 4686,
-      "succeeded": 4686,
+      "attempted": 4695,
+      "succeeded": 4695,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -158,8 +160,8 @@
     {
       "name": "balance_sheet_context",
       "status": "partial_success",
-      "attempted": 6060,
-      "succeeded": 4762,
+      "attempted": 6061,
+      "succeeded": 4763,
       "failed": 0,
       "skipped": 1298,
       "failedTickers": [],
@@ -181,15 +183,15 @@
     {
       "name": "growth_spurt_detector",
       "status": "success",
-      "attempted": 6060,
-      "succeeded": 5842,
+      "attempted": 6061,
+      "succeeded": 5839,
       "failed": 0,
-      "skipped": 218,
+      "skipped": 222,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 218
+          "count": 222
         }
       ],
       "artifactPaths": [
@@ -201,15 +203,15 @@
     {
       "name": "market_targets",
       "status": "unavailable_expected",
-      "attempted": 6060,
+      "attempted": 6061,
       "succeeded": 0,
       "failed": 0,
-      "skipped": 6060,
+      "skipped": 6061,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "ANALYST_TARGET_PROVIDER_NOT_CONFIGURED",
-          "count": 6060
+          "count": 6061
         }
       ],
       "artifactPaths": [
@@ -218,12 +220,6 @@
     }
   ],
   "failedTickers": [
-    {
-      "ticker": "ZOAR",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
     {
       "ticker": "AEIB",
       "stage": "ticker_pipeline",
@@ -292,6 +288,12 @@
     },
     {
       "ticker": "BDI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "BHAI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -381,6 +383,12 @@
       "retryable": false
     },
     {
+      "ticker": "CGL",
+      "stage": "ticker_pipeline",
+      "reason": "PRICE_HISTORY_UNAVAILABLE",
+      "retryable": true
+    },
+    {
       "ticker": "CLBZ",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -448,6 +456,12 @@
     },
     {
       "ticker": "ELEV",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "EMAC",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
