@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "PETZ",
   "companyName": "TDH Holdings, Inc.",
-  "generatedAt": "2026-10-06T11:02:47.247436+00:00",
-  "marketDataAsOf": "2026-10-02",
+  "generatedAt": "2026-10-06T14:45:51.228438+00:00",
+  "marketDataAsOf": "2026-10-06",
   "currentPrice": 1.3,
   "analystTarget": {
     "ticker": "PETZ",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-06T11:02:47.247436+00:00",
+    "collectedAt": "2026-10-06T14:45:51.228438+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-06T11:02:47.247436+00:00",
-    "marketDataAsOf": "2026-10-02",
+    "generatedAt": "2026-10-06T14:45:51.228438+00:00",
+    "marketDataAsOf": "2026-10-06",
     "currentPrice": 1.3,
     "horizon30Day": {
-      "returnEstimate": -0.00433514,
-      "lowerReturn": -0.05990673,
-      "upperReturn": 0.06573209,
-      "estimatedPrice": 1.2944,
-      "lowerEstimatedPrice": 1.2221,
-      "upperEstimatedPrice": 1.3855,
+      "returnEstimate": 0.00332991,
+      "lowerReturn": -0.07778155,
+      "upperReturn": 0.08,
+      "estimatedPrice": 1.3043,
+      "lowerEstimatedPrice": 1.1989,
+      "upperEstimatedPrice": 1.404,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00750492,
-      "lowerReturn": -0.08289753,
-      "upperReturn": 0.09157825,
-      "estimatedPrice": 1.3098,
-      "lowerEstimatedPrice": 1.1922,
-      "upperEstimatedPrice": 1.4191,
+      "returnEstimate": 0.01249972,
+      "lowerReturn": -0.07984903,
+      "upperReturn": 0.09830421,
+      "estimatedPrice": 1.3162,
+      "lowerEstimatedPrice": 1.1962,
+      "upperEstimatedPrice": 1.4278,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
