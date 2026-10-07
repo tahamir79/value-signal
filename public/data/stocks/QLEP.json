@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-06T14:44:13.519262+00:00",
+  "generatedAt": "2026-10-07T15:00:18.840414+00:00",
   "record": {
     "security": {
       "ticker": "QLEP",
@@ -414,51 +414,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "QLEP",
-      "generatedAt": "2026-10-06T14:23:59.039798+00:00",
-      "marketDataAsOf": "2026-10-06",
+      "generatedAt": "2026-10-07T14:40:49.113015+00:00",
+      "marketDataAsOf": "2026-10-07",
       "status": "not_detected",
-      "growthSpurtScore": 45.55,
+      "growthSpurtScore": 41.09,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00802406,
-        "return63d": 0.00903616,
-        "trendSlope21d": 0.00014232,
-        "trendSlope63d": 0.00014257,
-        "trendAnnualizedReturn63d": 0.03658045,
-        "trendFitR2_63d": 0.69166347,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.00162301,
+        "return21d": 0.00500002,
+        "return63d": 0.01208458,
+        "trendSlope21d": 0.00011395,
+        "trendSlope63d": 0.00013882,
+        "trendAnnualizedReturn63d": 0.03560181,
+        "trendFitR2_63d": 0.69101822,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00156956,
         "maxDrawdown63d": -0.005982,
         "downsideVolatility63d": 0.00115893,
-        "excessReturnVsSpy21d": -0.0064354,
-        "excessReturnVsSpy63d": -0.03916147,
-        "trendAcceleration": -6.8e-07,
-        "largestOneDayContribution63d": 0.07027014,
-        "percentAboveTrendLine63d": 0.52380952
+        "excessReturnVsSpy21d": -0.00871259,
+        "excessReturnVsSpy63d": -0.0208447,
+        "trendAcceleration": -1.149e-05,
+        "largestOneDayContribution63d": 0.07512851,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 12.6881,
-        "consistencyScore": 72.5882,
-        "relativeStrengthScore": 31.2752,
+        "directionScore": 11.4354,
+        "consistencyScore": 53.1974,
+        "relativeStrengthScore": 37.7201,
         "drawdownControlScore": 98.006,
-        "confirmationScore": 26.3847
+        "confirmationScore": 21.1098
       },
-      "benchmarkPercentile": 0.774974,
+      "benchmarkPercentile": 0.750263,
       "metricPercentiles": {
-        "trendSlope63d": 0.629863,
-        "trendFitR2_63d": 0.735542,
-        "excessReturnVsSpy63d": 0.60074,
+        "trendSlope63d": 0.635121,
+        "trendFitR2_63d": 0.728707,
+        "excessReturnVsSpy63d": 0.68165,
         "drawdownControlScore": 0.970557,
-        "growthSpurtScore": 0.774974
+        "growthSpurtScore": 0.750263
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1271,7 +1273,18 @@
         "high": 10.050000190734863,
         "low": 10.050000190734863,
         "close": 10.050000190734863,
-        "volume": 111,
+        "volume": 200,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.050000190734863
+      },
+      {
+        "ticker": "QLEP",
+        "date": "2026-10-07",
+        "open": 10.050000190734863,
+        "high": 10.050000190734863,
+        "low": 10.050000190734863,
+        "close": 10.050000190734863,
+        "volume": 106,
         "source": "yahoo-chart",
         "adjusted_close": 10.050000190734863
       }
@@ -1311,13 +1324,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-06",
+      "latestScoringDate": "2026-10-07",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 45.55,
-      "growthSpurtBenchmarkPercentile": 0.774974,
-      "growthSpurtMarketDataAsOf": "2026-10-06",
-      "lastPipelineRun": "2026-10-06T14:23:59.039798+00:00",
+      "growthSpurtScore": 41.09,
+      "growthSpurtBenchmarkPercentile": 0.750263,
+      "growthSpurtMarketDataAsOf": "2026-10-07",
+      "lastPipelineRun": "2026-10-07T14:40:49.113015+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

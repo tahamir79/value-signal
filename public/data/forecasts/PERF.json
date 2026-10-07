@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "PERF",
   "companyName": "Perfect Corp.",
-  "generatedAt": "2026-10-07T10:44:58.013314+00:00",
-  "marketDataAsOf": "2026-10-06",
+  "generatedAt": "2026-10-07T15:02:19.179806+00:00",
+  "marketDataAsOf": "2026-10-07",
   "currentPrice": 1.92,
   "analystTarget": {
     "ticker": "PERF",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-07T10:44:58.013314+00:00",
+    "collectedAt": "2026-10-07T15:02:19.179806+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-07T10:44:58.013314+00:00",
-    "marketDataAsOf": "2026-10-06",
+    "generatedAt": "2026-10-07T15:02:19.179806+00:00",
+    "marketDataAsOf": "2026-10-07",
     "currentPrice": 1.92,
     "horizon30Day": {
-      "returnEstimate": -0.01253419,
-      "lowerReturn": -0.07595347,
-      "upperReturn": 0.05276327,
-      "estimatedPrice": 1.8959,
-      "lowerEstimatedPrice": 1.7742,
-      "upperEstimatedPrice": 2.0213,
+      "returnEstimate": -0.00453663,
+      "lowerReturn": -0.06454613,
+      "upperReturn": 0.08,
+      "estimatedPrice": 1.9113,
+      "lowerEstimatedPrice": 1.7961,
+      "upperEstimatedPrice": 2.0736,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.00470289,
-      "lowerReturn": -0.13149904,
-      "upperReturn": 0.14285709,
-      "estimatedPrice": 1.911,
-      "lowerEstimatedPrice": 1.6675,
-      "upperEstimatedPrice": 2.1943,
+      "returnEstimate": 0.00502789,
+      "lowerReturn": -0.12394684,
+      "upperReturn": 0.1379991,
+      "estimatedPrice": 1.9297,
+      "lowerEstimatedPrice": 1.682,
+      "upperEstimatedPrice": 2.185,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

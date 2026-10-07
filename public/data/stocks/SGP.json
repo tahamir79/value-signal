@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-06T14:44:13.519262+00:00",
+  "generatedAt": "2026-10-07T15:00:18.840414+00:00",
   "record": {
     "security": {
       "ticker": "SGP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.04,
-      "dailyChangePercent": -2.1493,
-      "marketCapBillions": 0.8375,
+      "latestPrice": 24.52,
+      "dailyChangePercent": -1.0492,
+      "marketCapBillions": 0.8201,
       "liabilitiesToAssets": 0.04547,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -225,7 +225,7 @@
       "shortTermDebtShare": null,
       "bookValue": 232364000.0,
       "bookValuePerShare": 6.947027,
-      "priceToBook": 3.60442,
+      "priceToBook": 3.529568,
       "retainedEarnings": -138412000.0
     },
     "balanceSheetScoringShadow": {
@@ -445,51 +445,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SGP",
-      "generatedAt": "2026-10-06T14:23:59.039798+00:00",
-      "marketDataAsOf": "2026-10-06",
-      "status": "emerging",
-      "growthSpurtScore": 58.62,
+      "generatedAt": "2026-10-07T14:40:49.113015+00:00",
+      "marketDataAsOf": "2026-10-07",
+      "status": "not_detected",
+      "growthSpurtScore": 51.19,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.13476156,
-        "return63d": 0.22385152,
-        "trendSlope21d": -0.00690846,
-        "trendSlope63d": 0.00582479,
-        "trendAnnualizedReturn63d": 3.33988246,
-        "trendFitR2_63d": 0.64909665,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.06979239,
-        "maxDrawdown63d": -0.15035799,
-        "downsideVolatility63d": 0.0253771,
-        "excessReturnVsSpy21d": -0.14922102,
-        "excessReturnVsSpy63d": 0.17565389,
-        "trendAcceleration": -0.0164495,
-        "largestOneDayContribution63d": 0.07923331,
+        "return21d": -0.15214383,
+        "return63d": 0.22172401,
+        "trendSlope21d": -0.00810218,
+        "trendSlope63d": 0.00546765,
+        "trendAnnualizedReturn63d": 2.96635197,
+        "trendFitR2_63d": 0.56960467,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.07371181,
+        "maxDrawdown63d": -0.16399589,
+        "downsideVolatility63d": 0.02508381,
+        "excessReturnVsSpy21d": -0.16585644,
+        "excessReturnVsSpy63d": 0.18879473,
+        "trendAcceleration": -0.01773341,
+        "largestOneDayContribution63d": 0.08083423,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 56.5479,
+        "consistencyScore": 29.5549,
         "relativeStrengthScore": 65.0,
-        "drawdownControlScore": 49.8807,
+        "drawdownControlScore": 45.3347,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.905889,
+      "benchmarkPercentile": 0.830179,
       "metricPercentiles": {
-        "trendSlope63d": 0.939012,
-        "trendFitR2_63d": 0.687171,
-        "excessReturnVsSpy63d": 0.884188,
-        "drawdownControlScore": 0.65878,
-        "growthSpurtScore": 0.905889
+        "trendSlope63d": 0.935857,
+        "trendFitR2_63d": 0.617771,
+        "excessReturnVsSpy63d": 0.898466,
+        "drawdownControlScore": 0.619874,
+        "growthSpurtScore": 0.830179
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
-        "MARKET_RELATIVE_STRENGTH"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2321,13 +2323,24 @@
       {
         "ticker": "SGP",
         "date": "2026-10-06",
-        "open": 25.6200008392334,
-        "high": 25.739999771118164,
-        "low": 24.950000762939453,
-        "close": 25.040000915527344,
-        "volume": 5576,
+        "open": 25.760000228881836,
+        "high": 25.8700008392334,
+        "low": 24.75,
+        "close": 24.780000686645508,
+        "volume": 81200,
         "source": "yahoo-chart",
-        "adjusted_close": 25.040000915527344
+        "adjusted_close": 24.780000686645508
+      },
+      {
+        "ticker": "SGP",
+        "date": "2026-10-07",
+        "open": 24.459999084472656,
+        "high": 24.520000457763672,
+        "low": 24.280000686645508,
+        "close": 24.520000457763672,
+        "volume": 8739,
+        "source": "yahoo-chart",
+        "adjusted_close": 24.520000457763672
       }
     ],
     "dataStatus": {
@@ -2365,13 +2378,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-06",
-      "latestScoringDate": "2026-10-06",
+      "latestScoringDate": "2026-10-07",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 58.62,
-      "growthSpurtBenchmarkPercentile": 0.905889,
-      "growthSpurtMarketDataAsOf": "2026-10-06",
-      "lastPipelineRun": "2026-10-06T14:23:59.039798+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 51.19,
+      "growthSpurtBenchmarkPercentile": 0.830179,
+      "growthSpurtMarketDataAsOf": "2026-10-07",
+      "lastPipelineRun": "2026-10-07T14:40:49.113015+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
