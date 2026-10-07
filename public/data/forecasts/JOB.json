@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "JOB",
   "companyName": "GEE Group Inc.",
-  "generatedAt": "2026-10-07T02:53:21.145893+00:00",
-  "marketDataAsOf": "2026-10-05",
+  "generatedAt": "2026-10-07T10:44:58.013314+00:00",
+  "marketDataAsOf": "2026-10-06",
   "currentPrice": 0.22,
   "analystTarget": {
     "ticker": "JOB",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-07T02:53:21.145893+00:00",
+    "collectedAt": "2026-10-07T10:44:58.013314+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-07T02:53:21.145893+00:00",
-    "marketDataAsOf": "2026-10-05",
+    "generatedAt": "2026-10-07T10:44:58.013314+00:00",
+    "marketDataAsOf": "2026-10-06",
     "currentPrice": 0.22,
     "horizon30Day": {
       "returnEstimate": 0.0,
-      "lowerReturn": -0.07692306,
-      "upperReturn": 0.05263161,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.04999995,
       "estimatedPrice": 0.22,
-      "lowerEstimatedPrice": 0.2031,
-      "upperEstimatedPrice": 0.2316,
+      "lowerEstimatedPrice": 0.2024,
+      "upperEstimatedPrice": 0.231,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.03668261,
-      "lowerReturn": -0.09199132,
-      "upperReturn": 0.04347822,
-      "estimatedPrice": 0.2119,
-      "lowerEstimatedPrice": 0.1998,
-      "upperEstimatedPrice": 0.2296,
+      "returnEstimate": -0.03508769,
+      "lowerReturn": -0.09523808,
+      "upperReturn": 0.04999995,
+      "estimatedPrice": 0.2123,
+      "lowerEstimatedPrice": 0.199,
+      "upperEstimatedPrice": 0.231,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

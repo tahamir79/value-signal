@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-06T11:00:46.968520+00:00",
+  "generatedAt": "2026-10-07T10:43:21.858139+00:00",
   "record": {
     "security": {
       "ticker": "NEO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 19.13,
-      "dailyChangePercent": 3.5734,
-      "marketCapBillions": 2.4577,
+      "latestPrice": 16.51,
+      "dailyChangePercent": -13.6958,
+      "marketCapBillions": 2.1211,
       "liabilitiesToAssets": 0.418942,
       "latestRevenueBillions": 0.1312,
       "grossMarginPercent": 131.6942,
@@ -318,7 +318,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 785732000.0,
       "bookValuePerShare": 6.115815,
-      "priceToBook": 3.127956,
+      "priceToBook": 2.699559,
       "retainedEarnings": -448674000.0
     },
     "balanceSheetScoringShadow": {
@@ -529,65 +529,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NEO",
-      "generatedAt": "2026-10-06T10:35:21.731685+00:00",
-      "marketDataAsOf": "2026-10-05",
-      "status": "detected",
-      "growthSpurtScore": 84.37,
+      "generatedAt": "2026-10-07T10:29:49.973755+00:00",
+      "marketDataAsOf": "2026-10-06",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0956472,
-        "return63d": 0.31931029,
-        "trendSlope21d": 0.00297958,
-        "trendSlope63d": 0.00542875,
-        "trendAnnualizedReturn63d": 2.92766448,
-        "trendFitR2_63d": 0.85703086,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.04189248,
-        "maxDrawdown63d": -0.11455524,
-        "downsideVolatility63d": 0.01372044,
-        "excessReturnVsSpy21d": 0.09101165,
-        "excessReturnVsSpy63d": 0.28046628,
-        "trendAcceleration": -0.00293349,
-        "largestOneDayContribution63d": 0.08666493,
+        "return21d": -0.05005748,
+        "return63d": 0.15941015,
+        "trendSlope21d": 0.00087756,
+        "trendSlope63d": 0.00533512,
+        "trendAnnualizedReturn63d": 2.83607459,
+        "trendFitR2_63d": 0.81078196,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.04750101,
+        "maxDrawdown63d": -0.17076844,
+        "downsideVolatility63d": 0.02609707,
+        "excessReturnVsSpy21d": -0.06412497,
+        "excessReturnVsSpy63d": 0.11161753,
+        "trendAcceleration": -0.00500489,
+        "largestOneDayContribution63d": 0.08147618,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 68.3775,
-        "relativeStrengthScore": 100.0,
-        "drawdownControlScore": 61.8149,
-        "confirmationScore": 80.0
+        "directionScore": 80.0,
+        "consistencyScore": 44.9094,
+        "relativeStrengthScore": 65.0,
+        "drawdownControlScore": 43.0772,
+        "confirmationScore": 35.1024
       },
-      "benchmarkPercentile": 0.98944,
+      "benchmarkPercentile": 0.885812,
       "metricPercentiles": {
-        "trendSlope63d": 0.948258,
-        "trendFitR2_63d": 0.922914,
-        "excessReturnVsSpy63d": 0.927475,
-        "drawdownControlScore": 0.76188,
-        "growthSpurtScore": 0.98944
+        "trendSlope63d": 0.946203,
+        "trendFitR2_63d": 0.862869,
+        "excessReturnVsSpy63d": 0.856085,
+        "drawdownControlScore": 0.593882,
+        "growthSpurtScore": 0.885812
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "NEO",
-        "date": "2021-10-06",
-        "open": 43.15999984741211,
-        "high": 43.650001525878906,
-        "low": 42.70000076293945,
-        "close": 42.97999954223633,
-        "volume": 897100,
-        "source": "yahoo-chart",
-        "adjusted_close": 42.97999954223633
-      },
       {
         "ticker": "NEO",
         "date": "2021-10-07",
@@ -14370,6 +14360,17 @@
         "volume": 2048900,
         "source": "yahoo-chart",
         "adjusted_close": 19.1299991607666
+      },
+      {
+        "ticker": "NEO",
+        "date": "2026-10-06",
+        "open": 20.0,
+        "high": 20.149999618530273,
+        "low": 16.469999313354492,
+        "close": 16.510000228881836,
+        "volume": 5097500,
+        "source": "yahoo-chart",
+        "adjusted_close": 16.510000228881836
       }
     ],
     "dataStatus": {
@@ -14403,13 +14404,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-07-28",
-      "latestScoringDate": "2026-10-05",
+      "latestScoringDate": "2026-10-06",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 84.37,
-      "growthSpurtBenchmarkPercentile": 0.98944,
-      "growthSpurtMarketDataAsOf": "2026-10-05",
-      "lastPipelineRun": "2026-10-06T10:35:21.731685+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.885812,
+      "growthSpurtMarketDataAsOf": "2026-10-06",
+      "lastPipelineRun": "2026-10-07T10:29:49.973755+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
