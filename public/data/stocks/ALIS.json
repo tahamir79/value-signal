@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-06T03:26:24.225340+00:00",
+  "generatedAt": "2026-10-07T02:51:17.514142+00:00",
   "record": {
     "security": {
       "ticker": "ALIS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.33,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0871,
+      "latestPrice": 11.25,
+      "dailyChangePercent": 8.9061,
+      "marketCapBillions": 0.0948,
       "liabilitiesToAssets": 0.001599,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 202177.0,
       "bookValuePerShare": 0.02399,
-      "priceToBook": 430.593363,
+      "priceToBook": 468.942437,
       "retainedEarnings": 201995.0
     },
     "balanceSheetScoringShadow": {
@@ -435,49 +435,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ALIS",
-      "generatedAt": "2026-10-06T03:12:24.111960+00:00",
-      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T02:35:02.610545+00:00",
+      "marketDataAsOf": "2026-10-06",
       "status": "not_detected",
-      "growthSpurtScore": 48.46,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00780487,
-        "return63d": 0.01673229,
-        "trendSlope21d": 0.0,
-        "trendSlope63d": 0.00030293,
-        "trendAnnualizedReturn63d": 0.07932881,
-        "trendFitR2_63d": 0.81197532,
+        "return21d": 0.09223299,
+        "return63d": 0.10728348,
+        "trendSlope21d": 5.539e-05,
+        "trendSlope63d": 0.0003134,
+        "trendAnnualizedReturn63d": 0.08217851,
+        "trendFitR2_63d": 0.31194958,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.00270049,
+        "trendResidualVolatility63d": 0.01104867,
         "maxDrawdown63d": -0.00522243,
         "downsideVolatility63d": 0.00150503,
-        "excessReturnVsSpy21d": 0.00316931,
-        "excessReturnVsSpy63d": -0.02211171,
-        "trendAcceleration": -0.0001688,
-        "largestOneDayContribution63d": 0.08016833,
-        "percentAboveTrendLine63d": 0.52380952
+        "excessReturnVsSpy21d": 0.0781655,
+        "excessReturnVsSpy63d": 0.05949086,
+        "trendAcceleration": -0.00012852,
+        "largestOneDayContribution63d": 0.55698989,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.2829,
-        "consistencyScore": 69.1371,
-        "relativeStrengthScore": 42.4037,
+        "directionScore": 61.8568,
+        "consistencyScore": 34.6442,
+        "relativeStrengthScore": 91.6682,
         "drawdownControlScore": 98.2592,
-        "confirmationScore": 18.7185
+        "confirmationScore": 50.9304
       },
-      "benchmarkPercentile": 0.805018,
+      "benchmarkPercentile": 0.878392,
       "metricPercentiles": {
-        "trendSlope63d": 0.67172,
-        "trendFitR2_63d": 0.87402,
-        "excessReturnVsSpy63d": 0.672956,
-        "drawdownControlScore": 0.975431,
-        "growthSpurtScore": 0.805018
+        "trendSlope63d": 0.680063,
+        "trendFitR2_63d": 0.420146,
+        "excessReturnVsSpy63d": 0.799686,
+        "drawdownControlScore": 0.975992,
+        "growthSpurtScore": 0.878392
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "MARKET_RELATIVE_STRENGTH",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2888,6 +2893,17 @@
         "volume": 17800,
         "source": "yahoo-chart",
         "adjusted_close": 10.329999923706055
+      },
+      {
+        "ticker": "ALIS",
+        "date": "2026-10-06",
+        "open": 10.369999885559082,
+        "high": 11.40999984741211,
+        "low": 10.3100004196167,
+        "close": 11.25,
+        "volume": 118100,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.25
       }
     ],
     "dataStatus": {
@@ -2925,13 +2941,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-07",
-      "latestScoringDate": "2026-10-05",
+      "latestScoringDate": "2026-10-06",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 48.46,
-      "growthSpurtBenchmarkPercentile": 0.805018,
-      "growthSpurtMarketDataAsOf": "2026-10-05",
-      "lastPipelineRun": "2026-10-06T03:12:24.111960+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.878392,
+      "growthSpurtMarketDataAsOf": "2026-10-06",
+      "lastPipelineRun": "2026-10-07T02:35:02.610545+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

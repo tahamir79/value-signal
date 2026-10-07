@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-06T03:26:24.225340+00:00",
+  "generatedAt": "2026-10-07T02:51:17.514142+00:00",
   "record": {
     "security": {
       "ticker": "COIN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 188.22,
-      "dailyChangePercent": 2.8525,
+      "latestPrice": 185.74,
+      "dailyChangePercent": -1.3176,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.505687,
       "latestRevenueBillions": 7.1813,
@@ -504,63 +504,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "COIN",
-      "generatedAt": "2026-10-06T03:12:24.111960+00:00",
-      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T02:35:02.610545+00:00",
+      "marketDataAsOf": "2026-10-06",
       "status": "not_detected",
-      "growthSpurtScore": 54.96,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02324855,
-        "return63d": 0.1511223,
-        "trendSlope21d": 0.0032643,
+        "return21d": 0.00595757,
+        "return63d": 0.16553718,
+        "trendSlope21d": 0.00322005,
         "trendSlope63d": 0.00352376,
         "trendAnnualizedReturn63d": 1.43023324,
-        "trendFitR2_63d": 0.49576392,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.06764268,
+        "trendFitR2_63d": 0.49913313,
+        "positiveWeekRatio63d": 0.75,
+        "trendResidualVolatility63d": 0.06748824,
         "maxDrawdown63d": -0.17310208,
-        "downsideVolatility63d": 0.02573102,
-        "excessReturnVsSpy21d": -0.02788411,
-        "excessReturnVsSpy63d": 0.1122783,
-        "trendAcceleration": 0.00052922,
-        "largestOneDayContribution63d": 0.05058753,
+        "downsideVolatility63d": 0.02550733,
+        "excessReturnVsSpy21d": -0.00810992,
+        "excessReturnVsSpy63d": 0.11774456,
+        "trendAcceleration": 0.00016346,
+        "largestOneDayContribution63d": 0.05042553,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 80.0,
-        "consistencyScore": 20.1003,
-        "relativeStrengthScore": 70.3007,
+        "directionScore": 83.9717,
+        "consistencyScore": 46.0504,
+        "relativeStrengthScore": 78.9519,
         "drawdownControlScore": 42.2993,
-        "confirmationScore": 55.2922
+        "confirmationScore": 59.578
       },
-      "benchmarkPercentile": 0.893884,
+      "benchmarkPercentile": 0.878392,
       "metricPercentiles": {
-        "trendSlope63d": 0.888134,
-        "trendFitR2_63d": 0.572399,
-        "excessReturnVsSpy63d": 0.849581,
-        "drawdownControlScore": 0.584422,
-        "growthSpurtScore": 0.893884
+        "trendSlope63d": 0.89405,
+        "trendFitR2_63d": 0.575157,
+        "excessReturnVsSpy63d": 0.858787,
+        "drawdownControlScore": 0.584551,
+        "growthSpurtScore": 0.878392
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
+        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "COIN",
-        "date": "2021-10-06",
-        "open": 242.39999389648438,
-        "high": 252.13999938964844,
-        "low": 242.1999969482422,
-        "close": 250.3800048828125,
-        "volume": 5747700,
-        "source": "yahoo-chart",
-        "adjusted_close": 250.3800048828125
-      },
       {
         "ticker": "COIN",
         "date": "2021-10-07",
@@ -14340,9 +14333,20 @@
         "high": 191.77999877929688,
         "low": 184.1199951171875,
         "close": 188.22000122070312,
-        "volume": 7805000,
+        "volume": 7828500,
         "source": "yahoo-chart",
         "adjusted_close": 188.22000122070312
+      },
+      {
+        "ticker": "COIN",
+        "date": "2026-10-06",
+        "open": 188.50999450683594,
+        "high": 192.8000030517578,
+        "low": 184.8300018310547,
+        "close": 185.74000549316406,
+        "volume": 5590700,
+        "source": "yahoo-chart",
+        "adjusted_close": 185.74000549316406
       }
     ],
     "dataStatus": {
@@ -14375,13 +14379,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-30",
-      "latestScoringDate": "2026-10-05",
+      "latestScoringDate": "2026-10-06",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 54.96,
-      "growthSpurtBenchmarkPercentile": 0.893884,
-      "growthSpurtMarketDataAsOf": "2026-10-05",
-      "lastPipelineRun": "2026-10-06T03:12:24.111960+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.878392,
+      "growthSpurtMarketDataAsOf": "2026-10-06",
+      "lastPipelineRun": "2026-10-07T02:35:02.610545+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
