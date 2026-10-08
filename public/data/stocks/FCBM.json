@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-07T02:51:17.514142+00:00",
+  "generatedAt": "2026-10-08T03:10:31.811773+00:00",
   "record": {
     "security": {
       "ticker": "FCBM",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 12.76,
-      "dailyChangePercent": 1.2698,
-      "marketCapBillions": 0.3964,
+      "latestPrice": 12.68,
+      "dailyChangePercent": -0.627,
+      "marketCapBillions": 0.394,
       "liabilitiesToAssets": 0.873851,
       "latestRevenueBillions": 0.0124,
       "grossMarginPercent": null,
@@ -238,7 +238,7 @@
       "shortTermDebtShare": 1.0,
       "bookValue": 429654000.0,
       "bookValuePerShare": 13.829092,
-      "priceToBook": 0.922693,
+      "priceToBook": 0.916908,
       "retainedEarnings": 106254000.0
     },
     "balanceSheetScoringShadow": {
@@ -457,50 +457,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FCBM",
-      "generatedAt": "2026-10-07T02:35:02.610545+00:00",
-      "marketDataAsOf": "2026-10-06",
+      "generatedAt": "2026-10-08T02:46:54.533756+00:00",
+      "marketDataAsOf": "2026-10-07",
       "status": "not_detected",
-      "growthSpurtScore": 25.26,
+      "growthSpurtScore": 22.85,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00156491,
-        "return63d": 0.01109353,
-        "trendSlope21d": -0.00094687,
-        "trendSlope63d": 0.0,
-        "trendAnnualizedReturn63d": 0.0,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.01051983,
+        "return21d": -0.00078796,
+        "return63d": -0.00937499,
+        "trendSlope21d": -0.00109684,
+        "trendSlope63d": 2.915e-05,
+        "trendAnnualizedReturn63d": 0.00737341,
+        "trendFitR2_63d": 0.0129387,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.01039601,
         "maxDrawdown63d": -0.03813235,
-        "downsideVolatility63d": 0.00507715,
-        "excessReturnVsSpy21d": -0.01563239,
-        "excessReturnVsSpy63d": -0.03669909,
-        "trendAcceleration": -0.00082069,
-        "largestOneDayContribution63d": 0.0629969,
-        "percentAboveTrendLine63d": 0.55555556
+        "downsideVolatility63d": 0.00497529,
+        "excessReturnVsSpy21d": -0.01800813,
+        "excessReturnVsSpy63d": -0.04587832,
+        "trendAcceleration": -0.0010362,
+        "largestOneDayContribution63d": 0.06386184,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 3.2356,
-        "consistencyScore": 21.4524,
-        "relativeStrengthScore": 28.2518,
+        "directionScore": 0.948,
+        "consistencyScore": 19.1165,
+        "relativeStrengthScore": 23.4834,
         "drawdownControlScore": 87.2892,
-        "confirmationScore": 1.7931
+        "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.572547,
+      "benchmarkPercentile": 0.543649,
       "metricPercentiles": {
-        "trendSlope63d": 0.597338,
-        "trendFitR2_63d": 0.072547,
-        "excessReturnVsSpy63d": 0.634937,
-        "drawdownControlScore": 0.932672,
-        "growthSpurtScore": 0.572547
+        "trendSlope63d": 0.609514,
+        "trendFitR2_63d": 0.159435,
+        "excessReturnVsSpy63d": 0.601886,
+        "drawdownControlScore": 0.934135,
+        "growthSpurtScore": 0.543649
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1332,12 +1335,23 @@
         "ticker": "FCBM",
         "date": "2026-10-06",
         "open": 12.670000076293945,
-        "high": 12.789999961853027,
+        "high": 12.800000190734863,
         "low": 12.600000381469727,
         "close": 12.760000228881836,
-        "volume": 74123,
+        "volume": 74100,
         "source": "yahoo-chart",
         "adjusted_close": 12.760000228881836
+      },
+      {
+        "ticker": "FCBM",
+        "date": "2026-10-07",
+        "open": 12.6899995803833,
+        "high": 12.770000457763672,
+        "low": 12.59000015258789,
+        "close": 12.680000305175781,
+        "volume": 77900,
+        "source": "yahoo-chart",
+        "adjusted_close": 12.680000305175781
       }
     ],
     "dataStatus": {
@@ -1377,13 +1391,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-06",
+      "latestScoringDate": "2026-10-07",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 25.26,
-      "growthSpurtBenchmarkPercentile": 0.572547,
-      "growthSpurtMarketDataAsOf": "2026-10-06",
-      "lastPipelineRun": "2026-10-07T02:35:02.610545+00:00",
+      "growthSpurtScore": 22.85,
+      "growthSpurtBenchmarkPercentile": 0.543649,
+      "growthSpurtMarketDataAsOf": "2026-10-07",
+      "lastPipelineRun": "2026-10-08T02:46:54.533756+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
