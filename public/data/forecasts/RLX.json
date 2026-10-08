@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "RLX",
   "companyName": "RLX Technology Inc.",
-  "generatedAt": "2026-10-08T11:08:40.317364+00:00",
-  "marketDataAsOf": "2026-10-07",
+  "generatedAt": "2026-10-08T15:10:31.926136+00:00",
+  "marketDataAsOf": "2026-10-08",
   "currentPrice": 1.71,
   "analystTarget": {
     "ticker": "RLX",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-08T11:08:40.317364+00:00",
+    "collectedAt": "2026-10-08T15:10:31.926136+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-08T11:08:40.317364+00:00",
-    "marketDataAsOf": "2026-10-07",
+    "generatedAt": "2026-10-08T15:10:31.926136+00:00",
+    "marketDataAsOf": "2026-10-08",
     "currentPrice": 1.71,
     "horizon30Day": {
-      "returnEstimate": 0.00441576,
-      "lowerReturn": -0.06156557,
-      "upperReturn": 0.06073226,
-      "estimatedPrice": 1.7176,
-      "lowerEstimatedPrice": 1.6047,
-      "upperEstimatedPrice": 1.8139,
+      "returnEstimate": 0.0,
+      "lowerReturn": -0.0583147,
+      "upperReturn": 0.06032129,
+      "estimatedPrice": 1.71,
+      "lowerEstimatedPrice": 1.6103,
+      "upperEstimatedPrice": 1.8131,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.03500039,
-      "lowerReturn": -0.09647139,
-      "upperReturn": 0.13600149,
-      "estimatedPrice": 1.6501,
-      "lowerEstimatedPrice": 1.545,
-      "upperEstimatedPrice": 1.9426,
+      "returnEstimate": -0.03804192,
+      "lowerReturn": -0.08977871,
+      "upperReturn": 0.15,
+      "estimatedPrice": 1.6449,
+      "lowerEstimatedPrice": 1.5565,
+      "upperEstimatedPrice": 1.9665,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
