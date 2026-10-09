@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "LAZ",
   "companyName": "Lazard, Inc.",
-  "generatedAt": "2026-10-09T03:22:19.895938+00:00",
-  "marketDataAsOf": "2026-10-07",
+  "generatedAt": "2026-10-09T11:08:36.049861+00:00",
+  "marketDataAsOf": "2026-10-08",
   "currentPrice": 35.82,
   "analystTarget": {
     "ticker": "LAZ",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-09T03:22:19.895938+00:00",
+    "collectedAt": "2026-10-09T11:08:36.049861+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-09T03:22:19.895938+00:00",
-    "marketDataAsOf": "2026-10-07",
+    "generatedAt": "2026-10-09T11:08:36.049861+00:00",
+    "marketDataAsOf": "2026-10-08",
     "currentPrice": 35.82,
     "horizon30Day": {
-      "returnEstimate": 0.01426352,
-      "lowerReturn": -0.07336987,
-      "upperReturn": 0.06505766,
-      "estimatedPrice": 36.3309,
-      "lowerEstimatedPrice": 33.1919,
-      "upperEstimatedPrice": 38.1504,
+      "returnEstimate": 0.00281021,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.0748703,
+      "estimatedPrice": 35.9207,
+      "lowerEstimatedPrice": 32.9544,
+      "upperEstimatedPrice": 38.5019,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.04390195,
-      "lowerReturn": -0.11221515,
-      "upperReturn": 0.08071618,
-      "estimatedPrice": 34.2474,
-      "lowerEstimatedPrice": 31.8005,
-      "upperEstimatedPrice": 38.7113,
+      "returnEstimate": -0.03736114,
+      "lowerReturn": -0.11357921,
+      "upperReturn": 0.07570773,
+      "estimatedPrice": 34.4817,
+      "lowerEstimatedPrice": 31.7516,
+      "upperEstimatedPrice": 38.5319,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
