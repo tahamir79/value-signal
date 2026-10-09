@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-08T03:10:31.811773+00:00",
+  "generatedAt": "2026-10-09T03:20:09.483353+00:00",
   "record": {
     "security": {
       "ticker": "CPBI",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 20.0,
-      "dailyChangePercent": -0.005,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 0.0834,
       "liabilitiesToAssets": 0.839469,
       "latestRevenueBillions": null,
@@ -418,50 +418,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CPBI",
-      "generatedAt": "2026-10-08T02:46:54.533756+00:00",
-      "marketDataAsOf": "2026-10-07",
+      "generatedAt": "2026-10-09T03:04:52.640214+00:00",
+      "marketDataAsOf": "2026-10-08",
       "status": "not_detected",
-      "growthSpurtScore": 31.1,
+      "growthSpurtScore": 26.41,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": -0.04711993,
-        "return63d": 0.04646298,
-        "trendSlope21d": -0.00370506,
-        "trendSlope63d": 0.00042845,
-        "trendAnnualizedReturn63d": 0.11401292,
+        "return63d": 0.0,
+        "trendSlope21d": -0.0036476,
+        "trendSlope63d": 0.00032404,
+        "trendAnnualizedReturn63d": 0.08508553,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.02732515,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.0275707,
         "maxDrawdown63d": -0.07968309,
-        "downsideVolatility63d": 0.00878283,
-        "excessReturnVsSpy21d": -0.0643401,
-        "excessReturnVsSpy63d": 0.00995965,
-        "trendAcceleration": -0.0054661,
-        "largestOneDayContribution63d": 0.06673582,
+        "downsideVolatility63d": 0.00895211,
+        "excessReturnVsSpy21d": -0.06476392,
+        "excessReturnVsSpy63d": -0.02768635,
+        "trendAcceleration": -0.00539428,
+        "largestOneDayContribution63d": 0.06865625,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 28.2105,
-        "consistencyScore": 17.2461,
-        "relativeStrengthScore": 36.5461,
+        "directionScore": 10.9396,
+        "consistencyScore": 31.4425,
+        "relativeStrengthScore": 21.2524,
         "drawdownControlScore": 73.439,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.662311,
+      "benchmarkPercentile": 0.589034,
       "metricPercentiles": {
-        "trendSlope63d": 0.711448,
-        "trendFitR2_63d": 0.067172,
-        "excessReturnVsSpy63d": 0.746988,
-        "drawdownControlScore": 0.866702,
-        "growthSpurtScore": 0.662311
+        "trendSlope63d": 0.699217,
+        "trendFitR2_63d": 0.062402,
+        "excessReturnVsSpy63d": 0.622315,
+        "drawdownControlScore": 0.866841,
+        "growthSpurtScore": 0.589034
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8636,6 +8639,17 @@
         "volume": 200,
         "source": "yahoo-chart",
         "adjusted_close": 20.0
+      },
+      {
+        "ticker": "CPBI",
+        "date": "2026-10-08",
+        "open": 20.0,
+        "high": 20.0,
+        "low": 19.809999465942383,
+        "close": 20.0,
+        "volume": 4800,
+        "source": "yahoo-chart",
+        "adjusted_close": 20.0
       }
     ],
     "dataStatus": {
@@ -8675,13 +8689,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-10-07",
+      "latestScoringDate": "2026-10-08",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 31.1,
-      "growthSpurtBenchmarkPercentile": 0.662311,
-      "growthSpurtMarketDataAsOf": "2026-10-07",
-      "lastPipelineRun": "2026-10-08T02:46:54.533756+00:00",
+      "growthSpurtScore": 26.41,
+      "growthSpurtBenchmarkPercentile": 0.589034,
+      "growthSpurtMarketDataAsOf": "2026-10-08",
+      "lastPipelineRun": "2026-10-09T03:04:52.640214+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }

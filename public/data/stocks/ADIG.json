@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-08T03:10:31.811773+00:00",
+  "generatedAt": "2026-10-09T03:20:09.483353+00:00",
   "record": {
     "security": {
       "ticker": "ADIG",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 17.53,
-      "dailyChangePercent": -1.6274,
-      "marketCapBillions": 1.3309,
+      "latestPrice": 17.2,
+      "dailyChangePercent": -1.8825,
+      "marketCapBillions": 1.3059,
       "liabilitiesToAssets": 0.470791,
       "latestRevenueBillions": 2.492,
       "grossMarginPercent": 21.9904,
@@ -295,7 +295,7 @@
       "shortTermDebtShare": null,
       "bookValue": 2455000000.0,
       "bookValuePerShare": 32.335308,
-      "priceToBook": 0.542132,
+      "priceToBook": 0.531926,
       "retainedEarnings": null
     },
     "balanceSheetScoringShadow": {
@@ -508,50 +508,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ADIG",
-      "generatedAt": "2026-10-08T02:46:54.533756+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-10-09T03:04:52.640214+00:00",
+      "marketDataAsOf": "2026-10-08",
+      "status": "not_detected",
+      "growthSpurtScore": 6.63,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.16747334,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": -0.01100745,
+        "trendSlope63d": -0.00604555,
+        "trendAnnualizedReturn63d": -0.78204738,
+        "trendFitR2_63d": 0.5929696,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.07391268,
+        "maxDrawdown63d": -0.39158116,
+        "downsideVolatility63d": 0.04134766,
+        "excessReturnVsSpy21d": -0.18511732,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.00700043,
+        "largestOneDayContribution63d": 0.10304094,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 26.5079,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.136815,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.11906,
+        "trendFitR2_63d": 0.657963,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.152219,
+        "growthSpurtScore": 0.136815
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1092,6 +1091,17 @@
         "volume": 452300,
         "source": "yahoo-chart",
         "adjusted_close": 17.530000686645508
+      },
+      {
+        "ticker": "ADIG",
+        "date": "2026-10-08",
+        "open": 17.260000228881836,
+        "high": 17.809999465942383,
+        "low": 16.770000457763672,
+        "close": 17.200000762939453,
+        "volume": 583700,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.200000762939453
       }
     ],
     "dataStatus": {
@@ -1125,13 +1135,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-07",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-10-08T02:46:54.533756+00:00",
+      "latestScoringDate": "2026-10-08",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 6.63,
+      "growthSpurtBenchmarkPercentile": 0.136815,
+      "growthSpurtMarketDataAsOf": "2026-10-08",
+      "lastPipelineRun": "2026-10-09T03:04:52.640214+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
