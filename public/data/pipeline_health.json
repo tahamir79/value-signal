@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-10T10:19:02.203761+00:00",
+  "generatedAt": "2026-10-10T14:15:04.559649+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 49,
+  "nonCriticalFailures": 47,
   "expectedUnavailable": 6077,
   "dataQualityWarnings": 5725,
   "warnings": 5725,
@@ -22,13 +22,13 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1951,
-      "failed": 49,
+      "succeeded": 1953,
+      "failed": 47,
       "skipped": 0,
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 42
+          "count": 40
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -186,6 +186,12 @@
       "retryable": false
     },
     {
+      "ticker": "AYR",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
       "ticker": "BDI",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -294,12 +300,6 @@
       "retryable": false
     },
     {
-      "ticker": "CLCHF",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
       "ticker": "CLYD",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -313,12 +313,6 @@
     },
     {
       "ticker": "CMLS",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "CNTL",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -412,12 +406,6 @@
       "stage": "ticker_pipeline",
       "reason": "PRICE_HISTORY_UNAVAILABLE",
       "retryable": true
-    },
-    {
-      "ticker": "FFLY",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
     }
   ]
 }
