@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-10T14:11:34.867549+00:00",
+  "generatedAt": "2026-10-13T04:00:03.800400+00:00",
   "record": {
     "security": {
       "ticker": "ALF",
@@ -427,50 +427,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ALF",
-      "generatedAt": "2026-10-10T13:57:12.419763+00:00",
-      "marketDataAsOf": "2026-10-09",
+      "generatedAt": "2026-10-13T03:42:38.714842+00:00",
+      "marketDataAsOf": "2026-10-12",
       "status": "not_detected",
-      "growthSpurtScore": 27.45,
+      "growthSpurtScore": 28.51,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.0027548,
-        "return63d": 0.0027548,
+        "return63d": -0.0027397,
         "trendSlope21d": 0.0,
-        "trendSlope63d": 0.00014114,
-        "trendAnnualizedReturn63d": 0.03620822,
-        "trendFitR2_63d": 0.15355016,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00376195,
-        "maxDrawdown63d": -0.01826482,
-        "downsideVolatility63d": 0.00303477,
-        "excessReturnVsSpy21d": -0.02716399,
-        "excessReturnVsSpy63d": -0.03906929,
-        "trendAcceleration": -2.871e-05,
-        "largestOneDayContribution63d": 0.14886241,
-        "percentAboveTrendLine63d": 0.50793651
+        "trendSlope63d": 0.00015283,
+        "trendAnnualizedReturn63d": 0.03926541,
+        "trendFitR2_63d": 0.25320186,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00347025,
+        "maxDrawdown63d": -0.01285586,
+        "downsideVolatility63d": 0.00335231,
+        "excessReturnVsSpy21d": -0.01784233,
+        "excessReturnVsSpy63d": -0.040251,
+        "trendAcceleration": -0.00010843,
+        "largestOneDayContribution63d": 0.16065635,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 7.2954,
-        "consistencyScore": 21.5288,
-        "relativeStrengthScore": 22.2439,
-        "drawdownControlScore": 93.9117,
-        "confirmationScore": 13.386
+        "directionScore": 6.8849,
+        "consistencyScore": 22.6527,
+        "relativeStrengthScore": 25.842,
+        "drawdownControlScore": 95.7147,
+        "confirmationScore": 12.5888
       },
-      "benchmarkPercentile": 0.61398,
+      "benchmarkPercentile": 0.625065,
       "metricPercentiles": {
-        "trendSlope63d": 0.649974,
-        "trendFitR2_63d": 0.307773,
-        "excessReturnVsSpy63d": 0.622315,
-        "drawdownControlScore": 0.953573,
-        "growthSpurtScore": 0.61398
+        "trendSlope63d": 0.661619,
+        "trendFitR2_63d": 0.381723,
+        "excessReturnVsSpy63d": 0.611956,
+        "drawdownControlScore": 0.959791,
+        "growthSpurtScore": 0.625065
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6522,6 +6525,17 @@
         "volume": 100,
         "source": "yahoo-chart",
         "adjusted_close": 10.920000076293945
+      },
+      {
+        "ticker": "ALF",
+        "date": "2026-10-12",
+        "open": 10.920000076293945,
+        "high": 10.920000076293945,
+        "low": 10.920000076293945,
+        "close": 10.920000076293945,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.920000076293945
       }
     ],
     "dataStatus": {
@@ -6563,13 +6577,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-09",
+      "latestScoringDate": "2026-10-12",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 27.45,
-      "growthSpurtBenchmarkPercentile": 0.61398,
-      "growthSpurtMarketDataAsOf": "2026-10-09",
-      "lastPipelineRun": "2026-10-10T13:57:12.419763+00:00",
+      "growthSpurtScore": 28.51,
+      "growthSpurtBenchmarkPercentile": 0.625065,
+      "growthSpurtMarketDataAsOf": "2026-10-12",
+      "lastPipelineRun": "2026-10-13T03:42:38.714842+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": true
     }

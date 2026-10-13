@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-10T14:15:04.559649+00:00",
+  "generatedAt": "2026-10-13T04:03:09.695574+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 47,
+  "nonCriticalFailures": 49,
   "expectedUnavailable": 6077,
   "dataQualityWarnings": 5725,
   "warnings": 5725,
@@ -33,8 +33,8 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1953,
-      "failed": 47,
+      "succeeded": 1951,
+      "failed": 49,
       "skipped": 0,
       "failedTickers": [
         "AEIB",
@@ -47,7 +47,6 @@
         "AUXX",
         "AXM",
         "AYA",
-        "AYR",
         "BDI",
         "BHAI",
         "BIAI",
@@ -66,9 +65,11 @@
         "CET",
         "CGL",
         "CLBZ",
+        "CLCHF",
         "CLYD",
         "CMBY",
         "CMLS",
+        "CNTL",
         "CSCM",
         "CSEA",
         "CTY",
@@ -83,16 +84,17 @@
         "ENO",
         "ENT",
         "EVON",
-        "FBYDP"
+        "FBYDP",
+        "FFLY"
       ],
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 40
+          "count": 43
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
-          "count": 7
+          "count": 6
         }
       ],
       "artifactPaths": [
@@ -123,18 +125,18 @@
       "name": "forecast_artifacts",
       "status": "success",
       "attempted": 6076,
-      "succeeded": 5557,
+      "succeeded": 5554,
       "failed": 0,
-      "skipped": 519,
+      "skipped": 522,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 519
+          "count": 522
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 294
+          "count": 285
         }
       ],
       "artifactPaths": [
@@ -184,14 +186,14 @@
       "name": "growth_spurt_detector",
       "status": "success",
       "attempted": 6076,
-      "succeeded": 5851,
+      "succeeded": 5852,
       "failed": 0,
-      "skipped": 225,
+      "skipped": 224,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 225
+          "count": 224
         }
       ],
       "artifactPaths": [
@@ -276,12 +278,6 @@
     },
     {
       "ticker": "AYA",
-      "stage": "ticker_pipeline",
-      "reason": "PROVIDER_HTTP_404",
-      "retryable": false
-    },
-    {
-      "ticker": "AYR",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -395,6 +391,12 @@
       "retryable": false
     },
     {
+      "ticker": "CLCHF",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
       "ticker": "CLYD",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
@@ -408,6 +410,12 @@
     },
     {
       "ticker": "CMLS",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "CNTL",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
@@ -499,8 +507,14 @@
     {
       "ticker": "FBYDP",
       "stage": "ticker_pipeline",
-      "reason": "PRICE_HISTORY_UNAVAILABLE",
-      "retryable": true
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "FFLY",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
     }
   ]
 }
