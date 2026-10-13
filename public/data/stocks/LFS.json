@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T11:06:37.078112+00:00",
+  "generatedAt": "2026-10-13T15:32:10.354768+00:00",
   "record": {
     "security": {
       "ticker": "LFS",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 2.23,
-      "dailyChangePercent": -7.6605,
+      "latestPrice": 2.19,
+      "dailyChangePercent": -0.4545,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,49 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "LFS",
-      "generatedAt": "2026-10-09T10:49:43.377165+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-13T15:13:51.335059+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 25.96,
+      "growthSpurtScore": 27.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.02764974,
-        "return63d": 0.0045045,
-        "trendSlope21d": 0.0,
-        "trendSlope63d": -0.00074405,
-        "trendAnnualizedReturn63d": -0.17097177,
+        "return21d": 0.02336446,
+        "return63d": -0.0135135,
+        "trendSlope21d": 0.00102983,
+        "trendSlope63d": -0.00074391,
+        "trendAnnualizedReturn63d": -0.170942,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.04790467,
+        "trendResidualVolatility63d": 0.04777788,
         "maxDrawdown63d": -0.18823531,
-        "downsideVolatility63d": 0.01938641,
-        "excessReturnVsSpy21d": 0.01000575,
-        "excessReturnVsSpy63d": -0.02318185,
-        "trendAcceleration": -0.00040048,
-        "largestOneDayContribution63d": 0.07263932,
-        "percentAboveTrendLine63d": 0.49206349
+        "downsideVolatility63d": 0.02009092,
+        "excessReturnVsSpy21d": -0.00052142,
+        "excessReturnVsSpy63d": -0.04563318,
+        "trendAcceleration": 0.00102983,
+        "largestOneDayContribution63d": 0.07528062,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 19.747,
-        "consistencyScore": 4.6833,
-        "relativeStrengthScore": 44.9599,
+        "directionScore": 15.5763,
+        "consistencyScore": 5.5231,
+        "relativeStrengthScore": 31.2334,
         "drawdownControlScore": 37.2549,
-        "confirmationScore": 42.8615
+        "confirmationScore": 91.1526
       },
-      "benchmarkPercentile": 0.580432,
+      "benchmarkPercentile": 0.624934,
       "metricPercentiles": {
-        "trendSlope63d": 0.516878,
-        "trendFitR2_63d": 0.065928,
-        "excessReturnVsSpy63d": 0.6407,
-        "drawdownControlScore": 0.547205,
-        "growthSpurtScore": 0.580432
+        "trendSlope63d": 0.540242,
+        "trendFitR2_63d": 0.067859,
+        "excessReturnVsSpy63d": 0.609963,
+        "drawdownControlScore": 0.552604,
+        "growthSpurtScore": 0.624934
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3140,6 +3144,39 @@
         "volume": 89600,
         "source": "yahoo-chart",
         "adjusted_close": 2.2300000190734863
+      },
+      {
+        "ticker": "LFS",
+        "date": "2026-10-09",
+        "open": 2.2300000190734863,
+        "high": 2.299999952316284,
+        "low": 2.140000104904175,
+        "close": 2.2100000381469727,
+        "volume": 44200,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.2100000381469727
+      },
+      {
+        "ticker": "LFS",
+        "date": "2026-10-12",
+        "open": 2.240000009536743,
+        "high": 2.299999952316284,
+        "low": 2.180000066757202,
+        "close": 2.200000047683716,
+        "volume": 33800,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.200000047683716
+      },
+      {
+        "ticker": "LFS",
+        "date": "2026-10-13",
+        "open": 2.190000057220459,
+        "high": 2.200000047683716,
+        "low": 2.109999895095825,
+        "close": 2.190000057220459,
+        "volume": 26341,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.190000057220459
       }
     ],
     "dataStatus": {
@@ -3179,13 +3216,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 25.96,
-      "growthSpurtBenchmarkPercentile": 0.580432,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T10:49:43.377165+00:00",
+      "growthSpurtScore": 27.0,
+      "growthSpurtBenchmarkPercentile": 0.624934,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-13T15:13:51.335059+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

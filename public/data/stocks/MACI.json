@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T11:06:37.078112+00:00",
+  "generatedAt": "2026-10-13T15:32:10.354768+00:00",
   "record": {
     "security": {
       "ticker": "MACI",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 11.05,
-      "dailyChangePercent": -0.0904,
+      "dailyChangePercent": -0.2708,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.162296,
       "latestRevenueBillions": null,
@@ -427,51 +427,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MACI",
-      "generatedAt": "2026-10-09T10:49:43.377165+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-13T15:13:51.335059+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 50.03,
+      "growthSpurtScore": 44.4,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00637529,
-        "return63d": 0.01469236,
-        "trendSlope21d": 0.00031306,
-        "trendSlope63d": 0.00026405,
-        "trendAnnualizedReturn63d": 0.06880478,
-        "trendFitR2_63d": 0.83298175,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.00218116,
+        "return21d": 0.0027223,
+        "return63d": 0.00913246,
+        "trendSlope21d": 0.00019366,
+        "trendSlope63d": 0.00027853,
+        "trendAnnualizedReturn63d": 0.07271193,
+        "trendFitR2_63d": 0.86288738,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00205231,
         "maxDrawdown63d": -0.0063694,
-        "downsideVolatility63d": 0.00193224,
-        "excessReturnVsSpy21d": -0.0112687,
-        "excessReturnVsSpy63d": -0.01299399,
-        "trendAcceleration": 0.00015137,
-        "largestOneDayContribution63d": 0.09255137,
+        "downsideVolatility63d": 0.00182563,
+        "excessReturnVsSpy21d": -0.02116359,
+        "excessReturnVsSpy63d": -0.02298723,
+        "trendAcceleration": 2.96e-06,
+        "largestOneDayContribution63d": 0.0914485,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 17.3818,
-        "consistencyScore": 75.6751,
-        "relativeStrengthScore": 39.7911,
+        "directionScore": 13.8272,
+        "consistencyScore": 68.5791,
+        "relativeStrengthScore": 31.4024,
         "drawdownControlScore": 97.8769,
-        "confirmationScore": 32.5365
+        "confirmationScore": 21.4057
       },
-      "benchmarkPercentile": 0.841772,
+      "benchmarkPercentile": 0.817464,
       "metricPercentiles": {
-        "trendSlope63d": 0.708861,
-        "trendFitR2_63d": 0.886603,
-        "excessReturnVsSpy63d": 0.697403,
-        "drawdownControlScore": 0.966772,
-        "growthSpurtScore": 0.841772
+        "trendSlope63d": 0.72909,
+        "trendFitR2_63d": 0.920042,
+        "excessReturnVsSpy63d": 0.702703,
+        "drawdownControlScore": 0.965281,
+        "growthSpurtScore": 0.817464
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6633,6 +6635,39 @@
         "volume": 1400,
         "source": "yahoo-chart",
         "adjusted_close": 11.050000190734863
+      },
+      {
+        "ticker": "MACI",
+        "date": "2026-10-09",
+        "open": 11.079999923706055,
+        "high": 11.079999923706055,
+        "low": 11.079999923706055,
+        "close": 11.079999923706055,
+        "volume": 300,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.079999923706055
+      },
+      {
+        "ticker": "MACI",
+        "date": "2026-10-12",
+        "open": 11.079999923706055,
+        "high": 11.079999923706055,
+        "low": 11.079999923706055,
+        "close": 11.079999923706055,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.079999923706055
+      },
+      {
+        "ticker": "MACI",
+        "date": "2026-10-13",
+        "open": 11.050000190734863,
+        "high": 11.050000190734863,
+        "low": 11.050000190734863,
+        "close": 11.050000190734863,
+        "volume": 311,
+        "source": "yahoo-chart",
+        "adjusted_close": 11.050000190734863
       }
     ],
     "dataStatus": {
@@ -6674,13 +6709,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 50.03,
-      "growthSpurtBenchmarkPercentile": 0.841772,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T10:49:43.377165+00:00",
+      "growthSpurtScore": 44.4,
+      "growthSpurtBenchmarkPercentile": 0.817464,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-13T15:13:51.335059+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

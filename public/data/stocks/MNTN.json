@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T11:06:37.078112+00:00",
+  "generatedAt": "2026-10-13T15:32:10.354768+00:00",
   "record": {
     "security": {
       "ticker": "MNTN",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.42,
-      "dailyChangePercent": 3.6816,
+      "latestPrice": 9.95,
+      "dailyChangePercent": 0.5051,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.169862,
       "latestRevenueBillions": 0.2901,
@@ -473,50 +473,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MNTN",
-      "generatedAt": "2026-10-09T10:49:43.377165+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-13T15:13:51.335059+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 20.67,
+      "growthSpurtScore": 19.25,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.11993244,
-        "return63d": -0.00761904,
-        "trendSlope21d": -0.00971856,
-        "trendSlope63d": 0.00225122,
-        "trendAnnualizedReturn63d": 0.7635144,
-        "trendFitR2_63d": 0.11671646,
+        "return21d": -0.16806022,
+        "return63d": -0.0206693,
+        "trendSlope21d": -0.00822446,
+        "trendSlope63d": 0.00125135,
+        "trendAnnualizedReturn63d": 0.37072681,
+        "trendFitR2_63d": 0.04654092,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.12339032,
+        "trendResidualVolatility63d": 0.12846306,
         "maxDrawdown63d": -0.26523029,
-        "downsideVolatility63d": 0.02419615,
-        "excessReturnVsSpy21d": -0.13757643,
-        "excessReturnVsSpy63d": -0.03530539,
-        "trendAcceleration": -0.02068048,
-        "largestOneDayContribution63d": 0.05259587,
+        "downsideVolatility63d": 0.02416438,
+        "excessReturnVsSpy21d": -0.1919461,
+        "excessReturnVsSpy63d": -0.05278898,
+        "trendAcceleration": -0.01937132,
+        "largestOneDayContribution63d": 0.0529991,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 45.0,
         "consistencyScore": 7.1825,
-        "relativeStrengthScore": 18.1572,
+        "relativeStrengthScore": 11.0545,
         "drawdownControlScore": 11.5899,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.494726,
+      "benchmarkPercentile": 0.4808,
       "metricPercentiles": {
-        "trendSlope63d": 0.860232,
-        "trendFitR2_63d": 0.274789,
-        "excessReturnVsSpy63d": 0.600954,
-        "drawdownControlScore": 0.361814,
-        "growthSpurtScore": 0.494726
+        "trendSlope63d": 0.817991,
+        "trendFitR2_63d": 0.194634,
+        "excessReturnVsSpy63d": 0.593005,
+        "drawdownControlScore": 0.376644,
+        "growthSpurtScore": 0.4808
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4335,6 +4338,39 @@
         "volume": 854700,
         "source": "yahoo-chart",
         "adjusted_close": 10.420000076293945
+      },
+      {
+        "ticker": "MNTN",
+        "date": "2026-10-09",
+        "open": 10.5,
+        "high": 10.590999603271484,
+        "low": 10.130000114440918,
+        "close": 10.1899995803833,
+        "volume": 571100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.1899995803833
+      },
+      {
+        "ticker": "MNTN",
+        "date": "2026-10-12",
+        "open": 10.199999809265137,
+        "high": 10.319999694824219,
+        "low": 9.779999732971191,
+        "close": 9.899999618530273,
+        "volume": 429300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.899999618530273
+      },
+      {
+        "ticker": "MNTN",
+        "date": "2026-10-13",
+        "open": 9.920000076293945,
+        "high": 10.076000213623047,
+        "low": 9.899999618530273,
+        "close": 9.949999809265137,
+        "volume": 96324,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.949999809265137
       }
     ],
     "dataStatus": {
@@ -4372,13 +4408,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 20.67,
-      "growthSpurtBenchmarkPercentile": 0.494726,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T10:49:43.377165+00:00",
+      "growthSpurtScore": 19.25,
+      "growthSpurtBenchmarkPercentile": 0.4808,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-13T15:13:51.335059+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

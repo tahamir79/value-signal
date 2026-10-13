@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T11:06:37.078112+00:00",
+  "generatedAt": "2026-10-13T15:32:10.354768+00:00",
   "record": {
     "security": {
       "ticker": "FLYX",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.31,
-      "dailyChangePercent": 7.377,
+      "latestPrice": 1.28,
+      "dailyChangePercent": -5.1852,
       "marketCapBillions": null,
       "liabilitiesToAssets": 1.189668,
       "latestRevenueBillions": 0.3759,
@@ -488,50 +488,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FLYX",
-      "generatedAt": "2026-10-09T10:49:43.377165+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-13T15:13:51.335059+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 25.45,
+      "growthSpurtScore": 42.66,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.14912277,
-        "return63d": -0.21084339,
-        "trendSlope21d": 0.00454734,
-        "trendSlope63d": 0.00017369,
-        "trendAnnualizedReturn63d": 0.0447412,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.06566189,
-        "maxDrawdown63d": -0.30379747,
-        "downsideVolatility63d": 0.02900786,
-        "excessReturnVsSpy21d": 0.13147878,
-        "excessReturnVsSpy63d": -0.23852974,
-        "trendAcceleration": 0.00454734,
-        "largestOneDayContribution63d": 0.04551301,
+        "return21d": 0.14285711,
+        "return63d": -0.06569345,
+        "trendSlope21d": 0.00272116,
+        "trendSlope63d": 0.00095959,
+        "trendAnnualizedReturn63d": 0.27356191,
+        "trendFitR2_63d": 0.10858366,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.04788417,
+        "maxDrawdown63d": -0.16666668,
+        "downsideVolatility63d": 0.02398731,
+        "excessReturnVsSpy21d": 0.11897123,
+        "excessReturnVsSpy63d": -0.09781314,
+        "trendAcceleration": 0.00272116,
+        "largestOneDayContribution63d": 0.04274448,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 25.7524,
-        "consistencyScore": 2.8968,
+        "directionScore": 55.1722,
+        "consistencyScore": 9.7701,
         "relativeStrengthScore": 35.0,
-        "drawdownControlScore": 0.0,
+        "drawdownControlScore": 44.4444,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.574103,
+      "benchmarkPercentile": 0.795108,
       "metricPercentiles": {
-        "trendSlope63d": 0.683017,
-        "trendFitR2_63d": 0.065928,
-        "excessReturnVsSpy63d": 0.249073,
-        "drawdownControlScore": 0.150316,
-        "growthSpurtScore": 0.574103
+        "trendSlope63d": 0.795897,
+        "trendFitR2_63d": 0.254077,
+        "excessReturnVsSpy63d": 0.491786,
+        "drawdownControlScore": 0.615729,
+        "growthSpurtScore": 0.795108
       },
       "reasonCodes": [
+        "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -8189,6 +8193,39 @@
         "volume": 501200,
         "source": "yahoo-chart",
         "adjusted_close": 1.309999942779541
+      },
+      {
+        "ticker": "FLYX",
+        "date": "2026-10-09",
+        "open": 1.3200000524520874,
+        "high": 1.3799999952316284,
+        "low": 1.2580000162124634,
+        "close": 1.350000023841858,
+        "volume": 275900,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.350000023841858
+      },
+      {
+        "ticker": "FLYX",
+        "date": "2026-10-12",
+        "open": 1.350000023841858,
+        "high": 1.409999966621399,
+        "low": 1.3300000429153442,
+        "close": 1.350000023841858,
+        "volume": 176100,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.350000023841858
+      },
+      {
+        "ticker": "FLYX",
+        "date": "2026-10-13",
+        "open": 1.3300000429153442,
+        "high": 1.3300000429153442,
+        "low": 1.2741999626159668,
+        "close": 1.2799999713897705,
+        "volume": 57636,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.2799999713897705
       }
     ],
     "dataStatus": {
@@ -8230,13 +8267,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 25.45,
-      "growthSpurtBenchmarkPercentile": 0.574103,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T10:49:43.377165+00:00",
+      "growthSpurtScore": 42.66,
+      "growthSpurtBenchmarkPercentile": 0.795108,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-13T15:13:51.335059+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
