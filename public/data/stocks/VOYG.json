@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T14:54:39.389309+00:00",
+  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
   "record": {
     "security": {
       "ticker": "VOYG",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 27.34,
-      "dailyChangePercent": -2.9808,
+      "latestPrice": 26.36,
+      "dailyChangePercent": -3.0882,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.626878,
       "latestRevenueBillions": 0.1664,
@@ -501,49 +501,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "VOYG",
-      "generatedAt": "2026-10-09T14:34:50.284248+00:00",
-      "marketDataAsOf": "2026-10-09",
+      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 0.72,
+      "growthSpurtScore": 3.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.17076132,
-        "return63d": -0.07821981,
-        "trendSlope21d": -0.01172774,
-        "trendSlope63d": -0.00019223,
-        "trendAnnualizedReturn63d": -0.0472876,
+        "return21d": -0.20362532,
+        "return63d": -0.00902255,
+        "trendSlope21d": -0.01492915,
+        "trendSlope63d": -0.00214739,
+        "trendAnnualizedReturn63d": -0.41791666,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.17150361,
-        "maxDrawdown63d": -0.38256547,
-        "downsideVolatility63d": 0.03938678,
-        "excessReturnVsSpy21d": -0.19783598,
-        "excessReturnVsSpy63d": -0.1171669,
-        "trendAcceleration": -0.01955022,
-        "largestOneDayContribution63d": 0.0756828,
-        "percentAboveTrendLine63d": 0.50793651
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.18052661,
+        "maxDrawdown63d": -0.40469735,
+        "downsideVolatility63d": 0.03745694,
+        "excessReturnVsSpy21d": -0.22867788,
+        "excessReturnVsSpy63d": -0.04231828,
+        "trendAcceleration": -0.02204903,
+        "largestOneDayContribution63d": 0.07968656,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
         "directionScore": 0.0,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 0.0,
+        "consistencyScore": 3.6905,
+        "relativeStrengthScore": 15.3082,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.015526,
+      "benchmarkPercentile": 0.076396,
       "metricPercentiles": {
-        "trendSlope63d": 0.580526,
-        "trendFitR2_63d": 0.062105,
-        "excessReturnVsSpy63d": 0.423057,
-        "drawdownControlScore": 0.156842,
-        "growthSpurtScore": 0.015526
+        "trendSlope63d": 0.374078,
+        "trendFitR2_63d": 0.061644,
+        "excessReturnVsSpy63d": 0.588765,
+        "drawdownControlScore": 0.16254,
+        "growthSpurtScore": 0.076396
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4225,11 +4228,33 @@
         "date": "2026-10-09",
         "open": 27.770000457763672,
         "high": 28.450000762939453,
-        "low": 26.780099868774414,
-        "close": 27.34000015258789,
-        "volume": 215367,
+        "low": 26.700000762939453,
+        "close": 27.260000228881836,
+        "volume": 1331100,
         "source": "yahoo-chart",
-        "adjusted_close": 27.34000015258789
+        "adjusted_close": 27.260000228881836
+      },
+      {
+        "ticker": "VOYG",
+        "date": "2026-10-12",
+        "open": 27.1299991607666,
+        "high": 27.759000778198242,
+        "low": 26.809999465942383,
+        "close": 27.200000762939453,
+        "volume": 1582000,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.200000762939453
+      },
+      {
+        "ticker": "VOYG",
+        "date": "2026-10-13",
+        "open": 26.790000915527344,
+        "high": 27.399999618530273,
+        "low": 26.200000762939453,
+        "close": 26.360000610351562,
+        "volume": 1476500,
+        "source": "yahoo-chart",
+        "adjusted_close": 26.360000610351562
       }
     ],
     "dataStatus": {
@@ -4267,13 +4292,13 @@
       "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-10-09",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 0.72,
-      "growthSpurtBenchmarkPercentile": 0.015526,
-      "growthSpurtMarketDataAsOf": "2026-10-09",
-      "lastPipelineRun": "2026-10-09T14:34:50.284248+00:00",
+      "growthSpurtScore": 3.98,
+      "growthSpurtBenchmarkPercentile": 0.076396,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
       "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }

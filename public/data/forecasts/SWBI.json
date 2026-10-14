@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "SWBI",
   "companyName": "SMITH & WESSON BRANDS, INC.",
-  "generatedAt": "2026-10-14T09:15:23.356372+00:00",
-  "marketDataAsOf": "2026-10-09",
+  "generatedAt": "2026-10-14T13:30:24.596826+00:00",
+  "marketDataAsOf": "2026-10-13",
   "currentPrice": 14.22,
   "analystTarget": {
     "ticker": "SWBI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-14T09:15:23.356372+00:00",
+    "collectedAt": "2026-10-14T13:30:24.596826+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-14T09:15:23.356372+00:00",
-    "marketDataAsOf": "2026-10-09",
+    "generatedAt": "2026-10-14T13:30:24.596826+00:00",
+    "marketDataAsOf": "2026-10-13",
     "currentPrice": 14.22,
     "horizon30Day": {
-      "returnEstimate": 0.01472855,
-      "lowerReturn": -0.0662389,
-      "upperReturn": 0.06514644,
-      "estimatedPrice": 14.4294,
-      "lowerEstimatedPrice": 13.2781,
-      "upperEstimatedPrice": 15.1464,
+      "returnEstimate": 0.00607796,
+      "lowerReturn": -0.06638957,
+      "upperReturn": 0.0676626,
+      "estimatedPrice": 14.3064,
+      "lowerEstimatedPrice": 13.2759,
+      "upperEstimatedPrice": 15.1822,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.01431907,
-      "lowerReturn": -0.11880515,
-      "upperReturn": 0.1420329,
-      "estimatedPrice": 14.0164,
-      "lowerEstimatedPrice": 12.5306,
-      "upperEstimatedPrice": 16.2397,
+      "returnEstimate": -0.03392118,
+      "lowerReturn": -0.10732763,
+      "upperReturn": 0.15,
+      "estimatedPrice": 13.7376,
+      "lowerEstimatedPrice": 12.6938,
+      "upperEstimatedPrice": 16.353,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",

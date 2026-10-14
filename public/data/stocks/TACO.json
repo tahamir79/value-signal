@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T14:54:39.389309+00:00",
+  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
   "record": {
     "security": {
       "ticker": "TACO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.46,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.3924,
+      "latestPrice": 10.475,
+      "dailyChangePercent": 0.1434,
+      "marketCapBillions": 0.393,
       "liabilitiesToAssets": 0.044912,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -437,50 +437,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TACO",
-      "generatedAt": "2026-10-09T14:34:50.284248+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 26.63,
+      "growthSpurtScore": 29.76,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00238432,
-        "return63d": -0.00570346,
-        "trendSlope21d": 0.0,
+        "return21d": 0.00047757,
+        "return63d": 0.00047757,
+        "trendSlope21d": 6.832e-05,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00184982,
-        "maxDrawdown63d": -0.00855515,
-        "downsideVolatility63d": 0.00116459,
-        "excessReturnVsSpy21d": -0.02002831,
-        "excessReturnVsSpy63d": -0.03338981,
-        "trendAcceleration": -3.289e-05,
-        "largestOneDayContribution63d": 0.0747709,
-        "percentAboveTrendLine63d": 0.50793651
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.0016516,
+        "maxDrawdown63d": -0.00666664,
+        "downsideVolatility63d": 0.00096216,
+        "excessReturnVsSpy21d": -0.02457499,
+        "excessReturnVsSpy63d": -0.03281817,
+        "trendAcceleration": 1.8e-07,
+        "largestOneDayContribution63d": 0.08276464,
+        "percentAboveTrendLine63d": 0.65079365
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 22.2242,
-        "relativeStrengthScore": 27.673,
-        "drawdownControlScore": 97.1483,
-        "confirmationScore": 9.6711
+        "directionScore": 0.4577,
+        "consistencyScore": 33.7248,
+        "relativeStrengthScore": 25.9161,
+        "drawdownControlScore": 97.7778,
+        "confirmationScore": 13.3714
       },
-      "benchmarkPercentile": 0.580526,
+      "benchmarkPercentile": 0.624341,
       "metricPercentiles": {
-        "trendSlope63d": 0.610789,
-        "trendFitR2_63d": 0.062105,
-        "excessReturnVsSpy63d": 0.615547,
-        "drawdownControlScore": 0.960526,
-        "growthSpurtScore": 0.580526
+        "trendSlope63d": 0.630664,
+        "trendFitR2_63d": 0.061644,
+        "excessReturnVsSpy63d": 0.614202,
+        "drawdownControlScore": 0.969442,
+        "growthSpurtScore": 0.624341
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4200,6 +4204,39 @@
         "volume": 12900,
         "source": "yahoo-chart",
         "adjusted_close": 10.460000038146973
+      },
+      {
+        "ticker": "TACO",
+        "date": "2026-10-09",
+        "open": 10.46500015258789,
+        "high": 10.46500015258789,
+        "low": 10.460000038146973,
+        "close": 10.460000038146973,
+        "volume": 129100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.460000038146973
+      },
+      {
+        "ticker": "TACO",
+        "date": "2026-10-12",
+        "open": 10.479999542236328,
+        "high": 10.479999542236328,
+        "low": 10.460000038146973,
+        "close": 10.460000038146973,
+        "volume": 4900,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.460000038146973
+      },
+      {
+        "ticker": "TACO",
+        "date": "2026-10-13",
+        "open": 10.460000038146973,
+        "high": 10.475000381469727,
+        "low": 10.460000038146973,
+        "close": 10.475000381469727,
+        "volume": 27500,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.475000381469727
       }
     ],
     "dataStatus": {
@@ -4241,13 +4278,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 26.63,
-      "growthSpurtBenchmarkPercentile": 0.580526,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T14:34:50.284248+00:00",
+      "growthSpurtScore": 29.76,
+      "growthSpurtBenchmarkPercentile": 0.624341,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

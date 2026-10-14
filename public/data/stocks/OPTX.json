@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T14:54:39.389309+00:00",
+  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
   "record": {
     "security": {
       "ticker": "OPTX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 7.94,
-      "dailyChangePercent": -3.8741,
-      "marketCapBillions": 0.3198,
+      "latestPrice": 7.66,
+      "dailyChangePercent": -2.4204,
+      "marketCapBillions": 0.3085,
       "liabilitiesToAssets": 0.215335,
       "latestRevenueBillions": 0.0281,
       "grossMarginPercent": 23.2506,
@@ -309,7 +309,7 @@
       "shortTermDebtShare": 0.171022,
       "bookValue": 30475179.0,
       "bookValuePerShare": 0.756586,
-      "priceToBook": 10.494515,
+      "priceToBook": 10.124431,
       "retainedEarnings": 6218362.0
     },
     "balanceSheetScoringShadow": {
@@ -522,50 +522,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OPTX",
-      "generatedAt": "2026-10-09T14:34:50.284248+00:00",
-      "marketDataAsOf": "2026-10-09",
+      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 32.36,
+      "growthSpurtScore": 32.7,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.08916325,
-        "return63d": -0.04106276,
-        "trendSlope21d": 0.01660299,
-        "trendSlope63d": 0.00055395,
-        "trendAnnualizedReturn63d": 0.14980875,
-        "trendFitR2_63d": 0.01909374,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.10810909,
+        "return21d": 0.12979345,
+        "return63d": -0.05548703,
+        "trendSlope21d": 0.01449817,
+        "trendSlope63d": 0.0007398,
+        "trendAnnualizedReturn63d": 0.20493954,
+        "trendFitR2_63d": 0.02808272,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.10723547,
         "maxDrawdown63d": -0.30632632,
-        "downsideVolatility63d": 0.03147587,
-        "excessReturnVsSpy21d": 0.06208859,
-        "excessReturnVsSpy63d": -0.08000985,
-        "trendAcceleration": 0.01528543,
-        "largestOneDayContribution63d": 0.05380751,
+        "downsideVolatility63d": 0.03114903,
+        "excessReturnVsSpy21d": 0.1047409,
+        "excessReturnVsSpy63d": -0.08878277,
+        "trendAcceleration": 0.01360056,
+        "largestOneDayContribution63d": 0.05463695,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 39.2611,
-        "consistencyScore": 14.3254,
+        "directionScore": 46.3494,
+        "consistencyScore": 7.1825,
         "relativeStrengthScore": 35.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.650526,
+      "benchmarkPercentile": 0.659115,
       "metricPercentiles": {
-        "trendSlope63d": 0.724211,
-        "trendFitR2_63d": 0.154211,
-        "excessReturnVsSpy63d": 0.500264,
-        "drawdownControlScore": 0.156842,
-        "growthSpurtScore": 0.650526
+        "trendSlope63d": 0.758693,
+        "trendFitR2_63d": 0.172287,
+        "excessReturnVsSpy63d": 0.487546,
+        "drawdownControlScore": 0.16254,
+        "growthSpurtScore": 0.659115
       },
       "reasonCodes": [
+        "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -13552,12 +13556,34 @@
         "ticker": "OPTX",
         "date": "2026-10-09",
         "open": 8.274999618530273,
-        "high": 8.334699630737305,
+        "high": 8.335000038146973,
         "low": 7.809999942779541,
-        "close": 7.940000057220459,
-        "volume": 62505,
+        "close": 8.09000015258789,
+        "volume": 249400,
         "source": "yahoo-chart",
-        "adjusted_close": 7.940000057220459
+        "adjusted_close": 8.09000015258789
+      },
+      {
+        "ticker": "OPTX",
+        "date": "2026-10-12",
+        "open": 8.0,
+        "high": 8.149999618530273,
+        "low": 7.800000190734863,
+        "close": 7.849999904632568,
+        "volume": 193300,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.849999904632568
+      },
+      {
+        "ticker": "OPTX",
+        "date": "2026-10-13",
+        "open": 7.940000057220459,
+        "high": 7.940000057220459,
+        "low": 7.534999847412109,
+        "close": 7.659999847412109,
+        "volume": 197300,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.659999847412109
       }
     ],
     "dataStatus": {
@@ -13593,13 +13619,13 @@
       "officialSignal": "momentum-risk",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-10-09",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 32.36,
-      "growthSpurtBenchmarkPercentile": 0.650526,
-      "growthSpurtMarketDataAsOf": "2026-10-09",
-      "lastPipelineRun": "2026-10-09T14:34:50.284248+00:00",
+      "growthSpurtScore": 32.7,
+      "growthSpurtBenchmarkPercentile": 0.659115,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
       "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }

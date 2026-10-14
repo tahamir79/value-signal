@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T14:54:39.389309+00:00",
+  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
   "record": {
     "security": {
       "ticker": "TLIH",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.75,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 5.725,
+      "dailyChangePercent": -0.0873,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "TLIH",
-      "generatedAt": "2026-10-09T14:34:50.284248+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 46.08,
+      "growthSpurtScore": 26.68,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00859495,
-        "return63d": 0.15,
-        "trendSlope21d": -0.00057695,
-        "trendSlope63d": 3.62e-05,
-        "trendAnnualizedReturn63d": 0.00916445,
+        "return21d": -0.00434784,
+        "return63d": 0.00438598,
+        "trendSlope21d": -0.00062486,
+        "trendSlope63d": 0.0,
+        "trendAnnualizedReturn63d": 0.0,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.02187751,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.00988106,
         "maxDrawdown63d": -0.06779663,
-        "downsideVolatility63d": 0.00691169,
-        "excessReturnVsSpy21d": -0.00904904,
-        "excessReturnVsSpy63d": 0.12231365,
-        "trendAcceleration": -0.0007626,
-        "largestOneDayContribution63d": 0.10429092,
-        "percentAboveTrendLine63d": 0.50793651
+        "downsideVolatility63d": 0.0070146,
+        "excessReturnVsSpy21d": -0.0294004,
+        "excessReturnVsSpy63d": -0.02890975,
+        "trendAcceleration": -0.00066236,
+        "largestOneDayContribution63d": 0.06873621,
+        "percentAboveTrendLine63d": 0.63492063
       },
       "scoreBreakdown": {
-        "directionScore": 41.9083,
-        "consistencyScore": 19.2271,
-        "relativeStrengthScore": 78.541,
+        "directionScore": 1.2792,
+        "consistencyScore": 37.0815,
+        "relativeStrengthScore": 25.3927,
         "drawdownControlScore": 77.4011,
-        "confirmationScore": 13.8339
+        "confirmationScore": 3.3764
       },
-      "benchmarkPercentile": 0.783158,
+      "benchmarkPercentile": 0.582719,
       "metricPercentiles": {
-        "trendSlope63d": 0.624211,
-        "trendFitR2_63d": 0.062105,
-        "excessReturnVsSpy63d": 0.851401,
-        "drawdownControlScore": 0.895263,
-        "growthSpurtScore": 0.783158
+        "trendSlope63d": 0.630664,
+        "trendFitR2_63d": 0.061644,
+        "excessReturnVsSpy63d": 0.630101,
+        "drawdownControlScore": 0.894626,
+        "growthSpurtScore": 0.582719
       },
       "reasonCodes": [
-        "MARKET_RELATIVE_STRENGTH",
+        "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3867,6 +3870,39 @@
         "volume": 600,
         "source": "yahoo-chart",
         "adjusted_close": 5.75
+      },
+      {
+        "ticker": "TLIH",
+        "date": "2026-10-09",
+        "open": 5.75,
+        "high": 5.75,
+        "low": 5.75,
+        "close": 5.75,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.75
+      },
+      {
+        "ticker": "TLIH",
+        "date": "2026-10-12",
+        "open": 5.679999828338623,
+        "high": 5.730000019073486,
+        "low": 5.679999828338623,
+        "close": 5.730000019073486,
+        "volume": 1000,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.730000019073486
+      },
+      {
+        "ticker": "TLIH",
+        "date": "2026-10-13",
+        "open": 5.489999771118164,
+        "high": 5.724999904632568,
+        "low": 5.489999771118164,
+        "close": 5.724999904632568,
+        "volume": 2600,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.724999904632568
       }
     ],
     "dataStatus": {
@@ -3906,13 +3942,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 46.08,
-      "growthSpurtBenchmarkPercentile": 0.783158,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T14:34:50.284248+00:00",
+      "growthSpurtScore": 26.68,
+      "growthSpurtBenchmarkPercentile": 0.582719,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

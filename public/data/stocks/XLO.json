@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-09T14:54:39.389309+00:00",
+  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
   "record": {
     "security": {
       "ticker": "XLO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.01,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0521,
+      "latestPrice": 9.22,
+      "dailyChangePercent": 1.5978,
+      "marketCapBillions": 0.0533,
       "liabilitiesToAssets": 0.531526,
       "latestRevenueBillions": 0.0438,
       "grossMarginPercent": null,
@@ -239,7 +239,7 @@
       "shortTermDebtShare": null,
       "bookValue": 72264000.0,
       "bookValuePerShare": 12.496993,
-      "priceToBook": 0.720973,
+      "priceToBook": 0.737777,
       "retainedEarnings": -434691000.0
     },
     "balanceSheetScoringShadow": {
@@ -459,50 +459,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "XLO",
-      "generatedAt": "2026-10-09T14:34:50.284248+00:00",
-      "marketDataAsOf": "2026-10-08",
+      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
+      "marketDataAsOf": "2026-10-13",
       "status": "not_detected",
-      "growthSpurtScore": 23.96,
+      "growthSpurtScore": 37.76,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0044593,
-        "return63d": -0.00989013,
-        "trendSlope21d": 0.00018468,
-        "trendSlope63d": -0.00014907,
-        "trendAnnualizedReturn63d": -0.03686989,
+        "return21d": 0.0324748,
+        "return63d": 0.01096495,
+        "trendSlope21d": 0.00020479,
+        "trendSlope63d": -3.166e-05,
+        "trendAnnualizedReturn63d": -0.00794553,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.02240317,
-        "maxDrawdown63d": -0.10064928,
-        "downsideVolatility63d": 0.00783503,
-        "excessReturnVsSpy21d": -0.01318468,
-        "excessReturnVsSpy63d": -0.03757648,
-        "trendAcceleration": 0.00021633,
-        "largestOneDayContribution63d": 0.07880672,
+        "trendResidualVolatility63d": 0.02208715,
+        "maxDrawdown63d": -0.07973415,
+        "downsideVolatility63d": 0.0077482,
+        "excessReturnVsSpy21d": 0.00742224,
+        "excessReturnVsSpy63d": -0.02233078,
+        "trendAcceleration": 0.0003416,
+        "largestOneDayContribution63d": 0.08124646,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 2.9729,
-        "consistencyScore": 19.0359,
-        "relativeStrengthScore": 28.9663,
-        "drawdownControlScore": 66.4502,
-        "confirmationScore": 25.4962
+        "directionScore": 23.1981,
+        "consistencyScore": 19.1508,
+        "relativeStrengthScore": 44.1754,
+        "drawdownControlScore": 73.422,
+        "confirmationScore": 61.6076
       },
-      "benchmarkPercentile": 0.536316,
+      "benchmarkPercentile": 0.709168,
       "metricPercentiles": {
-        "trendSlope63d": 0.585789,
-        "trendFitR2_63d": 0.062105,
-        "excessReturnVsSpy63d": 0.602327,
-        "drawdownControlScore": 0.822105,
-        "growthSpurtScore": 0.536316
+        "trendSlope63d": 0.620126,
+        "trendFitR2_63d": 0.061644,
+        "excessReturnVsSpy63d": 0.667197,
+        "drawdownControlScore": 0.877239,
+        "growthSpurtScore": 0.709168
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14199,6 +14203,39 @@
         "volume": 20800,
         "source": "yahoo-chart",
         "adjusted_close": 9.010000228881836
+      },
+      {
+        "ticker": "XLO",
+        "date": "2026-10-09",
+        "open": 8.9399995803833,
+        "high": 9.15999984741211,
+        "low": 8.819999694824219,
+        "close": 9.050000190734863,
+        "volume": 5500,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.050000190734863
+      },
+      {
+        "ticker": "XLO",
+        "date": "2026-10-12",
+        "open": 9.109999656677246,
+        "high": 9.420000076293945,
+        "low": 8.982000350952148,
+        "close": 9.074999809265137,
+        "volume": 8400,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.074999809265137
+      },
+      {
+        "ticker": "XLO",
+        "date": "2026-10-13",
+        "open": 9.050000190734863,
+        "high": 9.220000267028809,
+        "low": 8.854999542236328,
+        "close": 9.220000267028809,
+        "volume": 18100,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.220000267028809
       }
     ],
     "dataStatus": {
@@ -14236,13 +14273,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-10-08",
+      "latestScoringDate": "2026-10-13",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 23.96,
-      "growthSpurtBenchmarkPercentile": 0.536316,
-      "growthSpurtMarketDataAsOf": "2026-10-08",
-      "lastPipelineRun": "2026-10-09T14:34:50.284248+00:00",
+      "growthSpurtScore": 37.76,
+      "growthSpurtBenchmarkPercentile": 0.709168,
+      "growthSpurtMarketDataAsOf": "2026-10-13",
+      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
