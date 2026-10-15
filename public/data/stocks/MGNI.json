@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-14T09:14:13.429622+00:00",
+  "generatedAt": "2026-10-15T08:44:49.380588+00:00",
   "record": {
     "security": {
       "ticker": "MGNI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 25.32,
-      "dailyChangePercent": 0.9569,
-      "marketCapBillions": 3.6315,
+      "latestPrice": 23.87,
+      "dailyChangePercent": -5.7267,
+      "marketCapBillions": 3.4235,
       "liabilitiesToAssets": 0.691287,
       "latestRevenueBillions": 0.714,
       "grossMarginPercent": null,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": 0.010169,
       "bookValue": 936273000.0,
       "bookValuePerShare": 6.528001,
-      "priceToBook": 3.878676,
+      "priceToBook": 3.656556,
       "retainedEarnings": -492778000.0
     },
     "balanceSheetScoringShadow": {
@@ -497,65 +497,57 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MGNI",
-      "generatedAt": "2026-10-14T08:54:25.422015+00:00",
-      "marketDataAsOf": "2026-10-13",
-      "status": "detected",
-      "growthSpurtScore": 79.39,
+      "generatedAt": "2026-10-15T08:32:16.602533+00:00",
+      "marketDataAsOf": "2026-10-14",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.06208052,
-        "return63d": 0.23572474,
-        "trendSlope21d": 0.00208649,
-        "trendSlope63d": 0.00370996,
-        "trendAnnualizedReturn63d": 1.54698184,
-        "trendFitR2_63d": 0.60885572,
+        "return21d": 0.00674828,
+        "return63d": 0.19889508,
+        "trendSlope21d": 0.00041994,
+        "trendSlope63d": 0.00335277,
+        "trendAnnualizedReturn63d": 1.32774266,
+        "trendFitR2_63d": 0.56953056,
         "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.06512446,
-        "maxDrawdown63d": -0.09994976,
-        "downsideVolatility63d": 0.01185592,
-        "excessReturnVsSpy21d": 0.03702796,
-        "excessReturnVsSpy63d": 0.20242901,
-        "trendAcceleration": -0.00414788,
-        "largestOneDayContribution63d": 0.13622747,
+        "trendResidualVolatility63d": 0.06730613,
+        "maxDrawdown63d": -0.0870074,
+        "downsideVolatility63d": 0.01303209,
+        "excessReturnVsSpy21d": -0.01189606,
+        "excessReturnVsSpy63d": 0.17120025,
+        "trendAcceleration": -0.00558922,
+        "largestOneDayContribution63d": 0.1350232,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 46.5882,
-        "relativeStrengthScore": 98.6997,
-        "drawdownControlScore": 66.6834,
-        "confirmationScore": 80.0
+        "directionScore": 84.4989,
+        "consistencyScore": 43.8354,
+        "relativeStrengthScore": 77.2955,
+        "drawdownControlScore": 70.9975,
+        "confirmationScore": 25.7953
       },
-      "benchmarkPercentile": 0.97212,
+      "benchmarkPercentile": 0.902683,
       "metricPercentiles": {
-        "trendSlope63d": 0.921094,
-        "trendFitR2_63d": 0.65071,
-        "excessReturnVsSpy63d": 0.919979,
-        "drawdownControlScore": 0.811678,
-        "growthSpurtScore": 0.97212
+        "trendSlope63d": 0.91636,
+        "trendFitR2_63d": 0.61494,
+        "excessReturnVsSpy63d": 0.9115,
+        "drawdownControlScore": 0.852183,
+        "growthSpurtScore": 0.902683
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "MGNI",
-        "date": "2021-10-14",
-        "open": 31.0,
-        "high": 31.549999237060547,
-        "low": 30.309999465942383,
-        "close": 30.440000534057617,
-        "volume": 1213500,
-        "source": "yahoo-chart",
-        "adjusted_close": 30.440000534057617
-      },
       {
         "ticker": "MGNI",
         "date": "2021-10-15",
@@ -14338,6 +14330,17 @@
         "volume": 1493500,
         "source": "yahoo-chart",
         "adjusted_close": 25.31999969482422
+      },
+      {
+        "ticker": "MGNI",
+        "date": "2026-10-14",
+        "open": 24.5,
+        "high": 25.139999389648438,
+        "low": 23.6299991607666,
+        "close": 23.8700008392334,
+        "volume": 2224400,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.8700008392334
       }
     ],
     "dataStatus": {
@@ -14371,13 +14374,13 @@
       "officialSignal": "quality-watchlist",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-10-13",
+      "latestScoringDate": "2026-10-14",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 79.39,
-      "growthSpurtBenchmarkPercentile": 0.97212,
-      "growthSpurtMarketDataAsOf": "2026-10-13",
-      "lastPipelineRun": "2026-10-14T08:54:25.422015+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.902683,
+      "growthSpurtMarketDataAsOf": "2026-10-14",
+      "lastPipelineRun": "2026-10-15T08:32:16.602533+00:00",
       "balanceSheetExperimentalSignal": "quality-watchlist",
       "balanceSheetWouldChangeSignal": false
     }
