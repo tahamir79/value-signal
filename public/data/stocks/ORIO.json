@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-14T13:28:20.503143+00:00",
+  "generatedAt": "2026-10-15T13:12:58.346396+00:00",
   "record": {
     "security": {
       "ticker": "ORIO",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.01,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 0.91,
+      "dailyChangePercent": -9.901,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,64 +335,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ORIO",
-      "generatedAt": "2026-10-14T13:03:52.900264+00:00",
-      "marketDataAsOf": "2026-10-13",
-      "status": "emerging",
-      "growthSpurtScore": 57.24,
+      "generatedAt": "2026-10-15T12:50:37.560541+00:00",
+      "marketDataAsOf": "2026-10-14",
+      "status": "not_detected",
+      "growthSpurtScore": 52.92,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0,
-        "return63d": 0.40277771,
-        "trendSlope21d": -0.00054735,
-        "trendSlope63d": 0.00877654,
-        "trendAnnualizedReturn63d": 8.13110653,
-        "trendFitR2_63d": 0.77795473,
+        "return21d": -0.09900987,
+        "return63d": 0.30935257,
+        "trendSlope21d": -0.0014876,
+        "trendSlope63d": 0.00859251,
+        "trendAnnualizedReturn63d": 7.71732817,
+        "trendFitR2_63d": 0.74686832,
         "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.09234236,
-        "maxDrawdown63d": -0.13235299,
-        "downsideVolatility63d": 0.02311186,
-        "excessReturnVsSpy21d": -0.02505256,
-        "excessReturnVsSpy63d": 0.36948197,
-        "trendAcceleration": -0.01476455,
-        "largestOneDayContribution63d": 0.1179259,
-        "percentAboveTrendLine63d": 0.50793651
+        "trendResidualVolatility63d": 0.09733468,
+        "maxDrawdown63d": -0.18749998,
+        "downsideVolatility63d": 0.02662841,
+        "excessReturnVsSpy21d": -0.11765421,
+        "excessReturnVsSpy63d": 0.28165774,
+        "trendAcceleration": -0.01581144,
+        "largestOneDayContribution63d": 0.11322963,
+        "percentAboveTrendLine63d": 0.49206349
       },
       "scoreBreakdown": {
         "directionScore": 80.0,
-        "consistencyScore": 42.1825,
-        "relativeStrengthScore": 71.5395,
-        "drawdownControlScore": 55.8823,
+        "consistencyScore": 41.1697,
+        "relativeStrengthScore": 65.0,
+        "drawdownControlScore": 37.5,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.905163,
+      "benchmarkPercentile": 0.854211,
       "metricPercentiles": {
-        "trendSlope63d": 0.977871,
-        "trendFitR2_63d": 0.816122,
-        "excessReturnVsSpy63d": 0.944886,
-        "drawdownControlScore": 0.73235,
-        "growthSpurtScore": 0.905163
+        "trendSlope63d": 0.978421,
+        "trendFitR2_63d": 0.785789,
+        "excessReturnVsSpy63d": 0.932311,
+        "drawdownControlScore": 0.576842,
+        "growthSpurtScore": 0.854211
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "ORIO",
-        "date": "2021-10-14",
-        "open": 15.449999809265137,
-        "high": 16.139999389648438,
-        "low": 15.119999885559082,
-        "close": 15.420000076293945,
-        "volume": 400467,
-        "source": "yahoo-chart",
-        "adjusted_close": 15.420000076293945
-      },
       {
         "ticker": "ORIO",
         "date": "2021-10-15",
@@ -14175,6 +14166,17 @@
         "volume": 30800,
         "source": "yahoo-chart",
         "adjusted_close": 1.0099999904632568
+      },
+      {
+        "ticker": "ORIO",
+        "date": "2026-10-14",
+        "open": 0.9750000238418579,
+        "high": 1.0199999809265137,
+        "low": 0.8410000205039978,
+        "close": 0.9100000262260437,
+        "volume": 122800,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.9100000262260437
       }
     ],
     "dataStatus": {
@@ -14214,13 +14216,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-13",
+      "latestScoringDate": "2026-10-14",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 57.24,
-      "growthSpurtBenchmarkPercentile": 0.905163,
-      "growthSpurtMarketDataAsOf": "2026-10-13",
-      "lastPipelineRun": "2026-10-14T13:03:52.900264+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 52.92,
+      "growthSpurtBenchmarkPercentile": 0.854211,
+      "growthSpurtMarketDataAsOf": "2026-10-14",
+      "lastPipelineRun": "2026-10-15T12:50:37.560541+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
