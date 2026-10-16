@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-10-15T13:14:18.964470+00:00",
-  "corpusHash": "c8a58c8c04131eb38d95dc38d922e527df134f4a370cf242726205b4902b140f",
+  "generatedAt": "2026-10-16T01:49:38.111558+00:00",
+  "corpusHash": "5c66792e286852d1d4595b842ea5a3e980546826cc38c12193fbbc932f16147d",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1209291,
-  "termCount": 18953292,
-  "tickerCount": 4706,
+  "documentCount": 1209361,
+  "termCount": 18955098,
+  "tickerCount": 4707,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28243,6 +28243,12 @@
       "documentCount": 482,
       "termCount": 5572,
       "latestFilingDate": "2026-08-14"
+    },
+    "JFILD": {
+      "path": "public/data/search/JFILD.json",
+      "documentCount": 70,
+      "termCount": 1806,
+      "latestFilingDate": "2026-10-14"
     }
   },
   "errors": [
@@ -34305,21 +34311,38 @@
     {
       "ticker": "RNTZ",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "APTT",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "NKTP",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-10-15T13:14:06.536786+00:00",
+    "generatedAt": "2026-10-16T01:49:25.526237+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
+    "selectedTickers": [
+      "APTT",
+      "JFILD",
+      "NKTP"
+    ],
+    "indexedTickers": [
+      "JFILD"
+    ],
+    "failedTickers": [
+      "APTT",
+      "NKTP"
+    ],
+    "requested": 3,
+    "indexed": 1,
+    "failed": 2,
     "remainingUnindexed": 1435,
     "remainingUnattempted": 0,
     "finished": true

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-15T02:02:58.698583+00:00",
+  "generatedAt": "2026-10-16T01:48:11.464213+00:00",
   "record": {
     "security": {
       "ticker": "CPRT",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 26.27,
-      "dailyChangePercent": -0.3792,
-      "marketCapBillions": 24.3347,
+      "latestPrice": 27.75,
+      "dailyChangePercent": 5.6338,
+      "marketCapBillions": 25.7057,
       "liabilitiesToAssets": 0.09114,
       "latestRevenueBillions": 0.5257,
       "grossMarginPercent": 47.6413,
@@ -309,7 +309,7 @@
       "shortTermDebtShare": 0.872605,
       "bookValue": 9097295000.0,
       "bookValuePerShare": 9.820788,
-      "priceToBook": 2.674938,
+      "priceToBook": 2.825639,
       "retainedEarnings": 7980626000.0
     },
     "balanceSheetScoringShadow": {
@@ -522,62 +522,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CPRT",
-      "generatedAt": "2026-10-15T01:40:18.125764+00:00",
-      "marketDataAsOf": "2026-10-14",
+      "generatedAt": "2026-10-16T01:33:44.612901+00:00",
+      "marketDataAsOf": "2026-10-15",
       "status": "not_detected",
-      "growthSpurtScore": 6.84,
+      "growthSpurtScore": 8.02,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.15367269,
-        "return63d": -0.07140334,
-        "trendSlope21d": -0.00584361,
-        "trendSlope63d": -0.00173267,
-        "trendAnnualizedReturn63d": -0.35379155,
+        "return21d": -0.09961063,
+        "return63d": 0.0050706,
+        "trendSlope21d": -0.00459619,
+        "trendSlope63d": -0.00185622,
+        "trendAnnualizedReturn63d": -0.37360077,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.07618195,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.07472324,
         "maxDrawdown63d": -0.2347801,
-        "downsideVolatility63d": 0.0115041,
-        "excessReturnVsSpy21d": -0.17231703,
-        "excessReturnVsSpy63d": -0.09909817,
-        "trendAcceleration": -0.01011671,
-        "largestOneDayContribution63d": 0.07042716,
+        "downsideVolatility63d": 0.01149599,
+        "excessReturnVsSpy21d": -0.1256785,
+        "excessReturnVsSpy63d": -0.03585088,
+        "trendAcceleration": -0.00872224,
+        "largestOneDayContribution63d": 0.06717102,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 14.3254,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 1.4789,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 17.9356,
         "drawdownControlScore": 21.74,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.152525,
+      "benchmarkPercentile": 0.172046,
       "metricPercentiles": {
-        "trendSlope63d": 0.408641,
-        "trendFitR2_63d": 0.063769,
-        "excessReturnVsSpy63d": 0.496599,
-        "drawdownControlScore": 0.450286,
-        "growthSpurtScore": 0.152525
+        "trendSlope63d": 0.404997,
+        "trendFitR2_63d": 0.06481,
+        "excessReturnVsSpy63d": 0.631083,
+        "drawdownControlScore": 0.45341,
+        "growthSpurtScore": 0.172046
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "CPRT",
-        "date": "2021-10-15",
-        "open": 36.23749923706055,
-        "high": 36.557498931884766,
-        "low": 36.11249923706055,
-        "close": 36.247501373291016,
-        "volume": 2862400,
-        "source": "yahoo-chart",
-        "adjusted_close": 36.247501373291016
-      },
       {
         "ticker": "CPRT",
         "date": "2021-10-18",
@@ -14357,9 +14349,20 @@
         "high": 26.350000381469727,
         "low": 25.719999313354492,
         "close": 26.270000457763672,
-        "volume": 9152400,
+        "volume": 9164700,
         "source": "yahoo-chart",
         "adjusted_close": 26.270000457763672
+      },
+      {
+        "ticker": "CPRT",
+        "date": "2026-10-15",
+        "open": 26.850000381469727,
+        "high": 27.780000686645508,
+        "low": 26.829999923706055,
+        "close": 27.75,
+        "volume": 14474500,
+        "source": "yahoo-chart",
+        "adjusted_close": 27.75
       }
     ],
     "dataStatus": {
@@ -14390,17 +14393,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-09-29",
-      "latestScoringDate": "2026-10-14",
+      "latestScoringDate": "2026-10-15",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 6.84,
-      "growthSpurtBenchmarkPercentile": 0.152525,
-      "growthSpurtMarketDataAsOf": "2026-10-14",
-      "lastPipelineRun": "2026-10-15T01:40:18.125764+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 8.02,
+      "growthSpurtBenchmarkPercentile": 0.172046,
+      "growthSpurtMarketDataAsOf": "2026-10-15",
+      "lastPipelineRun": "2026-10-16T01:33:44.612901+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
