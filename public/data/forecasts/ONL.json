@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "ONL",
   "companyName": "Orion Properties Inc.",
-  "generatedAt": "2026-10-17T01:47:03.229310+00:00",
-  "marketDataAsOf": "2026-10-15",
+  "generatedAt": "2026-10-17T08:19:11.218687+00:00",
+  "marketDataAsOf": "2026-10-16",
   "currentPrice": 2.06,
   "analystTarget": {
     "ticker": "ONL",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-17T01:47:03.229310+00:00",
+    "collectedAt": "2026-10-17T08:19:11.218687+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-17T01:47:03.229310+00:00",
-    "marketDataAsOf": "2026-10-15",
+    "generatedAt": "2026-10-17T08:19:11.218687+00:00",
+    "marketDataAsOf": "2026-10-16",
     "currentPrice": 2.06,
     "horizon30Day": {
-      "returnEstimate": 0.00342661,
-      "lowerReturn": -0.07859526,
-      "upperReturn": 0.07913224,
-      "estimatedPrice": 2.0671,
-      "lowerEstimatedPrice": 1.8981,
-      "upperEstimatedPrice": 2.223,
+      "returnEstimate": -0.00108622,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.08,
+      "estimatedPrice": 2.0578,
+      "lowerEstimatedPrice": 1.8952,
+      "upperEstimatedPrice": 2.2248,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,11 +61,11 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00500448,
-      "lowerReturn": -0.13248181,
+      "returnEstimate": 0.0051573,
+      "lowerReturn": -0.10913281,
       "upperReturn": 0.15,
-      "estimatedPrice": 2.0703,
-      "lowerEstimatedPrice": 1.7871,
+      "estimatedPrice": 2.0706,
+      "lowerEstimatedPrice": 1.8352,
       "upperEstimatedPrice": 2.369,
       "sampleCount": 96,
       "status": "available",
@@ -77,6 +77,8 @@
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: upper return clipped to +/-8%",
       "90-day scenario: upper return clipped to +/-15%"
     ]
   },
