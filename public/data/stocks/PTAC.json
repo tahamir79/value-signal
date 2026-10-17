@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-16T13:02:17.199246+00:00",
+  "generatedAt": "2026-10-17T12:09:08.819515+00:00",
   "record": {
     "security": {
       "ticker": "PTAC",
@@ -415,50 +415,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PTAC",
-      "generatedAt": "2026-10-16T12:39:34.239662+00:00",
-      "marketDataAsOf": "2026-10-15",
+      "generatedAt": "2026-10-17T11:47:35.410326+00:00",
+      "marketDataAsOf": "2026-10-16",
       "status": "not_detected",
-      "growthSpurtScore": 38.01,
+      "growthSpurtScore": 35.41,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00301202,
+        "return21d": -0.00299408,
         "return63d": 0.01011117,
         "trendSlope21d": 0.0,
-        "trendSlope63d": 0.0001005,
-        "trendAnnualizedReturn63d": 0.02565068,
-        "trendFitR2_63d": 0.4717699,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.0021605,
+        "trendSlope63d": 9.731e-05,
+        "trendAnnualizedReturn63d": 0.0248249,
+        "trendFitR2_63d": 0.45716724,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00212544,
         "maxDrawdown63d": -0.00600595,
         "downsideVolatility63d": 0.00236914,
-        "excessReturnVsSpy21d": -0.02305585,
-        "excessReturnVsSpy63d": -0.03081032,
+        "excessReturnVsSpy21d": -0.00633175,
+        "excessReturnVsSpy63d": -0.02095687,
         "trendAcceleration": -0.0001005,
-        "largestOneDayContribution63d": 0.13033976,
+        "largestOneDayContribution63d": 0.13949482,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 8.255,
-        "consistencyScore": 56.2065,
-        "relativeStrengthScore": 27.3964,
+        "directionScore": 6.1409,
+        "consistencyScore": 40.9114,
+        "relativeStrengthScore": 38.7161,
         "drawdownControlScore": 97.998,
-        "confirmationScore": 13.011
+        "confirmationScore": 8.995
       },
-      "benchmarkPercentile": 0.70783,
+      "benchmarkPercentile": 0.668766,
       "metricPercentiles": {
-        "trendSlope63d": 0.67052,
-        "trendFitR2_63d": 0.535996,
-        "excessReturnVsSpy63d": 0.659115,
-        "drawdownControlScore": 0.970047,
-        "growthSpurtScore": 0.70783
+        "trendSlope63d": 0.67874,
+        "trendFitR2_63d": 0.525459,
+        "excessReturnVsSpy63d": 0.666316,
+        "drawdownControlScore": 0.970079,
+        "growthSpurtScore": 0.668766
       },
       "reasonCodes": [
-        "TREND_CONSISTENCY_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1263,6 +1266,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.989999771118164
+      },
+      {
+        "ticker": "PTAC",
+        "date": "2026-10-16",
+        "open": 9.989999771118164,
+        "high": 9.989999771118164,
+        "low": 9.989999771118164,
+        "close": 9.989999771118164,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.989999771118164
       }
     ],
     "dataStatus": {
@@ -1302,13 +1316,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-15",
+      "latestScoringDate": "2026-10-16",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 38.01,
-      "growthSpurtBenchmarkPercentile": 0.70783,
-      "growthSpurtMarketDataAsOf": "2026-10-15",
-      "lastPipelineRun": "2026-10-16T12:39:34.239662+00:00",
+      "growthSpurtScore": 35.41,
+      "growthSpurtBenchmarkPercentile": 0.668766,
+      "growthSpurtMarketDataAsOf": "2026-10-16",
+      "lastPipelineRun": "2026-10-17T11:47:35.410326+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
