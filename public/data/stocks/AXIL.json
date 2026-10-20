@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-17T01:45:15.278845+00:00",
+  "generatedAt": "2026-10-20T02:17:40.827462+00:00",
   "record": {
     "security": {
       "ticker": "AXIL",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.5,
-      "dailyChangePercent": -1.0791,
-      "marketCapBillions": 0.0375,
+      "latestPrice": 5.7,
+      "dailyChangePercent": 4.3956,
+      "marketCapBillions": 0.0389,
       "liabilitiesToAssets": 0.252723,
       "latestRevenueBillions": 0.0308,
       "grossMarginPercent": 69.3077,
@@ -297,7 +297,7 @@
       "shortTermDebtShare": null,
       "bookValue": 13737511.0,
       "bookValuePerShare": 2.013506,
-      "priceToBook": 2.731553,
+      "priceToBook": 2.830883,
       "retainedEarnings": 3841659.0
     },
     "balanceSheetScoringShadow": {
@@ -511,49 +511,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "AXIL",
-      "generatedAt": "2026-10-17T01:27:01.845436+00:00",
-      "marketDataAsOf": "2026-10-15",
+      "generatedAt": "2026-10-20T02:01:34.879491+00:00",
+      "marketDataAsOf": "2026-10-19",
       "status": "not_detected",
-      "growthSpurtScore": 13.9,
+      "growthSpurtScore": 15.27,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.02998238,
-        "return63d": -0.05498285,
-        "trendSlope21d": -0.00537532,
-        "trendSlope63d": 0.00053478,
-        "trendAnnualizedReturn63d": 0.14426712,
-        "trendFitR2_63d": 0.0122326,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.0497972,
-        "maxDrawdown63d": -0.21428571,
-        "downsideVolatility63d": 0.02335896,
-        "excessReturnVsSpy21d": -0.05605025,
-        "excessReturnVsSpy63d": -0.09590433,
-        "trendAcceleration": -0.00758718,
-        "largestOneDayContribution63d": 0.07449497,
-        "percentAboveTrendLine63d": 0.50793651
+        "return21d": -0.07317078,
+        "return63d": 0.02702696,
+        "trendSlope21d": -0.00719055,
+        "trendSlope63d": 0.0,
+        "trendAnnualizedReturn63d": 0.0,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.05060115,
+        "maxDrawdown63d": -0.21999999,
+        "downsideVolatility63d": 0.02350719,
+        "excessReturnVsSpy21d": -0.0794594,
+        "excessReturnVsSpy63d": 0.00016099,
+        "trendAcceleration": -0.00882044,
+        "largestOneDayContribution63d": 0.07279894,
+        "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 18.5486,
-        "consistencyScore": 16.2173,
-        "relativeStrengthScore": 0.0,
-        "drawdownControlScore": 28.5714,
+        "directionScore": 7.8829,
+        "consistencyScore": 9.5758,
+        "relativeStrengthScore": 32.5654,
+        "drawdownControlScore": 26.6667,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.364914,
+      "benchmarkPercentile": 0.398958,
       "metricPercentiles": {
-        "trendSlope63d": 0.767829,
-        "trendFitR2_63d": 0.147319,
-        "excessReturnVsSpy63d": 0.491109,
-        "drawdownControlScore": 0.503384,
-        "growthSpurtScore": 0.364914
+        "trendSlope63d": 0.672656,
+        "trendFitR2_63d": 0.06224,
+        "excessReturnVsSpy63d": 0.732984,
+        "drawdownControlScore": 0.497396,
+        "growthSpurtScore": 0.398958
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7925,6 +7928,28 @@
         "volume": 23700,
         "source": "yahoo-chart",
         "adjusted_close": 5.5
+      },
+      {
+        "ticker": "AXIL",
+        "date": "2026-10-16",
+        "open": 5.556000232696533,
+        "high": 5.679999828338623,
+        "low": 5.400000095367432,
+        "close": 5.460000038146973,
+        "volume": 22500,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.460000038146973
+      },
+      {
+        "ticker": "AXIL",
+        "date": "2026-10-19",
+        "open": 5.514999866485596,
+        "high": 5.755000114440918,
+        "low": 5.360000133514404,
+        "close": 5.699999809265137,
+        "volume": 34200,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.699999809265137
       }
     ],
     "dataStatus": {
@@ -7956,17 +7981,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "potentially-undervalued",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-10-06",
-      "latestScoringDate": "2026-10-15",
+      "latestScoringDate": "2026-10-19",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 13.9,
-      "growthSpurtBenchmarkPercentile": 0.364914,
-      "growthSpurtMarketDataAsOf": "2026-10-15",
-      "lastPipelineRun": "2026-10-17T01:27:01.845436+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 15.27,
+      "growthSpurtBenchmarkPercentile": 0.398958,
+      "growthSpurtMarketDataAsOf": "2026-10-19",
+      "lastPipelineRun": "2026-10-20T02:01:34.879491+00:00",
+      "balanceSheetExperimentalSignal": "potentially-undervalued",
       "balanceSheetWouldChangeSignal": false
     }
   }

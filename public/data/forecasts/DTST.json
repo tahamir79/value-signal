@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "DTST",
   "companyName": "Data Storage Corp",
-  "generatedAt": "2026-10-17T12:11:08.855622+00:00",
-  "marketDataAsOf": "2026-10-16",
+  "generatedAt": "2026-10-20T02:19:42.226382+00:00",
+  "marketDataAsOf": "2026-10-19",
   "currentPrice": 3.01,
   "analystTarget": {
     "ticker": "DTST",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-17T12:11:08.855622+00:00",
+    "collectedAt": "2026-10-20T02:19:42.226382+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-17T12:11:08.855622+00:00",
-    "marketDataAsOf": "2026-10-16",
+    "generatedAt": "2026-10-20T02:19:42.226382+00:00",
+    "marketDataAsOf": "2026-10-19",
     "currentPrice": 3.01,
     "horizon30Day": {
-      "returnEstimate": -0.02199372,
-      "lowerReturn": -0.07872585,
-      "upperReturn": 0.05180733,
-      "estimatedPrice": 2.9438,
-      "lowerEstimatedPrice": 2.773,
-      "upperEstimatedPrice": 3.1659,
+      "returnEstimate": -0.02146206,
+      "lowerReturn": -0.07792501,
+      "upperReturn": 0.03130397,
+      "estimatedPrice": 2.9454,
+      "lowerEstimatedPrice": 2.7754,
+      "upperEstimatedPrice": 3.1042,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.04503088,
-      "lowerReturn": -0.14127523,
-      "upperReturn": 0.13112231,
-      "estimatedPrice": 2.8745,
-      "lowerEstimatedPrice": 2.5848,
-      "upperEstimatedPrice": 3.4047,
+      "returnEstimate": -0.03975642,
+      "lowerReturn": -0.14355389,
+      "upperReturn": 0.15,
+      "estimatedPrice": 2.8903,
+      "lowerEstimatedPrice": 2.5779,
+      "upperEstimatedPrice": 3.4615,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
