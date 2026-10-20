@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-10-20T02:19:03.134669+00:00",
-  "corpusHash": "5c66792e286852d1d4595b842ea5a3e980546826cc38c12193fbbc932f16147d",
+  "generatedAt": "2026-10-20T09:06:05.822092+00:00",
+  "corpusHash": "a71fab6e50dea064701e62774972890d1672e06763755174908feb650becd385",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1209361,
-  "termCount": 18955098,
-  "tickerCount": 4707,
+  "documentCount": 1209645,
+  "termCount": 18963679,
+  "tickerCount": 4711,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28249,6 +28249,30 @@
       "documentCount": 70,
       "termCount": 1806,
       "latestFilingDate": "2026-10-14"
+    },
+    "ADVI": {
+      "path": "public/data/search/ADVI.json",
+      "documentCount": 68,
+      "termCount": 1686,
+      "latestFilingDate": "2026-10-15"
+    },
+    "LCU": {
+      "path": "public/data/search/LCU.json",
+      "documentCount": 125,
+      "termCount": 3787,
+      "latestFilingDate": "2026-08-10"
+    },
+    "MEGR": {
+      "path": "public/data/search/MEGR.json",
+      "documentCount": 65,
+      "termCount": 2018,
+      "latestFilingDate": "2026-08-13"
+    },
+    "TEGO": {
+      "path": "public/data/search/TEGO.json",
+      "documentCount": 26,
+      "termCount": 1090,
+      "latestFilingDate": "2026-08-14"
     }
   },
   "errors": [
@@ -34319,22 +34343,39 @@
     {
       "ticker": "NKTP",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "BMMX",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-10-20T02:18:50.921439+00:00",
+    "generatedAt": "2026-10-20T09:05:53.016836+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1435,
+    "selectedTickers": [
+      "ADVI",
+      "BMMX",
+      "LCU",
+      "MEGR",
+      "TEGO"
+    ],
+    "indexedTickers": [
+      "ADVI",
+      "LCU",
+      "MEGR",
+      "TEGO"
+    ],
+    "failedTickers": [
+      "BMMX"
+    ],
+    "requested": 5,
+    "indexed": 4,
+    "failed": 1,
+    "remainingUnindexed": 1437,
     "remainingUnattempted": 0,
     "finished": true
   }

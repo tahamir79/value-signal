@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "CECO",
   "companyName": "CECO ENVIRONMENTAL CORP",
-  "generatedAt": "2026-10-20T02:19:42.226382+00:00",
+  "generatedAt": "2026-10-20T09:06:44.566713+00:00",
   "marketDataAsOf": "2026-10-19",
   "currentPrice": 57.49,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-20T02:19:42.226382+00:00",
+    "collectedAt": "2026-10-20T09:06:44.566713+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,45 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-20T02:19:42.226382+00:00",
+    "generatedAt": "2026-10-20T09:06:44.566713+00:00",
     "marketDataAsOf": "2026-10-19",
     "currentPrice": 57.49,
     "horizon30Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 0,
-      "status": "insufficient_data",
-      "usableObservationCount": 0,
+      "returnEstimate": 0.03059806,
+      "lowerReturn": -0.07484698,
+      "upperReturn": 0.08,
+      "estimatedPrice": 59.2491,
+      "lowerEstimatedPrice": 53.187,
+      "upperEstimatedPrice": 62.0892,
+      "sampleCount": 104,
+      "status": "available",
+      "usableObservationCount": 104,
       "requiredObservationCount": 24,
-      "unavailableReason": "Not enough 30-day history: 0 of 24 required observations."
+      "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": null,
-      "lowerReturn": null,
-      "upperReturn": null,
-      "estimatedPrice": null,
-      "lowerEstimatedPrice": null,
-      "upperEstimatedPrice": null,
-      "sampleCount": 0,
-      "status": "insufficient_data",
-      "usableObservationCount": 0,
+      "returnEstimate": 0.12374839,
+      "lowerReturn": -0.06067346,
+      "upperReturn": 0.15,
+      "estimatedPrice": 64.6043,
+      "lowerEstimatedPrice": 54.0019,
+      "upperEstimatedPrice": 66.1135,
+      "sampleCount": 96,
+      "status": "available",
+      "usableObservationCount": 96,
       "requiredObservationCount": 12,
-      "unavailableReason": "Not enough 90-day history: 0 of 12 required observations."
+      "unavailableReason": null
     },
-    "status": "insufficient_data",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Not enough 30-day history: 0 of 24 required observations.",
-      "Not enough 90-day history: 0 of 12 required observations."
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

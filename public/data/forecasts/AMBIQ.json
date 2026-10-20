@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "AMBIQ",
   "companyName": "Ambipar Emergency Response",
-  "generatedAt": "2026-10-20T02:19:42.226382+00:00",
-  "marketDataAsOf": "2026-10-06",
+  "generatedAt": "2026-10-20T09:06:44.566713+00:00",
+  "marketDataAsOf": "2026-10-19",
   "currentPrice": 0.07,
   "analystTarget": {
     "ticker": "AMBIQ",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-20T02:19:42.226382+00:00",
+    "collectedAt": "2026-10-20T09:06:44.566713+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-20T02:19:42.226382+00:00",
-    "marketDataAsOf": "2026-10-06",
+    "generatedAt": "2026-10-20T09:06:44.566713+00:00",
+    "marketDataAsOf": "2026-10-19",
     "currentPrice": 0.07,
     "horizon30Day": {
-      "returnEstimate": -0.03635565,
+      "returnEstimate": -0.03548421,
       "lowerReturn": -0.08,
-      "upperReturn": 0.06206868,
+      "upperReturn": 0.06774063,
       "estimatedPrice": 0.0675,
       "lowerEstimatedPrice": 0.0644,
-      "upperEstimatedPrice": 0.0743,
+      "upperEstimatedPrice": 0.0747,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -63,28 +63,27 @@
     "horizon90Day": {
       "returnEstimate": -0.15,
       "lowerReturn": -0.15,
-      "upperReturn": 0.01294527,
+      "upperReturn": 0.00986182,
       "estimatedPrice": 0.0595,
       "lowerEstimatedPrice": 0.0595,
-      "upperEstimatedPrice": 0.0709,
+      "upperEstimatedPrice": 0.0707,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "stale",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-10-06 is older than 10 days.",
       "30-day scenario: lower return clipped to +/-8%",
       "90-day scenario: lower return clipped to +/-15%",
       "90-day scenario: base return clipped to +/-15%"
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

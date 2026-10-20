@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-20T02:21:39.459581+00:00",
+  "generatedAt": "2026-10-20T09:08:39.754240+00:00",
   "overallStatus": "partial_success",
   "releaseReadiness": "ready_with_known_limitations",
   "criticalFailures": 0,
-  "nonCriticalFailures": 46,
+  "nonCriticalFailures": 48,
   "expectedUnavailable": 6094,
   "dataQualityWarnings": 5742,
   "warnings": 5742,
@@ -33,10 +33,11 @@
       "name": "etl_ticker_pipeline",
       "status": "partial_success",
       "attempted": 2000,
-      "succeeded": 1954,
-      "failed": 46,
+      "succeeded": 1952,
+      "failed": 48,
       "skipped": 0,
       "failedTickers": [
+        "ADVI",
         "AEIB",
         "AFNX",
         "AGKO",
@@ -54,6 +55,7 @@
         "BMB",
         "BMF",
         "BMM",
+        "BMMX",
         "BMOK",
         "BOGD",
         "BRAI",
@@ -87,7 +89,7 @@
       "commonReasons": [
         {
           "reason": "PROVIDER_HTTP_404",
-          "count": 41
+          "count": 43
         },
         {
           "reason": "PRICE_HISTORY_UNAVAILABLE",
@@ -122,18 +124,18 @@
       "name": "forecast_artifacts",
       "status": "success",
       "attempted": 6093,
-      "succeeded": 5549,
+      "succeeded": 5553,
       "failed": 0,
-      "skipped": 544,
+      "skipped": 540,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "PROJECTION_SOURCE_UNAVAILABLE",
-          "count": 544
+          "count": 540
         },
         {
           "reason": "FORECAST_INSUFFICIENT_HISTORY",
-          "count": 298
+          "count": 295
         }
       ],
       "artifactPaths": [
@@ -145,8 +147,8 @@
     {
       "name": "filing_search_index",
       "status": "success",
-      "attempted": 4707,
-      "succeeded": 4707,
+      "attempted": 4711,
+      "succeeded": 4711,
       "failed": 0,
       "skipped": 0,
       "failedTickers": [],
@@ -183,14 +185,14 @@
       "name": "growth_spurt_detector",
       "status": "success",
       "attempted": 6093,
-      "succeeded": 5867,
+      "succeeded": 5870,
       "failed": 0,
-      "skipped": 226,
+      "skipped": 223,
       "failedTickers": [],
       "commonReasons": [
         {
           "reason": "GROWTH_SPURT_UNAVAILABLE_EXPECTED",
-          "count": 226
+          "count": 223
         }
       ],
       "artifactPaths": [
@@ -219,6 +221,12 @@
     }
   ],
   "failedTickers": [
+    {
+      "ticker": "ADVI",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
     {
       "ticker": "AEIB",
       "stage": "ticker_pipeline",
@@ -317,6 +325,12 @@
     },
     {
       "ticker": "BMM",
+      "stage": "ticker_pipeline",
+      "reason": "PROVIDER_HTTP_404",
+      "retryable": false
+    },
+    {
+      "ticker": "BMMX",
       "stage": "ticker_pipeline",
       "reason": "PROVIDER_HTTP_404",
       "retryable": false
