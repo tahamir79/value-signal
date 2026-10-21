@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "NCTY",
   "companyName": "The9 LTD",
-  "generatedAt": "2026-10-21T09:07:08.388723+00:00",
-  "marketDataAsOf": "2026-10-19",
+  "generatedAt": "2026-10-21T13:37:58.648899+00:00",
+  "marketDataAsOf": "2026-10-20",
   "currentPrice": 3.28,
   "analystTarget": {
     "ticker": "NCTY",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-21T09:07:08.388723+00:00",
+    "collectedAt": "2026-10-21T13:37:58.648899+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-21T09:07:08.388723+00:00",
-    "marketDataAsOf": "2026-10-19",
+    "generatedAt": "2026-10-21T13:37:58.648899+00:00",
+    "marketDataAsOf": "2026-10-20",
     "currentPrice": 3.28,
     "horizon30Day": {
-      "returnEstimate": -0.04287666,
+      "returnEstimate": -0.0455413,
       "lowerReturn": -0.08,
-      "upperReturn": 0.07707789,
-      "estimatedPrice": 3.1394,
+      "upperReturn": 0.08,
+      "estimatedPrice": 3.1306,
       "lowerEstimatedPrice": 3.0176,
-      "upperEstimatedPrice": 3.5328,
+      "upperEstimatedPrice": 3.5424,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.1428394,
+      "returnEstimate": -0.15,
       "lowerReturn": -0.15,
-      "upperReturn": -0.01538769,
-      "estimatedPrice": 2.8115,
+      "upperReturn": -0.00113261,
+      "estimatedPrice": 2.788,
       "lowerEstimatedPrice": 2.788,
-      "upperEstimatedPrice": 3.2295,
+      "upperEstimatedPrice": 3.2763,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -78,7 +78,9 @@
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: base return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
