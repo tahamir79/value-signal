@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "XPL",
   "companyName": "SOLITARIO RESOURCES CORP.",
-  "generatedAt": "2026-10-20T13:13:21.821159+00:00",
-  "marketDataAsOf": "2026-10-16",
+  "generatedAt": "2026-10-21T02:09:07.382914+00:00",
+  "marketDataAsOf": "2026-10-20",
   "currentPrice": 0.51,
   "analystTarget": {
     "ticker": "XPL",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-20T13:13:21.821159+00:00",
+    "collectedAt": "2026-10-21T02:09:07.382914+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-20T13:13:21.821159+00:00",
-    "marketDataAsOf": "2026-10-16",
+    "generatedAt": "2026-10-21T02:09:07.382914+00:00",
+    "marketDataAsOf": "2026-10-20",
     "currentPrice": 0.51,
     "horizon30Day": {
-      "returnEstimate": -0.00446431,
-      "lowerReturn": -0.06728057,
-      "upperReturn": 0.07843504,
-      "estimatedPrice": 0.5077,
-      "lowerEstimatedPrice": 0.4757,
-      "upperEstimatedPrice": 0.55,
+      "returnEstimate": -0.01090652,
+      "lowerReturn": -0.08,
+      "upperReturn": 0.08,
+      "estimatedPrice": 0.5044,
+      "lowerEstimatedPrice": 0.4692,
+      "upperEstimatedPrice": 0.5508,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00593035,
-      "lowerReturn": -0.12651773,
-      "upperReturn": 0.13666665,
-      "estimatedPrice": 0.513,
-      "lowerEstimatedPrice": 0.4455,
-      "upperEstimatedPrice": 0.5797,
+      "returnEstimate": -0.01059628,
+      "lowerReturn": -0.13115939,
+      "upperReturn": 0.13988092,
+      "estimatedPrice": 0.5046,
+      "lowerEstimatedPrice": 0.4431,
+      "upperEstimatedPrice": 0.5813,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: lower return clipped to +/-8%",
+      "30-day scenario: upper return clipped to +/-8%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
