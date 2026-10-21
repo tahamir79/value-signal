@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-20T09:04:40.602084+00:00",
+  "generatedAt": "2026-10-21T09:05:58.002051+00:00",
   "record": {
     "security": {
       "ticker": "DUKU",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 48.71,
-      "dailyChangePercent": -1.0964,
-      "marketCapBillions": 37.9741,
+      "latestPrice": 49.5,
+      "dailyChangePercent": 1.6218,
+      "marketCapBillions": 38.59,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 19.624,
       "grossMarginPercent": null,
@@ -310,7 +310,7 @@
       "shortTermDebtShare": 0.084157,
       "bookValue": 54457000000.0,
       "bookValuePerShare": 69.852827,
-      "priceToBook": 0.697323,
+      "priceToBook": 0.708633,
       "retainedEarnings": 5761000000.0
     },
     "balanceSheetScoringShadow": {
@@ -525,49 +525,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "DUKU",
-      "generatedAt": "2026-10-20T08:45:01.418393+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-10-21T08:48:18.534013+00:00",
+      "marketDataAsOf": "2026-10-20",
+      "status": "not_detected",
+      "growthSpurtScore": 37.3,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.00208315,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00235731,
+        "trendSlope63d": -0.00080226,
+        "trendAnnualizedReturn63d": -0.18304422,
+        "trendFitR2_63d": 0.37564446,
+        "positiveWeekRatio63d": 0.44444444,
+        "trendResidualVolatility63d": 0.01369057,
+        "maxDrawdown63d": -0.06315369,
+        "downsideVolatility63d": 0.01126893,
+        "excessReturnVsSpy21d": 0.00783623,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.00329759,
+        "largestOneDayContribution63d": 0.13061636,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 2.1366,
+        "consistencyScore": 26.3167,
+        "relativeStrengthScore": 59.7953,
+        "drawdownControlScore": 78.9488,
+        "confirmationScore": 62.7775
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.684539,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.56481,
+        "trendFitR2_63d": 0.45393,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.908381,
+        "growthSpurtScore": 0.684539
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -1109,6 +1113,17 @@
         "volume": 67600,
         "source": "yahoo-chart",
         "adjusted_close": 48.709999084472656
+      },
+      {
+        "ticker": "DUKU",
+        "date": "2026-10-20",
+        "open": 49.0,
+        "high": 49.5,
+        "low": 49.0,
+        "close": 49.5,
+        "volume": 94200,
+        "source": "yahoo-chart",
+        "adjusted_close": 49.5
       }
     ],
     "dataStatus": {
@@ -1148,13 +1163,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-05-05",
-      "latestScoringDate": "2026-10-19",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-10-20T08:45:01.418393+00:00",
+      "latestScoringDate": "2026-10-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 37.3,
+      "growthSpurtBenchmarkPercentile": 0.684539,
+      "growthSpurtMarketDataAsOf": "2026-10-20",
+      "lastPipelineRun": "2026-10-21T08:48:18.534013+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": true
     }

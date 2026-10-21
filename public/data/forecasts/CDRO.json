@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "CDRO",
   "companyName": "Codere Online Luxembourg, S.A.",
-  "generatedAt": "2026-10-21T02:09:07.382914+00:00",
-  "marketDataAsOf": "2026-10-19",
+  "generatedAt": "2026-10-21T09:07:08.388723+00:00",
+  "marketDataAsOf": "2026-10-20",
   "currentPrice": 9.39,
   "analystTarget": {
     "ticker": "CDRO",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-21T02:09:07.382914+00:00",
+    "collectedAt": "2026-10-21T09:07:08.388723+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-21T02:09:07.382914+00:00",
-    "marketDataAsOf": "2026-10-19",
+    "generatedAt": "2026-10-21T09:07:08.388723+00:00",
+    "marketDataAsOf": "2026-10-20",
     "currentPrice": 9.39,
     "horizon30Day": {
-      "returnEstimate": 0.0050343,
-      "lowerReturn": -0.04322701,
-      "upperReturn": 0.06531269,
-      "estimatedPrice": 9.4373,
-      "lowerEstimatedPrice": 8.9841,
-      "upperEstimatedPrice": 10.0033,
+      "returnEstimate": -0.00317139,
+      "lowerReturn": -0.0327196,
+      "upperReturn": 0.06451825,
+      "estimatedPrice": 9.3602,
+      "lowerEstimatedPrice": 9.0828,
+      "upperEstimatedPrice": 9.9958,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.03947896,
-      "lowerReturn": -0.05722479,
-      "upperReturn": 0.14939711,
-      "estimatedPrice": 9.7607,
-      "lowerEstimatedPrice": 8.8527,
-      "upperEstimatedPrice": 10.7928,
+      "returnEstimate": 0.03721569,
+      "lowerReturn": -0.06811528,
+      "upperReturn": 0.15,
+      "estimatedPrice": 9.7395,
+      "lowerEstimatedPrice": 8.7504,
+      "upperEstimatedPrice": 10.7985,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
