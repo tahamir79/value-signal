@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-21T13:36:27.265316+00:00",
+  "generatedAt": "2026-10-22T13:23:14.468450+00:00",
   "record": {
     "security": {
       "ticker": "INFQ",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.66,
-      "dailyChangePercent": -1.0286,
-      "marketCapBillions": 1.9516,
+      "latestPrice": 9.28,
+      "dailyChangePercent": 7.1594,
+      "marketCapBillions": 2.0913,
       "liabilitiesToAssets": 0.104561,
       "latestRevenueBillions": 0.0234,
       "grossMarginPercent": 20.0554,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": null,
       "bookValue": 574383000.0,
       "bookValuePerShare": 2.548769,
-      "priceToBook": 3.397719,
+      "priceToBook": 3.640974,
       "retainedEarnings": -287910000.0
     },
     "balanceSheetScoringShadow": {
@@ -501,50 +501,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "INFQ",
-      "generatedAt": "2026-10-21T13:09:24.177940+00:00",
-      "marketDataAsOf": "2026-10-20",
+      "generatedAt": "2026-10-22T13:07:22.191604+00:00",
+      "marketDataAsOf": "2026-10-21",
       "status": "not_detected",
-      "growthSpurtScore": 18.87,
+      "growthSpurtScore": 17.08,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.37965617,
-        "return63d": -0.15429687,
+        "return21d": -0.33997159,
+        "return63d": -0.04231165,
         "trendSlope21d": -0.0302962,
-        "trendSlope63d": 0.00221788,
-        "trendAnnualizedReturn63d": 0.74875933,
+        "trendSlope63d": 0.00151617,
+        "trendAnnualizedReturn63d": 0.46532095,
         "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.15215608,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.15359043,
         "maxDrawdown63d": -0.4107512,
-        "downsideVolatility63d": 0.02994016,
-        "excessReturnVsSpy21d": -0.37390309,
-        "excessReturnVsSpy63d": -0.18580532,
-        "trendAcceleration": -0.03797081,
-        "largestOneDayContribution63d": 0.05097301,
+        "downsideVolatility63d": 0.02962801,
+        "excessReturnVsSpy21d": -0.33959664,
+        "excessReturnVsSpy63d": -0.09220429,
+        "trendAcceleration": -0.03764298,
+        "largestOneDayContribution63d": 0.05102713,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 45.0,
-        "consistencyScore": 21.4683,
+        "consistencyScore": 14.3254,
         "relativeStrengthScore": 0.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.463235,
+      "benchmarkPercentile": 0.433858,
       "metricPercentiles": {
-        "trendSlope63d": 0.894958,
-        "trendFitR2_63d": 0.06854,
-        "excessReturnVsSpy63d": 0.348677,
-        "drawdownControlScore": 0.174895,
-        "growthSpurtScore": 0.463235
+        "trendSlope63d": 0.872441,
+        "trendFitR2_63d": 0.067717,
+        "excessReturnVsSpy63d": 0.528571,
+        "drawdownControlScore": 0.175591,
+        "growthSpurtScore": 0.433858
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2424,9 +2427,20 @@
         "high": 8.970000267028809,
         "low": 8.380000114440918,
         "close": 8.65999984741211,
-        "volume": 6125800,
+        "volume": 6164900,
         "source": "yahoo-chart",
         "adjusted_close": 8.65999984741211
+      },
+      {
+        "ticker": "INFQ",
+        "date": "2026-10-21",
+        "open": 8.90999984741211,
+        "high": 9.34000015258789,
+        "low": 8.729999542236328,
+        "close": 9.279999732971191,
+        "volume": 7515300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.279999732971191
       }
     ],
     "dataStatus": {
@@ -2464,13 +2478,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-18",
-      "latestScoringDate": "2026-10-20",
+      "latestScoringDate": "2026-10-21",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 18.87,
-      "growthSpurtBenchmarkPercentile": 0.463235,
-      "growthSpurtMarketDataAsOf": "2026-10-20",
-      "lastPipelineRun": "2026-10-21T13:09:24.177940+00:00",
+      "growthSpurtScore": 17.08,
+      "growthSpurtBenchmarkPercentile": 0.433858,
+      "growthSpurtMarketDataAsOf": "2026-10-21",
+      "lastPipelineRun": "2026-10-22T13:07:22.191604+00:00",
       "balanceSheetExperimentalSignal": "momentum-risk",
       "balanceSheetWouldChangeSignal": false
     }

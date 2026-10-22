@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-21T13:36:27.265316+00:00",
+  "generatedAt": "2026-10-22T13:23:14.468450+00:00",
   "record": {
     "security": {
       "ticker": "INVE",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 2.22,
-      "dailyChangePercent": -1.7699,
-      "marketCapBillions": 0.0538,
+      "latestPrice": 2.78,
+      "dailyChangePercent": 25.2252,
+      "marketCapBillions": 0.0674,
       "liabilitiesToAssets": 0.054023,
       "latestRevenueBillions": 0.0215,
       "grossMarginPercent": 6.0836,
@@ -322,7 +322,7 @@
       "shortTermDebtShare": 0.0,
       "bookValue": 133082000.0,
       "bookValuePerShare": 5.491144,
-      "priceToBook": 0.404287,
+      "priceToBook": 0.50627,
       "retainedEarnings": -366154000.0
     },
     "balanceSheetScoringShadow": {
@@ -536,62 +536,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "INVE",
-      "generatedAt": "2026-10-21T13:09:24.177940+00:00",
-      "marketDataAsOf": "2026-10-20",
+      "generatedAt": "2026-10-22T13:07:22.191604+00:00",
+      "marketDataAsOf": "2026-10-21",
       "status": "not_detected",
-      "growthSpurtScore": 9.84,
+      "growthSpurtScore": 27.32,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.11199999,
-        "return63d": -0.18978101,
-        "trendSlope21d": -0.00336853,
-        "trendSlope63d": -0.0032273,
-        "trendAnnualizedReturn63d": -0.55659833,
-        "trendFitR2_63d": 0.54480444,
-        "positiveWeekRatio63d": 0.25,
-        "trendResidualVolatility63d": 0.04893311,
+        "return21d": 0.11646585,
+        "return63d": 0.0,
+        "trendSlope21d": -0.00275188,
+        "trendSlope63d": -0.00309955,
+        "trendAnnualizedReturn63d": -0.54209217,
+        "trendFitR2_63d": 0.45599024,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.05351104,
         "maxDrawdown63d": -0.23183393,
-        "downsideVolatility63d": 0.01184594,
-        "excessReturnVsSpy21d": -0.1062469,
-        "excessReturnVsSpy63d": -0.22128946,
-        "trendAcceleration": -0.00274196,
-        "largestOneDayContribution63d": 0.06082431,
+        "downsideVolatility63d": 0.01175107,
+        "excessReturnVsSpy21d": 0.1168408,
+        "excessReturnVsSpy63d": -0.04989265,
+        "trendAcceleration": -0.00193408,
+        "largestOneDayContribution63d": 0.20091463,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 25.7393,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 20.0,
+        "consistencyScore": 17.8576,
+        "relativeStrengthScore": 47.2311,
         "drawdownControlScore": 22.722,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.274422,
+      "benchmarkPercentile": 0.604462,
       "metricPercentiles": {
-        "trendSlope63d": 0.31355,
-        "trendFitR2_63d": 0.580357,
-        "excessReturnVsSpy63d": 0.296825,
-        "drawdownControlScore": 0.466912,
-        "growthSpurtScore": 0.274422
+        "trendSlope63d": 0.332283,
+        "trendFitR2_63d": 0.502887,
+        "excessReturnVsSpy63d": 0.626455,
+        "drawdownControlScore": 0.467192,
+        "growthSpurtScore": 0.604462
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "INVE",
-        "date": "2021-10-21",
-        "open": 18.450000762939453,
-        "high": 18.579999923706055,
-        "low": 17.889999389648438,
-        "close": 17.899999618530273,
-        "volume": 65700,
-        "source": "yahoo-chart",
-        "adjusted_close": 17.899999618530273
-      },
       {
         "ticker": "INVE",
         "date": "2021-10-22",
@@ -14374,6 +14366,17 @@
         "volume": 20000,
         "source": "yahoo-chart",
         "adjusted_close": 2.2200000286102295
+      },
+      {
+        "ticker": "INVE",
+        "date": "2026-10-21",
+        "open": 2.680000066757202,
+        "high": 2.8399999141693115,
+        "low": 2.680000066757202,
+        "close": 2.7799999713897705,
+        "volume": 15380400,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.7799999713897705
       }
     ],
     "dataStatus": {
@@ -14405,17 +14408,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-20",
+      "latestScoringDate": "2026-10-21",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 9.84,
-      "growthSpurtBenchmarkPercentile": 0.274422,
-      "growthSpurtMarketDataAsOf": "2026-10-20",
-      "lastPipelineRun": "2026-10-21T13:09:24.177940+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 27.32,
+      "growthSpurtBenchmarkPercentile": 0.604462,
+      "growthSpurtMarketDataAsOf": "2026-10-21",
+      "lastPipelineRun": "2026-10-22T13:07:22.191604+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
