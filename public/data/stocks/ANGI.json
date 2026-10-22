@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-21T09:05:58.002051+00:00",
+  "generatedAt": "2026-10-22T09:05:35.078596+00:00",
   "record": {
     "security": {
       "ticker": "ANGI",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 6.44,
-      "dailyChangePercent": 2.8754,
+      "latestPrice": 6.26,
+      "dailyChangePercent": -2.795,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 1.0305,
@@ -511,65 +511,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ANGI",
-      "generatedAt": "2026-10-21T08:48:18.534013+00:00",
-      "marketDataAsOf": "2026-10-20",
-      "status": "emerging",
-      "growthSpurtScore": 63.07,
+      "generatedAt": "2026-10-22T08:51:41.886503+00:00",
+      "marketDataAsOf": "2026-10-21",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.17518249,
-        "return63d": 0.11418682,
-        "trendSlope21d": 0.01033069,
-        "trendSlope63d": 0.00507697,
-        "trendAnnualizedReturn63d": 2.59446882,
-        "trendFitR2_63d": 0.07240849,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.11094948,
+        "return21d": 0.12996395,
+        "return63d": 0.15498158,
+        "trendSlope21d": 0.01015691,
+        "trendSlope63d": 0.00539955,
+        "trendAnnualizedReturn63d": 2.89886663,
+        "trendFitR2_63d": 0.12642226,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.11052245,
         "maxDrawdown63d": -0.30608973,
-        "downsideVolatility63d": 0.05236644,
-        "excessReturnVsSpy21d": 0.18093557,
-        "excessReturnVsSpy63d": 0.08267837,
-        "trendAcceleration": 0.01147187,
-        "largestOneDayContribution63d": 0.09996959,
+        "downsideVolatility63d": 0.05133459,
+        "excessReturnVsSpy21d": 0.1303389,
+        "excessReturnVsSpy63d": 0.10508893,
+        "trendAcceleration": 0.01067399,
+        "largestOneDayContribution63d": 0.09963613,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 98.3045,
-        "consistencyScore": 14.3254,
+        "directionScore": 100.0,
+        "consistencyScore": 21.4683,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.918272,
+      "benchmarkPercentile": 0.869407,
       "metricPercentiles": {
-        "trendSlope63d": 0.955752,
-        "trendFitR2_63d": 0.223842,
-        "excessReturnVsSpy63d": 0.816754,
-        "drawdownControlScore": 0.178293,
-        "growthSpurtScore": 0.918272
+        "trendSlope63d": 0.962019,
+        "trendFitR2_63d": 0.264828,
+        "excessReturnVsSpy63d": 0.85348,
+        "drawdownControlScore": 0.17846,
+        "growthSpurtScore": 0.869407
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "ANGI",
-        "date": "2021-10-21",
-        "open": 124.69999694824219,
-        "high": 127.9000015258789,
-        "low": 123.69999694824219,
-        "close": 125.80000305175781,
-        "volume": 138790,
-        "source": "yahoo-chart",
-        "adjusted_close": 125.80000305175781
-      },
       {
         "ticker": "ANGI",
         "date": "2021-10-22",
@@ -14352,6 +14343,17 @@
         "volume": 1207500,
         "source": "yahoo-chart",
         "adjusted_close": 6.440000057220459
+      },
+      {
+        "ticker": "ANGI",
+        "date": "2026-10-21",
+        "open": 6.349999904632568,
+        "high": 6.380000114440918,
+        "low": 6.139999866485596,
+        "close": 6.260000228881836,
+        "volume": 522800,
+        "source": "yahoo-chart",
+        "adjusted_close": 6.260000228881836
       }
     ],
     "dataStatus": {
@@ -14389,13 +14391,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-10-20",
+      "latestScoringDate": "2026-10-21",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.07,
-      "growthSpurtBenchmarkPercentile": 0.918272,
-      "growthSpurtMarketDataAsOf": "2026-10-20",
-      "lastPipelineRun": "2026-10-21T08:48:18.534013+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.869407,
+      "growthSpurtMarketDataAsOf": "2026-10-21",
+      "lastPipelineRun": "2026-10-22T08:51:41.886503+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
