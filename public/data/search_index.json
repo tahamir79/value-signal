@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-10-22T13:24:32.469581+00:00",
-  "corpusHash": "a71fab6e50dea064701e62774972890d1672e06763755174908feb650becd385",
+  "generatedAt": "2026-10-23T01:59:02.866227+00:00",
+  "corpusHash": "6926c6f1d092c3cef1aec3fc464c1d6af8ef84fb583a0a6214c9326180d52734",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1209645,
-  "termCount": 18963679,
-  "tickerCount": 4711,
+  "documentCount": 1211068,
+  "termCount": 18984745,
+  "tickerCount": 4717,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28273,6 +28273,42 @@
       "documentCount": 26,
       "termCount": 1090,
       "latestFilingDate": "2026-08-14"
+    },
+    "DCM": {
+      "path": "public/data/search/DCM.json",
+      "documentCount": 40,
+      "termCount": 1480,
+      "latestFilingDate": "2026-08-14"
+    },
+    "LCGMD": {
+      "path": "public/data/search/LCGMD.json",
+      "documentCount": 125,
+      "termCount": 3787,
+      "latestFilingDate": "2026-08-10"
+    },
+    "SATS": {
+      "path": "public/data/search/SATS.json",
+      "documentCount": 426,
+      "termCount": 4800,
+      "latestFilingDate": "2026-08-03"
+    },
+    "SRTM": {
+      "path": "public/data/search/SRTM.json",
+      "documentCount": 472,
+      "termCount": 5845,
+      "latestFilingDate": "2026-08-21"
+    },
+    "TLSS": {
+      "path": "public/data/search/TLSS.json",
+      "documentCount": 300,
+      "termCount": 3556,
+      "latestFilingDate": "2026-08-19"
+    },
+    "XTER": {
+      "path": "public/data/search/XTER.json",
+      "documentCount": 60,
+      "termCount": 1598,
+      "latestFilingDate": "2026-10-01"
     }
   },
   "errors": [
@@ -34347,22 +34383,43 @@
     {
       "ticker": "BMMX",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "ISTL",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-10-22T13:24:19.458237+00:00",
+    "generatedAt": "2026-10-23T01:58:52.716035+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1437,
+    "selectedTickers": [
+      "DCM",
+      "ISTL",
+      "LCGMD",
+      "SATS",
+      "SRTM",
+      "TLSS",
+      "XTER"
+    ],
+    "indexedTickers": [
+      "DCM",
+      "LCGMD",
+      "SATS",
+      "SRTM",
+      "TLSS",
+      "XTER"
+    ],
+    "failedTickers": [
+      "ISTL"
+    ],
+    "requested": 7,
+    "indexed": 6,
+    "failed": 1,
+    "remainingUnindexed": 1434,
     "remainingUnattempted": 0,
     "finished": true
   }
