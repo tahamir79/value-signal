@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-23T13:04:08.037760+00:00",
+  "generatedAt": "2026-10-24T02:03:50.651426+00:00",
   "record": {
     "security": {
       "ticker": "EWAV",
@@ -11,7 +11,7 @@
     },
     "derived": {
       "latestPrice": 9.94,
-      "dailyChangePercent": 0.1007,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": 0.1035,
       "liabilitiesToAssets": 0.000369,
       "latestRevenueBillions": null,
@@ -438,50 +438,51 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "EWAV",
-      "generatedAt": "2026-10-23T12:47:44.206790+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-10-24T01:46:50.430057+00:00",
+      "marketDataAsOf": "2026-10-23",
+      "status": "not_detected",
+      "growthSpurtScore": 55.71,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.0040404,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00013441,
+        "trendSlope63d": 0.00018328,
+        "trendAnnualizedReturn63d": 0.04727097,
+        "trendFitR2_63d": 0.82796932,
+        "positiveWeekRatio63d": 0.77777778,
+        "trendResidualVolatility63d": 0.00122968,
+        "maxDrawdown63d": -0.00402414,
+        "downsideVolatility63d": 0.00114106,
+        "excessReturnVsSpy21d": 0.01343848,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": -0.00010669,
+        "largestOneDayContribution63d": 0.12439252,
+        "percentAboveTrendLine63d": 0.52
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 13.4943,
+        "consistencyScore": 86.1481,
+        "relativeStrengthScore": 66.7981,
+        "drawdownControlScore": 98.6586,
+        "confirmationScore": 19.6967
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.902439,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.748313,
+        "trendFitR2_63d": 0.88739,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.981837,
+        "growthSpurtScore": 0.902439
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_CONSISTENCY_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "LOW_TREND_DRAWDOWN",
+        "RECENT_TREND_CONFIRMED"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1022,6 +1023,17 @@
         "volume": 1400,
         "source": "yahoo-chart",
         "adjusted_close": 9.9399995803833
+      },
+      {
+        "ticker": "EWAV",
+        "date": "2026-10-23",
+        "open": 9.9399995803833,
+        "high": 9.9399995803833,
+        "low": 9.9399995803833,
+        "close": 9.9399995803833,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.9399995803833
       }
     ],
     "dataStatus": {
@@ -1059,13 +1071,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-10-15",
-      "latestScoringDate": "2026-10-22",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-10-23T12:47:44.206790+00:00",
+      "latestScoringDate": "2026-10-23",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 55.71,
+      "growthSpurtBenchmarkPercentile": 0.902439,
+      "growthSpurtMarketDataAsOf": "2026-10-23",
+      "lastPipelineRun": "2026-10-24T01:46:50.430057+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
