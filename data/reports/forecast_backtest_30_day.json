@@ -1,12 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-24T12:37:35.167345+00:00",
-  "mode": "scaled_fast_current_only",
+  "generatedAt": "2026-10-24T15:32:35.777784+00:00",
   "horizonDays": 30,
   "split": {
-    "train": 0,
-    "validation": 0,
-    "test": 0
+    "train": 1689685,
+    "validation": 382648,
+    "test": 511084
   },
   "selectedModel": "zero-return baseline",
   "leaderboard": [
@@ -15,30 +14,69 @@
       "model": "zero-return baseline",
       "status": "available",
       "validation": {
-        "mae": null
+        "mae": 0.14799797775887025,
+        "rmse": 0.2724596810445811,
+        "medianAbsoluteError": 0.08817532734155727,
+        "directionalAccuracy": 0.009664234492274885,
+        "spearmanRankCorrelation": null,
+        "predictionBias": 0.026196458022964823
       },
       "test": {
-        "mae": null,
-        "directionalAccuracy": null
+        "mae": 0.14633173872014882,
+        "rmse": 0.31513573218830526,
+        "medianAbsoluteError": 0.07796151882648075,
+        "directionalAccuracy": 0.011358211174679701,
+        "spearmanRankCorrelation": null,
+        "predictionBias": 0.044536561919314724
       }
     },
     {
       "horizonDays": 30,
       "model": "historical-mean baseline",
-      "status": "unavailable",
-      "reason": "Scaled fast mode does not train/evaluate historical-mean baseline."
+      "status": "available",
+      "validation": {
+        "mae": 0.14849056036943484,
+        "rmse": 0.27154943299596174,
+        "medianAbsoluteError": 0.08923136778708284,
+        "directionalAccuracy": 0.5046648617005708,
+        "spearmanRankCorrelation": 0.0001990534250302949,
+        "predictionBias": 0.01382284986760725
+      },
+      "test": {
+        "mae": 0.14607545041605122,
+        "rmse": 0.3136263380985225,
+        "medianAbsoluteError": 0.0778514750456151,
+        "directionalAccuracy": 0.5376591714864876,
+        "spearmanRankCorrelation": -0.005457343721669478,
+        "predictionBias": 0.03216295376395715
+      }
     },
     {
       "horizonDays": 30,
       "model": "market-return baseline",
-      "status": "unavailable",
-      "reason": "Scaled fast mode does not train/evaluate market-return baseline."
+      "status": "available",
+      "validation": {
+        "mae": 0.14849056036943484,
+        "rmse": 0.27154943299596174,
+        "medianAbsoluteError": 0.08923136778708284,
+        "directionalAccuracy": 0.5046648617005708,
+        "spearmanRankCorrelation": 0.0001990534250302949,
+        "predictionBias": 0.01382284986760725
+      },
+      "test": {
+        "mae": 0.14607545041605122,
+        "rmse": 0.3136263380985225,
+        "medianAbsoluteError": 0.0778514750456151,
+        "directionalAccuracy": 0.5376591714864876,
+        "spearmanRankCorrelation": -0.005457343721669478,
+        "predictionBias": 0.03216295376395715
+      }
     },
     {
       "horizonDays": 30,
-      "model": "sklearn challengers",
+      "model": "sklearn candidates",
       "status": "unavailable",
-      "reason": "Disabled by scaled fast mode."
+      "reason": "scikit-learn unavailable or no train rows"
     }
   ]
 }
