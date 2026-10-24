@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T13:23:14.468450+00:00",
+  "generatedAt": "2026-10-24T08:46:53.103923+00:00",
   "record": {
     "security": {
       "ticker": "FTRA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.86,
-      "dailyChangePercent": -0.1013,
+      "latestPrice": 9.87,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.042892,
       "latestRevenueBillions": null,
@@ -425,50 +425,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FTRA",
-      "generatedAt": "2026-10-22T13:07:22.191604+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-24T08:19:39.403158+00:00",
+      "marketDataAsOf": "2026-10-23",
       "status": "not_detected",
-      "growthSpurtScore": 33.33,
+      "growthSpurtScore": 31.81,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00202434,
-        "return63d": null,
+        "return21d": 0.0,
+        "return63d": -0.00403632,
         "trendSlope21d": 0.0,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00173119,
+        "trendResidualVolatility63d": 0.00166761,
         "maxDrawdown63d": -0.00904524,
-        "downsideVolatility63d": 0.00153726,
-        "excessReturnVsSpy21d": -0.00164939,
-        "excessReturnVsSpy63d": null,
-        "trendAcceleration": -9.64e-05,
-        "largestOneDayContribution63d": 0.10885262,
-        "percentAboveTrendLine63d": 0.72580645
+        "downsideVolatility63d": 0.00110386,
+        "excessReturnVsSpy21d": 0.00939808,
+        "excessReturnVsSpy63d": -0.03484054,
+        "trendAcceleration": -8.439e-05,
+        "largestOneDayContribution63d": 0.09985165,
+        "percentAboveTrendLine63d": 0.73015873
       },
       "scoreBreakdown": {
         "directionScore": 0.0,
-        "consistencyScore": 33.1608,
-        "relativeStrengthScore": 47.9383,
+        "consistencyScore": 33.4015,
+        "relativeStrengthScore": 39.9577,
         "drawdownControlScore": 96.9849,
-        "confirmationScore": 9.036
+        "confirmationScore": 9.1561
       },
-      "benchmarkPercentile": 0.685302,
+      "benchmarkPercentile": 0.630173,
       "metricPercentiles": {
-        "trendSlope63d": 0.709186,
-        "trendFitR2_63d": 0.067717,
-        "excessReturnVsSpy63d": null,
-        "drawdownControlScore": 0.959055,
-        "growthSpurtScore": 0.685302
+        "trendSlope63d": 0.724725,
+        "trendFitR2_63d": 0.067575,
+        "excessReturnVsSpy63d": 0.627833,
+        "drawdownControlScore": 0.958617,
+        "growthSpurtScore": 0.630173
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1152,6 +1155,28 @@
         "volume": 2200,
         "source": "yahoo-chart",
         "adjusted_close": 9.859999656677246
+      },
+      {
+        "ticker": "FTRA",
+        "date": "2026-10-22",
+        "open": 9.869999885559082,
+        "high": 9.869999885559082,
+        "low": 9.869999885559082,
+        "close": 9.869999885559082,
+        "volume": 304700,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.869999885559082
+      },
+      {
+        "ticker": "FTRA",
+        "date": "2026-10-23",
+        "open": 9.869999885559082,
+        "high": 9.869999885559082,
+        "low": 9.869999885559082,
+        "close": 9.869999885559082,
+        "volume": 300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.869999885559082
       }
     ],
     "dataStatus": {
@@ -1191,13 +1216,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-23",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 33.33,
-      "growthSpurtBenchmarkPercentile": 0.685302,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T13:07:22.191604+00:00",
+      "growthSpurtScore": 31.81,
+      "growthSpurtBenchmarkPercentile": 0.630173,
+      "growthSpurtMarketDataAsOf": "2026-10-23",
+      "lastPipelineRun": "2026-10-24T08:19:39.403158+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

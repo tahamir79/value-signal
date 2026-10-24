@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T13:23:14.468450+00:00",
+  "generatedAt": "2026-10-24T08:46:53.103923+00:00",
   "record": {
     "security": {
       "ticker": "FTRE",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 24.06,
-      "dailyChangePercent": 5.619,
-      "marketCapBillions": 2.2881,
+      "latestPrice": 23.63,
+      "dailyChangePercent": -1.2124,
+      "marketCapBillions": 2.2472,
       "liabilitiesToAssets": 0.806917,
       "latestRevenueBillions": 2.7234,
       "grossMarginPercent": null,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": 0.016219,
       "bookValue": 524200000.0,
       "bookValuePerShare": 5.512093,
-      "priceToBook": 4.364948,
+      "priceToBook": 4.286938,
       "retainedEarnings": -1420000000.0
     },
     "balanceSheetScoringShadow": {
@@ -497,52 +497,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FTRE",
-      "generatedAt": "2026-10-22T13:07:22.191604+00:00",
-      "marketDataAsOf": "2026-10-21",
-      "status": "emerging",
-      "growthSpurtScore": 69.66,
+      "generatedAt": "2026-10-24T08:19:39.403158+00:00",
+      "marketDataAsOf": "2026-10-23",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.17767984,
-        "return63d": 0.23384613,
-        "trendSlope21d": 0.00811749,
-        "trendSlope63d": 0.00296988,
-        "trendAnnualizedReturn63d": 1.11363736,
-        "trendFitR2_63d": 0.38191931,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.06193972,
+        "return21d": 0.18031961,
+        "return63d": 0.23072907,
+        "trendSlope21d": 0.00988579,
+        "trendSlope63d": 0.0034805,
+        "trendAnnualizedReturn63d": 1.40388614,
+        "trendFitR2_63d": 0.47227273,
+        "positiveWeekRatio63d": 0.58333333,
+        "trendResidualVolatility63d": 0.06272768,
         "maxDrawdown63d": -0.18888887,
-        "downsideVolatility63d": 0.02042581,
-        "excessReturnVsSpy21d": 0.17805479,
-        "excessReturnVsSpy63d": 0.18395348,
-        "trendAcceleration": 0.00920466,
-        "largestOneDayContribution63d": 0.08055851,
+        "downsideVolatility63d": 0.02043641,
+        "excessReturnVsSpy21d": 0.1897177,
+        "excessReturnVsSpy63d": 0.19992486,
+        "trendAcceleration": 0.00988579,
+        "largestOneDayContribution63d": 0.08446882,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 16.4169,
+        "consistencyScore": 29.8845,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 37.037,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.941732,
+      "benchmarkPercentile": 0.887899,
       "metricPercentiles": {
-        "trendSlope63d": 0.920735,
-        "trendFitR2_63d": 0.445669,
-        "excessReturnVsSpy63d": 0.900529,
-        "drawdownControlScore": 0.572441,
-        "growthSpurtScore": 0.941732
+        "trendSlope63d": 0.936092,
+        "trendFitR2_63d": 0.510739,
+        "excessReturnVsSpy63d": 0.909331,
+        "drawdownControlScore": 0.579099,
+        "growthSpurtScore": 0.887899
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -9784,6 +9786,28 @@
         "volume": 2476600,
         "source": "yahoo-chart",
         "adjusted_close": 24.059999465942383
+      },
+      {
+        "ticker": "FTRE",
+        "date": "2026-10-22",
+        "open": 23.950000762939453,
+        "high": 24.834999084472656,
+        "low": 23.239999771118164,
+        "close": 23.920000076293945,
+        "volume": 1986900,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.920000076293945
+      },
+      {
+        "ticker": "FTRE",
+        "date": "2026-10-23",
+        "open": 23.920000076293945,
+        "high": 24.04800033569336,
+        "low": 23.423999786376953,
+        "close": 23.6299991607666,
+        "volume": 999700,
+        "source": "yahoo-chart",
+        "adjusted_close": 23.6299991607666
       }
     ],
     "dataStatus": {
@@ -9821,13 +9845,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-07-29",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-23",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 69.66,
-      "growthSpurtBenchmarkPercentile": 0.941732,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T13:07:22.191604+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.887899,
+      "growthSpurtMarketDataAsOf": "2026-10-23",
+      "lastPipelineRun": "2026-10-24T08:19:39.403158+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
