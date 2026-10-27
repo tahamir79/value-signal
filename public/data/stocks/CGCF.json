@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-24T12:35:29.685515+00:00",
+  "generatedAt": "2026-10-27T13:48:37.285378+00:00",
   "record": {
     "security": {
       "ticker": "CGCF",
@@ -415,50 +415,50 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CGCF",
-      "generatedAt": "2026-10-24T12:12:35.141839+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-10-27T13:31:29.093702+00:00",
+      "marketDataAsOf": "2026-10-26",
+      "status": "not_detected",
+      "growthSpurtScore": 33.03,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.0,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.0,
+        "trendSlope63d": -7.634e-05,
+        "trendAnnualizedReturn63d": -0.01905264,
+        "trendFitR2_63d": 0.27381333,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.00245614,
+        "maxDrawdown63d": -0.01905722,
+        "downsideVolatility63d": 0.00400559,
+        "excessReturnVsSpy21d": 0.00775262,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.0002256,
+        "largestOneDayContribution63d": 0.33765168,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 23.2738,
+        "relativeStrengthScore": 59.6908,
+        "drawdownControlScore": 93.6476,
+        "confirmationScore": 12.256
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.622015,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.695742,
+        "trendFitR2_63d": 0.356179,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.951713,
+        "growthSpurtScore": 0.622015
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -999,6 +999,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.8100004196167
+      },
+      {
+        "ticker": "CGCF",
+        "date": "2026-10-26",
+        "open": 9.8100004196167,
+        "high": 9.8100004196167,
+        "low": 9.8100004196167,
+        "close": 9.8100004196167,
+        "volume": 2300,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.8100004196167
       }
     ],
     "dataStatus": {
@@ -1039,13 +1050,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-12",
-      "latestScoringDate": "2026-10-23",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-10-24T12:12:35.141839+00:00",
+      "latestScoringDate": "2026-10-26",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 33.03,
+      "growthSpurtBenchmarkPercentile": 0.622015,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T13:31:29.093702+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "ACVA",
   "companyName": "ACV Auctions Inc.",
-  "generatedAt": "2026-10-27T09:27:53.519017+00:00",
+  "generatedAt": "2026-10-27T13:49:48.583597+00:00",
   "marketDataAsOf": "2026-10-16",
   "currentPrice": 10.5,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-27T09:27:53.519017+00:00",
+    "collectedAt": "2026-10-27T13:49:48.583597+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-27T09:27:53.519017+00:00",
+    "generatedAt": "2026-10-27T13:49:48.583597+00:00",
     "marketDataAsOf": "2026-10-16",
     "currentPrice": 10.5,
     "horizon30Day": {
-      "returnEstimate": -0.01495099,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.08,
-      "estimatedPrice": 10.343,
-      "lowerEstimatedPrice": 9.66,
-      "upperEstimatedPrice": 11.34,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 9,
+      "status": "insufficient_data",
+      "usableObservationCount": 9,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 9 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.06740036,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.15,
-      "estimatedPrice": 9.7923,
-      "lowerEstimatedPrice": 8.925,
-      "upperEstimatedPrice": 12.075,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 1,
+      "status": "insufficient_data",
+      "usableObservationCount": 1,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 1 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "Market data as of 2026-10-16 is older than 10 days.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 9 of 24 required observations.",
+      "Not enough 90-day history: 1 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",

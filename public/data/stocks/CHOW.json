@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-24T12:35:29.685515+00:00",
+  "generatedAt": "2026-10-27T13:48:37.285378+00:00",
   "record": {
     "security": {
       "ticker": "CHOW",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.206,
-      "dailyChangePercent": -4.6296,
+      "latestPrice": 1.94,
+      "dailyChangePercent": -2.0202,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CHOW",
-      "generatedAt": "2026-10-24T12:12:35.141839+00:00",
-      "marketDataAsOf": "2026-10-23",
+      "generatedAt": "2026-10-27T13:31:29.093702+00:00",
+      "marketDataAsOf": "2026-10-27",
       "status": "not_detected",
-      "growthSpurtScore": 15.1,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.70613408,
-        "return63d": -0.43093921,
-        "trendSlope21d": -0.02703244,
-        "trendSlope63d": 0.00754083,
-        "trendAnnualizedReturn63d": 5.68782318,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.26790788,
+        "return21d": 2.11396465,
+        "return63d": 4.60693681,
+        "trendSlope21d": -0.01128029,
+        "trendSlope63d": 0.00815482,
+        "trendAnnualizedReturn63d": 6.80695337,
+        "trendFitR2_63d": 0.11781482,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.34437766,
         "maxDrawdown63d": -0.70613408,
-        "downsideVolatility63d": 0.08849628,
-        "excessReturnVsSpy21d": -0.696736,
-        "excessReturnVsSpy63d": -0.46174342,
-        "trendAcceleration": -0.0396008,
-        "largestOneDayContribution63d": 0.16305948,
-        "percentAboveTrendLine63d": 0.49206349
+        "downsideVolatility63d": 0.08836445,
+        "excessReturnVsSpy21d": 2.11123477,
+        "excessReturnVsSpy63d": 4.55190114,
+        "trendAcceleration": -0.02526552,
+        "largestOneDayContribution63d": 0.67435199,
+        "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 45.0,
-        "consistencyScore": 6.3889,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 100.0,
+        "consistencyScore": 2.8968,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 0.0
+        "confirmationScore": 40.0
       },
-      "benchmarkPercentile": 0.367273,
+      "benchmarkPercentile": 0.879024,
       "metricPercentiles": {
-        "trendSlope63d": 0.981818,
-        "trendFitR2_63d": 0.067792,
-        "excessReturnVsSpy63d": 0.090957,
-        "drawdownControlScore": 0.182338,
-        "growthSpurtScore": 0.367273
+        "trendSlope63d": 0.988058,
+        "trendFitR2_63d": 0.251817,
+        "excessReturnVsSpy63d": 0.999477,
+        "drawdownControlScore": 0.18406,
+        "growthSpurtScore": 0.879024
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3446,9 +3449,31 @@
         "high": 0.2199999988079071,
         "low": 0.20100000500679016,
         "close": 0.20600000023841858,
-        "volume": 503500,
+        "volume": 514800,
         "source": "yahoo-chart",
         "adjusted_close": 0.20600000023841858
+      },
+      {
+        "ticker": "CHOW",
+        "date": "2026-10-26",
+        "open": 2.0,
+        "high": 2.1600000858306885,
+        "low": 1.600000023841858,
+        "close": 1.9800000190734863,
+        "volume": 90900,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.9800000190734863
+      },
+      {
+        "ticker": "CHOW",
+        "date": "2026-10-27",
+        "open": 2.0,
+        "high": 1.9500000476837158,
+        "low": 1.9299999475479126,
+        "close": 1.940000057220459,
+        "volume": 8796,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.940000057220459
       }
     ],
     "dataStatus": {
@@ -3488,13 +3513,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-23",
+      "latestScoringDate": "2026-10-27",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 15.1,
-      "growthSpurtBenchmarkPercentile": 0.367273,
-      "growthSpurtMarketDataAsOf": "2026-10-23",
-      "lastPipelineRun": "2026-10-24T12:12:35.141839+00:00",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.879024,
+      "growthSpurtMarketDataAsOf": "2026-10-27",
+      "lastPipelineRun": "2026-10-27T13:31:29.093702+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
