@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "ZYBT",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.46,
-      "dailyChangePercent": -2.0134,
+      "latestPrice": 1.42,
+      "dailyChangePercent": -5.3333,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ZYBT",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 23.72,
+      "growthSpurtScore": 38.75,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.14062506,
-        "return63d": -0.18888885,
-        "trendSlope21d": 0.00676964,
-        "trendSlope63d": -0.00528144,
-        "trendAnnualizedReturn63d": -0.73576653,
-        "trendFitR2_63d": 0.08663787,
+        "return21d": 0.08812262,
+        "return63d": 0.06766911,
+        "trendSlope21d": 0.01034944,
+        "trendSlope63d": -0.00519855,
+        "trendAnnualizedReturn63d": -0.73018895,
+        "trendFitR2_63d": 0.10442507,
         "positiveWeekRatio63d": 0.25,
-        "trendResidualVolatility63d": 0.15057913,
+        "trendResidualVolatility63d": 0.14770537,
         "maxDrawdown63d": -0.52966099,
-        "downsideVolatility63d": 0.03768927,
-        "excessReturnVsSpy21d": 0.141,
-        "excessReturnVsSpy63d": -0.23878149,
-        "trendAcceleration": 0.01185986,
-        "largestOneDayContribution63d": 0.21804263,
+        "downsideVolatility63d": 0.0324243,
+        "excessReturnVsSpy21d": 0.09587523,
+        "excessReturnVsSpy63d": 0.03202057,
+        "trendAcceleration": 0.01795812,
+        "largestOneDayContribution63d": 0.23251021,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 20.0,
+        "directionScore": 39.7368,
         "consistencyScore": 2.8968,
-        "relativeStrengthScore": 35.0,
+        "relativeStrengthScore": 80.5084,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.498429,
+      "benchmarkPercentile": 0.685021,
       "metricPercentiles": {
-        "trendSlope63d": 0.2,
-        "trendFitR2_63d": 0.228796,
-        "excessReturnVsSpy63d": 0.267895,
-        "drawdownControlScore": 0.180105,
-        "growthSpurtScore": 0.498429
+        "trendSlope63d": 0.228601,
+        "trendFitR2_63d": 0.228079,
+        "excessReturnVsSpy63d": 0.78489,
+        "drawdownControlScore": 0.18763,
+        "growthSpurtScore": 0.685021
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -5319,6 +5322,39 @@
         "volume": 50600,
         "source": "yahoo-chart",
         "adjusted_close": 1.4600000381469727
+      },
+      {
+        "ticker": "ZYBT",
+        "date": "2026-10-22",
+        "open": 1.4700000286102295,
+        "high": 1.5199999809265137,
+        "low": 1.440000057220459,
+        "close": 1.4600000381469727,
+        "volume": 96600,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.4600000381469727
+      },
+      {
+        "ticker": "ZYBT",
+        "date": "2026-10-23",
+        "open": 1.4299999475479126,
+        "high": 1.5499999523162842,
+        "low": 1.4299999475479126,
+        "close": 1.5,
+        "volume": 84800,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.5
+      },
+      {
+        "ticker": "ZYBT",
+        "date": "2026-10-26",
+        "open": 1.4700000286102295,
+        "high": 1.5,
+        "low": 1.399999976158142,
+        "close": 1.4199999570846558,
+        "volume": 156900,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.4199999570846558
       }
     ],
     "dataStatus": {
@@ -5358,13 +5394,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 23.72,
-      "growthSpurtBenchmarkPercentile": 0.498429,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 38.75,
+      "growthSpurtBenchmarkPercentile": 0.685021,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

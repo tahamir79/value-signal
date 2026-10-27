@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "QSEA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.74,
-      "dailyChangePercent": 0.1866,
-      "marketCapBillions": 0.1088,
+      "latestPrice": 10.711,
+      "dailyChangePercent": 0.0093,
+      "marketCapBillions": 0.1086,
       "liabilitiesToAssets": 0.065054,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -439,50 +439,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "QSEA",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 42.61,
+      "growthSpurtScore": 42.09,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00939844,
-        "return63d": 0.01704539,
-        "trendSlope21d": 0.00019999,
-        "trendSlope63d": 0.00013471,
-        "trendAnnualizedReturn63d": 0.0345292,
-        "trendFitR2_63d": 0.44474302,
+        "return21d": 0.00667294,
+        "return63d": 0.01333971,
+        "trendSlope21d": 9.837e-05,
+        "trendSlope63d": 0.00013376,
+        "trendAnnualizedReturn63d": 0.03428275,
+        "trendFitR2_63d": 0.44244498,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.00259093,
+        "trendResidualVolatility63d": 0.0025669,
         "maxDrawdown63d": -0.00562847,
-        "downsideVolatility63d": 0.00141757,
-        "excessReturnVsSpy21d": 0.00977339,
-        "excessReturnVsSpy63d": -0.03284725,
-        "trendAcceleration": 0.00019999,
-        "largestOneDayContribution63d": 0.11482993,
+        "downsideVolatility63d": 0.0013598,
+        "excessReturnVsSpy21d": 0.01442556,
+        "excessReturnVsSpy63d": -0.02230882,
+        "trendAcceleration": 9.837e-05,
+        "largestOneDayContribution63d": 0.08328843,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 15.6767,
-        "consistencyScore": 47.0153,
-        "relativeStrengthScore": 40.9317,
+        "directionScore": 12.7472,
+        "consistencyScore": 46.8631,
+        "relativeStrengthScore": 47.2482,
         "drawdownControlScore": 98.1238,
-        "confirmationScore": 32.5308
+        "confirmationScore": 23.8158
       },
-      "benchmarkPercentile": 0.742932,
+      "benchmarkPercentile": 0.733299,
       "metricPercentiles": {
-        "trendSlope63d": 0.71466,
-        "trendFitR2_63d": 0.508377,
-        "excessReturnVsSpy63d": 0.665789,
-        "drawdownControlScore": 0.972251,
-        "growthSpurtScore": 0.742932
+        "trendSlope63d": 0.73382,
+        "trendFitR2_63d": 0.490084,
+        "excessReturnVsSpy63d": 0.690976,
+        "drawdownControlScore": 0.970772,
+        "growthSpurtScore": 0.733299
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4485,9 +4488,42 @@
         "high": 10.739999771118164,
         "low": 10.739999771118164,
         "close": 10.739999771118164,
-        "volume": 333,
+        "volume": 400,
         "source": "yahoo-chart",
         "adjusted_close": 10.739999771118164
+      },
+      {
+        "ticker": "QSEA",
+        "date": "2026-10-22",
+        "open": 10.710000038146973,
+        "high": 10.725000381469727,
+        "low": 10.710000038146973,
+        "close": 10.725000381469727,
+        "volume": 1000,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.725000381469727
+      },
+      {
+        "ticker": "QSEA",
+        "date": "2026-10-23",
+        "open": 10.710000038146973,
+        "high": 10.710000038146973,
+        "low": 10.710000038146973,
+        "close": 10.710000038146973,
+        "volume": 2500,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.710000038146973
+      },
+      {
+        "ticker": "QSEA",
+        "date": "2026-10-26",
+        "open": 10.711000442504883,
+        "high": 10.711000442504883,
+        "low": 10.711000442504883,
+        "close": 10.711000442504883,
+        "volume": 300,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.711000442504883
       }
     ],
     "dataStatus": {
@@ -4529,13 +4565,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-10-09",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 42.61,
-      "growthSpurtBenchmarkPercentile": 0.742932,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 42.09,
+      "growthSpurtBenchmarkPercentile": 0.733299,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

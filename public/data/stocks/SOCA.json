@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "SOCA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.41,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 10.38,
+      "dailyChangePercent": 0.0964,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.043371,
       "latestRevenueBillions": null,
@@ -425,50 +425,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SOCA",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 45.62,
+      "growthSpurtScore": 43.08,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00579705,
-        "return63d": 0.01264593,
-        "trendSlope21d": 0.00028971,
-        "trendSlope63d": 0.00010971,
-        "trendAnnualizedReturn63d": 0.02803328,
-        "trendFitR2_63d": 0.72630664,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.0013503,
-        "maxDrawdown63d": -0.00290695,
-        "downsideVolatility63d": 0.00092913,
-        "excessReturnVsSpy21d": 0.006172,
-        "excessReturnVsSpy63d": -0.03724672,
-        "trendAcceleration": 0.00017577,
-        "largestOneDayContribution63d": 0.13230655,
+        "return21d": 0.00386847,
+        "return63d": 0.00776698,
+        "trendSlope21d": 0.00024143,
+        "trendSlope63d": 0.0001016,
+        "trendAnnualizedReturn63d": 0.02593452,
+        "trendFitR2_63d": 0.69369421,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.00141788,
+        "maxDrawdown63d": -0.00384246,
+        "downsideVolatility63d": 0.00114144,
+        "excessReturnVsSpy21d": 0.01162108,
+        "excessReturnVsSpy63d": -0.02788155,
+        "trendAcceleration": 0.00015355,
+        "largestOneDayContribution63d": 0.11837773,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 11.1574,
-        "consistencyScore": 67.1758,
-        "relativeStrengthScore": 37.5688,
-        "drawdownControlScore": 99.031,
-        "confirmationScore": 31.0755
+        "directionScore": 8.1788,
+        "consistencyScore": 57.7255,
+        "relativeStrengthScore": 43.7573,
+        "drawdownControlScore": 98.7192,
+        "confirmationScore": 26.3507
       },
-      "benchmarkPercentile": 0.781675,
+      "benchmarkPercentile": 0.746868,
       "metricPercentiles": {
-        "trendSlope63d": 0.706806,
-        "trendFitR2_63d": 0.768586,
-        "excessReturnVsSpy63d": 0.648947,
-        "drawdownControlScore": 0.991099,
-        "growthSpurtScore": 0.781675
+        "trendSlope63d": 0.720772,
+        "trendFitR2_63d": 0.721816,
+        "excessReturnVsSpy63d": 0.66107,
+        "drawdownControlScore": 0.98382,
+        "growthSpurtScore": 0.746868
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -3594,6 +3597,39 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 10.40999984741211
+      },
+      {
+        "ticker": "SOCA",
+        "date": "2026-10-22",
+        "open": 10.40999984741211,
+        "high": 10.40999984741211,
+        "low": 10.40999984741211,
+        "close": 10.40999984741211,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.40999984741211
+      },
+      {
+        "ticker": "SOCA",
+        "date": "2026-10-23",
+        "open": 10.369999885559082,
+        "high": 10.380000114440918,
+        "low": 10.369999885559082,
+        "close": 10.369999885559082,
+        "volume": 7500,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.369999885559082
+      },
+      {
+        "ticker": "SOCA",
+        "date": "2026-10-26",
+        "open": 10.380000114440918,
+        "high": 10.380000114440918,
+        "low": 10.369999885559082,
+        "close": 10.380000114440918,
+        "volume": 64400,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.380000114440918
       }
     ],
     "dataStatus": {
@@ -3633,13 +3669,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 45.62,
-      "growthSpurtBenchmarkPercentile": 0.781675,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 43.08,
+      "growthSpurtBenchmarkPercentile": 0.746868,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

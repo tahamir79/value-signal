@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "RTAC",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 10.44,
-      "dailyChangePercent": -0.1912,
+      "latestPrice": 10.46,
+      "dailyChangePercent": 0.0,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.043293,
       "latestRevenueBillions": null,
@@ -415,50 +415,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RTAC",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 27.5,
+      "growthSpurtScore": 29.98,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.00191209,
-        "return63d": -0.00381679,
-        "trendSlope21d": 7.108e-05,
-        "trendSlope63d": -4.157e-05,
-        "trendAnnualizedReturn63d": -0.01042026,
-        "trendFitR2_63d": 0.05336348,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.00285768,
+        "return21d": 0.00287629,
+        "return63d": -0.00190835,
+        "trendSlope21d": 0.00010953,
+        "trendSlope63d": -2.396e-05,
+        "trendAnnualizedReturn63d": -0.00601875,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.00289909,
         "maxDrawdown63d": -0.01792458,
-        "downsideVolatility63d": 0.00144457,
-        "excessReturnVsSpy21d": -0.00153714,
-        "excessReturnVsSpy63d": -0.05370944,
-        "trendAcceleration": 7.108e-05,
-        "largestOneDayContribution63d": 0.07240661,
+        "downsideVolatility63d": 0.00143756,
+        "excessReturnVsSpy21d": 0.01062891,
+        "excessReturnVsSpy63d": -0.03755689,
+        "trendAcceleration": 0.00014035,
+        "largestOneDayContribution63d": 0.07554783,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 26.1434,
-        "relativeStrengthScore": 27.508,
+        "directionScore": 1.9175,
+        "consistencyScore": 21.8426,
+        "relativeStrengthScore": 39.3927,
         "drawdownControlScore": 94.0251,
-        "confirmationScore": 13.554
+        "confirmationScore": 19.6198
       },
-      "benchmarkPercentile": 0.564398,
+      "benchmarkPercentile": 0.564718,
       "metricPercentiles": {
-        "trendSlope63d": 0.668063,
-        "trendFitR2_63d": 0.199476,
-        "excessReturnVsSpy63d": 0.573684,
-        "drawdownControlScore": 0.942932,
-        "growthSpurtScore": 0.564398
+        "trendSlope63d": 0.691023,
+        "trendFitR2_63d": 0.058716,
+        "excessReturnVsSpy63d": 0.61595,
+        "drawdownControlScore": 0.943633,
+        "growthSpurtScore": 0.564718
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -4255,6 +4259,39 @@
         "volume": 326900,
         "source": "yahoo-chart",
         "adjusted_close": 10.4399995803833
+      },
+      {
+        "ticker": "RTAC",
+        "date": "2026-10-22",
+        "open": 10.4399995803833,
+        "high": 10.460000038146973,
+        "low": 10.4399995803833,
+        "close": 10.460000038146973,
+        "volume": 130800,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.460000038146973
+      },
+      {
+        "ticker": "RTAC",
+        "date": "2026-10-23",
+        "open": 10.449999809265137,
+        "high": 10.470000267028809,
+        "low": 10.449999809265137,
+        "close": 10.460000038146973,
+        "volume": 82100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.460000038146973
+      },
+      {
+        "ticker": "RTAC",
+        "date": "2026-10-26",
+        "open": 10.454999923706055,
+        "high": 10.460000038146973,
+        "low": 10.449999809265137,
+        "close": 10.460000038146973,
+        "volume": 64100,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.460000038146973
       }
     ],
     "dataStatus": {
@@ -4295,13 +4332,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 27.5,
-      "growthSpurtBenchmarkPercentile": 0.564398,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 29.98,
+      "growthSpurtBenchmarkPercentile": 0.564718,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

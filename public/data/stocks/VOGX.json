@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "VOGX",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 20.39,
-      "dailyChangePercent": 8.7467,
-      "marketCapBillions": 0.3029,
+      "latestPrice": 17.34,
+      "dailyChangePercent": -0.6304,
+      "marketCapBillions": 0.2576,
       "liabilitiesToAssets": 2.262786,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -437,49 +437,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "VOGX",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 0.62,
+      "growthSpurtScore": 0.74,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.23259316,
+        "return21d": -0.23713152,
         "return63d": null,
-        "trendSlope21d": -0.02434535,
-        "trendSlope63d": -0.01358415,
-        "trendAnnualizedReturn63d": -0.96739226,
-        "trendFitR2_63d": 0.0,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.29987347,
+        "trendSlope21d": -0.01106049,
+        "trendSlope63d": -0.01354616,
+        "trendAnnualizedReturn63d": -0.96707861,
+        "trendFitR2_63d": 0.02850316,
+        "positiveWeekRatio63d": 0.4,
+        "trendResidualVolatility63d": 0.29184758,
         "maxDrawdown63d": -0.57427485,
-        "downsideVolatility63d": 0.03735155,
-        "excessReturnVsSpy21d": -0.23221822,
+        "downsideVolatility63d": 0.03707985,
+        "excessReturnVsSpy21d": -0.22937891,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": -0.03877562,
-        "largestOneDayContribution63d": 0.08674153,
-        "percentAboveTrendLine63d": 0.5
+        "trendAcceleration": -0.01721293,
+        "largestOneDayContribution63d": 0.08235417,
+        "percentAboveTrendLine63d": 0.50943396
       },
       "scoreBreakdown": {
         "directionScore": 0.0,
-        "consistencyScore": 2.5,
+        "consistencyScore": 2.9717,
         "relativeStrengthScore": 0.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.001571,
+      "benchmarkPercentile": 0.023486,
       "metricPercentiles": {
-        "trendSlope63d": 0.048691,
-        "trendFitR2_63d": 0.067539,
+        "trendSlope63d": 0.056889,
+        "trendFitR2_63d": 0.152401,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": 0.180105,
-        "growthSpurtScore": 0.001571
+        "drawdownControlScore": 0.18763,
+        "growthSpurtScore": 0.023486
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1031,6 +1034,39 @@
         "volume": 84300,
         "source": "yahoo-chart",
         "adjusted_close": 20.389999389648438
+      },
+      {
+        "ticker": "VOGX",
+        "date": "2026-10-22",
+        "open": 20.989999771118164,
+        "high": 20.989999771118164,
+        "low": 17.549999237060547,
+        "close": 19.079999923706055,
+        "volume": 91000,
+        "source": "yahoo-chart",
+        "adjusted_close": 19.079999923706055
+      },
+      {
+        "ticker": "VOGX",
+        "date": "2026-10-23",
+        "open": 19.290000915527344,
+        "high": 19.760000228881836,
+        "low": 16.93000030517578,
+        "close": 17.450000762939453,
+        "volume": 64500,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.450000762939453
+      },
+      {
+        "ticker": "VOGX",
+        "date": "2026-10-26",
+        "open": 16.1200008392334,
+        "high": 17.6299991607666,
+        "low": 15.010000228881836,
+        "close": 17.34000015258789,
+        "volume": 106000,
+        "source": "yahoo-chart",
+        "adjusted_close": 17.34000015258789
       }
     ],
     "dataStatus": {
@@ -1072,13 +1108,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-09-17",
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 0.62,
-      "growthSpurtBenchmarkPercentile": 0.001571,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 0.74,
+      "growthSpurtBenchmarkPercentile": 0.023486,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

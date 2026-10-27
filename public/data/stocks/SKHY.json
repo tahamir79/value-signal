@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-22T02:02:09.494862+00:00",
+  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
   "record": {
     "security": {
       "ticker": "SKHY",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 143.25,
-      "dailyChangePercent": 2.4751,
+      "latestPrice": 142.62,
+      "dailyChangePercent": 4.087,
       "marketCapBillions": null,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": null,
@@ -335,50 +335,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SKHY",
-      "generatedAt": "2026-10-22T01:43:40.961661+00:00",
-      "marketDataAsOf": "2026-10-21",
+      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
+      "marketDataAsOf": "2026-10-26",
       "status": "not_detected",
-      "growthSpurtScore": 14.22,
+      "growthSpurtScore": 38.61,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.26677584,
-        "return63d": -0.15486726,
-        "trendSlope21d": -0.01843103,
-        "trendSlope63d": 0.00414506,
-        "trendAnnualizedReturn63d": 1.84213645,
-        "trendFitR2_63d": 0.09736191,
-        "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.10983552,
-        "maxDrawdown63d": -0.31284296,
-        "downsideVolatility63d": 0.02706554,
-        "excessReturnVsSpy21d": -0.26640089,
-        "excessReturnVsSpy63d": -0.2047599,
-        "trendAcceleration": -0.02619812,
-        "largestOneDayContribution63d": 0.07562095,
+        "return21d": -0.25548133,
+        "return63d": 0.09564414,
+        "trendSlope21d": -0.02120998,
+        "trendSlope63d": 0.00278008,
+        "trendAnnualizedReturn63d": 1.0149216,
+        "trendFitR2_63d": 0.0,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.1199603,
+        "maxDrawdown63d": -0.33700851,
+        "downsideVolatility63d": 0.02614406,
+        "excessReturnVsSpy21d": -0.24772871,
+        "excessReturnVsSpy63d": 0.0599956,
+        "trendAcceleration": -0.02901197,
+        "largestOneDayContribution63d": 0.07656278,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 45.0,
-        "consistencyScore": 2.8968,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 72.8962,
+        "consistencyScore": 21.4683,
+        "relativeStrengthScore": 56.8732,
         "drawdownControlScore": 0.0,
         "confirmationScore": 0.0
       },
-      "benchmarkPercentile": 0.380105,
+      "benchmarkPercentile": 0.683716,
       "metricPercentiles": {
-        "trendSlope63d": 0.934031,
-        "trendFitR2_63d": 0.235602,
-        "excessReturnVsSpy63d": 0.308421,
-        "drawdownControlScore": 0.180105,
-        "growthSpurtScore": 0.380105
+        "trendSlope63d": 0.914405,
+        "trendFitR2_63d": 0.058716,
+        "excessReturnVsSpy63d": 0.814795,
+        "drawdownControlScore": 0.18763,
+        "growthSpurtScore": 0.683716
       },
       "reasonCodes": [
         "TREND_SLOPE_STRONG",
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1180,9 +1183,42 @@
         "high": 145.97000122070312,
         "low": 139.92999267578125,
         "close": 143.25,
-        "volume": 13865800,
+        "volume": 14058800,
         "source": "yahoo-chart",
         "adjusted_close": 143.25
+      },
+      {
+        "ticker": "SKHY",
+        "date": "2026-10-22",
+        "open": 137.00999450683594,
+        "high": 139.3000030517578,
+        "low": 130.7899932861328,
+        "close": 131.69000244140625,
+        "volume": 24312600,
+        "source": "yahoo-chart",
+        "adjusted_close": 131.69000244140625
+      },
+      {
+        "ticker": "SKHY",
+        "date": "2026-10-23",
+        "open": 136.61000061035156,
+        "high": 138.52000427246094,
+        "low": 135.2100067138672,
+        "close": 137.02000427246094,
+        "volume": 16311700,
+        "source": "yahoo-chart",
+        "adjusted_close": 137.02000427246094
+      },
+      {
+        "ticker": "SKHY",
+        "date": "2026-10-26",
+        "open": 140.58999633789062,
+        "high": 143.47000122070312,
+        "low": 139.14999389648438,
+        "close": 142.6199951171875,
+        "volume": 16912500,
+        "source": "yahoo-chart",
+        "adjusted_close": 142.6199951171875
       }
     ],
     "dataStatus": {
@@ -1222,13 +1258,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": null,
-      "latestScoringDate": "2026-10-21",
+      "latestScoringDate": "2026-10-26",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 14.22,
-      "growthSpurtBenchmarkPercentile": 0.380105,
-      "growthSpurtMarketDataAsOf": "2026-10-21",
-      "lastPipelineRun": "2026-10-22T01:43:40.961661+00:00",
+      "growthSpurtScore": 38.61,
+      "growthSpurtBenchmarkPercentile": 0.683716,
+      "growthSpurtMarketDataAsOf": "2026-10-26",
+      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
