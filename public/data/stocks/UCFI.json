@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-27T09:26:17.338377+00:00",
+  "generatedAt": "2026-10-29T02:55:03.721786+00:00",
   "record": {
     "security": {
       "ticker": "UCFI",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.51,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.2878,
+      "latestPrice": 5.511,
+      "dailyChangePercent": 0.0181,
+      "marketCapBillions": 0.2879,
       "liabilitiesToAssets": 0.336903,
       "latestRevenueBillions": 0.0146,
       "grossMarginPercent": 72.8323,
@@ -284,7 +284,7 @@
       "shortTermDebtShare": null,
       "bookValue": 23347133.0,
       "bookValuePerShare": 0.446964,
-      "priceToBook": 12.327628,
+      "priceToBook": 12.329865,
       "retainedEarnings": 15159903.0
     },
     "balanceSheetScoringShadow": {
@@ -501,49 +501,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "UCFI",
-      "generatedAt": "2026-10-27T09:14:13.380729+00:00",
-      "marketDataAsOf": "2026-10-26",
+      "generatedAt": "2026-10-29T02:37:38.149587+00:00",
+      "marketDataAsOf": "2026-10-28",
       "status": "not_detected",
-      "growthSpurtScore": 41.28,
+      "growthSpurtScore": 30.36,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0,
-        "return63d": 0.0,
+        "return21d": 0.00018148,
+        "return63d": 0.00018148,
         "trendSlope21d": 0.0,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
-        "trendFitR2_63d": 1.0,
+        "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.0,
-        "trendResidualVolatility63d": 0.0,
+        "trendResidualVolatility63d": 2.286e-05,
         "maxDrawdown63d": 0.0,
         "downsideVolatility63d": 0.0,
-        "excessReturnVsSpy21d": 0.00775262,
-        "excessReturnVsSpy63d": -0.03564854,
+        "excessReturnVsSpy21d": -0.01043091,
+        "excessReturnVsSpy63d": -0.04368835,
         "trendAcceleration": 0.0,
-        "largestOneDayContribution63d": null,
+        "largestOneDayContribution63d": 1.0,
         "percentAboveTrendLine63d": 1.0
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 70.0,
-        "relativeStrengthScore": 38.9096,
+        "directionScore": 0.1739,
+        "consistencyScore": 34.9917,
+        "relativeStrengthScore": 27.6881,
         "drawdownControlScore": 100.0,
-        "confirmationScore": 10.0
+        "confirmationScore": 10.242
       },
-      "benchmarkPercentile": 0.721033,
+      "benchmarkPercentile": 0.552714,
       "metricPercentiles": {
-        "trendSlope63d": 0.698591,
-        "trendFitR2_63d": 0.999217,
-        "excessReturnVsSpy63d": 0.624082,
+        "trendSlope63d": 0.698852,
+        "trendFitR2_63d": 0.051148,
+        "excessReturnVsSpy63d": 0.603566,
         "drawdownControlScore": 0.999217,
-        "growthSpurtScore": 0.721033
+        "growthSpurtScore": 0.552714
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -7970,6 +7974,28 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 5.510000228881836
+      },
+      {
+        "ticker": "UCFI",
+        "date": "2026-10-27",
+        "open": 5.510000228881836,
+        "high": 5.510000228881836,
+        "low": 5.510000228881836,
+        "close": 5.510000228881836,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.510000228881836
+      },
+      {
+        "ticker": "UCFI",
+        "date": "2026-10-28",
+        "open": 0.0,
+        "high": 0.0,
+        "low": 0.0,
+        "close": 5.511000156402588,
+        "volume": 0,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.511000156402588
       }
     ],
     "dataStatus": {
@@ -8007,13 +8033,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-14",
-      "latestScoringDate": "2026-10-26",
+      "latestScoringDate": "2026-10-28",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 41.28,
-      "growthSpurtBenchmarkPercentile": 0.721033,
-      "growthSpurtMarketDataAsOf": "2026-10-26",
-      "lastPipelineRun": "2026-10-27T09:14:13.380729+00:00",
+      "growthSpurtScore": 30.36,
+      "growthSpurtBenchmarkPercentile": 0.552714,
+      "growthSpurtMarketDataAsOf": "2026-10-28",
+      "lastPipelineRun": "2026-10-29T02:37:38.149587+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

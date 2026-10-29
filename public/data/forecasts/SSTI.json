@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "SSTI",
   "companyName": "SOUNDTHINKING, INC.",
-  "generatedAt": "2026-10-28T14:37:30.308165+00:00",
-  "marketDataAsOf": "2026-10-26",
+  "generatedAt": "2026-10-29T02:57:02.020749+00:00",
+  "marketDataAsOf": "2026-10-28",
   "currentPrice": 8.36,
   "analystTarget": {
     "ticker": "SSTI",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-10-28T14:37:30.308165+00:00",
+    "collectedAt": "2026-10-29T02:57:02.020749+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-10-28T14:37:30.308165+00:00",
-    "marketDataAsOf": "2026-10-26",
+    "generatedAt": "2026-10-29T02:57:02.020749+00:00",
+    "marketDataAsOf": "2026-10-28",
     "currentPrice": 8.36,
     "horizon30Day": {
-      "returnEstimate": -0.00026177,
+      "returnEstimate": -0.00590688,
       "lowerReturn": -0.08,
-      "upperReturn": 0.07347047,
-      "estimatedPrice": 8.3578,
+      "upperReturn": 0.08,
+      "estimatedPrice": 8.3106,
       "lowerEstimatedPrice": 7.6912,
-      "upperEstimatedPrice": 8.9742,
+      "upperEstimatedPrice": 9.0288,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": -0.06155155,
+      "returnEstimate": -0.04445895,
       "lowerReturn": -0.15,
-      "upperReturn": 0.11432596,
-      "estimatedPrice": 7.8454,
+      "upperReturn": 0.15,
+      "estimatedPrice": 7.9883,
       "lowerEstimatedPrice": 7.106,
-      "upperEstimatedPrice": 9.3158,
+      "upperEstimatedPrice": 9.614,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -78,7 +78,9 @@
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "30-day scenario: lower return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: lower return clipped to +/-15%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
