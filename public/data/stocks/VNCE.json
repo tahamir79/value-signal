@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-29T02:55:03.721786+00:00",
+  "generatedAt": "2026-10-30T03:04:13.267516+00:00",
   "record": {
     "security": {
       "ticker": "VNCE",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 11.41,
-      "dailyChangePercent": 1.6934,
-      "marketCapBillions": 0.1477,
+      "latestPrice": 10.6,
+      "dailyChangePercent": -7.099,
+      "marketCapBillions": 0.1372,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 0.3,
       "grossMarginPercent": 49.7132,
@@ -310,7 +310,7 @@
       "shortTermDebtShare": 0.222222,
       "bookValue": 58790000.0,
       "bookValuePerShare": 4.54161,
-      "priceToBook": 2.512325,
+      "priceToBook": 2.333974,
       "retainedEarnings": -1101807000.0
     },
     "balanceSheetScoringShadow": {
@@ -524,64 +524,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "VNCE",
-      "generatedAt": "2026-10-29T02:37:38.149587+00:00",
-      "marketDataAsOf": "2026-10-28",
-      "status": "emerging",
-      "growthSpurtScore": 70.33,
+      "generatedAt": "2026-10-30T02:46:51.285079+00:00",
+      "marketDataAsOf": "2026-10-29",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.1252465,
-        "return63d": 0.8168789,
-        "trendSlope21d": 0.00428912,
-        "trendSlope63d": 0.01336255,
-        "trendAnnualizedReturn63d": 28.00193886,
-        "trendFitR2_63d": 0.75575056,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.14433581,
+        "return21d": 0.05263165,
+        "return63d": 0.67456564,
+        "trendSlope21d": 0.00041178,
+        "trendSlope63d": 0.01332615,
+        "trendAnnualizedReturn63d": 27.73712146,
+        "trendFitR2_63d": 0.75494079,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.14560953,
         "maxDrawdown63d": -0.35595387,
-        "downsideVolatility63d": 0.05388522,
-        "excessReturnVsSpy21d": 0.11463411,
-        "excessReturnVsSpy63d": 0.77300907,
-        "trendAcceleration": -0.0070114,
-        "largestOneDayContribution63d": 0.12563937,
+        "downsideVolatility63d": 0.05293109,
+        "excessReturnVsSpy21d": 0.04380695,
+        "excessReturnVsSpy63d": 0.64211661,
+        "trendAcceleration": -0.01195766,
+        "largestOneDayContribution63d": 0.12499547,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 49.3254,
+        "consistencyScore": 37.8968,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 80.0
+        "confirmationScore": 56.4712
       },
-      "benchmarkPercentile": 0.933716,
+      "benchmarkPercentile": 0.860574,
       "metricPercentiles": {
-        "trendSlope63d": 0.993737,
-        "trendFitR2_63d": 0.787056,
-        "excessReturnVsSpy63d": 0.98322,
-        "drawdownControlScore": 0.186326,
-        "growthSpurtScore": 0.933716
+        "trendSlope63d": 0.993211,
+        "trendFitR2_63d": 0.779112,
+        "excessReturnVsSpy63d": 0.974292,
+        "drawdownControlScore": 0.186945,
+        "growthSpurtScore": 0.860574
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "VNCE",
-        "date": "2021-10-29",
-        "open": 8.899999618530273,
-        "high": 9.989999771118164,
-        "low": 8.800000190734863,
-        "close": 9.649999618530273,
-        "volume": 27200,
-        "source": "yahoo-chart",
-        "adjusted_close": 9.649999618530273
-      },
       {
         "ticker": "VNCE",
         "date": "2021-11-01",
@@ -14364,6 +14356,17 @@
         "volume": 105200,
         "source": "yahoo-chart",
         "adjusted_close": 11.40999984741211
+      },
+      {
+        "ticker": "VNCE",
+        "date": "2026-10-29",
+        "open": 11.470000267028809,
+        "high": 11.880000114440918,
+        "low": 10.399999618530273,
+        "close": 10.600000381469727,
+        "volume": 259200,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.600000381469727
       }
     ],
     "dataStatus": {
@@ -14401,13 +14404,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-09-11",
-      "latestScoringDate": "2026-10-28",
+      "latestScoringDate": "2026-10-29",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 70.33,
-      "growthSpurtBenchmarkPercentile": 0.933716,
-      "growthSpurtMarketDataAsOf": "2026-10-28",
-      "lastPipelineRun": "2026-10-29T02:37:38.149587+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.860574,
+      "growthSpurtMarketDataAsOf": "2026-10-29",
+      "lastPipelineRun": "2026-10-30T02:46:51.285079+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-29T02:55:03.721786+00:00",
+  "generatedAt": "2026-10-30T03:04:13.267516+00:00",
   "record": {
     "security": {
       "ticker": "SNAP",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 5.96,
-      "dailyChangePercent": -1.9737,
+      "latestPrice": 5.68,
+      "dailyChangePercent": -4.698,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.742029,
       "latestRevenueBillions": 5.9314,
@@ -504,65 +504,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "SNAP",
-      "generatedAt": "2026-10-29T02:37:38.149587+00:00",
-      "marketDataAsOf": "2026-10-28",
-      "status": "detected",
-      "growthSpurtScore": 81.71,
+      "generatedAt": "2026-10-30T02:46:51.285079+00:00",
+      "marketDataAsOf": "2026-10-29",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.11610484,
-        "return63d": 0.27078891,
-        "trendSlope21d": 0.00717932,
-        "trendSlope63d": 0.00310163,
-        "trendAnnualizedReturn63d": 1.18499043,
-        "trendFitR2_63d": 0.61249211,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.04497309,
-        "maxDrawdown63d": -0.11824329,
-        "downsideVolatility63d": 0.02453254,
-        "excessReturnVsSpy21d": 0.10549246,
-        "excessReturnVsSpy63d": 0.22691908,
-        "trendAcceleration": 0.00563073,
-        "largestOneDayContribution63d": 0.08016798,
+        "return21d": 0.0518518,
+        "return63d": 0.21108737,
+        "trendSlope21d": 0.00452495,
+        "trendSlope63d": 0.0028378,
+        "trendAnnualizedReturn63d": 1.04444482,
+        "trendFitR2_63d": 0.57015948,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.04480634,
+        "maxDrawdown63d": -0.13016851,
+        "downsideVolatility63d": 0.02435893,
+        "excessReturnVsSpy21d": 0.0430271,
+        "excessReturnVsSpy63d": 0.17863833,
+        "trendAcceleration": 0.00327651,
+        "largestOneDayContribution63d": 0.08138007,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 50.4889,
+        "consistencyScore": 33.3005,
         "relativeStrengthScore": 100.0,
-        "drawdownControlScore": 60.5856,
+        "drawdownControlScore": 56.6105,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.973382,
+      "benchmarkPercentile": 0.860574,
       "metricPercentiles": {
-        "trendSlope63d": 0.930585,
-        "trendFitR2_63d": 0.620564,
-        "excessReturnVsSpy63d": 0.908233,
-        "drawdownControlScore": 0.776618,
-        "growthSpurtScore": 0.973382
+        "trendSlope63d": 0.926893,
+        "trendFitR2_63d": 0.575979,
+        "excessReturnVsSpy63d": 0.883526,
+        "drawdownControlScore": 0.737859,
+        "growthSpurtScore": 0.860574
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
-        "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "SNAP",
-        "date": "2021-10-29",
-        "open": 53.970001220703125,
-        "high": 53.9900016784668,
-        "low": 52.209999084472656,
-        "close": 52.58000183105469,
-        "volume": 32465500,
-        "source": "yahoo-chart",
-        "adjusted_close": 52.58000183105469
-      },
       {
         "ticker": "SNAP",
         "date": "2021-11-01",
@@ -14342,9 +14333,20 @@
         "high": 6.139999866485596,
         "low": 5.84499979019165,
         "close": 5.960000038146973,
-        "volume": 34750300,
+        "volume": 34779700,
         "source": "yahoo-chart",
         "adjusted_close": 5.960000038146973
+      },
+      {
+        "ticker": "SNAP",
+        "date": "2026-10-29",
+        "open": 5.789999961853027,
+        "high": 5.860000133514404,
+        "low": 5.610000133514404,
+        "close": 5.679999828338623,
+        "volume": 45025900,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.679999828338623
       }
     ],
     "dataStatus": {
@@ -14377,13 +14379,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-08-04",
-      "latestScoringDate": "2026-10-28",
+      "latestScoringDate": "2026-10-29",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 81.71,
-      "growthSpurtBenchmarkPercentile": 0.973382,
-      "growthSpurtMarketDataAsOf": "2026-10-28",
-      "lastPipelineRun": "2026-10-29T02:37:38.149587+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.860574,
+      "growthSpurtMarketDataAsOf": "2026-10-29",
+      "lastPipelineRun": "2026-10-30T02:46:51.285079+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
