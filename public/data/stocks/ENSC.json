@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-29T10:30:57.902453+00:00",
+  "generatedAt": "2026-10-30T10:32:04.129806+00:00",
   "record": {
     "security": {
       "ticker": "ENSC",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.452,
-      "dailyChangePercent": 0.4444,
-      "marketCapBillions": 0.0088,
+      "latestPrice": 0.438,
+      "dailyChangePercent": -3.0973,
+      "marketCapBillions": 0.0085,
       "liabilitiesToAssets": 1.375627,
       "latestRevenueBillions": 0.0051,
       "grossMarginPercent": null,
@@ -461,65 +461,56 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ENSC",
-      "generatedAt": "2026-10-29T10:15:53.220251+00:00",
-      "marketDataAsOf": "2026-10-28",
-      "status": "emerging",
-      "growthSpurtScore": 63.32,
+      "generatedAt": "2026-10-30T10:18:42.046141+00:00",
+      "marketDataAsOf": "2026-10-29",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.08393285,
-        "return63d": 0.75875484,
-        "trendSlope21d": 0.00696701,
-        "trendSlope63d": 0.0043712,
-        "trendAnnualizedReturn63d": 2.00880529,
-        "trendFitR2_63d": 0.33689729,
-        "positiveWeekRatio63d": 0.5,
-        "trendResidualVolatility63d": 0.12258081,
+        "return21d": 0.05288458,
+        "return63d": 0.73122533,
+        "trendSlope21d": 0.00344765,
+        "trendSlope63d": 0.00380807,
+        "trendAnnualizedReturn63d": 1.61073801,
+        "trendFitR2_63d": 0.28110875,
+        "positiveWeekRatio63d": 0.41666667,
+        "trendResidualVolatility63d": 0.11264888,
         "maxDrawdown63d": -0.33396944,
-        "downsideVolatility63d": 0.04289397,
-        "excessReturnVsSpy21d": 0.07332046,
-        "excessReturnVsSpy63d": 0.71488501,
-        "trendAcceleration": 0.00290682,
-        "largestOneDayContribution63d": 0.12793252,
+        "downsideVolatility63d": 0.04227903,
+        "excessReturnVsSpy21d": 0.04405988,
+        "excessReturnVsSpy63d": 0.6987763,
+        "trendAcceleration": 0.00042043,
+        "largestOneDayContribution63d": 0.13076406,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 13.2654,
+        "consistencyScore": 5.0744,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 100.0
+        "confirmationScore": 94.2043
       },
-      "benchmarkPercentile": 0.915888,
+      "benchmarkPercentile": 0.868776,
       "metricPercentiles": {
-        "trendSlope63d": 0.962617,
-        "trendFitR2_63d": 0.402388,
-        "excessReturnVsSpy63d": 0.982227,
-        "drawdownControlScore": 0.185618,
-        "growthSpurtScore": 0.915888
+        "trendSlope63d": 0.953838,
+        "trendFitR2_63d": 0.366183,
+        "excessReturnVsSpy63d": 0.984342,
+        "drawdownControlScore": 0.185944,
+        "growthSpurtScore": 0.868776
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
-      {
-        "ticker": "ENSC",
-        "date": "2021-10-29",
-        "open": 8172.0,
-        "high": 8334.0,
-        "low": 7794.0,
-        "close": 7920.0,
-        "volume": 53,
-        "source": "yahoo-chart",
-        "adjusted_close": 7920.0
-      },
       {
         "ticker": "ENSC",
         "date": "2021-11-01",
@@ -14302,6 +14293,17 @@
         "volume": 59400,
         "source": "yahoo-chart",
         "adjusted_close": 0.4519999921321869
+      },
+      {
+        "ticker": "ENSC",
+        "date": "2026-10-29",
+        "open": 0.44699999690055847,
+        "high": 0.47200000286102295,
+        "low": 0.4300000071525574,
+        "close": 0.43799999356269836,
+        "volume": 177100,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.43799999356269836
       }
     ],
     "dataStatus": {
@@ -14343,13 +14345,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-28",
+      "latestScoringDate": "2026-10-29",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 63.32,
-      "growthSpurtBenchmarkPercentile": 0.915888,
-      "growthSpurtMarketDataAsOf": "2026-10-28",
-      "lastPipelineRun": "2026-10-29T10:15:53.220251+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.868776,
+      "growthSpurtMarketDataAsOf": "2026-10-29",
+      "lastPipelineRun": "2026-10-30T10:18:42.046141+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }
