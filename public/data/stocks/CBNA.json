@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-30T10:32:04.129806+00:00",
+  "generatedAt": "2026-10-31T10:17:17.346127+00:00",
   "record": {
     "security": {
       "ticker": "CBNA",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 51.4,
-      "dailyChangePercent": 1.1413,
+      "latestPrice": 50.59,
+      "dailyChangePercent": -1.5759,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.916241,
       "latestRevenueBillions": null,
@@ -414,52 +414,55 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "CBNA",
-      "generatedAt": "2026-10-30T10:18:42.046141+00:00",
-      "marketDataAsOf": "2026-10-29",
-      "status": "emerging",
-      "growthSpurtScore": 83.14,
+      "generatedAt": "2026-10-31T09:49:39.010235+00:00",
+      "marketDataAsOf": "2026-10-30",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.11545138,
-        "return63d": 0.1286781,
-        "trendSlope21d": 0.003467,
-        "trendSlope63d": 0.00131371,
-        "trendAnnualizedReturn63d": 0.392436,
-        "trendFitR2_63d": 0.44656159,
-        "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.02542793,
+        "return21d": 0.07684122,
+        "return63d": 0.06775008,
+        "trendSlope21d": 0.00267112,
+        "trendSlope63d": 0.00144591,
+        "trendAnnualizedReturn63d": 0.43960643,
+        "trendFitR2_63d": 0.47623405,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.02525656,
         "maxDrawdown63d": -0.06701031,
-        "downsideVolatility63d": 0.00715752,
-        "excessReturnVsSpy21d": 0.10662668,
-        "excessReturnVsSpy63d": 0.09622906,
-        "trendAcceleration": 0.00368086,
-        "largestOneDayContribution63d": 0.07007882,
+        "downsideVolatility63d": 0.00706312,
+        "excessReturnVsSpy21d": 0.087666,
+        "excessReturnVsSpy63d": 0.06784699,
+        "trendAcceleration": 0.0027854,
+        "largestOneDayContribution63d": 0.06948154,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 45.981,
-        "relativeStrengthScore": 100.0,
+        "directionScore": 84.7604,
+        "consistencyScore": 33.8347,
+        "relativeStrengthScore": 95.0628,
         "drawdownControlScore": 77.6632,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.982884,
+      "benchmarkPercentile": 0.873119,
       "metricPercentiles": {
-        "trendSlope63d": 0.875,
-        "trendFitR2_63d": 0.474585,
-        "excessReturnVsSpy63d": 0.830376,
-        "drawdownControlScore": 0.899896,
-        "growthSpurtScore": 0.982884
+        "trendSlope63d": 0.885833,
+        "trendFitR2_63d": 0.499741,
+        "excessReturnVsSpy63d": 0.793319,
+        "drawdownControlScore": 0.904515,
+        "growthSpurtScore": 0.873119
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6170,6 +6173,17 @@
         "volume": 20300,
         "source": "yahoo-chart",
         "adjusted_close": 51.400001525878906
+      },
+      {
+        "ticker": "CBNA",
+        "date": "2026-10-30",
+        "open": 50.650001525878906,
+        "high": 50.900001525878906,
+        "low": 50.099998474121094,
+        "close": 50.59000015258789,
+        "volume": 10000,
+        "source": "yahoo-chart",
+        "adjusted_close": 50.59000015258789
       }
     ],
     "dataStatus": {
@@ -6209,13 +6223,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-11",
-      "latestScoringDate": "2026-10-29",
+      "latestScoringDate": "2026-10-30",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 83.14,
-      "growthSpurtBenchmarkPercentile": 0.982884,
-      "growthSpurtMarketDataAsOf": "2026-10-29",
-      "lastPipelineRun": "2026-10-30T10:18:42.046141+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.873119,
+      "growthSpurtMarketDataAsOf": "2026-10-30",
+      "lastPipelineRun": "2026-10-31T09:49:39.010235+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
