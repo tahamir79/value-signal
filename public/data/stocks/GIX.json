@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-30T14:53:22.974260+00:00",
+  "generatedAt": "2026-10-31T14:06:10.580146+00:00",
   "record": {
     "security": {
       "ticker": "GIX",
@@ -430,50 +430,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GIX",
-      "generatedAt": "2026-10-30T14:30:33.120376+00:00",
-      "marketDataAsOf": "2026-10-29",
+      "generatedAt": "2026-10-31T13:50:21.193114+00:00",
+      "marketDataAsOf": "2026-10-30",
       "status": "not_detected",
-      "growthSpurtScore": 32.85,
+      "growthSpurtScore": 36.58,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
         "return21d": 0.0,
         "return63d": 0.00704232,
         "trendSlope21d": 0.0,
-        "trendSlope63d": 6.897e-05,
-        "trendAnnualizedReturn63d": 0.01753162,
-        "trendFitR2_63d": 0.43067724,
+        "trendSlope63d": 6.393e-05,
+        "trendAnnualizedReturn63d": 0.01623959,
+        "trendFitR2_63d": 0.39607506,
         "positiveWeekRatio63d": 0.33333333,
-        "trendResidualVolatility63d": 0.00160378,
+        "trendResidualVolatility63d": 0.0015465,
         "maxDrawdown63d": -0.00398406,
         "downsideVolatility63d": 0.00099565,
-        "excessReturnVsSpy21d": -0.0088247,
-        "excessReturnVsSpy63d": -0.02540671,
-        "trendAcceleration": -0.00014286,
-        "largestOneDayContribution63d": 0.21032301,
+        "excessReturnVsSpy21d": 0.01082477,
+        "excessReturnVsSpy63d": 0.00713923,
+        "trendAcceleration": -0.00013334,
+        "largestOneDayContribution63d": 0.23520771,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 4.3081,
-        "consistencyScore": 34.961,
-        "relativeStrengthScore": 35.8177,
+        "directionScore": 4.142,
+        "consistencyScore": 32.5597,
+        "relativeStrengthScore": 57.6361,
         "drawdownControlScore": 98.672,
-        "confirmationScore": 8.5714
+        "confirmationScore": 8.6666
       },
-      "benchmarkPercentile": 0.602725,
+      "benchmarkPercentile": 0.65304,
       "metricPercentiles": {
-        "trendSlope63d": 0.762579,
-        "trendFitR2_63d": 0.444444,
-        "excessReturnVsSpy63d": 0.617771,
+        "trendSlope63d": 0.76153,
+        "trendFitR2_63d": 0.417715,
+        "excessReturnVsSpy63d": 0.694006,
         "drawdownControlScore": 0.981132,
-        "growthSpurtScore": 0.602725
+        "growthSpurtScore": 0.65304
       },
       "reasonCodes": [
         "TREND_WEAK_RELATIVE_TO_MARKET",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -2191,6 +2194,17 @@
         "volume": 7400,
         "source": "yahoo-chart",
         "adjusted_close": 10.010000228881836
+      },
+      {
+        "ticker": "GIX",
+        "date": "2026-10-30",
+        "open": 10.010000228881836,
+        "high": 10.010000228881836,
+        "low": 10.010000228881836,
+        "close": 10.010000228881836,
+        "volume": 15000,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.010000228881836
       }
     ],
     "dataStatus": {
@@ -2230,13 +2244,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-05",
-      "latestScoringDate": "2026-10-29",
+      "latestScoringDate": "2026-10-30",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 32.85,
-      "growthSpurtBenchmarkPercentile": 0.602725,
-      "growthSpurtMarketDataAsOf": "2026-10-29",
-      "lastPipelineRun": "2026-10-30T14:30:33.120376+00:00",
+      "growthSpurtScore": 36.58,
+      "growthSpurtBenchmarkPercentile": 0.65304,
+      "growthSpurtMarketDataAsOf": "2026-10-30",
+      "lastPipelineRun": "2026-10-31T13:50:21.193114+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
