@@ -1,0 +1,993 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-10-31T02:55:42.548549+00:00",
+  "record": {
+    "security": {
+      "ticker": "TREO",
+      "cik": "0002041208",
+      "company_name": "Tactical Resources Corp.",
+      "exchange": "Nasdaq",
+      "sector": "Unknown"
+    },
+    "derived": {
+      "latestPrice": 1.76,
+      "dailyChangePercent": -7.3684,
+      "marketCapBillions": null,
+      "liabilitiesToAssets": null,
+      "latestRevenueBillions": null,
+      "grossMarginPercent": null,
+      "netMarginPercent": null
+    },
+    "latestFacts": {},
+    "balanceSheet": {
+      "schemaVersion": "1.0.0",
+      "ticker": "TREO",
+      "cik": "0002041208",
+      "companyName": "Tactical Resources Corp.",
+      "formType": null,
+      "accession": null,
+      "filingDate": null,
+      "periodEndDate": null,
+      "fiscalYear": null,
+      "fiscalPeriod": null,
+      "source": "unavailable",
+      "missingFields": [
+        "assets",
+        "currentAssets",
+        "cashAndEquivalents",
+        "shortTermInvestments",
+        "accountsReceivable",
+        "inventory",
+        "propertyPlantEquipmentNet",
+        "goodwill",
+        "intangibleAssets",
+        "liabilities",
+        "currentLiabilities",
+        "accountsPayable",
+        "shortTermDebt",
+        "longTermDebt",
+        "stockholdersEquity",
+        "retainedEarnings"
+      ],
+      "dataQualityWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period"
+      ],
+      "assets": null,
+      "currentAssets": null,
+      "cashAndEquivalents": null,
+      "shortTermInvestments": null,
+      "accountsReceivable": null,
+      "inventory": null,
+      "propertyPlantEquipmentNet": null,
+      "goodwill": null,
+      "intangibleAssets": null,
+      "liabilities": null,
+      "currentLiabilities": null,
+      "accountsPayable": null,
+      "shortTermDebt": null,
+      "longTermDebt": null,
+      "stockholdersEquity": null,
+      "retainedEarnings": null,
+      "totalDebt": null
+    },
+    "balanceSheetMetrics": {
+      "currentRatio": null,
+      "quickRatio": null,
+      "cashRatio": null,
+      "workingCapital": null,
+      "debtToEquity": null,
+      "debtToAssets": null,
+      "equityRatio": null,
+      "cashToDebt": null,
+      "netDebt": null,
+      "goodwillIntangiblesToAssets": null,
+      "shortTermDebtShare": null,
+      "bookValue": null,
+      "bookValuePerShare": null,
+      "priceToBook": null,
+      "retainedEarnings": null
+    },
+    "balanceSheetScoringShadow": {
+      "schemaVersion": "1.0.0",
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "assetQualityScore": null,
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "triggeredRiskGates": [
+        {
+          "name": "Liquidity Risk Gate",
+          "severity": "moderate",
+          "triggered": false,
+          "explanation": "Liquidity metrics are below preferred thresholds.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio",
+            "cashRatio",
+            "workingCapital"
+          ]
+        },
+        {
+          "name": "Severe Liquidity Risk Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Both current and quick ratios are severely weak.",
+          "metrics": [
+            "currentRatio",
+            "quickRatio"
+          ]
+        },
+        {
+          "name": "High Leverage Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Leverage is elevated versus default target bands.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Severe Leverage Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Leverage is in the severe-risk range.",
+          "metrics": [
+            "debtToEquity",
+            "debtToAssets"
+          ]
+        },
+        {
+          "name": "Negative Equity Gate",
+          "severity": "severe",
+          "triggered": false,
+          "explanation": "Stockholders' equity is zero or negative.",
+          "metrics": [
+            "stockholdersEquity"
+          ]
+        },
+        {
+          "name": "Debt Maturity Pressure Gate",
+          "severity": "high",
+          "triggered": false,
+          "explanation": "Short-term debt is high and cash coverage is weak.",
+          "metrics": [
+            "shortTermDebtShare",
+            "cashToDebt"
+          ]
+        },
+        {
+          "name": "Asset Quality Warning Gate",
+          "severity": "warning",
+          "triggered": false,
+          "explanation": "Goodwill and intangibles are high relative to assets.",
+          "metrics": [
+            "goodwillIntangiblesToAssets"
+          ]
+        },
+        {
+          "name": "Balance Sheet Incomplete Gate",
+          "severity": "warning",
+          "triggered": true,
+          "explanation": "Core balance-sheet fields are missing.",
+          "metrics": [
+            "assets",
+            "currentAssets",
+            "currentLiabilities",
+            "liabilities",
+            "stockholdersEquity"
+          ]
+        }
+      ],
+      "targetComparisons": [
+        {
+          "metric": "currentRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.5",
+          "interpretation": "currentRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "quickRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 1.0",
+          "interpretation": "quickRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.5",
+          "interpretation": "cashRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "workingCapital",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "workingCapital could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "debtToEquity",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.5",
+          "interpretation": "debtToEquity could not be computed from available balance-sheet facts.",
+          "weight": 0.35
+        },
+        {
+          "metric": "debtToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.30",
+          "interpretation": "debtToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.3
+        },
+        {
+          "metric": "cashToDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "cashToDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.2
+        },
+        {
+          "metric": "shortTermDebtShare",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.20",
+          "interpretation": "shortTermDebtShare could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "equityRatio",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": ">= 0.50",
+          "interpretation": "equityRatio could not be computed from available balance-sheet facts.",
+          "weight": 0.4
+        },
+        {
+          "metric": "netDebt",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "negative or low",
+          "interpretation": "netDebt could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "bookValue",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "bookValue could not be computed from available balance-sheet facts.",
+          "weight": 0.15
+        },
+        {
+          "metric": "goodwillIntangiblesToAssets",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "< 0.25",
+          "interpretation": "goodwillIntangiblesToAssets could not be computed from available balance-sheet facts.",
+          "weight": 0.5
+        },
+        {
+          "metric": "retainedEarnings",
+          "value": null,
+          "status": "unavailable",
+          "healthyRange": "positive",
+          "interpretation": "retainedEarnings could not be computed from available balance-sheet facts.",
+          "weight": 0.25
+        }
+      ],
+      "confidenceAdjustment": -15,
+      "warnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period",
+        "intangibleAssets: unavailable in SEC companyfacts for selected period",
+        "liabilities: unavailable in SEC companyfacts for selected period",
+        "currentLiabilities: unavailable in SEC companyfacts for selected period",
+        "accountsPayable: unavailable in SEC companyfacts for selected period",
+        "shortTermDebt: unavailable in SEC companyfacts for selected period",
+        "longTermDebt: unavailable in SEC companyfacts for selected period",
+        "stockholdersEquity: unavailable in SEC companyfacts for selected period",
+        "retainedEarnings: unavailable in SEC companyfacts for selected period",
+        "currentRatio: missing numerator or denominator",
+        "quickRatio: missing numerator or denominator",
+        "cashRatio: missing numerator or denominator",
+        "debtToEquity: missing numerator or denominator",
+        "debtToAssets: missing numerator or denominator",
+        "equityRatio: missing numerator or denominator",
+        "cashToDebt: missing numerator or denominator",
+        "goodwillIntangiblesToAssets: missing numerator or denominator",
+        "shortTermDebtShare: missing numerator or denominator",
+        "bookValuePerShare: missing numerator or denominator",
+        "priceToBook: missing numerator or denominator"
+      ]
+    },
+    "growthSpurt": {
+      "schemaVersion": "1.0.0",
+      "ticker": "TREO",
+      "generatedAt": "2026-10-31T02:34:42.927580+00:00",
+      "marketDataAsOf": "2026-10-30",
+      "status": "not_detected",
+      "growthSpurtScore": 9.74,
+      "primaryWindowSessions": 63,
+      "confirmationWindowSessions": 21,
+      "metrics": {
+        "return21d": -0.42857142,
+        "return63d": null,
+        "trendSlope21d": -0.03961246,
+        "trendSlope63d": -0.02976464,
+        "trendAnnualizedReturn63d": -0.9994473,
+        "trendFitR2_63d": 0.92925919,
+        "positiveWeekRatio63d": 0.3,
+        "trendResidualVolatility63d": 0.11776646,
+        "maxDrawdown63d": -0.80195259,
+        "downsideVolatility63d": 0.05600663,
+        "excessReturnVsSpy21d": -0.41774664,
+        "excessReturnVsSpy63d": null,
+        "trendAcceleration": -0.01780189,
+        "largestOneDayContribution63d": 0.07215043,
+        "percentAboveTrendLine63d": 0.52941176
+      },
+      "scoreBreakdown": {
+        "directionScore": 0.0,
+        "consistencyScore": 38.9706,
+        "relativeStrengthScore": 0.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 0.0
+      },
+      "benchmarkPercentile": 0.239301,
+      "metricPercentiles": {
+        "trendSlope63d": 0.015136,
+        "trendFitR2_63d": 0.975992,
+        "excessReturnVsSpy63d": null,
+        "drawdownControlScore": 0.193633,
+        "growthSpurtScore": 0.239301
+      },
+      "reasonCodes": [
+        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "TREND_TOO_VOLATILE"
+      ],
+      "warnings": []
+    },
+    "priceHistory": [
+      {
+        "ticker": "TREO",
+        "date": "2026-08-20",
+        "open": 8.350000381469727,
+        "high": 9.199999809265137,
+        "low": 6.199999809265137,
+        "close": 7.170000076293945,
+        "volume": 54300,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.170000076293945
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-21",
+        "open": 7.099999904632568,
+        "high": 7.699999809265137,
+        "low": 6.25,
+        "close": 7.099999904632568,
+        "volume": 40500,
+        "source": "yahoo-chart",
+        "adjusted_close": 7.099999904632568
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-24",
+        "open": 6.900000095367432,
+        "high": 6.96999979019165,
+        "low": 5.099999904632568,
+        "close": 5.579999923706055,
+        "volume": 32700,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.579999923706055
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-25",
+        "open": 5.75,
+        "high": 5.75,
+        "low": 4.559999942779541,
+        "close": 4.829999923706055,
+        "volume": 31700,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.829999923706055
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-26",
+        "open": 4.5,
+        "high": 4.599999904632568,
+        "low": 4.25,
+        "close": 4.429999828338623,
+        "volume": 29900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.429999828338623
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-27",
+        "open": 4.550000190734863,
+        "high": 4.730000019073486,
+        "low": 4.489999771118164,
+        "close": 4.730000019073486,
+        "volume": 13900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.730000019073486
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-28",
+        "open": 4.75,
+        "high": 5.429999828338623,
+        "low": 4.699999809265137,
+        "close": 5.239999771118164,
+        "volume": 27800,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.239999771118164
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-08-31",
+        "open": 5.199999809265137,
+        "high": 5.900000095367432,
+        "low": 5.019999980926514,
+        "close": 5.340000152587891,
+        "volume": 29400,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.340000152587891
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-01",
+        "open": 5.340000152587891,
+        "high": 5.369999885559082,
+        "low": 5.03000020980835,
+        "close": 5.03000020980835,
+        "volume": 21200,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.03000020980835
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-02",
+        "open": 5.099999904632568,
+        "high": 5.599999904632568,
+        "low": 4.550000190734863,
+        "close": 4.75,
+        "volume": 705100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.75
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-03",
+        "open": 4.960000038146973,
+        "high": 5.28000020980835,
+        "low": 4.75,
+        "close": 4.849999904632568,
+        "volume": 23100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.849999904632568
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-04",
+        "open": 5.050000190734863,
+        "high": 5.130000114440918,
+        "low": 4.820000171661377,
+        "close": 5.050000190734863,
+        "volume": 69700,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.050000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-08",
+        "open": 5.050000190734863,
+        "high": 5.25,
+        "low": 4.800000190734863,
+        "close": 4.829999923706055,
+        "volume": 75000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.829999923706055
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-09",
+        "open": 4.900000095367432,
+        "high": 5.070000171661377,
+        "low": 4.869999885559082,
+        "close": 4.949999809265137,
+        "volume": 26300,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.949999809265137
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-10",
+        "open": 4.869999885559082,
+        "high": 5.0,
+        "low": 4.800000190734863,
+        "close": 4.900000095367432,
+        "volume": 63000,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.900000095367432
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-11",
+        "open": 4.980000019073486,
+        "high": 5.420000076293945,
+        "low": 4.980000019073486,
+        "close": 5.269999980926514,
+        "volume": 39000,
+        "source": "yahoo-chart",
+        "adjusted_close": 5.269999980926514
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-14",
+        "open": 5.25,
+        "high": 5.25,
+        "low": 4.820000171661377,
+        "close": 4.900000095367432,
+        "volume": 140900,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.900000095367432
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-15",
+        "open": 4.829999923706055,
+        "high": 5.079999923706055,
+        "low": 4.599999904632568,
+        "close": 4.619999885559082,
+        "volume": 42500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.619999885559082
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-16",
+        "open": 4.739999771118164,
+        "high": 4.880000114440918,
+        "low": 4.5,
+        "close": 4.510000228881836,
+        "volume": 22100,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.510000228881836
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-17",
+        "open": 4.650000095367432,
+        "high": 4.909999847412109,
+        "low": 3.5799999237060547,
+        "close": 4.0,
+        "volume": 123400,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.0
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-18",
+        "open": 4.25,
+        "high": 4.25,
+        "low": 4.0,
+        "close": 4.010000228881836,
+        "volume": 35800,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.010000228881836
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-21",
+        "open": 4.130000114440918,
+        "high": 4.199999809265137,
+        "low": 4.019999980926514,
+        "close": 4.059999942779541,
+        "volume": 18500,
+        "source": "yahoo-chart",
+        "adjusted_close": 4.059999942779541
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-22",
+        "open": 4.019999980926514,
+        "high": 4.690000057220459,
+        "low": 3.9700000286102295,
+        "close": 3.9800000190734863,
+        "volume": 70000,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9800000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-23",
+        "open": 4.03000020980835,
+        "high": 4.119999885559082,
+        "low": 3.9800000190734863,
+        "close": 3.9800000190734863,
+        "volume": 5700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.9800000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-24",
+        "open": 3.9000000953674316,
+        "high": 3.940000057220459,
+        "low": 3.7100000381469727,
+        "close": 3.75,
+        "volume": 20900,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.75
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-25",
+        "open": 3.75,
+        "high": 4.0,
+        "low": 3.549999952316284,
+        "close": 3.549999952316284,
+        "volume": 17200,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.549999952316284
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-28",
+        "open": 3.5799999237060547,
+        "high": 3.5799999237060547,
+        "low": 2.7300000190734863,
+        "close": 2.7300000190734863,
+        "volume": 39200,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.7300000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-29",
+        "open": 2.690000057220459,
+        "high": 3.2799999713897705,
+        "low": 2.690000057220459,
+        "close": 2.950000047683716,
+        "volume": 35000,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.950000047683716
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-09-30",
+        "open": 3.009999990463257,
+        "high": 3.200000047683716,
+        "low": 2.9200000762939453,
+        "close": 3.0,
+        "volume": 35700,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.0
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-01",
+        "open": 3.069999933242798,
+        "high": 3.240000009536743,
+        "low": 3.009999990463257,
+        "close": 3.0799999237060547,
+        "volume": 9200,
+        "source": "yahoo-chart",
+        "adjusted_close": 3.0799999237060547
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-02",
+        "open": 3.119999885559082,
+        "high": 3.119999885559082,
+        "low": 2.9100000858306885,
+        "close": 2.9800000190734863,
+        "volume": 8700,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.9800000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-05",
+        "open": 3.009999990463257,
+        "high": 3.1500000953674316,
+        "low": 2.630000114440918,
+        "close": 2.630000114440918,
+        "volume": 43600,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.630000114440918
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-06",
+        "open": 2.609999895095825,
+        "high": 3.0899999141693115,
+        "low": 2.609999895095825,
+        "close": 2.9700000286102295,
+        "volume": 51100,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.9700000286102295
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-07",
+        "open": 2.990000009536743,
+        "high": 3.5,
+        "low": 2.6600000858306885,
+        "close": 2.7300000190734863,
+        "volume": 126300,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.7300000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-08",
+        "open": 2.75,
+        "high": 2.75,
+        "low": 2.559999942779541,
+        "close": 2.559999942779541,
+        "volume": 27700,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.559999942779541
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-09",
+        "open": 2.549999952316284,
+        "high": 2.549999952316284,
+        "low": 2.25,
+        "close": 2.450000047683716,
+        "volume": 27500,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.450000047683716
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-12",
+        "open": 2.4600000381469727,
+        "high": 2.880000114440918,
+        "low": 2.319999933242798,
+        "close": 2.3299999237060547,
+        "volume": 54200,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.3299999237060547
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-13",
+        "open": 2.299999952316284,
+        "high": 2.5399999618530273,
+        "low": 2.049999952316284,
+        "close": 2.1700000762939453,
+        "volume": 135300,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.1700000762939453
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-14",
+        "open": 2.140000104904175,
+        "high": 2.200000047683716,
+        "low": 2.049999952316284,
+        "close": 2.0999999046325684,
+        "volume": 25300,
+        "source": "yahoo-chart",
+        "adjusted_close": 2.0999999046325684
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-15",
+        "open": 2.049999952316284,
+        "high": 2.109999895095825,
+        "low": 1.9500000476837158,
+        "close": 1.9500000476837158,
+        "volume": 35700,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.9500000476837158
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-16",
+        "open": 1.9299999475479126,
+        "high": 1.9500000476837158,
+        "low": 1.600000023841858,
+        "close": 1.8799999952316284,
+        "volume": 73300,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.8799999952316284
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-19",
+        "open": 1.8799999952316284,
+        "high": 2.009999990463257,
+        "low": 1.8799999952316284,
+        "close": 1.8799999952316284,
+        "volume": 33500,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.8799999952316284
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-20",
+        "open": 1.8799999952316284,
+        "high": 2.0299999713897705,
+        "low": 1.7000000476837158,
+        "close": 1.7899999618530273,
+        "volume": 82400,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7899999618530273
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-21",
+        "open": 1.7699999809265137,
+        "high": 1.9199999570846558,
+        "low": 1.75,
+        "close": 1.7599999904632568,
+        "volume": 13900,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7599999904632568
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-22",
+        "open": 1.7999999523162842,
+        "high": 1.7999999523162842,
+        "low": 1.600000023841858,
+        "close": 1.6399999856948853,
+        "volume": 26800,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.6399999856948853
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-23",
+        "open": 1.6100000143051147,
+        "high": 1.690000057220459,
+        "low": 1.5,
+        "close": 1.5099999904632568,
+        "volume": 43300,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.5099999904632568
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-26",
+        "open": 1.5099999904632568,
+        "high": 1.5099999904632568,
+        "low": 1.399999976158142,
+        "close": 1.4199999570846558,
+        "volume": 29700,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.4199999570846558
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-27",
+        "open": 1.4199999570846558,
+        "high": 1.7000000476837158,
+        "low": 1.4199999570846558,
+        "close": 1.6399999856948853,
+        "volume": 88500,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.6399999856948853
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-28",
+        "open": 1.6799999475479126,
+        "high": 2.0,
+        "low": 1.6100000143051147,
+        "close": 1.9800000190734863,
+        "volume": 125000,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.9800000190734863
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-29",
+        "open": 2.059999942779541,
+        "high": 2.240000009536743,
+        "low": 1.75,
+        "close": 1.899999976158142,
+        "volume": 91400,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.899999976158142
+      },
+      {
+        "ticker": "TREO",
+        "date": "2026-10-30",
+        "open": 1.7999999523162842,
+        "high": 1.9299999475479126,
+        "low": 1.7599999904632568,
+        "close": 1.7599999904632568,
+        "volume": 17900,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.7599999904632568
+      }
+    ],
+    "dataStatus": {
+      "rawSecTraceable": true,
+      "submissionsAvailable": true,
+      "companyFactsAvailable": false,
+      "recent10KAvailable": false,
+      "recent10QAvailable": false,
+      "filingsDownloaded": false,
+      "filingsCleaned": false,
+      "filingsChunked": false,
+      "bm25Indexed": false,
+      "balanceSheetAvailable": false,
+      "balanceSheetPartial": false,
+      "balanceSheetSource": "unavailable",
+      "balanceSheetPeriodEnd": null,
+      "balanceSheetWarnings": [
+        "assets: unavailable in SEC companyfacts for selected period",
+        "currentAssets: unavailable in SEC companyfacts for selected period",
+        "cashAndEquivalents: unavailable in SEC companyfacts for selected period",
+        "shortTermInvestments: unavailable in SEC companyfacts for selected period",
+        "accountsReceivable: unavailable in SEC companyfacts for selected period",
+        "inventory: unavailable in SEC companyfacts for selected period",
+        "propertyPlantEquipmentNet: unavailable in SEC companyfacts for selected period",
+        "goodwill: unavailable in SEC companyfacts for selected period"
+      ],
+      "balanceSheetQualityScore": null,
+      "balanceSheetRiskPenalty": null,
+      "liquidityScore": null,
+      "leverageScore": null,
+      "solvencyScore": null,
+      "triggeredBalanceSheetGates": [
+        "Balance Sheet Incomplete Gate"
+      ],
+      "scoringInputsAvailable": false,
+      "scoringAvailable": false,
+      "officialSignal": "insufficient-evidence",
+      "insufficientEvidenceReason": "Insufficient scoring inputs",
+      "latestFilingDate": null,
+      "latestScoringDate": "2026-10-30",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 9.74,
+      "growthSpurtBenchmarkPercentile": 0.239301,
+      "growthSpurtMarketDataAsOf": "2026-10-30",
+      "lastPipelineRun": "2026-10-31T02:34:42.927580+00:00",
+      "balanceSheetExperimentalSignal": "insufficient-evidence",
+      "balanceSheetWouldChangeSignal": false
+    }
+  }
+}

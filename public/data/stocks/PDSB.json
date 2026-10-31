@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-30T03:04:13.267516+00:00",
+  "generatedAt": "2026-10-31T02:55:42.548549+00:00",
   "record": {
     "security": {
       "ticker": "PDSB",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 1.55,
-      "dailyChangePercent": 1.9737,
-      "marketCapBillions": 0.0868,
+      "latestPrice": 1.44,
+      "dailyChangePercent": -7.0968,
+      "marketCapBillions": 0.0806,
       "liabilitiesToAssets": 1.406455,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -469,52 +469,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "PDSB",
-      "generatedAt": "2026-10-30T02:46:51.285079+00:00",
-      "marketDataAsOf": "2026-10-29",
-      "status": "emerging",
-      "growthSpurtScore": 68.23,
+      "generatedAt": "2026-10-31T02:34:42.927580+00:00",
+      "marketDataAsOf": "2026-10-30",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 1.06391475,
-        "return63d": 1.25947518,
-        "trendSlope21d": 0.01722048,
-        "trendSlope63d": 0.0326052,
-        "trendAnnualizedReturn63d": 3700.56180266,
-        "trendFitR2_63d": 0.5156999,
-        "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.50333263,
+        "return21d": 1.03966022,
+        "return63d": 1.01680684,
+        "trendSlope21d": 0.01233747,
+        "trendSlope63d": 0.03399268,
+        "trendAnnualizedReturn63d": 5249.89687893,
+        "trendFitR2_63d": 0.56950226,
+        "positiveWeekRatio63d": 0.5,
+        "trendResidualVolatility63d": 0.48029186,
         "maxDrawdown63d": -0.74064515,
-        "downsideVolatility63d": 0.18291262,
-        "excessReturnVsSpy21d": 1.05509005,
-        "excessReturnVsSpy63d": 1.22702615,
-        "trendAcceleration": 0.00663067,
-        "largestOneDayContribution63d": 0.10294663,
+        "downsideVolatility63d": 0.17997416,
+        "excessReturnVsSpy21d": 1.050485,
+        "excessReturnVsSpy63d": 1.01690375,
+        "trendAcceleration": -0.00489335,
+        "largestOneDayContribution63d": 0.10200003,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 32.9244,
+        "consistencyScore": 29.5477,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 100.0
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.921671,
+      "benchmarkPercentile": 0.865866,
       "metricPercentiles": {
         "trendSlope63d": 0.998956,
-        "trendFitR2_63d": 0.527415,
-        "excessReturnVsSpy63d": 0.991605,
-        "drawdownControlScore": 0.186945,
-        "growthSpurtScore": 0.921671
+        "trendFitR2_63d": 0.569937,
+        "excessReturnVsSpy63d": 0.992655,
+        "drawdownControlScore": 0.193633,
+        "growthSpurtScore": 0.865866
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14307,9 +14309,20 @@
         "high": 1.7000000476837158,
         "low": 1.5199999809265137,
         "close": 1.5499999523162842,
-        "volume": 8199100,
+        "volume": 8274700,
         "source": "yahoo-chart",
         "adjusted_close": 1.5499999523162842
+      },
+      {
+        "ticker": "PDSB",
+        "date": "2026-10-30",
+        "open": 1.4900000095367432,
+        "high": 1.5499999523162842,
+        "low": 1.3300000429153442,
+        "close": 1.440000057220459,
+        "volume": 5406700,
+        "source": "yahoo-chart",
+        "adjusted_close": 1.440000057220459
       }
     ],
     "dataStatus": {
@@ -14353,13 +14366,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-13",
-      "latestScoringDate": "2026-10-29",
+      "latestScoringDate": "2026-10-30",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 68.23,
-      "growthSpurtBenchmarkPercentile": 0.921671,
-      "growthSpurtMarketDataAsOf": "2026-10-29",
-      "lastPipelineRun": "2026-10-30T02:46:51.285079+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.865866,
+      "growthSpurtMarketDataAsOf": "2026-10-30",
+      "lastPipelineRun": "2026-10-31T02:34:42.927580+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
