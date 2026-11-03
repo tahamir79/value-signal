@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-31T14:06:10.580146+00:00",
+  "generatedAt": "2026-11-03T15:46:23.608933+00:00",
   "record": {
     "security": {
       "ticker": "FSUN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 39.17,
-      "dailyChangePercent": -0.4574,
-      "marketCapBillions": 1.0938,
+      "latestPrice": 40.195,
+      "dailyChangePercent": 0.137,
+      "marketCapBillions": 1.1224,
       "liabilitiesToAssets": 0.883103,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -214,7 +214,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1837392000.0,
       "bookValuePerShare": 65.801314,
-      "priceToBook": 0.595277,
+      "priceToBook": 0.610854,
       "retainedEarnings": 629819000.0
     },
     "balanceSheetScoringShadow": {
@@ -438,50 +438,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FSUN",
-      "generatedAt": "2026-10-31T13:50:21.193114+00:00",
-      "marketDataAsOf": "2026-10-30",
+      "generatedAt": "2026-11-03T15:29:02.025648+00:00",
+      "marketDataAsOf": "2026-11-03",
       "status": "not_detected",
-      "growthSpurtScore": 37.16,
+      "growthSpurtScore": 45.74,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00953606,
-        "return63d": -0.00203826,
-        "trendSlope21d": 0.00053258,
-        "trendSlope63d": -0.00081649,
-        "trendAnnualizedReturn63d": -0.18596811,
-        "trendFitR2_63d": 0.43891502,
+        "return21d": 0.01888464,
+        "return63d": 0.00992463,
+        "trendSlope21d": 0.00218959,
+        "trendSlope63d": -0.00078719,
+        "trendAnnualizedReturn63d": -0.17993455,
+        "trendFitR2_63d": 0.36671502,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.01602734,
+        "trendResidualVolatility63d": 0.01719474,
         "maxDrawdown63d": -0.08684018,
-        "downsideVolatility63d": 0.00787401,
-        "excessReturnVsSpy21d": 0.02036083,
-        "excessReturnVsSpy63d": -0.00194136,
-        "trendAcceleration": 0.00140825,
-        "largestOneDayContribution63d": 0.04841519,
+        "downsideVolatility63d": 0.00785569,
+        "excessReturnVsSpy21d": 0.04506462,
+        "excessReturnVsSpy63d": 0.02729472,
+        "trendAcceleration": 0.00316176,
+        "largestOneDayContribution63d": 0.04648785,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 6.3574,
-        "consistencyScore": 30.2928,
-        "relativeStrengthScore": 58.1192,
+        "directionScore": 15.4844,
+        "consistencyScore": 24.8142,
+        "relativeStrengthScore": 78.5885,
         "drawdownControlScore": 71.0533,
-        "confirmationScore": 54.0179
+        "confirmationScore": 85.1795
       },
-      "benchmarkPercentile": 0.662474,
+      "benchmarkPercentile": 0.75956,
       "metricPercentiles": {
-        "trendSlope63d": 0.640985,
-        "trendFitR2_63d": 0.446541,
-        "excessReturnVsSpy63d": 0.657729,
-        "drawdownControlScore": 0.862683,
-        "growthSpurtScore": 0.662474
+        "trendSlope63d": 0.641173,
+        "trendFitR2_63d": 0.392876,
+        "excessReturnVsSpy63d": 0.697161,
+        "drawdownControlScore": 0.858041,
+        "growthSpurtScore": 0.75956
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
+        "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12209,6 +12212,28 @@
         "volume": 282700,
         "source": "yahoo-chart",
         "adjusted_close": 39.16999816894531
+      },
+      {
+        "ticker": "FSUN",
+        "date": "2026-11-02",
+        "open": 39.63999938964844,
+        "high": 40.4900016784668,
+        "low": 39.63999938964844,
+        "close": 40.13999938964844,
+        "volume": 349200,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.13999938964844
+      },
+      {
+        "ticker": "FSUN",
+        "date": "2026-11-03",
+        "open": 40.220001220703125,
+        "high": 40.290000915527344,
+        "low": 39.7400016784668,
+        "close": 40.19499969482422,
+        "volume": 15983,
+        "source": "yahoo-chart",
+        "adjusted_close": 40.19499969482422
       }
     ],
     "dataStatus": {
@@ -12248,13 +12273,13 @@
       "officialSignal": "value-trap-risk",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-10",
-      "latestScoringDate": "2026-10-30",
+      "latestScoringDate": "2026-11-03",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 37.16,
-      "growthSpurtBenchmarkPercentile": 0.662474,
-      "growthSpurtMarketDataAsOf": "2026-10-30",
-      "lastPipelineRun": "2026-10-31T13:50:21.193114+00:00",
+      "growthSpurtScore": 45.74,
+      "growthSpurtBenchmarkPercentile": 0.75956,
+      "growthSpurtMarketDataAsOf": "2026-11-03",
+      "lastPipelineRun": "2026-11-03T15:29:02.025648+00:00",
       "balanceSheetExperimentalSignal": "value-trap-risk",
       "balanceSheetWouldChangeSignal": false
     }

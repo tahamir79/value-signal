@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-31T14:06:10.580146+00:00",
+  "generatedAt": "2026-11-03T15:46:23.608933+00:00",
   "record": {
     "security": {
       "ticker": "MSPR",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.0001,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 0.0003,
+      "dailyChangePercent": 200.0,
       "marketCapBillions": 0.0,
       "liabilitiesToAssets": 1.54402,
       "latestRevenueBillions": null,
@@ -467,49 +467,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "MSPR",
-      "generatedAt": "2026-10-31T13:50:21.193114+00:00",
-      "marketDataAsOf": "2026-10-30",
+      "generatedAt": "2026-11-03T15:29:02.025648+00:00",
+      "marketDataAsOf": "2026-11-02",
       "status": "not_detected",
-      "growthSpurtScore": 44.45,
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.0,
-        "return63d": 0.0,
+        "return21d": 2.00000022,
+        "return63d": 2.00000022,
         "trendSlope21d": 0.0,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
-        "trendFitR2_63d": 1.0,
+        "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.0,
-        "trendResidualVolatility63d": 0.0,
+        "trendResidualVolatility63d": 0.13841215,
         "maxDrawdown63d": 0.0,
         "downsideVolatility63d": 0.0,
-        "excessReturnVsSpy21d": 0.01082477,
-        "excessReturnVsSpy63d": 9.691e-05,
+        "excessReturnVsSpy21d": 2.02279014,
+        "excessReturnVsSpy63d": 2.02250992,
         "trendAcceleration": 0.0,
-        "largestOneDayContribution63d": null,
+        "largestOneDayContribution63d": 1.0,
         "percentAboveTrendLine63d": 1.0
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 70.0,
-        "relativeStrengthScore": 54.7752,
+        "directionScore": 55.0,
+        "consistencyScore": 15.0,
+        "relativeStrengthScore": 100.0,
         "drawdownControlScore": 100.0,
-        "confirmationScore": 10.0
+        "confirmationScore": 50.0
       },
-      "benchmarkPercentile": 0.768606,
+      "benchmarkPercentile": 0.875589,
       "metricPercentiles": {
-        "trendSlope63d": 0.745021,
-        "trendFitR2_63d": 0.99869,
-        "excessReturnVsSpy63d": 0.664564,
+        "trendSlope63d": 0.742535,
+        "trendFitR2_63d": 0.057622,
+        "excessReturnVsSpy63d": 0.997371,
         "drawdownControlScore": 0.99869,
-        "growthSpurtScore": 0.768606
+        "growthSpurtScore": 0.875589
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "LOW_TREND_DRAWDOWN"
+        "MARKET_RELATIVE_STRENGTH",
+        "LOW_TREND_DRAWDOWN",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12765,6 +12769,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.999999747378752e-05
+      },
+      {
+        "ticker": "MSPR",
+        "date": "2026-11-02",
+        "open": 9.999999747378752e-05,
+        "high": 0.0003000000142492354,
+        "low": 9.999999747378752e-05,
+        "close": 0.0003000000142492354,
+        "volume": 8755,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.0003000000142492354
       }
     ],
     "dataStatus": {
@@ -12807,14 +12822,14 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2025-11-19",
-      "latestScoringDate": "2026-10-30",
+      "latestScoringDate": "2026-11-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 44.45,
-      "growthSpurtBenchmarkPercentile": 0.768606,
-      "growthSpurtMarketDataAsOf": "2026-10-30",
-      "lastPipelineRun": "2026-10-31T13:50:21.193114+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.875589,
+      "growthSpurtMarketDataAsOf": "2026-11-02",
+      "lastPipelineRun": "2026-11-03T15:29:02.025648+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
