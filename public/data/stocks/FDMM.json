@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-10-31T10:17:17.346127+00:00",
+  "generatedAt": "2026-11-03T04:20:13.338133+00:00",
   "record": {
     "security": {
       "ticker": "FDMM",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.83,
-      "dailyChangePercent": 0.0,
+      "latestPrice": 9.84,
+      "dailyChangePercent": 0.1017,
       "marketCapBillions": null,
       "liabilitiesToAssets": 1.123061,
       "latestRevenueBillions": null,
@@ -415,50 +415,53 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FDMM",
-      "generatedAt": "2026-10-31T09:49:39.010235+00:00",
-      "marketDataAsOf": "2026-10-30",
+      "generatedAt": "2026-11-03T04:02:41.360552+00:00",
+      "marketDataAsOf": "2026-11-02",
       "status": "not_detected",
-      "growthSpurtScore": 34.7,
+      "growthSpurtScore": 35.89,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00101835,
-        "return63d": null,
+        "return21d": 0.00203671,
+        "return63d": -0.00101525,
         "trendSlope21d": 0.0,
         "trendSlope63d": 0.0,
         "trendAnnualizedReturn63d": 0.0,
         "trendFitR2_63d": 0.0,
         "positiveWeekRatio63d": 0.41666667,
-        "trendResidualVolatility63d": 0.00248345,
+        "trendResidualVolatility63d": 0.00247308,
         "maxDrawdown63d": -0.00809716,
-        "downsideVolatility63d": 0.00152725,
-        "excessReturnVsSpy21d": 0.01184313,
-        "excessReturnVsSpy63d": null,
+        "downsideVolatility63d": 0.0013079,
+        "excessReturnVsSpy21d": 0.02482663,
+        "excessReturnVsSpy63d": 0.02149445,
         "trendAcceleration": 0.0,
-        "largestOneDayContribution63d": 0.16044351,
+        "largestOneDayContribution63d": 0.17435228,
         "percentAboveTrendLine63d": 0.52380952
       },
       "scoreBreakdown": {
-        "directionScore": 1.0445,
-        "consistencyScore": 22.7874,
-        "relativeStrengthScore": 64.8039,
+        "directionScore": 1.3578,
+        "consistencyScore": 22.7912,
+        "relativeStrengthScore": 69.5938,
         "drawdownControlScore": 97.3009,
-        "confirmationScore": 11.3578
+        "confirmationScore": 12.7156
       },
-      "benchmarkPercentile": 0.617021,
+      "benchmarkPercentile": 0.60666,
       "metricPercentiles": {
-        "trendSlope63d": 0.725999,
-        "trendFitR2_63d": 0.061235,
-        "excessReturnVsSpy63d": null,
-        "drawdownControlScore": 0.968864,
-        "growthSpurtScore": 0.617021
+        "trendSlope63d": 0.723465,
+        "trendFitR2_63d": 0.063736,
+        "excessReturnVsSpy63d": 0.648197,
+        "drawdownControlScore": 0.968262,
+        "growthSpurtScore": 0.60666
       },
       "reasonCodes": [
         "MARKET_RELATIVE_STRENGTH",
         "LOW_TREND_DRAWDOWN",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -1153,6 +1156,17 @@
         "volume": 0,
         "source": "yahoo-chart",
         "adjusted_close": 9.829999923706055
+      },
+      {
+        "ticker": "FDMM",
+        "date": "2026-11-02",
+        "open": 9.800000190734863,
+        "high": 9.84000015258789,
+        "low": 9.800000190734863,
+        "close": 9.84000015258789,
+        "volume": 119700,
+        "source": "yahoo-chart",
+        "adjusted_close": 9.84000015258789
       }
     ],
     "dataStatus": {
@@ -1194,13 +1208,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-08-21",
-      "latestScoringDate": "2026-10-30",
+      "latestScoringDate": "2026-11-02",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 34.7,
-      "growthSpurtBenchmarkPercentile": 0.617021,
-      "growthSpurtMarketDataAsOf": "2026-10-30",
-      "lastPipelineRun": "2026-10-31T09:49:39.010235+00:00",
+      "growthSpurtScore": 35.89,
+      "growthSpurtBenchmarkPercentile": 0.60666,
+      "growthSpurtMarketDataAsOf": "2026-11-02",
+      "lastPipelineRun": "2026-11-03T04:02:41.360552+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }
