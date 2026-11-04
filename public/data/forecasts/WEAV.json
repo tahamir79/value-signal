@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "WEAV",
   "companyName": "Weave Communications, Inc.",
-  "generatedAt": "2026-11-03T15:48:21.115766+00:00",
+  "generatedAt": "2026-11-04T03:36:48.372432+00:00",
   "marketDataAsOf": "2026-10-23",
   "currentPrice": 7.4,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-03T15:48:21.115766+00:00",
+    "collectedAt": "2026-11-04T03:36:48.372432+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,42 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-03T15:48:21.115766+00:00",
+    "generatedAt": "2026-11-04T03:36:48.372432+00:00",
     "marketDataAsOf": "2026-10-23",
     "currentPrice": 7.4,
     "horizon30Day": {
-      "returnEstimate": 0.00231597,
-      "lowerReturn": -0.08,
-      "upperReturn": 0.08,
-      "estimatedPrice": 7.4171,
-      "lowerEstimatedPrice": 6.808,
-      "upperEstimatedPrice": 7.992,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 10,
+      "status": "insufficient_data",
+      "usableObservationCount": 10,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 10 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": -0.06676892,
-      "lowerReturn": -0.15,
-      "upperReturn": 0.15,
-      "estimatedPrice": 6.9059,
-      "lowerEstimatedPrice": 6.29,
-      "upperEstimatedPrice": 8.51,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 2,
+      "status": "insufficient_data",
+      "usableObservationCount": 2,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 2 of 12 required observations."
     },
     "status": "stale",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
       "Market data as of 2026-10-23 is older than 10 days.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%",
-      "90-day scenario: lower return clipped to +/-15%",
-      "90-day scenario: upper return clipped to +/-15%"
+      "Not enough 30-day history: 10 of 24 required observations.",
+      "Not enough 90-day history: 2 of 12 required observations."
     ]
   },
   "displayProjectionSource": "unavailable",
