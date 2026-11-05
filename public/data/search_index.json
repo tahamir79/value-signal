@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-11-04T16:02:48.932872+00:00",
-  "corpusHash": "3aecfa9e01e9c6c42ec4615d0cb17e63a8021287fa7e53ad21584f99858d2f5e",
+  "generatedAt": "2026-11-05T03:59:10.780971+00:00",
+  "corpusHash": "7ae73fdacb0e4d431e05e2f7f139519391cff5efc801c6a572fa4c4ee2d28cf9",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1215613,
-  "termCount": 19074861,
-  "tickerCount": 4742,
+  "documentCount": 1215908,
+  "termCount": 19079711,
+  "tickerCount": 4743,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28459,6 +28459,12 @@
       "documentCount": 92,
       "termCount": 2631,
       "latestFilingDate": "2026-05-20"
+    },
+    "SIX": {
+      "path": "public/data/search/SIX.json",
+      "documentCount": 295,
+      "termCount": 4850,
+      "latestFilingDate": "2024-05-09"
     }
   },
   "errors": [
@@ -34645,22 +34651,45 @@
     {
       "ticker": "SVUHF",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "CLRC",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "UCSB",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "WWB",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-11-04T16:02:36.851594+00:00",
+    "generatedAt": "2026-11-05T03:58:57.490663+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1446,
+    "selectedTickers": [
+      "CLRC",
+      "SIX",
+      "UCSB",
+      "WWB"
+    ],
+    "indexedTickers": [
+      "SIX"
+    ],
+    "failedTickers": [
+      "CLRC",
+      "UCSB",
+      "WWB"
+    ],
+    "requested": 4,
+    "indexed": 1,
+    "failed": 3,
+    "remainingUnindexed": 1445,
     "remainingUnattempted": 0,
     "finished": true
   }
