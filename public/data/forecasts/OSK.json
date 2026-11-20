@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "ticker": "OSK",
   "companyName": "OSHKOSH CORP",
-  "generatedAt": "2026-11-19T17:08:42.797974+00:00",
-  "marketDataAsOf": "2026-11-03",
-  "currentPrice": 142.72,
+  "generatedAt": "2026-11-20T04:32:57.557146+00:00",
+  "marketDataAsOf": "2026-11-19",
+  "currentPrice": 137.37,
   "analystTarget": {
     "ticker": "OSK",
     "targetLow": null,
@@ -12,7 +12,7 @@
     "targetMedian": null,
     "targetHigh": null,
     "analystCount": null,
-    "currentPriceAtCollection": 142.72000122,
+    "currentPriceAtCollection": 137.36999512,
     "impliedReturnToMean": null,
     "horizonDays": null,
     "horizonLabel": null,
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-19T17:08:42.797974+00:00",
+    "collectedAt": "2026-11-20T04:32:57.557146+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -30,30 +30,30 @@
     "returnEstimate": 0.0,
     "lowerReturn": -0.04877058,
     "upperReturn": 0.0512711,
-    "estimatedPrice": 142.72,
-    "lowerEstimatedPrice": 135.7595,
-    "upperEstimatedPrice": 150.0374
+    "estimatedPrice": 137.37,
+    "lowerEstimatedPrice": 130.6704,
+    "upperEstimatedPrice": 144.4131
   },
   "horizon90Day": {
     "returnEstimate": 0.0,
     "lowerReturn": -0.04877058,
     "upperReturn": 0.0512711,
-    "estimatedPrice": 142.72,
-    "lowerEstimatedPrice": 135.7595,
-    "upperEstimatedPrice": 150.0374
+    "estimatedPrice": 137.37,
+    "lowerEstimatedPrice": 130.6704,
+    "upperEstimatedPrice": 144.4131
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-19T17:08:42.797974+00:00",
-    "marketDataAsOf": "2026-11-03",
-    "currentPrice": 142.72,
+    "generatedAt": "2026-11-20T04:32:57.557146+00:00",
+    "marketDataAsOf": "2026-11-19",
+    "currentPrice": 137.37,
     "horizon30Day": {
-      "returnEstimate": 0.0198719,
-      "lowerReturn": -0.08,
+      "returnEstimate": 0.03123206,
+      "lowerReturn": -0.0751009,
       "upperReturn": 0.08,
-      "estimatedPrice": 145.5561,
-      "lowerEstimatedPrice": 131.3024,
-      "upperEstimatedPrice": 154.1376,
+      "estimatedPrice": 141.6603,
+      "lowerEstimatedPrice": 127.0534,
+      "upperEstimatedPrice": 148.3596,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,29 +61,28 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0118077,
-      "lowerReturn": -0.07451487,
-      "upperReturn": 0.14612598,
-      "estimatedPrice": 144.4052,
-      "lowerEstimatedPrice": 132.0852,
-      "upperEstimatedPrice": 163.5751,
+      "returnEstimate": 0.00100395,
+      "lowerReturn": -0.07220864,
+      "upperReturn": 0.15,
+      "estimatedPrice": 137.5079,
+      "lowerEstimatedPrice": 127.4507,
+      "upperEstimatedPrice": 157.9755,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "stale",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-11-03 is older than 10 days.",
-      "30-day scenario: lower return clipped to +/-8%",
-      "30-day scenario: upper return clipped to +/-8%"
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",

@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "WDH",
   "companyName": "Waterdrop Inc.",
-  "generatedAt": "2026-11-19T17:08:42.797974+00:00",
-  "marketDataAsOf": "2026-11-03",
+  "generatedAt": "2026-11-20T04:32:57.557146+00:00",
+  "marketDataAsOf": "2026-11-18",
   "currentPrice": 1.0,
   "analystTarget": {
     "ticker": "WDH",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-19T17:08:42.797974+00:00",
+    "collectedAt": "2026-11-20T04:32:57.557146+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-19T17:08:42.797974+00:00",
-    "marketDataAsOf": "2026-11-03",
+    "generatedAt": "2026-11-20T04:32:57.557146+00:00",
+    "marketDataAsOf": "2026-11-18",
     "currentPrice": 1.0,
     "horizon30Day": {
-      "returnEstimate": 0.00035175,
-      "lowerReturn": -0.07078792,
-      "upperReturn": 0.06254207,
-      "estimatedPrice": 1.0004,
-      "lowerEstimatedPrice": 0.9292,
-      "upperEstimatedPrice": 1.0625,
+      "returnEstimate": 0.00765765,
+      "lowerReturn": -0.06760728,
+      "upperReturn": 0.05625001,
+      "estimatedPrice": 1.0077,
+      "lowerEstimatedPrice": 0.9324,
+      "upperEstimatedPrice": 1.0563,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,27 +61,26 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.00492459,
-      "lowerReturn": -0.11051752,
-      "upperReturn": 0.1353512,
-      "estimatedPrice": 1.0049,
-      "lowerEstimatedPrice": 0.8895,
-      "upperEstimatedPrice": 1.1354,
+      "returnEstimate": -0.00519285,
+      "lowerReturn": -0.10947524,
+      "upperReturn": 0.12553121,
+      "estimatedPrice": 0.9948,
+      "lowerEstimatedPrice": 0.8905,
+      "upperEstimatedPrice": 1.1255,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
       "requiredObservationCount": 12,
       "unavailableReason": null
     },
-    "status": "stale",
+    "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "Market data as of 2026-11-03 is older than 10 days."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
     ]
   },
-  "displayProjectionSource": "unavailable",
-  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
