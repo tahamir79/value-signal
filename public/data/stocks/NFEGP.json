@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-19T17:07:32.071538+00:00",
+  "generatedAt": "2026-11-20T16:38:55.029366+00:00",
   "record": {
     "security": {
       "ticker": "NFEGP",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 287.26,
-      "dailyChangePercent": 17.7295,
-      "marketCapBillions": 4.6885,
+      "latestPrice": 283.0,
+      "dailyChangePercent": -0.9451,
+      "marketCapBillions": 4.619,
       "liabilitiesToAssets": 0.410839,
       "latestRevenueBillions": 1.1795,
       "grossMarginPercent": null,
@@ -307,7 +307,7 @@
       "shortTermDebtShare": 0.02957,
       "bookValue": 1272993000.0,
       "bookValuePerShare": 77.994591,
-      "priceToBook": 3.683076,
+      "priceToBook": 3.628457,
       "retainedEarnings": -1558058000.0
     },
     "balanceSheetScoringShadow": {
@@ -519,49 +519,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "NFEGP",
-      "generatedAt": "2026-11-19T16:44:29.109102+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-11-20T16:19:57.683813+00:00",
+      "marketDataAsOf": "2026-11-20",
+      "status": "not_detected",
+      "growthSpurtScore": 42.12,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.15510204,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00575555,
+        "trendSlope63d": -0.01519679,
+        "trendAnnualizedReturn63d": -0.9782815,
+        "trendFitR2_63d": 0.17951758,
+        "positiveWeekRatio63d": 0.55555556,
+        "trendResidualVolatility63d": 0.33963125,
+        "maxDrawdown63d": -0.58219801,
+        "downsideVolatility63d": 0.05874092,
+        "excessReturnVsSpy21d": 0.23023034,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.03752222,
+        "largestOneDayContribution63d": 0.77441968,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 30.7692,
+        "consistencyScore": 11.5476,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.755625,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.072737,
+        "trendFitR2_63d": 0.267923,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.21978,
+        "growthSpurtScore": 0.755625
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
       "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "ONE_DAY_SPIKE_DOMINATED"
       ]
     },
     "priceHistory": [
@@ -1092,6 +1095,28 @@
         "volume": 120900,
         "source": "yahoo-chart",
         "adjusted_close": 287.260009765625
+      },
+      {
+        "ticker": "NFEGP",
+        "date": "2026-11-19",
+        "open": 288.4800109863281,
+        "high": 305.010009765625,
+        "low": 281.20001220703125,
+        "close": 285.70001220703125,
+        "volume": 5900,
+        "source": "yahoo-chart",
+        "adjusted_close": 285.70001220703125
+      },
+      {
+        "ticker": "NFEGP",
+        "date": "2026-11-20",
+        "open": 280.20001220703125,
+        "high": 283.0,
+        "low": 279.989990234375,
+        "close": 283.0,
+        "volume": 12061,
+        "source": "yahoo-chart",
+        "adjusted_close": 283.0
       }
     ],
     "dataStatus": {
@@ -1126,13 +1151,13 @@
       "officialSignal": "quality-watchlist",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-11-16",
-      "latestScoringDate": "2026-11-18",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-11-19T16:44:29.109102+00:00",
+      "latestScoringDate": "2026-11-20",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 42.12,
+      "growthSpurtBenchmarkPercentile": 0.755625,
+      "growthSpurtMarketDataAsOf": "2026-11-20",
+      "lastPipelineRun": "2026-11-20T16:19:57.683813+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": true
     }

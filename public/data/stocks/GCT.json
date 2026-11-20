@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-19T17:07:32.071538+00:00",
+  "generatedAt": "2026-11-20T16:38:55.029366+00:00",
   "record": {
     "security": {
       "ticker": "GCT",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 64.84,
-      "dailyChangePercent": -0.7045,
+      "latestPrice": 59.2,
+      "dailyChangePercent": -2.0516,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.558568,
       "latestRevenueBillions": 1.2899,
@@ -533,52 +533,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "GCT",
-      "generatedAt": "2026-11-19T16:44:29.109102+00:00",
-      "marketDataAsOf": "2026-11-19",
-      "status": "detected",
-      "growthSpurtScore": 87.71,
+      "generatedAt": "2026-11-20T16:19:57.683813+00:00",
+      "marketDataAsOf": "2026-11-20",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.07368765,
-        "return63d": 0.30594148,
-        "trendSlope21d": 0.00603679,
-        "trendSlope63d": 0.00421406,
-        "trendAnnualizedReturn63d": 1.89198544,
-        "trendFitR2_63d": 0.84249506,
-        "positiveWeekRatio63d": 0.75,
-        "trendResidualVolatility63d": 0.03219241,
-        "maxDrawdown63d": -0.10538247,
-        "downsideVolatility63d": 0.02290187,
-        "excessReturnVsSpy21d": 0.12920517,
-        "excessReturnVsSpy63d": 0.35000044,
-        "trendAcceleration": 0.00218232,
-        "largestOneDayContribution63d": 0.06512179,
+        "return21d": 0.00135321,
+        "return63d": 0.17204519,
+        "trendSlope21d": 0.00481019,
+        "trendSlope63d": 0.00406563,
+        "trendAnnualizedReturn63d": 1.7858113,
+        "trendFitR2_63d": 0.81661485,
+        "positiveWeekRatio63d": 0.66666667,
+        "trendResidualVolatility63d": 0.0336437,
+        "maxDrawdown63d": -0.11151128,
+        "downsideVolatility63d": 0.02463936,
+        "excessReturnVsSpy21d": 0.07648151,
+        "excessReturnVsSpy63d": 0.2442817,
+        "trendAcceleration": 0.00077291,
+        "largestOneDayContribution63d": 0.06263471,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 100.0,
-        "consistencyScore": 71.9048,
+        "directionScore": 80.9021,
+        "consistencyScore": 64.2342,
         "relativeStrengthScore": 100.0,
-        "drawdownControlScore": 64.8725,
-        "confirmationScore": 100.0
+        "drawdownControlScore": 62.8296,
+        "confirmationScore": 59.5334
       },
-      "benchmarkPercentile": 0.996854,
+      "benchmarkPercentile": 0.886709,
       "metricPercentiles": {
-        "trendSlope63d": 0.967488,
-        "trendFitR2_63d": 0.853697,
-        "excessReturnVsSpy63d": 0.972646,
-        "drawdownControlScore": 0.829575,
-        "growthSpurtScore": 0.996854
+        "trendSlope63d": 0.964417,
+        "trendFitR2_63d": 0.809001,
+        "excessReturnVsSpy63d": 0.947977,
+        "drawdownControlScore": 0.816327,
+        "growthSpurtScore": 0.886709
       },
       "reasonCodes": [
-        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED"
+        "RECENT_TREND_CONFIRMED",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -12332,13 +12334,24 @@
       {
         "ticker": "GCT",
         "date": "2026-11-19",
-        "open": 65.3499984741211,
-        "high": 66.08589935302734,
-        "low": 64.26000213623047,
-        "close": 64.83999633789062,
-        "volume": 160030,
+        "open": 65.4000015258789,
+        "high": 66.08599853515625,
+        "low": 60.34000015258789,
+        "close": 60.439998626708984,
+        "volume": 620100,
         "source": "yahoo-chart",
-        "adjusted_close": 64.83999633789062
+        "adjusted_close": 60.439998626708984
+      },
+      {
+        "ticker": "GCT",
+        "date": "2026-11-20",
+        "open": 59.099998474121094,
+        "high": 60.54499816894531,
+        "low": 58.0099983215332,
+        "close": 59.20000076293945,
+        "volume": 222547,
+        "source": "yahoo-chart",
+        "adjusted_close": 59.20000076293945
       }
     ],
     "dataStatus": {
@@ -12374,13 +12387,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-11-05",
-      "latestScoringDate": "2026-11-19",
+      "latestScoringDate": "2026-11-20",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "detected",
-      "growthSpurtScore": 87.71,
-      "growthSpurtBenchmarkPercentile": 0.996854,
-      "growthSpurtMarketDataAsOf": "2026-11-19",
-      "lastPipelineRun": "2026-11-19T16:44:29.109102+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.886709,
+      "growthSpurtMarketDataAsOf": "2026-11-20",
+      "lastPipelineRun": "2026-11-20T16:19:57.683813+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
