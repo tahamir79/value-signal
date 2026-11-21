@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-11-20T16:40:13.074702+00:00",
-  "corpusHash": "a9d128ec92c652bc5c8882b7440e304d1525d5ce2cc0f073039e829becc893ef",
+  "generatedAt": "2026-11-21T04:23:32.708966+00:00",
+  "corpusHash": "f92126168de0a633c007a081db9b2aaca81f515eabecc3ca2b8b53457f0fa468",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1218055,
-  "termCount": 19116034,
-  "tickerCount": 4752,
+  "documentCount": 1219139,
+  "termCount": 19128023,
+  "tickerCount": 4755,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28519,6 +28519,24 @@
       "documentCount": 171,
       "termCount": 3908,
       "latestFilingDate": "2026-11-16"
+    },
+    "FDGX": {
+      "path": "public/data/search/FDGX.json",
+      "documentCount": 161,
+      "termCount": 3087,
+      "latestFilingDate": "2026-11-06"
+    },
+    "FMBM": {
+      "path": "public/data/search/FMBM.json",
+      "documentCount": 169,
+      "termCount": 3076,
+      "latestFilingDate": "2026-11-16"
+    },
+    "SONN": {
+      "path": "public/data/search/SONN.json",
+      "documentCount": 754,
+      "termCount": 5826,
+      "latestFilingDate": "2026-11-05"
     }
   },
   "errors": [
@@ -34809,22 +34827,43 @@
     {
       "ticker": "ZYN",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "CZZL",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "SCNLF",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-11-20T16:40:00.575938+00:00",
+    "generatedAt": "2026-11-21T04:23:20.394251+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1456,
+    "selectedTickers": [
+      "CZZL",
+      "FDGX",
+      "FMBM",
+      "SCNLF",
+      "SONN"
+    ],
+    "indexedTickers": [
+      "FDGX",
+      "FMBM",
+      "SONN"
+    ],
+    "failedTickers": [
+      "CZZL",
+      "SCNLF"
+    ],
+    "requested": 5,
+    "indexed": 3,
+    "failed": 2,
+    "remainingUnindexed": 1458,
     "remainingUnattempted": 0,
     "finished": true
   }

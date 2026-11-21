@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "ticker": "FDGX",
+  "companyName": "First Digital Acquisition Corp Ltd.",
+  "generatedAt": "2026-11-21T04:24:11.972688+00:00",
+  "marketDataAsOf": "2026-11-20",
+  "currentPrice": 10.4,
+  "analystTarget": {
+    "ticker": "FDGX",
+    "targetLow": null,
+    "targetMean": null,
+    "targetMedian": null,
+    "targetHigh": null,
+    "analystCount": null,
+    "currentPriceAtCollection": 10.39999962,
+    "impliedReturnToMean": null,
+    "horizonDays": null,
+    "horizonLabel": null,
+    "targetHorizonDays": null,
+    "targetHorizonLabel": null,
+    "provider": "unsupported",
+    "sourceAsOf": null,
+    "collectedAt": "2026-11-21T04:24:11.972688+00:00",
+    "status": "unsupported",
+    "warnings": [
+      "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
+    ]
+  },
+  "horizon30Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 10.4,
+    "lowerEstimatedPrice": 9.8928,
+    "upperEstimatedPrice": 10.9332
+  },
+  "horizon90Day": {
+    "returnEstimate": 0.0,
+    "lowerReturn": -0.04877058,
+    "upperReturn": 0.0512711,
+    "estimatedPrice": 10.4,
+    "lowerEstimatedPrice": 9.8928,
+    "upperEstimatedPrice": 10.9332
+  },
+  "conservativeScenario": {
+    "methodology": "valuesignal_conservative_historical_scenario_v1",
+    "generatedAt": "2026-11-21T04:24:11.972688+00:00",
+    "marketDataAsOf": "2026-11-20",
+    "currentPrice": 10.4,
+    "horizon30Day": {
+      "returnEstimate": 0.00146056,
+      "lowerReturn": 0.00097611,
+      "upperReturn": 0.00449224,
+      "estimatedPrice": 10.4152,
+      "lowerEstimatedPrice": 10.4102,
+      "upperEstimatedPrice": 10.4467,
+      "sampleCount": 55,
+      "status": "available",
+      "usableObservationCount": 55,
+      "requiredObservationCount": 24,
+      "unavailableReason": null
+    },
+    "horizon90Day": {
+      "returnEstimate": 0.00614002,
+      "lowerReturn": 0.00590878,
+      "upperReturn": 0.00987051,
+      "estimatedPrice": 10.4639,
+      "lowerEstimatedPrice": 10.4615,
+      "upperEstimatedPrice": 10.5027,
+      "sampleCount": 47,
+      "status": "available",
+      "usableObservationCount": 47,
+      "requiredObservationCount": 12,
+      "unavailableReason": null
+    },
+    "status": "available",
+    "sampleStepSessions": 5,
+    "warnings": [
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+    ]
+  },
+  "displayProjectionSource": "conservative_historical_scenario",
+  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "model30Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "model90Day": {
+    "name": "zero-return baseline",
+    "version": "1.0.0",
+    "testMAE": null,
+    "directionalAccuracy": null
+  },
+  "validationStatus": "baseline",
+  "returnType": "price_return",
+  "warnings": [
+    "Scaled fast forecast refresh; challenger model training skipped.",
+    "Official model estimate remains the zero-return baseline.",
+    "Display projection uses the conservative historical scenario when sufficient history exists."
+  ]
+}
