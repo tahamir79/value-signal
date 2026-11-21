@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-20T04:30:59.664869+00:00",
+  "generatedAt": "2026-11-21T15:54:27.518596+00:00",
   "record": {
     "security": {
       "ticker": "VIVS",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 0.12,
-      "dailyChangePercent": 0.0,
-      "marketCapBillions": 0.0024,
+      "latestPrice": 0.26,
+      "dailyChangePercent": -10.3448,
+      "marketCapBillions": 0.0053,
       "liabilitiesToAssets": 0.270254,
       "latestRevenueBillions": 0.0001,
       "grossMarginPercent": null,
@@ -273,7 +273,7 @@
       "shortTermDebtShare": null,
       "bookValue": 7242000.0,
       "bookValuePerShare": 0.357074,
-      "priceToBook": 0.336065,
+      "priceToBook": 0.72814,
       "retainedEarnings": -357813000.0
     },
     "balanceSheetScoringShadow": {
@@ -491,49 +491,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "VIVS",
-      "generatedAt": "2026-11-20T04:09:10.482591+00:00",
-      "marketDataAsOf": "2026-11-18",
+      "generatedAt": "2026-11-21T15:34:13.919591+00:00",
+      "marketDataAsOf": "2026-11-20",
       "status": "not_detected",
-      "growthSpurtScore": 11.47,
+      "growthSpurtScore": 33.25,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": -0.29411767,
-        "return63d": -0.57142858,
-        "trendSlope21d": -0.01394648,
-        "trendSlope63d": -0.01559481,
-        "trendAnnualizedReturn63d": -0.98035421,
-        "trendFitR2_63d": 0.96255612,
-        "positiveWeekRatio63d": 0.0,
-        "trendResidualVolatility63d": 0.05635674,
+        "return21d": 0.62499998,
+        "return63d": -0.10344828,
+        "trendSlope21d": -0.00862411,
+        "trendSlope63d": -0.01558569,
+        "trendAnnualizedReturn63d": -0.98030902,
+        "trendFitR2_63d": 0.69421754,
+        "positiveWeekRatio63d": 0.08333333,
+        "trendResidualVolatility63d": 0.15739452,
         "maxDrawdown63d": -0.60000002,
-        "downsideVolatility63d": 0.02265969,
-        "excessReturnVsSpy21d": -0.24360083,
-        "excessReturnVsSpy63d": -0.53132007,
-        "trendAcceleration": 0.0027436,
-        "largestOneDayContribution63d": 0.06787974,
+        "downsideVolatility63d": 0.02394293,
+        "excessReturnVsSpy21d": 0.72206006,
+        "excessReturnVsSpy63d": -0.00921142,
+        "trendAcceleration": 0.00854078,
+        "largestOneDayContribution63d": 0.37412945,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 0.0,
-        "consistencyScore": 37.8968,
-        "relativeStrengthScore": 0.0,
+        "directionScore": 20.0,
+        "consistencyScore": 33.9921,
+        "relativeStrengthScore": 63.7579,
         "drawdownControlScore": 0.0,
-        "confirmationScore": 20.0
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": 0.305744,
+      "benchmarkPercentile": 0.622908,
       "metricPercentiles": {
-        "trendSlope63d": 0.068407,
-        "trendFitR2_63d": 0.994256,
-        "excessReturnVsSpy63d": 0.092292,
-        "drawdownControlScore": 0.205483,
-        "growthSpurtScore": 0.305744
+        "trendSlope63d": 0.072699,
+        "trendFitR2_63d": 0.687762,
+        "excessReturnVsSpy63d": 0.554097,
+        "drawdownControlScore": 0.218619,
+        "growthSpurtScore": 0.622908
       },
       "reasonCodes": [
-        "TREND_WEAK_RELATIVE_TO_MARKET",
-        "TREND_TOO_VOLATILE"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -14318,6 +14321,28 @@
         "volume": 264500,
         "source": "yahoo-chart",
         "adjusted_close": 0.11999999731779099
+      },
+      {
+        "ticker": "VIVS",
+        "date": "2026-11-19",
+        "open": 0.1899999976158142,
+        "high": 0.3199999928474426,
+        "low": 0.17000000178813934,
+        "close": 0.28999999165534973,
+        "volume": 815947400,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.28999999165534973
+      },
+      {
+        "ticker": "VIVS",
+        "date": "2026-11-20",
+        "open": 0.2800000011920929,
+        "high": 0.3799999952316284,
+        "low": 0.23999999463558197,
+        "close": 0.25999999046325684,
+        "volume": 147198900,
+        "source": "yahoo-chart",
+        "adjusted_close": 0.25999999046325684
       }
     ],
     "dataStatus": {
@@ -14352,17 +14377,17 @@
       "triggeredBalanceSheetGates": [],
       "scoringInputsAvailable": true,
       "scoringAvailable": true,
-      "officialSignal": "momentum-risk",
+      "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-11-12",
-      "latestScoringDate": "2026-11-18",
+      "latestScoringDate": "2026-11-20",
       "growthSpurtAvailable": true,
       "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 11.47,
-      "growthSpurtBenchmarkPercentile": 0.305744,
-      "growthSpurtMarketDataAsOf": "2026-11-18",
-      "lastPipelineRun": "2026-11-20T04:09:10.482591+00:00",
-      "balanceSheetExperimentalSignal": "momentum-risk",
+      "growthSpurtScore": 33.25,
+      "growthSpurtBenchmarkPercentile": 0.622908,
+      "growthSpurtMarketDataAsOf": "2026-11-20",
+      "lastPipelineRun": "2026-11-21T15:34:13.919591+00:00",
+      "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
   }
