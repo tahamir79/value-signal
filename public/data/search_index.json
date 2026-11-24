@@ -1,12 +1,12 @@
 {
   "schemaVersion": "3.0.0",
-  "generatedAt": "2026-11-21T15:55:16.174137+00:00",
-  "corpusHash": "f92126168de0a633c007a081db9b2aaca81f515eabecc3ca2b8b53457f0fa468",
+  "generatedAt": "2026-11-24T07:25:13.853056+00:00",
+  "corpusHash": "ad93d4a502977bc7f31cfb11a8980e8f9d0452df045a9ae8b2e20a590bcef10b",
   "status": "partial_success",
   "indexMode": "per_ticker",
-  "documentCount": 1219139,
-  "termCount": 19128023,
-  "tickerCount": 4755,
+  "documentCount": 1220208,
+  "termCount": 19143833,
+  "tickerCount": 4759,
   "tickers": {
     "A": {
       "path": "public/data/search/A.json",
@@ -28537,6 +28537,30 @@
       "documentCount": 754,
       "termCount": 5826,
       "latestFilingDate": "2026-11-05"
+    },
+    "ANSS": {
+      "path": "public/data/search/ANSS.json",
+      "documentCount": 245,
+      "termCount": 4676,
+      "latestFilingDate": "2025-04-30"
+    },
+    "AVZO": {
+      "path": "public/data/search/AVZO.json",
+      "documentCount": 488,
+      "termCount": 5407,
+      "latestFilingDate": "2026-10-27"
+    },
+    "EVRL": {
+      "path": "public/data/search/EVRL.json",
+      "documentCount": 226,
+      "termCount": 3352,
+      "latestFilingDate": "2026-11-16"
+    },
+    "VESI": {
+      "path": "public/data/search/VESI.json",
+      "documentCount": 110,
+      "termCount": 2375,
+      "latestFilingDate": "2026-10-06"
     }
   },
   "errors": [
@@ -34835,22 +34859,45 @@
     {
       "ticker": "SCNLF",
       "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "BRBM",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
+    },
+    {
+      "ticker": "ZENO",
+      "message": "NO_SEARCHABLE_FILING_CHUNKS"
     }
   ],
   "batchAware": true,
   "lastBatch": {
-    "generatedAt": "2026-11-21T15:55:09.066730+00:00",
+    "generatedAt": "2026-11-24T07:25:05.557762+00:00",
     "universe": "data/universe/universe.json",
     "batchSize": 50,
     "batchIndex": null,
     "force": false,
-    "selectedTickers": [],
-    "indexedTickers": [],
-    "failedTickers": [],
-    "requested": 0,
-    "indexed": 0,
-    "failed": 0,
-    "remainingUnindexed": 1458,
+    "selectedTickers": [
+      "ANSS",
+      "AVZO",
+      "BRBM",
+      "EVRL",
+      "VESI",
+      "ZENO"
+    ],
+    "indexedTickers": [
+      "ANSS",
+      "AVZO",
+      "EVRL",
+      "VESI"
+    ],
+    "failedTickers": [
+      "BRBM",
+      "ZENO"
+    ],
+    "requested": 6,
+    "indexed": 4,
+    "failed": 2,
+    "remainingUnindexed": 1459,
     "remainingUnattempted": 0,
     "finished": true
   }
