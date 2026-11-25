@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-24T14:18:54.129794+00:00",
+  "generatedAt": "2026-11-25T13:30:24.870870+00:00",
   "record": {
     "security": {
       "ticker": "FVN",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 13.725,
-      "dailyChangePercent": 2.0446,
-      "marketCapBillions": 0.0779,
+      "latestPrice": 14.25,
+      "dailyChangePercent": 3.8251,
+      "marketCapBillions": 0.0809,
       "liabilitiesToAssets": 0.033274,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -441,52 +441,54 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "FVN",
-      "generatedAt": "2026-11-24T14:03:32.262265+00:00",
-      "marketDataAsOf": "2026-11-23",
-      "status": "emerging",
-      "growthSpurtScore": 66.88,
+      "generatedAt": "2026-11-25T13:12:59.144024+00:00",
+      "marketDataAsOf": "2026-11-24",
+      "status": "not_detected",
+      "growthSpurtScore": 54.0,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.23094178,
-        "return63d": 0.45546129,
-        "trendSlope21d": 0.00896617,
-        "trendSlope63d": 0.00523721,
-        "trendAnnualizedReturn63d": 2.742585,
-        "trendFitR2_63d": 0.43832336,
+        "return21d": 0.21276596,
+        "return63d": 0.46004095,
+        "trendSlope21d": 0.01028589,
+        "trendSlope63d": 0.00564516,
+        "trendAnnualizedReturn63d": 3.14781122,
+        "trendFitR2_63d": 0.46744527,
         "positiveWeekRatio63d": 0.58333333,
-        "trendResidualVolatility63d": 0.10873975,
+        "trendResidualVolatility63d": 0.10922845,
         "maxDrawdown63d": -0.30132162,
         "downsideVolatility63d": 0.03655747,
-        "excessReturnVsSpy21d": 0.28052268,
-        "excessReturnVsSpy63d": 0.51007134,
-        "trendAcceleration": 0.01235262,
-        "largestOneDayContribution63d": 0.06761311,
+        "excessReturnVsSpy21d": 0.27363843,
+        "excessReturnVsSpy63d": 0.51945392,
+        "trendAcceleration": 0.01359926,
+        "largestOneDayContribution63d": 0.07099647,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
         "directionScore": 100.0,
-        "consistencyScore": 27.508,
+        "consistencyScore": 29.5466,
         "relativeStrengthScore": 100.0,
         "drawdownControlScore": 0.0,
         "confirmationScore": 100.0
       },
-      "benchmarkPercentile": 0.95248,
+      "benchmarkPercentile": 0.881723,
       "metricPercentiles": {
-        "trendSlope63d": 0.975979,
-        "trendFitR2_63d": 0.431854,
-        "excessReturnVsSpy63d": 0.985325,
-        "drawdownControlScore": 0.22611,
-        "growthSpurtScore": 0.95248
+        "trendSlope63d": 0.97859,
+        "trendFitR2_63d": 0.445953,
+        "excessReturnVsSpy63d": 0.984285,
+        "drawdownControlScore": 0.22376,
+        "growthSpurtScore": 0.881723
       },
       "reasonCodes": [
-        "GROWTH_SPURT_EMERGING",
         "TREND_SLOPE_STRONG",
         "MARKET_RELATIVE_STRENGTH",
         "RECENT_TREND_CONFIRMED",
-        "TREND_TOO_VOLATILE"
+        "TREND_TOO_VOLATILE",
+        "ONE_DAY_SPIKE_DOMINATED"
       ],
-      "warnings": []
+      "warnings": [
+        "ONE_DAY_SPIKE_DOMINATED"
+      ]
     },
     "priceHistory": [
       {
@@ -6153,6 +6155,17 @@
         "volume": 200,
         "source": "yahoo-chart",
         "adjusted_close": 13.725000381469727
+      },
+      {
+        "ticker": "FVN",
+        "date": "2026-11-24",
+        "open": 13.75,
+        "high": 14.300000190734863,
+        "low": 13.75,
+        "close": 14.25,
+        "volume": 7200,
+        "source": "yahoo-chart",
+        "adjusted_close": 14.25
       }
     ],
     "dataStatus": {
@@ -6192,13 +6205,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-11-12",
-      "latestScoringDate": "2026-11-23",
+      "latestScoringDate": "2026-11-24",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "emerging",
-      "growthSpurtScore": 66.88,
-      "growthSpurtBenchmarkPercentile": 0.95248,
-      "growthSpurtMarketDataAsOf": "2026-11-23",
-      "lastPipelineRun": "2026-11-24T14:03:32.262265+00:00",
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 54.0,
+      "growthSpurtBenchmarkPercentile": 0.881723,
+      "growthSpurtMarketDataAsOf": "2026-11-24",
+      "lastPipelineRun": "2026-11-25T13:12:59.144024+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
