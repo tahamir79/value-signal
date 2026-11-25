@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "BSBR",
   "companyName": "Banco Santander (Brasil) S.A.",
-  "generatedAt": "2026-11-24T19:31:00.487736+00:00",
-  "marketDataAsOf": "2026-11-23",
+  "generatedAt": "2026-11-25T05:54:59.189565+00:00",
+  "marketDataAsOf": "2026-11-24",
   "currentPrice": 4.76,
   "analystTarget": {
     "ticker": "BSBR",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-24T19:31:00.487736+00:00",
+    "collectedAt": "2026-11-25T05:54:59.189565+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-24T19:31:00.487736+00:00",
-    "marketDataAsOf": "2026-11-23",
+    "generatedAt": "2026-11-25T05:54:59.189565+00:00",
+    "marketDataAsOf": "2026-11-24",
     "currentPrice": 4.76,
     "horizon30Day": {
-      "returnEstimate": 0.00075096,
-      "lowerReturn": -0.05875356,
-      "upperReturn": 0.07854483,
-      "estimatedPrice": 4.7636,
-      "lowerEstimatedPrice": 4.4803,
-      "upperEstimatedPrice": 5.1339,
+      "returnEstimate": -0.00198164,
+      "lowerReturn": -0.06686562,
+      "upperReturn": 0.06242091,
+      "estimatedPrice": 4.7506,
+      "lowerEstimatedPrice": 4.4417,
+      "upperEstimatedPrice": 5.0571,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.0423717,
-      "lowerReturn": -0.05948472,
-      "upperReturn": 0.14312239,
-      "estimatedPrice": 4.9617,
-      "lowerEstimatedPrice": 4.4769,
-      "upperEstimatedPrice": 5.4413,
+      "returnEstimate": 0.03644534,
+      "lowerReturn": -0.0648512,
+      "upperReturn": 0.15,
+      "estimatedPrice": 4.9335,
+      "lowerEstimatedPrice": 4.4513,
+      "upperEstimatedPrice": 5.474,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,8 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
