@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-26T18:17:04.534260+00:00",
+  "generatedAt": "2026-11-27T18:11:40.345398+00:00",
   "record": {
     "security": {
       "ticker": "RXO",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 29.3,
-      "dailyChangePercent": 1.4543,
-      "marketCapBillions": 4.8331,
+      "latestPrice": 29.455,
+      "dailyChangePercent": 0.529,
+      "marketCapBillions": 4.8586,
       "liabilitiesToAssets": null,
       "latestRevenueBillions": 5.742,
       "grossMarginPercent": null,
@@ -262,7 +262,7 @@
       "shortTermDebtShare": null,
       "bookValue": 1516000000.0,
       "bookValuePerShare": 9.190605,
-      "priceToBook": 3.188038,
+      "priceToBook": 3.204903,
       "retainedEarnings": -426000000.0
     },
     "balanceSheetScoringShadow": {
@@ -481,54 +481,52 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "RXO",
-      "generatedAt": "2026-11-26T17:53:19.485877+00:00",
-      "marketDataAsOf": "2026-11-25",
-      "status": "not_detected",
-      "growthSpurtScore": 54.0,
+      "generatedAt": "2026-11-27T17:39:24.707964+00:00",
+      "marketDataAsOf": "2026-11-27",
+      "status": "detected",
+      "growthSpurtScore": 80.68,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": 0.00687281,
-        "return63d": 0.31449071,
-        "trendSlope21d": 0.00238709,
-        "trendSlope63d": 0.00636197,
-        "trendAnnualizedReturn63d": 3.96899501,
-        "trendFitR2_63d": 0.66849267,
+        "return21d": 0.06721013,
+        "return63d": 0.34436331,
+        "trendSlope21d": 0.00266934,
+        "trendSlope63d": 0.00644591,
+        "trendAnnualizedReturn63d": 4.07522036,
+        "trendFitR2_63d": 0.67376025,
         "positiveWeekRatio63d": 0.66666667,
-        "trendResidualVolatility63d": 0.09749479,
-        "maxDrawdown63d": -0.12916476,
-        "downsideVolatility63d": 0.01515649,
-        "excessReturnVsSpy21d": 0.07568237,
-        "excessReturnVsSpy63d": 0.38273124,
-        "trendAcceleration": -0.00778073,
-        "largestOneDayContribution63d": 0.20261841,
+        "trendResidualVolatility63d": 0.09673959,
+        "maxDrawdown63d": -0.10211765,
+        "downsideVolatility63d": 0.01513905,
+        "excessReturnVsSpy21d": 0.12653216,
+        "excessReturnVsSpy63d": 0.39772129,
+        "trendAcceleration": -0.00805053,
+        "largestOneDayContribution63d": 0.20724464,
         "percentAboveTrendLine63d": 0.50793651
       },
       "scoreBreakdown": {
-        "directionScore": 84.5819,
-        "consistencyScore": 50.7627,
+        "directionScore": 100.0,
+        "consistencyScore": 51.1315,
         "relativeStrengthScore": 100.0,
-        "drawdownControlScore": 56.9451,
-        "confirmationScore": 49.1637
+        "drawdownControlScore": 65.9608,
+        "confirmationScore": 80.0
       },
-      "benchmarkPercentile": 0.83908,
+      "benchmarkPercentile": 0.96395,
       "metricPercentiles": {
-        "trendSlope63d": 0.977011,
-        "trendFitR2_63d": 0.646813,
-        "excessReturnVsSpy63d": 0.966964,
-        "drawdownControlScore": 0.748694,
-        "growthSpurtScore": 0.83908
+        "trendSlope63d": 0.975967,
+        "trendFitR2_63d": 0.645768,
+        "excessReturnVsSpy63d": 0.966946,
+        "drawdownControlScore": 0.817137,
+        "growthSpurtScore": 0.96395
       },
       "reasonCodes": [
+        "GROWTH_SPURT_DETECTED",
         "TREND_SLOPE_STRONG",
         "TREND_CONSISTENCY_STRONG",
         "MARKET_RELATIVE_STRENGTH",
-        "RECENT_TREND_CONFIRMED",
-        "ONE_DAY_SPIKE_DOMINATED"
+        "RECENT_TREND_CONFIRMED"
       ],
-      "warnings": [
-        "ONE_DAY_SPIKE_DOMINATED"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -11794,6 +11792,17 @@
         "volume": 5593400,
         "source": "yahoo-chart",
         "adjusted_close": 29.299999237060547
+      },
+      {
+        "ticker": "RXO",
+        "date": "2026-11-27",
+        "open": 29.420000076293945,
+        "high": 29.56999969482422,
+        "low": 29.350000381469727,
+        "close": 29.454999923706055,
+        "volume": 1053609,
+        "source": "yahoo-chart",
+        "adjusted_close": 29.454999923706055
       }
     ],
     "dataStatus": {
@@ -11834,13 +11843,13 @@
       "officialSignal": "neutral",
       "insufficientEvidenceReason": null,
       "latestFilingDate": "2026-10-29",
-      "latestScoringDate": "2026-11-25",
+      "latestScoringDate": "2026-11-27",
       "growthSpurtAvailable": true,
-      "growthSpurtStatus": "not_detected",
-      "growthSpurtScore": 54.0,
-      "growthSpurtBenchmarkPercentile": 0.83908,
-      "growthSpurtMarketDataAsOf": "2026-11-25",
-      "lastPipelineRun": "2026-11-26T17:53:19.485877+00:00",
+      "growthSpurtStatus": "detected",
+      "growthSpurtScore": 80.68,
+      "growthSpurtBenchmarkPercentile": 0.96395,
+      "growthSpurtMarketDataAsOf": "2026-11-27",
+      "lastPipelineRun": "2026-11-27T17:39:24.707964+00:00",
       "balanceSheetExperimentalSignal": "neutral",
       "balanceSheetWouldChangeSignal": false
     }
