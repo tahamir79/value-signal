@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-27T05:34:13.549240+00:00",
+  "generatedAt": "2026-11-28T05:13:01.582206+00:00",
   "record": {
     "security": {
       "ticker": "ETRA",
@@ -10,9 +10,9 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 8.65,
-      "dailyChangePercent": 2.8537,
-      "marketCapBillions": 0.5438,
+      "latestPrice": 8.84,
+      "dailyChangePercent": 2.1965,
+      "marketCapBillions": 0.5557,
       "liabilitiesToAssets": 0.043613,
       "latestRevenueBillions": null,
       "grossMarginPercent": null,
@@ -260,7 +260,7 @@
       "shortTermDebtShare": null,
       "bookValue": 392905000.0,
       "bookValuePerShare": 6.249802,
-      "priceToBook": 1.384044,
+      "priceToBook": 1.414445,
       "retainedEarnings": -245818000.0
     },
     "balanceSheetScoringShadow": {
@@ -475,50 +475,49 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "ETRA",
-      "generatedAt": "2026-11-27T05:11:54.466052+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-11-28T04:52:47.119288+00:00",
+      "marketDataAsOf": "2026-11-27",
+      "status": "not_detected",
+      "growthSpurtScore": 32.68,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": -0.01559013,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00410833,
+        "trendSlope63d": -0.00772703,
+        "trendAnnualizedReturn63d": -0.85732851,
+        "trendFitR2_63d": 0.59575401,
+        "positiveWeekRatio63d": 0.11111111,
+        "trendResidualVolatility63d": 0.09727393,
+        "maxDrawdown63d": -0.47485633,
+        "downsideVolatility63d": 0.02871508,
+        "excessReturnVsSpy21d": 0.04136885,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.02105571,
+        "largestOneDayContribution63d": 0.08987777,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 0.0,
+        "consistencyScore": 26.7028,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 60.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.627804,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.229004,
+        "trendFitR2_63d": 0.553469,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.215702,
+        "growthSpurtScore": 0.627804
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "MARKET_RELATIVE_STRENGTH",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1059,6 +1058,17 @@
         "volume": 371800,
         "source": "yahoo-chart",
         "adjusted_close": 8.649999618530273
+      },
+      {
+        "ticker": "ETRA",
+        "date": "2026-11-27",
+        "open": 8.729999542236328,
+        "high": 8.989999771118164,
+        "low": 8.380000114440918,
+        "close": 8.84000015258789,
+        "volume": 136400,
+        "source": "yahoo-chart",
+        "adjusted_close": 8.84000015258789
       }
     ],
     "dataStatus": {
@@ -1094,13 +1104,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-11-12",
-      "latestScoringDate": "2026-11-25",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-11-27T05:11:54.466052+00:00",
+      "latestScoringDate": "2026-11-27",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 32.68,
+      "growthSpurtBenchmarkPercentile": 0.627804,
+      "growthSpurtMarketDataAsOf": "2026-11-27",
+      "lastPipelineRun": "2026-11-28T04:52:47.119288+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

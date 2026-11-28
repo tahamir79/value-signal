@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "ticker": "BRBS",
   "companyName": "BLUE RIDGE BANKSHARES, INC.",
-  "generatedAt": "2026-11-27T18:13:37.715418+00:00",
-  "marketDataAsOf": "2026-11-25",
+  "generatedAt": "2026-11-28T05:14:15.636218+00:00",
+  "marketDataAsOf": "2026-11-27",
   "currentPrice": 3.89,
   "analystTarget": {
     "ticker": "BRBS",
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-27T18:13:37.715418+00:00",
+    "collectedAt": "2026-11-28T05:14:15.636218+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,16 +44,16 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-27T18:13:37.715418+00:00",
-    "marketDataAsOf": "2026-11-25",
+    "generatedAt": "2026-11-28T05:14:15.636218+00:00",
+    "marketDataAsOf": "2026-11-27",
     "currentPrice": 3.89,
     "horizon30Day": {
-      "returnEstimate": 0.00842146,
-      "lowerReturn": -0.03963936,
-      "upperReturn": 0.07481009,
-      "estimatedPrice": 3.9228,
-      "lowerEstimatedPrice": 3.7358,
-      "upperEstimatedPrice": 4.181,
+      "returnEstimate": 0.01131937,
+      "lowerReturn": -0.03645399,
+      "upperReturn": 0.08,
+      "estimatedPrice": 3.934,
+      "lowerEstimatedPrice": 3.7482,
+      "upperEstimatedPrice": 4.2012,
       "sampleCount": 104,
       "status": "available",
       "usableObservationCount": 104,
@@ -61,12 +61,12 @@
       "unavailableReason": null
     },
     "horizon90Day": {
-      "returnEstimate": 0.04502932,
-      "lowerReturn": -0.01485509,
-      "upperReturn": 0.14521455,
-      "estimatedPrice": 4.0652,
-      "lowerEstimatedPrice": 3.8322,
-      "upperEstimatedPrice": 4.4549,
+      "returnEstimate": 0.03438414,
+      "lowerReturn": -0.01391806,
+      "upperReturn": 0.15,
+      "estimatedPrice": 4.0238,
+      "lowerEstimatedPrice": 3.8359,
+      "upperEstimatedPrice": 4.4735,
       "sampleCount": 96,
       "status": "available",
       "usableObservationCount": 96,
@@ -76,7 +76,9 @@
     "status": "available",
     "sampleStepSessions": 5,
     "warnings": [
-      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history."
+      "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
+      "30-day scenario: upper return clipped to +/-8%",
+      "90-day scenario: upper return clipped to +/-15%"
     ]
   },
   "displayProjectionSource": "conservative_historical_scenario",
