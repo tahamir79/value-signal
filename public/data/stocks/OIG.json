@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-11-27T13:08:17.190571+00:00",
+  "generatedAt": "2026-11-28T12:21:37.609146+00:00",
   "record": {
     "security": {
       "ticker": "OIG",
@@ -10,8 +10,8 @@
       "sector": "Unknown"
     },
     "derived": {
-      "latestPrice": 9.89,
-      "dailyChangePercent": -4.352,
+      "latestPrice": 10.26,
+      "dailyChangePercent": 3.7412,
       "marketCapBillions": null,
       "liabilitiesToAssets": 0.944132,
       "latestRevenueBillions": 0.0451,
@@ -437,50 +437,51 @@
     "growthSpurt": {
       "schemaVersion": "1.0.0",
       "ticker": "OIG",
-      "generatedAt": "2026-11-27T12:48:14.004085+00:00",
-      "marketDataAsOf": null,
-      "status": "unavailable",
-      "growthSpurtScore": null,
+      "generatedAt": "2026-11-28T12:05:45.117652+00:00",
+      "marketDataAsOf": "2026-11-27",
+      "status": "not_detected",
+      "growthSpurtScore": 60.62,
       "primaryWindowSessions": 63,
       "confirmationWindowSessions": 21,
       "metrics": {
-        "return21d": null,
+        "return21d": 0.07660026,
         "return63d": null,
-        "trendSlope21d": null,
-        "trendSlope63d": null,
-        "trendAnnualizedReturn63d": null,
-        "trendFitR2_63d": null,
-        "positiveWeekRatio63d": null,
-        "trendResidualVolatility63d": null,
-        "maxDrawdown63d": null,
-        "downsideVolatility63d": null,
-        "excessReturnVsSpy21d": null,
+        "trendSlope21d": 0.00267439,
+        "trendSlope63d": 0.00149275,
+        "trendAnnualizedReturn63d": 0.4567009,
+        "trendFitR2_63d": 0.01452602,
+        "positiveWeekRatio63d": 0.33333333,
+        "trendResidualVolatility63d": 0.0708971,
+        "maxDrawdown63d": -0.30445971,
+        "downsideVolatility63d": 0.02908964,
+        "excessReturnVsSpy21d": 0.13355924,
         "excessReturnVsSpy63d": null,
-        "trendAcceleration": null,
-        "largestOneDayContribution63d": null,
-        "percentAboveTrendLine63d": null
+        "trendAcceleration": 0.0066772,
+        "largestOneDayContribution63d": 0.07436201,
+        "percentAboveTrendLine63d": 0.5
       },
       "scoreBreakdown": {
-        "directionScore": null,
-        "consistencyScore": null,
-        "relativeStrengthScore": null,
-        "drawdownControlScore": null,
-        "confirmationScore": null
+        "directionScore": 100.0,
+        "consistencyScore": 2.5,
+        "relativeStrengthScore": 100.0,
+        "drawdownControlScore": 0.0,
+        "confirmationScore": 100.0
       },
-      "benchmarkPercentile": null,
+      "benchmarkPercentile": 0.916971,
       "metricPercentiles": {
-        "trendSlope63d": null,
-        "trendFitR2_63d": null,
+        "trendSlope63d": 0.85953,
+        "trendFitR2_63d": 0.115927,
         "excessReturnVsSpy63d": null,
-        "drawdownControlScore": null,
-        "growthSpurtScore": null
+        "drawdownControlScore": 0.221671,
+        "growthSpurtScore": 0.916971
       },
       "reasonCodes": [
-        "TREND_HISTORY_INSUFFICIENT"
+        "TREND_SLOPE_STRONG",
+        "MARKET_RELATIVE_STRENGTH",
+        "RECENT_TREND_CONFIRMED",
+        "TREND_TOO_VOLATILE"
       ],
-      "warnings": [
-        "TREND_HISTORY_INSUFFICIENT"
-      ]
+      "warnings": []
     },
     "priceHistory": [
       {
@@ -1021,6 +1022,17 @@
         "volume": 101000,
         "source": "yahoo-chart",
         "adjusted_close": 9.890000343322754
+      },
+      {
+        "ticker": "OIG",
+        "date": "2026-11-27",
+        "open": 10.079999923706055,
+        "high": 10.420000076293945,
+        "low": 9.90999984741211,
+        "close": 10.260000228881836,
+        "volume": 48800,
+        "source": "yahoo-chart",
+        "adjusted_close": 10.260000228881836
       }
     ],
     "dataStatus": {
@@ -1060,13 +1072,13 @@
       "officialSignal": "insufficient-evidence",
       "insufficientEvidenceReason": "Insufficient scoring inputs",
       "latestFilingDate": "2026-11-10",
-      "latestScoringDate": "2026-11-25",
-      "growthSpurtAvailable": false,
-      "growthSpurtStatus": "unavailable",
-      "growthSpurtScore": null,
-      "growthSpurtBenchmarkPercentile": null,
-      "growthSpurtMarketDataAsOf": null,
-      "lastPipelineRun": "2026-11-27T12:48:14.004085+00:00",
+      "latestScoringDate": "2026-11-27",
+      "growthSpurtAvailable": true,
+      "growthSpurtStatus": "not_detected",
+      "growthSpurtScore": 60.62,
+      "growthSpurtBenchmarkPercentile": 0.916971,
+      "growthSpurtMarketDataAsOf": "2026-11-27",
+      "lastPipelineRun": "2026-11-28T12:05:45.117652+00:00",
       "balanceSheetExperimentalSignal": "insufficient-evidence",
       "balanceSheetWouldChangeSignal": false
     }

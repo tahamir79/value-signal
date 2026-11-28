@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "ticker": "LXFR",
   "companyName": "LUXFER HOLDINGS PLC",
-  "generatedAt": "2026-11-28T05:14:15.636218+00:00",
+  "generatedAt": "2026-11-28T12:23:32.978439+00:00",
   "marketDataAsOf": "2026-11-18",
   "currentPrice": 17.35,
   "analystTarget": {
@@ -20,7 +20,7 @@
     "targetHorizonLabel": null,
     "provider": "unsupported",
     "sourceAsOf": null,
-    "collectedAt": "2026-11-28T05:14:15.636218+00:00",
+    "collectedAt": "2026-11-28T12:23:32.978439+00:00",
     "status": "unsupported",
     "warnings": [
       "Current project artifacts do not include analyst consensus target fields from a contracted market-data provider."
@@ -44,44 +44,45 @@
   },
   "conservativeScenario": {
     "methodology": "valuesignal_conservative_historical_scenario_v1",
-    "generatedAt": "2026-11-28T05:14:15.636218+00:00",
+    "generatedAt": "2026-11-28T12:23:32.978439+00:00",
     "marketDataAsOf": "2026-11-18",
     "currentPrice": 17.35,
     "horizon30Day": {
-      "returnEstimate": 0.01220206,
-      "lowerReturn": -0.04234527,
-      "upperReturn": 0.08,
-      "estimatedPrice": 17.5617,
-      "lowerEstimatedPrice": 16.6153,
-      "upperEstimatedPrice": 18.738,
-      "sampleCount": 104,
-      "status": "available",
-      "usableObservationCount": 104,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 14,
+      "status": "insufficient_data",
+      "usableObservationCount": 14,
       "requiredObservationCount": 24,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 30-day history: 14 of 24 required observations."
     },
     "horizon90Day": {
-      "returnEstimate": 0.01483735,
-      "lowerReturn": -0.04318245,
-      "upperReturn": 0.13018698,
-      "estimatedPrice": 17.6074,
-      "lowerEstimatedPrice": 16.6008,
-      "upperEstimatedPrice": 19.6087,
-      "sampleCount": 96,
-      "status": "available",
-      "usableObservationCount": 96,
+      "returnEstimate": null,
+      "lowerReturn": null,
+      "upperReturn": null,
+      "estimatedPrice": null,
+      "lowerEstimatedPrice": null,
+      "upperEstimatedPrice": null,
+      "sampleCount": 5,
+      "status": "insufficient_data",
+      "usableObservationCount": 5,
       "requiredObservationCount": 12,
-      "unavailableReason": null
+      "unavailableReason": "Not enough 90-day history: 5 of 12 required observations."
     },
-    "status": "available",
+    "status": "insufficient_data",
     "sampleStepSessions": 5,
     "warnings": [
       "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
-      "30-day scenario: upper return clipped to +/-8%"
+      "Not enough 30-day history: 14 of 24 required observations.",
+      "Not enough 90-day history: 5 of 12 required observations."
     ]
   },
-  "displayProjectionSource": "conservative_historical_scenario",
-  "displayProjectionReason": "Selected forecast model is a baseline benchmark; displaying the conservative historical scenario.",
+  "displayProjectionSource": "unavailable",
+  "displayProjectionReason": "Scaled-fast scenario uses 5-session sampling because the current scaled price checkpoint contains shorter price history.",
   "model30Day": {
     "name": "zero-return baseline",
     "version": "1.0.0",
